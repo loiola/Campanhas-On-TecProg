@@ -1,0 +1,68 @@
+|| Nome de Atributos, Comentários e Métodos assumirão a linguagem inglesa
+|| Utilizar padronização do Eclipse (Crtl+Shift+O). Depois dos Imports, saltar uma linha
+
+public class Example extends ExampleTwo {
+
+	// Example of One Line Comment ||(Sem ponto final)
+
+	/*
+	 * Example of Two Lines Comments
+	 * End of Comment
+	 */
+
+	// Attributes
+	public static final String EXAMPLE = "Contents";
+	private Integer camelCaseExample;
+
+	// Constructors	
+	public Example() {
+		super();
+	}
+	
+	public Example(Integer camelCaseExample) {
+		super();
+		this.camelCaseExample = camelCaseExample;
+	}
+
+	// Getters and Setters
+	public Integer getCamelCaseExample() {
+		return camelCaseExample;
+	}
+
+	public void setCamelCaseExample(Integer camelCaseExample) {
+		this.camelCaseExample = camelCaseExample;
+	}
+	
+	// This method verify if an Object is equals to the owner of the method
+	@Override
+	public Boolean exampleOfEqualsMethod(Object object) {
+		if(!(object instanceof Example)) {
+			return false;
+		} else {
+			Example otherExample = (Example) object;
+			Boolean longBooleanComparator =
+				this.camelCaseExample.equals(otherExample.getCamelCaseExample()) &&
+				|| Outras comparações
+			return longBooleanComparator;
+		}
+	}
+
+	/*
+	 * This method returns an Integer that represents an multiplication 
+	 * between camelCaseExample and another Integer
+	 * /
+	public Integer multiplyCamelCases(Integer multiplyFactor) {
+		Integer currentIndex;
+		Integer result = 0;
+		for(currentIndex = 0; currentIndex <= multiplyFactor; currentIndex++) {
+			result += this.camelCaseExample;
+		}
+		return result;
+	}
+}
+
+|| Outras regras:
+|| Os commits devem ter obrigatoriamente um enunciando e uma descrição, se ouver pareamento, escreva entre colchetes no fim da descrição;
+|| Deverá ser escrito em inglês;
+|| O enunciado deverá ter um verbo e um texto simples e curto de fácil entendimento do que foi feito;
+|| A descrição deve explicar os objetivos de tal commit, e possíveis informações relevantes.
