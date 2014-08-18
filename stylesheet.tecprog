@@ -62,7 +62,7 @@ public class Example extends ExampleTwo {
 }
 
 || Outras regras:
-|| Os commits devem ter obrigatoriamente um enunciando e uma descrição, se ouver pareamento, escreva entre colchetes no fim da descrição;
+|| Os commits devem ter obrigatoriamente um enunciando e uma descrição, se houver pareamento, escreva entre colchetes no fim da descrição;
 || Deverá ser escrito em inglês;
 || O enunciado deverá ter um verbo e um texto simples e curto de fácil entendimento do que foi feito;
 || A descrição deve explicar os objetivos de tal commit, e possíveis informações relevantes.
