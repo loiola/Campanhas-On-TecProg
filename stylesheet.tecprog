@@ -2,32 +2,34 @@
 					------- FOLHA DE ESTILO CAMPANHAS-ON -------
 
 
- Neste documento serão encontrados padrões de codificações exigidos pelo projeto.
+ Neste documento está descrito padrões de codificação exigidos pelo projeto.
  Cabe ressaltar que tais padrões auxiliam no desenvolvimento e principalmente na manutenção de futuras implementações.
  Observe atentamente cada ponto, em caso de discordâncias, entre em contato com a equipe de desenvolvimento.
 
  1 - Introdução
 
- Este documentos será divividido em seções, ao qual é possível encontrada as especificações de cada implementação.
+ Este documento está divividido em seções, ao qual é possível encontrar as especificações de cada implementação.
 
 
  2 - Padrões de escrita para implementações na linguagem Java.
 
- Os padrões a seguir deverão obrigatoriamente ser respeitados para validação de seus commits. Cade ainda ressaltar que todas implementações do projeto
- deverão estar na lingua natural de sua linguagem de programação mãe, portanto em inglês.
+ Os padrões a seguir deverão obrigatoriamente ser respeitados para validação de seus commits.
+ Cabe ainda ressaltar que todas as implementações do projeto deverão estar na lingua natural
+ de sua linguagem de programação mãe, portanto, em inglês.
 
  2.1 - Comentários
 
  2.1.1 - Na programação
 
- 	Serão utiliados apenas dois tipos de comentários. Os seguindos de "//" no qual servirão para ressaltar pequenas obserações
- 	e os dentre "/* */" no qual documentarão dado classe, método entre outros.
+ 	Serão utilizados apenas dois tipos de comentários. Os seguidos de "//" no qual servirão
+ 	para ressaltar pequenas observações e os dentre "/* */" no qual documentarão dado classe,
+ 	métodos, entre outros.
 
  	2.1.1.1 Comentários de ressalva deverão ser espaçados após as duas barras e iniciados em letras maiuscula.
- 		  Além do mais, não deverão soltar uma linha após o texto.
+ 		Além do mais, não deverá saltar uma linha após o texto.
 
- 	2.1.1.2 Comentários de documentação deverão ser utilizados após um método ou classe ou qualquer outra função que haja necessidade de documentação.
- 		  Além do mais, deverão soltar uma linhas após o texto.
+ 	2.1.1.2 Comentários de documentação deverão ser utilizados após um método ou classe ou qualquer outra
+ 		função que haja necessidade de documentação. Além disso, deverá saltar uma linhas após o texto.
 
 	2.1.1.3 Comentários não deverão possuir ponto final ao final.
 
