@@ -109,8 +109,19 @@
 
  		2.3.3	Todas as classes deverão ser devidamente comentadas de acordo com sua respectivas
  			funções dentro do sistema.
+ 			
+ 		2.3.4	Deve-se abrir a chave da classe na mesma linha de sua declaração.
+ 		
+ 		2.3.5	É obrigatório o uso de encapsulamento ao se criar uma classe.
+ 		
+ 			Exemplo Correto:
+ 			public class Object {
+ 			
+ 			Exemplo Incorreto:
+ 			class object
+ 			{
 
- 		2.3.4	Todas classe deverá ser organizada da seguinte forma:
+ 		2.3.6	Todas classe deverá ser organizada da seguinte forma:
  		
  			1º Importações;
  			2º Tipo e nome da classe e suas respectivas extensões;
@@ -120,19 +131,46 @@
  			6º Getters e Setters, caso necessário;
  			7º Métodos de Classe, caso necessário;
  			8º Métodos de Instância, caso necessário;
-
+ 			
+ 			2.3.6.1	Importações
+ 			
+ 				Assumirá o padrão de organização da IDE Eclipse.
+ 			
  	2.4	Métodos
 
  		2.4.1	Os nomes dos métodos deverão RESPEITAR os padrões impostos pela linguagem de
  			programação utilizada (neste caso Java).
  			
- 		2.4.2 	Os nomes dos métodos deverão ter um significado significantes para sua implementação.
+ 		2.4.2 	Os nomes dos métodos deverão ter um significado relacionado à implementação.
 
- 	2.4.3 Todos os métodos deverão estar documentados de acordo com sua implementação, e caso necessário, algumas de sua linhas de comando.
+ 		2.4.3	Todos os métodos deverão estar documentados de acordo com sua implementação,
+ 			e caso necessário, algumas de sua linhas de comando.
 
- 	2.4.4 Todos os métodos deverão ter uma análise informal prévia de sua implementações para que sejam evitados GIGO em sua implementação.
-
- 2.4.1 - Getters e Setters
+ 		2.4.4	Todos os métodos deverão ter uma análise informal prévia de sua implementações
+ 			para que sejam evitados GIGO em sua implementação.
+ 			
+ 		2.4.5	Não há espaçamento entre os parênteses dos parâmetros do método.
+ 		
+ 		2.4.6	Há um espaçamento entre os parâmetros do método, após a vírgula.
+ 		
+ 		2.4.7	Método de classe é necessário encapsulamento.
+ 		
+ 		2.4.8	Deve-se abrir a chave do método na mesma linha de sua declaração.
+ 		
+ 		2.4.9	Deverá prevalecer o uso de Tipos de Classes em casos que existam tal tipo.
+ 		
+ 			Exemplo Correto:
+ 			private Integer sum(Integer firstNumber, Integer secondNumber) {
+ 			(...)
+ 			z = sum(x, y);
+ 			
+ 			Exemplo Incorreto:
+ 			int Sum (int First, int Second)
+ 			{
+ 			(...)
+ 			z = Sum ( x,y ) ;
+ 			
+ 	2.4.1	Getters e Setters
 
  	2.4.1.1 Gets e Sets deverão ser, a princípio, privados e seus acessos deverão ser feitos por intermédio de específicas de cadastro.
 
