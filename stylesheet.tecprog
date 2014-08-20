@@ -156,6 +156,8 @@ public class Example extends ExampleTwo {
 	/*
 	 * This method returns an Integer that represents an multiplication 
 	 * between camelCaseExample and another Integer
+	 * @param an integer argument
+	 * @return the test results
 	 * /
 	public Integer multiplyCamelCases(Integer multiplyFactor) {
 		Integer currentIndex;
