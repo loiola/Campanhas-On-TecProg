@@ -3,75 +3,130 @@
 
 
  Neste documento está descrito padrões de codificação exigidos pelo projeto.
- Cabe ressaltar que tais padrões auxiliam no desenvolvimento e principalmente na manutenção de futuras implementações.
- Observe atentamente cada ponto, em caso de discordâncias, entre em contato com a equipe de desenvolvimento.
+ Cabe ressaltar que tais padrões auxiliam no desenvolvimento e principalmente na manutenção
+ de futuras implementações.
+ Observe atentamente cada ponto, em caso de discordâncias, entre em contato com a equipe de
+ desenvolvimento.
 
+ 0 - Sumário
+ 	1. Introdução
+ 	2. Padrões de Escrita para Implementações na Linguagem Java
+ 		2.1 Comentários
+ 			2.1.1 Na Programação
+ 			2.1.2 Em Commits
+ 		2.2 Variáveis
+ 		2.3 Classes
+ 		2.4 Métodos
+ 			2.4.1 Getters and Setters
+ 			2.4.2 Métodos de Classe
+ 			2.4.3 Métodos de Instância
+ 		2.5 Importações
+ 	3. Padrões de Escrita para Implementações na Linguagem HTML e CSS
+ 	4. Exemplo de Implementação de uma Classe Seguindo as Normas Propostas
+ 		
  1 - Introdução
-
- Este documento está divividido em seções, ao qual é possível encontrar as especificações de cada implementação.
-
-
- 2 - Padrões de escrita para implementações na linguagem Java.
-
- Os padrões a seguir deverão obrigatoriamente ser respeitados para validação de seus commits.
- Cabe ainda ressaltar que todas as implementações do projeto deverão estar na lingua natural
- de sua linguagem de programação mãe, portanto, em inglês.
-
- 2.1 - Comentários
-
- 2.1.1 - Na programação
-
- 	Serão utilizados apenas dois tipos de comentários. Os seguidos de "//" no qual servirão
- 	para ressaltar pequenas observações e os dentre "/* */" no qual documentarão dado classe,
- 	métodos, entre outros.
-
- 	2.1.1.1 Comentários de ressalva deverão ser espaçados após as duas barras e iniciados em letras maiuscula.
- 		Além do mais, não deverá saltar uma linha após o texto.
-
- 	2.1.1.2 Comentários de documentação deverão ser utilizados após um método ou classe ou qualquer outra
- 		função que haja necessidade de documentação. Além disso, deverá saltar uma linhas após o texto.
-
-	2.1.1.3 Comentários não deverão possuir ponto final ao final.
+ 	Este documento está divividido em seções, ao qual é possível encontrar as especificações
+ 	de cada implementação.
 
 
- 2.1.2 - Nos commits
+ 2 - Padrões de Escrita para Implementações na Linguagem Java
 
- 	2.1.2.1 Todos commits deverão obrigatoriamente haver um comentário descrevendo de forma sucinta a implementação deste, em inglês.
- 	Vale ressaltar que os commits DEVEM ser pequenos mas compreender uma funcionalidade do projeto.
+ 	Os padrões a seguir deverão obrigatoriamente ser respeitados para validação de seus commits.
+ 	Cabe ainda ressaltar que todas as implementações do projeto deverão estar na lingua natural
+ 	de sua linguagem de programação mãe, portanto, em inglês.
 
- 2.2 - Variáveis
+	2.1	Comentários
 
-	2.2.1 Os nomes das variáveis deverão RESPEITAR os padrões impostos pela linguagem de programação utilizada (neste caso Java).
+		2.1.1	Na Programação
 
-	2.2.2 Variáveis deverão ser locais, evitando ao máximo variáveis de cunho global.
+ 			Serão utilizados apenas dois tipos de comentários. Os seguidos de "//" no qual
+ 			servirão para ressaltar pequenas observações e os dentre "/* */" no qual
+ 			documentarão dado classe, métodos, entre outros.
+ 			
+ 			2.1.1.1	Não deverá saltar linhas após o comentário, nem há necessidade de uso
+ 				de um ponto final ao final.
 
-	2.2.3 Os nomes das variáveis deverão ter um significado significantes para sua implementação.
+ 			2.1.1.2	Comentários de ressalva deverão ser espaçados após as duas barras e
+ 				iniciados em letras maiuscula.
+ 				
+ 				Exemplo:
+ 				// An Example of Single Line Commentary
+ 				<Conteúdo>
 
-	2.2.4 Em todas as classes e métodos, as variáveis deverão ser instanciadas no inicio de seus respectivos blocos de comando.
+ 			2.1.1.3	Comentários de documentação deverão ser utilizados após um método ou
+ 				classe ou qualquer outra função que haja necessidade de documentação.
+ 				É opcional o uso de um título para esse tipo de comentário.
+ 				
+ 				Exemplo:
+ 				/* <Opcional> A Title
+ 				 * An Example of Two Lines Commentary
+ 				 * An Second Line
+ 				 */
+ 				<Conteúdo>
+ 				
+		2.1.2	Em Commits
+
+ 			2.1.2.1	Todo commit deverá obrigatoriamente possuir um comentário descrevendo
+ 				de forma sucinta a implementação deste, em inglês.
+ 				Vale ressaltar que os commits DEVEM ser pequenos mas compreender uma
+ 				funcionalidade do projeto.
+
+	2.2	Variáveis
+
+		2.2.1	Os nomes das variáveis deverão RESPEITAR os padrões impostos pela linguagem de
+			programação utilizada (neste caso Java).
+
+		2.2.2	Variáveis deverão ser locais, evitando ao máximo variáveis de cunho global.
+
+		2.2.3	Os nomes das variáveis deverão ter um significado relacionado à sua implementação.
+
+		2.2.4	Em todas as classes e métodos, as variáveis deverão ser instanciadas no inicio de
+			seus respectivos blocos de comando.
+			
+		2.2.5	Em hipótese alguma deverá ser instanciado mais que uma variável por linha.
+		
+		2.2.6	Deverá prevalecer o uso de Tipos de Classes em casos que existam tal tipo.
+		
+		2.2.7	É obrigatório o uso de encapsulamento ao se instanciar uma variável.
+		
+			Exemplo Correto:
+			private Integer variable;
+			private Integer aSecondVariable;
+			protected String aThirdVariable;
+			protected Boolean aFourthVariable;
+			
+			Exemplo Incorreto:
+			int variable, asecondvariable;
+			String a_third_variable;
+			bool afourthvariable_;
  
- 2.3 - Classes
+	2.3	Classes
 
- 	2.3.1 Os nomes das classes deverão RESPEITAR os padrões impostos pela linguagem de programação utilizada (neste caso Java).
+ 		2.3.1	Os nomes das classes deverão RESPEITAR os padrões impostos pela linguagem de
+ 			programação utilizada (neste caso Java).
 
- 	2.3.2 Os nomes das classes deverão ter um significado significantes para sua implementação.
+ 		2.3.2	Os nomes das classes deverão ter um significado relacionado à sua implementação.
 
- 	2.3.3 Todas as classes deverão ser devidamente comentadas de acordo com sua respectivas funções dentro do sistema.
+ 		2.3.3	Todas as classes deverão ser devidamente comentadas de acordo com sua respectivas
+ 			funções dentro do sistema.
 
- 	2.3.4 Todas as classes deverão necessariamente ter a seguinte implementação:
+ 		2.3.4	Todas classe deverá ser organizada da seguinte forma:
+ 		
  			1º Importações;
- 			2º Tipo e nome da classe e seus respectivas extensões;
+ 			2º Tipo e nome da classe e suas respectivas extensões;
  			3º Documentação da classe;
  			4º Declaração de variáveis e constantes, caso necessário;
  			5º Construtores de classe;
- 			6º Getters e Setters;
- 			7º Métodos de Classe;
- 			8º Métodos de Instância;
+ 			6º Getters e Setters, caso necessário;
+ 			7º Métodos de Classe, caso necessário;
+ 			8º Métodos de Instância, caso necessário;
 
- 2.4 - Métodos
+ 	2.4	Métodos
 
- 	2.4.1 Os nomes dos métodos deverão RESPEITAR os padrões impostos pela linguagem de programação utilizada (neste caso Java).
-
- 	2.4.2 Os nomes dos métodos deverão ter um significado significantes para sua implementação.
+ 		2.4.1	Os nomes dos métodos deverão RESPEITAR os padrões impostos pela linguagem de
+ 			programação utilizada (neste caso Java).
+ 			
+ 		2.4.2 	Os nomes dos métodos deverão ter um significado significantes para sua implementação.
 
  	2.4.3 Todos os métodos deverão estar documentados de acordo com sua implementação, e caso necessário, algumas de sua linhas de comando.
 
