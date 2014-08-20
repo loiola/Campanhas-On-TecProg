@@ -1,7 +1,8 @@
 package modelo.beans;
 
 public class Campanha {
-
+	
+	//
 	public static final String STRING_VAZIO = "";
 	public static final Integer INTEGER_VAZIO = 0;
 	public static final Resultado RESULTADO_VAZIO = new Resultado();
@@ -10,8 +11,7 @@ public class Campanha {
 	public static final Candidato CANDIDATO_VAZIO = new Candidato(); 
 	public static final float FLOAT_VAZIO = (float) 0.0;
 	
-	/**** Atributos de Classe *******************************************/
-	
+	// Attributes
 	private Integer id;
 	private Resultado resultado;
 	private Cargo cargo;
@@ -25,6 +25,7 @@ public class Campanha {
 	private Float despesaTotalCalculada;
 	private Float receitaTotalCalculada;
 	
+	// Empty constructor
 	public Campanha() {
 		this.id = INTEGER_VAZIO;
 		this.resultado = RESULTADO_VAZIO;
@@ -54,7 +55,8 @@ public class Campanha {
 		}
 
 	}
-
+	
+	// Getters and Setters
 	public Integer getId() {
 		return id;
 	}
