@@ -8,6 +8,11 @@ import modelo.beans.Resultado;
 
 public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 
+	/*
+	 * Class to control the indices of the information inherent in electoral campaigns
+	 */
+	
+	// Attributes
 	private int indiceResultadoCod;
 	private int indiceCargoCod;
 	private int indicePartidoNumero;
@@ -18,6 +23,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 	private int indiceUf;
 	private int indiceDespesaMaxDeclarada;
 
+	// Constructors
 	public CampanhaIndicesParse() {
 		this.indiceResultadoCod = INDICE_INVALIDO;	
 		this.indiceCargoCod = INDICE_INVALIDO;	
@@ -30,6 +36,12 @@ public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 		this.indiceDespesaMaxDeclarada = INDICE_INVALIDO;	
 	}
 	
+	// Other methods
+	/*
+	 * This method formalizes the indices for reading the information about the campaigns in the file
+	 * @param an instance of Class Campaign
+	 * @param an array of strings
+	 */
 	@Override
 	protected void setIndicesValidos(Campanha campanha, String[] campo) {
 		if (indiceValido(this.indiceResultadoCod)) {
@@ -67,10 +79,13 @@ public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 		if (indiceValido(this.indiceDespesaMaxDeclarada)) {
 			campanha.setDespesaMaxDeclarada(
 					Float.parseFloat(campo[this.indiceDespesaMaxDeclarada].replace(',', '.')));
-		}	
-		
+		}		
 	}
 
+	/*
+	 * This method ensures the boot empty content for attributes
+	 * @param an instance of Class Campaign
+	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Campanha campanha) {
 		campanha.setId(Campanha.INTEGER_VAZIO);
@@ -87,6 +102,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 		campanha.setReceitaTotalCalculada(Campanha.FLOAT_VAZIO);	
 	}
 
+	//Mutators for indexes of the array of fields
 	public void setIndiceResultadoCod(int indiceResultadoId) {
 		this.indiceResultadoCod = indiceResultadoId;
 	}
@@ -122,8 +138,5 @@ public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 	public void setIndiceDespesaMaxDeclarada(int indiceDespesaMaxDeclarada) {
 		this.indiceDespesaMaxDeclarada = indiceDespesaMaxDeclarada;
 	}
-
-
-	
 
 }
