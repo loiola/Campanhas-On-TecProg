@@ -163,42 +163,47 @@
  			private Integer sum(Integer firstNumber, Integer secondNumber) {
  			(...)
  			z = sum(x, y);
+ 			(...)
  			
  			Exemplo Incorreto:
  			int Sum (int First, int Second)
  			{
  			(...)
  			z = Sum ( x,y ) ;
+ 			(...)
  			
- 	2.4.1	Getters e Setters
+ 		2.4.10	Getters e Setters
 
- 	2.4.1.1 Gets e Sets deverão ser, a princípio, privados e seus acessos deverão ser feitos por intermédio de específicas de cadastro.
+ 			2.4.10.1	Getters e Setters deverão ser, a princípio, privados e seus
+ 					acessos deverão ser feitos por intermédio de específicas de
+ 					cadastro.
 
- 	2.4.1.2 Gets e Sets deverão ter em sua implementação restrições de acesso e modificação, visando segurança as suas respectivas variavéis.
+ 			2.4.10.2	Getters e Setters deverão ter em sua implementação restrições
+ 					de acesso e modificação, visando segurança as suas respectivas
+ 					variavéis.
 
- 	2.4.1.3 Para que Gets e Sets sejam publicos, deverão haver comentários documentados justificando sua implementação.
+ 			2.4.10.3	Para que Getters e Setters sejam públicos, deverão haver
+ 					comentários documentados justificando sua implementação.
 
- 2.4.2 - Métodos de Classe
+		2.4.11	Métodos de Classe
 
- 	2.4.2.1 Deverá haver um cuidado minucioso no uso destes métodos. Portanto, sua implementações devem ser justificadas por meio de comentário de documentação.
+ 			2.4.11.1	Deverá haver um cuidado minucioso no uso destes métodos.
+ 					Portanto, suas implementações devem ser justificadas por meio
+ 					de comentário de documentação.
 
- 2.4.3 - Métodos de Instância
+		2.4.12	Métodos de Instância
 
- 	2.4.3.1 Sua documentação deverá anteceder a sua declaração.
+ 			2.4.12.1	Sua documentação deverá anteceder a sua declaração.
 
- 2.5 - Importações 
+ 	2.5	Importações 
 
- 	2.5.1 Seguirão o padrão proposto pela IDE (Crtl+Shift+O) sucedidos de uma linha em branco.
-
+		2.5.1	Seguirão o padrão proposto pela IDE (Crtl+Shift+O) sucedidos de uma linha em branco.
 
  3 - Padrões de escrita para implementações na linguagem HTML e CSS.
 
  Os padrões a seguir deverão obrigatoriamente ser respeitados para validação de seus commits.
 
-
-
-
-4 - Exemplo de implementação de uma classe seguindo as normas propostas.
+ 4 - Exemplo de implementação de uma classe seguindo as normas propostas.
 
 public class Example extends ExampleTwo {
 
