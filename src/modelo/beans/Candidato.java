@@ -1,30 +1,22 @@
 package modelo.beans;
 
 public class Candidato {
-
+	
+	// Constants
 	public static final String  STRING_VAZIO = "";
 	public static final Integer  INTEGER_VAZIO = 0;
 	
-	/**** Atributos de Classe *******************************************/
-	
+	// Attributes
 	private String nome;
 	private String tituloEleitoral;
 	
+	// Empty Constructor
 	public Candidato() {
 		this.nome = STRING_VAZIO;
 		this.tituloEleitoral = STRING_VAZIO;
 	}
 
-	@Override
-	public boolean equals(Object object) {
-		if( !(object instanceof Candidato))
-			return false;
-
-		Candidato outroCandidato = (Candidato) object;
-
-		return this.tituloEleitoral.equals(outroCandidato.getTituloEleitoral());
-	}
-
+	// Getters and Setters
 	public String getNome() {
 		return nome;
 	}
@@ -41,6 +33,13 @@ public class Candidato {
 		this.tituloEleitoral = tituloEleitoral;
 	}
 	
-	
+	@Override
+	public boolean equals(Object object) {
+		if( !(object instanceof Candidato))
+			return false;
 
+		Candidato outroCandidato = (Candidato) object;
+
+		return this.tituloEleitoral.equals(outroCandidato.getTituloEleitoral());
+	}
 }
