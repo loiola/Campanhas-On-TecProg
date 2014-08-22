@@ -2,14 +2,16 @@ package modelo.beans;
 
 public class Fornecedor {
 	
+	// Constant
 	public static final String STRING_VAZIO = "";
 	
+	// Attributes
 	private String cpf_cnpj;
 	private String nome;
 	private String uf;
 	private String situacaoCadastral;
 	
-	
+	// Empty Constructor
 	public Fornecedor() {
 		this.cpf_cnpj = STRING_VAZIO;
 		this.nome = STRING_VAZIO;
@@ -17,16 +19,7 @@ public class Fornecedor {
 		this.situacaoCadastral = STRING_VAZIO;
 	}
 	
-	@Override
-	public boolean equals(Object object) {
-		if( !(object instanceof Fornecedor))
-			return false;
-		
-		Fornecedor outroFornecedor = (Fornecedor) object;
-		return this.getNome().equalsIgnoreCase(outroFornecedor.getNome()) &&
-			   this.getCpf_cnpj().equalsIgnoreCase(outroFornecedor.getCpf_cnpj()) ;
-	}
-	
+	// Getters and Setters
 	public String getCpf_cnpj() {
 		return cpf_cnpj;
 	}
@@ -58,5 +51,14 @@ public class Fornecedor {
 	public void setSituacaoCadastral(String situacaoCadastral) {
 		this.situacaoCadastral = situacaoCadastral;
 	}
-
+	
+	@Override
+	public boolean equals(Object object) {
+		if( !(object instanceof Fornecedor))
+			return false;
+		
+		Fornecedor outroFornecedor = (Fornecedor) object;
+		return this.getNome().equalsIgnoreCase(outroFornecedor.getNome()) &&
+			   this.getCpf_cnpj().equalsIgnoreCase(outroFornecedor.getCpf_cnpj()) ;
+	}
 }
