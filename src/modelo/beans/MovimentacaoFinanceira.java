@@ -3,11 +3,13 @@ package modelo.beans;
 
 public class MovimentacaoFinanceira {
 	
+	// Constants
 	public static final String STRING_VAZIO = "";
 	public static final Integer INTEGER_VAZIO = 0;
 	public static final Float FLOAT_VAZIO = (float) 0;
 	public static final Object OBJETO_VAZIO = null;
 	
+	// Attributes
 	private Integer id;
 	private Campanha campanha;
 	private String numeroDocumento;
@@ -16,7 +18,8 @@ public class MovimentacaoFinanceira {
 	private String tipoMovimentacao;
 	private String formaPagamento;
 	private String descricao;
-
+	
+	// Empty Constructor
 	public MovimentacaoFinanceira(){
 		this.id = INTEGER_VAZIO;
 		this.campanha = (Campanha) OBJETO_VAZIO;
@@ -28,11 +31,7 @@ public class MovimentacaoFinanceira {
 		this.formaPagamento = STRING_VAZIO;
 	}
 
-	@Override
-	public boolean equals(Object object) {
-		return false;
-	}
-
+	// Getters and Setters
 	public String getNumeroDocumento() {
 		return numeroDocumento;
 	}
@@ -97,4 +96,8 @@ public class MovimentacaoFinanceira {
 		this.formaPagamento = formaPagamento;
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		return false;
+	}
 }
