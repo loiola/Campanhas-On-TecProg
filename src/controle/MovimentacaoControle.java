@@ -37,19 +37,17 @@ public class MovimentacaoControle {
 		if((campanha.getCargo().getDescricao().equals(Campanha.STRING_VAZIO)) 
 				|| (campanha.getAno().equals(Campanha.INTEGER_VAZIO)) 
 				|| (campanha.getNumeroCandidato()).equals(Campanha.INTEGER_VAZIO)
-				|| (campanha.getUf()).equals(Campanha.STRING_VAZIO)){
+				|| (campanha.getUf()).equals(Campanha.STRING_VAZIO)) {
 			listaReceita =  null;
 			
-		}else{
+		} else {
 			listaReceita = this.receitaDAO.getPorAnoNumeroCargoUf(campanha);
 			
-			if(campanha.getAno() == 2002){
+			if(campanha.getAno() == 2002) {
 				for(Receita receita : listaReceita)
 					receita.setTipoMovimentacao("Receita");
 			}
-			
 		}
-		
 		return listaReceita;
 	}
 
@@ -65,11 +63,11 @@ public class MovimentacaoControle {
 		if((campanha.getCargo().getDescricao().equals(Campanha.STRING_VAZIO)) 
 				|| (campanha.getAno().equals(Campanha.INTEGER_VAZIO)) 
 				|| (campanha.getNumeroCandidato()).equals(Campanha.INTEGER_VAZIO)
-				|| (campanha.getUf()).equals(Campanha.STRING_VAZIO))
+				|| (campanha.getUf()).equals(Campanha.STRING_VAZIO)) {
 			listaDespesa =  null;
-		else
+		} else {
 			listaDespesa =  this.despesaDAO.getPorAnoNumeroCargoUf(campanha);
-		
+		}
 		return listaDespesa;
 	}
 
