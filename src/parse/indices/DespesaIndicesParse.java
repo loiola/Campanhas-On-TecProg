@@ -24,7 +24,7 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Desp
 	
 	/*
 	 * This method formalizes the indices for reading the information about the expenses in the file
-	 * @param an instance of the class Expense
+	 * @param an instance of the Class Expense
 	 * @param an array of strings
 	 */
 	@Override

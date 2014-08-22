@@ -4,13 +4,17 @@ import modelo.beans.Campanha;
 import modelo.beans.Cargo;
 import modelo.beans.MovimentacaoFinanceira;
 
-
 public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
+	
+	/*
+	 * Class to control the contents of information inherent to the financial transactions
+	 */
 
+	// Constants
 	public static final int INDICE_INVALIDO = -1;
 
+	// Attributes
 	private Integer ano;
-	
 	private int indiceCampanhaAno;
 	private int indiceCampanhaNumero;
 	private int indiceCampanhaCargo;
@@ -22,6 +26,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	private int indiceFormaPagamento;
 	private int indiceDescricao;
 
+	// Constructors
 	public MovimentacaoFinanceiraIndicesParse(String ano) {
 		this.ano = Integer.valueOf(ano);
 		this.indiceCampanhaAno = INDICE_INVALIDO;
@@ -36,6 +41,11 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		this.indiceDescricao = INDICE_INVALIDO;
 	}
 	
+	/*
+	 * This method formalizes the indices for reading the information about the financial transactions in the file
+	 * @param an instance of any class
+	 * @param an array of strings
+	 */
 	@Override
 	protected void setIndicesValidos(O objeto, String[] campo) {
 		MovimentacaoFinanceira movimentacaoFinanceira = (MovimentacaoFinanceira) objeto;
@@ -80,6 +90,10 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 
 	}
 
+	/*
+	 * This method ensures the boot empty content for attributes
+	 * @param an instance of any class
+	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(O objeto) {
 		MovimentacaoFinanceira movimentacaoFinanceira = (MovimentacaoFinanceira) objeto;
@@ -93,10 +107,16 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		movimentacaoFinanceira.setDescricao(MovimentacaoFinanceira.STRING_VAZIO);
 	}
 	
+	/*
+	 * This method validates an index
+	 * @param an integer value
+	 * @return a Boolean value
+	 */
 	protected boolean indiceValido(int indice) {
 		return indice > INDICE_INVALIDO;
 	}
 
+	//Mutators for indexes of the array of fields
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}

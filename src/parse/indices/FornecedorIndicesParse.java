@@ -3,14 +3,21 @@ package parse.indices;
 import modelo.beans.Fornecedor;
 
 public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
+	
+	/*
+	 * Class to control the contents of information inherent to the suppliers
+	 */
 
+	// Constants
 	public static final int INDICE_INVALIDO = -1;
 
+	// Attributes
 	private int indiceCpf_Cnpj;
 	private int indiceNome;
 	private int indiceUf;
 	private int indiceSituacaoCadastral;
 	
+	// Constructors
 	public FornecedorIndicesParse() {
 		this.indiceCpf_Cnpj = INDICE_INVALIDO;
 		this.indiceNome = INDICE_INVALIDO;
@@ -18,6 +25,11 @@ public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
 		this.indiceSituacaoCadastral = INDICE_INVALIDO;
 	}
 	
+	/*
+	 * This method formalizes the indices for reading the information about the suppliers in the file
+	 * @param an instance of the Class Supplier
+	 * @param an array of strings
+	 */
 	@Override
 	protected void setIndicesValidos(Fornecedor fornecedor, String[] campo) {
 		if(indiceValido(this.indiceCpf_Cnpj)) {
@@ -34,6 +46,10 @@ public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
 		}
 	}
 
+	/*
+	 * This method ensures the boot empty content for attributes
+	 * @param an instance of Class Supplier
+	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Fornecedor fornecedor) {
 		fornecedor.setCpf_cnpj(Fornecedor.STRING_VAZIO);
@@ -42,10 +58,10 @@ public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
 		fornecedor.setSituacaoCadastral(Fornecedor.STRING_VAZIO);
 	}
 
+	//Mutators for indexes of the array of fields
 	public void setIndiceCpf_Cnpj(int indiceCpf_Cnpj) {
 		this.indiceCpf_Cnpj = indiceCpf_Cnpj;
 	}
-
 
 	public void setIndiceNome(int indiceNome) {
 		this.indiceNome = indiceNome;

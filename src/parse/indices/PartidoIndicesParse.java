@@ -2,13 +2,19 @@ package parse.indices;
 
 import modelo.beans.Partido;
 
-public class PartidoIndicesParse extends IndicesParse<Partido>{
+public class PartidoIndicesParse extends IndicesParse<Partido> {
+	
+	/*
+	 * Class to control the contents of information inherent to the political parties
+	 */
 
+	// Attributes
 	private int indiceSigla;
 	private int indiceNumero;
 	private int indiceDeferimento;
 	private int indiceNome;
 	
+	// Constructors
 	public PartidoIndicesParse() {
 		super();
 		this.indiceSigla = INDICE_INVALIDO;
@@ -17,6 +23,11 @@ public class PartidoIndicesParse extends IndicesParse<Partido>{
 		this.indiceNome = INDICE_INVALIDO;
 	}
 	
+	/*
+	 * This method formalizes the indices for reading the information about the political parties in the file
+	 * @param an instance of the Class Party
+	 * @param an array of strings
+	 */
 	@Override
 	protected void setIndicesValidos(Partido partido, String campo[]) {
 		if(indiceValido(this.indiceSigla)) {
@@ -33,6 +44,10 @@ public class PartidoIndicesParse extends IndicesParse<Partido>{
 		}
 	}
 
+	/*
+	 * This method ensures the boot empty content for attributes
+	 * @param an instance of Class Party
+	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Partido partido) {
 		partido.setSigla(Partido.STRING_VAZIO);
@@ -41,6 +56,7 @@ public class PartidoIndicesParse extends IndicesParse<Partido>{
 		partido.setDeferimento(Partido.STRING_VAZIO);
 	}
 	
+	//Mutators for indexes of the array of fields
 	public void setIndiceSigla(int indiceSigla) {
 		this.indiceSigla = indiceSigla;
 	}
@@ -57,5 +73,4 @@ public class PartidoIndicesParse extends IndicesParse<Partido>{
 		this.indiceNome = indiceNome;
 	}
 
-	
 }

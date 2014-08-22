@@ -3,12 +3,18 @@ package parse.indices;
 import modelo.beans.Doador;
 import modelo.beans.Receita;
 
-public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Receita>{
+public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Receita> {
+	
+	/*
+	 * Class to control the contents of information inherent to the revenue
+	 */
 
+	// Attributes
 	private int indiceReciboEleitoral;
 	private int indiceDoadorNome;
 	private int indiceDoadorCpfCnpj;
 	
+	// Constructors
 	public ReceitaIndicesParse(String ano) {
 		super(ano);
 		this.indiceReciboEleitoral = INDICE_INVALIDO;
@@ -17,6 +23,11 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 
 	}
 	
+	/*
+	 * This method formalizes the indices for reading the information about the revenue in the file
+	 * @param an instance of the Class Revenue
+	 * @param an array of strings
+	 */
 	@Override
 	protected void setIndicesValidos(Receita receita, String[] campo) {
 		super.setIndicesValidos(receita, campo);
@@ -35,6 +46,10 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 
 	}
 	
+	/*
+	 * This method ensures the boot empty content for attributes
+	 * @param an instance of Class Revenue
+	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Receita receita) {
 		super.setVazioEmTodosOsSetters(receita);
@@ -44,6 +59,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 		
 	}
 
+	//Mutators for indexes of the array of fields
 	public void setIndiceReciboEleitoral(int indiceReciboEleitoral) {
 		this.indiceReciboEleitoral = indiceReciboEleitoral;
 	}
@@ -55,4 +71,5 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 	public void setIndiceDoadorCpfCnpj(int indiceDoadorCpfCnpj) {
 		this.indiceDoadorCpfCnpj = indiceDoadorCpfCnpj;
 	}
+	
 }
