@@ -4,22 +4,10 @@ import parse.ParseException;
 import parse.controle.ParseControle;
 import parse.indices.IndicesParse;
 
-/* Abstract Class: ParseRegister from Module Parse
- * This class you be inherited from the others ParseRegisters to be used by their own needs to register
- * and coordinated to ParseControl classes add informations to DataBase based on an "O" Object.
- * @Attributes:
- *	protected Integer linesReaded
- *	protected Integer linesToRegister
- *	protected ParseIndex<O> parseIndex
- *	protected ParseControl<O> parseControl
- * @Methods:
- *	public void parseRegister(String fileType, String year)
- *	public void executeFileLine(String field[])
- *	public void registerInstance()
- *	protected abstract ParseControl<O> newInstance(ParseIndex<O> parseIndex)
- *	protected abstract ParseIndex<O> getParseIndexes(String fileType, String year)
- *	public Integer getLinesToRegister()
- *	public void setLinesToRegister(Integer linesToRegister)
+/* 
+ * Class used to be inherited from the others ParseRegisters classes to be used by their
+ * own needs to register and coordinated to ParseControl classes add informations to DataBase
+ * based on an "O" Object
  */
 public abstract class CadastroParse<O> {
 
@@ -29,18 +17,14 @@ public abstract class CadastroParse<O> {
 	protected IndicesParse<O> indicesParse;
 	protected ParseControle<O> parseControle;
 	
-	// Methods
+	// Constructor
 	
-	/* Public Void Method: ParseRegister
-	 * ParseRegister registers a new instance of ParseIndex based on type of file and year
+	/*
+	 * This constructor registers a new instance of ParseIndex based on type of file and year
 	 * to be used afterward with a ParseControl object to register the informations extracted by
 	 * the file to the DataBase
-	 * @Parameters:
-	 *	fileType: This parameter define the type of the list file to be used to get the ParseIndex
-	 *	year: Thids parameter define the year of the <CAMPANHA ELEITORAL> to be used to get the
-	 *	ParseIndex
-	 * @Returns:
- 	 *	This method has no return
+	 * @param String who define the type of the list file to be used to get the ParseIndex
+	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
 	public CadastroParse(String tipoArquivo, String ano) throws ParseException {
 		this.linhasLidas = 0;
@@ -50,8 +34,11 @@ public abstract class CadastroParse<O> {
 		this.parseControle = novaInstancia(this.indicesParse);
 	}
 	
+	// Methods
+	
 	/*
-	 *
+	 * This method read a line of the file based on fields
+	 * @param vector of Strings
 	 */
 	public void executarLinhaDoArquivo(String campo[]) throws ParseException {
 		this.parseControle.addInstancia(campo);
@@ -62,7 +49,7 @@ public abstract class CadastroParse<O> {
 	}
 	
 	/*
-	 *
+	 * This method register instances stored in an Array List on ParseControl attribute
 	 */
 	public void cadastrarInstancias() throws ParseException {
 		this.parseControle.cadastrarInstancias();
@@ -71,24 +58,33 @@ public abstract class CadastroParse<O> {
 	}
 	
 	/*
-	 *
+	 * Abstract method who'll be used by children classes to add the instance of the
+	 * ParseControl attribute in the constructor
+	 * @param a ParseIndex who'll be used by the ParseControl constructor
+	 * @return a ParseControl object
 	 */
 	public abstract ParseControle<O> novaInstancia(IndicesParse<O> indicesParse);
 	
 	/*
-	 *
+	 * Abstract method who'll be used by children classes to return a ParseIndex
+	 * based on file type and year of campaign
+	 * @param String who define the type of the list file to be used to get the ParseIndex
+	 * @param String who define the year of the campaign to be used to get the ParseIndex
+	 * @return a ParseIndex object
 	 */
 	protected abstract IndicesParse<O> getIndicesParse(String tipoArquivo, String ano) throws ParseException;
 
 	/*
-	 *
+	 * This method return the limit of lines to register
+	 * @return an Integer object value
 	 */
 	public int getLinhasParaFazerCadastro() {
 		return linhasParaFazerCadastro;
 	}
 
 	/*
-	 *
+	 * This method set a new limit of lines to register
+	 * @param an Integer object value
 	 */
 	public void setLinhasParaFazerCadastro(int linhasParaFazerCadastro) {
 		this.linhasParaFazerCadastro = linhasParaFazerCadastro;
