@@ -5,17 +5,31 @@ import modelo.dao.DespesaDAO;
 import parse.indices.IndicesParse;
 
 public class DespesaParseControle extends ParseControle<Despesa> {
+	
+	/*
+	 * Class used to control comparison and registration of instances of Class Expense
+	 */
 
+	// Constructors
 	public DespesaParseControle(IndicesParse<Despesa> indicesParse) {
 		super(indicesParse, new DespesaDAO());
 	}
 
+	/*
+	 * This method instantiates an object of Class Expense
+	 * @return an instance of Class Expense
+	 */
 	@Override
 	public Despesa novaInstancia() {
 		Despesa despesa = new Despesa();
 		return despesa;
 	}
 
+	/*
+	 * This method checks if two instances are equal Class Expense
+	 * @param two instances of Class Expense
+	 * @return a boolean value
+	 */
 	@Override
 	public boolean iguais(Despesa objetoUm, Despesa objetoDois) {
 		return objetoUm.equals(objetoDois);
