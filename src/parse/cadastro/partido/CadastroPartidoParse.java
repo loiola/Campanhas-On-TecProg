@@ -8,13 +8,23 @@ import parse.indices.IndicesParse;
 import parse.indices.PartidoIndicesParse;
 import modelo.beans.Partido;
 
-public class CadastroPartidoParse extends CadastroParse<Partido>{
+public class CadastroPartidoParse extends CadastroParse<Partido> {
+	
+	/*
+	 * Class responsible for identifying the contents of the file to read and get information
+	 */
 
+	// Constructors
 	public CadastroPartidoParse(String tipoArquivo, String ano)
 			throws ParseException {
 		super(tipoArquivo, ano);
 	}
 
+	/*
+	 * This method formalizes the instance index to be used
+	 * @param an instance of class IndicesParse<Party>
+	 * @return an instance of class PartyParseControl
+	 */
 	@Override
 	public ParseControle<Partido> novaInstancia(
 			IndicesParse<Partido> indicesParse) {
@@ -23,6 +33,13 @@ public class CadastroPartidoParse extends CadastroParse<Partido>{
 		return partidoParseControle;
 	}
 
+	/*
+	 * This method checks the file type to correctly identify the indexes that have the information
+	 * to be read and stored
+	 * @param an String tipoArquivo
+	 * @param an String ano
+	 * @return an instance of class PartyIndicesParse
+	 */
 	@Override
 	protected IndicesParse<Partido> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
@@ -43,5 +60,4 @@ public class CadastroPartidoParse extends CadastroParse<Partido>{
 		return partidoIndicesParse;
 	}
 
-	
 }
