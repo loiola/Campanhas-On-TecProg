@@ -6,12 +6,23 @@ import parse.cadastro.CadastroParse;
 import parse.cadastro.partido.CadastroPartidoParse;
 
 public class ParsePartido extends Parse {
+	
+	/*
+	 * Class responsible for performing the parse of political parties
+	 */
 
+	// Constructors
 	public ParsePartido(String tipoArquivo, String ano) throws ParseException {
 		super(tipoArquivo, ano);
 
 	}
 
+	/*
+	 * This method adds an instance of class ParseRegisterParse to parse the list of registration
+	 * @param an ArrayList<RegisterParse<?>>
+	 * @param an String tipoArquivo
+	 * @param an String ano
+	 */
 	@Override
 	protected void adicionarCadastrosParseNaLista(
 			ArrayList<CadastroParse<?>> listaCadastrosParse,
