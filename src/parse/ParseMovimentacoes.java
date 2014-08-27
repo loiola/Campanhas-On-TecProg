@@ -11,11 +11,22 @@ import parse.cadastro.receita_despesa.CadastroReceitaParse;
 
 public class ParseMovimentacoes extends Parse {
 	
+	/*
+	 * Class responsible for performing the parse of transactions
+	 */
+	 
+	// Constructors
 	public ParseMovimentacoes(String tipoArquivo, String ano) throws ParseException {
 		super(tipoArquivo, ano);
 
 	}
 
+	/*
+	 * This method adds instances of classes related to financial transactions to register
+	 * @param an ArrayList<RegisterParse<?>>
+	 * @param an String tipoArquivo
+	 * @param an String ano
+	 */
 	@Override
 	protected void adicionarCadastrosParseNaLista(
 			ArrayList<CadastroParse<?>> listaCadastrosParse,
@@ -31,9 +42,6 @@ public class ParseMovimentacoes extends Parse {
 			listaCadastrosParse.add(new CadastroDoadorParse(tipoArquivo, ano));
 			listaCadastrosParse.add(new CadastroReceitaParse(tipoArquivo, ano));
 		}
-
-
-
 	}
 
 }

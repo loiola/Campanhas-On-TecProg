@@ -18,7 +18,7 @@ public class ParsePartido extends Parse {
 	}
 
 	/*
-	 * This method adds an instance of class ParseRegisterParse to parse the list of registration
+	 * This method adds an instance of class PartyRegisterParse to parse the list of registration
 	 * @param an ArrayList<RegisterParse<?>>
 	 * @param an String tipoArquivo
 	 * @param an String ano
