@@ -116,7 +116,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		return indice > INDICE_INVALIDO;
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}

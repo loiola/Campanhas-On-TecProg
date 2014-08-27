@@ -56,7 +56,7 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Desp
 		despesa.setTipoDocumento(Despesa.STRING_VAZIO);
 	}
 	
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceFornecedorNome(int indiceFornecedorNome) {
 		this.indiceFornecedorNome = indiceFornecedorNome;
 	}

@@ -102,7 +102,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campanha> {
 		campanha.setReceitaTotalCalculada(Campanha.FLOAT_VAZIO);	
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceResultadoCod(int indiceResultadoId) {
 		this.indiceResultadoCod = indiceResultadoId;
 	}

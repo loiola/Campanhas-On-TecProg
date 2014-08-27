@@ -44,7 +44,7 @@ public class CargoIndicesParse extends IndicesParse<Cargo> {
 		cargo.setDescricao(Cargo.STRING_VAZIO);
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceCodigo(int indiceCodigo) {
 		this.indiceCodigo = indiceCodigo;
 	}

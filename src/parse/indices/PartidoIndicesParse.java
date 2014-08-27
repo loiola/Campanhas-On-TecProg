@@ -56,7 +56,7 @@ public class PartidoIndicesParse extends IndicesParse<Partido> {
 		partido.setDeferimento(Partido.STRING_VAZIO);
 	}
 	
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceSigla(int indiceSigla) {
 		this.indiceSigla = indiceSigla;
 	}

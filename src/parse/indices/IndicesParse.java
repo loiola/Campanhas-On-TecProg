@@ -32,7 +32,7 @@ public abstract class IndicesParse<O> {
 		setVazioEmTodosOsSetters(objeto);
 	}	
 	
-	//Signature of abstract methods
+	// Signature of abstract methods
 	protected abstract void setIndicesValidos(O objeto, String campo[]);
 	protected abstract void setVazioEmTodosOsSetters(O objeto);
 	

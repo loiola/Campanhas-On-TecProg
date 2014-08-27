@@ -58,7 +58,7 @@ public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
 		fornecedor.setSituacaoCadastral(Fornecedor.STRING_VAZIO);
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceCpf_Cnpj(int indiceCpf_Cnpj) {
 		this.indiceCpf_Cnpj = indiceCpf_Cnpj;
 	}

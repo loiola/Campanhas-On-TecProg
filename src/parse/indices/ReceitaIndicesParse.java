@@ -59,7 +59,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 		
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceReciboEleitoral(int indiceReciboEleitoral) {
 		this.indiceReciboEleitoral = indiceReciboEleitoral;
 	}

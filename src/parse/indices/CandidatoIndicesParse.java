@@ -44,7 +44,7 @@ public class CandidatoIndicesParse extends IndicesParse<Candidato> {
 		candidato.setTituloEleitoral(Candidato.STRING_VAZIO);
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceTituloEleitoral(int indiceTituloEleitoral) {
 		this.indiceTituloEleitoral = indiceTituloEleitoral;
 	}

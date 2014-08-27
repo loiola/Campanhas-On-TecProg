@@ -43,7 +43,7 @@ public class ResultadoIndicesParse extends IndicesParse<Resultado> {
 		resultado.setDescricao(Resultado.STRING_VAZIO);
 	}
 
-	//Mutators for indexes of the array of fields
+	// Mutators for indexes of the array of fields
 	public void setIndiceCodigo(int indiceCodigo) {
 		this.indiceCodigo = indiceCodigo;
 	}
