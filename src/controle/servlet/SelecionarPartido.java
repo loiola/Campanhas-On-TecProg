@@ -7,8 +7,13 @@ import modelo.beans.Partido;
 import controle.PartidoControle;
 
 public class SelecionarPartido implements Logica {
+	
+	/*
+	 * Servlet requests to control the selection of political parties
+	 */
 
-	private final int[] ANOS = { 2010, 2006, 2002 };
+	// Attributes
+	private final int[] ANOS = {2010, 2006, 2002};
 	private PartidoControle partidoControle;
 	private Partido partido;
 
@@ -16,6 +21,13 @@ public class SelecionarPartido implements Logica {
 	private String siglaComUnder;
 	private String linkTSE;
 
+	// Other methods
+	/*
+	 * Concretizing  method that implements requests for the selection of one of the
+	 * political parties in accordance with its logo and other information
+	 * @param an HTTP request and HTTP response
+	 * @return the next HTML page and their responses to requests
+	 */
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
@@ -30,14 +42,21 @@ public class SelecionarPartido implements Logica {
 		this.partido = this.partidoControle.getPelaSigla(this.sigla);
 		this.linkTSE = trocaDeCaracteresEspeciais(this.partido);
 
+		// Set of answers to requests made concerning the applicant requested
 		req.setAttribute("partido", this.partido);
 		req.setAttribute("anos", this.ANOS);
 		req.setAttribute("linktse", this.linkTSE);
 		req.setAttribute("siglaUnder", this.siglaComUnder);
 
+		// Return the HTML page with the requested information
 		return "/visualizar_partido.jsp";
 	}
-
+	
+	/*
+	 * Method for exchanging special characters emanating from the database, if any
+	 * @param a political parties
+	 * @return a String with exchanges
+	 */
 	private String trocaDeCaracteresEspeciais(Partido partido) {
 		String local = partido.getNome().toLowerCase();
 		local = local.replaceAll(" ", "-");
