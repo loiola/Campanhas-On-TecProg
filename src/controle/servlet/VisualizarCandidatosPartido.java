@@ -108,6 +108,8 @@ public class VisualizarCandidatosPartido implements Logica {
 
 	/*
 	 * Generate indexes for list of candidates
+	 * @param a list of candidates and a number that is a divisor
+	 * @return a number representing the index of list
 	 */
 	private int geraIndiceDaLista(List<Campanha> lista, int divisor) {
 		if(divisor!=0) {
@@ -120,6 +122,8 @@ public class VisualizarCandidatosPartido implements Logica {
 
 	/*
 	 * Generate index list for paging
+	 * @param a list of candidates
+	 * @return a number representing the index of paging
 	 */
 	private int geraIndiceDePaginacao(List<Campanha> lista) {
 		int indice = (int) Math.floor((double)lista.size()/(double)25);
