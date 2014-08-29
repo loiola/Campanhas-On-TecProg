@@ -5,7 +5,7 @@ public class Campanha {
 	/*
 	 * Class Campanha.java
 	 * This class is responsable for getting the Campaign's informations
-+ 	 */
+ 	 */
 	
 	// Constants
 	public static final String STRING_VAZIO = "";
