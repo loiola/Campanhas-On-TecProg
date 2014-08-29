@@ -2,6 +2,11 @@ package modelo.beans;
 
 public class Despesa extends MovimentacaoFinanceira {
 	
+	/*
+	 * Model Class Despesa.java
+	 * This class is responsable for getting the Charge's informations
+	 */
+	 
 	// Constant
 	public static final Object OBJETO_VAZIO = null; 
 	
