@@ -3,6 +3,11 @@ package modelo.beans;
 
 public class MovimentacaoFinanceira {
 	
+	/*
+	 * Model Class MovimentacaoFinanceira.java
+	 * This class is responsable for getting the handling financial's informations
+	 */
+	 
 	// Constants
 	public static final String STRING_VAZIO = "";
 	public static final Integer INTEGER_VAZIO = 0;
