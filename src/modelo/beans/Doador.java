@@ -2,6 +2,11 @@ package modelo.beans;
 
 public class Doador {
 	
+	/*
+	 * Model Class Doador.java
+	 * This class is responsable for getting the Donor's informations
+	 */
+	 
 	// Constants
 	public static final String STRING_VAZIO = "";
 	
