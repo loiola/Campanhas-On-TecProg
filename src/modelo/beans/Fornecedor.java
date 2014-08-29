@@ -2,6 +2,11 @@ package modelo.beans;
 
 public class Fornecedor {
 	
+	/*
+	 * Model Class Fornecedor.java
+	 * This class is responsable for getting the Supplier's informations
+	 */
+	 
 	// Constant
 	public static final String STRING_VAZIO = "";
 	
