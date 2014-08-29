@@ -3,6 +3,11 @@ package modelo.beans;
 
 public class Cargo {
 	
+	/*
+	 * Model Class Cargo.java
+	 * This class is responsable for getting the Position's informations
+	 */
+	
 	// Constants
 	public static final String STRING_VAZIO = "";
 	public static final int INTEGER_VAZIO = 0;
