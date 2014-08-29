@@ -2,6 +2,11 @@ package modelo.beans;
 
 public class Candidato {
 	
+	/*
+	 * Model Class Candidato.java
+	 * This class is responsable for getting the Candidate's informations
+	 */
+	 
 	// Constants
 	public static final String  STRING_VAZIO = "";
 	public static final Integer  INTEGER_VAZIO = 0;
