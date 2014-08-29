@@ -2,15 +2,22 @@ package modelo.beans;
 
 public class Partido {
 	
+	/*
+	 * Model class Partido.java
+	 * This class is responsable for getting the Political Party's informations
+	 */ 
+	
+	// Constants 
 	public static final String STRING_VAZIO = "";
 	public static final Integer INTEGER_VAZIO = 0;
 
-	
+	// Attributes
 	private Integer numero;
 	private String sigla;
 	private String deferimento;
 	private String nome;
 	
+	// Empty constructors
 	public Partido() {
 		this.nome = STRING_VAZIO;
 		this.sigla = STRING_VAZIO;
@@ -18,15 +25,7 @@ public class Partido {
 		this.deferimento = STRING_VAZIO;
 	}
 	
-	@Override
-	public boolean equals(Object object) {
-		if( !(object instanceof Partido))
-			return false;
-		
-		Partido outroPartido = (Partido) object;
-		return this.sigla.equals(outroPartido.getSigla());
-	}
-	
+	// Getters and Setters
 	public Integer getNumero() {
 		return numero;
 	}
@@ -58,5 +57,13 @@ public class Partido {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
+	@Override
+	public boolean equals(Object object) {
+		if( !(object instanceof Partido))
+			return false;
+		
+		Partido outroPartido = (Partido) object;
+		return this.sigla.equals(outroPartido.getSigla());
+	}
 }
