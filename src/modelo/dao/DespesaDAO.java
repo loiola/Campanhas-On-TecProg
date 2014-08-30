@@ -11,8 +11,13 @@ import modelo.beans.Despesa;
 import modelo.beans.Fornecedor;
 import parse.ParseDAO;
 
-public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
-		
+public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> {
+	
+	/*
+	 * Class for manipulating the data about expenses
+	 */
+	
+	// Constants
 	private static final String NOME_TABELA = "despesa";
 	private final String ID = "id_despesa";
 	private final String CAMPANHA_ANO = "campanha_ano";
@@ -41,20 +46,34 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 					   + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 
+	// Constructors
 	public DespesaDAO() {
 		super(NOME_TABELA, null);
 	}
 
+	/*
+	 * This method retrieves the SQL command to insert data
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlInsert() {
 		return SQL_INSERT;
 	}
 
+	/*
+	 * This method retrieves the string that has the SQL command for selecting data in a database table
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlSelect() {
 		return SQL_SELECT;
 	}
 
+	/*
+	 * This method prepares a list of expenses to be registered
+	 * @param an ArrayList<Expense>
+	 * @param a SQLinstruction
+	 */
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Despesa> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
@@ -73,12 +92,15 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 			instrucaoSQL.setString(12, despesa.getFornecedor().getCpf_cnpj());
 			instrucaoSQL.setString(13, despesa.getCampanha().getCargo().getDescricao());
 			instrucaoSQL.setString(14, despesa.getCampanha().getUf());
-
 			instrucaoSQL.addBatch();
 		}
-		
 	}
 
+	/*
+	 * This method populates the ArrayList<Expense>
+	 * @param an ArrayList<Expense>
+	 * @param a SQLresult
+	 */
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Despesa> lista,
 			ResultSet resultadoSQL) throws SQLException {
@@ -108,10 +130,15 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 			despesa.setValor(resultadoSQL.getFloat(VALOR));
 			
 			lista.add(despesa);
-
 		}
 	}
 
+	/*
+	 * This method retrieves a list of expenses through the year, candidate number,
+	 * position and unit federation
+	 * @param an instance of Class Campaign
+	 * @return an ArrayList<Expense>
+	 */
 	public ArrayList<Despesa> getPorAnoNumeroCargoUf(Campanha campanha) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
 				  + CAMPANHA_ANO + " = " + campanha.getAno() + " AND "
@@ -123,14 +150,23 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 		return buscaBD(comandoSQL);
 	}
 	
+	/*
+	 * This method retrieves an instance of Class Expense through ID
+	 * @param an int value with the ID
+	 * @return an instance of Class Expense
+	 */
 	public Despesa getPeloId(int id) throws Exception {
 			String comandoSQL = SQL_SELECT + " WHERE "
 					  + ID + " = " + id;
 			return buscaBD(comandoSQL).get(0);
 	}
 	
+	/*
+	 * This method retrieves a complete list of Expenses stored in the database
+	 * @param a String with the SQL command
+	 * @return an ArrayList<Expense>
+	 */
 	public ArrayList<Despesa> buscaBD(String SQL) throws Exception {
-
 		ArrayList<Despesa> listaDespesa = new ArrayList<>();
 
 		try {
@@ -144,7 +180,6 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 
 			while (resultadoSQL.next()) {
 				Despesa despesa = new Despesa();
-				
 				Cargo cargo = new Cargo();
 				cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
@@ -168,7 +203,9 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 				despesa.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 				despesa.setValor(resultadoSQL.getFloat(VALOR));
 				
-				if (despesa != null) listaDespesa.add(despesa);
+				if (despesa != null) {
+					listaDespesa.add(despesa);
+				}
 			}
 
 		}  catch (SQLException e) {
@@ -176,9 +213,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa>{
 		} finally {
 			fecharConexao();
 		}
-
 		return listaDespesa;
 	}
-
 	
 }
