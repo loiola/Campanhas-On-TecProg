@@ -22,17 +22,28 @@ import parse.ParsePartido;
 
 @WebServlet("/carregarParsePartido")
 public class CarregarParsePartido extends HttpServlet {
+	
+	/*
+	 * Servlet to control the loading parse political parties
+	 */
 
+	// Attributes
 	private static final long serialVersionUID = 1L;
 
+	// Empty Constructor
 	@Override
 	public void init() throws ServletException {
 		super.init();
 	}
 
+	// Other methods
+	/*
+	 * Method that makes the call load and parse controls its execution
+	 * @param an HTTP request and HTTP response
+	 */
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter saida = response.getWriter();
 
@@ -41,9 +52,7 @@ public class CarregarParsePartido extends HttpServlet {
 			Scanner scanner = new Scanner(part.getInputStream());
 			saida.println("linha inicial: " + scanner.nextLine());
 			scanner.close();
-		}
-
-		try {
+		} try {
 			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
 			if(isMultpart) {
 				FileItemFactory factory = new DiskFileItemFactory();
@@ -55,25 +64,20 @@ public class CarregarParsePartido extends HttpServlet {
 				int linhaInicial = 1;
 				String tipoArquivo = "partido";
 
-
 				for(FileItem fileItem : fields) {
-					if(!fileItem.isFormField())
+					if(!fileItem.isFormField()) {
 						arquivo = fileItem;
+					}
 				}
-
 
 				String divisao = ";";
 				Parse parse = new ParsePartido(tipoArquivo, "");
 				parse.executarParse(arquivo, divisao, linhaInicial);
-
-
 				saida.println("Parse Realizado com Sucesso!");
 			}
 
 		} catch(Exception e) {
 			saida.println("ERROR teste upload: " + e.getMessage());
 		}
-	
 	}
 }
-
