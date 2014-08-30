@@ -22,17 +22,28 @@ import parse.cadastro.receita_despesa.CadastroFornecedorParse;
 
 @WebServlet("/carregarParseMovimentacoes")
 public class CarregarParseMovimentacoes extends HttpServlet {
+	
+	/*
+	 * Servlet to control the loading parse financial transactions
+	 */
 
+	// Attributes
 	private static final long serialVersionUID = 5625867877274809499L;
 
+	// Empty Constructor
 	@Override
 	public void init() throws ServletException {
 		super.init();
 	}
 
+	// Other methods
+	/*
+	 * Method that makes the call load and parse controls its execution
+	 * @param an HTTP request and HTTP response
+	 */
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter saida = response.getWriter();
 
@@ -83,13 +94,11 @@ public class CarregarParseMovimentacoes extends HttpServlet {
 
 				Parse parse = new ParseMovimentacoes(tipoArquivo, ano);
 				parse.executarParse(arquivo, divisao, linhaInicial);
-
 				saida.println("Parse Realizado com Sucesso!");
 			}
 
 		} catch(Exception e) {
 			saida.println("ERROR teste upload: " + e.getMessage());
 		}
-
 	}
 }
