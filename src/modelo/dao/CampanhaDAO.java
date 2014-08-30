@@ -110,7 +110,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	}
 
 	/*
-	 * This method populates the ArrayList <Campaigns>
+	 * This method populates the ArrayList<Campaigns>
 	 * @param an ArrayList<Campaign>
 	 * @param a SQLresult
 	 */
@@ -214,10 +214,11 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 				+ campanha.getNumeroCandidato() + "' AND " + COD_CARGO + " = "
 				+ campanha.getCargo().getCodigo();
 		listaCampanha = buscaBD(comandoSQL);
-		if (listaCampanha.isEmpty())
+		if (listaCampanha.isEmpty()) {
 			return null;
-		else
+		} else {
 			return listaCampanha.get(0);
+		}
 	}
 
 	/*
@@ -252,8 +253,9 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 				campanha.setResultado(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
 				campanha.setUf(resultadoSQL.getString(UF));
 				campanha.setCandidato(candidatoDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
-				if (campanha != null)
+				if (campanha != null) {
 					listaCampanha.add(campanha);
+				}
 			}
 		} catch (SQLException e) {
 			throw new SQLException("CampanhaDAO - " + e.getMessage());
