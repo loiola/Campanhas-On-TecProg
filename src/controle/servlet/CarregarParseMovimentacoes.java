@@ -66,12 +66,16 @@ public class CarregarParseMovimentacoes extends HttpServlet {
 						arquivo = fileItem;
 					} else {
 						if(fileItem.getFieldName().equals("arquivo_tipo")) {
+							
+							// Checks the file type, whether income or expense
 							if(fileItem.getString().equals("despesa")) {
 								tipoArquivo = CadastroFornecedorParse.DESPESA;
 							} else {
 								tipoArquivo = CadastroDoadorParse.RECEITA;
 							}
 						} else if(fileItem.getFieldName().equals("arquivo_ano")) {
+							
+							// Checks joined donor according to selected year
 							switch (fileItem.getString()) {
 							case "2002":
 								ano = CadastroDoadorParse.ANO_2002;
