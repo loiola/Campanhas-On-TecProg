@@ -12,12 +12,18 @@ import modelo.beans.Partido;
 import modelo.beans.Resultado;
 
 public class CampanhaDAO extends BasicoDAO<Campanha> {
+	
+	/*
+	 * Class for manipulating the data about election campaigns
+	 */
 
+	//Attributes
 	private CandidatoDAO candidatoDAO;
 	private PartidoDAO partidoDAO;
 	private CargoDAO cargoDAO;
 	private ResultadoDAO resultadoDAO;
 
+	// Constants
 	private static final String NOME_TABELA = "campanha";
 	private final String ID = "id_campanha";
 	private final String ANO = "ano";
@@ -44,25 +50,44 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	private final String INDEX_PARTIDO = "campanha_fk_4";
 	private final String INDEX_ANO = "campanha_sk_1";
 
+	// Constructors
 	public CampanhaDAO() {
 		super(NOME_TABELA, null);
 	}
 
+	/*
+	 * This method retrieves the SQL command to insert data
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlInsert() {
 		return SQL_INSERT;
 	}
 
+	/*
+	 * This method retrieves the string that has the SQL command for selecting data in a database table
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlSelect() {
 		return SQL_SELECT;
 	}
 
+	/*
+	 * This method returns an SQL command for selecting a candidate by the name of urn
+	 * @param a String with the name of urn
+	 * @return a String with the SQL command
+	 */
 	public String getSqlSelectNomeUrna(String nome) {
 		return "SELECT " + TITULO_CANDIDATO + " FROM " + NOME_TABELA
 				+ " WHERE " + NOME_URNA + " LIKE '%" + nome + "%'";
 	}
 
+	/*
+	 * This method prepares a list of campaigns to be registered
+	 * @param an ArrayList<Campaign>
+	 * @param a SQLinstruction
+	 */
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Campanha> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
@@ -84,6 +109,11 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		}
 	}
 
+	/*
+	 * This method populates the ArrayList <Campaigns>
+	 * @param an ArrayList<Campaign>
+	 * @param a SQLresult
+	 */
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Campanha> lista, ResultSet resultadoSQL) throws SQLException {
 		while (resultadoSQL.next()) {
@@ -112,18 +142,35 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		}
 	}
 
+	/*
+	 * This method prepares attributes Position and Results
+	 * @param an instance of Class Position
+	 * @param an instance of Class Result
+	 * @param a SQLresult
+	 */
 	private void PreparaCamposCargoEResultado(Cargo cargo, Resultado resultado,
 			ResultSet resultadoSQL) throws SQLException {
 		cargo.setCodigo(resultadoSQL.getInt(COD_CARGO));
 		resultado.setCodigo(resultadoSQL.getInt(COD_RESULTADO));
 	}
 
+	/*
+	 * This method prepares attributes Candidate and Party
+	 * @param an instance of Class Party
+	 * @param an instance of Class Candidate
+	 * @param a SQLresult
+	 */
 	private void PreparaCamposCandidatoEPartido(Partido partido,
 			Candidato candidato, ResultSet resultadoSQL) throws SQLException {
 		partido.setNumero(resultadoSQL.getInt(NUMERO_PARTIDO));
 		candidato.setTituloEleitoral(resultadoSQL.getString(TITULO_CANDIDATO));
 	}
 
+	/*
+	 * This method retrieves a list of campaigns from a voter
+	 * @param an instance of Class Candidate
+	 * @return an ArrayList<Campaign>
+	 */
 	public ArrayList<Campanha> getCampanhasPeloTituloEleitoral(
 			Candidato candidato) throws SQLException {
 		ArrayList<Campanha> listaCampanha = new ArrayList<>();
@@ -134,6 +181,12 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		return listaCampanha;
 	}
 
+	/*
+	 * This method retrieves a list of campaigns from an acronym and year
+	 * @param a String acronym
+	 * @param a String year
+	 * @return an ArrayList<Campaign>
+	 */
 	public ArrayList<Campanha> getCampanhasPorSiglaEAno(String sigla, String ano)
 			throws SQLException {
 		this.partidoDAO = new PartidoDAO();
@@ -147,6 +200,11 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		return listaCampanha;
 	}
 
+	/*
+	 * This method retrieves information from an instance of Class Campaign
+	 * @param an instance of Class Campaign
+	 * @return an instance of Class Campaign
+	 */
 	public Campanha getPeloAnoNumeroCodCargoEUf(Campanha campanha)
 			throws SQLException {
 		ArrayList<Campanha> listaCampanha = new ArrayList<>();
@@ -162,8 +220,12 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 			return listaCampanha.get(0);
 	}
 
+	/*
+	 * This method retrieves a complete list of campaigns stored in the database
+	 * @param a String with the SQL command
+	 * @return an ArrayList<Campaign>
+	 */
 	public ArrayList<Campanha> buscaBD(String SQL) throws SQLException {
-
 		ArrayList<Campanha> listaCampanha = new ArrayList<>();
 		this.candidatoDAO = new CandidatoDAO();
 		this.cargoDAO = new CargoDAO();
@@ -201,6 +263,12 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		return listaCampanha;
 	}
 	
+	/*
+	 * This method retrieves a list of campaigns for the functionality of the Top Five Graphics
+	 * @param a String with the position
+	 * @param an Integer with the year
+	 * @return an ArrayList<Campaign>
+	 */
 	public ArrayList<Campanha> TopFive (String cargo, Integer ano) throws SQLException {
 		int codigo = 0;
 		switch (cargo.toLowerCase()) {
@@ -213,12 +281,13 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 				codigo = 5; break;
 			default: 
 				return null;
-					
 		}
+		
 		String comandoSQL = SQL_SELECT + " WHERE " + ANO + " = " + ano + " and " 
 		                   +COD_CARGO + " = " + codigo + " ORDER BY " + DESPESA_MAX_DECLARADA
 		                   +" DESC LIMIT 5";
 		
 		return buscaBD(comandoSQL);
 	}
+	
 }
