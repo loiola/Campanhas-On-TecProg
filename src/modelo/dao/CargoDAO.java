@@ -10,7 +10,14 @@ import modelo.beans.Cargo;
 import parse.ParseDAO;
 
 public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
+	
+	/*
+	 * Class for manipulating the data about positions
+	 */
 
+	/*
+	 * Comparator to check if two instances are equal positions through code
+	 */
 	public enum Comparacao implements Comparator<Cargo> {
 		CODIGO {
 			@Override
@@ -20,6 +27,7 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 		};
 	}
 
+	// Constants
 	private static final String NOME_TABELA = "cargo";
 	private static final String CODIGO = "cod_cargo";
 	private static final String DESCRICAO = "descricao";
@@ -28,20 +36,34 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 			+ "values (?, ?)";
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 
+	// Constructors
 	public CargoDAO() {
 		super(NOME_TABELA, Comparacao.CODIGO);
 	}
 
+	/*
+	 * This method retrieves the SQL command to insert data
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlInsert() {
 		return SQL_INSERCAO;
 	}
 
+	/*
+	 * This method retrieves the string that has the SQL command for selecting data in a database table
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlSelect() {
 		return SQL_SELECAO;
 	}
 
+	/*
+	 * This method prepares a list of positions to be registered
+	 * @param an ArrayList<Position>
+	 * @param a SQLinstruction
+	 */
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Cargo> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
@@ -50,9 +72,13 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 			instrucaoSQL.setString(2, cargo.getDescricao());
 			instrucaoSQL.addBatch();
 		}
-
 	}
 
+	/*
+	 * This method populates the ArrayList<Position>
+	 * @param an ArrayList<Position>
+	 * @param a SQLresult
+	 */
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Cargo> lista,
 			ResultSet resultadoSQL) throws SQLException {
@@ -60,22 +86,36 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 			Cargo cargo = new Cargo();
 			cargo.setCodigo(resultadoSQL.getInt(CODIGO));
 			cargo.setDescricao(resultadoSQL.getString(DESCRICAO));
-
 			lista.add(cargo);
 		}
 	}
 	
+	/*
+	 * This method retrieves a position through code
+	 * @param an Integer with the code of position
+	 * @return an instance of Class Position
+	 */
 	public Cargo getPeloCod(Integer codigo) throws SQLException {
 		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+codigo+" ";
 		return buscaBD(comandoSQL);
 	}
 	
+	/*
+	 * This method retrieves a position by describing
+	 * @param a String with the description
+	 * @return an instance of Class Position
+	 */
 	public Cargo getPelaDescricao(String descricao) throws SQLException {
 		String comandoSQL = SQL_SELECAO + " WHERE "
 						  + DESCRICAO +" like '%"+descricao+"%' ";
 		return buscaBD(comandoSQL);
 	}
 	
+	/*
+	 * This method retrieves an instance of Position stored in the database
+	 * @param a String with the SQL command
+	 * @return an instance of Class Position
+	 */
 	public Cargo buscaBD(String SQL) throws SQLException {
 		Cargo cargo = new Cargo();
 		String comandoSQL = SQL;
@@ -86,12 +126,10 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
-			while(resultadoSQL.next())
-			{
+			while(resultadoSQL.next()) {
 				cargo.setCodigo(resultadoSQL.getInt(CODIGO));
 				cargo.setDescricao(resultadoSQL.getString(DESCRICAO));
 			}
-
 		} catch (SQLException e) {
 			throw new SQLException("CargoDAO - " + e.getMessage());
 		} finally {
@@ -99,4 +137,5 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 		}
 		return cargo;
 	}
+	
 }

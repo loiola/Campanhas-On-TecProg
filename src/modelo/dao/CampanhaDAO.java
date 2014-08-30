@@ -137,7 +137,6 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 			campanha.setDespesaMaxDeclarada(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
 			campanha.setDespesaTotalCalculada(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
 			campanha.setReceitaTotalCalculada(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
-
 			lista.add(campanha);
 		}
 	}
