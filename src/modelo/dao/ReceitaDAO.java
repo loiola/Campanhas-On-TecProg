@@ -12,7 +12,12 @@ import modelo.beans.Receita;
 import parse.ParseDAO;
 
 public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> {
-				
+
+	/*
+	 * Class for manipulating the data about receipt
+	 */
+	
+	// Constants
 	private static final String NOME_TABELA = "receita";
 	private final String ID = "id_receita";
 	private final String CAMPANHA_ANO = "campanha_ano";
@@ -41,24 +46,38 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 					   + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 
+	// Constructors
 	public ReceitaDAO() {
 		super(NOME_TABELA, null);
 	}
 
+	/*
+	 * This method retrieves the SQL command to insert data
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlInsert() {
 		return SQL_INSERT;
 	}
 
+	/*
+	 * This method retrieves the string that has the SQL command for selecting data in a database table
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlSelect() {
 		return SQL_SELECT;
 	}
 
+	/*
+	 * This method prepares a list of receipt to be registered
+	 * @param an ArrayList<receipt>
+	 * @param a SQLinstruction
+	 */
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Receita> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for (Receita receita : lista) {
+		for(Receita receita : lista) {
 			instrucaoSQL.setInt(1, receita.getId());
 			instrucaoSQL.setInt(2, receita.getCampanha().getAno());
 			instrucaoSQL.setInt(3, receita.getCampanha().getNumeroCandidato());
@@ -74,14 +93,18 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			instrucaoSQL.setString(13, receita.getCampanha().getCargo().getDescricao());
 			instrucaoSQL.setString(14, receita.getCampanha().getUf());
 			instrucaoSQL.addBatch();
-		}
-		
+		}	
 	}
 
+	/*
+	 * This method populates the ArrayList<receipt>
+	 * @param an ArrayList<receipt>
+	 * @param a SQLresult
+	 */
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Receita> lista,
 			ResultSet resultadoSQL) throws SQLException {
-		while (resultadoSQL.next()) {
+		while(resultadoSQL.next()) {
 			Campanha campanha = new Campanha();
 			Cargo cargo = new Cargo();
 			cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
@@ -108,10 +131,13 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			
 			lista.add(receita);
 		}
-		
 	}
 	
-
+	/*
+	 * This method retrieves a receipt through the year or number or position or UF
+	 * @param a campaign
+	 * @return an instance of Class receipt
+	 */
 	public ArrayList<Receita> getPorAnoNumeroCargoUf(Campanha campanha) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
 				  + CAMPANHA_ANO + " = " + campanha.getAno() + " AND "
@@ -123,13 +149,22 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 		return buscaBD(comandoSQL);
 	}
 	
-
+	/*
+	 * This method retrieves a receipt through the ID
+	 * @param an Integer with the ID
+	 * @return an instance of Class receipt
+	 */
 	public Receita getPeloId(int id) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
 				  + ID + " = " + id;
 		return buscaBD(comandoSQL).get(0);
 	}
 	
+	/*
+	 * This method retrieves a complete list of receipt stored in the database
+	 * @param a String with the SQL command
+	 * @return an ArrayList<receipt>
+	 */
 	public ArrayList<Receita> buscaBD(String SQL) throws Exception {
 
 		ArrayList<Receita> listaReceita = new ArrayList<>();
@@ -143,7 +178,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
-			while (resultadoSQL.next()) {
+			while(resultadoSQL.next()) {
 				Receita receita = new Receita();
 				
 				Cargo cargo = new Cargo();
@@ -169,16 +204,15 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 				receita.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 				receita.setValor(resultadoSQL.getFloat(VALOR));
 				
-				if (receita != null) listaReceita.add(receita);
+				if(receita != null) {
+					listaReceita.add(receita);
+				}
 			}
-
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			throw new SQLException("ReceitaDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
-
 		return listaReceita;
 	}
-
 }

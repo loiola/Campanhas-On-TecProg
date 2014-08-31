@@ -51,6 +51,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 		super(NOME_TABELA, null);
 	}
 
+	// Other methods
 	/*
 	 * This method retrieves the SQL command to insert data
 	 * @return a String with the SQL command
@@ -77,7 +78,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Despesa> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for (Despesa despesa : lista) {
+		for(Despesa despesa : lista) {
 			instrucaoSQL.setInt(1, despesa.getId());	
 			instrucaoSQL.setInt(2, despesa.getCampanha().getAno());
 			instrucaoSQL.setInt(3, despesa.getCampanha().getNumeroCandidato());
@@ -104,7 +105,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Despesa> lista,
 			ResultSet resultadoSQL) throws SQLException {
-		while (resultadoSQL.next()) {
+		while(resultadoSQL.next()) {
 			Campanha campanha = new Campanha();
 			Cargo cargo = new Cargo();
 			cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
@@ -178,7 +179,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
-			while (resultadoSQL.next()) {
+			while(resultadoSQL.next()) {
 				Despesa despesa = new Despesa();
 				Cargo cargo = new Cargo();
 				cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
@@ -203,17 +204,16 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 				despesa.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 				despesa.setValor(resultadoSQL.getFloat(VALOR));
 				
-				if (despesa != null) {
+				if(despesa != null) {
 					listaDespesa.add(despesa);
 				}
 			}
 
-		}  catch (SQLException e) {
+		}  catch(SQLException e) {
 			throw new SQLException("DespesaDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
 		return listaDespesa;
 	}
-	
 }

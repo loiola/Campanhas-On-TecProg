@@ -31,6 +31,7 @@ public class ConexaoBancoDados {
 		
 	}
 	
+	// Other methods
 	/*
 	 * This method returns a connection to the database
 	 * @return an instance of Class Connection
@@ -42,7 +43,7 @@ public class ConexaoBancoDados {
 			Class.forName("com.mysql.jdbc.Driver");
 			conexao = DriverManager.getConnection(localBanco + nomeSevidor + "/" + nomeBanco, usuario, senha);
 			return conexao;
-		} catch (Exception e) {
+		} catch(Exception e) {
 			throw new SQLException(e.getMessage());
 		}
 	}
@@ -59,7 +60,7 @@ public class ConexaoBancoDados {
 			String comandoSQL = "create database if not exists " + nomeNovoBanco;
 			
 			this.afirmacao.executeUpdate(comandoSQL);
-		} catch (Exception e) {
+		} catch(Exception e) {
 			throw new SQLException("ConexaoBancoDados - " + e.getMessage());
 		} finally {
 			fecharConexao();
@@ -87,7 +88,7 @@ public class ConexaoBancoDados {
 			for(String linha : comando) {
 				this.afirmacao.execute(linha);
 			}	
-		} catch (Exception e) {
+		} catch(Exception e) {
 			throw new SQLException("ConexaoBancoDados - " + e.getMessage());
 		} finally {
 			fecharConexao();
@@ -105,7 +106,7 @@ public class ConexaoBancoDados {
 			String comandoSQL = "drop database if exists " + nomeBanco;
 			
 			this.afirmacao.executeUpdate(comandoSQL);
-		} catch (Exception e) {
+		} catch(Exception e) {
 			throw new SQLException("ConexaoBancoDados - " + e.getMessage());
 		} finally {
 			fecharConexao();
@@ -155,5 +156,4 @@ public class ConexaoBancoDados {
 		bufferedReader.close();
 		return comando;
 	}
-	
 }

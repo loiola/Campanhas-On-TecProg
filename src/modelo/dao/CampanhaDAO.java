@@ -55,6 +55,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		super(NOME_TABELA, null);
 	}
 
+	// Other methods
 	/*
 	 * This method retrieves the SQL command to insert data
 	 * @return a String with the SQL command
@@ -91,7 +92,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Campanha> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for (Campanha campanha : lista) {
+		for(Campanha campanha : lista) {
 			instrucaoSQL.setInt(1, campanha.getId());
 			instrucaoSQL.setInt(2, campanha.getAno());
 			instrucaoSQL.setInt(3, campanha.getNumeroCandidato());
@@ -116,7 +117,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 */
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Campanha> lista, ResultSet resultadoSQL) throws SQLException {
-		while (resultadoSQL.next()) {
+		while(resultadoSQL.next()) {
 			Cargo cargo = new Cargo();
 			Resultado resultado = new Resultado();
 			Partido partido = new Partido();
@@ -213,7 +214,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 				+ campanha.getNumeroCandidato() + "' AND " + COD_CARGO + " = "
 				+ campanha.getCargo().getCodigo();
 		listaCampanha = buscaBD(comandoSQL);
-		if (listaCampanha.isEmpty()) {
+		if(listaCampanha.isEmpty()) {
 			return null;
 		} else {
 			return listaCampanha.get(0);
@@ -239,7 +240,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
-			while (resultadoSQL.next()) {
+			while(resultadoSQL.next()) {
 				Campanha campanha = new Campanha();
 				campanha.setAno(resultadoSQL.getInt(ANO));
 				campanha.setCargo(cargoDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
@@ -252,11 +253,11 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 				campanha.setResultado(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
 				campanha.setUf(resultadoSQL.getString(UF));
 				campanha.setCandidato(candidatoDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
-				if (campanha != null) {
+				if(campanha != null) {
 					listaCampanha.add(campanha);
 				}
 			}
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			throw new SQLException("CampanhaDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
@@ -270,16 +271,19 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param an Integer with the year
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campanha> TopFive (String cargo, Integer ano) throws SQLException {
+	public ArrayList<Campanha> TopFive(String cargo, Integer ano) throws SQLException {
 		int codigo = 0;
-		switch (cargo.toLowerCase()) {
+		switch(cargo.toLowerCase()) {
 		
 			case "presidente": 
-				codigo = 1; break;
+				codigo = 1;
+				break;
 			case "governador": 
-				codigo = 3; break;
+				codigo = 3;
+				break;
 			case "senador": 
-				codigo = 5; break;
+				codigo = 5;
+				break;
 			default: 
 				return null;
 		}
@@ -290,5 +294,4 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 		
 		return buscaBD(comandoSQL);
 	}
-	
 }

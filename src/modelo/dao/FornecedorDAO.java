@@ -11,39 +11,62 @@ import parse.ParseDAO;
 
 public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<Fornecedor> {
 	
-	public enum Comparacao implements Comparator<Fornecedor> {
-		NOME {
-			public int compare(Fornecedor f1, Fornecedor f2) {
-				return f1.getNome().compareToIgnoreCase(f2.getNome());
-			}
-
-		}	
-	}
+	/*
+	 * Class for manipulating the data about supplier
+	 */
 	
+	// Constants	
 	private static final String NOME_TABELA = "fornecedor";
 	private static final String CPF_CNPJ = "cpf_cnpj";
 	private static final String NOME = "nome";
 	private static final String UF = "uf";
 	private static final String SITUACAO_CADASTRAL = "situacao_cadastral";
+	
 	private static final String SQL_INSERCAO = "INSERT INTO " + NOME_TABELA
 			+ " (" + CPF_CNPJ + ", " + NOME + ", " + UF + ", " + SITUACAO_CADASTRAL + ") "
 			+ "VALUES(?, ?, ?, ?)";
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 	
+	// Constructors
 	public FornecedorDAO() {
 		super(NOME_TABELA, Comparacao.NOME);
 	}
 	
+	// Other methods
+	/*
+	 * Comparator to check if two instances are equal supplier through name
+	 */
+	public enum Comparacao implements Comparator<Fornecedor> {
+		NOME {
+			public int compare(Fornecedor f1, Fornecedor f2) {
+				return f1.getNome().compareToIgnoreCase(f2.getNome());
+			}
+		}	
+	}
+
+	/*
+	 * This method retrieves the SQL command to insert data
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlInsert() {
 		return SQL_INSERCAO;
 	}
 
+	/*
+	 * This method retrieves the string that has the SQL command for selecting data in a database table
+	 * @return a String with the SQL command
+	 */
 	@Override
 	protected String getSqlSelect() {
 		return SQL_SELECAO;
 	}
 
+	/*
+	 * This method prepares a list of supplier to be registered
+	 * @param an ArrayList<supplier>
+	 * @param a SQLinstruction
+	 */
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Fornecedor> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
@@ -56,6 +79,11 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 		}	
 	}
 
+	/*
+	 * This method populates the ArrayList<supplier>
+	 * @param an ArrayList<supplier>
+	 * @param a SQLresult
+	 */
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Fornecedor> lista,
 			ResultSet resultadoSQL) throws SQLException {
@@ -67,24 +95,33 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 			fornecedor.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
 			lista.add(fornecedor);
 		}
-		
 	}
 
+	/*
+	 * This method retrieves a supplier through the name or CNPJ
+	 * @param a supplier
+	 * @return an instance of Class supplier
+	 */
 	public Fornecedor getPeloNomeOuCpfCnpj(Fornecedor fornecedor) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
-		if(!fornecedor.getNome().equals(Fornecedor.STRING_VAZIO)){
+		if(!fornecedor.getNome().equals(Fornecedor.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + NOME + " = " 
 		  + fornecedor.getNome();
 		}
-		else if(!fornecedor.getCpf_cnpj().equals(Fornecedor.STRING_VAZIO)){
+		else if(!fornecedor.getCpf_cnpj().equals(Fornecedor.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
 		  + fornecedor.getCpf_cnpj();
-		}else{
+		} else {
 			throw new Exception();
 		}
 		return buscaBD(comandoSQL).get(0);
 	}
 
+	/*
+	 * This method retrieves a complete list of supplier stored in the database
+	 * @param a String with the SQL command
+	 * @return an ArrayList<supplier>
+	 */
 	public ArrayList<Fornecedor> buscaBD(String SQL) throws SQLException {
 
 		ArrayList<Fornecedor> listaFornecedor = new ArrayList<>();
@@ -98,7 +135,7 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
-			while (resultadoSQL.next()) {
+			while(resultadoSQL.next()) {
 				Fornecedor fornecedor = new Fornecedor();
 				
 				fornecedor.setNome(resultadoSQL.getString(NOME));
@@ -106,17 +143,15 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 				fornecedor.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
 				fornecedor.setUf(resultadoSQL.getString(UF));
 
-				if (fornecedor != null) listaFornecedor.add(fornecedor);
+				if(fornecedor != null) {
+					listaFornecedor.add(fornecedor);
+				}
 			}
-
-		}  catch (SQLException e) {
+		}  catch(SQLException e) {
 			throw new SQLException("FornecedorDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
-
 		return listaFornecedor;
 	}
-	
 }
-

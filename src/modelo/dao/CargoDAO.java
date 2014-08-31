@@ -15,18 +15,6 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	 * Class for manipulating the data about positions
 	 */
 
-	/*
-	 * Comparator to check if two instances are equal positions through code
-	 */
-	public enum Comparacao implements Comparator<Cargo> {
-		CODIGO {
-			@Override
-			public int compare(Cargo c1, Cargo c2) {
-				return c1.getCodigo().compareTo(c2.getCodigo());
-			}
-		};
-	}
-
 	// Constants
 	private static final String NOME_TABELA = "cargo";
 	private static final String CODIGO = "cod_cargo";
@@ -39,6 +27,19 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	// Constructors
 	public CargoDAO() {
 		super(NOME_TABELA, Comparacao.CODIGO);
+	}
+
+	// Other methods
+	/*
+	 * Comparator to check if two instances are equal positions through code
+	 */
+	public enum Comparacao implements Comparator<Cargo> {
+		CODIGO {
+			@Override
+			public int compare(Cargo c1, Cargo c2) {
+				return c1.getCodigo().compareTo(c2.getCodigo());
+			}
+		};
 	}
 
 	/*
@@ -67,7 +68,7 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Cargo> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for (Cargo cargo : lista) {
+		for(Cargo cargo : lista) {
 			instrucaoSQL.setInt(1, cargo.getCodigo());
 			instrucaoSQL.setString(2, cargo.getDescricao());
 			instrucaoSQL.addBatch();
@@ -82,7 +83,7 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Cargo> lista,
 			ResultSet resultadoSQL) throws SQLException {
-		while (resultadoSQL.next()) {
+		while(resultadoSQL.next()) {
 			Cargo cargo = new Cargo();
 			cargo.setCodigo(resultadoSQL.getInt(CODIGO));
 			cargo.setDescricao(resultadoSQL.getString(DESCRICAO));
@@ -130,12 +131,11 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 				cargo.setCodigo(resultadoSQL.getInt(CODIGO));
 				cargo.setDescricao(resultadoSQL.getString(DESCRICAO));
 			}
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			throw new SQLException("CargoDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
 		return cargo;
 	}
-	
 }

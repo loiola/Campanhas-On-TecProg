@@ -15,19 +15,6 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	 * Class for manipulating the data about candidates
 	 */
 	
-	/*
-	 * Comparator to check if two instances are equal candidates through Title Voter
-	 */
-	public enum Comparacao implements Comparator<Candidato> {
-		TITULO_ELEITORAL {
-			@Override
-			public int compare(Candidato c1, Candidato c2) {
-				return c1.getTituloEleitoral().compareTo(
-						c2.getTituloEleitoral());
-			}
-		};
-	}
-	
 	// Attributes
 	private CampanhaDAO campanhaDAO;
 
@@ -44,6 +31,20 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	// Constructors
 	public CandidatoDAO() {
 		super(NOME_TABELA, Comparacao.TITULO_ELEITORAL);
+	}
+
+	// Other methods
+	/*
+	 * Comparator to check if two instances are equal candidates through Title Voter
+	 */
+	public enum Comparacao implements Comparator<Candidato> {
+		TITULO_ELEITORAL {
+			@Override
+			public int compare(Candidato c1, Candidato c2) {
+				return c1.getTituloEleitoral().compareTo(
+						c2.getTituloEleitoral());
+			}
+		};
 	}
 
 	/*
@@ -72,7 +73,7 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	@Override
 	protected void adicionarListaNoBatch(ArrayList<Candidato> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for (Candidato candidato : lista) {
+		for(Candidato candidato : lista) {
 			instrucaoSQL.setString(1, candidato.getTituloEleitoral());
 			instrucaoSQL.setString(2, candidato.getNome());
 			instrucaoSQL.addBatch();
@@ -87,7 +88,7 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Candidato> lista,
 			ResultSet resultadoSQL) throws SQLException {
-		while (resultadoSQL.next()) {
+		while(resultadoSQL.next()) {
 			Candidato candidato = new Candidato();
 			candidato.setNome(resultadoSQL.getString(NOME));
 			candidato.setTituloEleitoral(resultadoSQL
@@ -109,7 +110,7 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 		try {
 			listaCandidato = buscaBD(comandoSQL);
 			return listaCandidato.get(0);
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			Candidato cand = new Candidato();
 			cand.setTituloEleitoral("-1");
 			return cand;
@@ -133,7 +134,7 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 		
 		try {
 			listaCandidato = buscaBD(comandoSQL);
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			return null;
 		}
 		return listaCandidato;
@@ -154,21 +155,20 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
-			while (resultadoSQL.next()) {
+			while(resultadoSQL.next()) {
 				Candidato candidato = new Candidato();
 				candidato.setNome(resultadoSQL.getString(NOME));
 				candidato.setTituloEleitoral(resultadoSQL.getString(TITULO_ELEITORAL));
 
-				if (candidato != null) {
+				if(candidato != null) {
 					listaCandidato.add(candidato);
 				}
 			}			
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			throw new SQLException("CandidatoDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
 		return listaCandidato;
 	}
-	
 }
