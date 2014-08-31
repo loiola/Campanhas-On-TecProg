@@ -8,18 +8,43 @@ import parse.indices.DespesaIndicesParse;
 import parse.indices.IndicesParse;
 
 public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa> {
-
+	
+	/* 
+	 * Class used to extract Expense attributes and forward the register to the Database
+	 */
+	
+	// Constructor
+	
+	/*
+	 * This constructor use the ParseExpenseRevenueRegister inherited constructor to
+	 * register informations from an Expense
+	 * @param String who define the type of the list file to be used to get the ParseIndex
+	 * @param String who define the year of the campaign to be used to get the ParseIndex
+	 */
 	public CadastroDespesaParse(String tipoArquivo, String ano)
 			throws ParseException {
 		super(tipoArquivo, ano);
 	}
-
+	
+	// Methods
+	
+	/*
+	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * This method generate a ParseExpenseControl to be used by constructor
+	 * @return a ParseExpenseControl
+	 */
 	@Override
 	public ParseControle<Despesa> novaInstancia(
 			IndicesParse<Despesa> indicesParse) {
 		return new DespesaParseControle(indicesParse);
 	}
 
+	/*
+	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2002()
+	 * This method generate the ParseExpenseIndex, setting the index number for each attribute from
+	 * the Campaign of 2002
+	 * @return a ParseExpenseIndex
+	 */
 	@Override
 	protected IndicesParse<Despesa> getIndicesParseDespesa2002() {
 		DespesaIndicesParse despesaIndicesParse = new DespesaIndicesParse(ANO_2002);
@@ -34,6 +59,12 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 		return despesaIndicesParse;
 	}
 
+	/*
+	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2006()
+	 * This method generate the ParseExpenseIndex, setting the index number for each attribute from
+	 * the Campaign of 2006
+	 * @return a ParseExpenseIndex
+	 */
 	@Override
 	protected IndicesParse<Despesa> getIndicesParseDespesa2006() {
 		DespesaIndicesParse despesaIndicesParse = new DespesaIndicesParse(ANO_2006);
@@ -52,6 +83,12 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 
 	}
 
+	/*
+	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2010()
+	 * This method generate the ParseExpenseIndex, setting the index number for each attribute from
+	 * the Campaign of 2010
+	 * @return a ParseExpenseIndex
+	 */
 	@Override
 	protected IndicesParse<Despesa> getIndicesParseDespesa2010() {
 		DespesaIndicesParse despesaIndicesParse = new DespesaIndicesParse(ANO_2010);
@@ -70,16 +107,31 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 		return despesaIndicesParse;
 	}
 
+	/*
+	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2002()
+	 * This method generate the ParseExpenseIndex from the Campaign of 2002
+	 * @return a ParseExpenseIndex
+	 */
 	@Override
 	protected IndicesParse<Despesa> getIndicesParseReceita2002() {
 		return new DespesaIndicesParse(ANO_2002);
 	}
 
+	/*
+	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2006()
+	 * This method generate the ParseExpenseIndex from the Campaign of 2006
+	 * @return a ParseExpenseIndex
+	 */
 	@Override
 	protected IndicesParse<Despesa> getIndicesParseReceita2006() {
 		return new DespesaIndicesParse(ANO_2006);
 	}
 
+	/*
+	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2010()
+	 * This method generate the ParseExpenseIndex from the Campaign of 2010
+	 * @return a ParseExpenseIndex
+	 */
 	@Override
 	protected IndicesParse<Despesa> getIndicesParseReceita2010() {
 		return new DespesaIndicesParse(ANO_2010);

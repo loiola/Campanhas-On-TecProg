@@ -9,7 +9,19 @@ import parse.indices.CampanhaIndicesParse;
 import parse.indices.IndicesParse;
 
 public class CadastroCampanhaParse extends CadastroParse<Campanha> {
+	
+	/* 
+	 * Class used to extract Campaign attributes and forward the register to the Database
+	 */
 
+	// Constructor
+	
+	/*
+	 * This constructor use the ParseRegister inherited constructor to
+	 * register informations from a Campaign
+	 * @param String who define the type of the list file to be used to get the ParseIndex
+	 * @param String who define the year of the campaign to be used to get the ParseIndex
+	 */
 	public CadastroCampanhaParse(String tipoArquivo, String ano)
 			throws ParseException {
 		super(tipoArquivo, ano);
@@ -17,6 +29,13 @@ public class CadastroCampanhaParse extends CadastroParse<Campanha> {
 		setLinhasParaFazerCadastro(100000);
 	}
 
+	// Methods
+	
+	/*
+	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * This method generate a ParseCampaignControl to be used by constructor
+	 * @return a ParseCampaignControl
+	 */
 	@Override
 	public ParseControle<Campanha> novaInstancia(
 			IndicesParse<Campanha> indicesParse) {
@@ -24,6 +43,11 @@ public class CadastroCampanhaParse extends CadastroParse<Campanha> {
 		return campanhaParseControle;
 	}
 
+	/*
+	 * @see parse.cadastro.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * This method generate the ParseCampaignIndex, setting the index number for each attribute
+	 * @return a ParseCampaignIndex
+	 */
 	@Override
 	protected IndicesParse<Campanha> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
@@ -44,6 +68,9 @@ public class CadastroCampanhaParse extends CadastroParse<Campanha> {
 		return campanhaIndicesParse;
 	}
 	
+	/*
+	 * @see parse.cadastro.CadastroParse#executarLinhaDoArquivo(java.lang.String[])
+	 */
 	@Override
 	public void executarLinhaDoArquivo(String[] campo) throws ParseException {
 		this.parseControle.addInstanciaIgual(campo);
