@@ -8,10 +8,11 @@ import parse.controle.ParseControle;
 import parse.indices.CampanhaIndicesParse;
 import parse.indices.IndicesParse;
 
-/* 
- * Class used to extract Campaign attributes and forward the register to the Database
- */
 public class CadastroCampanhaParse extends CadastroParse<Campanha> {
+	
+	/* 
+	 * Class used to extract Campaign attributes and forward the register to the Database
+	 */
 
 	// Constructor
 	

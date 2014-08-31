@@ -4,12 +4,13 @@ import parse.ParseException;
 import parse.controle.ParseControle;
 import parse.indices.IndicesParse;
 
-/* 
- * Class used to be inherited from the others ParseRegisters classes to be used by their
- * own needs to register and coordinated to ParseControl classes add informations to DataBase
- * based on an "O" Object
- */
 public abstract class CadastroParse<O> {
+	
+	/* 
+	 * Class used to be inherited from the others ParseRegisters classes to be used by their
+	 * own needs to register and coordinated to ParseControl classes add informations to DataBase
+	 * based on an "O" Object
+	 */
 
 	// Attributes
 	protected int linhasLidas;

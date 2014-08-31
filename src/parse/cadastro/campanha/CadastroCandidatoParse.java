@@ -8,10 +8,11 @@ import parse.controle.ParseControle;
 import parse.indices.CandidatoIndicesParse;
 import parse.indices.IndicesParse;
 
-/* 
- * Class used to extract Candidate attributes and forward the register to the Database
- */
 public class CadastroCandidatoParse extends CadastroParse<Candidato> {
+	
+	/* 
+	 * Class used to extract Candidate attributes and forward the register to the Database
+	 */
 
 	// Constructor
 	
