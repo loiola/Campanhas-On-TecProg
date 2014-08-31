@@ -64,7 +64,7 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 
 	/*
 	 * This method prepares a list of supplier to be registered
-	 * @param an ArrayList<supplier>
+	 * @param an ArrayList<Supplier>
 	 * @param a SQLinstruction
 	 */
 	@Override
@@ -81,7 +81,7 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 
 	/*
 	 * This method populates the ArrayList<supplier>
-	 * @param an ArrayList<supplier>
+	 * @param an ArrayList<Supplier>
 	 * @param a SQLresult
 	 */
 	@Override
@@ -99,8 +99,8 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 
 	/*
 	 * This method retrieves a supplier through the name or CNPJ
-	 * @param a supplier
-	 * @return an instance of Class supplier
+	 * @param an instance of Class Supplier
+	 * @return an instance of Class Supplier
 	 */
 	public Fornecedor getPeloNomeOuCpfCnpj(Fornecedor fornecedor) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
@@ -118,9 +118,9 @@ public class FornecedorDAO extends BasicoDAO<Fornecedor> implements ParseDAO<For
 	}
 
 	/*
-	 * This method retrieves a complete list of supplier stored in the database
+	 * This method retrieves a complete list of suppliers stored in the database
 	 * @param a String with the SQL command
-	 * @return an ArrayList<supplier>
+	 * @return an ArrayList<Supplier>
 	 */
 	public ArrayList<Fornecedor> buscaBD(String SQL) throws SQLException {
 

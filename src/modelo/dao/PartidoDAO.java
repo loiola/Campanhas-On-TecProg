@@ -102,7 +102,7 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	/*
 	 * This method retrieves a party through the acronym
 	 * @param a String with the acronym
-	 * @return an instance of Class party
+	 * @return an instance of Class Party
 	 */
 	public Partido getPelaSigla(String sigla) throws SQLException {
 		String comandoSQL = SQL_SELECAO
@@ -113,7 +113,7 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	/*
 	 * This method retrieves a party through the number
 	 * @param a String with the number
-	 * @return an instance of Class party
+	 * @return an instance of Class Party
 	 */
 	public Partido getPeloNumero(String numero) throws SQLException {
 		String comandoSQL = SQL_SELECAO

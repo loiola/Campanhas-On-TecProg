@@ -135,7 +135,7 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 	
 	/*
 	 * This method retrieves a donor through the name or CNPJ
-	 * @param a Donor
+	 * @param an instance of Class Donor
 	 * @return an instance of Class Donor
 	 */
 	public Doador getPeloNomeOuCpfCnpj(Doador doador) throws Exception {

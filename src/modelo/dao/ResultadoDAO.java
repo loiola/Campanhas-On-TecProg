@@ -62,7 +62,7 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 
 	/*
 	 * This method prepares a list of result to be registered
-	 * @param an ArrayList<result>
+	 * @param an ArrayList<Result>
 	 * @param a SQLinstruction
 	 */
 	@Override
@@ -77,7 +77,7 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 
 	/*
 	 * This method populates the ArrayList<result>
-	 * @param an ArrayList<result>
+	 * @param an ArrayList<Result>
 	 * @param a SQLresult
 	 */
 	@Override
@@ -87,15 +87,14 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 			Resultado resultado = new Resultado();
 			resultado.setCodigo(resultadoSQL.getInt(CODIGO));
 			resultado.setDescricao(resultadoSQL.getString(DESCRICAO));
-			
 			lista.add(resultado);
 		}
 	}
 
 	/*
 	 * This method retrieves a receipt through the code
-	 * @param an integer representing a code
-	 * @return an instance of Class result
+	 * @param an Integer representing a code
+	 * @return an instance of Class Result
 	 */
 	public Resultado getPeloCod(Integer codigo) throws SQLException {
 		Resultado resultado = new Resultado();

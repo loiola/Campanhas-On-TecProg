@@ -14,7 +14,7 @@ import parse.ParseDAO;
 public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> {
 
 	/*
-	 * Class for manipulating the data about receipt
+	 * Class for manipulating the data about revenue
 	 */
 	
 	// Constants
@@ -71,7 +71,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 
 	/*
 	 * This method prepares a list of receipt to be registered
-	 * @param an ArrayList<receipt>
+	 * @param an ArrayList<Revenue>
 	 * @param a SQLinstruction
 	 */
 	@Override
@@ -97,8 +97,8 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	}
 
 	/*
-	 * This method populates the ArrayList<receipt>
-	 * @param an ArrayList<receipt>
+	 * This method populates the ArrayList<Revenue>
+	 * @param an ArrayList<Revenue>
 	 * @param a SQLresult
 	 */
 	@Override
@@ -128,15 +128,14 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			receita.setData(resultadoSQL.getString(DATA));
 			receita.setValor(resultadoSQL.getFloat(VALOR));
 			receita.setDescricao(resultadoSQL.getString(DESCRICAO));
-			
 			lista.add(receita);
 		}
 	}
 	
 	/*
 	 * This method retrieves a receipt through the year or number or position or UF
-	 * @param a campaign
-	 * @return an instance of Class receipt
+	 * @param an instance of Class Campaign
+	 * @return an instance of Class Revenue
 	 */
 	public ArrayList<Receita> getPorAnoNumeroCargoUf(Campanha campanha) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
@@ -152,7 +151,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	/*
 	 * This method retrieves a receipt through the ID
 	 * @param an Integer with the ID
-	 * @return an instance of Class receipt
+	 * @return an instance of Class Revenue
 	 */
 	public Receita getPeloId(int id) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
@@ -161,9 +160,9 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	}
 	
 	/*
-	 * This method retrieves a complete list of receipt stored in the database
+	 * This method retrieves a complete list of revenue stored in the database
 	 * @param a String with the SQL command
-	 * @return an ArrayList<receipt>
+	 * @return an ArrayList<Revenue>
 	 */
 	public ArrayList<Receita> buscaBD(String SQL) throws Exception {
 
