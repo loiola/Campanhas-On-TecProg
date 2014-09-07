@@ -1,0 +1,15 @@
+ / parse.controle / CampanhaParseControle
+ 
+ 10 - public class CampanhaParseControle extends ParseControle<Campanha>
+ Comentário: Class used to control comparison and registration of instances of Class Campaign
+ Sugestão: Manter comentário
+ 
+ 17 - public CampanhaParseControle(IndicesParse<Campanha> indicesParse)
+ 
+ 26 - public Campanha novaInstancia()
+ 
+ 37 - public boolean iguais(Campanha objetoUm, Campanha objetoDois)
+ 
+ 45 - public void cadastrarInstancias() throws ParseException
+ 
+ 
