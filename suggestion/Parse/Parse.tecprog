@@ -122,4 +122,31 @@
  34 - public boolean iguais(Partido objetoUm, Partido objetoDois)
  
  
+ / parse.controle / ReceitaParseControle.java
+ 
+ 7 - public class ReceitaParseControle extends ParseControle<Receita>
+ Comentário: Class used to control comparison and registration of instances of Class Revenue
+ Sugestão: Manter comentário da classe
+ 
+ 14 - public ReceitaParseControle(IndicesParse<Receita> indicesParse)
+ 
+ 23 - public Receita novaInstancia()
+ 
+ 34 - public boolean iguais(Receita objetoUm, Receita objetoDois)
+ 
+ 
+ / parse.controle / ResultadoParseControle.java
+ 
+ 7 - public class ResultadoParseControle extends ParseControle<Resultado>
+ Comentário: Class used to control comparison and registration of instances of Class Result
+ Sugestão: Manter comentário da classe
+ 
+ 14 - public ResultadoParseControle(IndicesParse<Resultado> indicesParse)
+ 
+ 23 - public Resultado novaInstancia()
+ 
+ 34 - public boolean iguais(Resultado objetoUm, Resultado objetoDois)
+ 
+ 
+ 
  
