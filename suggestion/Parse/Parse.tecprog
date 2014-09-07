@@ -2,7 +2,7 @@
  
  10 - public class CampanhaParseControle extends ParseControle<Campanha>
  Comentário: Class used to control comparison and registration of instances of Class Campaign
- Sugestão: Manter comentário
+ Sugestão: Manter comentário sobre a classe
  
  17 - public CampanhaParseControle(IndicesParse<Campanha> indicesParse)
  
@@ -17,7 +17,7 @@
  
  7 - public class CandidatoParseControle extends ParseControle<Candidato>
  Comentário: Class used to control comparison and registration of instances of Class Candidate
- Sugestão: Manter comentário
+ Sugestão: Manter comentário sobre a classe
  
  14 - public CandidatoParseControle(IndicesParse<Candidato> indicesParse)
  
@@ -30,11 +30,41 @@
  
  7 - public class CargoParseControle extends ParseControle<Cargo>
  Comentário: Class used to control comparison and registration of instances of Class Position
- Sugestão: Manter comentário
+ Sugestão: Manter comentário sobre a classe
  
  14 - public CargoParseControle(IndicesParse<Cargo> indicesParse)
  
  23 - public Cargo novaInstancia()
  
  34 - public boolean iguais(Cargo objetoUm, Cargo objetoDois)
+ 
+ 
+ / parse.controle / DespesaParseControle.java
+ 
+ 7 - public class DespesaParseControle extends ParseControle<Despesa>
+ Comentário: Class used to control comparison and registration of instances of Class Expense
+ Sugestão: Manter comentário sobre a classe
+ 
+ 14 - public DespesaParseControle(IndicesParse<Despesa> indicesParse)
+ 
+ 23 - public Despesa novaInstancia()
+ 
+ 34 - public boolean iguais(Despesa objetoUm, Despesa objetoDois)
+ 
+ 
+ / parse.controle / DoadorParseControle.java
+ 
+ 7 - public class DoadorParseControle extends ParseControle<Doador>
+ Comentário: Class used to control comparison and registration of instances of Class Donor
+ Sugestão: Manter comentário sobre a classe
+ 
+ 14 - public DoadorParseControle(IndicesParse<Doador> indicesParse)
+ 
+ 23 - public Doador novaInstancia()
+ 
+ 34 - public boolean iguais(Doador objetoUm, Doador objetoDois)
+ 
+ 
+ 
+ 
  
