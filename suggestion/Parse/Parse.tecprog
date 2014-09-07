@@ -1,4 +1,4 @@
- / parse.controle / CampanhaParseControle
+ / parse.controle / CampanhaParseControle.java
  
  10 - public class CampanhaParseControle extends ParseControle<Campanha>
  Comentário: Class used to control comparison and registration of instances of Class Campaign
@@ -12,4 +12,29 @@
  
  45 - public void cadastrarInstancias() throws ParseException
  
+ 
+ / parse.controle / CandidatoParseControle.java
+ 
+ 7 - public class CandidatoParseControle extends ParseControle<Candidato>
+ Comentário: Class used to control comparison and registration of instances of Class Candidate
+ Sugestão: Manter comentário
+ 
+ 14 - public CandidatoParseControle(IndicesParse<Candidato> indicesParse)
+ 
+ 23 - public Candidato novaInstancia()
+ 
+ 34 - public boolean iguais(Candidato objetoUm, Candidato objetoDois)
+ 
+ 
+ / parse.controle / CargoParseControle.java
+ 
+ 7 - public class CargoParseControle extends ParseControle<Cargo>
+ Comentário: Class used to control comparison and registration of instances of Class Position
+ Sugestão: Manter comentário
+ 
+ 14 - public CargoParseControle(IndicesParse<Cargo> indicesParse)
+ 
+ 23 - public Cargo novaInstancia()
+ 
+ 34 - public boolean iguais(Cargo objetoUm, Cargo objetoDois)
  
