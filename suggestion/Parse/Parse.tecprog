@@ -65,6 +65,61 @@
  34 - public boolean iguais(Doador objetoUm, Doador objetoDois)
  
  
+ / parse.controle / FornecedorParseControle.java
+ 
+ 7 - public class FornecedorParseControle extends ParseControle<Fornecedor>
+ Comentário: Class used to control comparison and registration of instances of Class Supplier
+ Sugestão: Manter comentário sobre a classe
+ 
+ 14 - public FornecedorParseControle(IndicesParse<Fornecedor> indicesParse)
+ 
+ 23 - public Fornecedor novaInstancia()
+ 
+ 34 - public boolean iguais(Fornecedor objetoUm, Fornecedor objetoDois)
+ 
+ 
+ / parse.controle / ParseControle.java
+ 
+ 9 - public abstract class ParseControle<O>
+ Comentário: Abstract class for template methods to be used by subclasses to parse control
+ Sugestão: Manter comentário sobre a classe
+ 
+ 16 - private O objetoVazio;
+ 
+ 17 - private ParseDAO<O> basicoDAO;
+ 
+ 18 - private IndicesParse<O> indicesParse;
+ 
+ 19 - protected ArrayList<O> listaInstancias;
+ 
+ 22 - public ParseControle(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO)
+ 
+ 31 - public abstract O novaInstancia()
+ 
+ 34 - public abstract boolean iguais(O objetoUm, O objetoDois)
+ 
+ 40 - public void addInstancia(String campo[])
+ 
+ 53 - public void addInstanciaIgual(String campo[])
+ 
+ 63 - public void cadastrarInstancias() throws ParseException
+ 
+ 70 - public void resetar()
+ 
+ 79 - private O fazerNovaInstancia(String campo[])
+ 
+ 
+ / parse.controle / PartidoParseControle.java
+ 
+ 7 - public class PartidoParseControle extends ParseControle<Partido>
+ Comentário: Class used to control comparison and registration of instances of Class Party
+ Sugestão: Manter comentário da classe
+ 
+ 14 - public PartidoParseControle(IndicesParse<Partido> indicesParse)
+ 
+ 23 - public Partido novaInstancia()
+ 
+ 34 - public boolean iguais(Partido objetoUm, Partido objetoDois)
  
  
  
