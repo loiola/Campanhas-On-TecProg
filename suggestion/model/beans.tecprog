@@ -1,0 +1,77 @@
+/ modelo / beans
+Sugestão: / model / bean
+
+/ beans / Campanha.java
+
+CLASS
+
+3 - public class Campanha
+Comentário: This class is responsable for getting the Campaign's informations
+Sugestão: Campaign
+
+CONSTANTS
+
+11 - public static final String STRING_VAZIO = "";
+Sugestão: EMPTY_TYPE_STRING
+
+12 - public static final Integer INTEGER_VAZIO = 0;
+Sugestão: EMPTY_TYPE_INTEGER
+
+13 - public static final Resultado RESULTADO_VAZIO = new Resultado();
+Sugestão: EMPTY_CLASS_RESULT
+
+14 - public static final Partido PARTIDO_VAZIO = new Partido();
+Sugestão: EMPTY_CLASS_PARTY
+
+15 - public static final Cargo CARGO_VAZIO = new Cargo();
+Sugestão: EMPTY_CLASS_POSITION
+
+16 - public static final Candidato CANDIDATO_VAZIO = new Candidato(); 
+Sugestão: EMPTY_CLASS_CANDIDATE
+
+17 - public static final float FLOAT_VAZIO = (float) 0.0;
+Sugestão: EMPTY_TYPE_FLOAT
+
+ATTRIBUTES
+
+20 - private Integer id;
+Sugestão: Identifier campaignId
+
+21 - private Resultado resultado;
+Sugestão: campaignResult
+
+22 - private Cargo cargo;
+Sugestão: campaignPosition
+
+23 - private Partido partido;
+Sugestão: campaignParty
+
+24 - private Candidato candidato;
+Sugestão: campaignCandidate
+
+25 - private Integer ano;
+Sugestão: Year campaignYear
+
+26 - private Integer numeroCandidato;
+Sugestão: CandidateNumber candidateNumber
+
+27 - private String nomeDeUrna;
+Sugestão: Name nameOfUrn;
+
+28 - private String uf;
+Sugestão: CountryState federativeUnity
+
+29 - private Float despesaMaxDeclarada;
+Sugestão: maximumExpenseDeclared
+
+30 - private Float despesaTotalCalculada;
+Sugestão: totalExpenseCalculated
+
+31 - private Float receitaTotalCalculada;
+Sugestão: totalRevenueCalculated
+
+CONSTRUCTOR
+
+34 - public Campanha()
+Comentário: Empty Constructor
+Sugestão: Campaign
