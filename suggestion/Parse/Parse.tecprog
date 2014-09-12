@@ -1,3 +1,5 @@
+ Pacote: parse.controle
+ 
  / parse.controle / CampanhaParseControle.java
  
  10 - public class CampanhaParseControle extends ParseControle<Campanha>
@@ -148,5 +150,54 @@
  34 - public boolean iguais(Resultado objetoUm, Resultado objetoDois)
  
  
+ Pacote: parse.indices
+ 
+ / parse.indices / CampanhaIndicesParse.java
+ 
+ 9 - public class CampanhaIndicesParse extends IndicesParse<Campanha>
+ Comentário: Class to control the indices of the information inherent in electoral campaigns
+ Sugestão: Manter comentário da classe
+ 
+ 16 - private int indiceResultadoCod
+ 
+ 17 - private int indiceCargoCod
+ 
+ 18 - private int indicePartidoNumero
+ 
+ 19 - private int indiceCandidatoTitulo
+ 
+ 20 - private int indiceAno
+ 
+ 21 - private int indiceNumeroCandidato
+ 
+ 22 - private int indiceNomeDeUrna
+ 
+ 23 - private int indiceUf
+ 
+ 24 - private int indiceDespesaMaxDeclarada
+ 
+ 27 - public CampanhaIndicesParse()
+ 
+ 46 - protected void setIndicesValidos(Campanha campanha, String[] campo)
+ 
+ 90 - protected void setVazioEmTodosOsSetters(Campanha campanha)
+ 
+ 106 - public void setIndiceResultadoCod(int indiceResultadoId)
+ 
+ 110 - public void setIndiceCargoCod(int indiceCargoId)
+ 
+ 114 - public void setIndicePartidoNumero(int indicePartidoNumero)
+ 
+ 118 - public void setIndiceCandidatoTitulo(int indiceCandidatoTitulo)
+ 
+ 122 - public void setIndiceAno(int indiceAno)
+ 
+ 126 - public void setIndiceNumeroCandidato(int indiceNumeroCandidato)
+ 
+ 130 - public void setIndiceNomeDeUrna(int indiceNomeDeUrna)
+ 
+ 134 - public void setIndiceUf(int indiceUf)
+ 
+ 138 - public void setIndiceDespesaMaxDeclarada(int indiceDespesaMaxDeclarada)
  
  
