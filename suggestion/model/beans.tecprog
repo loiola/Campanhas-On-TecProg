@@ -35,7 +35,7 @@ Sugestão: EMPTY_TYPE_FLOAT
 ATTRIBUTES
 
 20 - private Integer id;
-Sugestão: Identifier campaignId
+Sugestão: Identifier campaignIdentifier
 
 21 - private Resultado resultado;
 Sugestão: campaignResult
@@ -75,3 +75,62 @@ CONSTRUCTOR
 34 - public Campanha()
 Comentário: Empty Constructor
 Sugestão: Campaign
+
+GETTERS AND SETTERS
+
+50 - public Integer getId()
+Sugestão: Identifier getCampaignIdentifier()
+
+54 - public void setId(Integer id)
+Sugestão: void setCampaignIdentifier(Identifier campaignIdentifier) 
+
+58 - public Resultado getResultado()
+Sugestão: Result getCampaignResult()
+
+62 - public void setResultado(Resultado resultado)
+
+66 - public Cargo getCargo()
+
+70 - public void setCargo(Cargo cargo)
+
+74 - public Partido getPartido()
+
+78 - public void setPartido(Partido partido)
+
+82 - public Candidato getCandidato()
+
+86 - public void setCandidato(Candidato candidato)
+
+90 - public Integer getAno()
+
+94 - public void setAno(Integer ano)
+
+98 - public Integer getNumeroCandidato()
+
+102 - public void setNumeroCandidato(Integer numeroCandidato)
+
+106 - public String getNomeDeUrna()
+
+110 - public void setNomeDeUrna(String nomeDeUrna)
+
+114 - public String getUf()
+	
+118 - public void setUf(String uf)
+	
+122 - public Float getDespesaMaxDeclarada()
+	
+126 - public void setDespesaMaxDeclarada(Float despesaMaxDeclarada)
+
+130 - public Float getDespesaTotalCalculada()
+
+134 - public void setDespesaTotalCalculada(Float despesaTotalCalculada)
+
+138 - public Float getReceitaTotalCalculada()
+
+142 - public void setReceitaTotalCalculada(Float receitaTotalCalculada)
+	
+
+METHODS
+
+@Override
+148 - public boolean equals(Object object)
