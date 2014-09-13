@@ -2,246 +2,288 @@
  
  / parse.controle / CampanhaParseControle.java
  
- 10 - public class CampanhaParseControle extends ParseControle<Campanha>
+ public class CampanhaParseControle extends ParseControle<Campanha>
  Comentário: Class used to control comparison and registration of instances of Class Campaign
  Sugestão: Manter comentário sobre a classe
  
- 17 - public CampanhaParseControle(IndicesParse<Campanha> indicesParse)
+ public CampanhaParseControle(IndicesParse<Campanha> indicesParse)
  Sugestão: public ParseControlCampaign(IndicesParse<Campaign> indicesParse)
  
- 26 - public Campanha novaInstancia()
+ public Campanha novaInstancia()
  Sugestão: public Campaign newInstance()
  
- 37 - public boolean iguais(Campanha objetoUm, Campanha objetoDois)
+ public boolean iguais(Campanha objetoUm, Campanha objetoDois)
  Sugestão: public boolean equalObjects(Campaign objectOne, Campaign objectTwo)
  
- 45 - public void cadastrarInstancias() throws ParseException
+ public void cadastrarInstancias() throws ParseException
  Sugestão: public void registeringInstances() throws ParseException
  
+----------------------------------------------------------------------------------------------------
  
  / parse.controle / CandidatoParseControle.java
  
- 7 - public class CandidatoParseControle extends ParseControle<Candidato>
+ public class CandidatoParseControle extends ParseControle<Candidato>
  Comentário: Class used to control comparison and registration of instances of Class Candidate
  Sugestão: Manter comentário sobre a classe
  
- 14 - public CandidatoParseControle(IndicesParse<Candidato> indicesParse)
+ public CandidatoParseControle(IndicesParse<Candidato> indicesParse)
  Sugestão: public ParseControlCandidate(IndicesParse<Candidate> indicesParse)
  
- 23 - public Candidato novaInstancia()
+ public Candidato novaInstancia()
  Sugestão: public Candidate newInstance()
  
- 34 - public boolean iguais(Candidato objetoUm, Candidato objetoDois)
+ public boolean iguais(Candidato objetoUm, Candidato objetoDois)
  Sugestão: public boolean equalObjects(Candidate objectOne, Candidate objectTwo)
  
+----------------------------------------------------------------------------------------------------
  
  / parse.controle / CargoParseControle.java
  
- 7 - public class CargoParseControle extends ParseControle<Cargo>
+ public class CargoParseControle extends ParseControle<Cargo>
  Comentário: Class used to control comparison and registration of instances of Class Position
  Sugestão: Manter comentário sobre a classe
  
- 14 - public CargoParseControle(IndicesParse<Cargo> indicesParse)
+ public CargoParseControle(IndicesParse<Cargo> indicesParse)
  Sugestão: public ParseControlPosition(IndicesParse<Position> indicesParse)
  
- 23 - public Cargo novaInstancia()
+ public Cargo novaInstancia()
  Sugestão: public Position newInstance()
  
- 34 - public boolean iguais(Cargo objetoUm, Cargo objetoDois)
+ public boolean iguais(Cargo objetoUm, Cargo objetoDois)
  Sugestão: public boolean equalObjects(Position objectOne, Position objectTwo)
- 
+
+---------------------------------------------------------------------------------------------------
  
  / parse.controle / DespesaParseControle.java
  
- 7 - public class DespesaParseControle extends ParseControle<Despesa>
+ public class DespesaParseControle extends ParseControle<Despesa>
  Comentário: Class used to control comparison and registration of instances of Class Expense
  Sugestão: Manter comentário sobre a classe
  
- 14 - public DespesaParseControle(IndicesParse<Despesa> indicesParse)
+ public DespesaParseControle(IndicesParse<Despesa> indicesParse)
  Sugestão: public ParseControlExpense(IndicesParse<Expense> indicesParse)
  
- 23 - public Despesa novaInstancia()
+ public Despesa novaInstancia()
  Sugestão: public Expense newInstance()
  
- 34 - public boolean iguais(Despesa objetoUm, Despesa objetoDois)
+ public boolean iguais(Despesa objetoUm, Despesa objetoDois)
  Sugestão: public boolean equalObjects(Expense objectOne, Expense objectTwo)
  
+----------------------------------------------------------------------------------------------------
  
  / parse.controle / DoadorParseControle.java
  
- 7 - public class DoadorParseControle extends ParseControle<Doador>
+ public class DoadorParseControle extends ParseControle<Doador>
  Comentário: Class used to control comparison and registration of instances of Class Donor
  Sugestão: Manter comentário sobre a classe
  
- 14 - public DoadorParseControle(IndicesParse<Doador> indicesParse)
+ public DoadorParseControle(IndicesParse<Doador> indicesParse)
  Sugestão: public ParseControlDonor(IndicesParse<Donor> indicesParse)
  
- 23 - public Doador novaInstancia()
+ public Doador novaInstancia()
  Sugestão: public Donor newInstance()
  
- 34 - public boolean iguais(Doador objetoUm, Doador objetoDois)
+ public boolean iguais(Doador objetoUm, Doador objetoDois)
  Sugestão: public boolean equalObject(Donor objectOne, Donor objectTwo)
- 
+
+----------------------------------------------------------------------------------------------------
  
  / parse.controle / FornecedorParseControle.java
  
- 7 - public class FornecedorParseControle extends ParseControle<Fornecedor>
+ public class FornecedorParseControle extends ParseControle<Fornecedor>
  Comentário: Class used to control comparison and registration of instances of Class Supplier
  Sugestão: Manter comentário sobre a classe
  
- 14 - public FornecedorParseControle(IndicesParse<Fornecedor> indicesParse)
+ public FornecedorParseControle(IndicesParse<Fornecedor> indicesParse)
  Sugestão: public ParseControlSupplier(IndicesParse<Supplier> indicesParse)
  
- 23 - public Fornecedor novaInstancia()
+ public Fornecedor novaInstancia()
  Sugestão: public Supplier newInstance()
  
- 34 - public boolean iguais(Fornecedor objetoUm, Fornecedor objetoDois)
+ public boolean iguais(Fornecedor objetoUm, Fornecedor objetoDois)
  Sugestão: public boolean equalObjects(Supplier objectOne, Supplier objectTwo)
- 
+
+----------------------------------------------------------------------------------------------------
  
  / parse.controle / ParseControle.java
  
- 9 - public abstract class ParseControle<O>
+ public abstract class ParseControle<O>
  Comentário: Abstract class for template methods to be used by subclasses to parse control
  Sugestão: Manter comentário sobre a classe
  
- 16 - private O objetoVazio
+ private O objetoVazio
  Sugestão: private O emptyObject
  Comentário: Generic instance for empty attributes
  
- 17 - private ParseDAO<O> basicoDAO
+ private ParseDAO<O> basicoDAO
  Sugestão: private ParseDAO<O> basicDAO
  Comentário: Generic relationship instance with methods for data manipulation
  
- 18 - private IndicesParse<O> indicesParse
+ private IndicesParse<O> indicesParse
  Sugestão: private IndicesParse<O> indicesParse
  Comentário: Generic relationship instance with methods for indices manipulation
  
- 19 - protected ArrayList<O> listaInstancias
+ protected ArrayList<O> listaInstancias
  Sugestão: protected ArrayList<O> listOfInstances
  Comentário: Array with generic instances
  
- 22 - public ParseControle(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO)
+ public ParseControle(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO)
  Sugestão: public ParseControl(IndicesParse<O> indicesParse, ParseDAO<O> basicDAO)
  
- 31 - public abstract O novaInstancia()
+ public abstract O novaInstancia()
  Sugestão: public abstract O newInstance()
  
- 34 - public abstract boolean iguais(O objetoUm, O objetoDois)
+ public abstract boolean iguais(O objetoUm, O objetoDois)
  Sugestão: public abstract boolean equalObjects(O objectOne, O objectTwo)
  
- 40 - public void addInstancia(String campo[])
+ public void addInstancia(String campo[])
  Sugestão: public void addInstance(String field[])
  
- 53 - public void addInstanciaIgual(String campo[])
+ public void addInstanciaIgual(String campo[])
  Sugestão: public void addEqualInstance(String field[])
  
- 63 - public void cadastrarInstancias() throws ParseException
+ public void cadastrarInstancias() throws ParseException
  Sugestão: public void registeringInstances() throws ParseException
  
- 70 - public void resetar()
+ public void resetar()
  Sugestão: public void clear()
  
- 79 - private O fazerNovaInstancia(String campo[])
+ private O fazerNovaInstancia(String campo[])
  Sugestão: private O makeNewInstance(String field[])
- 
+
+----------------------------------------------------------------------------------------------------
  
  / parse.controle / PartidoParseControle.java
  
- 7 - public class PartidoParseControle extends ParseControle<Partido>
+ public class PartidoParseControle extends ParseControle<Partido>
  Comentário: Class used to control comparison and registration of instances of Class Party
  Sugestão: Manter comentário da classe
  
- 14 - public PartidoParseControle(IndicesParse<Partido> indicesParse)
+ public PartidoParseControle(IndicesParse<Partido> indicesParse)
  Sugestão: public ParseControlParty(IndicesParse<Party> indicesParse)
  
- 23 - public Partido novaInstancia()
+ public Partido novaInstancia()
  Sugestão: public Party newInstance()
  
- 34 - public boolean iguais(Partido objetoUm, Partido objetoDois)
+ public boolean iguais(Partido objetoUm, Partido objetoDois)
  Sugestão: public boolean equalObjects(Party objectOne, Party objectTwo)
- 
+
+---------------------------------------------------------------------------------------------------
  
  / parse.controle / ReceitaParseControle.java
  
- 7 - public class ReceitaParseControle extends ParseControle<Receita>
+ public class ReceitaParseControle extends ParseControle<Receita>
  Comentário: Class used to control comparison and registration of instances of Class Revenue
  Sugestão: Manter comentário da classe
  
- 14 - public ReceitaParseControle(IndicesParse<Receita> indicesParse)
+ public ReceitaParseControle(IndicesParse<Receita> indicesParse)
  Sugestão: public ParseControlRevenue(IndicesParse<Revenue> indicesParse)
  
- 23 - public Receita novaInstancia()
+ public Receita novaInstancia()
  Sugestão: public Revenue newInstance()
  
- 34 - public boolean iguais(Receita objetoUm, Receita objetoDois)
+ public boolean iguais(Receita objetoUm, Receita objetoDois)
  Sugestão: public boolean equalObjects(Revenue objectOne, Revenue objectTwo)
- 
+
+---------------------------------------------------------------------------------------------------
  
  / parse.controle / ResultadoParseControle.java
  
- 7 - public class ResultadoParseControle extends ParseControle<Resultado>
+ public class ResultadoParseControle extends ParseControle<Resultado>
  Comentário: Class used to control comparison and registration of instances of Class Result
  Sugestão: Manter comentário da classe
  
- 14 - public ResultadoParseControle(IndicesParse<Resultado> indicesParse)
+ public ResultadoParseControle(IndicesParse<Resultado> indicesParse)
  Sugestão: public ParseControlResult(IndicesParse<Result> indicesParse)
  
- 23 - public Resultado novaInstancia()
+ public Resultado novaInstancia()
  Sugestão: public Result newInstance()
  
- 34 - public boolean iguais(Resultado objetoUm, Resultado objetoDois)
+ public boolean iguais(Resultado objetoUm, Resultado objetoDois)
  Sugestão: public boolean equalObjects(Result objectOne, Result ObjectTwo)
- 
+
+--------------------------------------------------------------------------------------------------
  
  Pacote: parse.indices
  
  / parse.indices / CampanhaIndicesParse.java
  
- 9 - public class CampanhaIndicesParse extends IndicesParse<Campanha>
+ public class CampanhaIndicesParse extends IndicesParse<Campanha>
  Comentário: Class to control the indices of the information inherent in electoral campaigns
  Sugestão: Manter comentário da classe
  
- 16 - private int indiceResultadoCod
+ private int indiceResultadoCod
+ Sugestão: private int indexCodeResult
+ Comentário: Variable to index the result code of the election campaign
  
- 17 - private int indiceCargoCod
+ private int indiceCargoCod
+ Sugestão: private int indexCodePosition
+ Comentário: Variable to index the position code of the election campaign
  
- 18 - private int indicePartidoNumero
+ private int indicePartidoNumero
+ Sugestão: private int indexNumberParty
+ Comentário: Variable to the index number of the political party
  
- 19 - private int indiceCandidatoTitulo
+ private int indiceCandidatoTitulo
+ Sugestão: private int indexTitleCandidate
+ Comentário: Variable to the index candidate's title
  
- 20 - private int indiceAno
+ private int indiceAno
+ Sugestão: private int indexYear
+ Comentário: Variable to the index year of the election campaign
  
- 21 - private int indiceNumeroCandidato
+ private int indiceNumeroCandidato
+ Sugestão: private int indexNumberCandidate
+ Comentário: Variable to the index number of the candidate
  
- 22 - private int indiceNomeDeUrna
+ private int indiceNomeDeUrna
+ Sugestão: private int indexUrnName
+ Comentário: Variable to the index urn name of the candidate
  
- 23 - private int indiceUf
+ private int indiceUf
+ Sugestão: private int indexUnitFederation
+ Comentário: Variable to the index of Unit Federation
  
- 24 - private int indiceDespesaMaxDeclarada
+ private int indiceDespesaMaxDeclarada
+ Sugestão: private int indexMaximumExpenseDeclared
+ Comentário: Variable to the index of maximum expense declared
  
- 27 - public CampanhaIndicesParse()
+ public CampanhaIndicesParse()
+ Sugestão: public CampaignParseIndices()
  
- 46 - protected void setIndicesValidos(Campanha campanha, String[] campo)
+ protected void setIndicesValidos(Campanha campanha, String[] campo)
+ Sugestão: protected void setValidIndices(Campaign campaign, String[] field)
  
- 90 - protected void setVazioEmTodosOsSetters(Campanha campanha)
+ protected void setVazioEmTodosOsSetters(Campanha campanha)
+ Sugestão: protected void setEmptyInAllSetters(Campaign campaign)
  
- 106 - public void setIndiceResultadoCod(int indiceResultadoId)
+ public void setIndiceResultadoCod(int indiceResultadoId)
+ Sugestão: public void setIndexCodeResult(int indexCodeResult)
  
- 110 - public void setIndiceCargoCod(int indiceCargoId)
+ public void setIndiceCargoCod(int indiceCargoId)
+ Sugestão: public void setIndexCodePosition(int indexCodePosition)
  
- 114 - public void setIndicePartidoNumero(int indicePartidoNumero)
+ public void setIndicePartidoNumero(int indicePartidoNumero)
+ Sugestão: public void setIndexNumberParty(int indexNumberParty)
  
- 118 - public void setIndiceCandidatoTitulo(int indiceCandidatoTitulo)
+ public void setIndiceCandidatoTitulo(int indiceCandidatoTitulo)
+ Sugestão: public void setIndexTitleCandidate(int indexTitleCandidate)
  
- 122 - public void setIndiceAno(int indiceAno)
+ public void setIndiceAno(int indiceAno)
+ Sugestão: public void setIndexYear(int indexYear)
  
- 126 - public void setIndiceNumeroCandidato(int indiceNumeroCandidato)
+ public void setIndiceNumeroCandidato(int indiceNumeroCandidato)
+ Sugestão: public void setIndexNumberCandidate(int indexNumberCandidate)
  
- 130 - public void setIndiceNomeDeUrna(int indiceNomeDeUrna)
+ public void setIndiceNomeDeUrna(int indiceNomeDeUrna)
+ Sugestão: public void setIndexUrnName(int indexUrnName)
  
- 134 - public void setIndiceUf(int indiceUf)
+ public void setIndiceUf(int indiceUf)
+ Sugestão: public void setIndexUnitFederation(int indexUnitFederation)
  
- 138 - public void setIndiceDespesaMaxDeclarada(int indiceDespesaMaxDeclarada)
+ public void setIndiceDespesaMaxDeclarada(int indiceDespesaMaxDeclarada)
+ Sugestão: public void setIndexMaximumExpenseDeclared(int indexMaximumExpenseDeclared)
+ 
+--------------------------------------------------------------------------------------------------
  
  
