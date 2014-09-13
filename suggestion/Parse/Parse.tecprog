@@ -285,5 +285,37 @@
  Sugestão: public void setIndexMaximumExpenseDeclared(int indexMaximumExpenseDeclared)
  
 --------------------------------------------------------------------------------------------------
+
+ / parse.indices / CandidatoIndicesParse.java
  
+ public class CandidatoIndicesParse extends IndicesParse<Candidato>
+ Comentário: Class to control the contents of information inherent to the candidates
+ Sugestão: Manter comentário da classe
+ 
+ private int indiceNome
+ Sugestão: private int indexName
+ Comentário: Variable to the index of the candidate's name
+ 
+ private int indiceTituloEleitoral
+ Sugestão: private int indexElectionTitle
+ Comentário: Variable to the index of the candidate's election title
+ 
+ public CandidatoIndicesParse()
+ Sugestão: public CandidateParseIndices()
+ 
+ protected void setIndicesValidos(Candidato candidato, String[] campo)
+ Sugestão: protected void setValidIndices(Candidate candidate, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(Candidato candidato)
+ Sugestão: protected void setEmptyInAllSetters(Candidate candidate)
+ 
+ public void setIndiceTituloEleitoral(int indiceTituloEleitoral)
+ Sugestão: public void setIndexElectionTitle(int indexElectionTitle)
+ 
+ public void setIndiceNome(int indiceNome)
+ Sugestão: public void setIndexName(int indexName)
+
+--------------------------------------------------------------------------------------------------
+
+
  
