@@ -164,3 +164,56 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+CLASS
+
+public class Candidato
+Comentário: This class is responsable for getting the Candidate's informations
+
+CONSTANTS
+
+public static final String  STRING_VAZIO = "";
+Sugestão: EMPTY_TYPE_STRING
+
+public static final Integer  INTEGER_VAZIO = 0;
+Sugestão: EMPTY_TYPE_INTEGER
+
+ATTRIBUTES
+
+private String nome
+Sugestão: Name candidateName
+
+private String tituloEleitoral;
+Sugestão: ElectoralTitle candidateElectoralTitle
+
+CONSTRUCTOR
+
+public Candidato()
+Comentário: Empty Constructor (NECESSÁRIO?)
+Sugestão: Candidate()
+
+GETTERS AND SETTERS
+
+public String getNome()
+Sugestão: Name getCandidateName()
+
+public void setNome(String nome)
+Sugestão: void setCandidateName(Name candidateName)
+
+public String getTituloEleitoral()
+Sugestão: ElectoralTitle getCandidateElectoralTitle()
+
+public void setTituloEleitoral(String tituloEleitoral)
+Sugestão: void setCandidateElectoralTitle(ElectoralTitle candidateElectoralTitle)
+
+METHOD
+
+public boolean equals(Object object)
+Comentário: Necessário!! Sugestão:
+/* 
+ * This method makes a comparisson between an object from this class and others bean`s objects
+ * @param An Object who Equals Method compare the owner to another object
+ * @return Boolean TRUE if objects are Equals, FALSE if are not
+ */
+Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
+
+-----------------------------------------------------
