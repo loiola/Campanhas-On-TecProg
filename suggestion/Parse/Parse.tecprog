@@ -435,3 +435,83 @@
  
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / FornecedorIndicesParse.java
+
+ public class FornecedorIndicesParse extends IndicesParse<Fornecedor>
+ Comentário: Class to control the contents of information inherent to the suppliers
+ Sugestão: Manter comentário da classe
+ 
+ public static final int INDICE_INVALIDO
+ Sugestão: public static final int INVALID_INDEX
+ Comentário: Constant for convention invalid index
+ 
+ private int indiceCpf_Cnpj
+ Sugestão: private int indexSupplierCpfCnpj
+ Comentário: Variable to the index of the CPF / CNPJ supplier
+ 
+ private int indiceNome
+ Sugestão: private int indexName
+ Comentário: Variable to the index of the name of the supplier
+ 
+ private int indiceUf
+ Sugestão: private int indexUnitFederation
+ Comentário: Variable to the index unit federation supplier
+ 
+ private int indiceSituacaoCadastral
+ Sugestão: private int indexRegistrationStatus
+ Comentário: Variable to the index on the status of the supplier with the IRS
+ 
+ public FornecedorIndicesParse()
+ Sugestão: public SupplierParseIndices()
+ 
+ protected void setIndicesValidos(Fornecedor fornecedor, String[] campo)
+ Sugestão: protected void setValidIndices(Supplier Supplier, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(Fornecedor fornecedor)
+ Sugestão: protected void setEmptyInAllSetters(Supplier Supplier)
+ 
+ public void setIndiceCpf_Cnpj(int indiceCpf_Cnpj)
+ Sugestão: public void setIndexSupplierCpfCnpj(int indexSupplierCpfCnpj)
+ 
+ public void setIndiceNome(int indiceNome)
+ Sugestão: public void setIndexName(int indexName)
+ 
+ public void setIndiceUf(int indiceUf)
+ Sugestão: public void setIndexUnitFederation(int indexUnitFederation)
+ 
+ public void setIndiceSituacaoCadastral(int indiceSituacaoCadastral)
+ Sugestão: public void setIndexRegistrationStatus(int indexRegistrationStatus)
+ 
+--------------------------------------------------------------------------------------------------
+
+ / parse.indices / IndicesParse.java
+ 
+ public abstract class IndicesParse<O>
+ Comentário: Abstract class for inserting a template for subclasses of indexes parse
+ Sugestão: Manter comentário da classe
+ 
+ public static final int INDICE_INVALIDO
+ Sugestão: public static final int INVALID_INDEX
+ Comentário: Constant for convention invalid index
+ 
+ public IndicesParse()
+ Sugestão: public ParseIndices()
+ 
+ public void iniciarInstancia(O objeto, String campo[])
+ Sugestão: public void startInstance(O object, String field[])
+ 
+ private void reiniciarInstancia(O objeto)
+ Sugestão: private void restartInstance(O object)
+ 
+ protected abstract void setIndicesValidos(O objeto, String campo[])
+ Sugestão: protected abstract void setValidIndices(O object, String field[])
+ 
+ protected abstract void setVazioEmTodosOsSetters(O objeto)
+ Sugestão: protected abstract void setEmptyInAllSetters(O object)
+ 
+ protected boolean indiceValido(int indice)
+ Sugestão: protected boolean validIndice(int index)
+
+--------------------------------------------------------------------------------------------------
+
+
