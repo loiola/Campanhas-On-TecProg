@@ -348,3 +348,40 @@
 
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / DespesaIndicesParse.java
+ 
+ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Despesa>
+ Comentário: Class to control the contents of information inherent to the expenses
+ Sugestão: Manter comentário da classe
+ 
+ private int indiceFornecedorNome
+ Sugestão: private int indexNameSupplier
+ Comentário: Variable to the index supplier name
+ 
+ private int indiceFornecedorCpfCnpj
+ Sugestão: private int indexCpfCnpjSupplier
+ Comentário: Variable to the index of the CPF / CNPJ supplier
+ 
+ private int indiceTipoDocumento
+ Sugestão: private int indexDocumentType
+ Comentário: Variable to the index of the document type of financial transaction
+ 
+ public DespesaIndicesParse(String ano)
+ Sugestão: public ExpenseParseIndices(String year)
+ 
+ protected void setIndicesValidos(Despesa despesa, String[] campo)
+ Sugestão: protected void setValidIndices(Expense expense, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(Despesa despesa)
+ Sugestão: protected void setEmptyInAllSetters(Expense expense)
+ 
+ public void setIndiceFornecedorNome(int indiceFornecedorNome)
+ Sugestão: public setIndexNameSupplier(int indexNameSupplier)
+ 
+ public void setIndiceFornecedorCpfCnpj(int indiceFornecedorCpfCnpj)
+ Sugestão: public void setIndexCpfCnpjSupplier(int indexCpfCnpjSupplier)
+ 
+ public void setIndiceTipoDocumento(int indiceTipoDocumento)
+ Sugestão: public void setIndexDocumentType(int indexDocumentType)
+
+--------------------------------------------------------------------------------------------------
