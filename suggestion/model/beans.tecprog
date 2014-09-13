@@ -12,63 +12,63 @@ Sugestão: Campaign
 
 CONSTANTS
 
-public static final String STRING_VAZIO = "";
+public static final String STRING_VAZIO = ""
 Sugestão: EMPTY_TYPE_STRING
 
-public static final Integer INTEGER_VAZIO = 0;
+public static final Integer INTEGER_VAZIO = 0
 Sugestão: EMPTY_TYPE_INTEGER
 
-public static final Resultado RESULTADO_VAZIO = new Resultado();
+public static final Resultado RESULTADO_VAZIO = new Resultado()
 Sugestão: EMPTY_CLASS_RESULT
 
-public static final Partido PARTIDO_VAZIO = new Partido();
+public static final Partido PARTIDO_VAZIO = new Partido()
 Sugestão: EMPTY_CLASS_PARTY
 
-public static final Cargo CARGO_VAZIO = new Cargo();
+public static final Cargo CARGO_VAZIO = new Cargo()
 Sugestão: EMPTY_CLASS_POSITION
 
-public static final Candidato CANDIDATO_VAZIO = new Candidato(); 
+public static final Candidato CANDIDATO_VAZIO = new Candidato() 
 Sugestão: EMPTY_CLASS_CANDIDATE
 
-public static final float FLOAT_VAZIO = (float) 0.0;
+public static final float FLOAT_VAZIO = (float) 0.0
 Sugestão: EMPTY_TYPE_FLOAT
 
 ATTRIBUTES
 
-private Integer id;
+private Integer id
 Sugestão: Identifier campaignIdentifier
 
-private Resultado resultado;
+private Resultado resultado
 Sugestão: campaignResult
 
-private Cargo cargo;
+private Cargo cargo
 Sugestão: campaignPosition
 
-private Partido partido;
+private Partido partido
 Sugestão: campaignParty
 
-private Candidato candidato;
+private Candidato candidato
 Sugestão: campaignCandidate
 
-private Integer ano;
+private Integer ano
 Sugestão: Year campaignYear
 
-private Integer numeroCandidato;
+private Integer numeroCandidato
 Sugestão: CandidateNumber campaignCandidateNumber
 
-private String nomeDeUrna;
-Sugestão: Name campaignNameOfUrn;
+private String nomeDeUrna
+Sugestão: Name campaignNameOfUrn
 
-private String uf;
+private String uf
 Sugestão: CountryState campaignCountryState
 
-private Float despesaMaxDeclarada;
+private Float despesaMaxDeclarada
 Sugestão: Money campaignMaximumExpenseDeclared
 
-private Float despesaTotalCalculada;
+private Float despesaTotalCalculada
 Sugestão: Money campaignTotalExpenseCalculated
 
-private Float receitaTotalCalculada;
+private Float receitaTotalCalculada
 Sugestão: Money campaignTotalRevenueCalculated
 
 CONSTRUCTOR
@@ -168,13 +168,14 @@ CLASS
 
 public class Candidato
 Comentário: This class is responsable for getting the Candidate's informations
+Sugestão: Candidate
 
 CONSTANTS
 
-public static final String  STRING_VAZIO = "";
+public static final String  STRING_VAZIO = ""
 Sugestão: EMPTY_TYPE_STRING
 
-public static final Integer  INTEGER_VAZIO = 0;
+public static final Integer  INTEGER_VAZIO = 0
 Sugestão: EMPTY_TYPE_INTEGER
 
 ATTRIBUTES
@@ -182,7 +183,7 @@ ATTRIBUTES
 private String nome
 Sugestão: Name candidateName
 
-private String tituloEleitoral;
+private String tituloEleitoral
 Sugestão: ElectoralTitle candidateElectoralTitle
 
 CONSTRUCTOR
@@ -204,6 +205,58 @@ Sugestão: ElectoralTitle getCandidateElectoralTitle()
 
 public void setTituloEleitoral(String tituloEleitoral)
 Sugestão: void setCandidateElectoralTitle(ElectoralTitle candidateElectoralTitle)
+
+METHOD
+
+public boolean equals(Object object)
+Comentário: Necessário!! Sugestão:
+/* 
+ * This method makes a comparisson between an object from this class and others bean`s objects
+ * @param An Object who Equals Method compare the owner to another object
+ * @return Boolean TRUE if objects are Equals, FALSE if are not
+ */
+Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
+
+-----------------------------------------------------
+CLASS
+
+public class Cargo
+Comentário: This class is responsable for getting the Position's informations
+Sugestão: Position
+
+CONSTANTS
+
+public static final String  STRING_VAZIO = ""
+Sugestão: EMPTY_TYPE_STRING
+
+public static final Integer  INTEGER_VAZIO = 0
+Sugestão: EMPTY_TYPE_INTEGER
+
+ATTRIBUTES
+
+private Integer codigo
+Sugestão: PositionCode positionCode
+private String positionDescription
+
+CONSTRUCTOR
+
+public Cargo()
+Comentário: Empty Constructor (NECESSÁRIO?)
+Sugestão: Position()
+
+GETTERS AND SETTERS
+
+public Integer getCodigo()
+Sugestão: PositionCode getPositionCode()
+
+public void setCodigo(int codigo)
+Sugestão: void setPositionCode(PositionCode positionCode)
+
+public String getDescricao()
+Sugestão: String getPositionDescription()
+
+public void setDescricao(String descricao)
+Sugestão: void setPositionDescription(String positionDescription)
 
 METHOD
 
