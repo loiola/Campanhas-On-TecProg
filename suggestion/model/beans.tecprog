@@ -208,6 +208,7 @@ Sugestão: void setCandidateElectoralTitle(ElectoralTitle candidateElectoralTitl
 
 METHOD
 
+@Override
 public boolean equals(Object object)
 Comentário: Necessário!! Sugestão:
 /* 
@@ -260,6 +261,7 @@ Sugestão: void setPositionDescription(String positionDescription)
 
 METHOD
 
+@Override
 public boolean equals(Object object)
 Comentário: Necessário!! Sugestão:
 /* 
@@ -309,5 +311,73 @@ Sugestão: Supplier getExpenseSupplier()
 
 public void setFornecedor(Fornecedor fornecedor)
 Sugestão: void setExpenseSupplier(Supplier expenseSupplier)
+
+-----------------------------------------------------
+CLASS
+
+public class Doador
+Comentário: This class is responsable for getting the Donor's informations
+Sugestão: Donor
+
+CONSTANT
+
+public static final String  STRING_VAZIO = ""
+Sugestão: EMPTY_TYPE_STRING
+
+ATTRIBUTES
+
+private String cpf_cnpj
+Sugestão: PersonRegister donorPersonRegister
+
+private String nome
+Sugestão: Name donorName
+
+private String uf
+Sugestão: CountryState donorCountryState
+
+private String situacaoCadastral
+Sugestão: RegisterSituation donorRegisterSituation
+
+CONSTRUCTOR
+
+public Doador()
+Comentário: Empty Constructor (NECESSÁRIO?)
+Sugestão: Donor()
+
+GETTERS AND SETTERS
+
+public String getCpf_cnpj()
+Sugestão: PersonRegister getDonorPersonRegister
+
+public void setCpf_cnpj(String cpf_cnpj)
+Sugestão: void setDonorPersonRegister(PersonRegister donorPersonRegister)
+
+public String getNome()
+Sugestão: Name getDonorName()
+
+public void setNome(String nome)
+Sugestão: void setDonorName(Name donorName)
+
+public String getUf()
+Sugestão: CountryState getDonorCountryState()
+
+public void setUf(String uf)
+Sugestão: void setDonorCountryState(CountryState donorCountryState)
+
+public String getSituacaoCadastral()
+Sugestão: RegisterSituation getDonorRegisterSituation()
+
+public void setSituacaoCadastral(String situacaoCadastral)
+Sugestão: void setDonorRegisterSituation(RegisterSituation donorRegisterSituation)
+
+@Override
+public boolean equals(Object object)
+Comentário: Necessário!! Sugestão:
+/* 
+ * This method makes a comparisson between an object from this class and others bean`s objects
+ * @param An Object who Equals Method compare the owner to another object
+ * @return Boolean TRUE if objects are Equals, FALSE if are not
+ */
+Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
