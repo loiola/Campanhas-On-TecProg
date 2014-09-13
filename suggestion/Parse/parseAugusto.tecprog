@@ -1,0 +1,206 @@
+----------------------------------------------------------------------------------------------------
+ 
+ / parse.cadastro / CadastroParse.java
+ 
+ public abstract class CadastroParse<O>
+ Comentário: Generic class to be sites used in the classes of registration
+ Sugestão: RegisterParse<O>
+ 
+ protected int linhasLidas;
+ Comentário: Represents the lines read during the execution of the parse record
+ Sugestão: linesRead
+
+ protected int linhasParaFazerCadastro;
+ Comentário: Represents the read lines that will be used during the execution of the parse record
+ Sugestão: linesToRegister
+
+ protected IndicesParse<O> indicesParse;
+ Comentário: Represents the implementation of the parse entries of indices
+ Sugestão: indexParse<O>
+
+ protected ParseControle<O> parseControle;
+ Comentário: Represents the implementation of control over the records of the parse
+ Sugestão: controlParse<O>
+
+ public CadastroParse(String tipoArquivo, String ano) throws ParseException
+ Comentário: Manter o que está na classe
+ Sugestão: RegisterParse(String fileType, String yearOfCampaign)
+ 
+ public void executarLinhaDoArquivo(String campo[]) throws ParseException
+ Comentário: Manter o que está na classe
+ Sugestão: runFileLine(string field[])
+ 
+ public void cadastrarInstancias() throws ParseException 
+ Comentário: Manter o que está na classe
+ Sugestão: registerInstances()
+ 	
+ public abstract ParseControle<O> novaInstancia(IndicesParse<O> indicesParse);
+ Comentário: Manter o que está na classe
+ Sugestão: controlParse<O> newIntance (IndexParse<0> indexParse)
+
+---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / campanha / CadastroCampanhaParse.java
+
+ public class CadastroCampanhaParse
+ Comentário: Class used to extract Campaign attributes and forward the register to the Database
+ Sugestão: registerToParseCampaign 
+ 
+ public CadastroCampanhaParse(String tipoArquivo, String ano)
+ Comentário: Manter o que está na classe
+ Sugestão: registerToParseCampaign(String fileType, String yearOfCampaign)
+ 
+ CampanhaParseControle campanhaParseControle = new CampanhaParseControle(indicesParse)	
+ Sugestão: ParseControlCampaign = new ParseControlCampaign(indexParse)
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / campanha / CadastroCandidatoParse.java
+ 
+ public class CadastroCandidatoParse
+ Comentário: Class used to extract Candidate attributes and forward the register to the Database
+ Sugestão: registerToParseCandidate
+ 
+ public CadastroCandidatoParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseCandidate(String fileType, String yearOfCampaign)
+ 
+ CandidatoIndicesParse candidatoIndicesParse;
+ Sugestão: IndexParseCandidate indexParseCandidate 
+  
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / campanha / CadastroCargoParse.java
+ 
+ public class CadastroCargoParse
+ Comentário: Class used to extract Position attributes and forward the register to the Database
+ Sugestão: registerToParsePosition
+ 
+ public CadastroCargoParse(String tipoArquivo, String ano)
+ Sugestão: registerToParsePosition(String fileType, String yearOfCampaign)
+ 
+ CargoIndicesParse cargoIndicesParse
+ Sugestão: IndexParsePosition indexParsePosition
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / campanha / CadastroCargoParse.java
+ 
+ public class CadastroResultadoParse
+ Comentário: Class used to extract Result attributes and forward the register to the Database
+ Sugestão: registerToParseResult
+ 
+ public CadastroResultadoParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseResult(String fileType, String yearOfCampaign)
+ 
+ ResultadoIndicesParse resultadoIndicesParse;
+ Sugestão: IndexParseResult indexParseResult
+  
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / partido / CadastroPartidoParse.java
+ 
+ public class CadastroPartidoParse
+ Comentário: Class responsible for identifying the contents of the file to read and get information
+ Sugestão: registerToParseParty 
+ 
+ public CadastroPartidoParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseParty(String fileType, String yearOfCampaign)
+  
+ PartidoParseControle partidoIndicesParse;
+ Sugestão: ControlParseParty controlParseParty;
+ 
+ PartidoIndicesParse partidoIndicesParse;
+ Sugestão: IndexParseParty indexParseParty; 
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / receita_despesa / CadastroDespesaParse.java
+ 
+ public class CadastroDespesaParse
+ Comentário: Class used to extract Expense attributes and forward the register to the Database
+ Sugestão: registerToParseExpense 
+ 
+ public CadastroDespesaParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseExpense(String fileType, String yearOfCampaign)
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / receita_despesa / CadastroDoadorParse.java
+ 
+ public class CadastroDoadorParse
+ Comentário: Class used to extract Donor attributes and forward the register to the Database
+ Sugestão: registerToParseDonor
+ 
+ public CadastroDoadorParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseDonor(String fileType, String yearOfCampaign)
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / receita_despesa / CadastroFornecedorParse.java
+ 
+ public class CadastroFornecedorParse
+ Comentário: Class used to extract Supplier attributes and forward the register to the Database
+ Sugestão: registerToParseSupplier
+ 
+ public CadastroDoadorParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseSupplier(String fileType, String yearOfCampaign)
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / receita_despesa / CadastroParseReceitasDespesas.java
+ 
+ public abstract class CadastroParseReceitasDespesas<O>
+ Comentário: Generic class registration parse the supplier and expenses for new classes that implement
+ Sugestão: registerToParseRevenueAndExpenses
+ 
+ public static final String DESPESA = "despesa";
+ Comentário: Attribute that represents a campaign Expense
+ Sugestão: public static final String EXPENSE = "expense"
+ 
+ public static final String RECEITA = "receita";
+ Comentário: Attribute that represents a campaign Revenue
+ Sugestão: public static final String REVENUE = "revenue"
+
+ public static final String ANO_2002 = "2002";
+ Comentário: Attribute that represents the year 2002
+ Sugestão: public static final String YEAR_2002 = "2002"
+ 
+ public static final String ANO_2006 = "2006";
+ Comentário: Attribute that represents the year 2006
+ Sugestão: public static final String YEAR_2006 = "2006"
+ 
+ public static final String ANO_2010 = "2010";
+ Comentário: Attribute that represents the year 2010
+ Sugestão: public static final String YEAR_2010 = "2010"
+ 
+ protected abstract IndicesParse<O> getIndicesParseDespesa2002();
+ Comentário: Method to display the contents of the parse Expenses
+ Sugestão: public abstract indexParse<O> getIndexParseExpenses2002
+ 
+ protected abstract IndicesParse<O> getIndicesParseDespesa2006();
+ Sugestão: public abstract indexParse<O> getIndexParseExpenses2006
+ 
+ protected abstract IndicesParse<O> getIndicesParseDespesa2010();
+ Sugestão: public abstract indexParse<O> getIndexParseExpenses2010
+ 
+ protected abstract IndicesParse<O> getIndicesParseReceita2002();
+ Comentário:  Method to display the contents of the parse Revenue
+ Sugestão: public abstract indexParse<O> getIndexParseRevenue202
+ 
+ protected abstract IndicesParse<O> getIndicesParseReceita2006();
+ Sugestão: public abstract indexParse<O> getIndexParseRevenue206
+ 
+ protected abstract IndicesParse<O> getIndicesParseReceita2010();
+ Sugestão: public abstract indexParse<O> getIndexParseRevenue2010
+ 
+ ---------------------------------------------------------------------------------------------------
+ 
+ parse.cadastro / receita_despesa / CadastroReceitaParse.java
+ 
+ public class CadastroReceitaParse
+ Comentário: Class used to extract Revenue attributes and forward the register to the Database
+ Sugestão: registerToParseRevenue
+ 
+ public CadastroReceitaParse(String tipoArquivo, String ano)
+ Sugestão: registerToParseRevenue(String fileType, String yearOfCampaign)
+ 
