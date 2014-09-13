@@ -317,5 +317,34 @@
 
 --------------------------------------------------------------------------------------------------
 
-
+ / parse.indices/ CargoIndicesParse.java
  
+ public class CargoIndicesParse extends IndicesParse<Cargo>
+ Comentário: Class to control the contents of information inherent to the positions
+ Sugestão: Manter comentário da classe
+ 
+ private int indiceCodigo
+ Sugestão: private int indexCode
+ Comentário: Variable to the index of the position code
+ 
+ private int indiceDescricao
+ Sugestão: private int indexDescription
+ Comentário: Variable to the index of the position description
+ 
+ public CargoIndicesParse()
+ Sugestão: public PositionParseIndices()
+ 
+ protected void setIndicesValidos(Cargo cargo, String campo[])
+ Sugestão: protected void setValidIndices(Position position, String field[])
+ 
+ protected void setVazioEmTodosOsSetters(Cargo cargo)
+ Sugestão: protected void setEmptyInAllSetters(Position position)
+ 
+ public void setIndiceCodigo(int indiceCodigo)
+ Sugestão: public void setIndexCode(int indexCode)
+ 
+ public void setIndiceDescricao(int indiceDescricao)
+ Sugestão: public void setIndexDescription(int indexDescription)
+
+--------------------------------------------------------------------------------------------------
+
