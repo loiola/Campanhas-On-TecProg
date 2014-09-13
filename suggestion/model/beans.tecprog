@@ -381,3 +381,71 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+CLASS
+
+public class Fornecedor
+Comentário: This class is responsable for getting the Supplier's informations
+Sugestão: Supplier
+ 
+CONSTANT
+
+public static final String  STRING_VAZIO = ""
+Sugestão: EMPTY_TYPE_STRING
+
+ATTRIBUTES
+
+private String cpf_cnpj
+Sugestão: PersonRegister supplierPersonRegister
+
+private String nome
+Sugestão: Name supplierName
+
+private String uf
+Sugestão: CountryState supplierCountryState
+
+private String situacaoCadastral
+Sugestão: RegisterSituation supplierRegisterSituation
+
+CONSTRUCTOR
+
+public Fornecedor()
+Comentário: Empty Constructor (NECESSÁRIO?)
+Sugestão: Supplier()
+
+GETTERS AND SETTERS
+
+public String getCpf_cnpj()
+Sugestão: PersonRegister getSupplierPersonRegister()
+
+public void setCpf_cnpj(String cpf_cnpj)
+Sugestão: void setSupplierPersonRegister(PersonRegister supplierPersonRegister)
+
+public String getNome()
+Sugestão: Name getSupplierName()
+
+public void setNome(String nome)
+Sugestão: void setSupplierName(Name supplierName)
+
+public String getUf()
+Sugestão: CountryState getSupplierCountryState()
+
+public void setUf(String uf)
+Sugestão: void setSupplierCountryState(CountryState supplierCountryState)
+
+public String getSituacaoCadastral()
+Sugestão: RegisterSituation getSupplierRegisterSituation()
+
+public void setSituacaoCadastral(String situacaoCadastral)
+Sugestão: void setSupplierRegisterSituation(RegisterSituation supplierRegisterSituation)
+
+@Override
+public boolean equals(Object object)
+Comentário: Necessário!! Sugestão:
+/* 
+ * This method makes a comparisson between an object from this class and others bean`s objects
+ * @param An Object who Equals Method compare the owner to another object
+ * @return Boolean TRUE if objects are Equals, FALSE if are not
+ */
+Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
+
+-----------------------------------------------------
