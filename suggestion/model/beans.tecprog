@@ -3,157 +3,158 @@ Sugestão: / model / bean
 
 / beans / Campanha.java
 
+-----------------------------------------------------
 CLASS
 
-3 - public class Campanha
+public class Campanha
 Comentário: This class is responsable for getting the Campaign's informations
 Sugestão: Campaign
 
 CONSTANTS
 
-11 - public static final String STRING_VAZIO = "";
+public static final String STRING_VAZIO = "";
 Sugestão: EMPTY_TYPE_STRING
 
-12 - public static final Integer INTEGER_VAZIO = 0;
+public static final Integer INTEGER_VAZIO = 0;
 Sugestão: EMPTY_TYPE_INTEGER
 
-13 - public static final Resultado RESULTADO_VAZIO = new Resultado();
+public static final Resultado RESULTADO_VAZIO = new Resultado();
 Sugestão: EMPTY_CLASS_RESULT
 
-14 - public static final Partido PARTIDO_VAZIO = new Partido();
+public static final Partido PARTIDO_VAZIO = new Partido();
 Sugestão: EMPTY_CLASS_PARTY
 
-15 - public static final Cargo CARGO_VAZIO = new Cargo();
+public static final Cargo CARGO_VAZIO = new Cargo();
 Sugestão: EMPTY_CLASS_POSITION
 
-16 - public static final Candidato CANDIDATO_VAZIO = new Candidato(); 
+public static final Candidato CANDIDATO_VAZIO = new Candidato(); 
 Sugestão: EMPTY_CLASS_CANDIDATE
 
-17 - public static final float FLOAT_VAZIO = (float) 0.0;
+public static final float FLOAT_VAZIO = (float) 0.0;
 Sugestão: EMPTY_TYPE_FLOAT
 
 ATTRIBUTES
 
-20 - private Integer id;
+private Integer id;
 Sugestão: Identifier campaignIdentifier
 
-21 - private Resultado resultado;
+private Resultado resultado;
 Sugestão: campaignResult
 
-22 - private Cargo cargo;
+private Cargo cargo;
 Sugestão: campaignPosition
 
-23 - private Partido partido;
+private Partido partido;
 Sugestão: campaignParty
 
-24 - private Candidato candidato;
+private Candidato candidato;
 Sugestão: campaignCandidate
 
-25 - private Integer ano;
+private Integer ano;
 Sugestão: Year campaignYear
 
-26 - private Integer numeroCandidato;
+private Integer numeroCandidato;
 Sugestão: CandidateNumber campaignCandidateNumber
 
-27 - private String nomeDeUrna;
+private String nomeDeUrna;
 Sugestão: Name campaignNameOfUrn;
 
-28 - private String uf;
+private String uf;
 Sugestão: CountryState campaignCountryState
 
-29 - private Float despesaMaxDeclarada;
+private Float despesaMaxDeclarada;
 Sugestão: Money campaignMaximumExpenseDeclared
 
-30 - private Float despesaTotalCalculada;
+private Float despesaTotalCalculada;
 Sugestão: Money campaignTotalExpenseCalculated
 
-31 - private Float receitaTotalCalculada;
+private Float receitaTotalCalculada;
 Sugestão: Money campaignTotalRevenueCalculated
 
 CONSTRUCTOR
 
-34 - public Campanha()
+public Campanha()
 Comentário: Empty Constructor (NECESSÁRIO?)
 Sugestão: Campaign
 
 GETTERS AND SETTERS
 
-50 - public Integer getId()
+public Integer getId()
 Sugestão: Identifier getCampaignIdentifier()
 
-54 - public void setId(Integer id)
+public void setId(Integer id)
 Sugestão: void setCampaignIdentifier(Identifier campaignIdentifier) 
 
-58 - public Resultado getResultado()
+public Resultado getResultado()
 Sugestão: Result getCampaignResult()
 
-62 - public void setResultado(Resultado resultado)
+public void setResultado(Resultado resultado)
 Sugestão: void setCampaignResult(Result campaignResult)
 
-66 - public Cargo getCargo()
+public Cargo getCargo()
 Sugestão: Position getCampaignPosition()
 
-70 - public void setCargo(Cargo cargo)
+public void setCargo(Cargo cargo)
 Sugestão: void setCampaignPosition(Position campaignPosition)
 
-74 - public Partido getPartido()
+public Partido getPartido()
 Sugestão: Party getCampaignParty()
 
-78 - public void setPartido(Partido partido)
+public void setPartido(Partido partido)
 Sugestão: void setCampaignParty(Party campaignParty)
 
-82 - public Candidato getCandidato()
+public Candidato getCandidato()
 Sugestão: Canidate getCampaignCandidate()
 
-86 - public void setCandidato(Candidato candidato)
+public void setCandidato(Candidato candidato)
 Sugestão: void setCampaignCandidate(Candidate campaignCandidate)
 
-90 - public Integer getAno()
+public Integer getAno()
 Sugestão: Year getCampaignYear()
 
-94 - public void setAno(Integer ano)
+public void setAno(Integer ano)
 Sugestão: void setCampaignYear(Year campaignYear)
 
-98 - public Integer getNumeroCandidato()
+public Integer getNumeroCandidato()
 Sugestão: CandidateNumber getCampaignCandidateNumber()
 
-102 - public void setNumeroCandidato(Integer numeroCandidato)
+public void setNumeroCandidato(Integer numeroCandidato)
 Sugestão: void setCampaignCandidateNumber(CandidateNumber campaignCandidateNumber)
 
-106 - public String getNomeDeUrna()
+public String getNomeDeUrna()
 Sugestão: Name getCampaignNameOfUrn()
 
-110 - public void setNomeDeUrna(String nomeDeUrna)
+public void setNomeDeUrna(String nomeDeUrna)
 Sugestão: void setCampaignNameOfUrn(Name campaignNameOfUrn)
 
-114 - public String getUf()
+public String getUf()
 Sugestão: CountryState getCampaignCountryState()
-	
-118 - public void setUf(String uf)
+
+public void setUf(String uf)
 Sugestão: void setCampaignCountryState(CountryState campaignCountryState)
-	
-122 - public Float getDespesaMaxDeclarada()
+
+public Float getDespesaMaxDeclarada()
 Sugestão: Money getCampaignMaximumExpenseDeclared()
-	
-126 - public void setDespesaMaxDeclarada(Float despesaMaxDeclarada)
+
+public void setDespesaMaxDeclarada(Float despesaMaxDeclarada)
 Sugestão: void setCampaignMaximumExpenseDeclared(Money campaignMaximumExpenseDeclared)
 
-130 - public Float getDespesaTotalCalculada()
+public Float getDespesaTotalCalculada()
 Sugestão: Money getCampaignTotalExpenseCalculated()
 
-134 - public void setDespesaTotalCalculada(Float despesaTotalCalculada)
+public void setDespesaTotalCalculada(Float despesaTotalCalculada)
 Sugestão: void setCampaignTotalExpenseCalculated(Money campaignTotalExpenseCalculated)
 
-138 - public Float getReceitaTotalCalculada()
+public Float getReceitaTotalCalculada()
 Sugestão: Money getCampaignTotalRevenueCalculated()
 
-142 - public void setReceitaTotalCalculada(Float receitaTotalCalculada)
+public void setReceitaTotalCalculada(Float receitaTotalCalculada)
 Sugestão: void setCampaignTotalRevenueCalculated(Money campaignTotalRevenueCalculated)
 
-METHODS
+METHOD
 
 @Override
-148 - public boolean equals(Object object)
+public boolean equals(Object object)
 Comentário: Necessário!! Sugestão:
 /* 
  * This method makes a comparisson between an object from this class and others bean`s objects
@@ -161,3 +162,5 @@ Comentário: Necessário!! Sugestão:
  * @return Boolean TRUE if objects are Equals, FALSE if are not
  */
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
+
+-----------------------------------------------------
