@@ -270,3 +270,44 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+CLASS
+
+public class Despesa extends MovimentacaoFinanceira
+Sugestão: Expense extends FinancialTransaction
+Comentário: This class is responsable for getting the Charge's informations
+Sugestão de Comentário: This class is responsable for getting the Expense's informations
+
+CONSTANT
+
+public static final Object OBJETO_VAZIO = null
+Sugestão: Object EMPTY_OBJECT
+
+ATTRIBUTES
+
+private String tipoDocumento
+Sugestão: DocumentType expenseDocumentType
+
+private Fornecedor fornecedor
+Sugestão: Supplier expenseSupplier
+
+CONSTRUCTOR
+
+public Despesa()
+Comentário: Empty Constructor (NECESSÁRIO?)
+Sugestão: Expense()
+
+GETTERS AND SETTERS
+
+public String getTipoDocumento()
+Sugestão: DocumentType getExpenseDocumentType
+
+public void setTipoDocumento(String tipoDocumento)
+Sugestão: void setExpenseDocumentType(DocumentType expenseDocumentType)
+
+public Fornecedor getFornecedor()
+Sugestão: Supplier getExpenseSupplier()
+
+public void setFornecedor(Fornecedor fornecedor)
+Sugestão: void setExpenseSupplier(Supplier expenseSupplier)
+
+-----------------------------------------------------
