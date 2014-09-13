@@ -484,3 +484,34 @@
  
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / IndicesParse.java
+ 
+ public abstract class IndicesParse<O>
+ Comentário: Abstract class for inserting a template for subclasses of indexes parse
+ Sugestão: Manter comentário da classe
+ 
+ public static final int INDICE_INVALIDO
+ Sugestão: public static final int INVALID_INDEX
+ Comentário: Constant for convention invalid index
+ 
+ public IndicesParse()
+ Sugestão: public ParseIndices()
+ 
+ public void iniciarInstancia(O objeto, String campo[])
+ Sugestão: public void startInstance(O object, String field[])
+ 
+ private void reiniciarInstancia(O objeto)
+ Sugestão: private void restartInstance(O object)
+ 
+ protected abstract void setIndicesValidos(O objeto, String campo[])
+ Sugestão: protected abstract void setValidIndices(O object, String field[])
+ 
+ protected abstract void setVazioEmTodosOsSetters(O objeto)
+ Sugestão: protected abstract void setEmptyInAllSetters(O object)
+ 
+ protected boolean indiceValido(int indice)
+ Sugestão: protected boolean validIndice(int index)
+
+--------------------------------------------------------------------------------------------------
+
+
