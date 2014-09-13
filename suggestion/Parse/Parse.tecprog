@@ -385,3 +385,53 @@
  Sugestão: public void setIndexDocumentType(int indexDocumentType)
 
 --------------------------------------------------------------------------------------------------
+
+ / parse.indices / DoadorIndicesParse.java
+
+ public class DoadorIndicesParse extends IndicesParse<Doador>
+ Comentário: Class to control the contents of information inherent to the donors
+ Sugestão: Manter comentário da classe
+ 
+ public static final int INDICE_INVALIDO
+ Sugestão: public static final int INVALID_INDEX
+ Comentário: Constant for convention invalid index
+ 
+ private int indiceCpf_Cnpj
+ Sugestão: private int indexDonorCpfCnpj
+ Comentário: Variable to the index of the CPF / CNPJ donor
+ 
+ private int indiceNome
+ Sugestão: private int indexName
+ Comentário: Variable to the index of the name of the donor
+ 
+ private int indiceUf
+ Sugestão: private int indexUnitFederation
+ Comentário: Variable to the index unit federation donor
+ 
+ private int indiceSituacaoCadastral
+ Sugestão: private int indexRegistrationStatus
+ Comentário: Variable to the index on the status of the donor with the IRS
+ 
+ public DoadorIndicesParse()
+ Sugestão: public DonorParseIndices()
+ 
+ protected void setIndicesValidos(Doador doador, String[] campo)
+ Sugestão: protected void setValidIndices(Donor donor, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(Doador doador)
+ Sugestão: protected void setEmptyInAllSetters(Donor donor)
+ 
+ public void setIndiceCpf_Cnpj(int indiceCpf_Cnpj)
+ Sugestão: public void setIndexDonorCpfCnpj(int indexDonorCpfCnpj)
+ 
+ public void setIndiceNome(int indiceNome)
+ Sugestão: public void setIndexName(int indexName)
+ 
+ public void setIndiceUf(int indiceUf)
+ Sugestão: public void setIndexUnitFederation(int indexUnitFederation)
+ 
+ public void setIndiceSituacaoCadastral(int indiceSituacaoCadastral)
+ Sugestão: public void setIndexRegistrationStatus(int indexRegistrationStatus)
+ 
+--------------------------------------------------------------------------------------------------
+
