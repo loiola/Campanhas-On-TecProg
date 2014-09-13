@@ -7,12 +7,16 @@
  Sugestão: Manter comentário sobre a classe
  
  17 - public CampanhaParseControle(IndicesParse<Campanha> indicesParse)
+ Sugestão: public ParseControlCampaign(IndicesParse<Campaign> indicesParse)
  
  26 - public Campanha novaInstancia()
+ Sugestão: public Campaign newInstance()
  
  37 - public boolean iguais(Campanha objetoUm, Campanha objetoDois)
+ Sugestão: public boolean equalObjects(Campaign objectOne, Campaign objectTwo)
  
  45 - public void cadastrarInstancias() throws ParseException
+ Sugestão: public void registeringInstances() throws ParseException
  
  
  / parse.controle / CandidatoParseControle.java
@@ -22,10 +26,13 @@
  Sugestão: Manter comentário sobre a classe
  
  14 - public CandidatoParseControle(IndicesParse<Candidato> indicesParse)
+ Sugestão: public ParseControlCandidate(IndicesParse<Candidate> indicesParse)
  
  23 - public Candidato novaInstancia()
+ Sugestão: public Candidate newInstance()
  
  34 - public boolean iguais(Candidato objetoUm, Candidato objetoDois)
+ Sugestão: public boolean equalObjects(Candidate objectOne, Candidate objectTwo)
  
  
  / parse.controle / CargoParseControle.java
@@ -35,10 +42,13 @@
  Sugestão: Manter comentário sobre a classe
  
  14 - public CargoParseControle(IndicesParse<Cargo> indicesParse)
+ Sugestão: public ParseControlPosition(IndicesParse<Position> indicesParse)
  
  23 - public Cargo novaInstancia()
+ Sugestão: public Position newInstance()
  
  34 - public boolean iguais(Cargo objetoUm, Cargo objetoDois)
+ Sugestão: public boolean equalObjects(Position objectOne, Position objectTwo)
  
  
  / parse.controle / DespesaParseControle.java
@@ -48,10 +58,13 @@
  Sugestão: Manter comentário sobre a classe
  
  14 - public DespesaParseControle(IndicesParse<Despesa> indicesParse)
+ Sugestão: public ParseControlExpense(IndicesParse<Expense> indicesParse)
  
  23 - public Despesa novaInstancia()
+ Sugestão: public Expense newInstance()
  
  34 - public boolean iguais(Despesa objetoUm, Despesa objetoDois)
+ Sugestão: public boolean equalObjects(Expense objectOne, Expense objectTwo)
  
  
  / parse.controle / DoadorParseControle.java
@@ -61,10 +74,13 @@
  Sugestão: Manter comentário sobre a classe
  
  14 - public DoadorParseControle(IndicesParse<Doador> indicesParse)
+ Sugestão: public ParseControlDonor(IndicesParse<Donor> indicesParse)
  
  23 - public Doador novaInstancia()
+ Sugestão: public Donor newInstance()
  
  34 - public boolean iguais(Doador objetoUm, Doador objetoDois)
+ Sugestão: public boolean equalObject(Donor objectOne, Donor objectTwo)
  
  
  / parse.controle / FornecedorParseControle.java
@@ -74,10 +90,13 @@
  Sugestão: Manter comentário sobre a classe
  
  14 - public FornecedorParseControle(IndicesParse<Fornecedor> indicesParse)
+ Sugestão: public ParseControlSupplier(IndicesParse<Supplier> indicesParse)
  
  23 - public Fornecedor novaInstancia()
+ Sugestão: public Supplier newInstance()
  
  34 - public boolean iguais(Fornecedor objetoUm, Fornecedor objetoDois)
+ Sugestão: public boolean equalObjects(Supplier objectOne, Supplier objectTwo)
  
  
  / parse.controle / ParseControle.java
@@ -86,29 +105,45 @@
  Comentário: Abstract class for template methods to be used by subclasses to parse control
  Sugestão: Manter comentário sobre a classe
  
- 16 - private O objetoVazio;
+ 16 - private O objetoVazio
+ Sugestão: private O emptyObject
+ Comentário: Generic instance for empty attributes
  
- 17 - private ParseDAO<O> basicoDAO;
+ 17 - private ParseDAO<O> basicoDAO
+ Sugestão: private ParseDAO<O> basicDAO
+ Comentário: Generic relationship instance with methods for data manipulation
  
- 18 - private IndicesParse<O> indicesParse;
+ 18 - private IndicesParse<O> indicesParse
+ Sugestão: private IndicesParse<O> indicesParse
+ Comentário: Generic relationship instance with methods for indices manipulation
  
- 19 - protected ArrayList<O> listaInstancias;
+ 19 - protected ArrayList<O> listaInstancias
+ Sugestão: protected ArrayList<O> listOfInstances
+ Comentário: Array with generic instances
  
  22 - public ParseControle(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO)
+ Sugestão: public ParseControl(IndicesParse<O> indicesParse, ParseDAO<O> basicDAO)
  
  31 - public abstract O novaInstancia()
+ Sugestão: public abstract O newInstance()
  
  34 - public abstract boolean iguais(O objetoUm, O objetoDois)
+ Sugestão: public abstract boolean equalObjects(O objectOne, O objectTwo)
  
  40 - public void addInstancia(String campo[])
+ Sugestão: public void addInstance(String field[])
  
  53 - public void addInstanciaIgual(String campo[])
+ Sugestão: public void addEqualInstance(String field[])
  
  63 - public void cadastrarInstancias() throws ParseException
+ Sugestão: public void registeringInstances() throws ParseException
  
  70 - public void resetar()
+ Sugestão: public void clear()
  
  79 - private O fazerNovaInstancia(String campo[])
+ Sugestão: private O makeNewInstance(String field[])
  
  
  / parse.controle / PartidoParseControle.java
@@ -118,10 +153,13 @@
  Sugestão: Manter comentário da classe
  
  14 - public PartidoParseControle(IndicesParse<Partido> indicesParse)
+ Sugestão: public ParseControlParty(IndicesParse<Party> indicesParse)
  
  23 - public Partido novaInstancia()
+ Sugestão: public Party newInstance()
  
  34 - public boolean iguais(Partido objetoUm, Partido objetoDois)
+ Sugestão: public boolean equalObjects(Party objectOne, Party objectTwo)
  
  
  / parse.controle / ReceitaParseControle.java
@@ -131,10 +169,13 @@
  Sugestão: Manter comentário da classe
  
  14 - public ReceitaParseControle(IndicesParse<Receita> indicesParse)
+ Sugestão: public ParseControlRevenue(IndicesParse<Revenue> indicesParse)
  
  23 - public Receita novaInstancia()
+ Sugestão: public Revenue newInstance()
  
  34 - public boolean iguais(Receita objetoUm, Receita objetoDois)
+ Sugestão: public boolean equalObjects(Revenue objectOne, Revenue objectTwo)
  
  
  / parse.controle / ResultadoParseControle.java
@@ -144,10 +185,13 @@
  Sugestão: Manter comentário da classe
  
  14 - public ResultadoParseControle(IndicesParse<Resultado> indicesParse)
+ Sugestão: public ParseControlResult(IndicesParse<Result> indicesParse)
  
  23 - public Resultado novaInstancia()
+ Sugestão: public Result newInstance()
  
  34 - public boolean iguais(Resultado objetoUm, Resultado objetoDois)
+ Sugestão: public boolean equalObjects(Result objectOne, Result ObjectTwo)
  
  
  Pacote: parse.indices
