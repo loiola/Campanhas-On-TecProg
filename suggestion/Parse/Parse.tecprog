@@ -514,4 +514,105 @@
 
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / MovimentacaoFinanceiraIndicesParse.java
+ 
+ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O>
+ Comentário: Class to control the contents of information inherent to the financial transactions
+ Sugestão: Manter comentário da classe
+ 
+ public static final int INDICE_INVALIDO
+ Sugestão: public static final int INVALID_INDEX
+ Comentário: Constant for convention invalid index
+ 
+ private Integer ano
+ Sugestão: private Integer year
+ Comentário: Variable to represent the year of financial transactions
+ 
+ private int indiceCampanhaAno
+ Sugestão: private int indexCampaignYear
+ Comentário: Variable to the index of the year of the election campaign
+ 
+ private int indiceCampanhaNumero
+ Sugestão: private int indexNumberCampaign
+ Comentário: Variable to the index number of the candidate related to the campaign
+ 
+ private int indiceCampanhaCargo
+ Sugestão: private int indexPositionCampaign
+ Comentário: Variable to the index position of the candidate related to the campaign
+ 
+ private int indiceCampanhaUf
+ Sugestão: private int indexUnitFederationCampaign
+ Comentário: Variable to the index unit federation of the campaign
+ 
+ private int indiceNumeroDocumento
+ Sugestão: private int indexDocumentNumber
+ Comentário: Variable to the index number of the financial transaction document
+ 
+ private int indiceData
+ Sugestão: private int indexDate
+ Comentário: Variable to the index date of the financial transaction
+ 
+ private int indiceValor
+ Sugestão: private int indexValue
+ Comentário: Variable to the index value of the financial transaction
+ 
+ private int indiceTipoMovimentacao
+ Sugestão: private int indexTypeOfFinancialTransaction
+ Comentário: Variable to the index of the type of financial transaction
+ 
+ private int indiceFormaPagamento
+ Sugestão: private int indexFormOfPayment
+ Comentário: Variable for the rate of payment in financial transaction
+ 
+ private int indiceDescricao
+ Sugestão: private int indexDescription
+ Comentário: Variable to the index description of the financial transaction
+ 
+ public MovimentacaoFinanceiraIndicesParse(String ano)
+ Sugestão: FinancialTransactionParseIndices(String year)
+ 
+ protected void setIndicesValidos(O objeto, String[] campo)
+ Sugestão: protected void setValidIndices(O object, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(O objeto)
+ Sugestão: protected void setEmptyInAllSetters(O object)
+ 
+ protected boolean indiceValido(int indice)
+ Sugestão: protected boolean validIndice(int index)
+ 
+ public void setAno(Integer ano)
+ Sugestão: public void setYear(Integer year)
+ 
+ public void setIndiceCampanhaAno(int indiceCampanhaAno)
+ Sugestão: public void setIndexCampaignYear(int indexCampaignYear)
+ 
+ public void setIndiceCampanhaNumero(int indiceCampanhaNumero)
+ Sugestão: public void setIndexNumberCampaign(int indexNumberCampaign)
+ 
+ public void setIndiceCampanhaCargo(int indiceCampanhaCargo)
+ Sugestão: public void setIndexPositionCampaign(int indexPositionCampaign)
+ 
+ public void setIndiceCampanhaUf(int indiceCampanhaUf)
+ Sugestão: public void setIndexUnitFederationCampaign(int indexUnitFederationCampaign)
+ 
+ public void setIndiceNumeroDocumento(int indiceNumeroDocumento)
+ Sugestão: public void setIndexDocumentNumber(int indexDocumentNumber)
+ 
+ public void setIndiceData(int indiceData)
+ Sugestão: public void setIndexDate(int indexDate)
+ 
+ public void setIndiceValor(int indiceValor)
+ Sugestão: public void setIndexValue(int indexValue)
+ 
+ public void setIndiceTipoMovimentacao(int indiceTipoMovimentacao)
+ Sugestão: public void setIndexTypeOfFinancialTransaction(int indexTypeOfFinancialTransaction)
+ 
+ public void setIndiceFormaPagamento(int indiceFormaPagamento)
+ Sugestão: public void setIndexFormOfPayment(int indexFormOfPayment)
+ 
+ public void setIndiceDescricao(int indiceDescricao)
+ Sugestão: public void setIndexDescription(int indexDescription)
+
+--------------------------------------------------------------------------------------------------
+
 
