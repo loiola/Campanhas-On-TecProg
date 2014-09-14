@@ -1,8 +1,9 @@
 / modelo / beans
 Sugestão: / model / bean
 
+-----------------------------------------------------
 / beans / Campanha.java
-
+Sugestão: Campaign.java
 -----------------------------------------------------
 CLASS
 
@@ -164,6 +165,9 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+/ beans / Candidato.java
+Sugestão: Candidate.java
+-----------------------------------------------------
 CLASS
 
 public class Candidato
@@ -219,6 +223,9 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+/ beans / Cargo.java
+Sugestão: Position.java
+-----------------------------------------------------
 CLASS
 
 public class Cargo
@@ -272,6 +279,9 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+/ beans / Despesa.java
+Sugestão: Expense.java
+-----------------------------------------------------
 CLASS
 
 public class Despesa extends MovimentacaoFinanceira
@@ -312,6 +322,9 @@ Sugestão: Supplier getExpenseSupplier()
 public void setFornecedor(Fornecedor fornecedor)
 Sugestão: void setExpenseSupplier(Supplier expenseSupplier)
 
+-----------------------------------------------------
+/ beans / Doador.java
+Sugestão: Donor.java
 -----------------------------------------------------
 CLASS
 
@@ -381,6 +394,9 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+/ beans / Fornecedor.java
+Sugestão: Supplier.java
+-----------------------------------------------------
 CLASS
 
 public class Fornecedor
@@ -448,6 +464,9 @@ Comentário: Necessário!! Sugestão:
  */
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
+-----------------------------------------------------
+/ beans / MovimentacaoFinanceira.java
+Sugestão: FinancialTransaction.java
 -----------------------------------------------------
 CLASS
 
@@ -562,6 +581,9 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+/ beans / Partido.java
+Sugestão: Party.java
+-----------------------------------------------------
 CLASS
 
 public class Partido
@@ -633,6 +655,9 @@ Comentário: Necessário!! Sugestão:
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
 
 -----------------------------------------------------
+/ beans / Receita.java
+Sugestão: Revenue.java
+-----------------------------------------------------
 CLASS
 
 public class Receita extends MovimentacaoFinanceira
@@ -673,6 +698,9 @@ Sugestão: Donor getRevenueDonor()
 public void setDoador(Doador doador)
 Sugestão: void setRevenueDonor(Donor revenueDonor)
 
+-----------------------------------------------------
+/ beans / Resultado.java
+Sugestão: Result.java
 -----------------------------------------------------
 CLASS
 
@@ -725,5 +753,3 @@ Comentário: Necessário!! Sugestão:
  * @return Boolean TRUE if objects are Equals, FALSE if are not
  */
 Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
-
------------------------------------------------------
