@@ -698,3 +698,33 @@
 
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / ResultadoIndicesParse.java
+ 
+ public class ResultadoIndicesParse extends IndicesParse<Resultado>
+ Comentário: Class to control the contents of information inherent to the results
+ Sugestão: Manter comentário da classe
+ 
+ private int indiceCodigo
+ Sugestão: private int indexCodeResult
+ Comentário: Variable to the index of the result code
+ 
+ private int indiceDescricao
+ Sugestão: private int indexDescriptionResult
+ Comentário: Variable to the index of the result description
+ 
+ public ResultadoIndicesParse()
+ Sugestão: ResultParseIndices()
+ 
+ protected void setIndicesValidos(Resultado resultado, String[] campo)
+ Sugestão: protected void setValidIndices(Result result, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(Resultado resultado)
+ Sugestão: protected void setEmptyInAllSetters(Result result)
+ 
+ public void setIndiceCodigo(int indiceCodigo)
+ Sugestão: public void setIndexCodeResult(int indexCodeResult)
+ 
+ public void setIndiceDescricao(int indiceDescricao)
+ Sugestão: public void setIndexDescriptionResult(int indexDescriptionResult)
+
+--------------------------------------------------------------------------------------------------
