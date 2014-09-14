@@ -615,4 +615,49 @@
 
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / PartidoIndicesParse.java
+ 
+ public class PartidoIndicesParse extends IndicesParse<Partido>
+ Comentário: Class to control the contents of information inherent to the political parties
+ Sugestão: Manter comentário da classe
+ 
+ private int indiceSigla
+ Sugestão: private int indexAcronym
+ Comentário: Variable to the index of acronym party
+ 
+ private int indiceNumero
+ Sugestão: private int indexNumberParty
+ Comentário: Variable to the index number of the party
+ 
+ private int indiceDeferimento
+ Sugestão: private int indexDeferral
+ Comentário: Variable to the index of the differing party (date of foundation of the party)
+ 
+ private int indiceNome
+ Sugestão: private int indexPartyName
+ Comentário: Variable to the index name of the party
+ 
+ public PartidoIndicesParse()
+ Sugestão: PartyParseIndices()
+ 
+ protected void setIndicesValidos(Partido partido, String campo[])
+ Sugestão: protected void setValidIndices(Party party, String field[])
+ 
+ protected void setVazioEmTodosOsSetters(Partido partido)
+ Sugestão: protected void setEmptyInAllSetters(Party party)
+ 
+ public void setIndiceSigla(int indiceSigla)
+ Sugestão: public void setIndexAcronym(int indexAcronym)
+ 
+ public void setIndiceNumero(int indiceNumero)
+ Sugestão: public void setIndexNumberParty(int indexNumberParty)
+ 
+ public void setIndiceDeferimento(int indiceDeferimento)
+ Sugestão: public void setIndexDeferral(int indexDeferral)
+ 
+ public void setIndiceNome(int indiceNome)
+ Sugestão: public void setIndexPartyName(int indexPartyName)
+
+--------------------------------------------------------------------------------------------------
+
 
