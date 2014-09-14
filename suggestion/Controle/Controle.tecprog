@@ -1,0 +1,199 @@
+Pacote: controle.servlet
+
+/controle.servlet / CarregarParseCampanha.java
+
+public class CarregarParseCampanha extends HttpServlet
+Comentário: Servlet to control the loading parse campaign
+Sugestão: LoadCampaignParse
+
+PrintWriter saida = response.getWriter();
+Sugestão: PrintWriter output = response.getWriter
+
+FileItem arquivo = null;
+Sugestão: FileItem file = null;
+
+int linhaInicial = 1;
+Sugestão: int initialLine = 1;
+
+String tipoArquivo = "campanha";
+Sugestão: String fileType = "campaign";
+
+String divisao = ";";
+Sugestão: String division = ";";
+
+/contole.servlet / CarregarParseMovimentacoes.java
+
+public class CarregarParseMovimentacoes extends HttpServlet
+Comentário: Servlet to control the loading parse financial transactions
+Sugestão: LoadTransactionsParse
+
+PrintWriter saida = response.getWriter();
+Sugestão: PrintWriter output = response.getWriter();
+
+FileItem arquivo = null;
+Sugestão: FileItem file = null; 
+
+String tipoArquivo = "";
+Sugestão: String fileType = "";
+
+String ano = "";
+Sugestão: String year = "";
+
+String divisao = ";";
+Sugestão: String division = ";";
+
+int linhaInicial = 1;
+Sugestão: int initialLine = 1;
+
+/ controle.servlet / CarregarParsePartido.java
+
+public class CarregarParsePartido extends HttpServlet
+Comentário: Servlet to control the loading parse political parties
+Sugestão: LoadPoliticalPartiesParse
+
+PrintWriter saida = response.getWriter();
+Sugestão: PrintWriter output = response.getWriter();
+
+FileItem arquivo = null;
+Sugestão: FileItem file = null;
+
+int linhaInicial = 1;
+Sugestão: int InitialLine = 1;
+
+String tipoArquivo = "partido";
+Sugestão: String fileType = "political parties";
+
+String divisao = ";";
+Sugestão: String division = ";";
+
+/ controle.servlet / Logica.java
+
+public interface Logica 
+Comentário: Interface to implement the logic of dynamic display of indices of pages
+Sugestão: Logic
+
+ String executa(HttpServletRequest req,
+            HttpServletResponse res) throws Exception
+Sugestão: String execute (HttpServletRequest req,
+            HttpServletResponse res) throws Exception
+            
+/ controle.servlet / RequisitarMovimentacoesDeCandidato.java
+
+public class RequisitarMovimentacoesDeCandidato implements Logica
+Comentário: Servlet requests to control display search result list of financial transactions a candidate
+Sugestão: public class RequestFinancialTransactionsOfCandidate implements Logic
+
+private CampanhaControle campanhaControle;
+Sugestão: private ControlCampaign controlCampaign
+
+private Campanha campanhaBusca;
+Sugestão: private Campaign searchCampaign
+
+private Campanha campanha;
+Sugestão: private Campaign campaign 
+
+private MovimentacaoControle movimentacaoControle;
+Sugestão: TransactionsControl transactionsControl
+
+private String despesaTot;
+Sugestão: private String totalExpense
+
+private float despesaTC;
+Sugestão: private float totalCampaignExpense 
+
+private float receitaTC;
+Sugestão: private float totalCampaignRevenue
+
+private List<Receita> listaReceita;
+Sugestão: private List<Revenue> revenueList
+
+private List<Despesa> listaDespesa;
+Sugestão: private List<Expense> expenseList
+
+private HttpServletRequest req;
+Sugestão: private HttpServletRequest request
+
+private int inicioR;
+Sugestão: 
+
+private int inicioD;
+Sugestão:
+
+private int qtdPorPaginaR;
+Sugestão:
+
+private int qtdPorPaginaD;
+Sugestão: private int 
+
+private boolean verTodosR;
+Sugestão: private boolean seeAllRevenues
+
+private boolean verTodosD;
+Sugestão: private boolean seeAllExpenses
+
+private int indiceR;
+Sugestão: private int revenueIndex
+
+private int indiceD;
+Sugestão: private int expenseIndex
+
+private int qtdDePPR;
+Sugestão: 
+
+private int qtdDePPD;
+Sugestão: 
+
+private int centroR;
+Sugestão:
+
+private int minRaioR;
+Sugestão:
+
+private int maxRaioR;
+Sugestão:
+
+private int centroD;
+Sugestão: 
+
+private int minRaioD;
+Sugestão:
+
+private int maxRaioD;
+Sugestão: 
+
+public String executa
+Sugestão: public String execute
+
+private void recebeParametros() throws SQLException 
+Sugestao: private void receiveParameters
+
+private void estabeleceParametros() throws Exception 
+Sugestão: private void setParameters
+
+private void preparaEnvioDeParametros()
+Sugestão: private void prepareTransmissionParameters
+
+private int geraIndiceDaListaR(List<Receita> lista, int divisor)
+Sugestão: private int generateListIndex(List<Revenue> list, int divider)
+
+int indice
+Sugestão: int index
+
+private int geraIndiceDePaginacaoR(List<Receita> lista)
+Sugestão: private int generatePageIndex(List<Revenue> list)
+
+private int geraIndiceDaListaD(List<Despesa> lista, int divisor)
+Sugestão: private int generateListIndex(List<Expense> list, int divider)
+
+private int geraIndiceDePaginacaoD(List<Despesa> lista)
+Sugestão: private generatePageIndex(List<Expense> list)
+
+240 -private void estabeleceRaioDePaginacaoR()
+Sugestão: private void setPageRadiusRevenue
+
+241 - int cont = 0;
+Sugestão: int counter VERISSOAQUI
+
+
+
+
