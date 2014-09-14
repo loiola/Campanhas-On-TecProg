@@ -1,0 +1,110 @@
+/ modelo / dao
+Sugestão: / model / dao
+
+-----------------------------------------------------
+/ dao / BasicoDAO.java
+Sugestão: BasicDAO.java
+-----------------------------------------------------
+ABSTRACT CLASS
+
+public abstract class BasicoDAO<O> implements ParseDAO<O>
+Comentário: Abstract class with generic methods for data management by the subclasses in DAO package
+Sugestão de Comentário: Abstract class with generic methods for data management by the subclasses in Data Access Object package
+Sugestão: BasicDAO<O> implements ParseDAO<O>
+
+ATTRIBUTES
+
+protected Connection conexao
+Sugestão: Connection connection
+
+protected PreparedStatement instrucaoSQL
+Sugestão: PreparedStatement daoSQLInstruction
+
+private Comparator<O> comparador
+Sugestão: Comparator<O> daoComparator
+
+private String nomeTabela
+Sugestão: TableName tableName
+
+
+CONSTRUCTOR
+
+public BasicoDAO(String nomeTabela, Comparator<O> comparador)
+Comentário: (NECESSÁRIO?)
+Sugestão: protected BasicDAO(TableName tableName, Comparator<O> daoComparator)
+
+METHODS
+
+@Override
+public void cadastrarListaParse(ArrayList<O> lista) throws ParseException
+Comentário: (NECESSÁRIO EXPLICAR MELHOR?)
+/*
+ * This method registers a list of parse, getting a list of objects of any class
+ * @param an ArrayList<O>
+ */
+Sugestão: protected void registerObjectArrayListOnParse(ArrayList<O> objectList) throws ParseRegisterException
+
+@Override
+public ArrayList<O> getListaParse() throws ParseException
+Comentário:
+/*
+ * This method retrieves a list registered in the parse
+ * @return an ArrayList<O>
+ */
+Sugestão: protected ArrayList<O> getObjectArrayListFromParse() throws ParseAccessException
+
+public void cadastrarLista(ArrayList<O> lista) throws SQLException
+Comentário:
+/*
+ * This method is responsible for monitoring objects not registered in the parse
+ * and register them
+ * @param an ArrayList<O>
+ */
+Sugestão: protected void registerUnregisteredObjectArrayListOnDatabase(ArrayList<O> referenceFromParseObjectArrayList) throws SQLRegisterException
+
+public ArrayList<O> getLista() throws SQLException
+Comentário:
+/*
+ * This method retrieves a list of registered objects
+ * @param an ArrayList<O>
+ */
+Sugestão: protected void getObjectArrayListFromDatabase() throws SQLAccessException
+
+
+protected ArrayList<O> getListaNaoCadastrados(ArrayList<O> lista) throws SQLException
+Comentário:
+/*
+ * This method retrieves a list of objects not registered
+ * @param an ArrayList<O>
+ * @return an ArrayList<O>
+ */
+Sugestão protected ArrayList<O> getUnregisteredObjectArrayListInDatabase(ArrayList<O> referenceObjectArrayList) throws SQLAccessException
+
+protected abstract String getSqlInsert()
+Comentário: Signature of the method to recover the insert SQL command
+Sugestão: protected abstract SQLCode getSQLInsertCode();
+
+protected abstract String getSqlSelect();
+Comentário: Signature of the method to recover the select SQL command
+Sugestão: protected abstract SQLCode getSQLSelectCode();
+
+protected abstract void adicionarListaNoBatch(ArrayList<O> lista, PreparedStatement instrucaoSQL) throws SQLException
+Comentário: Method signature for formalization joined a list of instances in the database
+Sugestão: protected abstract void registerObjectArrayListOnBatch(ArrayList<O> objectArrayList, PreparedStatemente daoSQLInstruction) throws SQLRegisterException
+
+protected abstract void adicionarResultSetNaLista(ArrayList<O> lista, ResultSet resultadoSQL) throws SQLException
+Comentário: Signature of the method to populates the ArrayList<O>
+Sugestão: protected abstract void registerResultSetOnObjectArrayList(ArrayList<O> objectArrayList, ResultSet sqlResult) throws SQLAccessException
+
+protected void fecharConexao() throws SQLException
+Comentário: This method closes the connection with the database
+Sugestão: protected void closeDatabaseConnection() throws SQLException
+
+protected PreparedStatement getInstrucaoSQL(String comandoSQL) throws SQLException
+Comentário: This method prepares statement for transactions in the database
+Sugestão: protected PreparedStatement getSQLInstruction(SQLCode sqlCommand) throws SQLException
+
+-----------------------------------------------------
+/ dao / X.java
+Sugestão: X.java
+-----------------------------------------------------
