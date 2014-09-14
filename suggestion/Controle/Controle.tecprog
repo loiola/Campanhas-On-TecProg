@@ -21,6 +21,8 @@ Sugestão: String fileType = "campaign";
 String divisao = ";";
 Sugestão: String division = ";";
 
+----------------------------------------------------------------------------------------------------
+
 /contole.servlet / CarregarParseMovimentacoes.java
 
 public class CarregarParseMovimentacoes extends HttpServlet
@@ -37,13 +39,15 @@ String tipoArquivo = "";
 Sugestão: String fileType = "";
 
 String ano = "";
-Sugestão: String year = "";
+Sugestão: String electionYear = "";
 
 String divisao = ";";
 Sugestão: String division = ";";
 
 int linhaInicial = 1;
 Sugestão: int initialLine = 1;
+
+----------------------------------------------------------------------------------------------------
 
 / controle.servlet / CarregarParsePartido.java
 
@@ -66,17 +70,22 @@ Sugestão: String fileType = "political parties";
 String divisao = ";";
 Sugestão: String division = ";";
 
+----------------------------------------------------------------------------------------------------
+
 / controle.servlet / Logica.java
 
 public interface Logica 
 Comentário: Interface to implement the logic of dynamic display of indices of pages
 Sugestão: Logic
 
- String executa(HttpServletRequest req,
+String executa(HttpServletRequest req,
             HttpServletResponse res) throws Exception
+Comentário: Method signatures to implement the logic of dynamic display of indices of pages
 Sugestão: String execute (HttpServletRequest req,
             HttpServletResponse res) throws Exception
             
+----------------------------------------------------------------------------------------------------
+
 / controle.servlet / RequisitarMovimentacoesDeCandidato.java
 
 public class RequisitarMovimentacoesDeCandidato implements Logica
@@ -99,10 +108,10 @@ private String despesaTot;
 Sugestão: private String totalExpense
 
 private float despesaTC;
-Sugestão: private float totalCampaignExpense 
+Sugestão: private float totalExpenseCalculatedValue
 
 private float receitaTC;
-Sugestão: private float totalCampaignRevenue
+Sugestão: private float totalRevenueCalculatedValue
 
 private List<Receita> listaReceita;
 Sugestão: private List<Revenue> revenueList
@@ -138,62 +147,312 @@ private int indiceD;
 Sugestão: private int expenseIndex
 
 private int qtdDePPR;
-Sugestão: 
+Sugestão: ???
 
 private int qtdDePPD;
-Sugestão: 
+Sugestão: ???
 
 private int centroR;
-Sugestão:
+Sugestão: ???
 
 private int minRaioR;
-Sugestão:
+Sugestão: ???
 
 private int maxRaioR;
-Sugestão:
+Sugestão: ???
 
 private int centroD;
-Sugestão: 
+Sugestão: ???
 
 private int minRaioD;
-Sugestão:
+Sugestão: ???
 
 private int maxRaioD;
-Sugestão: 
-
-public String executa
-Sugestão: public String execute
+Sugestão: ???
 
 private void recebeParametros() throws SQLException 
+Comentário: Receive methods for the parameters of the request
 Sugestao: private void receiveParameters
 
 private void estabeleceParametros() throws Exception 
+Comentário: Establishes what each parameter will receive
 Sugestão: private void setParameters
 
 private void preparaEnvioDeParametros()
+Comentário: Prepare responses of forwarded requests
 Sugestão: private void prepareTransmissionParameters
 
 private int geraIndiceDaListaR(List<Receita> lista, int divisor)
-Sugestão: private int generateListIndex(List<Revenue> list, int divider)
+Comentário:Generate indexes for list of receipt
+Sugestão: private int generateIndexListOfRevenue(List<Revenue> list, int divider)
 
 int indice
 Sugestão: int index
 
 private int geraIndiceDePaginacaoR(List<Receita> lista)
-Sugestão: private int generatePageIndex(List<Revenue> list)
+Comentário: Generate index list for paging of receipt
+Sugestão: private int generateIndexPageOfRevenue(List<Revenue> list)
 
 private int geraIndiceDaListaD(List<Despesa> lista, int divisor)
-Sugestão: private int generateListIndex(List<Expense> list, int divider)
+Comentário: Generate indexes for list of expenses
+Sugestão: private int generateIndexListOfExpense(List<Expense> list, int divider)
 
 private int geraIndiceDePaginacaoD(List<Despesa> lista)
-Sugestão: private generatePageIndex(List<Expense> list)
+Comentário: Generate index list for paging of expenses
+Sugestão: private generateIndexPageOfExpense(List<Expense> list)
 
 240 -private void estabeleceRaioDePaginacaoR()
+Comentário: Logic for implementing paging of receipt
 Sugestão: private void setPageRadiusRevenue
 
 241 - int cont = 0;
 Sugestão: int counter VERISSOAQUI
 
+private void estabeleceRaioDePaginacaoD()
+Comentário: Logic for implementing paging of expenses
+Sugestão: private void setPageRadiusExpense
 
+private String formataDespesa(Float despesa) 
+Comentário: Logic to implement the format of expenses
+Sugestão: private String formatOfExpenses
 
+private Campanha constroiCampanha(HttpServletRequest req)
+Comentário: Set a political campaign according to the parameters requested by an Http request  
+Sugestão: private Campaign buildCampaign(HttpServletRequest request)
 
+int numero
+Sugestão: int candidateNumber
+
+int cargo_cod
+Sugestão: int codeOfPosition
+
+String uf
+Sugestão: String fedetativeUnit
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / RequisitarPartido.java
+
+public class RequisitarPartido implements Logica
+Comentário: Servlet to request control of political parties
+Sugestão: public class RequestPoliticalParty implements Logic
+
+private PartidoControle controle;
+Sugestão: private PolicalPartyControl control
+
+private List<Partido> listaPartidos;
+Sugestão: private List<PoliticalParty> politicalPartyList
+
+private HttpServletRequest req;
+Sugestão: private HttpServletRequest request
+
+private int inicio;
+Sugestão: private int ?????
+
+private int qtdPorPagina;
+Sugestão: private int ???
+
+private boolean verTodos;
+Sugestão: private boolean seeAllPoliticalParties;
+
+private int atual;
+Sugestão: private int currentPoliticalParty
+
+private int indice;
+Sugestão: private int index
+
+private int qtdDePP;
+Sugestão: private int ????
+
+private void recebeParametrosDeListagem()
+Comentário: Receive methods for the parameters of the request
+Sugestão: private void receiveListParameters
+
+private void estabeleceParametros() throws SQLException
+Comentário: Establishes what each parameter will receive
+Sugestão: private void setParameters
+
+private void preparaEnvioDeParametros()
+Comentário: Prepare responses of forwarded requests
+Sugestão: private void prepareTransmissionParameters
+
+private int geraIndiceDaLista(List<Partido> lista, int divisor)
+Comentário: Generate indexes for list of candidates
+Sugestão: private int generateListIndex(List<PoliticalParty> list, int divider)
+
+private int geraIndiceDePaginacao(List<Partido> lista) 
+Comentário: Generate index list for paging
+Sugestão: private int generatePageIndex(List<PoliticalParty> list)
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / SelecionarCandidato.java
+
+public class SelecionarCandidato implements Logica 
+Comentário: Servlet requests to control the selection of political candidates
+Sugestão: public class SelectCandidate implements Logic
+
+private CandidatoControle candidatoControle;
+Sugestão: ControlCandidate controlCandidate
+
+private Candidato candidato;
+Sugestão: ControlCandidate candidate
+
+private CampanhaControle campanhaControle;
+Sugestão: ControlCampaign campaignControl
+
+private List<Campanha> listaCampanha;
+Sugestão: private List<Campaign> campaignList
+
+private String tituloEleitoral;
+Sugestão: private String electoralTitle
+	
+private MovimentacaoControle movimentacaoControle;
+Sugestão: controlTransactions controlTransactions
+
+private List<Receita> listaReceita;
+Sugestão: private List<Revenue> revenueList
+
+private List<Despesa> listaDespesa;	
+Sugestão: private List<Expense> expenseList
+
+private float despesaMax2002;
+Sugestão: private float maximumExpenseIn2002
+
+private float despesaMax2006;
+Sugestão: private float maximumExpenseIn2006
+
+private float despesaMax2010;
+Sugestão: private float maximumExpenseIn2010
+	
+private float despesaCalc2002;
+Sugestão: private float expenseCalculatedValueIn2002
+
+private float receitaCalc2002;
+Sugestão: private float revenueCalculatedValueIn2002
+	
+private float despesaCalc2006;
+Sugestão: private float expenseCalculatedValueIn2006
+
+private float receitaCalc2006;
+Sugestão: private float revenueCalculatedValueIn2006
+
+private float despesaCalc2010;
+Sugestão: private float expenseCalculatedValueIn2010
+
+private float receitaCalc2010;
+Sugestão: private float revenueCalculatedValueIn2010
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / SelecionarPartido.java
+
+public class SelecionarPartido implements Logica
+Comentário: Servlet requests to control the selection of political parties
+Sugestão: public class SelectPoliticalParty implements Logic
+
+private final int[] ANOS = {2010, 2006, 2002};
+Sugestão: private final int [] ELECTIONYEARS = {2010, 2006, 2002}
+
+private PartidoControle partidoControle;
+Sugestão: private controlPoliticalParty controlPoliticalParty
+
+private Partido partido;
+Sugestão: private PoliticalParty politicalParty
+
+private String sigla;
+Sugestão: private String originalPartyAcronym
+
+private String siglaComUnder;
+Sugestão: partyAcronymWithUnderlineInsteadOfWhitespace
+
+private String linkTSE;
+Sugestão: partyAcronymToBeUsedToMakeTSELink
+
+private String trocaDeCaracteresEspeciais(Partido partido)
+Comentário: Method for exchanging special characters emanating from the database
+Sugestão: private String changeSpecialCharacters(PoliticalParty politicalParty)
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / ServletControle.java
+
+public class ServletControle extends HttpServlet
+Comentário: Controller servlet instance
+Sugestão: public class ControlServlet extends HttpServlet
+
+String parametro
+Sugestão: String parameter
+
+String nomeDaClasse
+Sugestão: nameOfClass
+
+Class<?> classe = Class.forName(nomeDaClasse);
+Sugestão: Class<?> class = Class.forName(nameOfClass)
+
+Logica logica = (Logica) classe.newInstance();
+Sugestão: Logic logic = (Logic) class.newInstance();
+
+String pagina
+Sugestão: String page
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / VisualizarCandidatosPartido.java
+
+public class VisualizarCandidatosPartido implements Logica
+Comentário: Servlet request to control display political candidate
+Sugestão: public class VisualizeCandidateOfPoliticalParty implements Logic
+
+private CampanhaControle campanhaControle;
+Sugestão:
+
+private ArrayList<Campanha> listaCampanhas;
+Sugestão:
+
+private PartidoControle partidoControle;
+Sugestão:
+
+private Partido partido;
+Sugestão: 
+
+private void recebeParametros() 
+Comentário: 
+Sugestão:
+
+private void estabeleceParametros() throws SQLException 
+Comentário:
+Sugestão:
+
+private void preparaEnvioDeParametros() 
+Comentário:
+Sugestão:
+
+private int geraIndiceDaLista(List<Campanha> lista, int divisor) 
+Comentário:
+Sugestão:
+
+private int geraIndiceDePaginacao(List<Campanha> lista) 
+Comentário:
+Sugestão:
+
+private String sigla;
+Sugestão:
+
+private String ano;
+Sugestão: 
+
+private HttpServletRequest req;
+Sugestão:
+
+private int inicio;
+Sugestão:
+
+private int qtdPorPagina;
+Sugestão: 
+
+private boolean verTodos;
+Sugestão: 
+
+private int atual;
+Sugestão:
