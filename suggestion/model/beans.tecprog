@@ -674,3 +674,56 @@ public void setDoador(Doador doador)
 Sugestão: void setRevenueDonor(Donor revenueDonor)
 
 -----------------------------------------------------
+CLASS
+
+public class Resultado
+Comentário: This class is responsable for getting the Result's informations
+Sugestão: Result
+
+CONSTANTS
+
+public static final String STRING_VAZIO = ""
+Sugestão: EMPTY_TYPE_STRING
+
+public static final Integer INTEGER_VAZIO = 0
+Sugestão: EMPTY_TYPE_INTEGER
+
+ATTRIBUTES
+
+private Integer codigo
+Sugestão: ResultType resultType
+
+private String descricao
+Sugestão: String resultDescription
+
+CONSTRUCTOR
+
+public Resultado()
+Comentário: Empty constructor (NECESSÁRIO?)
+Sugestão: Result()
+
+GETTERS AND SETTERS
+
+public Integer getCodigo()
+Sugestão: ResultType getResultType()
+
+public void setCodigo(int codigo)
+Sugestão: void setResultType(ResultType resultType)
+
+public String getDescricao()
+Sugestão: String getResultDescription()
+
+public void setDescricao(String descricao)
+Sugestão: void setResultDescription(String resultDescription)
+
+@Override
+public boolean equals(Object object)
+Comentário: Necessário!! Sugestão:
+/* 
+ * This method makes a comparisson between an object from this class and others bean`s objects
+ * @param An Object who Equals Method compare the owner to another object
+ * @return Boolean TRUE if objects are Equals, FALSE if are not
+ */
+Sugestão: TALVEZ areThisBeanEqualsTo(Object object)
+
+-----------------------------------------------------
