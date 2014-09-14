@@ -82,11 +82,11 @@ Sugestão protected ArrayList<O> getUnregisteredObjectArrayListInDatabase(ArrayL
 
 protected abstract String getSqlInsert()
 Comentário: Signature of the method to recover the insert SQL command
-Sugestão: protected abstract SQLCode getSQLInsertCode();
+Sugestão: protected abstract SQLCommand getSQLInsertCommand()
 
 protected abstract String getSqlSelect();
 Comentário: Signature of the method to recover the select SQL command
-Sugestão: protected abstract SQLCode getSQLSelectCode();
+Sugestão: protected abstract SQLCommand getSQLSelectCommand()
 
 protected abstract void adicionarListaNoBatch(ArrayList<O> lista, PreparedStatement instrucaoSQL) throws SQLException
 Comentário: Method signature for formalization joined a list of instances in the database
@@ -105,6 +105,252 @@ Comentário: This method prepares statement for transactions in the database
 Sugestão: protected PreparedStatement getSQLInstruction(SQLCode sqlCommand) throws SQLException
 
 -----------------------------------------------------
-/ dao / X.java
-Sugestão: X.java
+/ dao / CampanhaDAO.java
+Sugestão: CampaignDAO.java
+-----------------------------------------------------
+CLASS
+
+public class CampanhaDAO extends BasicoDAO<Campanha>
+Comentário: Class for manipulating the data about election campaigns
+Sugestão: CampaignDAO extends BasicDAO<Campaign>
+
+ATTRIBUTES
+
+private CandidatoDAO candidatoDAO
+Sugestão: CandidateDAO campaignCandidateDAO
+
+private PartidoDAO partidoDAO
+Sugestão: PartyDAO campaignPartyDAO
+
+private CargoDAO cargoDAO
+Sugestão: PositionDAO campaignPositionDAO
+
+private ResultadoDAO resultadoDAO
+Sugestão: ResultDAO campaignResultDAO
+
+CONSTANTS (ANTES DOS ATRIBUTOS?)
+
+private static final String NOME_TABELA = "campanha"
+Sugestão: DATABASE_CAMPAIGN_TABLE_NAME
+
+private final String ID = "id_campanha"
+Sugestão: DATABASE_CAMPAIGN_IDENTIFIER
+
+private final String ANO = "ano"
+Sugestão: DATABASE_CAMPAIGN_YEAR
+
+private final String NUM_CANDIDATO = "numero_candidato"
+Sugestão: DATABASE_CAMPAIGN_CANDIDATE_NUMBER
+
+private final String COD_RESULTADO = "resultado_cod_resultado"
+Sugestão: DATABASE_CAMPAIGN_RESULT_CODE
+
+private final String COD_CARGO = "cargo_cod_cargo"
+Sugestão: DATABASE_CAMPAIGN_POSITION_CODE
+
+private final String NUMERO_PARTIDO = "partido_numero"
+Sugestão: DATABASE_CAMPAIGN_PARTY_NUMBER
+
+private final String TITULO_CANDIDATO = "candidato_titulo_eleitoral"
+Sugestão: DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE
+
+private final String NOME_URNA = "nome_de_urna"
+Sugestão: DATABASE_CAMPAIGN_NAME_OF_URN
+
+private final String UF = "uf"
+Sugestão: DATABASE_CAMPAIGN_COUNTRY_STATE
+
+private final String DESPESA_MAX_DECLARADA = "despesa_maxima_declarada"
+Sugestão: DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED
+
+private final String DESPESA_MAX_CALCULADA = "despesa_maxima_calculada"
+Sugestão: DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_CALCULATED
+
+private final String RECEITA_MAX_CALCULADA = "receita_maxima_calculada"
+Sugestão: DATABASE_CAMPAIGN_MAXIMUM_REVENUE_CALCULATED
+
+private final String SQL_SELECT = "SELECT * FROM " + NOME_TABELA
+Sugestão: DATABASE_SQL_COMMAND_SELECT
+
+private final String SQL_INSERT = "..."
+Sugestão: DATABASE_SQL_COMMAND_INSERT
+
+private final String INDEX_CANDIDATO = "campanha_fk_3"
+Sugestão: DATABASE_CAMPAIGN_CANDIDATE_INDEX
+
+private final String INDEX_PARTIDO = "campanha_fk_4"
+Sugestão: DATABASE_CAMPAIGN_PARTY_INDEX
+
+private final String INDEX_ANO = "campanha_sk_1"
+Sugestão: DATABASE_CAMPAIGN_YEAR_INDEX
+
+CONSTRUCTOR
+
+public CampanhaDAO()
+Sugestão: CampaignDAO()
+
+METHODS
+
+@Override
+protected String getSqlInsert()
+Comentário:
+/*
+ * This method retrieves the SQL command to insert data
+ * @return a String with the SQL command
+ */
+Sugestão: protected SQLCommand getSQLInsertCommand()
+
+@Override
+protected String getSqlSelect()
+Comentário:
+/*
+ * This method retrieves the string that has the SQL command for selecting data in a database table
+ * @return a String with the SQL command
+ */
+Sugestão: protected SQLCommand getSQLSelectCommand()
+
+public String getSqlSelectNomeUrna(String nome)
+Comentário:
+/*
+ * This method returns an SQL command for selecting a candidate by the name of urn
+ * @param a String with the name of urn
+ * @return a String with the SQL command
+ */
+Sugestão: private SQLCommand getSQLSelectNameOfUrnCommand(Name nameOfUrn)
+
+@Override
+protected void adicionarListaNoBatch(ArrayList<Campanha> lista, PreparedStatement instrucaoSQL) throws SQLException
+Comentário:
+/*
+ * This method prepares a list of campaigns to be registered
+ * @param an ArrayList<Campaign>
+ * @param a SQLinstruction
+ */
+Sugestão: void registerObjectArrayListOnBatch(ArrayList<Campaign> campaignArrayList, PreparedStatemente daoSQLInstruction) throws SQLRegisterException
+
+@Override
+protected void adicionarResultSetNaLista(ArrayList<Campanha> lista, ResultSet resultadoSQL) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method populates the ArrayList<Campaigns>
+ * @param an ArrayList<Campaign>
+ * @param a SQLresult
+ */
+Sugestão: void registerResultSetOnObjectArrayList(ArrayList<Campaign> objectArrayList, ResultSet sqlResult) throws SQLAccessException
+
+private void PreparaCamposCargoEResultado(Cargo cargo, Resultado resultado, ResultSet resultadoSQL) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method prepares attributes Position and Results
+ * @param an instance of Class Position
+ * @param an instance of Class Result
+ * @param a SQLresult
+ */
+Sugestão: adjustPositionCodeAndResultCode(Position position, Result result, ResultSet, sqlResult)
+
+private void PreparaCamposCandidatoEPartido(Partido partido, Candidato candidato, ResultSet resultadoSQL) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method prepares attributes Candidate and Party
+ * @param an instance of Class Party
+ * @param an instance of Class Candidate
+ * @param a SQLresult
+ */
+Sugestão: adjustPartyNumberAndCandidateElectoralTitle(Party party, Candidate candidate, ResultSet sqlResult) throws SQLException
+
+public ArrayList<Campanha> getCampanhasPeloTituloEleitoral(Candidato candidato) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method retrieves a list of campaigns from a voter
+ * @param an instance of Class Candidate
+ * @return an ArrayList<Campaign>
+ */
+Sugestão: private ArrayList<Campaign> getCampaignArrayDataByCandidateElectoralTitle(Candidate candidate) throws SQLException
+
+public ArrayList<Campanha> getCampanhasPorSiglaEAno(String sigla, String ano) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method retrieves a list of campaigns from an acronym and year
+ * @param a String acronym
+ * @param a String year
+ * @return an ArrayList<Campaign>
+ */
+Sugestão: private getCampaignArrayDataByPartyAcronymAndElectionYear(String partyAcronym, String electionYear) throws SQLException
+
+public Campanha getPeloAnoNumeroCodCargoEUf(Campanha campanha) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method retrieves information from an instance of Class Campaign
+ * @param an instance of Class Campaign
+ * @return an instance of Class Campaign
+ */
+Sugestão: private getCampaignDataByElectionYearAndCandidateNumberAndPositionAndCountryState(Campaign campaign) throws SQLException
+
+public ArrayList<Campanha> buscaBD(String SQL) throws SQLException
+Comentário: (PRECISA MELHORAR?)
+/*
+ * This method retrieves a complete list of campaigns stored in the database
+ * @param a String with the SQL command
+ * @return an ArrayList<Campaign>
+ */
+Sugestão: private ArrayList<Campaign> searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(SQLCommand sqlCommand) throws SQLException
+
+public ArrayList<Campanha> TopFive(String cargo, Integer ano) throws SQLException
+Comentário:
+/*
+ * This method retrieves a list of campaigns for the functionality of the Top Five Graphics
+ * @param a String with the position
+ * @param an Integer with the year
+ * @return an ArrayList<Campaign>
+ */
+Sugestão: private ArrayList<Campaign> generateTopFiveCampaignArrayAboutMaximumExpenseDeclared(String position, Integer electionYear) throws SQLException
+
+-----------------------------------------------------
+/ dao / CandidatoDAO.java
+Sugestão: CandidateDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / CargoDAO.java
+Sugestão: PositionDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / ConexaoBancoDados.java
+Sugestão: DatabaseConnection.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / DAOExcecao.java
+Sugestão: DAOException.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / DespesaDAO.java
+Sugestão: ExpenseDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / DoadorDAO.java
+Sugestão: DonorDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / FornecedorDAO.java
+Sugestão: SupplierDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / PartidoDAO.java
+Sugestão: PartyDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / ReceitaDAO.java
+Sugestão: RevenueDAO.java
+-----------------------------------------------------
+
+-----------------------------------------------------
+/ dao / ResultadoDAO.java
+Sugestão: ResultDAO.java
 -----------------------------------------------------
