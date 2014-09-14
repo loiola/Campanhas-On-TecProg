@@ -660,4 +660,41 @@
 
 --------------------------------------------------------------------------------------------------
 
+ / parse.indices / ReceitaIndicesParse.java
+ 
+ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Receita>
+ Comentário: Class to control the contents of information inherent to the revenue
+ Sugestão: Manter comentário da classe
+ 
+ private int indiceReciboEleitoral
+ Sugestão: private int indexElectoralReceipt
+ Comentário: Variable to the index of the electoral receipt
+ 
+ private int indiceDoadorNome
+ Sugestão: private int indexNameDonor
+ Comentário: Variable to the index of the donor's name
+ 
+ private int indiceDoadorCpfCnpj
+ Sugestão: private int indexCpfCnpjDonor
+ Comentário: Variable to the index of the donor's CPF / CNPJ
+ 
+ public ReceitaIndicesParse(String ano)
+ Sugestão: public RevenueParseIndices(String year)
+ 
+ protected void setIndicesValidos(Receita receita, String[] campo)
+ Sugestão: protected void setValidIndices(Revenue revenue, String[] field)
+ 
+ protected void setVazioEmTodosOsSetters(Receita receita)
+ Sugestão: protected void setEmptyInAllSetters(Revenue revenue)
+ 
+ public void setIndiceReciboEleitoral(int indiceReciboEleitoral)
+ Sugestão: public void setIndexElectoralReceipt(int indexElectoralReceipt)
+ 
+ public void setIndiceDoadorNome(int indiceDoadorNome)
+ Sugestão: public void setIndexNameDonor(int indexNameDonor)
+ 
+ public void setIndiceDoadorCpfCnpj(int indiceDoadorCpfCnpj)
+ Sugestão: public void setIndexCpfCnpjDonor(int indexCpfCnpjDonor)
+
+--------------------------------------------------------------------------------------------------
 
