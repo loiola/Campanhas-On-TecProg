@@ -123,16 +123,16 @@ private HttpServletRequest req;
 Sugestão: private HttpServletRequest request
 
 private int inicioR;
-Sugestão: 
+Sugestão: private int firstRevenue
 
 private int inicioD;
-Sugestão:
+Sugestão: private int firstExpense
 
 private int qtdPorPaginaR;
-Sugestão:
+Sugestão: private int quantityRevenuePerPage
 
 private int qtdPorPaginaD;
-Sugestão: private int 
+Sugestão: private int quantityExpensePerPage
 
 private boolean verTodosR;
 Sugestão: private boolean seeAllRevenues
@@ -147,28 +147,32 @@ private int indiceD;
 Sugestão: private int expenseIndex
 
 private int qtdDePPR;
-Sugestão: ???
+Sugestão: private int quantityOfPPR
 
 private int qtdDePPD;
-Sugestão: ???
+Sugestão: private int quantityOfPPD
 
 private int centroR;
-Sugestão: ???
+Sugestão: private int centerOfRevenue
 
 private int minRaioR;
-Sugestão: ???
+Sugestão: private int minimumRadiusRevenue
 
 private int maxRaioR;
-Sugestão: ???
+Sugestão: private int maximumRadiusRevenue
 
 private int centroD;
-Sugestão: ???
+Sugestão: private int centerOfExpense
 
 private int minRaioD;
-Sugestão: ???
+Sugestão: private int minimumRadiusExpense
 
 private int maxRaioD;
-Sugestão: ???
+Sugestão: private int maximumRadiusExpense
+
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing method that implements requests for display the result of the search list of financial transactions
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
 
 private void recebeParametros() throws SQLException 
 Comentário: Receive methods for the parameters of the request
@@ -206,7 +210,7 @@ Comentário: Logic for implementing paging of receipt
 Sugestão: private void setPageRadiusRevenue
 
 241 - int cont = 0;
-Sugestão: int counter VERISSOAQUI
+Sugestão: int counter 
 
 private void estabeleceRaioDePaginacaoD()
 Comentário: Logic for implementing paging of expenses
@@ -247,10 +251,10 @@ private HttpServletRequest req;
 Sugestão: private HttpServletRequest request
 
 private int inicio;
-Sugestão: private int ?????
+Sugestão: private int firstPoliticalParty
 
 private int qtdPorPagina;
-Sugestão: private int ???
+Sugestão: private int quantityPoliticalPartyPerPage
 
 private boolean verTodos;
 Sugestão: private boolean seeAllPoliticalParties;
@@ -262,7 +266,11 @@ private int indice;
 Sugestão: private int index
 
 private int qtdDePP;
-Sugestão: private int ????
+Sugestão: private int quantityOfPP
+
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing method that implements requests for requests the political parties
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
 
 private void recebeParametrosDeListagem()
 Comentário: Receive methods for the parameters of the request
@@ -340,6 +348,11 @@ Sugestão: private float expenseCalculatedValueIn2010
 private float receitaCalc2010;
 Sugestão: private float revenueCalculatedValueIn2010
 
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing method that implements requests for selection of a candidate in all their years of election campaign 
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
+
+
 ----------------------------------------------------------------------------------------------------
 
 / controle.servlet / SelecionarPartido.java
@@ -365,6 +378,10 @@ Sugestão: partyAcronymWithUnderlineInsteadOfWhitespace
 
 private String linkTSE;
 Sugestão: partyAcronymToBeUsedToMakeTSELink
+
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing  method that implements requests for the selection of one of the political parties in accordance with its logo and other information
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
 
 private String trocaDeCaracteresEspeciais(Partido partido)
 Comentário: Method for exchanging special characters emanating from the database
@@ -404,6 +421,37 @@ Sugestão: public class VisualizeCandidateOfPoliticalParty implements Logic
 private ArrayList<Campanha> listaCampanhas;
 Sugestão: private ArrayList<Campaign> campaignList 
 
+private String sigla;
+Sugestão: private String partyAcronym
+
+private String ano;
+Sugestão: private String electionYear
+
+private HttpServletRequest req;
+Sugestão: private HttpServletRequest request
+
+private int inicio;
+Sugestão: private int first
+
+private int qtdPorPagina;
+Sugestão: private int quantityPerPage
+
+private boolean verTodos;
+Sugestão: private boolean seeAllPoliticalParties
+
+private int atual;
+Sugestão: private int actual
+
+private int indice;
+Sugestão: private int index
+
+private int qtdDePP;
+Sugestão: private int quantityOfPP
+
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing method that implements requests for display of a candidate in all their years of election campaign 
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
+
 private void recebeParametros() 
 Comentário: Receive methods for the parameters of the request
 Sugestão: private void receiveParameters
@@ -424,27 +472,6 @@ private int geraIndiceDePaginacao(List<Campanha> lista)
 Comentário: Generate index list for paging
 Sugestão: private int generatePageIndex(List<Campaign> list)
 
-private String sigla;
-Sugestão: private String partyAcronym
-
-private String ano;
-Sugestão: private String electionYear
-
-private HttpServletRequest req;
-Sugestão: private HttpServletRequest request
-
-private int inicio;
-Sugestão: 
-
-private int qtdPorPagina;
-Sugestão: 
-
-private boolean verTodos;
-Sugestão: private boolean seeAllPoliticalParties
-
-private int atual;
-Sugestão: 
-
 ----------------------------------------------------------------------------------------------------
 
 / controle.servlet / VisualizarResultadoListaBuscaCandidato.java
@@ -460,34 +487,38 @@ private List<Candidato> listaCandidatos;
 Sugestão: private List<Candidate> candidateList
 
 private String nome;
-Sugestão: private String candidateName ????
+Sugestão: private String candidateName
 
 private HttpServletRequest req;
 Sugestão: private HttpServletRequest request
 
 private int inicio;
-Sugestão: ???
+Sugestão: private int firstCandidate
 
 private int qtdPorPagina;
-Sugestão: ???
+Sugestão: private int quantityCandidatePerPage
 
 private boolean verTodos;
 Sugestão: private boolean seeAllCandidates
 
 private int indice;
-Sugestão: ???
+Sugestão: private int index
 
 private int qtdDePP;
-Sugestão: ???
+Sugestão: private int quantityOfPP
 
 private int centro;
-Sugestão: ???
+Sugestão: private int centerCandidate
 
 private int minRaio;
-Sugestão: ???
+Sugestão: private int minimumRadius
 
 private int maxRaio;
-Sugestão: 
+Sugestão: private int maximumRadius
+
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing method that implements requests for display the result of the search list of candidates 
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
 
 private void recebeParametros() throws SQLException
 Comentário: Receive methods for the parameters of the request
@@ -536,6 +567,10 @@ Sugestão: private Integer electionYear
 HttpServletRequest req;
 Sugestão: HttpServletRequest request
 
+public String executa(HttpServletRequest req, HttpServletResponse res)
+Comentário: Concretizing method that implements requests for display the search result of the TOP Five 
+Sugestão: public String execute(HttpServletRequest request, HttpServletResponse response)
+
 private void recebeParametros()
 Comentário: Receive methods for the parameters of the request
 Sugestão: private void receiveParameters()
@@ -547,6 +582,3 @@ Sugestão: private void setParameters() throws SQLException
 private void preparaEnvioDeParametros()
 Comentário: Prepare responses of forwarded requests
 Sugestão: private void prepareParametersTransmission()
-
-
-
