@@ -180,7 +180,7 @@ Sugestão: private void setParameters
 
 private void preparaEnvioDeParametros()
 Comentário: Prepare responses of forwarded requests
-Sugestão: private void prepareTransmissionParameters
+Sugestão: private void prepareParametersTransmission
 
 private int geraIndiceDaListaR(List<Receita> lista, int divisor)
 Comentário:Generate indexes for list of receipt
@@ -274,7 +274,7 @@ Sugestão: private void setParameters
 
 private void preparaEnvioDeParametros()
 Comentário: Prepare responses of forwarded requests
-Sugestão: private void prepareTransmissionParameters
+Sugestão: private void prepareParametersTransmission
 
 private int geraIndiceDaLista(List<Partido> lista, int divisor)
 Comentário: Generate indexes for list of candidates
@@ -297,9 +297,6 @@ Sugestão: ControlCandidate controlCandidate
 
 private Candidato candidato;
 Sugestão: ControlCandidate candidate
-
-private CampanhaControle campanhaControle;
-Sugestão: ControlCampaign campaignControl
 
 private List<Campanha> listaCampanha;
 Sugestão: private List<Campaign> campaignList
@@ -404,55 +401,152 @@ public class VisualizarCandidatosPartido implements Logica
 Comentário: Servlet request to control display political candidate
 Sugestão: public class VisualizeCandidateOfPoliticalParty implements Logic
 
-private CampanhaControle campanhaControle;
-Sugestão:
-
 private ArrayList<Campanha> listaCampanhas;
-Sugestão:
-
-private PartidoControle partidoControle;
-Sugestão:
-
-private Partido partido;
-Sugestão: 
+Sugestão: private ArrayList<Campaign> campaignList 
 
 private void recebeParametros() 
-Comentário: 
-Sugestão:
+Comentário: Receive methods for the parameters of the request
+Sugestão: private void receiveParameters
 
 private void estabeleceParametros() throws SQLException 
-Comentário:
-Sugestão:
+Comentário: Establishes what each parameter will receive
+Sugestão: private void setParameters
 
 private void preparaEnvioDeParametros() 
-Comentário:
-Sugestão:
+Comentário: Prepare responses of forwarded requests
+Sugestão: private void prepareParametersTransmission
 
 private int geraIndiceDaLista(List<Campanha> lista, int divisor) 
-Comentário:
-Sugestão:
+Comentário: Generate indexes for list of candidates
+Sugestão: ṕrivate int generateCandidateListIndexes
 
 private int geraIndiceDePaginacao(List<Campanha> lista) 
-Comentário:
-Sugestão:
+Comentário: Generate index list for paging
+Sugestão: private int generatePageIndex(List<Campaign> list)
 
 private String sigla;
-Sugestão:
+Sugestão: private String partyAcronym
 
 private String ano;
-Sugestão: 
+Sugestão: private String electionYear
 
 private HttpServletRequest req;
-Sugestão:
+Sugestão: private HttpServletRequest request
 
 private int inicio;
-Sugestão:
+Sugestão: 
 
 private int qtdPorPagina;
 Sugestão: 
 
 private boolean verTodos;
-Sugestão: 
+Sugestão: private boolean seeAllPoliticalParties
 
 private int atual;
-Sugestão:
+Sugestão: 
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / VisualizarResultadoListaBuscaCandidato.java
+
+public class VisualizarResultadoListaBuscaCandidato implements Logica
+Comentário: Servlet requests to control display search result list of candidates
+Sugestão: public class VisualizeResultOfSearchCandidateList implements Logic
+
+private CandidatoControle controle;
+Sugestão: private ControlCandidate control
+
+private List<Candidato> listaCandidatos;
+Sugestão: private List<Candidate> candidateList
+
+private String nome;
+Sugestão: private String candidateName ????
+
+private HttpServletRequest req;
+Sugestão: private HttpServletRequest request
+
+private int inicio;
+Sugestão: ???
+
+private int qtdPorPagina;
+Sugestão: ???
+
+private boolean verTodos;
+Sugestão: private boolean seeAllCandidates
+
+private int indice;
+Sugestão: ???
+
+private int qtdDePP;
+Sugestão: ???
+
+private int centro;
+Sugestão: ???
+
+private int minRaio;
+Sugestão: ???
+
+private int maxRaio;
+Sugestão: 
+
+private void recebeParametros() throws SQLException
+Comentário: Receive methods for the parameters of the request
+Sugestão: private void receiveParameters() throws SQLException
+
+private void estabeleceParametros()
+Comentário: Establishes what each parameter will receive
+Sugestão: private void setParameters()
+
+private void preparaEnvioDeParametros() 
+Comentário: Prepare responses of forwarded requests
+Sugestão: private void prepareParametersTransmission
+
+private int geraIndiceDaLista(List<Candidato> lista, int divisor)
+Comentário: Generate indexes for list of candidates
+Sugestão: private int generateListIndex(List<Candidate> list, int divider)
+
+private int geraIndiceDePaginacao(List<Candidato> lista)
+Comentário: Generate index list for paging
+Sugestão: private int generatePageIndex(List<Candidate> list)
+
+private void estabeleceRaioDePaginacao()
+Comentário: Logic for implementing paging
+Sugestão: private void setRadiusPageCandidate
+
+----------------------------------------------------------------------------------------------------
+
+/ controle.servlet / VisualizarTopFive.java
+
+public class VisualizarTopFive implements Logica
+Comentário: Servlet requests to control display TOP Five
+Sugestão: public class VisualizeTopFive implements Logic
+
+private CampanhaControle campanhaControle;
+Sugestão: private ControlCampaign controlCampaign
+	
+private ArrayList<Campanha> listaCampanha;
+Sugestão: private ArrayList<Campaign> campaignList
+	
+private String cargo;
+Sugestão: private String position
+
+private Integer ano;
+Sugestão: private Integer electionYear	
+
+HttpServletRequest req;
+Sugestão: HttpServletRequest request
+
+private void recebeParametros()
+Comentário: Receive methods for the parameters of the request
+Sugestão: private void receiveParameters()
+
+private void estabeleceParametros() throws SQLException
+Comentário: Establishes what each parameter will receive
+Sugestão: private void setParameters() throws SQLException
+
+private void preparaEnvioDeParametros()
+Comentário: Prepare responses of forwarded requests
+Sugestão: private void prepareParametersTransmission()
+
+
+
