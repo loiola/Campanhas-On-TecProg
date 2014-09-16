@@ -1,4 +1,4 @@
-Pacote: controle.servlet
+﻿Pacote: controle.servlet
 
 /controle.servlet / CarregarParseCampanha.java
 
@@ -582,3 +582,150 @@ Sugestão: private void setParameters() throws SQLException
 private void preparaEnvioDeParametros()
 Comentário: Prepare responses of forwarded requests
 Sugestão: private void prepareParametersTransmission()
+
+---------------------------------------------------------------------------------------------------
+ 
+ controle.excecao / PartidoExcecao.java
+ 
+ public class PartidoExcecao extends Exception 
+ Comentário: Exception class electoral party, which mediates the application layer with the model
+ Sugestão: politicalPartiesException
+
+ public PartidoExcecao()
+ Sugestão: PoliticalPartiesException()
+
+---------------------------------------------------------------------------------------------------
+ 
+ controle.validacao / PartidoValidacao.java
+
+ public class PartidoValidacao
+ Comentário: Validation class electoral party, which mediates the application layer with the model
+ Sugestão: politicalPartiesValidation
+
+ private static final String SIGLA_VAZIA = "Campo Sigla do Partido vazia!"
+ Sugestão: public static final int EMPTY_SIGLA = "Party abbreviation field empty"
+ Comentário: Constant for represent sigla empty
+
+ private static final String NUMERO_PARTIDO_VAZIO = "Campo Número do Partido vazio!";
+ Sugestão: public static final int EMPTY_NUMBER_PARTY = "Party number field empty"
+ Comentário: Constant for represent the number of party
+
+ public PartidoValidacao()
+ Sugestão: PoliticalPartiesValidation()
+
+ public void siglaNaoNula(Partido partido) throws PartidoExcecao
+ Sugestão: public void siglaNotNull (Party party) throws PartyException
+
+ public void numeroNaoNulo(Partido partido) throws PartidoExcecao
+ Sugestão: public void numberNotNull (Party party) throws PartyException
+
+---------------------------------------------------------------------------------------------------
+ 
+ controle / CampanhaControle.java
+
+ public class CampanhaControle
+ Comentário: Control class political campaign, which mediates the application layer with the model
+ Sugestão: controlCampaign
+
+ private CampanhaDAO campanhaDAO
+ Sugestão: CampaignDAO
+
+ public CampanhaControle()
+ Sugestão: ControlCampaign()
+
+ public ArrayList<Campanha> getListaCampanhas(Candidato candidato)
+ Comentário: Manter comentario do metodo
+ Sugestão: public ArrayList<Campaign> getListCampaign(Candidate candidate)
+
+ public ArrayList<Campanha> getListaCampanhasPorSiglaPartidoEAno(String sigla, String ano)
+ Comentário: Manter comentario do metodo
+ Sugestão: public ArrayList<Campaign> getListCampaignBySiglaPartyAndYear(String sigla, String year)
+
+ public ArrayList<Campanha> topFivePorCargoEAno(String cargo, Integer ano)
+ Comentário: Manter comentario do metodo
+ Sugestão: public ArrayList<Campaign> topFiveByPositionAndYear(String position, Integer year)
+
+ public Campanha getPeloAnoNumeroCodCargoEUf(Campanha campanha)
+ Comentário: Manter comentario do metodo
+ Sugestão: public Campaign getByYearNumberCodePositionAndUF(Campaign campaign)
+
+---------------------------------------------------------------------------------------------------
+ 
+ controle / CandidatoControle.java
+
+ public class CandidatoControle
+ Comentário: Control class candidate, which mediates the application layer with the model
+ Sugestão: controlCandidate
+
+ private CandidatoDAO candidatoDAO;
+ Sugestão: candidateDAO
+
+ public CandidatoControle()
+ Sugestão: ControlCandidate()
+
+ public LinkedList<Candidato> getListaCandidatos(String nome) 
+ Comentário: Manter comentario do metodo
+ Sugestão: public LinkedList<Candidate> getListCandidate(String name)
+
+ public Candidato getUmCandidato(String tituloEleitoral)
+ Comentário: Manter comentario do metodo
+ Sugestão: public Candidate getACandidate(String ElectionTitle)
+
+---------------------------------------------------------------------------------------------------
+
+ controle / MovimentacaoControle.java
+
+ public class MovimentacaoControle
+ Comentário: Control class Transactions financial, which mediates the application layer with the model
+ Sugestão: controlTransactions
+
+ DespesaDAO despesaDAO;
+ Sugestão: expensesDAO
+
+ ReceitaDAO receitaDAO;
+ Sugestão: revenueDAO
+
+ public MovimentacaoControle()
+ Sugestão: ControlTransactions()
+
+ public List<Receita> getListaReceitas(Campanha campanha) 
+ Comentário: Manter comentario do metodo
+ Sugestão: public List<Revenue> getListRevenue(Campaign campaign)
+
+ public List<Despesa> getListaDespesas(Campanha campanha) 
+ Comentário: Manter comentario do metodo
+ Sugestão: public List<Expense> getListExpenses(Campaign campaign))
+
+ public Receita getReceitaPeloId(int id)
+ Comentário: Manter comentario do metodo
+ Sugestão: public Revenue getRevenueById(int id)
+
+ public Despesa getDespesaPeloId(int id) 
+ Comentário: Manter comentario do metodo
+ Sugestão: public Expense getExpenseById(int id)
+
+---------------------------------------------------------------------------------------------------
+
+ controle / PartidoControle.java
+
+ public class PartidoControle
+ Comentário: Control class political party, which mediates the application layer with the model
+ Sugestão: controlParty
+
+ private PartidoDAO partidoDAO;
+ Sugestão: partyDAO
+
+ public PartidoControle()
+ Sugestão: ControlParty()
+
+ public ArrayList<Partido> getListaTodosPartidos()
+ Comentário: Manter comentario do metodo
+ Sugestão: public ArrayList<Party> getListAllParties()
+
+ public Partido getPelaSigla(String sigla)
+ Comentário: Manter comentario do metodo
+ Sugestão: public Party getBySigla(String sigla)
+
+ public Partido getPeloNumero(String numero)
+ Comentário: Manter comentario do metodo
+ Sugestão: public Party getByNumber(String number)
