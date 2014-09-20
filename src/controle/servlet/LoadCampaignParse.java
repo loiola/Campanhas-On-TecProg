@@ -21,7 +21,7 @@ import parse.Parse;
 import parse.ParseCampanha;
 
 @WebServlet("/carregarParseCampanha")
-public class CarregarParseCampanha extends HttpServlet {
+public class LoadCampaignParse extends HttpServlet {
 	
 	/*
 	 * Servlet to control the loading parse campaign
@@ -45,12 +45,12 @@ public class CarregarParseCampanha extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter saida = response.getWriter();
+		PrintWriter output = response.getWriter();
 
 		Part part = request.getPart("arquivo_linha_inicial");
 		if(part != null) {
 			Scanner scanner = new Scanner(part.getInputStream());
-			saida.println("linha inicial: " + scanner.nextLine());
+			output.println("linha inicial: " + scanner.nextLine());
 			scanner.close();
 		} try {
 			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
@@ -60,25 +60,25 @@ public class CarregarParseCampanha extends HttpServlet {
 
 				List<FileItem> fields = upload.parseRequest(request);
 
-				FileItem arquivo = null;
-				int linhaInicial = 1;
-				String tipoArquivo = "campanha";
+				FileItem file = null;
+				int initialLine = 1;
+				String fileType = "campaign";
 
 
 				for(FileItem fileItem : fields) {
 					if(!fileItem.isFormField()) 
-						arquivo = fileItem;
+						file = fileItem;
 				}
 
-				String divisao = ";";
-				Parse parse = new ParseCampanha(tipoArquivo, "");
-				parse.executarParse(arquivo, divisao, linhaInicial);
+				String division = ";";
+				Parse parse = new ParseCampanha(fileType, "");
+				parse.executarParse(file, division, initialLine);
 
-				saida.println("Parse Realizado com Sucesso!");
+				output.println("Parse Realizado com Sucesso!");
 			}
 
 		} catch(Exception e) {
-			saida.println("ERROR teste upload: " + e.getMessage());
+			output.println("ERROR teste upload: " + e.getMessage());
 		}
 	}
 }
