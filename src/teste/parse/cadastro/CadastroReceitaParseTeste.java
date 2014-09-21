@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Revenue;
-import model.dao.ReceitaDAO;
+import model.dao.RevenueDAO;
 
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 	private CadastroReceitaParse cadastro1;
 	private CadastroReceitaParse cadastro2;
 	private CadastroReceitaParse cadastro3;
-	private ReceitaDAO receitaDAO;
+	private RevenueDAO revenueDAO;
 	String  tipoArquivo = "revenue";
 	String  ano1         = "2002";
 	String  ano2         = "2006";
@@ -34,7 +34,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		this.cadastro1 = new CadastroReceitaParse(this.tipoArquivo, this.ano1);
 		this.cadastro2 = new CadastroReceitaParse(this.tipoArquivo, this.ano2);
 		this.cadastro3 = new CadastroReceitaParse(this.tipoArquivo, this.ano3);
-		this.receitaDAO = new ReceitaDAO();
+		this.revenueDAO = new RevenueDAO();
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
+		ArrayList<Revenue> listaReceita = revenueDAO.getLista();
 		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "1234");	
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
+		ArrayList<Revenue> listaReceita = revenueDAO.getLista();
 		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "1234");
 	}
 	
@@ -100,7 +100,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
+		ArrayList<Revenue> listaReceita = revenueDAO.getLista();
 		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "12345");
 	}
 

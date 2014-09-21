@@ -10,7 +10,7 @@ import model.beans.Position;
 import model.beans.Revenue;
 import model.beans.Supplier;
 import model.dao.ExpenseDAO;
-import model.dao.ReceitaDAO;
+import model.dao.RevenueDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ import controle.MovimentacaoControle;
 public class MovimentacaoControleTeste extends TemplateTeste {
 
 	private ExpenseDAO expenseDAO;
-	private ReceitaDAO receitaDAO;
+	private RevenueDAO revenueDAO;
 	private MovimentacaoControle movimentacaoControle;
 	private Candidate candidate;
 	private Campaign campaign;
@@ -37,7 +37,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.expenseDAO = new ExpenseDAO();
-		this.receitaDAO = new ReceitaDAO();
+		this.revenueDAO = new RevenueDAO();
 		this.movimentacaoControle = new MovimentacaoControle();
 		this.candidate = new Candidate();
 		this.campaign = new Campaign();
@@ -80,7 +80,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		listaDespesa.add(expense);
 		
 		this.expenseDAO.cadastrarLista(listaDespesa);
-		this.receitaDAO.cadastrarLista(listaReceita);
+		this.revenueDAO.cadastrarLista(listaReceita);
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmaMovimentacaoPeloId() throws Exception {
 		
-		Assert.assertEquals(this.receitaDAO.getPeloId(3).getFinancialTransactionPrice(), this.movimentacaoControle.getReceitaPeloId(3).getFinancialTransactionPrice());
+		Assert.assertEquals(this.revenueDAO.getPeloId(3).getFinancialTransactionPrice(), this.movimentacaoControle.getReceitaPeloId(3).getFinancialTransactionPrice());
 		Assert.assertEquals(this.expenseDAO.getPeloId(5).getFinancialTransactionPrice(), this.movimentacaoControle.getDespesaPeloId(5).getFinancialTransactionPrice());
 	}
 	
@@ -117,7 +117,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		
 		campanhaTeste.setCampaignCountryState(this.uf);
 		Assert.assertEquals(this.expenseDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaDespesas(campanhaTeste).size());
-		Assert.assertEquals(this.receitaDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaReceitas(campanhaTeste).size());
+		Assert.assertEquals(this.revenueDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaReceitas(campanhaTeste).size());
 	}
 
 }

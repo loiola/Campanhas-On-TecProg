@@ -7,7 +7,7 @@ import model.beans.Campaign;
 import model.beans.Expense;
 import model.beans.Revenue;
 import model.dao.ExpenseDAO;
-import model.dao.ReceitaDAO;
+import model.dao.RevenueDAO;
 
 public class MovimentacaoControle {
 	
@@ -17,12 +17,12 @@ public class MovimentacaoControle {
 
 	// Attributes
 	ExpenseDAO expenseDAO;
-	ReceitaDAO receitaDAO;
+	RevenueDAO revenueDAO;
 	
 	// Constructors
 	public MovimentacaoControle(){
 		this.expenseDAO = new ExpenseDAO();
-		this.receitaDAO = new ReceitaDAO();
+		this.revenueDAO = new RevenueDAO();
 	}
 
 	// Other methods
@@ -42,7 +42,7 @@ public class MovimentacaoControle {
 			listaReceita =  null;
 			
 		} else {
-			listaReceita = this.receitaDAO.getPorAnoNumeroCargoUf(campaign);
+			listaReceita = this.revenueDAO.getPorAnoNumeroCargoUf(campaign);
 			
 			if(campaign.getCampaignYear() == 2002) {
 				for(Revenue revenue : listaReceita)
@@ -78,7 +78,7 @@ public class MovimentacaoControle {
 	 * @return the reported income
 	 */
 	public Revenue getReceitaPeloId(int id) throws Exception {
-		return this.receitaDAO.getPeloId(id);
+		return this.revenueDAO.getPeloId(id);
 	}
 
 	/*

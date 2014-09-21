@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Revenue;
-import model.dao.ReceitaDAO;
+import model.dao.RevenueDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 	public static final String ANO = "2010";
 
 	private String campo[];
-	private ReceitaDAO receitaDAO;
+	private RevenueDAO revenueDAO;
 	private ReceitaIndicesParse receitaIndicesParse;
 	private ReceitaParseControle receitaParseControle;
 
@@ -26,7 +26,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[3];
-		this.receitaDAO = new ReceitaDAO();
+		this.revenueDAO = new RevenueDAO();
 		this.receitaIndicesParse = new ReceitaIndicesParse(ANO);
 		this.receitaParseControle = new ReceitaParseControle(this.receitaIndicesParse);
 
@@ -46,7 +46,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 		this.receitaParseControle.cadastrarInstancias();
 		this.receitaParseControle.resetar();
 
-		Revenue receitaCadastrado = this.receitaDAO.getLista().get(0);
+		Revenue receitaCadastrado = this.revenueDAO.getLista().get(0);
 
 		Assert.assertEquals(this.campo[RECIBO], receitaCadastrado.
 				getRevenueElectoralReceipt());

@@ -7,7 +7,7 @@ import model.beans.Campaign;
 import model.beans.Donor;
 import model.beans.Position;
 import model.beans.Revenue;
-import model.dao.ReceitaDAO;
+import model.dao.RevenueDAO;
 
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ import teste.TemplateTeste;
 
 public class ReceitaDAOTeste extends TemplateTeste {
 	
-	private ReceitaDAO receitaDAO;
+	private RevenueDAO revenueDAO;
 	private Revenue receita1;
 	private Revenue receita2;
 	private Campaign campanha1;
@@ -28,7 +28,7 @@ public class ReceitaDAOTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.receitaDAO = new ReceitaDAO();
+		this.revenueDAO = new RevenueDAO();
 		this.campanha1 = new Campaign();
 		this.doador1 = new Donor();
 		this.cargo1 = new Position();
@@ -85,8 +85,8 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		receita2.setRevenueDonor(doador2);
 		listaReceitas.add(receita2);
 		
-		this.receitaDAO.cadastrarLista(listaReceitas);
-		this.receitaDAO.getLista();
+		this.revenueDAO.cadastrarLista(listaReceitas);
+		this.revenueDAO.getLista();
 	}
 
 }

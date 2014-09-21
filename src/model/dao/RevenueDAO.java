@@ -11,7 +11,7 @@ import model.beans.Position;
 import model.beans.Revenue;
 import parse.ParseDAO;
 
-public class ReceitaDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
+public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 
 	/*
 	 * Class for manipulating the data about revenue
@@ -47,7 +47,7 @@ public class ReceitaDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	
 
 	// Constructors
-	public ReceitaDAO() {
+	public RevenueDAO() {
 		super(NOME_TABELA, null);
 	}
 
@@ -208,7 +208,7 @@ public class ReceitaDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 				}
 			}
 		} catch(SQLException e) {
-			throw new SQLException("ReceitaDAO - " + e.getMessage());
+			throw new SQLException("RevenueDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
