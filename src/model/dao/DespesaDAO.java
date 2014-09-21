@@ -171,7 +171,7 @@ public class DespesaDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
 
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 

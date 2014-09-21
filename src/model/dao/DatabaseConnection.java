@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ConexaoBancoDados {
+public class DatabaseConnection {
 	
 	/*
 	 * This class contains methods for managing connection to the database
@@ -27,7 +27,7 @@ public class ConexaoBancoDados {
 	private static String senha = "root";
 	
 	// Constructors
-	public ConexaoBancoDados() {
+	public DatabaseConnection() {
 		
 	}
 	
@@ -54,14 +54,14 @@ public class ConexaoBancoDados {
 	 */
 	public void criarBanco(String nomeNovoBanco) throws SQLException {
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 			this.afirmacao = this.conexao.createStatement();
 
 			String comandoSQL = "create database if not exists " + nomeNovoBanco;
 			
 			this.afirmacao.executeUpdate(comandoSQL);
 		} catch(Exception e) {
-			throw new SQLException("ConexaoBancoDados - " + e.getMessage());
+			throw new SQLException("DatabaseConnection - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
@@ -81,7 +81,7 @@ public class ConexaoBancoDados {
 	 */
 	public void importarSQL(String arquivoSQL) throws SQLException {
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 			this.afirmacao = this.conexao.createStatement();
 			
 			String comando[] = getLinhasArquivo(arquivoSQL);
@@ -89,7 +89,7 @@ public class ConexaoBancoDados {
 				this.afirmacao.execute(linha);
 			}	
 		} catch(Exception e) {
-			throw new SQLException("ConexaoBancoDados - " + e.getMessage());
+			throw new SQLException("DatabaseConnection - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
@@ -100,14 +100,14 @@ public class ConexaoBancoDados {
 	 */
 	public void deletarBanco() throws SQLException {
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 			this.afirmacao = this.conexao.createStatement();
 			
 			String comandoSQL = "drop database if exists " + nomeBanco;
 			
 			this.afirmacao.executeUpdate(comandoSQL);
 		} catch(Exception e) {
-			throw new SQLException("ConexaoBancoDados - " + e.getMessage());
+			throw new SQLException("DatabaseConnection - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

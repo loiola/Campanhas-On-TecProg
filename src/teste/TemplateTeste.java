@@ -2,7 +2,7 @@ package teste;
 
 import java.io.File;
 
-import model.dao.ConexaoBancoDados;
+import model.dao.DatabaseConnection;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +15,7 @@ public abstract class TemplateTeste {
 	public static final String NOME_BANCO_TESTES = "banco_de_testes";
 	public static final String LOCAL_BANCO_ERROR = "Erro na Conexao";
 	
-	protected ConexaoBancoDados conexaoBancoDados;
+	protected DatabaseConnection databaseConnection;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -23,13 +23,13 @@ public abstract class TemplateTeste {
 		String diretorioSQL = new File("./lib/").getCanonicalPath();
 		String arquivoSQL1 = diretorioSQL + "/mer_campanha.sql";	
 		String arquivoSQL2 = diretorioSQL + "/mer_movimentacoes.sql";		
-		this.conexaoBancoDados = new ConexaoBancoDados();
-		this.conexaoBancoDados.alterarBanco(NOME_BANCO_OFICIAL);
-		this.conexaoBancoDados.setLocalBanco(LOCAL_BANCO_OFICIAL);
-		this.conexaoBancoDados.criarBanco(NOME_BANCO_TESTES);
-		this.conexaoBancoDados.alterarBanco(NOME_BANCO_TESTES);
-		this.conexaoBancoDados.importarSQL(arquivoSQL1);
-		this.conexaoBancoDados.importarSQL(arquivoSQL2);
+		this.databaseConnection = new DatabaseConnection();
+		this.databaseConnection.alterarBanco(NOME_BANCO_OFICIAL);
+		this.databaseConnection.setLocalBanco(LOCAL_BANCO_OFICIAL);
+		this.databaseConnection.criarBanco(NOME_BANCO_TESTES);
+		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
+		this.databaseConnection.importarSQL(arquivoSQL1);
+		this.databaseConnection.importarSQL(arquivoSQL2);
 
 		beforeTest();
 	}
@@ -38,8 +38,8 @@ public abstract class TemplateTeste {
 	public void tearDown() throws Exception {
 		afterTest();
 		
-		if(!this.conexaoBancoDados.getLocalBanco().equals(LOCAL_BANCO_ERROR)) {
-			this.conexaoBancoDados.deletarBanco();
+		if(!this.databaseConnection.getLocalBanco().equals(LOCAL_BANCO_ERROR)) {
+			this.databaseConnection.deletarBanco();
 		}	
 	}
 	

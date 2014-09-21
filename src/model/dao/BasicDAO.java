@@ -67,7 +67,7 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 		try {
 			ArrayList<O> listaNaoCadastrados = getListaNaoCadastrados(lista);
 
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 			this.instrucaoSQL = getInstrucaoSQL(getSqlInsert());
 			this.conexao.setAutoCommit(false);
 	
@@ -90,7 +90,7 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 		ArrayList<O> lista = new ArrayList<>();
 		
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 			
 			String comandoSQL = getSqlSelect();
 			

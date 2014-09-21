@@ -149,7 +149,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 		LinkedList<Candidate> listaCandidato = new LinkedList<>();
 
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);

@@ -123,7 +123,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		this.requisitarMovimentacoesDeCandidato = new RequisitarMovimentacoesDeCandidato();
 		
-		this.conexaoBancoDados.alterarBanco(NOME_BANCO_OFICIAL);
+		this.databaseConnection.alterarBanco(NOME_BANCO_OFICIAL);
 		
 		this.req = mock(HttpServletRequest.class);
 		this.res = mock(HttpServletResponse.class);
@@ -131,7 +131,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 
 	@Override
 	public void afterTest() throws Exception {
-		this.conexaoBancoDados.alterarBanco(NOME_BANCO_TESTES);
+		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
 	}
 
 }

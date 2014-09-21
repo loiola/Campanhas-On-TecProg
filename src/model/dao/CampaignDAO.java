@@ -234,7 +234,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		this.resultadoDAO = new ResultadoDAO();
 
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);

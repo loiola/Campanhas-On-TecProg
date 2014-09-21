@@ -169,7 +169,7 @@ public class ReceitaDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 
 		try {
-			this.conexao = new ConexaoBancoDados().getConexao();
+			this.conexao = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 
