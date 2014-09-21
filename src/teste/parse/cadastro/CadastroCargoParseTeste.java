@@ -41,7 +41,7 @@ public class CadastroCargoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Position position = this.positionDAO.getPeloCod(1);
+		Position position = this.positionDAO.getPositionByCode(1);
 		assertEquals(position.getPositionCode().toString(), "1");
 	}
 

@@ -44,7 +44,7 @@ public class CargoDAOTeste extends TemplateTeste {
 
 		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
 
-		cargoRecuperado = this.positionDAO.getPeloCod(1);
+		cargoRecuperado = this.positionDAO.getPositionByCode(1);
 		Assert.assertEquals(c1, cargoRecuperado);
 	}
 	
@@ -66,7 +66,7 @@ public class CargoDAOTeste extends TemplateTeste {
 
 		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
 
-		cargoRecuperado = this.positionDAO.getPelaDescricao("CARGO UM");
+		cargoRecuperado = this.positionDAO.getPositionByDescription("CARGO UM");
 		Assert.assertEquals(c1, cargoRecuperado);
 	}
 	
@@ -106,7 +106,7 @@ public class CargoDAOTeste extends TemplateTeste {
 		c2.setPositionCode(2);
 		int resultado;
 
-		resultado = PositionDAO.Comparacao.CODIGO.compare(c1, c2);
+		resultado = PositionDAO.CompareTwoPositionsCode.CODIGO.compare(c1, c2);
 
 		Assert.assertNotEquals(0, resultado);
 	}

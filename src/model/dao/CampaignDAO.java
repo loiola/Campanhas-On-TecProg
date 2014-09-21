@@ -243,7 +243,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 			while(resultadoSQL.next()) {
 				Campaign campaign = new Campaign();
 				campaign.setCampaignYear(resultadoSQL.getInt(DATABASE_CAMPAIGN_YEAR));
-				campaign.setCampaignPosition(positionDAO.getPeloCod(resultadoSQL.getInt(DATABASE_CAMPAIGN_POSITION_CODE)));
+				campaign.setCampaignPosition(positionDAO.getPositionByCode(resultadoSQL.getInt(DATABASE_CAMPAIGN_POSITION_CODE)));
 				campaign.setCampaignMaximumExpenseDeclared(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED));
 				campaign.setCampaignTotalExpenseCalculated(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_CALCULATED));
 				campaign.setCampaignNameOfUrn(resultadoSQL.getString(DATABASE_CAMPAIGN_NAME_OF_URN));

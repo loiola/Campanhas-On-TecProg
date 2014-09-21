@@ -16,24 +16,24 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 */
 
 	// Constants
-	private static final String NOME_TABELA = "cargo";
-	private static final String CODIGO = "cod_cargo";
-	private static final String DESCRICAO = "descricao";
-	private static final String SQL_INSERCAO = "INSERT INTO " + NOME_TABELA
-			+ " (" + CODIGO + ", " + DESCRICAO + ") "
+	private static final String DATABASE_POSITION_TABLE_NAME = "cargo";
+	private static final String DATABASE_POSITION_CODE = "cod_cargo";
+	private static final String DATABASE_POSITION_DESCRIPTION = "descricao";
+	private static final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO " + DATABASE_POSITION_TABLE_NAME
+			+ " (" + DATABASE_POSITION_CODE + ", " + DATABASE_POSITION_DESCRIPTION + ") "
 			+ "values (?, ?)";
-	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
+	private static final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_POSITION_TABLE_NAME;
 
 	// Constructors
 	public PositionDAO() {
-		super(NOME_TABELA, Comparacao.CODIGO);
+		super(DATABASE_POSITION_TABLE_NAME, CompareTwoPositionsCode.CODIGO);
 	}
 
 	// Other methods
 	/*
 	 * Comparator to check if two instances are equal positions through code
 	 */
-	public enum Comparacao implements Comparator<Position> {
+	public enum CompareTwoPositionsCode implements Comparator<Position> {
 		CODIGO {
 			@Override
 			public int compare(Position c1, Position c2) {
@@ -48,7 +48,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 */
 	@Override
 	protected String getSQLInsertCommand() {
-		return SQL_INSERCAO;
+		return DATABASE_SQL_COMMAND_INSERT;
 	}
 
 	/*
@@ -57,7 +57,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 */
 	@Override
 	protected String getSQLSelectCommand() {
-		return SQL_SELECAO;
+		return DATABASE_SQL_COMMAND_SELECT;
 	}
 
 	/*
@@ -66,12 +66,12 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void registerObjectArrayListOnBatch(ArrayList<Position> lista,
-			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Position position : lista) {
-			instrucaoSQL.setInt(1, position.getPositionCode());
-			instrucaoSQL.setString(2, position.getPositionDescription());
-			instrucaoSQL.addBatch();
+	protected void registerObjectArrayListOnBatch(ArrayList<Position> positionList,
+			PreparedStatement daoSQLInstruction) throws SQLException {
+		for(Position position : positionList) {
+			daoSQLInstruction.setInt(1, position.getPositionCode());
+			daoSQLInstruction.setString(2, position.getPositionDescription());
+			daoSQLInstruction.addBatch();
 		}
 	}
 
@@ -81,13 +81,13 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Position> lista,
-			ResultSet resultadoSQL) throws SQLException {
-		while(resultadoSQL.next()) {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Position> positionList,
+			ResultSet sqlResult) throws SQLException {
+		while(sqlResult.next()) {
 			Position position = new Position();
-			position.setPositionCode(resultadoSQL.getInt(CODIGO));
-			position.setPositionDescription(resultadoSQL.getString(DESCRICAO));
-			lista.add(position);
+			position.setPositionCode(sqlResult.getInt(DATABASE_POSITION_CODE));
+			position.setPositionDescription(sqlResult.getString(DATABASE_POSITION_DESCRIPTION));
+			positionList.add(position);
 		}
 	}
 	
@@ -96,9 +96,9 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param an Integer with the code of position
 	 * @return an instance of Class Position
 	 */
-	public Position getPeloCod(Integer codigo) throws SQLException {
-		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+codigo+" ";
-		return buscaBD(comandoSQL);
+	public Position getPositionByCode(Integer positionCode) throws SQLException {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_POSITION_CODE +" = "+positionCode+" ";
+		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 	}
 	
 	/*
@@ -106,10 +106,10 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a String with the description
 	 * @return an instance of Class Position
 	 */
-	public Position getPelaDescricao(String descricao) throws SQLException {
-		String comandoSQL = SQL_SELECAO + " WHERE "
-						  + DESCRICAO +" like '%"+descricao+"%' ";
-		return buscaBD(comandoSQL);
+	public Position getPositionByDescription(String positionDescription) throws SQLException {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+						  + DATABASE_POSITION_DESCRIPTION +" like '%"+positionDescription+"%' ";
+		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 	}
 	
 	/*
@@ -117,9 +117,9 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a String with the SQL command
 	 * @return an instance of Class Position
 	 */
-	public Position buscaBD(String SQL) throws SQLException {
+	public Position searchDonorInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
 		Position position = new Position();
-		String comandoSQL = SQL;
+		String comandoSQL = sqlCommandConfiguredBefore;
 		
 		try {
 			this.connection = new DatabaseConnection().getConnection();
@@ -128,8 +128,8 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 
 			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 			while(resultadoSQL.next()) {
-				position.setPositionCode(resultadoSQL.getInt(CODIGO));
-				position.setPositionDescription(resultadoSQL.getString(DESCRICAO));
+				position.setPositionCode(resultadoSQL.getInt(DATABASE_POSITION_CODE));
+				position.setPositionDescription(resultadoSQL.getString(DATABASE_POSITION_DESCRIPTION));
 			}
 		} catch(SQLException e) {
 			throw new SQLException("PositionDAO - " + e.getMessage());
