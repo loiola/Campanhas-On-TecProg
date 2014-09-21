@@ -56,7 +56,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		ArrayList<Candidate> listaCandidato = new ArrayList<>();
 		
 		Campaign camp1 = new Campaign();
-		this.resultado1.setCodigo(2);
+		this.resultado1.setResultType(2);
 		this.position.setPositionCode(1);
 		this.partido1.setPartyNumber(45);
 		this.candidato1.setCandidateElectoralTitle("55325424149");
@@ -76,7 +76,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		listaCandidato.add(candidato1);
 		
 		Campaign camp2 = new Campaign();
-		this.resultado2.setCodigo(3);
+		this.resultado2.setResultType(3);
 		this.partido2.setPartyNumber(13);
 		this.candidato2.setCandidateElectoralTitle("04725698130");
 		camp2.setCampaignIdentifier(2);

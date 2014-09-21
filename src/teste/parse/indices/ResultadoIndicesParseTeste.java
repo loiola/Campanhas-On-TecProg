@@ -28,8 +28,8 @@ public class ResultadoIndicesParseTeste {
 		
 		Result result = new Result();
 		this.resultadoIndicesParse.iniciarInstancia(result, campo);
-		Assert.assertEquals(this.campo[0], result.getCodigo().toString());
-		Assert.assertEquals(this.campo[1], result.getDescricao());
+		Assert.assertEquals(this.campo[0], result.getResultType().toString());
+		Assert.assertEquals(this.campo[1], result.getResultDescription());
 	}
 	
 	@Test
@@ -38,8 +38,8 @@ public class ResultadoIndicesParseTeste {
 		this.resultadoIndicesParse = new ResultadoIndicesParse();
 		Result result = new Result();
 		this.resultadoIndicesParse.iniciarInstancia(result, campo);
-		Assert.assertNotEquals(this.campo[0], result.getCodigo().toString());
-		Assert.assertNotEquals(this.campo[1], result.getDescricao());
+		Assert.assertNotEquals(this.campo[0], result.getResultType().toString());
+		Assert.assertNotEquals(this.campo[1], result.getResultDescription());
 	}
 	
 	private void iniciarIndices() {

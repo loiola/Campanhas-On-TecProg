@@ -42,7 +42,7 @@ public class CadastroResultadoParseTeste extends TemplateTeste {
 		cadastro.cadastrarInstancias();
 		
 		Result result = dao.getPeloCod(25);
-		assertEquals(result.getDescricao(), "Result 25");
+		assertEquals(result.getResultDescription(), "Result 25");
 	}
 
 }

@@ -45,8 +45,8 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 		
 		Result resultadoCadastrado = this.resultadoDAO.getLista().get(0);
 				
-		Assert.assertEquals(this.campo[CODIGO], resultadoCadastrado.getCodigo().toString());
-		Assert.assertEquals(this.campo[DESCRICAO], resultadoCadastrado.getDescricao());
+		Assert.assertEquals(this.campo[CODIGO], resultadoCadastrado.getResultType().toString());
+		Assert.assertEquals(this.campo[DESCRICAO], resultadoCadastrado.getResultDescription());
 	}
 	
 	private void iniciarIndices() {

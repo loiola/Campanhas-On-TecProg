@@ -37,7 +37,7 @@ public class ResultadoDAO extends BasicoDAO<Result> implements ParseDAO<Result> 
 		CODIGO {
 			@Override
 			public int compare(Result r1, Result r2) {
-				return r1.getCodigo().compareTo(r2.getCodigo());
+				return r1.getResultType().compareTo(r2.getResultType());
 			}
 		};
 	}
@@ -69,8 +69,8 @@ public class ResultadoDAO extends BasicoDAO<Result> implements ParseDAO<Result> 
 	protected void adicionarListaNoBatch(ArrayList<Result> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Result result : lista) {
-			instrucaoSQL.setInt(1, result.getCodigo());
-			instrucaoSQL.setString(2, result.getDescricao());
+			instrucaoSQL.setInt(1, result.getResultType());
+			instrucaoSQL.setString(2, result.getResultDescription());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -85,8 +85,8 @@ public class ResultadoDAO extends BasicoDAO<Result> implements ParseDAO<Result> 
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Result result = new Result();
-			result.setCodigo(resultadoSQL.getInt(CODIGO));
-			result.setDescricao(resultadoSQL.getString(DESCRICAO));
+			result.setResultType(resultadoSQL.getInt(CODIGO));
+			result.setResultDescription(resultadoSQL.getString(DESCRICAO));
 			lista.add(result);
 		}
 	}
@@ -107,8 +107,8 @@ public class ResultadoDAO extends BasicoDAO<Result> implements ParseDAO<Result> 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 			
 			while(resultadoSQL.next()) {
-				result.setCodigo(resultadoSQL.getInt(CODIGO));
-				result.setDescricao(resultadoSQL.getString(DESCRICAO));
+				result.setResultType(resultadoSQL.getInt(CODIGO));
+				result.setResultDescription(resultadoSQL.getString(DESCRICAO));
 			}
 
 		} catch(SQLException e) {

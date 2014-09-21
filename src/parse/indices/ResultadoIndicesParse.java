@@ -26,10 +26,10 @@ public class ResultadoIndicesParse extends IndicesParse<Result> {
 	@Override
 	protected void setIndicesValidos(Result result, String[] campo) {
 		if (indiceValido(this.indiceCodigo)) {
-			result.setCodigo(Integer.parseInt(campo[this.indiceCodigo]));
+			result.setResultType(Integer.parseInt(campo[this.indiceCodigo]));
 		}
 		if (indiceValido(this.indiceDescricao)) {
-			result.setDescricao(campo[this.indiceDescricao]);
+			result.setResultDescription(campo[this.indiceDescricao]);
 		}	
 	}
 
@@ -39,8 +39,8 @@ public class ResultadoIndicesParse extends IndicesParse<Result> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Result result) {
-		result.setCodigo(Result.INTEGER_VAZIO);
-		result.setDescricao(Result.STRING_VAZIO);
+		result.setResultType(Result.EMPTY_TYPE_INTEGER);
+		result.setResultDescription(Result.EMPTY_TYPE_STRING);
 	}
 
 	// Mutators for indexes of the array of fields

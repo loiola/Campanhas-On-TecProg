@@ -46,7 +46,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 	protected void setIndicesValidos(Campaign campaign, String[] campo) {
 		if (indiceValido(this.indiceResultadoCod)) {
 			Result result = new Result();
-			result.setCodigo(Integer.parseInt(campo[this.indiceResultadoCod]));
+			result.setResultType(Integer.parseInt(campo[this.indiceResultadoCod]));
 			campaign.setCampaignResult(result);
 		}
 		if (indiceValido(this.indiceCargoCod)) {

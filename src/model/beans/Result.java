@@ -8,31 +8,31 @@ public class Result {
 	 */
 	
 	// Constants
-	public static final String STRING_VAZIO = "";
-	public static final int INTEGER_VAZIO = 0;
+	public static final String EMPTY_TYPE_STRING = "";
+	public static final int EMPTY_TYPE_INTEGER = 0;
 	
 	// Attributes
-	private Integer codigo;
-	private String  descricao;
+	private Integer resultType;
+	private String  resultDescription;
 	
 	// Empty constructor
 	public Result() {
-		this.codigo = INTEGER_VAZIO;
-		this.descricao = STRING_VAZIO;
+		this.resultType = EMPTY_TYPE_INTEGER;
+		this.resultDescription = EMPTY_TYPE_STRING;
 	}
 	
 	// Getters and Setters
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getResultType() {
+		return resultType;
 	}
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setResultType(int resultType) {
+		this.resultType = resultType;
 	}
-	public String getDescricao() {
-		return descricao;
+	public String getResultDescription() {
+		return resultDescription;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setResultDescription(String resultDescription) {
+		this.resultDescription = resultDescription;
 	}
 	
 	@Override
@@ -40,7 +40,7 @@ public class Result {
 		if( !(object instanceof Result))
 			return false;
 		
-		Result outroResultado = (Result) object;
-		return this.descricao.equalsIgnoreCase(outroResultado.getDescricao());
+		Result otherResult = (Result) object;
+		return this.resultDescription.equalsIgnoreCase(otherResult.getResultDescription());
 	}
 }

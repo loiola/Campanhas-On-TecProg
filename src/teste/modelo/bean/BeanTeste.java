@@ -145,8 +145,8 @@ public class BeanTeste {
 	public static Result instanciarResultado() {
 		
 		Result result = new Result();
-		result.setCodigo(INT_TESTE);
-		result.setDescricao(STRING_TESTE);
+		result.setResultType(INT_TESTE);
+		result.setResultDescription(STRING_TESTE);
 		
 		return result;
 	}

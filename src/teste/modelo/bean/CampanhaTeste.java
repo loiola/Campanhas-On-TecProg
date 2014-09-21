@@ -58,7 +58,7 @@ public class CampanhaTeste {
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getCampaignMaximumExpenseDeclared(),0);
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getCampaignTotalExpenseCalculated(),0);
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getCampaignTotalRevenueCalculated(),0);
-		Assert.assertEquals(BeanTeste.INT_TESTE,result.getCodigo());
+		Assert.assertEquals(BeanTeste.INT_TESTE,result.getResultType());
 	}
 	
 }

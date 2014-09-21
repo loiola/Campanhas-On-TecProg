@@ -32,13 +32,13 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		ArrayList<Result> lista = new ArrayList<>();
 		
 		Result r1 = new Result();
-		r1.setCodigo(1);
-		r1.setDescricao("Result 1");
+		r1.setResultType(1);
+		r1.setResultDescription("Result 1");
 		lista.add(r1);
 		
 		Result r2 = new Result();
-		r2.setCodigo(2);
-		r2.setDescricao("Result 2");
+		r2.setResultType(2);
+		r2.setResultDescription("Result 2");
 		lista.add(r2);
 		
 		this.dao.cadastrarLista(lista);
@@ -54,13 +54,13 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		ArrayList<Result> lista = new ArrayList<>();
 		
 		Result r1 = new Result();
-		r1.setCodigo(1);
-		r1.setDescricao("Result 1");
+		r1.setResultType(1);
+		r1.setResultDescription("Result 1");
 		lista.add(r1);
 		
 		Result r2 = new Result();
-		r2.setCodigo(2);
-		r2.setDescricao("Result 2");
+		r2.setResultType(2);
+		r2.setResultDescription("Result 2");
 		lista.add(r2);
 		
 		this.dao.cadastrarLista(lista);
@@ -75,8 +75,8 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		
 		Result r1 = new Result();
 		Result r2 = new Result();
-		r1.setCodigo(1);
-		r2.setCodigo(2);
+		r1.setResultType(1);
+		r2.setResultType(2);
 		int resultado;
 
 		resultado = ResultadoDAO.Comparacao.CODIGO.compare(r1, r2);
