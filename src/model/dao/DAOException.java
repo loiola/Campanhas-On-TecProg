@@ -1,6 +1,6 @@
 package model.dao;
 
-public class DAOExcecao extends Exception {
+public class DAOException extends Exception {
 	
 	/*
 	 * Class used for exception flow DAO package
@@ -10,11 +10,11 @@ public class DAOExcecao extends Exception {
 	private static final long serialVersionUID = 4196360225860055203L;
 
 	// Constructors
-	public DAOExcecao() {
+	public DAOException() {
 		
 	}
 
-	public DAOExcecao(String message) {
+	public DAOException(String message) {
 		super(message);
 	}
 
