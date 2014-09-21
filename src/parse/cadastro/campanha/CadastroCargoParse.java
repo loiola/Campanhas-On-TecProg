@@ -1,6 +1,6 @@
 package parse.cadastro.campanha;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
 import parse.controle.CargoParseControle;
@@ -8,7 +8,7 @@ import parse.controle.ParseControle;
 import parse.indices.CargoIndicesParse;
 import parse.indices.IndicesParse;
 
-public class CadastroCargoParse extends CadastroParse<Cargo> {
+public class CadastroCargoParse extends CadastroParse<Position> {
 	
 	/* 
 	 * Class used to extract Position attributes and forward the register to the Database
@@ -35,8 +35,8 @@ public class CadastroCargoParse extends CadastroParse<Cargo> {
 	 * @return a ParsePositionControl
 	 */
 	@Override
-	public ParseControle<Cargo> novaInstancia(
-			IndicesParse<Cargo> indicesParse) {
+	public ParseControle<Position> novaInstancia(
+			IndicesParse<Position> indicesParse) {
 		CargoParseControle cargoParseControle = new CargoParseControle(indicesParse);
 		return cargoParseControle;
 	}
@@ -47,7 +47,7 @@ public class CadastroCargoParse extends CadastroParse<Cargo> {
 	 * @return a ParsePositionIndex
 	 */
 	@Override
-	protected IndicesParse<Cargo> getIndicesParse(String tipoArquivo,
+	protected IndicesParse<Position> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		CargoIndicesParse cargoIndicesParse;

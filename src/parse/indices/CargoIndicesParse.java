@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 
-public class CargoIndicesParse extends IndicesParse<Cargo> {
+public class CargoIndicesParse extends IndicesParse<Position> {
 	
 	/*
 	 * Class to control the contents of information inherent to the positions
@@ -25,12 +25,12 @@ public class CargoIndicesParse extends IndicesParse<Cargo> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Cargo cargo, String campo[]) {
+	protected void setIndicesValidos(Position position, String campo[]) {
 		if(indiceValido(this.indiceCodigo)) {
-			cargo.setCodigo(Integer.parseInt(campo[this.indiceCodigo]));
+			position.setCodigo(Integer.parseInt(campo[this.indiceCodigo]));
 		}
 		if(indiceValido(this.indiceDescricao)) {
-			cargo.setDescricao(campo[this.indiceDescricao]);
+			position.setDescricao(campo[this.indiceDescricao]);
 		}
 	}
 
@@ -39,9 +39,9 @@ public class CargoIndicesParse extends IndicesParse<Cargo> {
 	 * @param an instance of Class Position
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Cargo cargo) {
-		cargo.setCodigo(Cargo.INTEGER_VAZIO);
-		cargo.setDescricao(Cargo.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Position position) {
+		position.setCodigo(Position.INTEGER_VAZIO);
+		position.setDescricao(Position.STRING_VAZIO);
 	}
 
 	// Mutators for indexes of the array of fields

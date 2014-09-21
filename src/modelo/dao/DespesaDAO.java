@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Despesa;
 import modelo.beans.Fornecedor;
 import parse.ParseDAO;
@@ -107,12 +107,12 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
-			Cargo cargo = new Cargo();
-			cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+			Position position = new Position();
+			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
 			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
-			campaign.setCargo(cargo);
+			campaign.setCargo(position);
 
 			Fornecedor fornecedor = new Fornecedor();
 			fornecedor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
@@ -181,13 +181,13 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 
 			while(resultadoSQL.next()) {
 				Despesa despesa = new Despesa();
-				Cargo cargo = new Cargo();
-				cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+				Position position = new Position();
+				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
 				Campaign campaign = new Campaign();
 				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-				campaign.setCargo(cargo);
+				campaign.setCargo(position);
 				despesa.setCampanha(campaign);
 				
 				Fornecedor fornecedor = new Fornecedor();

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Doador;
 import modelo.beans.Receita;
 import modelo.dao.ReceitaDAO;
@@ -20,10 +20,10 @@ public class ReceitaDAOTeste extends TemplateTeste {
 	private Receita receita2;
 	private Campaign campanha1;
 	private Doador doador1;
-	private Cargo cargo1;
+	private Position cargo1;
 	private Campaign campanha2;
 	private Doador doador2;
-	private Cargo cargo2;
+	private Position cargo2;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -31,12 +31,12 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		this.receitaDAO = new ReceitaDAO();
 		this.campanha1 = new Campaign();
 		this.doador1 = new Doador();
-		this.cargo1 = new Cargo();
+		this.cargo1 = new Position();
 		this.receita1 = new Receita();
 		this.receita2 = new Receita();
 		this.campanha2 = new Campaign();
 		this.doador2 = new Doador();
-		this.cargo2 = new Cargo();
+		this.cargo2 = new Position();
 	}
 
 	@Override

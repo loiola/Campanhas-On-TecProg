@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.beans.Campaign;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Despesa;
 import modelo.beans.Receita;
 import controle.CampanhaControle;
@@ -329,13 +329,13 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		int cargo_cod = Integer.parseInt(req.getParameter("cargo_cod"));
 		String uf = req.getParameter("uf");
 
-		Cargo cargo = new Cargo();
-		cargo.setCodigo(cargo_cod);
+		Position position = new Position();
+		position.setCodigo(cargo_cod);
 
 		Campaign campaign = new Campaign();
 		campaign.setNumeroCandidato(numero);
 		campaign.setAno(ano);
-		campaign.setCargo(cargo);
+		campaign.setCargo(position);
 		campaign.setUf(uf);
 
 		return campaign;

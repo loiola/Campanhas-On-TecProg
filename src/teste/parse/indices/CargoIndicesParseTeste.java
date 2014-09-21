@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,20 +26,20 @@ public class CargoIndicesParseTeste {
 	@Test
 	public void iniciarUmCargoComIndicesValidos() throws Exception {
 		
-		Cargo cargo = new Cargo();
-		this.cargoIndicesParse.iniciarInstancia(cargo, campo);
-		Assert.assertEquals(this.campo[0], cargo.getCodigo().toString());
-		Assert.assertEquals(this.campo[1], cargo.getDescricao());
+		Position position = new Position();
+		this.cargoIndicesParse.iniciarInstancia(position, campo);
+		Assert.assertEquals(this.campo[0], position.getCodigo().toString());
+		Assert.assertEquals(this.campo[1], position.getDescricao());
 	}
 	
 	@Test
 	public void iniciarUmCargoComIndicesInvalidos() throws Exception {
 		
 		this.cargoIndicesParse = new CargoIndicesParse();
-		Cargo cargo = new Cargo();
-		this.cargoIndicesParse.iniciarInstancia(cargo, campo);
-		Assert.assertNotEquals(this.campo[0], cargo.getCodigo().toString());
-		Assert.assertNotEquals(this.campo[1], cargo.getDescricao());
+		Position position = new Position();
+		this.cargoIndicesParse.iniciarInstancia(position, campo);
+		Assert.assertNotEquals(this.campo[0], position.getCodigo().toString());
+		Assert.assertNotEquals(this.campo[1], position.getDescricao());
 	}
 	
 	private void iniciarIndices() {

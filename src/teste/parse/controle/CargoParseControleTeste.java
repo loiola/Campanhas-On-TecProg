@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.dao.CargoDAO;
 
 import org.junit.Assert;
@@ -43,7 +43,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 		this.cargoParseControle.cadastrarInstancias();
 		this.cargoParseControle.resetar();
 		
-		Cargo cargoCadastrado = this.cargoDAO.getLista().get(0);
+		Position cargoCadastrado = this.cargoDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[CODIGO], cargoCadastrado.getCodigo().toString());
 		Assert.assertEquals(this.campo[DESCRICAO], cargoCadastrado.getDescricao());

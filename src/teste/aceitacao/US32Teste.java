@@ -141,7 +141,7 @@ public class US32Teste {
 		driver.findElement(By.linkText("2010")).click();
 		Assert.assertTrue(driver.findElement(By.linkText("ADELMIR ARAUJO SANTANA")).isDisplayed());
 		Assert.assertTrue(driver.getPageSource().contains("Nome de Urna"));
-		Assert.assertTrue(driver.getPageSource().contains("Cargo"));
+		Assert.assertTrue(driver.getPageSource().contains("Position"));
 		Assert.assertTrue(driver.getPageSource().contains("Número de Eleição"));
 		Thread.sleep(2000);
 	}

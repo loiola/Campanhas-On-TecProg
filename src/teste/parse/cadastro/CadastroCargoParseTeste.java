@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.dao.CargoDAO;
 
 import org.junit.Test;
@@ -41,8 +41,8 @@ public class CadastroCargoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Cargo cargo = this.cargoDAO.getPeloCod(1);
-		assertEquals(cargo.getCodigo().toString(), "1");
+		Position position = this.cargoDAO.getPeloCod(1);
+		assertEquals(position.getCodigo().toString(), "1");
 	}
 
 }

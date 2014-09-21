@@ -1,7 +1,7 @@
 package parse.indices;
 
 import modelo.beans.Campaign;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.MovimentacaoFinanceira;
 
 public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
@@ -60,9 +60,9 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 			campaign.setNumeroCandidato(Integer.parseInt(campo[this.indiceCampanhaNumero]));
 		}
 		if(indiceValido(this.indiceCampanhaCargo)) {
-			Cargo cargo = new Cargo();
-			cargo.setDescricao(campo[this.indiceCampanhaCargo]);
-			campaign.setCargo(cargo);
+			Position position = new Position();
+			position.setDescricao(campo[this.indiceCampanhaCargo]);
+			campaign.setCargo(position);
 		}
 		if(indiceValido(this.indiceCampanhaUf)) {
 			campaign.setUf(campo[this.indiceCampanhaUf]);

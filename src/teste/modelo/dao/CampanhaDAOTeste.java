@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
 import modelo.dao.CampanhaDAO;
@@ -21,7 +21,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	private CampanhaDAO campanhaDAO;
 	private CandidatoDAO candidatoDAO;
 	private Resultado resultado1;
-	private Cargo cargo;
+	private Position position;
 	private Partido partido1;
 	private Candidate candidato1;
 	private Resultado resultado2;
@@ -35,7 +35,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		this.campanhaDAO = new CampanhaDAO();
 		this.candidatoDAO = new CandidatoDAO();
 		this.resultado1 = new Resultado();
-		this.cargo = new Cargo();
+		this.position = new Position();
 		this.partido1 = new Partido();
 		this.candidato1 = new Candidate();
 		this.resultado2 = new Resultado();
@@ -57,14 +57,14 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		
 		Campaign camp1 = new Campaign();
 		this.resultado1.setCodigo(2);
-		this.cargo.setCodigo(1);
+		this.position.setCodigo(1);
 		this.partido1.setNumero(45);
 		this.candidato1.setTituloEleitoral("55325424149");
 		camp1.setId(1);
 		camp1.setAno(2006);
 		camp1.setNumeroCandidato(45555);
 		camp1.setResultado(resultado1);
-		camp1.setCargo(cargo);
+		camp1.setCargo(position);
 		camp1.setPartido(partido1);
 		camp1.setCandidato(candidato1);
 		camp1.setNomeDeUrna("NOME DE URNA UM");
@@ -83,7 +83,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		camp2.setAno(2006);
 		camp2.setNumeroCandidato(13122);
 		camp2.setResultado(resultado2);
-		camp2.setCargo(cargo);
+		camp2.setCargo(position);
 		camp2.setPartido(partido2);
 		camp2.setCandidato(candidato2);
 		camp2.setNomeDeUrna("NOME DE URNA DOIS");

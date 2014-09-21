@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Despesa;
 import modelo.beans.Doador;
 import modelo.beans.Fornecedor;
@@ -24,7 +24,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	private MovimentacaoControle movimentacaoControle;
 	private Candidate candidate;
 	private Campaign campaign;
-	private Cargo cargo;
+	private Position position;
 	private Receita receita;
 	private Despesa despesa;
 	private Doador doador;
@@ -47,7 +47,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.fornecedor = new Fornecedor();
 		this.ano = 2014;
 		this.uf = "DF";
-		this.cargo = new Cargo();
+		this.position = new Position();
 		this.numeroCandidato = 1234;
 		
 		ArrayList<Despesa> listaDespesa = new ArrayList<>();
@@ -56,9 +56,9 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		candidate.setNome("FULANO");
 		candidate.setTituloEleitoral("12345");
 		
-		cargo.setDescricao("Presidente");
+		position.setDescricao("Presidente");
 		
-		campaign.setCargo(cargo);
+		campaign.setCargo(position);
 		campaign.setCandidato(candidate);
 		campaign.setAno(this.ano);
 		campaign.setUf(this.uf);
@@ -103,7 +103,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 
-		campanhaTeste.setCargo(this.cargo);
+		campanhaTeste.setCargo(this.position);
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 		

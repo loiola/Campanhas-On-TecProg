@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.dao.CargoDAO;
 
 import org.junit.Assert;
@@ -29,15 +29,15 @@ public class CargoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmCargoPeloCodigo() throws SQLException {
 
-		ArrayList<Cargo> listaCargos = new ArrayList<>();
-		Cargo cargoRecuperado = new Cargo();
+		ArrayList<Position> listaCargos = new ArrayList<>();
+		Position cargoRecuperado = new Position();
 
-		Cargo c1 = new Cargo();
+		Position c1 = new Position();
 		c1.setCodigo(1);
 		c1.setDescricao("CARGO UM");
 		listaCargos.add(c1);
 
-		Cargo c2 = new Cargo();
+		Position c2 = new Position();
 		c2.setCodigo(2);
 		c2.setDescricao("CARGO DOIS");
 		listaCargos.add(c2);
@@ -51,15 +51,15 @@ public class CargoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmCargoPelaDescricao() throws SQLException {
 
-		ArrayList<Cargo> listaCargos = new ArrayList<>();
-		Cargo cargoRecuperado = new Cargo();
+		ArrayList<Position> listaCargos = new ArrayList<>();
+		Position cargoRecuperado = new Position();
 
-		Cargo c1 = new Cargo();
+		Position c1 = new Position();
 		c1.setCodigo(1);
 		c1.setDescricao("CARGO UM");
 		listaCargos.add(c1);
 
-		Cargo c2 = new Cargo();
+		Position c2 = new Position();
 		c2.setCodigo(2);
 		c2.setDescricao("CARGO DOIS");
 		listaCargos.add(c2);
@@ -73,20 +73,20 @@ public class CargoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmaListaDeCargos() throws SQLException {
 		
-		ArrayList<Cargo> listaCargos = new ArrayList<>();
-		ArrayList<Cargo> listaRecuperada = new ArrayList<>();
+		ArrayList<Position> listaCargos = new ArrayList<>();
+		ArrayList<Position> listaRecuperada = new ArrayList<>();
 		
-		Cargo c1 = new Cargo();
+		Position c1 = new Position();
 		c1.setCodigo(1);
 		c1.setDescricao("CARGO UM");
 		listaCargos.add(c1);
 
-		Cargo c2 = new Cargo();
+		Position c2 = new Position();
 		c2.setCodigo(2);
 		c2.setDescricao("CARGO DOIS");
 		listaCargos.add(c2);
 		
-		Cargo c3 = new Cargo();
+		Position c3 = new Position();
 		c3.setCodigo(3);
 		c3.setDescricao("CARGO TRÊS");
 		listaCargos.add(c3);
@@ -100,8 +100,8 @@ public class CargoDAOTeste extends TemplateTeste {
 	@Test
 	public void valoresComparacao() throws Exception {
 
-		Cargo c1 = new Cargo();
-		Cargo c2 = new Cargo();
+		Position c1 = new Position();
+		Position c2 = new Position();
 		c1.setCodigo(1);
 		c2.setCodigo(2);
 		int resultado;

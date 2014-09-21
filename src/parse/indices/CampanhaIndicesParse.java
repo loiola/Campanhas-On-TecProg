@@ -2,7 +2,7 @@ package parse.indices;
 
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
 
@@ -50,9 +50,9 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 			campaign.setResultado(resultado);
 		}
 		if (indiceValido(this.indiceCargoCod)) {
-			Cargo cargo = new Cargo();
-			cargo.setCodigo(Integer.parseInt(campo[this.indiceCargoCod]));
-			campaign.setCargo(cargo);
+			Position position = new Position();
+			position.setCodigo(Integer.parseInt(campo[this.indiceCargoCod]));
+			campaign.setCargo(position);
 		}	
 		if (indiceValido(this.indicePartidoNumero)) {
 			Partido partido = new Partido();

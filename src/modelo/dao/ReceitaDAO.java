@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Doador;
 import modelo.beans.Receita;
 import parse.ParseDAO;
@@ -106,11 +106,11 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
-			Cargo cargo = new Cargo();
-			cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+			Position position = new Position();
+			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));	
 			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));	
-			campaign.setCargo(cargo);
+			campaign.setCargo(position);
 			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
 
 			Doador doador = new Doador();
@@ -180,13 +180,13 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			while(resultadoSQL.next()) {
 				Receita receita = new Receita();
 				
-				Cargo cargo = new Cargo();
-				cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+				Position position = new Position();
+				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
 				Campaign campaign = new Campaign();
 				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-				campaign.setCargo(cargo);
+				campaign.setCargo(position);
 				receita.setCampanha(campaign);
 				
 				Doador doador = new Doador();

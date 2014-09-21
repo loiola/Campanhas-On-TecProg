@@ -1,17 +1,17 @@
 package parse.controle;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.dao.CargoDAO;
 import parse.indices.IndicesParse;
 
-public class CargoParseControle extends ParseControle<Cargo> {
+public class CargoParseControle extends ParseControle<Position> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Position
 	 */
 
 	// Constructors
-	public CargoParseControle(IndicesParse<Cargo> indicesParse) {
+	public CargoParseControle(IndicesParse<Position> indicesParse) {
 		super(indicesParse, new CargoDAO());
 	}
 
@@ -20,9 +20,9 @@ public class CargoParseControle extends ParseControle<Cargo> {
 	 * @return an instance of Class Position
 	 */
 	@Override
-	public Cargo novaInstancia() {
-		Cargo cargo = new Cargo();
-		return cargo;
+	public Position novaInstancia() {
+		Position position = new Position();
+		return position;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class CargoParseControle extends ParseControle<Cargo> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Cargo objetoUm, Cargo objetoDois) {
+	public boolean iguais(Position objetoUm, Position objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

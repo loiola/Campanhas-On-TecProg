@@ -2,7 +2,7 @@ package teste.modelo.bean;
 
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Despesa;
 import modelo.beans.Doador;
 import modelo.beans.Fornecedor;
@@ -51,13 +51,13 @@ public class BeanTeste {
 		return candidate;
 	}
 	
-	public static Cargo instanciarCargo() {
+	public static Position instanciarCargo() {
 		
-		Cargo cargo = new Cargo();
-		cargo.setCodigo(INT_TESTE);
-		cargo.setDescricao(STRING_TESTE);
+		Position position = new Position();
+		position.setCodigo(INT_TESTE);
+		position.setDescricao(STRING_TESTE);
 		
-		return cargo;
+		return position;
 	}
 	
 	public static Despesa instanciarDespesa() {

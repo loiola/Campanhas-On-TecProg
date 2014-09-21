@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import parse.ParseDAO;
 
-public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
+public class CargoDAO extends BasicoDAO<Position> implements ParseDAO<Position> {
 	
 	/*
 	 * Class for manipulating the data about positions
@@ -33,10 +33,10 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	/*
 	 * Comparator to check if two instances are equal positions through code
 	 */
-	public enum Comparacao implements Comparator<Cargo> {
+	public enum Comparacao implements Comparator<Position> {
 		CODIGO {
 			@Override
-			public int compare(Cargo c1, Cargo c2) {
+			public int compare(Position c1, Position c2) {
 				return c1.getCodigo().compareTo(c2.getCodigo());
 			}
 		};
@@ -66,11 +66,11 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Cargo> lista,
+	protected void adicionarListaNoBatch(ArrayList<Position> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Cargo cargo : lista) {
-			instrucaoSQL.setInt(1, cargo.getCodigo());
-			instrucaoSQL.setString(2, cargo.getDescricao());
+		for(Position position : lista) {
+			instrucaoSQL.setInt(1, position.getCodigo());
+			instrucaoSQL.setString(2, position.getDescricao());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -81,13 +81,13 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Cargo> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Position> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Cargo cargo = new Cargo();
-			cargo.setCodigo(resultadoSQL.getInt(CODIGO));
-			cargo.setDescricao(resultadoSQL.getString(DESCRICAO));
-			lista.add(cargo);
+			Position position = new Position();
+			position.setCodigo(resultadoSQL.getInt(CODIGO));
+			position.setDescricao(resultadoSQL.getString(DESCRICAO));
+			lista.add(position);
 		}
 	}
 	
@@ -96,7 +96,7 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	 * @param an Integer with the code of position
 	 * @return an instance of Class Position
 	 */
-	public Cargo getPeloCod(Integer codigo) throws SQLException {
+	public Position getPeloCod(Integer codigo) throws SQLException {
 		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+codigo+" ";
 		return buscaBD(comandoSQL);
 	}
@@ -106,7 +106,7 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	 * @param a String with the description
 	 * @return an instance of Class Position
 	 */
-	public Cargo getPelaDescricao(String descricao) throws SQLException {
+	public Position getPelaDescricao(String descricao) throws SQLException {
 		String comandoSQL = SQL_SELECAO + " WHERE "
 						  + DESCRICAO +" like '%"+descricao+"%' ";
 		return buscaBD(comandoSQL);
@@ -117,8 +117,8 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 	 * @param a String with the SQL command
 	 * @return an instance of Class Position
 	 */
-	public Cargo buscaBD(String SQL) throws SQLException {
-		Cargo cargo = new Cargo();
+	public Position buscaBD(String SQL) throws SQLException {
+		Position position = new Position();
 		String comandoSQL = SQL;
 		
 		try {
@@ -128,14 +128,14 @@ public class CargoDAO extends BasicoDAO<Cargo> implements ParseDAO<Cargo> {
 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 			while(resultadoSQL.next()) {
-				cargo.setCodigo(resultadoSQL.getInt(CODIGO));
-				cargo.setDescricao(resultadoSQL.getString(DESCRICAO));
+				position.setCodigo(resultadoSQL.getInt(CODIGO));
+				position.setDescricao(resultadoSQL.getString(DESCRICAO));
 			}
 		} catch(SQLException e) {
 			throw new SQLException("CargoDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
-		return cargo;
+		return position;
 	}
 }

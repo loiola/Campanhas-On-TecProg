@@ -48,7 +48,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[0] = "DF";
 		campo[4] = "123";
-		campo[2] = "Cargo";
+		campo[2] = "Position";
 		campo[10] = "FormaPag";
 		campo[5] = "Data";
 		campo[6] = "1234";
@@ -67,7 +67,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[4] = "DF";
 		campo[3] = "123";
-		campo[1] = "Cargo";
+		campo[1] = "Position";
 		campo[11] = "TipoPag";
 		campo[13] = "FormaPag";
 		campo[10] = "Data";
@@ -87,7 +87,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[1] = "DF";
 		campo[3] = "123";
-		campo[4] = "Cargo";
+		campo[4] = "Position";
 		campo[14] = "TipoPag";
 		campo[16] = "FormaPag";
 		campo[8] = "ReciboEle";

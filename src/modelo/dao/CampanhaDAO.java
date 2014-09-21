@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
-import modelo.beans.Cargo;
+import modelo.beans.Position;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
 
@@ -118,17 +118,17 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	@Override
 	protected void adicionarResultSetNaLista(ArrayList<Campaign> lista, ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Cargo cargo = new Cargo();
+			Position position = new Position();
 			Resultado resultado = new Resultado();
 			Partido partido = new Partido();
 			Candidate candidate = new Candidate();
-			PreparaCamposCargoEResultado(cargo, resultado, resultadoSQL);
+			PreparaCamposCargoEResultado(position, resultado, resultadoSQL);
 			PreparaCamposCandidatoEPartido(partido, candidate, resultadoSQL);
 
 			Campaign campaign = new Campaign();
 			campaign.setId(resultadoSQL.getInt(ID));
 			campaign.setResultado(resultado);
-			campaign.setCargo(cargo);
+			campaign.setCargo(position);
 			campaign.setPartido(partido);
 			campaign.setCandidato(candidate);
 			campaign.setAno(resultadoSQL.getInt(ANO));
@@ -148,9 +148,9 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	 * @param an instance of Class Result
 	 * @param a SQLresult
 	 */
-	private void PreparaCamposCargoEResultado(Cargo cargo, Resultado resultado,
+	private void PreparaCamposCargoEResultado(Position position, Resultado resultado,
 			ResultSet resultadoSQL) throws SQLException {
-		cargo.setCodigo(resultadoSQL.getInt(COD_CARGO));
+		position.setCodigo(resultadoSQL.getInt(COD_CARGO));
 		resultado.setCodigo(resultadoSQL.getInt(COD_RESULTADO));
 	}
 

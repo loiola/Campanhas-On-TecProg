@@ -1,10 +1,10 @@
 package modelo.beans;
 
 
-public class Cargo {
+public class Position {
 	
 	/*
-	 * Model Class Cargo.java
+	 * Model Class Position.java
 	 * This class is responsable for getting the Position's informations
 	 */
 	
@@ -17,7 +17,7 @@ public class Cargo {
 	private String descricao;
 	
 	// Empty Constructor
-	public Cargo(){
+	public Position(){
 		this.codigo = INTEGER_VAZIO;
 		this.descricao = STRING_VAZIO;
 	}
@@ -38,10 +38,10 @@ public class Cargo {
 	
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Cargo))
+		if( !(object instanceof Position))
 			return false;
 		
-		Cargo outroCargo = (Cargo) object;
+		Position outroCargo = (Position) object;
 		return this.descricao.equalsIgnoreCase(outroCargo.getDescricao());
 	}
 }
