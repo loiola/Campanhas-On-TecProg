@@ -57,7 +57,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		
 		Campaign camp1 = new Campaign();
 		this.resultado1.setCodigo(2);
-		this.position.setCodigo(1);
+		this.position.setPositionCode(1);
 		this.partido1.setNumero(45);
 		this.candidato1.setCandidateElectoralTitle("55325424149");
 		camp1.setCampaignIdentifier(1);

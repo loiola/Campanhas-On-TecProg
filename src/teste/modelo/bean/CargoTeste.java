@@ -23,7 +23,7 @@ public class CargoTeste {
 		
 		Position position = instanciarCargo();
 		Position cargo2 = instanciarCargo();
-		cargo2.setDescricao(BeanTeste.STRING_TESTE_2);
+		cargo2.setPositionDescription(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(position.equals(cargo2));
 	}
 	
@@ -35,7 +35,7 @@ public class CargoTeste {
 		
 		Assert.assertFalse(position.equals(supplier));
 		Assert.assertFalse(supplier.equals(position));
-		Assert.assertEquals(BeanTeste.INT_TESTE,position.getCodigo());
+		Assert.assertEquals(BeanTeste.INT_TESTE,position.getPositionCode());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getNome());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getUf());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getSituacaoCadastral());

@@ -9,31 +9,31 @@ public class Position {
 	 */
 	
 	// Constants
-	public static final String STRING_VAZIO = "";
-	public static final int INTEGER_VAZIO = 0;
+	public static final String EMPTY_TYPE_STRING = "";
+	public static final int EMPTY_TYPE_INTEGER = 0;
 	
 	// Attributes
-	private Integer codigo;
-	private String descricao;
+	private Integer positionCode;
+	private String positionDescription;
 	
 	// Empty Constructor
 	public Position(){
-		this.codigo = INTEGER_VAZIO;
-		this.descricao = STRING_VAZIO;
+		this.positionCode = EMPTY_TYPE_INTEGER;
+		this.positionDescription = EMPTY_TYPE_STRING;
 	}
 	
 	// Getters and Setters
-	public Integer getCodigo() {
-		return codigo;
+	public Integer getPositionCode() {
+		return positionCode;
 	}
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setPositionCode(int positionCode) {
+		this.positionCode = positionCode;
 	}
-	public String getDescricao() {
-		return descricao;
+	public String getPositionDescription() {
+		return positionDescription;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setPositionDescription(String positionDescription) {
+		this.positionDescription = positionDescription;
 	}
 	
 	@Override
@@ -41,7 +41,7 @@ public class Position {
 		if( !(object instanceof Position))
 			return false;
 		
-		Position outroCargo = (Position) object;
-		return this.descricao.equalsIgnoreCase(outroCargo.getDescricao());
+		Position otherPosition = (Position) object;
+		return this.positionDescription.equalsIgnoreCase(otherPosition.getPositionDescription());
 	}
 }

@@ -27,10 +27,10 @@ public class CargoIndicesParse extends IndicesParse<Position> {
 	@Override
 	protected void setIndicesValidos(Position position, String campo[]) {
 		if(indiceValido(this.indiceCodigo)) {
-			position.setCodigo(Integer.parseInt(campo[this.indiceCodigo]));
+			position.setPositionCode(Integer.parseInt(campo[this.indiceCodigo]));
 		}
 		if(indiceValido(this.indiceDescricao)) {
-			position.setDescricao(campo[this.indiceDescricao]);
+			position.setPositionDescription(campo[this.indiceDescricao]);
 		}
 	}
 
@@ -40,8 +40,8 @@ public class CargoIndicesParse extends IndicesParse<Position> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Position position) {
-		position.setCodigo(Position.INTEGER_VAZIO);
-		position.setDescricao(Position.STRING_VAZIO);
+		position.setPositionCode(Position.EMPTY_TYPE_INTEGER);
+		position.setPositionDescription(Position.EMPTY_TYPE_STRING);
 	}
 
 	// Mutators for indexes of the array of fields

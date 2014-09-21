@@ -34,7 +34,7 @@ public class MovimentacaoControle {
 
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 		
-		if((campaign.getCampaignPosition().getDescricao().equals(Campaign.EMPTY_TYPE_STRING)) 
+		if((campaign.getCampaignPosition().getPositionDescription().equals(Campaign.EMPTY_TYPE_STRING)) 
 				|| (campaign.getCampaignYear().equals(Campaign.EMPTY_TYPE_INTEGER)) 
 				|| (campaign.getCampaignCandidateNumber()).equals(Campaign.EMPTY_TYPE_INTEGER)
 				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
@@ -60,7 +60,7 @@ public class MovimentacaoControle {
 		
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
 		
-		if((campaign.getCampaignPosition().getDescricao().equals(Campaign.EMPTY_TYPE_STRING)) 
+		if((campaign.getCampaignPosition().getPositionDescription().equals(Campaign.EMPTY_TYPE_STRING)) 
 				|| (campaign.getCampaignYear().equals(Campaign.EMPTY_TYPE_INTEGER)) 
 				|| (campaign.getCampaignCandidateNumber()).equals(Campaign.EMPTY_TYPE_INTEGER)
 				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {

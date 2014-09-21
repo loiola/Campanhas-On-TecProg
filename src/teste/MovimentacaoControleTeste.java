@@ -56,7 +56,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		candidate.setCandidateName("FULANO");
 		candidate.setCandidateElectoralTitle("12345");
 		
-		position.setDescricao("Presidente");
+		position.setPositionDescription("Presidente");
 		
 		campaign.setCampaignPosition(position);
 		campaign.setCampaignCandidate(candidate);

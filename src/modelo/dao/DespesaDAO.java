@@ -91,7 +91,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			instrucaoSQL.setString(10, expense.getNumeroDocumento());
 			instrucaoSQL.setString(11, expense.getFornecedor().getNome());
 			instrucaoSQL.setString(12, expense.getFornecedor().getCpf_cnpj());
-			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getDescricao());
+			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getPositionDescription());
 			instrucaoSQL.setString(14, expense.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
 		}
@@ -108,7 +108,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
 			Position position = new Position();
-			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+			position.setPositionDescription(resultadoSQL.getString(CAMPANHA_CARGO));
 			campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
 			campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
 			campaign.setCampaignCountryState(resultadoSQL.getString(CAMPANHA_UF));
@@ -146,7 +146,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				  + CAMPANHA_NUMERO + " = " + campaign.getCampaignCandidateNumber()
 				  + " AND " + CAMPANHA_UF + " = '" + campaign.getCampaignCountryState()
 				  + "' AND " + CAMPANHA_CARGO 
-				  + " LIKE '%" + campaign.getCampaignPosition().getDescricao()
+				  + " LIKE '%" + campaign.getCampaignPosition().getPositionDescription()
 				  + "%'";
 		return buscaBD(comandoSQL);
 	}
@@ -182,7 +182,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			while(resultadoSQL.next()) {
 				Expense expense = new Expense();
 				Position position = new Position();
-				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+				position.setPositionDescription(resultadoSQL.getString(CAMPANHA_CARGO));
 
 				Campaign campaign = new Campaign();
 				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));

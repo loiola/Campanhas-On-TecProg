@@ -90,7 +90,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			instrucaoSQL.setString(10, revenue.getNumeroDocumento());
 			instrucaoSQL.setString(11, revenue.getDoador().getNome());
 			instrucaoSQL.setString(12, revenue.getDoador().getCpf_cnpj());
-			instrucaoSQL.setString(13, revenue.getCampanha().getCampaignPosition().getDescricao());
+			instrucaoSQL.setString(13, revenue.getCampanha().getCampaignPosition().getPositionDescription());
 			instrucaoSQL.setString(14, revenue.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
 		}	
@@ -107,7 +107,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
 			Position position = new Position();
-			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+			position.setPositionDescription(resultadoSQL.getString(CAMPANHA_CARGO));
 			campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));	
 			campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));	
 			campaign.setCampaignPosition(position);
@@ -143,7 +143,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				  + CAMPANHA_NUMERO + " = " + campaign.getCampaignCandidateNumber()
 				  + " AND " + CAMPANHA_UF + " = '" + campaign.getCampaignCountryState()
 				  + "' AND " + CAMPANHA_CARGO + " LIKE '%" 
-				  + campaign.getCampaignPosition().getDescricao() 
+				  + campaign.getCampaignPosition().getPositionDescription() 
 				  + "%'";
 		return buscaBD(comandoSQL);
 	}
@@ -181,7 +181,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				Revenue revenue = new Revenue();
 				
 				Position position = new Position();
-				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
+				position.setPositionDescription(resultadoSQL.getString(CAMPANHA_CARGO));
 
 				Campaign campaign = new Campaign();
 				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));

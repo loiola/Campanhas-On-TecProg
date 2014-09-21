@@ -33,13 +33,13 @@ public class CargoDAOTeste extends TemplateTeste {
 		Position cargoRecuperado = new Position();
 
 		Position c1 = new Position();
-		c1.setCodigo(1);
-		c1.setDescricao("CARGO UM");
+		c1.setPositionCode(1);
+		c1.setPositionDescription("CARGO UM");
 		listaCargos.add(c1);
 
 		Position c2 = new Position();
-		c2.setCodigo(2);
-		c2.setDescricao("CARGO DOIS");
+		c2.setPositionCode(2);
+		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 
 		this.cargoDAO.cadastrarLista(listaCargos);
@@ -55,13 +55,13 @@ public class CargoDAOTeste extends TemplateTeste {
 		Position cargoRecuperado = new Position();
 
 		Position c1 = new Position();
-		c1.setCodigo(1);
-		c1.setDescricao("CARGO UM");
+		c1.setPositionCode(1);
+		c1.setPositionDescription("CARGO UM");
 		listaCargos.add(c1);
 
 		Position c2 = new Position();
-		c2.setCodigo(2);
-		c2.setDescricao("CARGO DOIS");
+		c2.setPositionCode(2);
+		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 
 		this.cargoDAO.cadastrarLista(listaCargos);
@@ -77,18 +77,18 @@ public class CargoDAOTeste extends TemplateTeste {
 		ArrayList<Position> listaRecuperada = new ArrayList<>();
 		
 		Position c1 = new Position();
-		c1.setCodigo(1);
-		c1.setDescricao("CARGO UM");
+		c1.setPositionCode(1);
+		c1.setPositionDescription("CARGO UM");
 		listaCargos.add(c1);
 
 		Position c2 = new Position();
-		c2.setCodigo(2);
-		c2.setDescricao("CARGO DOIS");
+		c2.setPositionCode(2);
+		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 		
 		Position c3 = new Position();
-		c3.setCodigo(3);
-		c3.setDescricao("CARGO TRÊS");
+		c3.setPositionCode(3);
+		c3.setPositionDescription("CARGO TRÊS");
 		listaCargos.add(c3);
 		
 		this.cargoDAO.cadastrarLista(listaCargos);
@@ -102,8 +102,8 @@ public class CargoDAOTeste extends TemplateTeste {
 
 		Position c1 = new Position();
 		Position c2 = new Position();
-		c1.setCodigo(1);
-		c2.setCodigo(2);
+		c1.setPositionCode(1);
+		c2.setPositionCode(2);
 		int resultado;
 
 		resultado = CargoDAO.Comparacao.CODIGO.compare(c1, c2);

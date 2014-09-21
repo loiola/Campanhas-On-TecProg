@@ -37,7 +37,7 @@ public class CargoDAO extends BasicoDAO<Position> implements ParseDAO<Position> 
 		CODIGO {
 			@Override
 			public int compare(Position c1, Position c2) {
-				return c1.getCodigo().compareTo(c2.getCodigo());
+				return c1.getPositionCode().compareTo(c2.getPositionCode());
 			}
 		};
 	}
@@ -69,8 +69,8 @@ public class CargoDAO extends BasicoDAO<Position> implements ParseDAO<Position> 
 	protected void adicionarListaNoBatch(ArrayList<Position> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Position position : lista) {
-			instrucaoSQL.setInt(1, position.getCodigo());
-			instrucaoSQL.setString(2, position.getDescricao());
+			instrucaoSQL.setInt(1, position.getPositionCode());
+			instrucaoSQL.setString(2, position.getPositionDescription());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -85,8 +85,8 @@ public class CargoDAO extends BasicoDAO<Position> implements ParseDAO<Position> 
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Position position = new Position();
-			position.setCodigo(resultadoSQL.getInt(CODIGO));
-			position.setDescricao(resultadoSQL.getString(DESCRICAO));
+			position.setPositionCode(resultadoSQL.getInt(CODIGO));
+			position.setPositionDescription(resultadoSQL.getString(DESCRICAO));
 			lista.add(position);
 		}
 	}
@@ -128,8 +128,8 @@ public class CargoDAO extends BasicoDAO<Position> implements ParseDAO<Position> 
 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 			while(resultadoSQL.next()) {
-				position.setCodigo(resultadoSQL.getInt(CODIGO));
-				position.setDescricao(resultadoSQL.getString(DESCRICAO));
+				position.setPositionCode(resultadoSQL.getInt(CODIGO));
+				position.setPositionDescription(resultadoSQL.getString(DESCRICAO));
 			}
 		} catch(SQLException e) {
 			throw new SQLException("CargoDAO - " + e.getMessage());

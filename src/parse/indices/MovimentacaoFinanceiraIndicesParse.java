@@ -61,7 +61,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		}
 		if(indiceValido(this.indiceCampanhaCargo)) {
 			Position position = new Position();
-			position.setDescricao(campo[this.indiceCampanhaCargo]);
+			position.setPositionDescription(campo[this.indiceCampanhaCargo]);
 			campaign.setCampaignPosition(position);
 		}
 		if(indiceValido(this.indiceCampanhaUf)) {

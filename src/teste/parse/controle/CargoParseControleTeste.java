@@ -45,8 +45,8 @@ public class CargoParseControleTeste extends TemplateTeste {
 		
 		Position cargoCadastrado = this.cargoDAO.getLista().get(0);
 				
-		Assert.assertEquals(this.campo[CODIGO], cargoCadastrado.getCodigo().toString());
-		Assert.assertEquals(this.campo[DESCRICAO], cargoCadastrado.getDescricao());
+		Assert.assertEquals(this.campo[CODIGO], cargoCadastrado.getPositionCode().toString());
+		Assert.assertEquals(this.campo[DESCRICAO], cargoCadastrado.getPositionDescription());
 	}
 	
 	@Test

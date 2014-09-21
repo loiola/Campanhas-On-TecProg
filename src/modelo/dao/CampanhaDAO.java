@@ -97,7 +97,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			instrucaoSQL.setInt(2, campaign.getCampaignYear());
 			instrucaoSQL.setInt(3, campaign.getCampaignCandidateNumber());
 			instrucaoSQL.setInt(4, campaign.getCampaignResult().getCodigo());
-			instrucaoSQL.setInt(5, campaign.getCampaignPosition().getCodigo());
+			instrucaoSQL.setInt(5, campaign.getCampaignPosition().getPositionCode());
 			instrucaoSQL.setInt(6, campaign.getCampaignParty().getNumero());
 			instrucaoSQL.setString(7, campaign.getCampaignCandidate()
 					.getCandidateElectoralTitle());
@@ -150,7 +150,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	 */
 	private void PreparaCamposCargoEResultado(Position position, Result result,
 			ResultSet resultadoSQL) throws SQLException {
-		position.setCodigo(resultadoSQL.getInt(COD_CARGO));
+		position.setPositionCode(resultadoSQL.getInt(COD_CARGO));
 		result.setCodigo(resultadoSQL.getInt(COD_RESULTADO));
 	}
 
@@ -212,7 +212,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 				+ campaign.getCampaignYear() + " AND " + UF + " = '" + campaign.getCampaignCountryState()
 				+ "' AND " + NUM_CANDIDATO + " = '"
 				+ campaign.getCampaignCandidateNumber() + "' AND " + COD_CARGO + " = "
-				+ campaign.getCampaignPosition().getCodigo();
+				+ campaign.getCampaignPosition().getPositionCode();
 		listaCampanha = buscaBD(comandoSQL);
 		if(listaCampanha.isEmpty()) {
 			return null;

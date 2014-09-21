@@ -54,7 +54,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		Campaign campanhaCadastrada = this.campanhaDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[RESULTADO], campanhaCadastrada.getCampaignResult().getCodigo().toString());
-		Assert.assertEquals(this.campo[CARGO], campanhaCadastrada.getCampaignPosition().getCodigo().toString());
+		Assert.assertEquals(this.campo[CARGO], campanhaCadastrada.getCampaignPosition().getPositionCode().toString());
 		Assert.assertEquals(this.campo[PARTIDO], campanhaCadastrada.getCampaignParty().getNumero().toString());
 		Assert.assertEquals(this.campo[CANDIDATO_TITULO], campanhaCadastrada.getCampaignCandidate().getCandidateElectoralTitle());
 		Assert.assertEquals(this.campo[ANO], campanhaCadastrada.getCampaignYear().toString());

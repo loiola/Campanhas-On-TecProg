@@ -54,8 +54,8 @@ public class BeanTeste {
 	public static Position instanciarCargo() {
 		
 		Position position = new Position();
-		position.setCodigo(INT_TESTE);
-		position.setDescricao(STRING_TESTE);
+		position.setPositionCode(INT_TESTE);
+		position.setPositionDescription(STRING_TESTE);
 		
 		return position;
 	}

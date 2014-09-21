@@ -31,10 +31,10 @@ public class CampanhaTeste {
 		Assert.assertFalse(campaign.equals(campanha2));
 		campanha2.setCampaignYear(BeanTeste.INT_TESTE);
 		Position position = instanciarCargo();
-		position.setDescricao(BeanTeste.STRING_TESTE_2);
+		position.setPositionDescription(BeanTeste.STRING_TESTE_2);
 		campanha2.setCampaignPosition(position);
 		Assert.assertFalse(campaign.equals(campanha2));
-		position.setDescricao(BeanTeste.STRING_TESTE);
+		position.setPositionDescription(BeanTeste.STRING_TESTE);
 		campanha2.setCampaignNameOfUrn(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(campaign.equals(campanha2));
 		campanha2.setCampaignNameOfUrn(BeanTeste.STRING_TESTE);

@@ -51,7 +51,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 		}
 		if (indiceValido(this.indiceCargoCod)) {
 			Position position = new Position();
-			position.setCodigo(Integer.parseInt(campo[this.indiceCargoCod]));
+			position.setPositionCode(Integer.parseInt(campo[this.indiceCargoCod]));
 			campaign.setCampaignPosition(position);
 		}	
 		if (indiceValido(this.indicePartidoNumero)) {

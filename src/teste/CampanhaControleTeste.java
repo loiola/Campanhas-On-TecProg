@@ -66,8 +66,8 @@ public class CampanhaControleTeste extends TemplateTeste {
 		
 		this.resultado1.setCodigo(1);
 		this.resultado1.setDescricao("NAO ELEITO");
-		this.cargo1.setCodigo(2);
-		this.cargo1.setDescricao("DEPUTADO DISTRITAL");
+		this.cargo1.setPositionCode(2);
+		this.cargo1.setPositionDescription("DEPUTADO DISTRITAL");
 		this.partido1.setSigla("SGL");
 		this.partido1.setNumero(45);
 		this.campanha1.setCampaignIdentifier(1);
@@ -86,8 +86,8 @@ public class CampanhaControleTeste extends TemplateTeste {
 		
 		this.resultado2.setCodigo(2);
 		this.resultado2.setDescricao("ELEITO");
-		this.cargo2.setCodigo(1);
-		this.cargo2.setDescricao("DEPUTADO FEDERAL");
+		this.cargo2.setPositionCode(1);
+		this.cargo2.setPositionDescription("DEPUTADO FEDERAL");
 		this.partido2.setSigla("SGLL");
 		this.partido2.setNumero(13);
 		this.campanha2.setCampaignIdentifier(2);

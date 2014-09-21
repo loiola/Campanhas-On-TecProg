@@ -28,8 +28,8 @@ public class CargoIndicesParseTeste {
 		
 		Position position = new Position();
 		this.cargoIndicesParse.iniciarInstancia(position, campo);
-		Assert.assertEquals(this.campo[0], position.getCodigo().toString());
-		Assert.assertEquals(this.campo[1], position.getDescricao());
+		Assert.assertEquals(this.campo[0], position.getPositionCode().toString());
+		Assert.assertEquals(this.campo[1], position.getPositionDescription());
 	}
 	
 	@Test
@@ -38,8 +38,8 @@ public class CargoIndicesParseTeste {
 		this.cargoIndicesParse = new CargoIndicesParse();
 		Position position = new Position();
 		this.cargoIndicesParse.iniciarInstancia(position, campo);
-		Assert.assertNotEquals(this.campo[0], position.getCodigo().toString());
-		Assert.assertNotEquals(this.campo[1], position.getDescricao());
+		Assert.assertNotEquals(this.campo[0], position.getPositionCode().toString());
+		Assert.assertNotEquals(this.campo[1], position.getPositionDescription());
 	}
 	
 	private void iniciarIndices() {

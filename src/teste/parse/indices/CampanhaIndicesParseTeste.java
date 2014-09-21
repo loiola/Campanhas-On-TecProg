@@ -29,7 +29,7 @@ public class CampanhaIndicesParseTeste {
 		Campaign campaign = new Campaign();
 		this.campanhaIndicesParse.iniciarInstancia(campaign, campo);
 		Assert.assertEquals(this.campo[0], campaign.getCampaignResult().getCodigo().toString());
-		Assert.assertEquals(this.campo[1], campaign.getCampaignPosition().getCodigo().toString());
+		Assert.assertEquals(this.campo[1], campaign.getCampaignPosition().getPositionCode().toString());
 		Assert.assertEquals(this.campo[2], campaign.getCampaignParty().getNumero().toString());
 		Assert.assertEquals(this.campo[3], campaign.getCampaignCandidate().getCandidateElectoralTitle());
 		Assert.assertEquals(this.campo[4], campaign.getCampaignYear().toString());
@@ -46,7 +46,7 @@ public class CampanhaIndicesParseTeste {
 		Campaign campaign = new Campaign();
 		this.campanhaIndicesParse.iniciarInstancia(campaign, campo);
 		Assert.assertNotEquals(this.campo[0], campaign.getCampaignResult().getCodigo().toString());
-		Assert.assertNotEquals(this.campo[1], campaign.getCampaignPosition().getCodigo().toString());
+		Assert.assertNotEquals(this.campo[1], campaign.getCampaignPosition().getPositionCode().toString());
 		Assert.assertNotEquals(this.campo[2], campaign.getCampaignParty().getNumero().toString());
 		Assert.assertNotEquals(this.campo[3], campaign.getCampaignCandidate().getCandidateElectoralTitle());
 		Assert.assertNotEquals(this.campo[4], campaign.getCampaignYear().toString());

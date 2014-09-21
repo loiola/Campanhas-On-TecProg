@@ -330,7 +330,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		String uf = req.getParameter("uf");
 
 		Position position = new Position();
-		position.setCodigo(cargo_cod);
+		position.setPositionCode(cargo_cod);
 
 		Campaign campaign = new Campaign();
 		campaign.setCampaignCandidateNumber(numero);
