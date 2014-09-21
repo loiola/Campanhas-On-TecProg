@@ -58,7 +58,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro1.cadastrarInstancias();
 		
 		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
-		assertEquals(listaReceita.get(0).getDoador().getDonorPersonRegister(), "1234");	
+		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "1234");	
 	}
 	
 	@Test
@@ -78,7 +78,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro2.cadastrarInstancias();
 		
 		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
-		assertEquals(listaReceita.get(0).getDoador().getDonorPersonRegister(), "1234");
+		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "1234");
 	}
 	
 	@Test
@@ -101,7 +101,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro3.cadastrarInstancias();
 		
 		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
-		assertEquals(listaReceita.get(0).getDoador().getDonorPersonRegister(), "12345");
+		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "12345");
 	}
 
 }

@@ -34,7 +34,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 		
 		Donor donor = new Donor();
 		if(indiceValido(this.indiceReciboEleitoral)) {
-			revenue.setReciboEleitoral(campo[this.indiceReciboEleitoral]);
+			revenue.setRevenueElectoralReceipt(campo[this.indiceReciboEleitoral]);
 		}
 		if(indiceValido(this.indiceDoadorNome)) {
 			donor.setDonorName(campo[this.indiceDoadorNome]);
@@ -42,7 +42,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 		if(indiceValido(this.indiceDoadorCpfCnpj)) {
 			donor.setDonorPersonRegister(campo[this.indiceDoadorCpfCnpj]);
 		}
-		revenue.setDoador(donor);
+		revenue.setRevenueDonor(donor);
 
 	}
 	
@@ -54,8 +54,8 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 	protected void setVazioEmTodosOsSetters(Revenue revenue) {
 		super.setVazioEmTodosOsSetters(revenue);
 
-		revenue.setReciboEleitoral(Revenue.EMPTY_TYPE_STRING);
-		revenue.setDoador((Donor)Revenue.EMPTY_OBJECT);
+		revenue.setRevenueElectoralReceipt(Revenue.EMPTY_TYPE_STRING);
+		revenue.setRevenueDonor((Donor)Revenue.EMPTY_OBJECT);
 		
 	}
 

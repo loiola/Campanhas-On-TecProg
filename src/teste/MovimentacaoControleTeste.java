@@ -70,7 +70,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		revenue.setFinancialTransactionPrice((float) 55.0);
 		revenue.setFinancialTransactionCampaign(campaign);
 		revenue.setFinancialTransactionIdentifier(3);
-		revenue.setDoador(donor);
+		revenue.setRevenueDonor(donor);
 		listaReceita.add(revenue);
 		
 		expense.setFinancialTransactionPrice((float) 90.0);

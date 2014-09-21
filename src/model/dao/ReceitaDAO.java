@@ -86,10 +86,10 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			instrucaoSQL.setString(6, revenue.getFinancialTransactionDescription());
 			instrucaoSQL.setString(7, revenue.getFinancialTransactionDate());
 			instrucaoSQL.setString(8, revenue.getFinancialTransactionType());
-			instrucaoSQL.setString(9, revenue.getReciboEleitoral());
+			instrucaoSQL.setString(9, revenue.getRevenueElectoralReceipt());
 			instrucaoSQL.setString(10, revenue.getFinancialTransactionDocumentNumber());
-			instrucaoSQL.setString(11, revenue.getDoador().getDonorName());
-			instrucaoSQL.setString(12, revenue.getDoador().getDonorPersonRegister());
+			instrucaoSQL.setString(11, revenue.getRevenueDonor().getDonorName());
+			instrucaoSQL.setString(12, revenue.getRevenueDonor().getDonorPersonRegister());
 			instrucaoSQL.setString(13, revenue.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
 			instrucaoSQL.setString(14, revenue.getFinancialTransactionCampaign().getCampaignCountryState());
 			instrucaoSQL.addBatch();
@@ -122,8 +122,8 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			revenue.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 			revenue.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
 			revenue.setFinancialTransactionCampaign(campaign);
-			revenue.setDoador(donor);
-			revenue.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
+			revenue.setRevenueDonor(donor);
+			revenue.setRevenueElectoralReceipt(resultadoSQL.getString(RECIBO_ELEITORAL));
 			revenue.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
 			revenue.setFinancialTransactionDate(resultadoSQL.getString(DATA));
 			revenue.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
@@ -192,14 +192,14 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				Donor donor = new Donor();
 				donor.setDonorName(resultadoSQL.getString(NOME_DOADOR));
 				donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
-				revenue.setDoador(donor);
+				revenue.setRevenueDonor(donor);
 
 				revenue.setFinancialTransactionDate(resultadoSQL.getString(DATA));
 				revenue.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
 				revenue.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
 				revenue.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));
 				revenue.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
-				revenue.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
+				revenue.setRevenueElectoralReceipt(resultadoSQL.getString(RECIBO_ELEITORAL));
 				revenue.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 				revenue.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
 				

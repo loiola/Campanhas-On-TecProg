@@ -41,8 +41,8 @@ public class MovimentacaoFinanceiraTeste {
 		Assert.assertFalse(revenue.equals(expense));
 		Assert.assertEquals(BeanTeste.STRING_TESTE, expense.getExpenseDocumentType());
 		Assert.assertEquals(instanciarFornecedor(), expense.getExpenseSupplier());
-		Assert.assertEquals(BeanTeste.STRING_TESTE, revenue.getReciboEleitoral());
-		Assert.assertEquals(instanciarDoador(), revenue.getDoador());
+		Assert.assertEquals(BeanTeste.STRING_TESTE, revenue.getRevenueElectoralReceipt());
+		Assert.assertEquals(instanciarDoador(), revenue.getRevenueDonor());
 	}
 	
 	@Test
@@ -63,7 +63,7 @@ public class MovimentacaoFinanceiraTeste {
 		Supplier fornecedor2 = instanciarFornecedor();
 		fornecedor2.setSupplierPersonRegister(BeanTeste.STRING_TESTE_2);	
 		
-		receita2.setDoador(doador2);
+		receita2.setRevenueDonor(doador2);
 		despesa2.setExpenseSupplier(fornecedor2);
 		
 		assertFalse(revenue.equals(receita2));

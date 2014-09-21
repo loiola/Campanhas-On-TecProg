@@ -131,11 +131,11 @@ public class BeanTeste {
 		revenue.setFinancialTransactionCampaign(instanciarCampanha());
 		revenue.setFinancialTransactionDate(STRING_TESTE);
 		revenue.setFinancialTransactionDescription(STRING_TESTE);
-		revenue.setDoador(instanciarDoador());
+		revenue.setRevenueDonor(instanciarDoador());
 		revenue.setFinancialTransactionPaymentType(STRING_TESTE);
 		revenue.setFinancialTransactionIdentifier(INT_TESTE);
 		revenue.setFinancialTransactionDocumentNumber(STRING_TESTE);
-		revenue.setReciboEleitoral(STRING_TESTE);
+		revenue.setRevenueElectoralReceipt(STRING_TESTE);
 		revenue.setFinancialTransactionType(STRING_TESTE);
 		revenue.setFinancialTransactionPrice(FLOAT_TESTE);
 

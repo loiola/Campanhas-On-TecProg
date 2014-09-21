@@ -62,9 +62,9 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		receita1.setFinancialTransactionDescription("DESCRICAO UM");
 		receita1.setFinancialTransactionDate("12/10/2006");
 		receita1.setFinancialTransactionType("TIPO MOVIMENTACAO UM");
-		receita1.setReciboEleitoral("RECIBO ELEITORAL UM");
+		receita1.setRevenueElectoralReceipt("RECIBO ELEITORAL UM");
 		receita1.setFinancialTransactionDocumentNumber("NUMERO DOCUMENTO UM");
-		receita1.setDoador(doador1);
+		receita1.setRevenueDonor(doador1);
 		listaReceitas.add(receita1);
 		
 		this.cargo2.setPositionDescription("CARGO DOIS");
@@ -80,9 +80,9 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		receita2.setFinancialTransactionDescription("DESCRICAO DOIS");
 		receita2.setFinancialTransactionDate("12/10/2006");
 		receita2.setFinancialTransactionType("TIPO MOVIMENTACAO DOIS");
-		receita2.setReciboEleitoral("RECIBO ELEITORAL DOIS");
+		receita2.setRevenueElectoralReceipt("RECIBO ELEITORAL DOIS");
 		receita2.setFinancialTransactionDocumentNumber("NUMERO DOCUMENTO DOIS");
-		receita2.setDoador(doador2);
+		receita2.setRevenueDonor(doador2);
 		listaReceitas.add(receita2);
 		
 		this.receitaDAO.cadastrarLista(listaReceitas);

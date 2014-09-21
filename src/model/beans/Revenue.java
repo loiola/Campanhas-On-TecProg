@@ -8,34 +8,34 @@ public class Revenue extends FinancialTransaction {
 	 */
 	 
 	// Constants 
-	public static final Donor DOADOR_VAZIO = new Donor();
+	public static final Donor EMPTY_CLASS_DONOR = new Donor();
 	
 	// Attributes
-	private String reciboEleitoral;
-	private Donor donor;
+	private String revenueElectoralReceipt;
+	private Donor revenueDonor;
 	
 	// Empty Constructor
 	public Revenue() {
 		super();
-		this.reciboEleitoral = EMPTY_TYPE_STRING;
-		this.donor = DOADOR_VAZIO;
+		this.revenueElectoralReceipt = EMPTY_TYPE_STRING;
+		this.revenueDonor = EMPTY_CLASS_DONOR;
 	}
 	
 	// Getters and Setters
-	public String getReciboEleitoral() {
-		return reciboEleitoral;
+	public String getRevenueElectoralReceipt() {
+		return revenueElectoralReceipt;
 	}
 	
-	public void setReciboEleitoral(String reciboEleitoral) {
-		this.reciboEleitoral = reciboEleitoral;
+	public void setRevenueElectoralReceipt(String revenueElectoralReceipt) {
+		this.revenueElectoralReceipt = revenueElectoralReceipt;
 	}
 	
-	public Donor getDoador() {
-		return donor;
+	public Donor getRevenueDonor() {
+		return revenueDonor;
 	}
 	
-	public void setDoador(Donor donor) {
-		this.donor = donor;
+	public void setRevenueDonor(Donor revenueDonor) {
+		this.revenueDonor = revenueDonor;
 	}
 	
 }
