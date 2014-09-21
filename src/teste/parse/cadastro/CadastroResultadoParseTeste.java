@@ -41,7 +41,7 @@ public class CadastroResultadoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Result result = dao.getPeloCod(25);
+		Result result = dao.getResultByCode(25);
 		assertEquals(result.getResultDescription(), "Result 25");
 	}
 

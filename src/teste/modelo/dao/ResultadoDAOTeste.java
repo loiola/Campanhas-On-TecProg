@@ -44,7 +44,7 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		this.dao.registerUnregisteredObjectArrayListOnDatabase(lista);
 			
 		Result r3 = new Result();
-		r3 = this.dao.getPeloCod(1);
+		r3 = this.dao.getResultByCode(1);
 		Assert.assertEquals(r1, r3);
 	}
 	
@@ -66,7 +66,7 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		this.dao.registerUnregisteredObjectArrayListOnDatabase(lista);
 			
 		Result r3 = new Result();
-		r3 = this.dao.getPeloCod(5);
+		r3 = this.dao.getResultByCode(5);
 		Assert.assertNotEquals(r1, r3);
 	}
 	
@@ -79,7 +79,7 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		r2.setResultType(2);
 		int resultado;
 
-		resultado = ResultDAO.Comparacao.CODIGO.compare(r1, r2);
+		resultado = ResultDAO.CompareTwoResultsType.CODIGO.compare(r1, r2);
 		
 		Assert.assertNotEquals(0,resultado);
 	}

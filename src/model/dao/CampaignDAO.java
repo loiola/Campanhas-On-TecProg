@@ -250,7 +250,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(DATABASE_CAMPAIGN_CANDIDATE_NUMBER));
 				campaign.setCampaignParty(partyDAO.getPartyByNumber(resultadoSQL.getString(DATABASE_CAMPAIGN_PARTY_NUMBER)));
 				campaign.setCampaignTotalRevenueCalculated(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_REVENUE_CALCULATED));
-				campaign.setCampaignResult(resultDAO.getPeloCod(resultadoSQL.getInt(DATABASE_CAMPAIGN_RESULT_CODE)));
+				campaign.setCampaignResult(resultDAO.getResultByCode(resultadoSQL.getInt(DATABASE_CAMPAIGN_RESULT_CODE)));
 				campaign.setCampaignCountryState(resultadoSQL.getString(DATABASE_CAMPAIGN_COUNTRY_STATE));
 				campaign.setCampaignCandidate(candidateDAO.getCandidateByElectoralTitle(resultadoSQL.getString(DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE)));
 				if(campaign != null) {

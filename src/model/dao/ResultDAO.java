@@ -16,24 +16,24 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 */
 	
 	// Constants
-	private static final String NOME_TABELA = "resultado";
-	private static final String CODIGO = "cod_resultado";
-	private static final String DESCRICAO = "descricao";
+	private static final String DATABASE_RESULT_TABLE_NAME = "resultado";
+	private static final String DATABASE_RESULT_CODE = "cod_resultado";
+	private static final String DATABASE_RESULT_DESCRIPTION = "descricao";
 	
-	private static final String SQL_INSERCAO = "INSERT INTO "+ NOME_TABELA
-			+" (" +CODIGO+", "+ DESCRICAO + ") values (?, ?)" ;
-	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
+	private static final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO "+ DATABASE_RESULT_TABLE_NAME
+			+" (" +DATABASE_RESULT_CODE+", "+ DATABASE_RESULT_DESCRIPTION + ") values (?, ?)" ;
+	private static final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_RESULT_TABLE_NAME;
 	
 	// Constructors
 	public ResultDAO() {
-		super(NOME_TABELA, Comparacao.CODIGO);
+		super(DATABASE_RESULT_TABLE_NAME, CompareTwoResultsType.CODIGO);
 	}
 
 	// Other methods
 	/*
 	 * Comparator to check if two instances are equal result through Title code
 	 */
-	public enum Comparacao implements Comparator<Result> {
+	public enum CompareTwoResultsType implements Comparator<Result> {
 		CODIGO {
 			@Override
 			public int compare(Result r1, Result r2) {
@@ -48,7 +48,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 */
 	@Override
 	protected String getSQLInsertCommand() {
-		return SQL_INSERCAO;
+		return DATABASE_SQL_COMMAND_INSERT;
 	}
 
 	/*
@@ -57,7 +57,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 */
 	@Override
 	protected String getSQLSelectCommand() {
-		return SQL_SELECAO;
+		return DATABASE_SQL_COMMAND_SELECT;
 	}
 
 	/*
@@ -66,12 +66,12 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void registerObjectArrayListOnBatch(ArrayList<Result> lista,
-			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Result result : lista) {
-			instrucaoSQL.setInt(1, result.getResultType());
-			instrucaoSQL.setString(2, result.getResultDescription());
-			instrucaoSQL.addBatch();
+	protected void registerObjectArrayListOnBatch(ArrayList<Result> resultList,
+			PreparedStatement daoSQLInstruction) throws SQLException {
+		for(Result result : resultList) {
+			daoSQLInstruction.setInt(1, result.getResultType());
+			daoSQLInstruction.setString(2, result.getResultDescription());
+			daoSQLInstruction.addBatch();
 		}
 	}
 
@@ -81,13 +81,13 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Result> lista,
-			ResultSet resultadoSQL) throws SQLException {
-		while(resultadoSQL.next()) {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Result> resultList,
+			ResultSet sqlResult) throws SQLException {
+		while(sqlResult.next()) {
 			Result result = new Result();
-			result.setResultType(resultadoSQL.getInt(CODIGO));
-			result.setResultDescription(resultadoSQL.getString(DESCRICAO));
-			lista.add(result);
+			result.setResultType(sqlResult.getInt(DATABASE_RESULT_CODE));
+			result.setResultDescription(sqlResult.getString(DATABASE_RESULT_DESCRIPTION));
+			resultList.add(result);
 		}
 	}
 
@@ -96,19 +96,19 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @param an Integer representing a code
 	 * @return an instance of Class Result
 	 */
-	public Result getPeloCod(Integer codigo) throws SQLException {
+	public Result getResultByCode(Integer resultCode) throws SQLException {
 		Result result = new Result();
-		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+ codigo +" ";
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_RESULT_CODE +" = "+ resultCode +" ";
 		try {
 			this.connection = new DatabaseConnection().getConnection();
 	
-			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
 	
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
+			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
 			
-			while(resultadoSQL.next()) {
-				result.setResultType(resultadoSQL.getInt(CODIGO));
-				result.setResultDescription(resultadoSQL.getString(DESCRICAO));
+			while(sqlResult.next()) {
+				result.setResultType(sqlResult.getInt(DATABASE_RESULT_CODE));
+				result.setResultDescription(sqlResult.getString(DATABASE_RESULT_DESCRIPTION));
 			}
 
 		} catch(SQLException e) {
