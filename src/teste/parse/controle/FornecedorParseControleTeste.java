@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Supplier;
-import model.dao.FornecedorDAO;
+import model.dao.SupplierDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	public static final int NOME = 1;
 
 	private String campo[];
-	private FornecedorDAO fornecedorDAO;
+	private SupplierDAO supplierDAO;
 	private FornecedorIndicesParse fornecedorIndicesParse;
 	private FornecedorParseControle fornecedorParseControle;
 
@@ -24,7 +24,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[2];
-		this.fornecedorDAO = new FornecedorDAO();
+		this.supplierDAO = new SupplierDAO();
 		this.fornecedorIndicesParse = new FornecedorIndicesParse();
 		this.fornecedorParseControle = new FornecedorParseControle(this.fornecedorIndicesParse);
 
@@ -44,7 +44,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		this.fornecedorParseControle.cadastrarInstancias();
 		this.fornecedorParseControle.resetar();
 
-		Supplier fornecedorCadastrado = this.fornecedorDAO.getLista().get(0);
+		Supplier fornecedorCadastrado = this.supplierDAO.getLista().get(0);
 
 		Assert.assertEquals(this.campo[CPF_CNPJ], fornecedorCadastrado.getSupplierPersonRegister()
 				.toString());
@@ -60,7 +60,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		this.fornecedorParseControle.cadastrarInstancias();
 		this.fornecedorParseControle.resetar();
 
-		int numeroFornecedorCadastrados = this.fornecedorDAO.getLista().size();
+		int numeroFornecedorCadastrados = this.supplierDAO.getLista().size();
 
 		Assert.assertEquals(1, numeroFornecedorCadastrados);
 	}

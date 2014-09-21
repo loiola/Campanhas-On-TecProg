@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.util.ArrayList;
 
 import model.beans.Supplier;
-import model.dao.FornecedorDAO;
+import model.dao.SupplierDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,12 +12,12 @@ import teste.TemplateTeste;
 
 public class FornecedorDAOTeste extends TemplateTeste {
 
-	private FornecedorDAO fornecedorDAO;
+	private SupplierDAO supplierDAO;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.fornecedorDAO = new FornecedorDAO();
+		this.supplierDAO = new SupplierDAO();
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		F2.setSupplierName("FORNECEDOR UM");
 		int resultado;
 
-		resultado = FornecedorDAO.Comparacao.NOME.compare(F1, F2);
+		resultado = SupplierDAO.Comparacao.NOME.compare(F1, F2);
 		
 		Assert.assertEquals(0,resultado);
 	}
@@ -48,7 +48,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		supplier.setSupplierName("Nome");
 		listaFornecedores.add(supplier);
 		
-		this.fornecedorDAO.cadastrarLista(listaFornecedores);
+		this.supplierDAO.cadastrarLista(listaFornecedores);
 	}
 	
 	@Test
@@ -60,10 +60,10 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		supplier.setSupplierName("Nome");
 		listaFornecedores.add(supplier);
 
-		this.fornecedorDAO.cadastrarLista(listaFornecedores);
-		this.fornecedorDAO.cadastrarLista(listaFornecedores);
+		this.supplierDAO.cadastrarLista(listaFornecedores);
+		this.supplierDAO.cadastrarLista(listaFornecedores);
 		
-		Assert.assertEquals(1, this.fornecedorDAO.getLista().size());
+		Assert.assertEquals(1, this.supplierDAO.getLista().size());
 	}
 	
 	@Test
@@ -85,8 +85,8 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		supplier.setSupplierCountryState("DF");
 		listaFornecedores.add(supplier);
 
-		this.fornecedorDAO.cadastrarLista(listaFornecedores);
-		Assert.assertEquals(listaFornecedores, this.fornecedorDAO.getLista());
+		this.supplierDAO.cadastrarLista(listaFornecedores);
+		Assert.assertEquals(listaFornecedores, this.supplierDAO.getLista());
 	}
 	
 	@Test
@@ -109,8 +109,8 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		fornecedor2.setSupplierCountryState("DF");
 		listaFornecedoresACadastrar.add(fornecedor2);
 		
-		this.fornecedorDAO.cadastrarLista(listaFornecedoresACadastrar);
-		fornecedorRecuperado = this.fornecedorDAO.getPeloNomeOuCpfCnpj(fornecedor1);
+		this.supplierDAO.cadastrarLista(listaFornecedoresACadastrar);
+		fornecedorRecuperado = this.supplierDAO.getPeloNomeOuCpfCnpj(fornecedor1);
 		
 		Assert.assertEquals(fornecedor1, fornecedorRecuperado);
 	}

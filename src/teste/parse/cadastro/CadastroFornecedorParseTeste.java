@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Supplier;
-import model.dao.FornecedorDAO;
+import model.dao.SupplierDAO;
 
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 	private CadastroFornecedorParse cadastro1;
 	private CadastroFornecedorParse cadastro2;
 	private CadastroFornecedorParse cadastro3;
-	private FornecedorDAO fornecedorDAO;
+	private SupplierDAO supplierDAO;
 	String  tipoArquivo = "expense";
 	String  ano1         = "2006";
 	String  ano2         = "2002";
@@ -31,7 +31,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		this.cadastro1 = new CadastroFornecedorParse(this.tipoArquivo, this.ano1);
 		this.cadastro2 = new CadastroFornecedorParse(this.tipoArquivo, this.ano2);
 		this.cadastro3 = new CadastroFornecedorParse(this.tipoArquivo, this.ano3);
-		this.fornecedorDAO = new FornecedorDAO();
+		this.supplierDAO = new SupplierDAO();
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Supplier> listaFornecedores = fornecedorDAO.getLista();
+		ArrayList<Supplier> listaFornecedores = supplierDAO.getLista();
 		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "123");
 	}
 	
@@ -64,7 +64,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Supplier> listaFornecedores = fornecedorDAO.getLista();
+		ArrayList<Supplier> listaFornecedores = supplierDAO.getLista();
 		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "12345");
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Supplier> listaFornecedores = fornecedorDAO.getLista();
+		ArrayList<Supplier> listaFornecedores = supplierDAO.getLista();
 		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "12345");
 	}
 

@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Supplier;
 import parse.ParseDAO;
 
-public class FornecedorDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier> {
+public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier> {
 	
 	/*
 	 * Class for manipulating the data about supplier
@@ -28,7 +28,7 @@ public class FornecedorDAO extends BasicDAO<Supplier> implements ParseDAO<Suppli
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 	
 	// Constructors
-	public FornecedorDAO() {
+	public SupplierDAO() {
 		super(NOME_TABELA, Comparacao.NOME);
 	}
 	
@@ -148,7 +148,7 @@ public class FornecedorDAO extends BasicDAO<Supplier> implements ParseDAO<Suppli
 				}
 			}
 		}  catch(SQLException e) {
-			throw new SQLException("FornecedorDAO - " + e.getMessage());
+			throw new SQLException("SupplierDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}
