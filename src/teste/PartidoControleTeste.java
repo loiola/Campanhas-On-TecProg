@@ -77,7 +77,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		listaPartidos.add(partido2);
 		
 		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
-		partidoRecuperado = this.partyDAO.getPelaSigla("PE1");
+		partidoRecuperado = this.partyDAO.getPartyByAcronym("PE1");
 		
 		assertEquals(partidoRecuperado, this.partidoControle.getPelaSigla("PE1"));
 	}
@@ -103,7 +103,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		listaPartidos.add(partido2);
 		
 		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
-		partidoRecuperado = this.partyDAO.getPeloNumero("47");
+		partidoRecuperado = this.partyDAO.getPartyByNumber("47");
 		
 		assertEquals(partidoRecuperado, this.partidoControle.getPeloNumero("47"));
 	}

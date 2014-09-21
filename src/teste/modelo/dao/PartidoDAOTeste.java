@@ -35,7 +35,7 @@ public class PartidoDAOTeste extends TemplateTeste {
 		P2.setPartyAcronym("AEIOU");
 		int resultado;
 
-		resultado = PartyDAO.Comparacao.SIGLA.compare(P1, P2);
+		resultado = PartyDAO.CompareTwoPartiesAcronym.SIGLA.compare(P1, P2);
 
 		Assert.assertEquals(0, resultado);
 	}
@@ -97,7 +97,7 @@ public class PartidoDAOTeste extends TemplateTeste {
 		listaPartidos.add(p2);
 		
 		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
-		partidoRecuperado = this.partyDAO.getPelaSigla("PI1");
+		partidoRecuperado = this.partyDAO.getPartyByAcronym("PI1");
 		
 		Assert.assertEquals(p1, partidoRecuperado);
 	}
@@ -105,7 +105,7 @@ public class PartidoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmPartidoPeloNumero() throws SQLException {
 		
-		partyDAO.getPeloNumero(null);
+		partyDAO.getPartyByNumber(null);
 	}
 	
 }

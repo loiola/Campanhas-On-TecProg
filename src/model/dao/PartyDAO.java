@@ -16,27 +16,27 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 */
 	
 	// Constants
-	private static final String NOME_TABELA = "partido";
-	private static final String NUMERO = "numero";
-	private static final String SIGLA = "sigla";
-	private static final String NOME = "nome";
-	private static final String DEFERIMENTO = "deferimento";
+	private static final String DATABASE_PARTY_TABLE_NAME = "partido";
+	private static final String DATABASE_PARTY_NUMBER = "numero";
+	private static final String DATABASE_PARTY_ACRONYM = "sigla";
+	private static final String DATABASE_PARTY_NAME = "nome";
+	private static final String DATABASE_PARTY_DEFERMENT = "deferimento";
 	
-	private static final String SQL_INSERCAO = "INSERT INTO " + NOME_TABELA
-			+ " (" + NUMERO + ", " + SIGLA + ", " + NOME + ", " + DEFERIMENTO
+	private static final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO " + DATABASE_PARTY_TABLE_NAME
+			+ " (" + DATABASE_PARTY_NUMBER + ", " + DATABASE_PARTY_ACRONYM + ", " + DATABASE_PARTY_NAME + ", " + DATABASE_PARTY_DEFERMENT
 			+ ") " + "values (?, ?, ?, ?)";
-	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
+	private static final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_PARTY_TABLE_NAME;
 
 	// Constructors
 	public PartyDAO() {
-		super(NOME_TABELA, Comparacao.SIGLA);
+		super(DATABASE_PARTY_TABLE_NAME, CompareTwoPartiesAcronym.SIGLA);
 	}
 
 	// Other methods
 	/*
 	 * Comparator to check if two instances are equal parties through acronym
 	 */
-	public enum Comparacao implements Comparator<Party> {
+	public enum CompareTwoPartiesAcronym implements Comparator<Party> {
 		SIGLA {
 			@Override
 			public int compare(Party p1, Party p2) {
@@ -51,7 +51,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 */
 	@Override
 	protected String getSQLInsertCommand() {
-		return SQL_INSERCAO;
+		return DATABASE_SQL_COMMAND_INSERT;
 	}
 
 	/*
@@ -60,7 +60,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 */
 	@Override
 	protected String getSQLSelectCommand() {
-		return SQL_SELECAO;
+		return DATABASE_SQL_COMMAND_SELECT;
 	}
 
 	/*
@@ -69,14 +69,14 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void registerObjectArrayListOnBatch(ArrayList<Party> lista,
-			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Party party : lista) {
-			instrucaoSQL.setInt(1, party.getPartyNumber());
-			instrucaoSQL.setString(2, party.getPartyAcronym());
-			instrucaoSQL.setString(3, party.getPartyName());
-			instrucaoSQL.setString(4, party.getPartyConcession());
-			instrucaoSQL.addBatch();
+	protected void registerObjectArrayListOnBatch(ArrayList<Party> partyList,
+			PreparedStatement daoSQLInstruction) throws SQLException {
+		for(Party party : partyList) {
+			daoSQLInstruction.setInt(1, party.getPartyNumber());
+			daoSQLInstruction.setString(2, party.getPartyAcronym());
+			daoSQLInstruction.setString(3, party.getPartyName());
+			daoSQLInstruction.setString(4, party.getPartyConcession());
+			daoSQLInstruction.addBatch();
 		}
 	}
 
@@ -86,16 +86,16 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Party> lista,
-			ResultSet resultadoSQL) throws SQLException {
-		while(resultadoSQL.next()) {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Party> partyList,
+			ResultSet sqlResult) throws SQLException {
+		while(sqlResult.next()) {
 			Party party = new Party();
-			party.setPartyName(resultadoSQL.getString(NOME));
-			party.setPartyNumber(resultadoSQL.getInt(NUMERO));
-			party.setPartyAcronym(resultadoSQL.getString(SIGLA));
-			party.setPartyConcession(resultadoSQL.getString(DEFERIMENTO));
+			party.setPartyName(sqlResult.getString(DATABASE_PARTY_NAME));
+			party.setPartyNumber(sqlResult.getInt(DATABASE_PARTY_NUMBER));
+			party.setPartyAcronym(sqlResult.getString(DATABASE_PARTY_ACRONYM));
+			party.setPartyConcession(sqlResult.getString(DATABASE_PARTY_DEFERMENT));
 
-			lista.add(party);
+			partyList.add(party);
 		}
 	}
 
@@ -104,10 +104,10 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a String with the acronym
 	 * @return an instance of Class Party
 	 */
-	public Party getPelaSigla(String sigla) throws SQLException {
-		String comandoSQL = SQL_SELECAO
-				+ " WHERE " + SIGLA + " = '" + sigla + "'";
-		return BuscaBD(comandoSQL);
+	public Party getPartyByAcronym(String partyAcronym) throws SQLException {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
+				+ " WHERE " + DATABASE_PARTY_ACRONYM + " = '" + partyAcronym + "'";
+		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 	}
 
 	/*
@@ -115,10 +115,10 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a String with the number
 	 * @return an instance of Class Party
 	 */
-	public Party getPeloNumero(String numero) throws SQLException {
-		String comandoSQL = SQL_SELECAO
-				+ " WHERE " + NUMERO + " = '" + numero + "'";
-		return BuscaBD(comandoSQL);
+	public Party getPartyByNumber(String partyNumber) throws SQLException {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
+				+ " WHERE " + DATABASE_PARTY_NUMBER + " = '" + partyNumber + "'";
+		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 	}
 
 	/*
@@ -126,22 +126,22 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Party>
 	 */
-	private Party BuscaBD(String comandoSQL) throws SQLException{
+	private Party searchDonorInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException{
 		
 		Party party = new Party();
 		
 		try {
 			this.connection = new DatabaseConnection().getConnection();
 	
-			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommandConfiguredBefore);
 	
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
+			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
 	
-			while(resultadoSQL.next()) {
-				party.setPartyAcronym(resultadoSQL.getString(SIGLA));
-				party.setPartyName(resultadoSQL.getString(NOME));
-				party.setPartyConcession(resultadoSQL.getString(DEFERIMENTO));
-				party.setPartyNumber(resultadoSQL.getInt(NUMERO));
+			while(sqlResult.next()) {
+				party.setPartyAcronym(sqlResult.getString(DATABASE_PARTY_ACRONYM));
+				party.setPartyName(sqlResult.getString(DATABASE_PARTY_NAME));
+				party.setPartyConcession(sqlResult.getString(DATABASE_PARTY_DEFERMENT));
+				party.setPartyNumber(sqlResult.getInt(DATABASE_PARTY_NUMBER));
 			}
 	
 			if(this.daoSQLInstruction != null) {

@@ -35,7 +35,7 @@ public class PartidoControle {
 	 * @return the political party with the abbreviation informed
 	 */
 	public Party getPelaSigla(String sigla) throws SQLException {
-		return this.partyDAO.getPelaSigla(sigla);
+		return this.partyDAO.getPartyByAcronym(sigla);
 	}
 	
 	/*
@@ -44,6 +44,6 @@ public class PartidoControle {
 	 * @return the political party with the political number informed
 	 */
 	public Party getPeloNumero(String numero) throws SQLException {
-		return this.partyDAO.getPeloNumero(numero);
+		return this.partyDAO.getPartyByNumber(numero);
 	}
 }

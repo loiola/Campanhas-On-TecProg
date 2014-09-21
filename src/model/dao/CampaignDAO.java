@@ -192,7 +192,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		this.partyDAO = new PartyDAO();
 
 		ArrayList<Campaign> campaignList = new ArrayList<>();
-		Party party = this.partyDAO.getPelaSigla(partyAcronym);
+		Party party = this.partyDAO.getPartyByAcronym(partyAcronym);
 		String comandoSQL = DATABASE_SQL_COMMAND_SELECT + " USE INDEX (" + DATABASE_CAMPAIGN_PARTY_INDEX + ", "
 				+ DATABASE_CAMPAIGN_YEAR_INDEX + ")" + " WHERE " + DATABASE_CAMPAIGN_PARTY_NUMBER + " = '"
 				+ party.getPartyNumber() + "' AND " + DATABASE_CAMPAIGN_YEAR + " = '" + electionYear + "' ";
@@ -248,7 +248,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 				campaign.setCampaignTotalExpenseCalculated(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_CALCULATED));
 				campaign.setCampaignNameOfUrn(resultadoSQL.getString(DATABASE_CAMPAIGN_NAME_OF_URN));
 				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(DATABASE_CAMPAIGN_CANDIDATE_NUMBER));
-				campaign.setCampaignParty(partyDAO.getPeloNumero(resultadoSQL.getString(DATABASE_CAMPAIGN_PARTY_NUMBER)));
+				campaign.setCampaignParty(partyDAO.getPartyByNumber(resultadoSQL.getString(DATABASE_CAMPAIGN_PARTY_NUMBER)));
 				campaign.setCampaignTotalRevenueCalculated(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_REVENUE_CALCULATED));
 				campaign.setCampaignResult(resultDAO.getPeloCod(resultadoSQL.getInt(DATABASE_CAMPAIGN_RESULT_CODE)));
 				campaign.setCampaignCountryState(resultadoSQL.getString(DATABASE_CAMPAIGN_COUNTRY_STATE));

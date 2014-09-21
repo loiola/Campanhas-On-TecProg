@@ -51,7 +51,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		Party party = this.partyDAO.getPeloNumero("123");
+		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
 		
 	}
@@ -68,7 +68,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		Party party = this.partyDAO.getPeloNumero("123");
+		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
 	}
 	
@@ -85,7 +85,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		Party party = this.partyDAO.getPeloNumero("123");
+		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
 	}
 	
@@ -101,7 +101,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		Party party = this.partyDAO.getPeloNumero("123");
+		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
 	}
 	
@@ -118,7 +118,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		Party party = this.partyDAO.getPeloNumero("123");
+		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
 	}
 	
@@ -134,7 +134,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		Party party = this.partyDAO.getPeloNumero("123");
+		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
 	}
 	
