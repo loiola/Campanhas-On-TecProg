@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Party;
 import parse.ParseDAO;
 
-public class PartidoDAO extends BasicDAO<Party> implements ParseDAO<Party> {
+public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 
 	/*
 	 * Class for manipulating the data about political parties
@@ -28,7 +28,7 @@ public class PartidoDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 
 	// Constructors
-	public PartidoDAO() {
+	public PartyDAO() {
 		super(NOME_TABELA, Comparacao.SIGLA);
 	}
 
@@ -152,7 +152,7 @@ public class PartidoDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 				conexao.close();
 			}
 		} catch(SQLException e) {
-			throw new SQLException("PartidoDAO - " + e.getMessage());
+			throw new SQLException("PartyDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

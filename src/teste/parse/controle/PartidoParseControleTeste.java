@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Party;
-import model.dao.PartidoDAO;
+import model.dao.PartyDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	public static final int NOME = 3;
 	
 	private String campo[];
-	private PartidoDAO partidoDAO;
+	private PartyDAO partyDAO;
 	private PartidoIndicesParse partidoIndicesParse;
 	private PartidoParseControle partidoParseControle;
 
@@ -26,7 +26,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[4];
-		this.partidoDAO = new PartidoDAO();
+		this.partyDAO = new PartyDAO();
 		this.partidoIndicesParse = new PartidoIndicesParse();
 		this.partidoParseControle = new PartidoParseControle(this.partidoIndicesParse);
 		
@@ -46,7 +46,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		this.partidoParseControle.cadastrarInstancias();
 		this.partidoParseControle.resetar();
 		
-		Party partidoCadastrado = this.partidoDAO.getLista().get(0);
+		Party partidoCadastrado = this.partyDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[SIGLA], partidoCadastrado.getPartyAcronym());
 		Assert.assertEquals(this.campo[NUMERO], partidoCadastrado.getPartyNumber().toString());
@@ -62,7 +62,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		this.partidoParseControle.cadastrarInstancias();
 		this.partidoParseControle.resetar();
 		
-		int numeroPartidosCadastrados = this.partidoDAO.getLista().size();
+		int numeroPartidosCadastrados = this.partyDAO.getLista().size();
 				
 		Assert.assertEquals(1, numeroPartidosCadastrados);
 	}

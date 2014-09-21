@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Party;
-import model.dao.PartidoDAO;
+import model.dao.PartyDAO;
 
 public class PartidoControle {
 	
@@ -13,11 +13,11 @@ public class PartidoControle {
 	 */
 	
 	// Attributes
-	private PartidoDAO partidoDAO;
+	private PartyDAO partyDAO;
 	
 	// Constructors	
 	public PartidoControle() {
-		this.partidoDAO = new PartidoDAO();
+		this.partyDAO = new PartyDAO();
 	}
 	
 	// Other methods
@@ -26,7 +26,7 @@ public class PartidoControle {
 	 * @return an ArrayList with all political parties
 	 */
 	public ArrayList<Party> getListaTodosPartidos() throws SQLException {
-		return this.partidoDAO.getLista();
+		return this.partyDAO.getLista();
 	}
 	
 	/*
@@ -35,7 +35,7 @@ public class PartidoControle {
 	 * @return the political party with the abbreviation informed
 	 */
 	public Party getPelaSigla(String sigla) throws SQLException {
-		return this.partidoDAO.getPelaSigla(sigla);
+		return this.partyDAO.getPelaSigla(sigla);
 	}
 	
 	/*
@@ -44,6 +44,6 @@ public class PartidoControle {
 	 * @return the political party with the political number informed
 	 */
 	public Party getPeloNumero(String numero) throws SQLException {
-		return this.partidoDAO.getPeloNumero(numero);
+		return this.partyDAO.getPeloNumero(numero);
 	}
 }

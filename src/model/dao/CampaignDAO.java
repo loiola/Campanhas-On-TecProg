@@ -19,7 +19,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 
 	//Attributes
 	private CandidateDAO candidateDAO;
-	private PartidoDAO partidoDAO;
+	private PartyDAO partyDAO;
 	private PositionDAO positionDAO;
 	private ResultadoDAO resultadoDAO;
 
@@ -189,10 +189,10 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 */
 	public ArrayList<Campaign> getCampanhasPorSiglaEAno(String sigla, String ano)
 			throws SQLException {
-		this.partidoDAO = new PartidoDAO();
+		this.partyDAO = new PartyDAO();
 
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
-		Party party = this.partidoDAO.getPelaSigla(sigla);
+		Party party = this.partyDAO.getPelaSigla(sigla);
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_PARTIDO + ", "
 				+ INDEX_ANO + ")" + " WHERE " + NUMERO_PARTIDO + " = '"
 				+ party.getPartyNumber() + "' AND " + ANO + " = '" + ano + "' ";
@@ -230,7 +230,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		this.candidateDAO = new CandidateDAO();
 		this.positionDAO = new PositionDAO();
-		this.partidoDAO = new PartidoDAO();
+		this.partyDAO = new PartyDAO();
 		this.resultadoDAO = new ResultadoDAO();
 
 		try {
@@ -248,7 +248,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 				campaign.setCampaignTotalExpenseCalculated(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
 				campaign.setCampaignNameOfUrn(resultadoSQL.getString(NOME_URNA));
 				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(NUM_CANDIDATO));
-				campaign.setCampaignParty(partidoDAO.getPeloNumero(resultadoSQL.getString(NUMERO_PARTIDO)));
+				campaign.setCampaignParty(partyDAO.getPeloNumero(resultadoSQL.getString(NUMERO_PARTIDO)));
 				campaign.setCampaignTotalRevenueCalculated(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
 				campaign.setCampaignResult(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
 				campaign.setCampaignCountryState(resultadoSQL.getString(UF));

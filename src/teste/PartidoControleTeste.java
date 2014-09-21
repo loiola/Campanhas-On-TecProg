@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Party;
-import model.dao.PartidoDAO;
+import model.dao.PartyDAO;
 
 import org.junit.Test;
 
@@ -15,14 +15,14 @@ import controle.PartidoControle;
 
 public class PartidoControleTeste extends TemplateTeste {
 	
-	private PartidoDAO partidoDAO;
+	private PartyDAO partyDAO;
 	private PartidoControle partidoControle;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
 		this.partidoControle = new PartidoControle();
-		this.partidoDAO = new PartidoDAO();
+		this.partyDAO = new PartyDAO();
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class PartidoControleTeste extends TemplateTeste {
 		partido1.setPartyConcession("15.4.1995");
 		listaPartidosACadastrar.add(partido2);
 		
-		this.partidoDAO.cadastrarLista(listaPartidosACadastrar);
-		listaPartidosRecuperados = this.partidoDAO.getLista();
+		this.partyDAO.cadastrarLista(listaPartidosACadastrar);
+		listaPartidosRecuperados = this.partyDAO.getLista();
 		
 		assertEquals(listaPartidosRecuperados, this.partidoControle.getListaTodosPartidos());
 	}
@@ -76,8 +76,8 @@ public class PartidoControleTeste extends TemplateTeste {
 		partido1.setPartyConcession("15.4.1995");
 		listaPartidos.add(partido2);
 		
-		this.partidoDAO.cadastrarLista(listaPartidos);
-		partidoRecuperado = this.partidoDAO.getPelaSigla("PE1");
+		this.partyDAO.cadastrarLista(listaPartidos);
+		partidoRecuperado = this.partyDAO.getPelaSigla("PE1");
 		
 		assertEquals(partidoRecuperado, this.partidoControle.getPelaSigla("PE1"));
 	}
@@ -102,8 +102,8 @@ public class PartidoControleTeste extends TemplateTeste {
 		partido1.setPartyConcession("15.5.1996");
 		listaPartidos.add(partido2);
 		
-		this.partidoDAO.cadastrarLista(listaPartidos);
-		partidoRecuperado = this.partidoDAO.getPeloNumero("47");
+		this.partyDAO.cadastrarLista(listaPartidos);
+		partidoRecuperado = this.partyDAO.getPeloNumero("47");
 		
 		assertEquals(partidoRecuperado, this.partidoControle.getPeloNumero("47"));
 	}

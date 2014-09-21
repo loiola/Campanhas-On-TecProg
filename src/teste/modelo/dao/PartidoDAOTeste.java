@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Party;
-import model.dao.PartidoDAO;
+import model.dao.PartyDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,12 +13,12 @@ import teste.TemplateTeste;
 
 public class PartidoDAOTeste extends TemplateTeste {
 
-	private PartidoDAO partidoDAO;
+	private PartyDAO partyDAO;
 
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.partidoDAO = new PartidoDAO();
+		this.partyDAO = new PartyDAO();
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class PartidoDAOTeste extends TemplateTeste {
 		P2.setPartyAcronym("AEIOU");
 		int resultado;
 
-		resultado = PartidoDAO.Comparacao.SIGLA.compare(P1, P2);
+		resultado = PartyDAO.Comparacao.SIGLA.compare(P1, P2);
 
 		Assert.assertEquals(0, resultado);
 	}
@@ -52,7 +52,7 @@ public class PartidoDAOTeste extends TemplateTeste {
 		party.setPartyName("AEIOU");
 		listaPartidos.add(party);
 
-		this.partidoDAO.cadastrarLista(listaPartidos);
+		this.partyDAO.cadastrarLista(listaPartidos);
 	}
 
 	@Test
@@ -67,12 +67,12 @@ public class PartidoDAOTeste extends TemplateTeste {
 		party.setPartyName("AEIOU");
 		listaPartidos.add(party);
 
-		this.partidoDAO.cadastrarLista(listaPartidos);
-		int numeroDePartidosNaLista = this.partidoDAO.getLista().size();
+		this.partyDAO.cadastrarLista(listaPartidos);
+		int numeroDePartidosNaLista = this.partyDAO.getLista().size();
 
-		this.partidoDAO.cadastrarLista(listaPartidos);
+		this.partyDAO.cadastrarLista(listaPartidos);
 
-		Assert.assertEquals(numeroDePartidosNaLista, this.partidoDAO.getLista()
+		Assert.assertEquals(numeroDePartidosNaLista, this.partyDAO.getLista()
 				.size());
 	}
 
@@ -96,8 +96,8 @@ public class PartidoDAOTeste extends TemplateTeste {
 		p2.setPartyConcession("11.8.1994");
 		listaPartidos.add(p2);
 		
-		this.partidoDAO.cadastrarLista(listaPartidos);
-		partidoRecuperado = this.partidoDAO.getPelaSigla("PI1");
+		this.partyDAO.cadastrarLista(listaPartidos);
+		partidoRecuperado = this.partyDAO.getPelaSigla("PI1");
 		
 		Assert.assertEquals(p1, partidoRecuperado);
 	}
@@ -105,7 +105,7 @@ public class PartidoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmPartidoPeloNumero() throws SQLException {
 		
-		partidoDAO.getPeloNumero(null);
+		partyDAO.getPeloNumero(null);
 	}
 	
 }
