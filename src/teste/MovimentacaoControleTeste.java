@@ -92,7 +92,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	public void deveRetornarUmaMovimentacaoPeloId() throws Exception {
 		
 		Assert.assertEquals(this.revenueDAO.getPeloId(3).getFinancialTransactionPrice(), this.movimentacaoControle.getReceitaPeloId(3).getFinancialTransactionPrice());
-		Assert.assertEquals(this.expenseDAO.getPeloId(5).getFinancialTransactionPrice(), this.movimentacaoControle.getDespesaPeloId(5).getFinancialTransactionPrice());
+		Assert.assertEquals(this.expenseDAO.getExpenseByIdentifier(5).getFinancialTransactionPrice(), this.movimentacaoControle.getDespesaPeloId(5).getFinancialTransactionPrice());
 	}
 	
 	
@@ -116,7 +116,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 		
 		campanhaTeste.setCampaignCountryState(this.uf);
-		Assert.assertEquals(this.expenseDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaDespesas(campanhaTeste).size());
+		Assert.assertEquals(this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campanhaTeste).size(),this.movimentacaoControle.getListaDespesas(campanhaTeste).size());
 		Assert.assertEquals(this.revenueDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaReceitas(campanhaTeste).size());
 	}
 

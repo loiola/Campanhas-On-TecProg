@@ -67,7 +67,7 @@ public class MovimentacaoControle {
 				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
 			listaDespesa =  null;
 		} else {
-			listaDespesa =  this.expenseDAO.getPorAnoNumeroCargoUf(campaign);
+			listaDespesa =  this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaign);
 		}
 		return listaDespesa;
 	}
@@ -87,6 +87,6 @@ public class MovimentacaoControle {
 	 * @return the reported expense
 	 */
 	public Expense getDespesaPeloId(int id) throws Exception {
-		return this.expenseDAO.getPeloId(id);
+		return this.expenseDAO.getExpenseByIdentifier(id);
 	}
 }
