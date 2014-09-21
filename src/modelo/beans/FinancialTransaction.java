@@ -9,7 +9,7 @@ public class FinancialTransaction {
 	 */
 	 
 	// Constants
-	public static final String STRING_VAZIO = "";
+	public static final String EMPTY_TYPE_STRING = "";
 	public static final Integer INTEGER_VAZIO = 0;
 	public static final Float FLOAT_VAZIO = (float) 0;
 	public static final Object OBJETO_VAZIO = null;
@@ -28,12 +28,12 @@ public class FinancialTransaction {
 	public FinancialTransaction(){
 		this.id = INTEGER_VAZIO;
 		this.campaign = (Campaign) OBJETO_VAZIO;
-		this.numeroDocumento = STRING_VAZIO;
-		this.data = STRING_VAZIO;
+		this.numeroDocumento = EMPTY_TYPE_STRING;
+		this.data = EMPTY_TYPE_STRING;
 		this.valor = FLOAT_VAZIO;
-		this.descricao = STRING_VAZIO;
-		this.tipoMovimentacao = STRING_VAZIO;
-		this.formaPagamento = STRING_VAZIO;
+		this.descricao = EMPTY_TYPE_STRING;
+		this.tipoMovimentacao = EMPTY_TYPE_STRING;
+		this.formaPagamento = EMPTY_TYPE_STRING;
 	}
 
 	// Getters and Setters

@@ -87,10 +87,10 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			instrucaoSQL.setString(6, expense.getDescricao());
 			instrucaoSQL.setString(7, expense.getData());	
 			instrucaoSQL.setString(8, expense.getTipoMovimentacao());
-			instrucaoSQL.setString(9, expense.getTipoDocumento());
+			instrucaoSQL.setString(9, expense.getExpenseDocumentType());
 			instrucaoSQL.setString(10, expense.getNumeroDocumento());
-			instrucaoSQL.setString(11, expense.getFornecedor().getNome());
-			instrucaoSQL.setString(12, expense.getFornecedor().getCpf_cnpj());
+			instrucaoSQL.setString(11, expense.getExpenseSupplier().getNome());
+			instrucaoSQL.setString(12, expense.getExpenseSupplier().getCpf_cnpj());
 			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getPositionDescription());
 			instrucaoSQL.setString(14, expense.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
@@ -124,9 +124,9 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			expense.setData(resultadoSQL.getString(DATA));
 			expense.setDescricao(resultadoSQL.getString(DESCRICAO));
 			expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-			expense.setFornecedor(supplier);
+			expense.setExpenseSupplier(supplier);
 			expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-			expense.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
+			expense.setExpenseDocumentType(resultadoSQL.getString(TIPO_DOCUMENTO));
 			expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 			expense.setValor(resultadoSQL.getFloat(VALOR));
 			
@@ -193,14 +193,14 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				Supplier supplier = new Supplier();
 				supplier.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
 				supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
-				expense.setFornecedor(supplier);
+				expense.setExpenseSupplier(supplier);
 
 				expense.setData(resultadoSQL.getString(DATA));
 				expense.setDescricao(resultadoSQL.getString(DESCRICAO));
 				expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
 				expense.setId(resultadoSQL.getInt(ID));
 				expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-				expense.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
+				expense.setExpenseDocumentType(resultadoSQL.getString(TIPO_DOCUMENTO));
 				expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 				expense.setValor(resultadoSQL.getFloat(VALOR));
 				

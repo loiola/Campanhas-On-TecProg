@@ -8,32 +8,32 @@ public class Expense extends FinancialTransaction {
 	 */
 	 
 	// Constant
-	public static final Object OBJETO_VAZIO = null; 
+	public static final Object EMPTY_OBJECT = null; 
 	
 	// Attributes
-	private String tipoDocumento;
-	private Supplier supplier;
+	private String expenseDocumentType;
+	private Supplier expenseSupplier;
 	
 	// Empty Constructor
 	public Expense(){
-		this.tipoDocumento = STRING_VAZIO;
-		this.supplier = (Supplier) OBJETO_VAZIO;
+		this.expenseDocumentType = EMPTY_TYPE_STRING;
+		this.expenseSupplier = (Supplier) EMPTY_OBJECT;
 	}
 	
 	// Getters and Setters
-	public String getTipoDocumento() {
-		return tipoDocumento;
+	public String getExpenseDocumentType() {
+		return expenseDocumentType;
 	}
 	
-	public void setTipoDocumento(String tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
+	public void setExpenseDocumentType(String expenseDocumentType) {
+		this.expenseDocumentType = expenseDocumentType;
 	}
 	
-	public Supplier getFornecedor() {
-		return supplier;
+	public Supplier getExpenseSupplier() {
+		return expenseSupplier;
 	}
 	
-	public void setFornecedor(Supplier supplier) {
-		this.supplier = supplier;
+	public void setExpenseSupplier(Supplier expenseSupplier) {
+		this.expenseSupplier = expenseSupplier;
 	}
 }

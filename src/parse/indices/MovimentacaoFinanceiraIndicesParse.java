@@ -99,12 +99,12 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
 		financialTransaction.setId(FinancialTransaction.INTEGER_VAZIO);
 		financialTransaction.setCampanha((Campaign)FinancialTransaction.OBJETO_VAZIO);
-		financialTransaction.setNumeroDocumento(FinancialTransaction.STRING_VAZIO);
-		financialTransaction.setData(FinancialTransaction.STRING_VAZIO);
+		financialTransaction.setNumeroDocumento(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setData(FinancialTransaction.EMPTY_TYPE_STRING);
 		financialTransaction.setValor(FinancialTransaction.FLOAT_VAZIO);
-		financialTransaction.setFormaPagamento(FinancialTransaction.STRING_VAZIO);
-		financialTransaction.setTipoMovimentacao(FinancialTransaction.STRING_VAZIO);
-		financialTransaction.setDescricao(FinancialTransaction.STRING_VAZIO);
+		financialTransaction.setFormaPagamento(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setTipoMovimentacao(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setDescricao(FinancialTransaction.EMPTY_TYPE_STRING);
 	}
 	
 	/*

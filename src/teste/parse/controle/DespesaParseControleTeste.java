@@ -48,11 +48,11 @@ public class DespesaParseControleTeste extends TemplateTeste {
 
 		Expense despesaCadastrado = this.despesaDAO.getLista().get(0);
 
-		Assert.assertEquals(this.campo[TIPODOCUMENTO], despesaCadastrado.getTipoDocumento()
+		Assert.assertEquals(this.campo[TIPODOCUMENTO], despesaCadastrado.getExpenseDocumentType()
 				.toString());
 		Assert.assertEquals(this.campo[NOME],
-				despesaCadastrado.getFornecedor().getNome());
-		Assert.assertEquals(this.campo[CPF_CNPJ], despesaCadastrado.getFornecedor().getCpf_cnpj());
+				despesaCadastrado.getExpenseSupplier().getNome());
+		Assert.assertEquals(this.campo[CPF_CNPJ], despesaCadastrado.getExpenseSupplier().getCpf_cnpj());
 	}
 
 	private void iniciarIndices() {

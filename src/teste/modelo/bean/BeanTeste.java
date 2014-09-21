@@ -67,10 +67,10 @@ public class BeanTeste {
 		expense.setData(STRING_TESTE);
 		expense.setDescricao(STRING_TESTE);
 		expense.setFormaPagamento(STRING_TESTE);
-		expense.setFornecedor(instanciarFornecedor());
+		expense.setExpenseSupplier(instanciarFornecedor());
 		expense.setId(INT_TESTE);
 		expense.setNumeroDocumento(STRING_TESTE);
-		expense.setTipoDocumento(STRING_TESTE);
+		expense.setExpenseDocumentType(STRING_TESTE);
 		expense.setTipoMovimentacao(STRING_TESTE);
 		expense.setValor(FLOAT_TESTE);
 		

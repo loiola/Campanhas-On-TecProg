@@ -17,7 +17,7 @@ public class Revenue extends FinancialTransaction {
 	// Empty Constructor
 	public Revenue() {
 		super();
-		this.reciboEleitoral = STRING_VAZIO;
+		this.reciboEleitoral = EMPTY_TYPE_STRING;
 		this.donor = DOADOR_VAZIO;
 	}
 	

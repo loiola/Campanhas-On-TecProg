@@ -76,7 +76,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		expense.setValor((float) 90.0);
 		expense.setCampanha(campaign);
 		expense.setId(5);
-		expense.setFornecedor(supplier);
+		expense.setExpenseSupplier(supplier);
 		listaDespesa.add(expense);
 		
 		this.despesaDAO.cadastrarLista(listaDespesa);
