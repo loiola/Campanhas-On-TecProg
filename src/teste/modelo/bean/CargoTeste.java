@@ -3,7 +3,7 @@ package teste.modelo.bean;
 import static teste.modelo.bean.BeanTeste.instanciarCargo;
 import static teste.modelo.bean.BeanTeste.instanciarFornecedor;
 import modelo.beans.Position;
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,14 +31,14 @@ public class CargoTeste {
 	public void equalsDeveRetornarFalsoSeNaoCompararComCargo() {
 		
 		Position position = instanciarCargo();
-		Fornecedor fornecedor = instanciarFornecedor();
+		Supplier supplier = instanciarFornecedor();
 		
-		Assert.assertFalse(position.equals(fornecedor));
-		Assert.assertFalse(fornecedor.equals(position));
+		Assert.assertFalse(position.equals(supplier));
+		Assert.assertFalse(supplier.equals(position));
 		Assert.assertEquals(BeanTeste.INT_TESTE,position.getCodigo());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,fornecedor.getNome());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,fornecedor.getUf());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,fornecedor.getSituacaoCadastral());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getNome());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getUf());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getSituacaoCadastral());
 	}
 
 }

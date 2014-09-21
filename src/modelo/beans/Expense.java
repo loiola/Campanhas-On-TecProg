@@ -12,12 +12,12 @@ public class Expense extends MovimentacaoFinanceira {
 	
 	// Attributes
 	private String tipoDocumento;
-	private Fornecedor fornecedor;
+	private Supplier supplier;
 	
 	// Empty Constructor
 	public Expense(){
 		this.tipoDocumento = STRING_VAZIO;
-		this.fornecedor = (Fornecedor) OBJETO_VAZIO;
+		this.supplier = (Supplier) OBJETO_VAZIO;
 	}
 	
 	// Getters and Setters
@@ -29,11 +29,11 @@ public class Expense extends MovimentacaoFinanceira {
 		this.tipoDocumento = tipoDocumento;
 	}
 	
-	public Fornecedor getFornecedor() {
-		return fornecedor;
+	public Supplier getFornecedor() {
+		return supplier;
 	}
 	
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
+	public void setFornecedor(Supplier supplier) {
+		this.supplier = supplier;
 	}
 }

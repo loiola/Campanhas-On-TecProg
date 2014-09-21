@@ -1,7 +1,7 @@
 package parse.indices;
 
 import modelo.beans.Expense;
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 
 public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expense> {
 	
@@ -30,18 +30,18 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expe
 	@Override
 	protected void setIndicesValidos(Expense expense, String[] campo) {
 		super.setIndicesValidos(expense, campo);
-		Fornecedor fornecedor = new Fornecedor();
+		Supplier supplier = new Supplier();
 
 		if(indiceValido(this.indiceFornecedorNome)) {
-			fornecedor.setNome(campo[this.indiceFornecedorNome]);
+			supplier.setNome(campo[this.indiceFornecedorNome]);
 		}
 		if(indiceValido(this.indiceFornecedorCpfCnpj)) {
-			fornecedor.setCpf_cnpj(campo[this.indiceFornecedorCpfCnpj]);
+			supplier.setCpf_cnpj(campo[this.indiceFornecedorCpfCnpj]);
 		}
 		if(indiceValido(this.indiceTipoDocumento)) {
 			expense.setTipoDocumento(campo[this.indiceTipoDocumento]);
 		}
-		expense.setFornecedor(fornecedor);
+		expense.setFornecedor(supplier);
 
 	}
 	
@@ -52,7 +52,7 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expe
 	@Override
 	protected void setVazioEmTodosOsSetters(Expense expense) {
 		super.setVazioEmTodosOsSetters(expense);
-		expense.setFornecedor((Fornecedor)Expense.OBJETO_VAZIO);
+		expense.setFornecedor((Supplier)Expense.OBJETO_VAZIO);
 		expense.setTipoDocumento(Expense.STRING_VAZIO);
 	}
 	

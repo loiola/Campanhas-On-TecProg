@@ -1,17 +1,17 @@
 package parse.controle;
 
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import modelo.dao.FornecedorDAO;
 import parse.indices.IndicesParse;
 
-public class FornecedorParseControle extends ParseControle<Fornecedor> {
+public class FornecedorParseControle extends ParseControle<Supplier> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Supplier
 	 */
 
 	// Constructors
-	public FornecedorParseControle(IndicesParse<Fornecedor> indicesParse) {
+	public FornecedorParseControle(IndicesParse<Supplier> indicesParse) {
 		super(indicesParse, new FornecedorDAO());
 	}
 
@@ -20,9 +20,9 @@ public class FornecedorParseControle extends ParseControle<Fornecedor> {
 	 * @return an instance of Class Supplier
 	 */
 	@Override
-	public Fornecedor novaInstancia() {
-		Fornecedor fornecedor = new Fornecedor();
-		return fornecedor;
+	public Supplier novaInstancia() {
+		Supplier supplier = new Supplier();
+		return supplier;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class FornecedorParseControle extends ParseControle<Fornecedor> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Fornecedor objetoUm, Fornecedor objetoDois) {
+	public boolean iguais(Supplier objetoUm, Supplier objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}	
 	

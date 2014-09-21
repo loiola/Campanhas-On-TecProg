@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import modelo.dao.FornecedorDAO;
 
 import org.junit.Assert;
@@ -44,7 +44,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		this.fornecedorParseControle.cadastrarInstancias();
 		this.fornecedorParseControle.resetar();
 
-		Fornecedor fornecedorCadastrado = this.fornecedorDAO.getLista().get(0);
+		Supplier fornecedorCadastrado = this.fornecedorDAO.getLista().get(0);
 
 		Assert.assertEquals(this.campo[CPF_CNPJ], fornecedorCadastrado.getCpf_cnpj()
 				.toString());

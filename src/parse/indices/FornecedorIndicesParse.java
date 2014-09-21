@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 
-public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
+public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	
 	/*
 	 * Class to control the contents of information inherent to the suppliers
@@ -31,18 +31,18 @@ public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Fornecedor fornecedor, String[] campo) {
+	protected void setIndicesValidos(Supplier supplier, String[] campo) {
 		if(indiceValido(this.indiceCpf_Cnpj)) {
-			fornecedor.setCpf_cnpj(campo[this.indiceCpf_Cnpj]);
+			supplier.setCpf_cnpj(campo[this.indiceCpf_Cnpj]);
 		}
 		if(indiceValido(this.indiceNome)) {
-			fornecedor.setNome(campo[this.indiceNome]);
+			supplier.setNome(campo[this.indiceNome]);
 		}
 		if(indiceValido(this.indiceUf)) {
-			fornecedor.setUf(campo[this.indiceUf]);
+			supplier.setUf(campo[this.indiceUf]);
 		}
 		if(indiceValido(this.indiceSituacaoCadastral)) {
-			fornecedor.setSituacaoCadastral(campo[this.indiceSituacaoCadastral]);
+			supplier.setSituacaoCadastral(campo[this.indiceSituacaoCadastral]);
 		}
 	}
 
@@ -51,11 +51,11 @@ public class FornecedorIndicesParse extends IndicesParse<Fornecedor> {
 	 * @param an instance of Class Supplier
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Fornecedor fornecedor) {
-		fornecedor.setCpf_cnpj(Fornecedor.STRING_VAZIO);
-		fornecedor.setNome(Fornecedor.STRING_VAZIO);
-		fornecedor.setUf(Fornecedor.STRING_VAZIO);
-		fornecedor.setSituacaoCadastral(Fornecedor.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Supplier supplier) {
+		supplier.setCpf_cnpj(Supplier.STRING_VAZIO);
+		supplier.setNome(Supplier.STRING_VAZIO);
+		supplier.setUf(Supplier.STRING_VAZIO);
+		supplier.setSituacaoCadastral(Supplier.STRING_VAZIO);
 	}
 
 	// Mutators for indexes of the array of fields

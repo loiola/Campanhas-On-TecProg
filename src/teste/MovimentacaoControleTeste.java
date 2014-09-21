@@ -7,7 +7,7 @@ import modelo.beans.Candidate;
 import modelo.beans.Position;
 import modelo.beans.Expense;
 import modelo.beans.Donor;
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import modelo.beans.Receita;
 import modelo.dao.DespesaDAO;
 import modelo.dao.ReceitaDAO;
@@ -28,7 +28,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	private Receita receita;
 	private Expense expense;
 	private Donor donor;
-	private Fornecedor fornecedor;
+	private Supplier supplier;
 	private Integer ano;
 	private String uf;
 	private Integer numeroCandidato;
@@ -44,7 +44,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.receita = new Receita();
 		this.expense = new Expense();
 		this.donor = new Donor();
-		this.fornecedor = new Fornecedor();
+		this.supplier = new Supplier();
 		this.ano = 2014;
 		this.uf = "DF";
 		this.position = new Position();
@@ -64,7 +64,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		campaign.setUf(this.uf);
 		campaign.setNumeroCandidato(this.numeroCandidato);
 		
-		fornecedor.setCpf_cnpj("555555555555");
+		supplier.setCpf_cnpj("555555555555");
 		donor.setCpf_cnpj("333333333333");
 		
 		receita.setValor((float) 55.0);
@@ -76,7 +76,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		expense.setValor((float) 90.0);
 		expense.setCampanha(campaign);
 		expense.setId(5);
-		expense.setFornecedor(fornecedor);
+		expense.setFornecedor(supplier);
 		listaDespesa.add(expense);
 		
 		this.despesaDAO.cadastrarLista(listaDespesa);

@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Fornecedor {
+public class Supplier {
 	
 	/*
-	 * Model Class Fornecedor.java
+	 * Model Class Supplier.java
 	 * This class is responsable for getting the Supplier's informations
 	 */
 	 
@@ -17,7 +17,7 @@ public class Fornecedor {
 	private String situacaoCadastral;
 	
 	// Empty Constructor
-	public Fornecedor() {
+	public Supplier() {
 		this.cpf_cnpj = STRING_VAZIO;
 		this.nome = STRING_VAZIO;
 		this.uf = STRING_VAZIO;
@@ -59,10 +59,10 @@ public class Fornecedor {
 	
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Fornecedor))
+		if( !(object instanceof Supplier))
 			return false;
 		
-		Fornecedor outroFornecedor = (Fornecedor) object;
+		Supplier outroFornecedor = (Supplier) object;
 		return this.getNome().equalsIgnoreCase(outroFornecedor.getNome()) &&
 			   this.getCpf_cnpj().equalsIgnoreCase(outroFornecedor.getCpf_cnpj()) ;
 	}

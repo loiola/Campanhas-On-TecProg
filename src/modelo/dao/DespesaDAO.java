@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Position;
 import modelo.beans.Expense;
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import parse.ParseDAO;
 
 public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> {
@@ -114,9 +114,9 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
 			campaign.setCargo(position);
 
-			Fornecedor fornecedor = new Fornecedor();
-			fornecedor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
-			fornecedor.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
+			Supplier supplier = new Supplier();
+			supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
+			supplier.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
 
 			Expense expense = new Expense();
 			expense.setId(resultadoSQL.getInt(ID));			
@@ -124,7 +124,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			expense.setData(resultadoSQL.getString(DATA));
 			expense.setDescricao(resultadoSQL.getString(DESCRICAO));
 			expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-			expense.setFornecedor(fornecedor);
+			expense.setFornecedor(supplier);
 			expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
 			expense.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
 			expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
@@ -190,10 +190,10 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				campaign.setCargo(position);
 				expense.setCampanha(campaign);
 				
-				Fornecedor fornecedor = new Fornecedor();
-				fornecedor.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
-				fornecedor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
-				expense.setFornecedor(fornecedor);
+				Supplier supplier = new Supplier();
+				supplier.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
+				supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
+				expense.setFornecedor(supplier);
 
 				expense.setData(resultadoSQL.getString(DATA));
 				expense.setDescricao(resultadoSQL.getString(DESCRICAO));

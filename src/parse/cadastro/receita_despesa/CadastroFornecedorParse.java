@@ -1,13 +1,13 @@
 package parse.cadastro.receita_despesa;
 
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import parse.ParseException;
 import parse.controle.FornecedorParseControle;
 import parse.controle.ParseControle;
 import parse.indices.FornecedorIndicesParse;
 import parse.indices.IndicesParse;
 
-public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Fornecedor> {
+public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Supplier> {
 
 	public CadastroFornecedorParse(String tipoArquivo, String ano)
 			throws ParseException {
@@ -16,7 +16,7 @@ public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Forne
 	}
 
 	@Override
-	public ParseControle<Fornecedor> novaInstancia(IndicesParse<Fornecedor> indicesParse) {
+	public ParseControle<Supplier> novaInstancia(IndicesParse<Supplier> indicesParse) {
 		FornecedorParseControle fornecedorParseControle = new FornecedorParseControle(indicesParse);
 		return fornecedorParseControle;
 	}
@@ -49,17 +49,17 @@ public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Forne
 	}
 
 	@Override
-	protected IndicesParse<Fornecedor> getIndicesParseReceita2002() {
+	protected IndicesParse<Supplier> getIndicesParseReceita2002() {
 		return new FornecedorIndicesParse();
 	}
 
 	@Override
-	protected IndicesParse<Fornecedor> getIndicesParseReceita2006() {
+	protected IndicesParse<Supplier> getIndicesParseReceita2006() {
 		return new FornecedorIndicesParse();
 	}
 
 	@Override
-	protected IndicesParse<Fornecedor> getIndicesParseReceita2010() {
+	protected IndicesParse<Supplier> getIndicesParseReceita2010() {
 		return new FornecedorIndicesParse();
 
 	}

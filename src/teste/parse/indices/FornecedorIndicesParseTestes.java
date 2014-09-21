@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,24 +26,24 @@ public class FornecedorIndicesParseTestes {
 	@Test
 	public void iniciarUmFornecedorComIndicesValidos() throws Exception {
 		
-		Fornecedor fornecedor = new Fornecedor();
-		this.fornecedorIndicesParse.iniciarInstancia(fornecedor, campo);
-		Assert.assertEquals(this.campo[0], fornecedor.getCpf_cnpj().toString());
-		Assert.assertEquals(this.campo[1], fornecedor.getNome());
-		Assert.assertEquals(this.campo[2], fornecedor.getUf());
-		Assert.assertEquals(this.campo[3], fornecedor.getSituacaoCadastral());
+		Supplier supplier = new Supplier();
+		this.fornecedorIndicesParse.iniciarInstancia(supplier, campo);
+		Assert.assertEquals(this.campo[0], supplier.getCpf_cnpj().toString());
+		Assert.assertEquals(this.campo[1], supplier.getNome());
+		Assert.assertEquals(this.campo[2], supplier.getUf());
+		Assert.assertEquals(this.campo[3], supplier.getSituacaoCadastral());
 	}
 	
 	@Test
 	public void iniciarUmFornecedorComIndicesInvalidos() {
 		
 		this.fornecedorIndicesParse = new FornecedorIndicesParse();
-		Fornecedor fornecedor = new Fornecedor();
-		this.fornecedorIndicesParse.iniciarInstancia(fornecedor, campo);
-		Assert.assertNotEquals(this.campo[0], fornecedor.getCpf_cnpj().toString());
-		Assert.assertNotEquals(this.campo[1], fornecedor.getNome());
-		Assert.assertNotEquals(this.campo[2], fornecedor.getUf());
-		Assert.assertNotEquals(this.campo[3], fornecedor.getSituacaoCadastral());
+		Supplier supplier = new Supplier();
+		this.fornecedorIndicesParse.iniciarInstancia(supplier, campo);
+		Assert.assertNotEquals(this.campo[0], supplier.getCpf_cnpj().toString());
+		Assert.assertNotEquals(this.campo[1], supplier.getNome());
+		Assert.assertNotEquals(this.campo[2], supplier.getUf());
+		Assert.assertNotEquals(this.campo[3], supplier.getSituacaoCadastral());
 	}
 	
 	private void iniciarIndices() {

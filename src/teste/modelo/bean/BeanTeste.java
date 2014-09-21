@@ -5,7 +5,7 @@ import modelo.beans.Candidate;
 import modelo.beans.Position;
 import modelo.beans.Expense;
 import modelo.beans.Donor;
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import modelo.beans.MovimentacaoFinanceira;
 import modelo.beans.Partido;
 import modelo.beans.Receita;
@@ -88,15 +88,15 @@ public class BeanTeste {
 		return donor;		
 	}
 	
-	public static Fornecedor instanciarFornecedor() {
+	public static Supplier instanciarFornecedor() {
 		
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setCpf_cnpj(STRING_TESTE);
-		fornecedor.setNome(STRING_TESTE);
-		fornecedor.setSituacaoCadastral(STRING_TESTE);
-		fornecedor.setUf(STRING_TESTE);
+		Supplier supplier = new Supplier();
+		supplier.setCpf_cnpj(STRING_TESTE);
+		supplier.setNome(STRING_TESTE);
+		supplier.setSituacaoCadastral(STRING_TESTE);
+		supplier.setUf(STRING_TESTE);
 		
-		return fornecedor;
+		return supplier;
 	}
 	
 	public static MovimentacaoFinanceira instanciarMovimentacaoFinanceira() {

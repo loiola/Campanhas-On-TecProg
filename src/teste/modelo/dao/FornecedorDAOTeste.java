@@ -2,7 +2,7 @@ package teste.modelo.dao;
 
 import java.util.ArrayList;
 
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import modelo.dao.FornecedorDAO;
 
 import org.junit.Assert;
@@ -28,8 +28,8 @@ public class FornecedorDAOTeste extends TemplateTeste {
 	@Test
 	public void valoresComparacao() throws Exception {
 		
-		Fornecedor F1 = new Fornecedor();
-		Fornecedor F2 = new Fornecedor();
+		Supplier F1 = new Supplier();
+		Supplier F2 = new Supplier();
 		F1.setNome("FORNECEDOR UM");
 		F2.setNome("FORNECEDOR UM");
 		int resultado;
@@ -42,11 +42,11 @@ public class FornecedorDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveLancarExcecaoAoCadastrarUmFornecedorInexistente() throws Exception {
 		
-		ArrayList<Fornecedor> listaFornecedores = new ArrayList<>();
+		ArrayList<Supplier> listaFornecedores = new ArrayList<>();
 		
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setNome("Nome");
-		listaFornecedores.add(fornecedor);
+		Supplier supplier = new Supplier();
+		supplier.setNome("Nome");
+		listaFornecedores.add(supplier);
 		
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
 	}
@@ -54,11 +54,11 @@ public class FornecedorDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarUmFornecedorJaExistente() throws Exception {
 		
-		ArrayList<Fornecedor> listaFornecedores = new ArrayList<>();
+		ArrayList<Supplier> listaFornecedores = new ArrayList<>();
 		
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setNome("Nome");
-		listaFornecedores.add(fornecedor);
+		Supplier supplier = new Supplier();
+		supplier.setNome("Nome");
+		listaFornecedores.add(supplier);
 
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
@@ -69,21 +69,21 @@ public class FornecedorDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmaListaComOsFornecedoresCadastrados() throws Exception {
 		
-		ArrayList<Fornecedor> listaFornecedores = new ArrayList<>();
+		ArrayList<Supplier> listaFornecedores = new ArrayList<>();
 		
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setNome("Nome");
-		fornecedor.setCpf_cnpj("123");
-		fornecedor.setSituacaoCadastral("Cadastrado");
-		fornecedor.setUf("DF");
-		listaFornecedores.add(fornecedor);
+		Supplier supplier = new Supplier();
+		supplier.setNome("Nome");
+		supplier.setCpf_cnpj("123");
+		supplier.setSituacaoCadastral("Cadastrado");
+		supplier.setUf("DF");
+		listaFornecedores.add(supplier);
 		
-		fornecedor = new Fornecedor();
-		fornecedor.setNome("Nome2");
-		fornecedor.setCpf_cnpj("1234");
-		fornecedor.setSituacaoCadastral("Cadastrado");
-		fornecedor.setUf("DF");
-		listaFornecedores.add(fornecedor);
+		supplier = new Supplier();
+		supplier.setNome("Nome2");
+		supplier.setCpf_cnpj("1234");
+		supplier.setSituacaoCadastral("Cadastrado");
+		supplier.setUf("DF");
+		listaFornecedores.add(supplier);
 
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
 		Assert.assertEquals(listaFornecedores, this.fornecedorDAO.getLista());
@@ -92,17 +92,17 @@ public class FornecedorDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmFornecedorPeloNomeOuCpfCnpj() throws Exception {
 		
-		ArrayList<Fornecedor> listaFornecedoresACadastrar = new ArrayList<>();
-		Fornecedor fornecedorRecuperado;
+		ArrayList<Supplier> listaFornecedoresACadastrar = new ArrayList<>();
+		Supplier fornecedorRecuperado;
 		
-		Fornecedor fornecedor1 = new Fornecedor();
+		Supplier fornecedor1 = new Supplier();
 		fornecedor1.setNome("nome");
 		fornecedor1.setCpf_cnpj("123456");
 		fornecedor1.setSituacaoCadastral("REGULAR");
 		fornecedor1.setUf("DF");
 		listaFornecedoresACadastrar.add(fornecedor1);
 		
-		Fornecedor fornecedor2 = new Fornecedor();
+		Supplier fornecedor2 = new Supplier();
 		fornecedor2.setNome("nome2");
 		fornecedor2.setCpf_cnpj("12345678");
 		fornecedor2.setSituacaoCadastral("IRREGULAR");

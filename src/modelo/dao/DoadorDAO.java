@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import modelo.beans.Donor;
-import modelo.beans.Fornecedor;
+import modelo.beans.Supplier;
 import parse.ParseDAO;
 
 public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
@@ -140,11 +140,11 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 	 */
 	public Donor getPeloNomeOuCpfCnpj(Donor donor) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
-		if(!donor.getNome().equals(Fornecedor.STRING_VAZIO)) {
+		if(!donor.getNome().equals(Supplier.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + NOME + " = " 
 		  + donor.getNome();
 		}
-		else if(!donor.getCpf_cnpj().equals(Fornecedor.STRING_VAZIO)) {
+		else if(!donor.getCpf_cnpj().equals(Supplier.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
 		  + donor.getCpf_cnpj();
 		} else {
