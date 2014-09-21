@@ -7,18 +7,18 @@ import java.util.ArrayList;
 
 import modelo.beans.Campaign;
 import modelo.beans.Position;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Fornecedor;
 import parse.ParseDAO;
 
-public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> {
+public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> {
 	
 	/*
 	 * Class for manipulating the data about expenses
 	 */
 	
 	// Constants
-	private static final String NOME_TABELA = "despesa";
+	private static final String NOME_TABELA = "expense";
 	private final String ID = "id_despesa";
 	private final String CAMPANHA_ANO = "campanha_ano";
 	private final String CAMPANHA_NUMERO = "campanha_numero_candidato";
@@ -76,23 +76,23 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Despesa> lista,
+	protected void adicionarListaNoBatch(ArrayList<Expense> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Despesa despesa : lista) {
-			instrucaoSQL.setInt(1, despesa.getId());	
-			instrucaoSQL.setInt(2, despesa.getCampanha().getAno());
-			instrucaoSQL.setInt(3, despesa.getCampanha().getNumeroCandidato());
-			instrucaoSQL.setFloat(4, despesa.getValor());	
-			instrucaoSQL.setString(5, despesa.getFormaPagamento());
-			instrucaoSQL.setString(6, despesa.getDescricao());
-			instrucaoSQL.setString(7, despesa.getData());	
-			instrucaoSQL.setString(8, despesa.getTipoMovimentacao());
-			instrucaoSQL.setString(9, despesa.getTipoDocumento());
-			instrucaoSQL.setString(10, despesa.getNumeroDocumento());
-			instrucaoSQL.setString(11, despesa.getFornecedor().getNome());
-			instrucaoSQL.setString(12, despesa.getFornecedor().getCpf_cnpj());
-			instrucaoSQL.setString(13, despesa.getCampanha().getCargo().getDescricao());
-			instrucaoSQL.setString(14, despesa.getCampanha().getUf());
+		for(Expense expense : lista) {
+			instrucaoSQL.setInt(1, expense.getId());	
+			instrucaoSQL.setInt(2, expense.getCampanha().getAno());
+			instrucaoSQL.setInt(3, expense.getCampanha().getNumeroCandidato());
+			instrucaoSQL.setFloat(4, expense.getValor());	
+			instrucaoSQL.setString(5, expense.getFormaPagamento());
+			instrucaoSQL.setString(6, expense.getDescricao());
+			instrucaoSQL.setString(7, expense.getData());	
+			instrucaoSQL.setString(8, expense.getTipoMovimentacao());
+			instrucaoSQL.setString(9, expense.getTipoDocumento());
+			instrucaoSQL.setString(10, expense.getNumeroDocumento());
+			instrucaoSQL.setString(11, expense.getFornecedor().getNome());
+			instrucaoSQL.setString(12, expense.getFornecedor().getCpf_cnpj());
+			instrucaoSQL.setString(13, expense.getCampanha().getCargo().getDescricao());
+			instrucaoSQL.setString(14, expense.getCampanha().getUf());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -103,7 +103,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Despesa> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Expense> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
@@ -118,19 +118,19 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 			fornecedor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
 			fornecedor.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
 
-			Despesa despesa = new Despesa();
-			despesa.setId(resultadoSQL.getInt(ID));			
-			despesa.setCampanha(campaign);
-			despesa.setData(resultadoSQL.getString(DATA));
-			despesa.setDescricao(resultadoSQL.getString(DESCRICAO));
-			despesa.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-			despesa.setFornecedor(fornecedor);
-			despesa.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-			despesa.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
-			despesa.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-			despesa.setValor(resultadoSQL.getFloat(VALOR));
+			Expense expense = new Expense();
+			expense.setId(resultadoSQL.getInt(ID));			
+			expense.setCampanha(campaign);
+			expense.setData(resultadoSQL.getString(DATA));
+			expense.setDescricao(resultadoSQL.getString(DESCRICAO));
+			expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
+			expense.setFornecedor(fornecedor);
+			expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+			expense.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
+			expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+			expense.setValor(resultadoSQL.getFloat(VALOR));
 			
-			lista.add(despesa);
+			lista.add(expense);
 		}
 	}
 
@@ -140,7 +140,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	 * @param an instance of Class Campaign
 	 * @return an ArrayList<Expense>
 	 */
-	public ArrayList<Despesa> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
+	public ArrayList<Expense> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
 				  + CAMPANHA_ANO + " = " + campaign.getAno() + " AND "
 				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
@@ -156,7 +156,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	 * @param an int value with the ID
 	 * @return an instance of Class Expense
 	 */
-	public Despesa getPeloId(int id) throws Exception {
+	public Expense getPeloId(int id) throws Exception {
 			String comandoSQL = SQL_SELECT + " WHERE "
 					  + ID + " = " + id;
 			return buscaBD(comandoSQL).get(0);
@@ -167,8 +167,8 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Expense>
 	 */
-	public ArrayList<Despesa> buscaBD(String SQL) throws Exception {
-		ArrayList<Despesa> listaDespesa = new ArrayList<>();
+	public ArrayList<Expense> buscaBD(String SQL) throws Exception {
+		ArrayList<Expense> listaDespesa = new ArrayList<>();
 
 		try {
 			this.conexao = new ConexaoBancoDados().getConexao();
@@ -180,7 +180,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
 			while(resultadoSQL.next()) {
-				Despesa despesa = new Despesa();
+				Expense expense = new Expense();
 				Position position = new Position();
 				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
@@ -188,24 +188,24 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
 				campaign.setCargo(position);
-				despesa.setCampanha(campaign);
+				expense.setCampanha(campaign);
 				
 				Fornecedor fornecedor = new Fornecedor();
 				fornecedor.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
 				fornecedor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
-				despesa.setFornecedor(fornecedor);
+				expense.setFornecedor(fornecedor);
 
-				despesa.setData(resultadoSQL.getString(DATA));
-				despesa.setDescricao(resultadoSQL.getString(DESCRICAO));
-				despesa.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-				despesa.setId(resultadoSQL.getInt(ID));
-				despesa.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-				despesa.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
-				despesa.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-				despesa.setValor(resultadoSQL.getFloat(VALOR));
+				expense.setData(resultadoSQL.getString(DATA));
+				expense.setDescricao(resultadoSQL.getString(DESCRICAO));
+				expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
+				expense.setId(resultadoSQL.getInt(ID));
+				expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+				expense.setTipoDocumento(resultadoSQL.getString(TIPO_DOCUMENTO));
+				expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+				expense.setValor(resultadoSQL.getFloat(VALOR));
 				
-				if(despesa != null) {
-					listaDespesa.add(despesa);
+				if(expense != null) {
+					listaDespesa.add(expense);
 				}
 			}
 

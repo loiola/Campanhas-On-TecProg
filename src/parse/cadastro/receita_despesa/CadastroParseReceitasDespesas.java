@@ -6,7 +6,7 @@ import parse.indices.IndicesParse;
 
 public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> {
 
-	public static final String DESPESA = "despesa";
+	public static final String DESPESA = "expense";
 	public static final String RECEITA = "receita";
 
 	public static final String ANO_2002 = "2002";

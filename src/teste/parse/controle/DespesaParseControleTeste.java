@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.dao.DespesaDAO;
 
 import org.junit.Assert;
@@ -46,7 +46,7 @@ public class DespesaParseControleTeste extends TemplateTeste {
 		this.despesaParseControle.cadastrarInstancias();
 		this.despesaParseControle.resetar();
 
-		Despesa despesaCadastrado = this.despesaDAO.getLista().get(0);
+		Expense despesaCadastrado = this.despesaDAO.getLista().get(0);
 
 		Assert.assertEquals(this.campo[TIPODOCUMENTO], despesaCadastrado.getTipoDocumento()
 				.toString());

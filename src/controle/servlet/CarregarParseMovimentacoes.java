@@ -68,7 +68,7 @@ public class CarregarParseMovimentacoes extends HttpServlet {
 						if(fileItem.getFieldName().equals("arquivo_tipo")) {
 							
 							// Checks the file type, whether income or expense
-							if(fileItem.getString().equals("despesa")) {
+							if(fileItem.getString().equals("expense")) {
 								tipoArquivo = CadastroFornecedorParse.DESPESA;
 							} else {
 								tipoArquivo = CadastroDoadorParse.RECEITA;

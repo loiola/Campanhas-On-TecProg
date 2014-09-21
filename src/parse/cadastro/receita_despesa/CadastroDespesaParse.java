@@ -1,13 +1,13 @@
 package parse.cadastro.receita_despesa;
 
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import parse.ParseException;
 import parse.controle.DespesaParseControle;
 import parse.controle.ParseControle;
 import parse.indices.DespesaIndicesParse;
 import parse.indices.IndicesParse;
 
-public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa> {
+public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense> {
 	
 	/* 
 	 * Class used to extract Expense attributes and forward the register to the Database
@@ -34,8 +34,8 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseControl
 	 */
 	@Override
-	public ParseControle<Despesa> novaInstancia(
-			IndicesParse<Despesa> indicesParse) {
+	public ParseControle<Expense> novaInstancia(
+			IndicesParse<Expense> indicesParse) {
 		return new DespesaParseControle(indicesParse);
 	}
 
@@ -46,7 +46,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected IndicesParse<Despesa> getIndicesParseDespesa2002() {
+	protected IndicesParse<Expense> getIndicesParseDespesa2002() {
 		DespesaIndicesParse despesaIndicesParse = new DespesaIndicesParse(ANO_2002);
 		despesaIndicesParse.setIndiceCampanhaUf(0);
 		despesaIndicesParse.setIndiceCampanhaNumero(4);
@@ -66,7 +66,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected IndicesParse<Despesa> getIndicesParseDespesa2006() {
+	protected IndicesParse<Expense> getIndicesParseDespesa2006() {
 		DespesaIndicesParse despesaIndicesParse = new DespesaIndicesParse(ANO_2006);
 		despesaIndicesParse.setIndiceCampanhaUf(4);
 		despesaIndicesParse.setIndiceCampanhaNumero(3);
@@ -90,7 +90,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected IndicesParse<Despesa> getIndicesParseDespesa2010() {
+	protected IndicesParse<Expense> getIndicesParseDespesa2010() {
 		DespesaIndicesParse despesaIndicesParse = new DespesaIndicesParse(ANO_2010);
 		despesaIndicesParse.setIndiceCampanhaUf(1);
 		despesaIndicesParse.setIndiceCampanhaNumero(3);
@@ -113,7 +113,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected IndicesParse<Despesa> getIndicesParseReceita2002() {
+	protected IndicesParse<Expense> getIndicesParseReceita2002() {
 		return new DespesaIndicesParse(ANO_2002);
 	}
 
@@ -123,7 +123,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected IndicesParse<Despesa> getIndicesParseReceita2006() {
+	protected IndicesParse<Expense> getIndicesParseReceita2006() {
 		return new DespesaIndicesParse(ANO_2006);
 	}
 
@@ -133,7 +133,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Despesa>
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected IndicesParse<Despesa> getIndicesParseReceita2010() {
+	protected IndicesParse<Expense> getIndicesParseReceita2010() {
 		return new DespesaIndicesParse(ANO_2010);
 	}
 

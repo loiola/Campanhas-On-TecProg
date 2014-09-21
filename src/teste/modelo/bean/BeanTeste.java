@@ -3,7 +3,7 @@ package teste.modelo.bean;
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Doador;
 import modelo.beans.Fornecedor;
 import modelo.beans.MovimentacaoFinanceira;
@@ -60,21 +60,21 @@ public class BeanTeste {
 		return position;
 	}
 	
-	public static Despesa instanciarDespesa() {
+	public static Expense instanciarDespesa() {
 		
-		Despesa despesa = new Despesa();
-		despesa.setCampanha(instanciarCampanha());
-		despesa.setData(STRING_TESTE);
-		despesa.setDescricao(STRING_TESTE);
-		despesa.setFormaPagamento(STRING_TESTE);
-		despesa.setFornecedor(instanciarFornecedor());
-		despesa.setId(INT_TESTE);
-		despesa.setNumeroDocumento(STRING_TESTE);
-		despesa.setTipoDocumento(STRING_TESTE);
-		despesa.setTipoMovimentacao(STRING_TESTE);
-		despesa.setValor(FLOAT_TESTE);
+		Expense expense = new Expense();
+		expense.setCampanha(instanciarCampanha());
+		expense.setData(STRING_TESTE);
+		expense.setDescricao(STRING_TESTE);
+		expense.setFormaPagamento(STRING_TESTE);
+		expense.setFornecedor(instanciarFornecedor());
+		expense.setId(INT_TESTE);
+		expense.setNumeroDocumento(STRING_TESTE);
+		expense.setTipoDocumento(STRING_TESTE);
+		expense.setTipoMovimentacao(STRING_TESTE);
+		expense.setValor(FLOAT_TESTE);
 		
-		return despesa;
+		return expense;
 	}
 	
 	public static Doador instanciarDoador() {

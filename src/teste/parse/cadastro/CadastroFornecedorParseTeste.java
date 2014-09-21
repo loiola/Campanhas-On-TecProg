@@ -20,7 +20,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 	private CadastroFornecedorParse cadastro2;
 	private CadastroFornecedorParse cadastro3;
 	private FornecedorDAO fornecedorDAO;
-	String  tipoArquivo = "despesa";
+	String  tipoArquivo = "expense";
 	String  ano1         = "2006";
 	String  ano2         = "2002";
 	String  ano3         = "2010";

@@ -3,7 +3,7 @@ package controle;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.beans.Campaign;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Receita;
 import modelo.dao.DespesaDAO;
 import modelo.dao.ReceitaDAO;
@@ -56,9 +56,9 @@ public class MovimentacaoControle {
 	 * @param a campaign
 	 * @return a List with expenses campaign informed
 	 */
-	public List<Despesa> getListaDespesas(Campaign campaign) throws Exception {
+	public List<Expense> getListaDespesas(Campaign campaign) throws Exception {
 		
-		ArrayList<Despesa> listaDespesa = new ArrayList<>();
+		ArrayList<Expense> listaDespesa = new ArrayList<>();
 		
 		if((campaign.getCargo().getDescricao().equals(Campaign.STRING_VAZIO)) 
 				|| (campaign.getAno().equals(Campaign.INTEGER_VAZIO)) 
@@ -85,7 +85,7 @@ public class MovimentacaoControle {
 	 * @param a ID
 	 * @return the reported expense
 	 */
-	public Despesa getDespesaPeloId(int id) throws Exception {
+	public Expense getDespesaPeloId(int id) throws Exception {
 		return this.despesaDAO.getPeloId(id);
 	}
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Doador;
 import modelo.beans.Fornecedor;
 import modelo.beans.Receita;
@@ -26,7 +26,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	private Campaign campaign;
 	private Position position;
 	private Receita receita;
-	private Despesa despesa;
+	private Expense expense;
 	private Doador doador;
 	private Fornecedor fornecedor;
 	private Integer ano;
@@ -42,7 +42,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.candidate = new Candidate();
 		this.campaign = new Campaign();
 		this.receita = new Receita();
-		this.despesa = new Despesa();
+		this.expense = new Expense();
 		this.doador = new Doador();
 		this.fornecedor = new Fornecedor();
 		this.ano = 2014;
@@ -50,7 +50,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.position = new Position();
 		this.numeroCandidato = 1234;
 		
-		ArrayList<Despesa> listaDespesa = new ArrayList<>();
+		ArrayList<Expense> listaDespesa = new ArrayList<>();
 		ArrayList<Receita> listaReceita = new ArrayList<>();
 
 		candidate.setNome("FULANO");
@@ -73,11 +73,11 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		receita.setDoador(doador);
 		listaReceita.add(receita);
 		
-		despesa.setValor((float) 90.0);
-		despesa.setCampanha(campaign);
-		despesa.setId(5);
-		despesa.setFornecedor(fornecedor);
-		listaDespesa.add(despesa);
+		expense.setValor((float) 90.0);
+		expense.setCampanha(campaign);
+		expense.setId(5);
+		expense.setFornecedor(fornecedor);
+		listaDespesa.add(expense);
 		
 		this.despesaDAO.cadastrarLista(listaDespesa);
 		this.receitaDAO.cadastrarLista(listaReceita);

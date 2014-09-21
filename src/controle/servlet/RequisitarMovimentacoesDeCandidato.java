@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.beans.Campaign;
 import modelo.beans.Position;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Receita;
 import controle.CampanhaControle;
 import controle.MovimentacaoControle;
@@ -34,7 +34,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	private float receitaTC;
 
 	private List<Receita> listaReceita;
-	private List<Despesa> listaDespesa;
+	private List<Expense> listaDespesa;
 
 	private HttpServletRequest req;
 
@@ -204,7 +204,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * @param a list of expenses and a number that is a divisor
 	 * @return a number representing the index of list
 	 */
-	private int geraIndiceDaListaD(List<Despesa> lista, int divisor) {
+	private int geraIndiceDaListaD(List<Expense> lista, int divisor) {
 		if(divisor != 0) {
 			int indice = (int) Math.ceil((double) lista.size()
 					/ (double) divisor);
@@ -219,7 +219,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * @param a list of expenses
 	 * @return a number representing the index of paging
 	 */
-	private int geraIndiceDePaginacaoD(List<Despesa> lista) {
+	private int geraIndiceDePaginacaoD(List<Expense> lista) {
 		int indice = (int) Math.floor((double) lista.size() / (double) 25);
 		if(indice >= 4 && indice < 10)
 			return 4;

@@ -8,7 +8,7 @@ import static teste.modelo.bean.BeanTeste.instanciarFornecedor;
 import static teste.modelo.bean.BeanTeste.instanciarMovimentacaoFinanceira;
 import static teste.modelo.bean.BeanTeste.instanciarReceita;
 import modelo.beans.Campaign;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Doador;
 import modelo.beans.Fornecedor;
 import modelo.beans.MovimentacaoFinanceira;
@@ -20,15 +20,15 @@ import org.junit.Test;
 
 public class MovimentacaoFinanceiraTeste {
 
-	Despesa despesa;
+	Expense expense;
 	Receita receita;
-	Despesa despesa2;
+	Expense despesa2;
 	Receita receita2;
 	
 	@Before
 	public void SetUp() {
 		
-		this.despesa = instanciarDespesa();
+		this.expense = instanciarDespesa();
 		this.receita = instanciarReceita();
 		this.despesa2 = instanciarDespesa();
 		this.receita2 = instanciarReceita();
@@ -37,10 +37,10 @@ public class MovimentacaoFinanceiraTeste {
 	@Test
 	public void equalsDeveRetornarFalsoEmQualquerCondicao() {
 
-		Assert.assertFalse(despesa.equals(receita));
-		Assert.assertFalse(receita.equals(despesa));
-		Assert.assertEquals(BeanTeste.STRING_TESTE, despesa.getTipoDocumento());
-		Assert.assertEquals(instanciarFornecedor(), despesa.getFornecedor());
+		Assert.assertFalse(expense.equals(receita));
+		Assert.assertFalse(receita.equals(expense));
+		Assert.assertEquals(BeanTeste.STRING_TESTE, expense.getTipoDocumento());
+		Assert.assertEquals(instanciarFornecedor(), expense.getFornecedor());
 		Assert.assertEquals(BeanTeste.STRING_TESTE, receita.getReciboEleitoral());
 		Assert.assertEquals(instanciarDoador(), receita.getDoador());
 	}
@@ -48,10 +48,10 @@ public class MovimentacaoFinanceiraTeste {
 	@Test
 	public void equalsDeveRetornarVerdadeiro() {
 
-		Despesa outraDespesa = despesa;
+		Expense outraDespesa = expense;
 		Receita outraReceita = receita;
 		
-		Assert.assertFalse(despesa.equals(outraDespesa));
+		Assert.assertFalse(expense.equals(outraDespesa));
 		Assert.assertFalse(receita.equals(outraReceita));
 	}
 	
@@ -67,7 +67,7 @@ public class MovimentacaoFinanceiraTeste {
 		despesa2.setFornecedor(fornecedor2);
 		
 		assertFalse(receita.equals(receita2));
-		assertFalse(despesa.equals(despesa2));
+		assertFalse(expense.equals(despesa2));
 		
 	}
 	

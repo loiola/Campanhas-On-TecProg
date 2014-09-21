@@ -30,7 +30,7 @@ public class US29Teste {
 	 * 		ele visualizar a seção do Top 5.
 	 * ENTÃO:
 	 * 		deve ser exibido uma gráfico, dinâmico, com as
-	 * 		receitas e/ou despesa de um determinado candidato.
+	 * 		receitas e/ou expense de um determinado candidato.
 	 */
 	@Test
 	public void cenario01US29GraficoPresidenteIndex() throws Exception {
@@ -41,7 +41,7 @@ public class US29Teste {
 	}
 	
 	/**
-	 * Cenário 02: Um link para o gráficos de receitas e/ou despesa.
+	 * Cenário 02: Um link para o gráficos de receitas e/ou expense.
 	 * DADO QUE:
 	 * 		o usuário acessar a seção Top 5.
 	 * QUANDO:

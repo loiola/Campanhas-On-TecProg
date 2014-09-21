@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -27,22 +27,22 @@ public class DespesaIndicesParseTeste {
 	@Test
 	public void iniciarUmaDespesaComIndicesValidos() throws Exception {
 		
-		Despesa despesa = new Despesa();
-		this.despesaIndicesParse.iniciarInstancia(despesa, campo);
-		Assert.assertEquals(this.campo[0], despesa.getFornecedor().getNome());
-		Assert.assertEquals(this.campo[1], despesa.getFornecedor().getCpf_cnpj());
-		Assert.assertEquals(this.campo[2], despesa.getTipoDocumento());
+		Expense expense = new Expense();
+		this.despesaIndicesParse.iniciarInstancia(expense, campo);
+		Assert.assertEquals(this.campo[0], expense.getFornecedor().getNome());
+		Assert.assertEquals(this.campo[1], expense.getFornecedor().getCpf_cnpj());
+		Assert.assertEquals(this.campo[2], expense.getTipoDocumento());
 	}
 	
 	@Test
 	public void iniciarUmaDespesaComIndicesInvalidos() {
 		
 		this.despesaIndicesParse = new DespesaIndicesParse(ano);
-		Despesa despesa = new Despesa();
-		this.despesaIndicesParse.iniciarInstancia(despesa, campo);
-		Assert.assertNotEquals(this.campo[0], despesa.getFornecedor().getNome());
-		Assert.assertNotEquals(this.campo[1], despesa.getFornecedor().getCpf_cnpj());
-		Assert.assertNotEquals(this.campo[2], despesa.getTipoDocumento());
+		Expense expense = new Expense();
+		this.despesaIndicesParse.iniciarInstancia(expense, campo);
+		Assert.assertNotEquals(this.campo[0], expense.getFornecedor().getNome());
+		Assert.assertNotEquals(this.campo[1], expense.getFornecedor().getCpf_cnpj());
+		Assert.assertNotEquals(this.campo[2], expense.getTipoDocumento());
 	}
 	
 	@Test

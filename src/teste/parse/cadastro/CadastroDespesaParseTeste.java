@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.dao.DespesaDAO;
 
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 	private CadastroDespesaParse cadastro2;
 	private CadastroDespesaParse cadastro3;
 	private DespesaDAO despesaDAO;
-	String  tipoArquivo = "despesa";
+	String  tipoArquivo = "expense";
 	String  ano1         = "2006";
 	String  ano2         = "2002";
 	String  ano3         = "2010";
@@ -59,7 +59,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Despesa> listaDespesa = despesaDAO.getLista();
+		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
 		assertEquals(listaDespesa.get(0).getTipoMovimentacao(), "TipoMov");
 	}
 	
@@ -78,7 +78,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Despesa> listaDespesa = despesaDAO.getLista();
+		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
 		assertEquals(listaDespesa.get(0).getTipoMovimentacao(), "TipoMov");
 	}
 	
@@ -102,7 +102,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Despesa> listaDespesa = despesaDAO.getLista();
+		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
 		assertEquals(listaDespesa.get(0).getTipoMovimentacao(), "TipoMov");
 	}
 

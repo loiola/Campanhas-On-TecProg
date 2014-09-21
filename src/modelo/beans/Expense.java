@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Despesa extends MovimentacaoFinanceira {
+public class Expense extends MovimentacaoFinanceira {
 	
 	/*
-	 * Model Class Despesa.java
+	 * Model Class Expense.java
 	 * This class is responsable for getting the Charge's informations
 	 */
 	 
@@ -15,7 +15,7 @@ public class Despesa extends MovimentacaoFinanceira {
 	private Fornecedor fornecedor;
 	
 	// Empty Constructor
-	public Despesa(){
+	public Expense(){
 		this.tipoDocumento = STRING_VAZIO;
 		this.fornecedor = (Fornecedor) OBJETO_VAZIO;
 	}

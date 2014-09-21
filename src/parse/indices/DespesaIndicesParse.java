@@ -1,9 +1,9 @@
 package parse.indices;
 
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Fornecedor;
 
-public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Despesa> {
+public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expense> {
 	
 	/*
 	 * Class to control the contents of information inherent to the expenses
@@ -28,8 +28,8 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Desp
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Despesa despesa, String[] campo) {
-		super.setIndicesValidos(despesa, campo);
+	protected void setIndicesValidos(Expense expense, String[] campo) {
+		super.setIndicesValidos(expense, campo);
 		Fornecedor fornecedor = new Fornecedor();
 
 		if(indiceValido(this.indiceFornecedorNome)) {
@@ -39,9 +39,9 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Desp
 			fornecedor.setCpf_cnpj(campo[this.indiceFornecedorCpfCnpj]);
 		}
 		if(indiceValido(this.indiceTipoDocumento)) {
-			despesa.setTipoDocumento(campo[this.indiceTipoDocumento]);
+			expense.setTipoDocumento(campo[this.indiceTipoDocumento]);
 		}
-		despesa.setFornecedor(fornecedor);
+		expense.setFornecedor(fornecedor);
 
 	}
 	
@@ -50,10 +50,10 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Desp
 	 * @param an instance of Class Expense
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Despesa despesa) {
-		super.setVazioEmTodosOsSetters(despesa);
-		despesa.setFornecedor((Fornecedor)Despesa.OBJETO_VAZIO);
-		despesa.setTipoDocumento(Despesa.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Expense expense) {
+		super.setVazioEmTodosOsSetters(expense);
+		expense.setFornecedor((Fornecedor)Expense.OBJETO_VAZIO);
+		expense.setTipoDocumento(Expense.STRING_VAZIO);
 	}
 	
 	// Mutators for indexes of the array of fields

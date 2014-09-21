@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
-import modelo.beans.Despesa;
+import modelo.beans.Expense;
 import modelo.beans.Receita;
 
 import controle.CampanhaControle;
@@ -30,7 +30,7 @@ public class SelecionarCandidato implements Logica {
 	
 	private MovimentacaoControle movimentacaoControle;
 	private List<Receita> listaReceita;
-	private List<Despesa> listaDespesa;
+	private List<Expense> listaDespesa;
 	
 	private float despesaMax2002;
 	private float despesaMax2006;
@@ -83,8 +83,8 @@ public class SelecionarCandidato implements Logica {
 				this.despesaMax2002 = campaign.getDespesaMaxDeclarada();
 				for(Receita receita : listaReceita)
 					this.receitaCalc2002 += receita.getValor();
-				for(Despesa despesa : listaDespesa)
-					this.despesaCalc2002 += despesa.getValor();
+				for(Expense expense : listaDespesa)
+					this.despesaCalc2002 += expense.getValor();
 				
 				campaign.setDespesaTotalCalculada(this.despesaCalc2002);
 				campaign.setReceitaTotalCalculada(this.receitaCalc2002);
@@ -99,8 +99,8 @@ public class SelecionarCandidato implements Logica {
 				this.despesaMax2006 = campaign.getDespesaMaxDeclarada();
 				for(Receita receita : listaReceita)
 					this.receitaCalc2006 += receita.getValor();
-				for(Despesa despesa : listaDespesa)
-					this.despesaCalc2006 += despesa.getValor();
+				for(Expense expense : listaDespesa)
+					this.despesaCalc2006 += expense.getValor();
 
 				campaign.setDespesaTotalCalculada(this.despesaCalc2006);
 				campaign.setReceitaTotalCalculada(this.receitaCalc2006);
@@ -115,8 +115,8 @@ public class SelecionarCandidato implements Logica {
 				this.despesaMax2010 = campaign.getDespesaMaxDeclarada();
 				for(Receita receita : listaReceita)
 					this.receitaCalc2010 += receita.getValor();
-				for(Despesa despesa : listaDespesa)
-					this.despesaCalc2010 += despesa.getValor();
+				for(Expense expense : listaDespesa)
+					this.despesaCalc2010 += expense.getValor();
 			
 				campaign.setDespesaTotalCalculada(this.despesaCalc2010);
 				campaign.setReceitaTotalCalculada(this.receitaCalc2010);

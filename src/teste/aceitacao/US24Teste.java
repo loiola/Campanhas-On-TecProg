@@ -26,7 +26,7 @@ public class US24Teste {
 	 * 1 - 	Na página de receitas e despesas,
 	 * 		ao final da listagem, o valor total de
 	 * 		receitas e despesas deve ser mostrado.
-	 * 2 - 	O saldo final da campanha (Saldo = Receita - Despesa)
+	 * 2 - 	O saldo final da campanha (Saldo = Receita - Expense)
 	 * 		também deve ser exibido ao final da página.
 	 */
 	@Test
@@ -55,7 +55,7 @@ public class US24Teste {
 		driver.findElement(By.linkText("Campaign de 2010")).click();
 		Assert.assertTrue(driver.getPageSource().contains("Saldo da Campaign:"));
 		Assert.assertTrue(driver.getPageSource().contains("Receita Total Calculada:"));
-		Assert.assertTrue(driver.getPageSource().contains("Despesa Total Calculada:"));
+		Assert.assertTrue(driver.getPageSource().contains("Expense Total Calculada:"));
 		Thread.sleep(2000);
 	}
 	
