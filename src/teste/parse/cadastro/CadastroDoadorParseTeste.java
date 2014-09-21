@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Donor;
-import model.dao.DoadorDAO;
+import model.dao.DonorDAO;
 
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 	private CadastroDoadorParse cadastro1;
 	private CadastroDoadorParse cadastro2;
 	private CadastroDoadorParse cadastro3;
-	private DoadorDAO doadorDAO;
+	private DonorDAO donorDAO;
 	String  tipoArquivo = "revenue";
 	String  ano1         = "2006";
 	String  ano2         = "2002";
@@ -31,7 +31,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		this.cadastro1 = new CadastroDoadorParse(this.tipoArquivo, this.ano1);
 		this.cadastro2 = new CadastroDoadorParse(this.tipoArquivo, this.ano2);
 		this.cadastro3 = new CadastroDoadorParse(this.tipoArquivo, this.ano3);
-		this.doadorDAO = new DoadorDAO();
+		this.donorDAO = new DonorDAO();
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
+		ArrayList<Donor> listaDoadores = donorDAO.getLista();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "123");
 	}
 	
@@ -64,7 +64,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
+		ArrayList<Donor> listaDoadores = donorDAO.getLista();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
+		ArrayList<Donor> listaDoadores = donorDAO.getLista();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
 	}
 

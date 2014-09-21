@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Donor;
-import model.dao.DoadorDAO;
+import model.dao.DonorDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	public static final int SITUACAO_CADASTRAL = 3;
 	
 	private String campo[];
-	private DoadorDAO doadorDAO;
+	private DonorDAO donorDAO;
 	private DoadorIndicesParse doadorIndicesParse;
 	private DoadorParseControle doadorParseControle;
 
@@ -26,7 +26,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[4];
-		this.doadorDAO = new DoadorDAO();
+		this.donorDAO = new DonorDAO();
 		this.doadorIndicesParse = new DoadorIndicesParse();
 		this.doadorParseControle = new DoadorParseControle(this.doadorIndicesParse);
 		
@@ -46,7 +46,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		this.doadorParseControle.cadastrarInstancias();
 		this.doadorParseControle.resetar();
 		
-		Donor doadorCadastrado = this.doadorDAO.getLista().get(0);
+		Donor doadorCadastrado = this.donorDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[CPF_CNPJ], doadorCadastrado.getDonorPersonRegister() );
 		Assert.assertEquals(this.campo[NOME], doadorCadastrado.getDonorName());
@@ -62,7 +62,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		this.doadorParseControle.cadastrarInstancias();
 		this.doadorParseControle.resetar();
 		
-		int numeroDoadoresCadastrados = this.doadorDAO.getLista().size();
+		int numeroDoadoresCadastrados = this.donorDAO.getLista().size();
 		
 		Assert.assertEquals(1, numeroDoadoresCadastrados);
 	}

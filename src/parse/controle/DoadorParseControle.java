@@ -1,7 +1,7 @@
 package parse.controle;
 
 import model.beans.Donor;
-import model.dao.DoadorDAO;
+import model.dao.DonorDAO;
 import parse.indices.IndicesParse;
 
 public class DoadorParseControle extends ParseControle<Donor> {
@@ -12,7 +12,7 @@ public class DoadorParseControle extends ParseControle<Donor> {
 
 	// Constructors
 	public DoadorParseControle(IndicesParse<Donor> indicesParse) {
-		super(indicesParse, new DoadorDAO());
+		super(indicesParse, new DonorDAO());
 	}
 
 	/*

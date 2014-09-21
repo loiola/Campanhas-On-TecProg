@@ -10,7 +10,7 @@ import model.beans.Donor;
 import model.beans.Supplier;
 import parse.ParseDAO;
 
-public class DoadorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
+public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 
 	/*
 	 * Class for manipulating the data about donor
@@ -28,7 +28,7 @@ public class DoadorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 	
 	// Constructors
-	public DoadorDAO() {
+	public DonorDAO() {
 		super(NOME_TABELA, Comparacao.NOME);
 	}
 
@@ -126,7 +126,7 @@ public class DoadorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 				}
 			}
 		} catch(SQLException e) {
-			throw new SQLException("DoadorDAO - " + e.getMessage());
+			throw new SQLException("DonorDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

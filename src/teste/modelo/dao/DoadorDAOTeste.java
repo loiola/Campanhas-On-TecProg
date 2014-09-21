@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.util.ArrayList;
 
 import model.beans.Donor;
-import model.dao.DoadorDAO;
+import model.dao.DonorDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,12 +12,12 @@ import teste.TemplateTeste;
 
 public class DoadorDAOTeste extends TemplateTeste {
 
-	private DoadorDAO doadorDAO;
+	private DonorDAO donorDAO;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.doadorDAO = new DoadorDAO();
+		this.donorDAO = new DonorDAO();
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		D2.setDonorPersonRegister("1234567");
 		int resultado;
 
-		resultado = DoadorDAO.Comparacao.NOME.compare(D1, D2);
+		resultado = DonorDAO.Comparacao.NOME.compare(D1, D2);
 		
 		Assert.assertEquals(0,resultado);
 	}
@@ -48,7 +48,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		donor.setDonorName("Nome");
 		listaDoadores.add(donor);
 		
-		this.doadorDAO.cadastrarLista(listaDoadores);
+		this.donorDAO.cadastrarLista(listaDoadores);
 	}
 	
 	@Test
@@ -60,10 +60,10 @@ public class DoadorDAOTeste extends TemplateTeste {
 		donor.setDonorName("Nome");
 		listaDoadores.add(donor);
 
-		this.doadorDAO.cadastrarLista(listaDoadores);
-		this.doadorDAO.cadastrarLista(listaDoadores);
+		this.donorDAO.cadastrarLista(listaDoadores);
+		this.donorDAO.cadastrarLista(listaDoadores);
 		
-		Assert.assertEquals(1, this.doadorDAO.getLista().size());
+		Assert.assertEquals(1, this.donorDAO.getLista().size());
 	}
 	
 	@Test
@@ -85,8 +85,8 @@ public class DoadorDAOTeste extends TemplateTeste {
 		donor.setDonorCountryState("DF");
 		listaDoadores.add(donor);
 
-		this.doadorDAO.cadastrarLista(listaDoadores);
-		Assert.assertEquals(listaDoadores, this.doadorDAO.getLista());
+		this.donorDAO.cadastrarLista(listaDoadores);
+		Assert.assertEquals(listaDoadores, this.donorDAO.getLista());
 	}
 	
 	@Test
@@ -109,8 +109,8 @@ public class DoadorDAOTeste extends TemplateTeste {
 		doador2.setDonorCountryState("DF");
 		listaDoadoresACadastrar.add(doador2);
 		
-		this.doadorDAO.cadastrarLista(listaDoadoresACadastrar);
-		doadorRecuperado = this.doadorDAO.getPeloNomeOuCpfCnpj(doador1);
+		this.donorDAO.cadastrarLista(listaDoadoresACadastrar);
+		doadorRecuperado = this.donorDAO.getPeloNomeOuCpfCnpj(doador1);
 		
 		Assert.assertEquals(doador1, doadorRecuperado);
 	}
