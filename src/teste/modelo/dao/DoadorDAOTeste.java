@@ -30,8 +30,8 @@ public class DoadorDAOTeste extends TemplateTeste {
 		
 		Donor D1 = new Donor();
 		Donor D2 = new Donor();
-		D1.setCpf_cnpj("1234567");
-		D2.setCpf_cnpj("1234567");
+		D1.setDonorPersonRegister("1234567");
+		D2.setDonorPersonRegister("1234567");
 		int resultado;
 
 		resultado = DoadorDAO.Comparacao.NOME.compare(D1, D2);
@@ -45,7 +45,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		ArrayList<Donor> listaDoadores = new ArrayList<>();
 		
 		Donor donor = new Donor();
-		donor.setNome("Nome");
+		donor.setDonorName("Nome");
 		listaDoadores.add(donor);
 		
 		this.doadorDAO.cadastrarLista(listaDoadores);
@@ -57,7 +57,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		ArrayList<Donor> listaDoadores = new ArrayList<>();
 		
 		Donor donor = new Donor();
-		donor.setNome("Nome");
+		donor.setDonorName("Nome");
 		listaDoadores.add(donor);
 
 		this.doadorDAO.cadastrarLista(listaDoadores);
@@ -72,17 +72,17 @@ public class DoadorDAOTeste extends TemplateTeste {
 		ArrayList<Donor> listaDoadores = new ArrayList<>();
 		
 		Donor donor = new Donor();
-		donor.setNome("Nome");
-		donor.setCpf_cnpj("123");
-		donor.setSituacaoCadastral("Cadastrado");
-		donor.setUf("DF");
+		donor.setDonorName("Nome");
+		donor.setDonorPersonRegister("123");
+		donor.setDonorRegisterSituation("Cadastrado");
+		donor.setDonorCountryState("DF");
 		listaDoadores.add(donor);
 		
 		donor = new Donor();
-		donor.setNome("Nome2");
-		donor.setCpf_cnpj("1234");
-		donor.setSituacaoCadastral("Cadastrado");
-		donor.setUf("DF");
+		donor.setDonorName("Nome2");
+		donor.setDonorPersonRegister("1234");
+		donor.setDonorRegisterSituation("Cadastrado");
+		donor.setDonorCountryState("DF");
 		listaDoadores.add(donor);
 
 		this.doadorDAO.cadastrarLista(listaDoadores);
@@ -96,17 +96,17 @@ public class DoadorDAOTeste extends TemplateTeste {
 		Donor doadorRecuperado;
 		
 		Donor doador1 = new Donor();
-		doador1.setNome("nome");
-		doador1.setCpf_cnpj("123456");
-		doador1.setSituacaoCadastral("REGULAR");
-		doador1.setUf("DF");
+		doador1.setDonorName("nome");
+		doador1.setDonorPersonRegister("123456");
+		doador1.setDonorRegisterSituation("REGULAR");
+		doador1.setDonorCountryState("DF");
 		listaDoadoresACadastrar.add(doador1);
 		
 		Donor doador2 = new Donor();
-		doador2.setNome("nome2");
-		doador2.setCpf_cnpj("12345678");
-		doador2.setSituacaoCadastral("IRREGULAR");
-		doador2.setUf("DF");
+		doador2.setDonorName("nome2");
+		doador2.setDonorPersonRegister("12345678");
+		doador2.setDonorRegisterSituation("IRREGULAR");
+		doador2.setDonorCountryState("DF");
 		listaDoadoresACadastrar.add(doador2);
 		
 		this.doadorDAO.cadastrarLista(listaDoadoresACadastrar);

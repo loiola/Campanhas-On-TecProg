@@ -39,7 +39,7 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 	public enum Comparacao implements Comparator<Donor> {
 		NOME {
 			public int compare(Donor d1, Donor d2) {
-				return d1.getCpf_cnpj().compareToIgnoreCase(d2.getCpf_cnpj());
+				return d1.getDonorPersonRegister().compareToIgnoreCase(d2.getDonorPersonRegister());
 			}
 		}
 	}
@@ -71,10 +71,10 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 	protected void adicionarListaNoBatch(ArrayList<Donor> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Donor donor : lista) {
-			instrucaoSQL.setString(1, donor.getCpf_cnpj());
-			instrucaoSQL.setString(2, donor.getNome());
-			instrucaoSQL.setString(3, donor.getUf());
-			instrucaoSQL.setString(4, donor.getSituacaoCadastral());
+			instrucaoSQL.setString(1, donor.getDonorPersonRegister());
+			instrucaoSQL.setString(2, donor.getDonorName());
+			instrucaoSQL.setString(3, donor.getDonorCountryState());
+			instrucaoSQL.setString(4, donor.getDonorRegisterSituation());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -89,10 +89,10 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Donor donor = new Donor();
-			donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
-			donor.setNome(resultadoSQL.getString(NOME));
-			donor.setUf(resultadoSQL.getString(UF));
-			donor.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
+			donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ));
+			donor.setDonorName(resultadoSQL.getString(NOME));
+			donor.setDonorCountryState(resultadoSQL.getString(UF));
+			donor.setDonorRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
 			
 			lista.add(donor);
 		}
@@ -116,10 +116,10 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 
 			while(resultadoSQL.next()) {
 				Donor donor = new Donor();
-				donor.setNome(resultadoSQL.getString(NOME));
-				donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
-				donor.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
-				donor.setUf(resultadoSQL.getString(UF));
+				donor.setDonorName(resultadoSQL.getString(NOME));
+				donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ));
+				donor.setDonorRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
+				donor.setDonorCountryState(resultadoSQL.getString(UF));
 
 				if(donor != null) {
 					listaDoador.add(donor);
@@ -140,13 +140,13 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 	 */
 	public Donor getPeloNomeOuCpfCnpj(Donor donor) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
-		if(!donor.getNome().equals(Supplier.STRING_VAZIO)) {
+		if(!donor.getDonorName().equals(Supplier.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + NOME + " = " 
-		  + donor.getNome();
+		  + donor.getDonorName();
 		}
-		else if(!donor.getCpf_cnpj().equals(Supplier.STRING_VAZIO)) {
+		else if(!donor.getDonorPersonRegister().equals(Supplier.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
-		  + donor.getCpf_cnpj();
+		  + donor.getDonorPersonRegister();
 		} else {
 			throw new Exception();
 		}

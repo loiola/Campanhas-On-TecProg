@@ -54,8 +54,8 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		this.campanha1.setCampaignYear(2006);
 		this.campanha1.setCampaignCandidateNumber(45555);
 		this.campanha1.setCampaignPosition(cargo1);
-		this.doador1.setNome("DOADOR UM");
-		this.doador1.setCpf_cnpj("55325424149");
+		this.doador1.setDonorName("DOADOR UM");
+		this.doador1.setDonorPersonRegister("55325424149");
 		receita1.setCampanha(campanha1);
 		receita1.setValor((float) 450000.0);
 		receita1.setFormaPagamento("FORMA PAGAMENTO UM");
@@ -72,8 +72,8 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		this.campanha2.setCampaignYear(2006);
 		this.campanha2.setCampaignCandidateNumber(131222);
 		this.campanha2.setCampaignPosition(cargo2);
-		this.doador2.setNome("DOADOR DOIS");
-		this.doador2.setCpf_cnpj("55325424149");
+		this.doador2.setDonorName("DOADOR DOIS");
+		this.doador2.setDonorPersonRegister("55325424149");
 		receita2.setCampanha(campanha2);
 		receita2.setValor((float) 500000.0);
 		receita2.setFormaPagamento("FORMA PAGAMENTO DOIS");

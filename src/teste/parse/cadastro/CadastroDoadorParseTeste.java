@@ -51,7 +51,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro1.cadastrarInstancias();
 		
 		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
-		assertEquals(listaDoadores.get(0).getCpf_cnpj(), "123");
+		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "123");
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro2.cadastrarInstancias();
 		
 		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
-		assertEquals(listaDoadores.get(0).getCpf_cnpj(), "12345");
+		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
 	}
 	
 	@Test
@@ -78,7 +78,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro3.cadastrarInstancias();
 		
 		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
-		assertEquals(listaDoadores.get(0).getCpf_cnpj(), "12345");
+		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
 	}
 
 }

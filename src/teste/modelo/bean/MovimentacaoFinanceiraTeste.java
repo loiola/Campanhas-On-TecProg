@@ -58,7 +58,7 @@ public class MovimentacaoFinanceiraTeste {
 	@Test
 	public void equalsDeveRetornarFalsoParaOutrosCasos() {
 		Donor doador2 = instanciarDoador();
-		doador2.setCpf_cnpj(BeanTeste.STRING_TESTE_2);
+		doador2.setDonorPersonRegister(BeanTeste.STRING_TESTE_2);
 		
 		Supplier fornecedor2 = instanciarFornecedor();
 		fornecedor2.setCpf_cnpj(BeanTeste.STRING_TESTE_2);	

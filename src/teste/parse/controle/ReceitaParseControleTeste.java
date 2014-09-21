@@ -51,9 +51,9 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 		Assert.assertEquals(this.campo[RECIBO], receitaCadastrado.
 				getReciboEleitoral());
 		Assert.assertEquals(this.campo[NOME], receitaCadastrado.
-				getDoador().getNome());
+				getDoador().getDonorName());
 		Assert.assertEquals(this.campo[CPF_CNPJ], receitaCadastrado.
-				getDoador().getCpf_cnpj());
+				getDoador().getDonorPersonRegister());
 	}
 
 	private void iniciarIndices() {

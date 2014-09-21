@@ -30,8 +30,8 @@ public class ReceitaIndicesParseTeste {
 		Revenue revenue = new Revenue();
 		this.receitaIndicesParse.iniciarInstancia(revenue, campo);
 		Assert.assertEquals(this.campo[0], revenue.getReciboEleitoral());
-		Assert.assertEquals(this.campo[1], revenue.getDoador().getNome());
-		Assert.assertEquals(this.campo[2], revenue.getDoador().getCpf_cnpj());
+		Assert.assertEquals(this.campo[1], revenue.getDoador().getDonorName());
+		Assert.assertEquals(this.campo[2], revenue.getDoador().getDonorPersonRegister());
 	}
 	
 	@Test
@@ -41,8 +41,8 @@ public class ReceitaIndicesParseTeste {
 		Revenue revenue = new Revenue();
 		this.receitaIndicesParse.iniciarInstancia(revenue, campo);
 		Assert.assertNotEquals(this.campo[0], revenue.getReciboEleitoral());
-		Assert.assertNotEquals(this.campo[1], revenue.getDoador().getNome());
-		Assert.assertNotEquals(this.campo[2], revenue.getDoador().getCpf_cnpj());
+		Assert.assertNotEquals(this.campo[1], revenue.getDoador().getDonorName());
+		Assert.assertNotEquals(this.campo[2], revenue.getDoador().getDonorPersonRegister());
 	}
 	
 	private void iniciarIndices() {

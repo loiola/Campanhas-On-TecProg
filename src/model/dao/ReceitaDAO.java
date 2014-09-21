@@ -88,8 +88,8 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			instrucaoSQL.setString(8, revenue.getTipoMovimentacao());
 			instrucaoSQL.setString(9, revenue.getReciboEleitoral());
 			instrucaoSQL.setString(10, revenue.getNumeroDocumento());
-			instrucaoSQL.setString(11, revenue.getDoador().getNome());
-			instrucaoSQL.setString(12, revenue.getDoador().getCpf_cnpj());
+			instrucaoSQL.setString(11, revenue.getDoador().getDonorName());
+			instrucaoSQL.setString(12, revenue.getDoador().getDonorPersonRegister());
 			instrucaoSQL.setString(13, revenue.getCampanha().getCampaignPosition().getPositionDescription());
 			instrucaoSQL.setString(14, revenue.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
@@ -114,8 +114,8 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			campaign.setCampaignCountryState(resultadoSQL.getString(CAMPANHA_UF));
 
 			Donor donor = new Donor();
-			donor.setNome(resultadoSQL.getString(NOME_DOADOR));
-			donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
+			donor.setDonorName(resultadoSQL.getString(NOME_DOADOR));
+			donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
 
 			Revenue revenue = new Revenue();
 			revenue.setId(resultadoSQL.getInt(ID));
@@ -190,8 +190,8 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				revenue.setCampanha(campaign);
 				
 				Donor donor = new Donor();
-				donor.setNome(resultadoSQL.getString(NOME_DOADOR));
-				donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
+				donor.setDonorName(resultadoSQL.getString(NOME_DOADOR));
+				donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
 				revenue.setDoador(donor);
 
 				revenue.setData(resultadoSQL.getString(DATA));

@@ -34,16 +34,16 @@ public class DoadorIndicesParse extends IndicesParse<Donor> {
 	@Override
 	protected void setIndicesValidos(Donor donor, String[] campo) {
 		if(indiceValido(this.indiceCpf_Cnpj)) {
-			donor.setCpf_cnpj(campo[this.indiceCpf_Cnpj]);
+			donor.setDonorPersonRegister(campo[this.indiceCpf_Cnpj]);
 		}
 		if(indiceValido(this.indiceNome)) {
-			donor.setNome(campo[this.indiceNome]);
+			donor.setDonorName(campo[this.indiceNome]);
 		}
 		if(indiceValido(this.indiceUf)) {
-			donor.setUf(campo[this.indiceUf]);
+			donor.setDonorCountryState(campo[this.indiceUf]);
 		}
 		if(indiceValido(this.indiceSituacaoCadastral)) {
-			donor.setSituacaoCadastral(campo[this.indiceSituacaoCadastral]);
+			donor.setDonorRegisterSituation(campo[this.indiceSituacaoCadastral]);
 		}
 	}
 
@@ -53,10 +53,10 @@ public class DoadorIndicesParse extends IndicesParse<Donor> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Donor donor) {
-		donor.setCpf_cnpj(Donor.STRING_VAZIO);
-		donor.setNome(Donor.STRING_VAZIO);
-		donor.setUf(Donor.STRING_VAZIO);
-		donor.setSituacaoCadastral(Donor.STRING_VAZIO);
+		donor.setDonorPersonRegister(Donor.EMPTY_TYPE_STRING);
+		donor.setDonorName(Donor.EMPTY_TYPE_STRING);
+		donor.setDonorCountryState(Donor.EMPTY_TYPE_STRING);
+		donor.setDonorRegisterSituation(Donor.EMPTY_TYPE_STRING);
 	}
 
 	// Mutators for indexes of the array of fields

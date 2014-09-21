@@ -23,7 +23,7 @@ public class DoadorTeste {
 		
 		Donor donor = instanciarDoador();
 		Donor doador2 = instanciarDoador();
-		donor.setCpf_cnpj(BeanTeste.STRING_TESTE_2);
+		donor.setDonorPersonRegister(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(donor.equals(doador2));		
 	}
 	
@@ -35,9 +35,9 @@ public class DoadorTeste {
 		
 		Assert.assertFalse(donor.equals(financialTransaction));
 		Assert.assertFalse(financialTransaction.equals(donor));
-		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getNome());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getUf());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getSituacaoCadastral());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getDonorName());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getDonorCountryState());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getDonorRegisterSituation());
 	}
 	
 }

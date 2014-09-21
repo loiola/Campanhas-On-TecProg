@@ -80,10 +80,10 @@ public class BeanTeste {
 	public static Donor instanciarDoador() {
 		
 		Donor donor = new Donor();
-		donor.setCpf_cnpj(STRING_TESTE);
-		donor.setNome(STRING_TESTE);
-		donor.setSituacaoCadastral(STRING_TESTE);
-		donor.setUf(STRING_TESTE);
+		donor.setDonorPersonRegister(STRING_TESTE);
+		donor.setDonorName(STRING_TESTE);
+		donor.setDonorRegisterSituation(STRING_TESTE);
+		donor.setDonorCountryState(STRING_TESTE);
 		
 		return donor;		
 	}

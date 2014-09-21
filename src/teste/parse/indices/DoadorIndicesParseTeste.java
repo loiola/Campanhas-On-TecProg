@@ -28,10 +28,10 @@ public class DoadorIndicesParseTeste {
 		
 		Donor donor = new Donor();
 		this.doadorIndicesParse.iniciarInstancia(donor, campo);
-		Assert.assertEquals(this.campo[0], donor.getCpf_cnpj().toString());
-		Assert.assertEquals(this.campo[1], donor.getNome());
-		Assert.assertEquals(this.campo[2], donor.getUf());
-		Assert.assertEquals(this.campo[3], donor.getSituacaoCadastral());
+		Assert.assertEquals(this.campo[0], donor.getDonorPersonRegister().toString());
+		Assert.assertEquals(this.campo[1], donor.getDonorName());
+		Assert.assertEquals(this.campo[2], donor.getDonorCountryState());
+		Assert.assertEquals(this.campo[3], donor.getDonorRegisterSituation());
 	}
 	
 	@Test
@@ -40,10 +40,10 @@ public class DoadorIndicesParseTeste {
 		this.doadorIndicesParse = new DoadorIndicesParse();
 		Donor donor = new Donor();
 		this.doadorIndicesParse.iniciarInstancia(donor, campo);
-		Assert.assertNotEquals(this.campo[0], donor.getCpf_cnpj().toString());
-		Assert.assertNotEquals(this.campo[1], donor.getNome());
-		Assert.assertNotEquals(this.campo[2], donor.getUf());
-		Assert.assertNotEquals(this.campo[3], donor.getSituacaoCadastral());
+		Assert.assertNotEquals(this.campo[0], donor.getDonorPersonRegister().toString());
+		Assert.assertNotEquals(this.campo[1], donor.getDonorName());
+		Assert.assertNotEquals(this.campo[2], donor.getDonorCountryState());
+		Assert.assertNotEquals(this.campo[3], donor.getDonorRegisterSituation());
 	}
 	
 	private void iniciarIndices() {

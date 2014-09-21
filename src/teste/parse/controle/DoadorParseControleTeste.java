@@ -48,10 +48,10 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		
 		Donor doadorCadastrado = this.doadorDAO.getLista().get(0);
 				
-		Assert.assertEquals(this.campo[CPF_CNPJ], doadorCadastrado.getCpf_cnpj() );
-		Assert.assertEquals(this.campo[NOME], doadorCadastrado.getNome());
-		Assert.assertEquals(this.campo[UF], doadorCadastrado.getUf());
-		Assert.assertEquals(this.campo[SITUACAO_CADASTRAL], doadorCadastrado.getSituacaoCadastral());
+		Assert.assertEquals(this.campo[CPF_CNPJ], doadorCadastrado.getDonorPersonRegister() );
+		Assert.assertEquals(this.campo[NOME], doadorCadastrado.getDonorName());
+		Assert.assertEquals(this.campo[UF], doadorCadastrado.getDonorCountryState());
+		Assert.assertEquals(this.campo[SITUACAO_CADASTRAL], doadorCadastrado.getDonorRegisterSituation());
 	}
 	
 	@Test

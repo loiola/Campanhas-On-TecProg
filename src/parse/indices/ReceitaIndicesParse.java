@@ -37,10 +37,10 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 			revenue.setReciboEleitoral(campo[this.indiceReciboEleitoral]);
 		}
 		if(indiceValido(this.indiceDoadorNome)) {
-			donor.setNome(campo[this.indiceDoadorNome]);
+			donor.setDonorName(campo[this.indiceDoadorNome]);
 		}
 		if(indiceValido(this.indiceDoadorCpfCnpj)) {
-			donor.setCpf_cnpj(campo[this.indiceDoadorCpfCnpj]);
+			donor.setDonorPersonRegister(campo[this.indiceDoadorCpfCnpj]);
 		}
 		revenue.setDoador(donor);
 

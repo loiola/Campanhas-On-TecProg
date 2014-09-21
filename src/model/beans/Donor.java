@@ -8,53 +8,53 @@ public class Donor {
 	 */
 	 
 	// Constants
-	public static final String STRING_VAZIO = "";
+	public static final String EMPTY_TYPE_STRING = "";
 	
 	// Attributes
-	private String cpf_cnpj;
-	private String nome;
-	private String uf;
-	private String situacaoCadastral;
+	private String donorPersonRegister;
+	private String donorName;
+	private String donorCountryState;
+	private String donorRegisterSituation;
 	
 	// Empty Constructor
 	public Donor() {
-		this.cpf_cnpj = STRING_VAZIO;
-		this.nome = STRING_VAZIO;
-		this.uf = STRING_VAZIO;
-		this.situacaoCadastral = STRING_VAZIO;
+		this.donorPersonRegister = EMPTY_TYPE_STRING;
+		this.donorName = EMPTY_TYPE_STRING;
+		this.donorCountryState = EMPTY_TYPE_STRING;
+		this.donorRegisterSituation = EMPTY_TYPE_STRING;
 	}
 	
 	// Getters and Setters
-	public String getCpf_cnpj() {
-		return cpf_cnpj;
+	public String getDonorPersonRegister() {
+		return donorPersonRegister;
 	}
 
-	public void setCpf_cnpj(String cpf_cnpj) {
-		this.cpf_cnpj = cpf_cnpj;
+	public void setDonorPersonRegister(String donorPersonRegister) {
+		this.donorPersonRegister = donorPersonRegister;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getDonorName() {
+		return donorName;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDonorName(String donorName) {
+		this.donorName = donorName;
 	}
 
-	public String getUf() {
-		return uf;
+	public String getDonorCountryState() {
+		return donorCountryState;
 	}
 
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setDonorCountryState(String donorCountryState) {
+		this.donorCountryState = donorCountryState;
 	}
 
-	public String getSituacaoCadastral() {
-		return situacaoCadastral;
+	public String getDonorRegisterSituation() {
+		return donorRegisterSituation;
 	}
 
-	public void setSituacaoCadastral(String situacaoCadastral) {
-		this.situacaoCadastral = situacaoCadastral;
+	public void setDonorRegisterSituation(String donorRegisterSituation) {
+		this.donorRegisterSituation = donorRegisterSituation;
 	}
 	
 	@Override
@@ -62,8 +62,8 @@ public class Donor {
 		if( !(object instanceof Donor))
 			return false;
 		
-		Donor outroDoador = (Donor) object;
-		return this.getNome().equalsIgnoreCase(outroDoador.getNome()) &&
-			   this.getCpf_cnpj().equalsIgnoreCase(outroDoador.getCpf_cnpj());
+		Donor otherDonor = (Donor) object;
+		return this.getDonorName().equalsIgnoreCase(otherDonor.getDonorName()) &&
+			   this.getDonorPersonRegister().equalsIgnoreCase(otherDonor.getDonorPersonRegister());
 	}
 }
