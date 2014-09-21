@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 
 import model.beans.Position;
-import model.dao.CargoDAO;
+import model.dao.PositionDAO;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ import teste.TemplateTeste;
 public class CadastroCargoParseTeste extends TemplateTeste {
 
 	private CadastroCargoParse cadastro;
-	private CargoDAO cargoDAO;
+	private PositionDAO positionDAO;
 	String  tipoArquivo = "campanha";
 	String  ano         = "2006";
 	
@@ -24,7 +24,7 @@ public class CadastroCargoParseTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.cadastro = new CadastroCargoParse(this.tipoArquivo, this.ano);	
-		this.cargoDAO = new CargoDAO();
+		this.positionDAO = new PositionDAO();
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CadastroCargoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Position position = this.cargoDAO.getPeloCod(1);
+		Position position = this.positionDAO.getPeloCod(1);
 		assertEquals(position.getPositionCode().toString(), "1");
 	}
 

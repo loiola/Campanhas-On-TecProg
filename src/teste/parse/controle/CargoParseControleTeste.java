@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Position;
-import model.dao.CargoDAO;
+import model.dao.PositionDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,14 +16,14 @@ public class CargoParseControleTeste extends TemplateTeste {
 	public static final int DESCRICAO = 1;
 	
 	private String campo[];
-	private CargoDAO cargoDAO;
+	private PositionDAO positionDAO;
 	private CargoIndicesParse cargoIndicesParse;
 	private CargoParseControle cargoParseControle;
 
 	@Override
 	public void beforeTest() throws Exception {
 		this.campo = new String[2];
-		this.cargoDAO = new CargoDAO();
+		this.positionDAO = new PositionDAO();
 		this.cargoIndicesParse = new CargoIndicesParse();
 		this.cargoParseControle = new CargoParseControle(this.cargoIndicesParse);
 		
@@ -43,7 +43,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 		this.cargoParseControle.cadastrarInstancias();
 		this.cargoParseControle.resetar();
 		
-		Position cargoCadastrado = this.cargoDAO.getLista().get(0);
+		Position cargoCadastrado = this.positionDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[CODIGO], cargoCadastrado.getPositionCode().toString());
 		Assert.assertEquals(this.campo[DESCRICAO], cargoCadastrado.getPositionDescription());
@@ -57,7 +57,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 		this.cargoParseControle.cadastrarInstancias();
 		this.cargoParseControle.resetar();
 		
-		int numeroCargosCadastrados = this.cargoDAO.getLista().size();
+		int numeroCargosCadastrados = this.positionDAO.getLista().size();
 		
 		Assert.assertEquals(1, numeroCargosCadastrados);
 	}

@@ -20,7 +20,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	//Attributes
 	private CandidateDAO candidateDAO;
 	private PartidoDAO partidoDAO;
-	private CargoDAO cargoDAO;
+	private PositionDAO positionDAO;
 	private ResultadoDAO resultadoDAO;
 
 	// Constants
@@ -229,7 +229,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	public ArrayList<Campaign> buscaBD(String SQL) throws SQLException {
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		this.candidateDAO = new CandidateDAO();
-		this.cargoDAO = new CargoDAO();
+		this.positionDAO = new PositionDAO();
 		this.partidoDAO = new PartidoDAO();
 		this.resultadoDAO = new ResultadoDAO();
 
@@ -243,7 +243,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 			while(resultadoSQL.next()) {
 				Campaign campaign = new Campaign();
 				campaign.setCampaignYear(resultadoSQL.getInt(ANO));
-				campaign.setCampaignPosition(cargoDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
+				campaign.setCampaignPosition(positionDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
 				campaign.setCampaignMaximumExpenseDeclared(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
 				campaign.setCampaignTotalExpenseCalculated(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
 				campaign.setCampaignNameOfUrn(resultadoSQL.getString(NOME_URNA));

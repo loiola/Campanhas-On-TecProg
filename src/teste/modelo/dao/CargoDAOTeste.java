@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Position;
-import model.dao.CargoDAO;
+import model.dao.PositionDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,12 +13,12 @@ import teste.TemplateTeste;
 
 public class CargoDAOTeste extends TemplateTeste {
 
-	private CargoDAO cargoDAO;
+	private PositionDAO positionDAO;
 
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cargoDAO = new CargoDAO();
+		this.positionDAO = new PositionDAO();
 	}
 
 	@Override
@@ -42,9 +42,9 @@ public class CargoDAOTeste extends TemplateTeste {
 		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 
-		this.cargoDAO.cadastrarLista(listaCargos);
+		this.positionDAO.cadastrarLista(listaCargos);
 
-		cargoRecuperado = this.cargoDAO.getPeloCod(1);
+		cargoRecuperado = this.positionDAO.getPeloCod(1);
 		Assert.assertEquals(c1, cargoRecuperado);
 	}
 	
@@ -64,9 +64,9 @@ public class CargoDAOTeste extends TemplateTeste {
 		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 
-		this.cargoDAO.cadastrarLista(listaCargos);
+		this.positionDAO.cadastrarLista(listaCargos);
 
-		cargoRecuperado = this.cargoDAO.getPelaDescricao("CARGO UM");
+		cargoRecuperado = this.positionDAO.getPelaDescricao("CARGO UM");
 		Assert.assertEquals(c1, cargoRecuperado);
 	}
 	
@@ -88,13 +88,13 @@ public class CargoDAOTeste extends TemplateTeste {
 		
 		Position c3 = new Position();
 		c3.setPositionCode(3);
-		c3.setPositionDescription("CARGO TRÊS");
+		c3.setPositionDescription("CARGO TRï¿½S");
 		listaCargos.add(c3);
 		
-		this.cargoDAO.cadastrarLista(listaCargos);
-		listaRecuperada = this.cargoDAO.getLista();
+		this.positionDAO.cadastrarLista(listaCargos);
+		listaRecuperada = this.positionDAO.getLista();
 		
-		Assert.assertEquals(listaRecuperada, this.cargoDAO.getLista());
+		Assert.assertEquals(listaRecuperada, this.positionDAO.getLista());
 	}
 
 	@Test
@@ -106,7 +106,7 @@ public class CargoDAOTeste extends TemplateTeste {
 		c2.setPositionCode(2);
 		int resultado;
 
-		resultado = CargoDAO.Comparacao.CODIGO.compare(c1, c2);
+		resultado = PositionDAO.Comparacao.CODIGO.compare(c1, c2);
 
 		Assert.assertNotEquals(0, resultado);
 	}

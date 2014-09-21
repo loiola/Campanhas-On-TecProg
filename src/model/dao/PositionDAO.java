@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Position;
 import parse.ParseDAO;
 
-public class CargoDAO extends BasicDAO<Position> implements ParseDAO<Position> {
+public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position> {
 	
 	/*
 	 * Class for manipulating the data about positions
@@ -25,7 +25,7 @@ public class CargoDAO extends BasicDAO<Position> implements ParseDAO<Position> {
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 
 	// Constructors
-	public CargoDAO() {
+	public PositionDAO() {
 		super(NOME_TABELA, Comparacao.CODIGO);
 	}
 
@@ -132,7 +132,7 @@ public class CargoDAO extends BasicDAO<Position> implements ParseDAO<Position> {
 				position.setPositionDescription(resultadoSQL.getString(DESCRICAO));
 			}
 		} catch(SQLException e) {
-			throw new SQLException("CargoDAO - " + e.getMessage());
+			throw new SQLException("PositionDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

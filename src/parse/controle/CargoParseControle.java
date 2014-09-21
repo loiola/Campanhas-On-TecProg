@@ -1,7 +1,7 @@
 package parse.controle;
 
 import model.beans.Position;
-import model.dao.CargoDAO;
+import model.dao.PositionDAO;
 import parse.indices.IndicesParse;
 
 public class CargoParseControle extends ParseControle<Position> {
@@ -12,7 +12,7 @@ public class CargoParseControle extends ParseControle<Position> {
 
 	// Constructors
 	public CargoParseControle(IndicesParse<Position> indicesParse) {
-		super(indicesParse, new CargoDAO());
+		super(indicesParse, new PositionDAO());
 	}
 
 	/*
