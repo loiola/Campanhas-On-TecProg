@@ -122,7 +122,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 		String comandoSQL = SQL;
 		
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 
 			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 

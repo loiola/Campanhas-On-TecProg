@@ -65,7 +65,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		this.visualizarResultadoListaBuscaCandidato = new VisualizarResultadoListaBuscaCandidato();
 		
-		this.databaseConnection.alterarBanco(NOME_BANCO_OFICIAL);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
 		
 		this.req = mock(HttpServletRequest.class);
 		this.res = mock(HttpServletResponse.class);
@@ -73,7 +73,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 
 	@Override
 	public void afterTest() throws Exception {
-		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_TESTES);
 	}
 
 }

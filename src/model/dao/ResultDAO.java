@@ -100,7 +100,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 		Result result = new Result();
 		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+ codigo +" ";
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 	
 			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 	

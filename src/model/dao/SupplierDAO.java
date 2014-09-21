@@ -127,7 +127,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 		ArrayList<Supplier> listaFornecedor = new ArrayList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 
 			String comandoSQL = SQL;
 

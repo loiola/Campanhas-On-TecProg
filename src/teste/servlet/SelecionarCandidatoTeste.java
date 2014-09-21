@@ -42,7 +42,7 @@ public class SelecionarCandidatoTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		this.selecionarCandidato = new SelecionarCandidato();
 		
-		this.databaseConnection.alterarBanco(NOME_BANCO_OFICIAL);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
 		
 		this.req = mock(HttpServletRequest.class);
 		this.res = mock(HttpServletResponse.class);
@@ -50,6 +50,6 @@ public class SelecionarCandidatoTeste extends TemplateTeste {
 
 	@Override
 	public void afterTest() throws Exception {
-		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_TESTES);
 	}
 }

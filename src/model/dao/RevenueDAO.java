@@ -169,7 +169,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 
 			String comandoSQL = SQL;
 

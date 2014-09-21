@@ -234,7 +234,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		this.resultDAO = new ResultDAO();
 
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 
 			String sqlCommand = sqlCommandConfiguredBefore;
 			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);

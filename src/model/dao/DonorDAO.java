@@ -108,7 +108,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 		ArrayList<Donor> listaDoador = new ArrayList<>();
 		
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 
 			String comandoSQL = SQL;
 			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);

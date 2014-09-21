@@ -131,7 +131,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 		Party party = new Party();
 		
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 	
 			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 	

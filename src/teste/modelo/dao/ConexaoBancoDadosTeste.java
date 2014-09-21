@@ -22,8 +22,8 @@ public class ConexaoBancoDadosTeste {
 	public void setUp() {
 		
 		this.databaseConnection = new DatabaseConnection();
-		this.databaseConnection.alterarBanco(NOME_BANCO_OFICIAL);
-		this.databaseConnection.setLocalBanco(LOCAL_BANCO_OFICIAL);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
+		this.databaseConnection.setDatabasePath(LOCAL_BANCO_OFICIAL);
 	}
 
 	@Test
@@ -33,11 +33,11 @@ public class ConexaoBancoDadosTeste {
 		String arquivoSQL1 = diretorioSQL + "/mer_campanha.sql";
 		String arquivoSQL2 = diretorioSQL + "/mer_movimentacoes.sql";			
 		this.databaseConnection = new DatabaseConnection();
-		this.databaseConnection.criarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.importarSQL(arquivoSQL1);
-		this.databaseConnection.importarSQL(arquivoSQL2);
-		this.databaseConnection.deletarBanco();
+		this.databaseConnection.createDatabaseSchema(NOME_BANCO_TESTES);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_TESTES);
+		this.databaseConnection.readSQLCommandFromFile(arquivoSQL1);
+		this.databaseConnection.readSQLCommandFromFile(arquivoSQL2);
+		this.databaseConnection.dropDatabaseName();
 	}
 	
 	@Test(expected = SQLException.class)
@@ -45,9 +45,9 @@ public class ConexaoBancoDadosTeste {
 		
 		String localInvalido = "Local Invalido";
 		this.databaseConnection = new DatabaseConnection();
-		this.databaseConnection.setLocalBanco(localInvalido);
-		this.databaseConnection.criarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.deletarBanco();
+		this.databaseConnection.setDatabasePath(localInvalido);
+		this.databaseConnection.createDatabaseSchema(NOME_BANCO_TESTES);
+		this.databaseConnection.dropDatabaseName();
 	}
 	
 	@Test(expected = SQLException.class)
@@ -56,10 +56,10 @@ public class ConexaoBancoDadosTeste {
 		String diretorioSQL = new File("./lib/").getCanonicalPath();
 		String arquivoSQL = diretorioSQL + "/Arquivo_Invalido.sql";			
 		this.databaseConnection = new DatabaseConnection();
-		this.databaseConnection.criarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.importarSQL(arquivoSQL);
-		this.databaseConnection.deletarBanco();
+		this.databaseConnection.createDatabaseSchema(NOME_BANCO_TESTES);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_TESTES);
+		this.databaseConnection.readSQLCommandFromFile(arquivoSQL);
+		this.databaseConnection.dropDatabaseName();
 	}
 	
 	@Test(expected = SQLException.class)
@@ -67,10 +67,10 @@ public class ConexaoBancoDadosTeste {
 		
 		String localInvalido = "Local Invalido";
 		this.databaseConnection = new DatabaseConnection();
-		this.databaseConnection.criarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.setLocalBanco(localInvalido);
-		this.databaseConnection.alterarBanco(NOME_BANCO_TESTES);
-		this.databaseConnection.deletarBanco();
+		this.databaseConnection.createDatabaseSchema(NOME_BANCO_TESTES);
+		this.databaseConnection.setDatabasePath(localInvalido);
+		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_TESTES);
+		this.databaseConnection.dropDatabaseName();
 	}
 
 }

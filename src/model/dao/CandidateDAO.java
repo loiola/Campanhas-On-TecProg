@@ -149,7 +149,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 		LinkedList<Candidate> candidateList = new LinkedList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 
 			String sqlCommand = sqlCommandConfiguredBefore;
 			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);

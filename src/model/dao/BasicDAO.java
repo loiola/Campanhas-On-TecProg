@@ -67,7 +67,7 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 		try {
 			ArrayList<O> unregisteredObjectList = getUnregisteredObjectArrayListInDatabase(referenceFromParseObjectList);
 
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 			this.daoSQLInstruction = getSQLInstruction(getSQLInsertCommand());
 			this.connection.setAutoCommit(false);
 	
@@ -90,7 +90,7 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 		ArrayList<O> objectList = new ArrayList<>();
 		
 		try {
-			this.connection = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConnection();
 			
 			String sqlCommand = getSQLSelectCommand();
 			
