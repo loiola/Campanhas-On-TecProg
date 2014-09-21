@@ -79,8 +79,8 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Revenue revenue : lista) {
 			instrucaoSQL.setInt(1, revenue.getId());
-			instrucaoSQL.setInt(2, revenue.getCampanha().getAno());
-			instrucaoSQL.setInt(3, revenue.getCampanha().getNumeroCandidato());
+			instrucaoSQL.setInt(2, revenue.getCampanha().getCampaignYear());
+			instrucaoSQL.setInt(3, revenue.getCampanha().getCampaignCandidateNumber());
 			instrucaoSQL.setFloat(4, revenue.getValor());
 			instrucaoSQL.setString(5, revenue.getFormaPagamento());
 			instrucaoSQL.setString(6, revenue.getDescricao());
@@ -91,7 +91,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			instrucaoSQL.setString(11, revenue.getDoador().getNome());
 			instrucaoSQL.setString(12, revenue.getDoador().getCpf_cnpj());
 			instrucaoSQL.setString(13, revenue.getCampanha().getCampaignPosition().getDescricao());
-			instrucaoSQL.setString(14, revenue.getCampanha().getUf());
+			instrucaoSQL.setString(14, revenue.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
 		}	
 	}
@@ -108,10 +108,10 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			Campaign campaign = new Campaign();
 			Position position = new Position();
 			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
-			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));	
-			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));	
+			campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));	
+			campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));	
 			campaign.setCampaignPosition(position);
-			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
+			campaign.setCampaignCountryState(resultadoSQL.getString(CAMPANHA_UF));
 
 			Donor donor = new Donor();
 			donor.setNome(resultadoSQL.getString(NOME_DOADOR));
@@ -139,9 +139,9 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 	 */
 	public ArrayList<Revenue> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
-				  + CAMPANHA_ANO + " = " + campaign.getAno() + " AND "
-				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
-				  + " AND " + CAMPANHA_UF + " = '" + campaign.getUf()
+				  + CAMPANHA_ANO + " = " + campaign.getCampaignYear() + " AND "
+				  + CAMPANHA_NUMERO + " = " + campaign.getCampaignCandidateNumber()
+				  + " AND " + CAMPANHA_UF + " = '" + campaign.getCampaignCountryState()
 				  + "' AND " + CAMPANHA_CARGO + " LIKE '%" 
 				  + campaign.getCampaignPosition().getDescricao() 
 				  + "%'";
@@ -184,8 +184,8 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
 				Campaign campaign = new Campaign();
-				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
-				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
+				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
+				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
 				campaign.setCampaignPosition(position);
 				revenue.setCampanha(campaign);
 				

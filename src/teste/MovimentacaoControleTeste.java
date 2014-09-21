@@ -59,10 +59,10 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		position.setDescricao("Presidente");
 		
 		campaign.setCampaignPosition(position);
-		campaign.setCandidato(candidate);
-		campaign.setAno(this.ano);
-		campaign.setUf(this.uf);
-		campaign.setNumeroCandidato(this.numeroCandidato);
+		campaign.setCampaignCandidate(candidate);
+		campaign.setCampaignYear(this.ano);
+		campaign.setCampaignCountryState(this.uf);
+		campaign.setCampaignCandidateNumber(this.numeroCandidato);
 		
 		supplier.setCpf_cnpj("555555555555");
 		donor.setCpf_cnpj("333333333333");
@@ -107,15 +107,15 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 		
-		campanhaTeste.setAno(this.ano);
+		campanhaTeste.setCampaignYear(this.ano);
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 	
-		campanhaTeste.setNumeroCandidato(this.numeroCandidato);
+		campanhaTeste.setCampaignCandidateNumber(this.numeroCandidato);
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 		
-		campanhaTeste.setUf(this.uf);
+		campanhaTeste.setCampaignCountryState(this.uf);
 		Assert.assertEquals(this.despesaDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaDespesas(campanhaTeste).size());
 		Assert.assertEquals(this.receitaDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaReceitas(campanhaTeste).size());
 	}

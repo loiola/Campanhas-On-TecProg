@@ -55,7 +55,7 @@ public class CampanhaParseControle extends ParseControle<Campaign> {
 			}
 			
 			for(int j = i; j < this.listaInstancias.size(); j++) {
-				if(this.listaInstancias.get(i).getNomeDeUrna().equalsIgnoreCase(this.listaInstancias.get(j).getNomeDeUrna())) {
+				if(this.listaInstancias.get(i).getCampaignNameOfUrn().equalsIgnoreCase(this.listaInstancias.get(j).getCampaignNameOfUrn())) {
 					if(this.listaInstancias.get(j).getCampaignResult().getCodigo() == 1 ||
 					   this.listaInstancias.get(j).getCampaignResult().getCodigo() == 5) {
 						foiEleito = true;

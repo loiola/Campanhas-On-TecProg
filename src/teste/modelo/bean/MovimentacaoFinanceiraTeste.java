@@ -85,10 +85,10 @@ public class MovimentacaoFinanceiraTeste {
 		FinancialTransaction financialTransaction = instanciarMovimentacaoFinanceira();
 		FinancialTransaction movimentacaoFinanceira2 = instanciarMovimentacaoFinanceira();
 		Campaign campaign = instanciarCampanha();
-		campaign.setNomeDeUrna(BeanTeste.STRING_TESTE_2);
+		campaign.setCampaignNameOfUrn(BeanTeste.STRING_TESTE_2);
 		movimentacaoFinanceira2.setCampanha(campaign);
 		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
-		campaign.setNomeDeUrna(BeanTeste.STRING_TESTE);
+		campaign.setCampaignNameOfUrn(BeanTeste.STRING_TESTE);
 		movimentacaoFinanceira2.setCampanha(campaign);
 		movimentacaoFinanceira2.setDescricao(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));

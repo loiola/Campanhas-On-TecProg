@@ -35,15 +35,15 @@ public class MovimentacaoControle {
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 		
 		if((campaign.getCampaignPosition().getDescricao().equals(Campaign.EMPTY_TYPE_STRING)) 
-				|| (campaign.getAno().equals(Campaign.EMPTY_TYPE_INTEGER)) 
-				|| (campaign.getNumeroCandidato()).equals(Campaign.EMPTY_TYPE_INTEGER)
-				|| (campaign.getUf()).equals(Campaign.EMPTY_TYPE_STRING)) {
+				|| (campaign.getCampaignYear().equals(Campaign.EMPTY_TYPE_INTEGER)) 
+				|| (campaign.getCampaignCandidateNumber()).equals(Campaign.EMPTY_TYPE_INTEGER)
+				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
 			listaReceita =  null;
 			
 		} else {
 			listaReceita = this.receitaDAO.getPorAnoNumeroCargoUf(campaign);
 			
-			if(campaign.getAno() == 2002) {
+			if(campaign.getCampaignYear() == 2002) {
 				for(Revenue revenue : listaReceita)
 					revenue.setTipoMovimentacao("Revenue");
 			}
@@ -61,9 +61,9 @@ public class MovimentacaoControle {
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
 		
 		if((campaign.getCampaignPosition().getDescricao().equals(Campaign.EMPTY_TYPE_STRING)) 
-				|| (campaign.getAno().equals(Campaign.EMPTY_TYPE_INTEGER)) 
-				|| (campaign.getNumeroCandidato()).equals(Campaign.EMPTY_TYPE_INTEGER)
-				|| (campaign.getUf()).equals(Campaign.EMPTY_TYPE_STRING)) {
+				|| (campaign.getCampaignYear().equals(Campaign.EMPTY_TYPE_INTEGER)) 
+				|| (campaign.getCampaignCandidateNumber()).equals(Campaign.EMPTY_TYPE_INTEGER)
+				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
 			listaDespesa =  null;
 		} else {
 			listaDespesa =  this.despesaDAO.getPorAnoNumeroCargoUf(campaign);

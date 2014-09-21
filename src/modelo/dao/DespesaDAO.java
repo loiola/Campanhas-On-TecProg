@@ -80,8 +80,8 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Expense expense : lista) {
 			instrucaoSQL.setInt(1, expense.getId());	
-			instrucaoSQL.setInt(2, expense.getCampanha().getAno());
-			instrucaoSQL.setInt(3, expense.getCampanha().getNumeroCandidato());
+			instrucaoSQL.setInt(2, expense.getCampanha().getCampaignYear());
+			instrucaoSQL.setInt(3, expense.getCampanha().getCampaignCandidateNumber());
 			instrucaoSQL.setFloat(4, expense.getValor());	
 			instrucaoSQL.setString(5, expense.getFormaPagamento());
 			instrucaoSQL.setString(6, expense.getDescricao());
@@ -92,7 +92,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			instrucaoSQL.setString(11, expense.getFornecedor().getNome());
 			instrucaoSQL.setString(12, expense.getFornecedor().getCpf_cnpj());
 			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getDescricao());
-			instrucaoSQL.setString(14, expense.getCampanha().getUf());
+			instrucaoSQL.setString(14, expense.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -109,9 +109,9 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			Campaign campaign = new Campaign();
 			Position position = new Position();
 			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
-			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
-			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
+			campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
+			campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
+			campaign.setCampaignCountryState(resultadoSQL.getString(CAMPANHA_UF));
 			campaign.setCampaignPosition(position);
 
 			Supplier supplier = new Supplier();
@@ -142,9 +142,9 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 	 */
 	public ArrayList<Expense> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
-				  + CAMPANHA_ANO + " = " + campaign.getAno() + " AND "
-				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
-				  + " AND " + CAMPANHA_UF + " = '" + campaign.getUf()
+				  + CAMPANHA_ANO + " = " + campaign.getCampaignYear() + " AND "
+				  + CAMPANHA_NUMERO + " = " + campaign.getCampaignCandidateNumber()
+				  + " AND " + CAMPANHA_UF + " = '" + campaign.getCampaignCountryState()
 				  + "' AND " + CAMPANHA_CARGO 
 				  + " LIKE '%" + campaign.getCampaignPosition().getDescricao()
 				  + "%'";
@@ -185,8 +185,8 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
 				Campaign campaign = new Campaign();
-				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
-				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
+				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
+				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
 				campaign.setCampaignPosition(position);
 				expense.setCampanha(campaign);
 				

@@ -27,18 +27,18 @@ public class CampanhaTeste {
 		
 		Campaign campaign = instanciarCampanha();
 		Campaign campanha2 = instanciarCampanha();
-		campanha2.setAno(BeanTeste.INT_TESTE_2);
+		campanha2.setCampaignYear(BeanTeste.INT_TESTE_2);
 		Assert.assertFalse(campaign.equals(campanha2));
-		campanha2.setAno(BeanTeste.INT_TESTE);
+		campanha2.setCampaignYear(BeanTeste.INT_TESTE);
 		Position position = instanciarCargo();
 		position.setDescricao(BeanTeste.STRING_TESTE_2);
 		campanha2.setCampaignPosition(position);
 		Assert.assertFalse(campaign.equals(campanha2));
 		position.setDescricao(BeanTeste.STRING_TESTE);
-		campanha2.setNomeDeUrna(BeanTeste.STRING_TESTE_2);
+		campanha2.setCampaignNameOfUrn(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(campaign.equals(campanha2));
-		campanha2.setNomeDeUrna(BeanTeste.STRING_TESTE);
-		campanha2.setNumeroCandidato(BeanTeste.INT_TESTE_2);
+		campanha2.setCampaignNameOfUrn(BeanTeste.STRING_TESTE);
+		campanha2.setCampaignCandidateNumber(BeanTeste.INT_TESTE_2);
 		Assert.assertFalse(campaign.equals(campanha2));
 	}
 	
@@ -51,13 +51,13 @@ public class CampanhaTeste {
 		Assert.assertFalse(campaign.equals(result));
 		Assert.assertFalse(result.equals(campaign));
 		Assert.assertEquals(result,campaign.getCampaignResult());
-		Assert.assertEquals(BeanTeste.INT_TESTE,campaign.getId());
+		Assert.assertEquals(BeanTeste.INT_TESTE,campaign.getCampaignIdentifier());
 		Assert.assertEquals(instanciarPartido(),campaign.getCampaignParty());
-		Assert.assertEquals(instanciarCandidato(),campaign.getCandidato());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,campaign.getUf());
-		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getDespesaMaxDeclarada(),0);
-		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getDespesaTotalCalculada(),0);
-		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getReceitaTotalCalculada(),0);
+		Assert.assertEquals(instanciarCandidato(),campaign.getCampaignCandidate());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,campaign.getCampaignCountryState());
+		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getCampaignMaximumExpenseDeclared(),0);
+		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getCampaignTotalExpenseCalculated(),0);
+		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getCampaignTotalRevenueCalculated(),0);
 		Assert.assertEquals(BeanTeste.INT_TESTE,result.getCodigo());
 	}
 	

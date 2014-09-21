@@ -61,17 +61,17 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		this.partido1.setNumero(45);
 		this.candidato1.setTituloEleitoral("55325424149");
 		camp1.setCampaignIdentifier(1);
-		camp1.setAno(2006);
-		camp1.setNumeroCandidato(45555);
+		camp1.setCampaignYear(2006);
+		camp1.setCampaignCandidateNumber(45555);
 		camp1.setCampaignResult(resultado1);
 		camp1.setCampaignPosition(position);
-		camp1.setPartido(partido1);
-		camp1.setCandidato(candidato1);
-		camp1.setNomeDeUrna("NOME DE URNA UM");
-		camp1.setUf("DF");
-		camp1.setDespesaMaxDeclarada((float) 450000.);
-		camp1.setDespesaTotalCalculada((float) 450000.0);
-		camp1.setReceitaTotalCalculada((float) 450000.0);
+		camp1.setCampaignParty(partido1);
+		camp1.setCampaignCandidate(candidato1);
+		camp1.setCampaignNameOfUrn("NOME DE URNA UM");
+		camp1.setCampaignCountryState("DF");
+		camp1.setCampaignMaximumExpenseDeclared((float) 450000.);
+		camp1.setCampaignTotalExpenseCalculated((float) 450000.0);
+		camp1.setCampaignTotalRevenueCalculated((float) 450000.0);
 		listaCampanhas.add(camp1);
 		listaCandidato.add(candidato1);
 		
@@ -80,17 +80,17 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		this.partido2.setNumero(13);
 		this.candidato2.setTituloEleitoral("04725698130");
 		camp2.setCampaignIdentifier(2);
-		camp2.setAno(2006);
-		camp2.setNumeroCandidato(13122);
+		camp2.setCampaignYear(2006);
+		camp2.setCampaignCandidateNumber(13122);
 		camp2.setCampaignResult(resultado2);
 		camp2.setCampaignPosition(position);
-		camp2.setPartido(partido2);
-		camp2.setCandidato(candidato2);
-		camp2.setNomeDeUrna("NOME DE URNA DOIS");
-		camp2.setUf("DF");
-		camp2.setDespesaMaxDeclarada((float) 500000.);
-		camp2.setDespesaTotalCalculada((float) 500000.0);
-		camp2.setReceitaTotalCalculada((float) 500000.0);
+		camp2.setCampaignParty(partido2);
+		camp2.setCampaignCandidate(candidato2);
+		camp2.setCampaignNameOfUrn("NOME DE URNA DOIS");
+		camp2.setCampaignCountryState("DF");
+		camp2.setCampaignMaximumExpenseDeclared((float) 500000.);
+		camp2.setCampaignTotalExpenseCalculated((float) 500000.0);
+		camp2.setCampaignTotalRevenueCalculated((float) 500000.0);
 		listaCampanhas.add(camp2);
 		listaCandidato.add(candidato2);
 		
@@ -108,7 +108,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	public void deveListarCandidatosPorOrdemDeDespesa() throws Exception {
 		
 		ArrayList<Campaign> listaTop1= this.campanhaDAO.TopFive("presidente",2006);
-		Assert.assertTrue(listaTop1.get(0).getDespesaMaxDeclarada() >= listaTop1.get(1).getDespesaMaxDeclarada());
+		Assert.assertTrue(listaTop1.get(0).getCampaignMaximumExpenseDeclared() >= listaTop1.get(1).getCampaignMaximumExpenseDeclared());
 		
 		//ArrayList<Campaign> listaTop2 = this.campanhaDAO.TopFive("senador",2010);
 		//Assert.assertTrue(listaTop2.get(0).getDespesaMaxDeclarada() >= listaTop2.get(1).getDespesaMaxDeclarada());

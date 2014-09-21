@@ -57,27 +57,27 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 		if (indiceValido(this.indicePartidoNumero)) {
 			Party party = new Party();
 			party.setNumero(Integer.parseInt(campo[this.indicePartidoNumero]));
-			campaign.setPartido(party);
+			campaign.setCampaignParty(party);
 		}	
 		if (indiceValido(this.indiceCandidatoTitulo)) {
 			Candidate candidate = new Candidate();
 			candidate.setTituloEleitoral(campo[this.indiceCandidatoTitulo]);
-			campaign.setCandidato(candidate);
+			campaign.setCampaignCandidate(candidate);
 		}	
 		if (indiceValido(this.indiceAno)) {
-			campaign.setAno(Integer.parseInt(campo[this.indiceAno]));
+			campaign.setCampaignYear(Integer.parseInt(campo[this.indiceAno]));
 		}	
 		if (indiceValido(this.indiceNumeroCandidato)) {
-			campaign.setNumeroCandidato(Integer.parseInt(campo[this.indiceNumeroCandidato]));
+			campaign.setCampaignCandidateNumber(Integer.parseInt(campo[this.indiceNumeroCandidato]));
 		}	
 		if (indiceValido(this.indiceNomeDeUrna)) {
-			campaign.setNomeDeUrna(campo[this.indiceNomeDeUrna]);
+			campaign.setCampaignNameOfUrn(campo[this.indiceNomeDeUrna]);
 		}	
 		if (indiceValido(this.indiceUf)) {
-			campaign.setUf(campo[this.indiceUf]);
+			campaign.setCampaignCountryState(campo[this.indiceUf]);
 		}	
 		if (indiceValido(this.indiceDespesaMaxDeclarada)) {
-			campaign.setDespesaMaxDeclarada(
+			campaign.setCampaignMaximumExpenseDeclared(
 					Float.parseFloat(campo[this.indiceDespesaMaxDeclarada].replace(',', '.')));
 		}		
 	}
@@ -91,15 +91,15 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 		campaign.setCampaignIdentifier(Campaign.EMPTY_TYPE_INTEGER);
 		campaign.setCampaignResult(Campaign.EMPTY_CLASS_RESULT);	
 		campaign.setCampaignPosition(Campaign.EMPTY_CLASS_POSITION);	
-		campaign.setPartido(Campaign.EMPTY_CLASS_PARTY);	
-		campaign.setCandidato(Campaign.EMPTY_CLASS_CANDIDATE);	
-		campaign.setAno(Campaign.EMPTY_TYPE_INTEGER);	
-		campaign.setNumeroCandidato(Campaign.EMPTY_TYPE_INTEGER);	
-		campaign.setNomeDeUrna(Campaign.EMPTY_TYPE_STRING);	
-		campaign.setUf(Campaign.EMPTY_TYPE_STRING);	
-		campaign.setDespesaMaxDeclarada(Campaign.EMPTY_TYPE_FLOAT);	
-		campaign.setDespesaTotalCalculada(Campaign.EMPTY_TYPE_FLOAT);	
-		campaign.setReceitaTotalCalculada(Campaign.EMPTY_TYPE_FLOAT);	
+		campaign.setCampaignParty(Campaign.EMPTY_CLASS_PARTY);	
+		campaign.setCampaignCandidate(Campaign.EMPTY_CLASS_CANDIDATE);	
+		campaign.setCampaignYear(Campaign.EMPTY_TYPE_INTEGER);	
+		campaign.setCampaignCandidateNumber(Campaign.EMPTY_TYPE_INTEGER);	
+		campaign.setCampaignNameOfUrn(Campaign.EMPTY_TYPE_STRING);	
+		campaign.setCampaignCountryState(Campaign.EMPTY_TYPE_STRING);	
+		campaign.setCampaignMaximumExpenseDeclared(Campaign.EMPTY_TYPE_FLOAT);	
+		campaign.setCampaignTotalExpenseCalculated(Campaign.EMPTY_TYPE_FLOAT);	
+		campaign.setCampaignTotalRevenueCalculated(Campaign.EMPTY_TYPE_FLOAT);	
 	}
 
 	// Mutators for indexes of the array of fields

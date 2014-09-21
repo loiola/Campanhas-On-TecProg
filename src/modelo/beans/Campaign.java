@@ -47,7 +47,7 @@ public class Campaign {
 	}
 	
 	// Getters and Setters
-	public Integer getId() {
+	public Integer getCampaignIdentifier() {
 		return campaignIdentifier;
 	}
 
@@ -75,74 +75,73 @@ public class Campaign {
 		return campaignParty;
 	}
 
-	public void setPartido(Party party) {
-		this.campaignParty = party;
+	public void setCampaignParty(Party campaignParty) {
+		this.campaignParty = campaignParty;
 	}
 
-	public Candidate getCandidato() {
+	public Candidate getCampaignCandidate() {
 		return campaignCandidate;
 	}
 
-	public void setCandidato(Candidate candidate) {
-		this.campaignCandidate = candidate;
+	public void setCampaignCandidate(Candidate campaignCandidate) {
+		this.campaignCandidate = campaignCandidate;
 	}
 
-	public Integer getAno() {
+	public Integer getCampaignYear() {
 		return campaignYear;
 	}
 
-	public void setAno(Integer ano) {
-		this.campaignYear = ano;
+	public void setCampaignYear(Integer campaignYear) {
+		this.campaignYear = campaignYear;
 	}
 
-	public Integer getNumeroCandidato() {
+	public Integer getCampaignCandidateNumber() {
 		return campaignCandidateNumber;
 	}
 
-	public void setNumeroCandidato(Integer numeroCandidato) {
-		this.campaignCandidateNumber = numeroCandidato;
+	public void setCampaignCandidateNumber(Integer candidateYear) {
+		this.campaignCandidateNumber = candidateYear;
 	}
 
-	public String getNomeDeUrna() {
+	public String getCampaignNameOfUrn() {
 		return campaignNameOfUrn;
 	}
 
-	public void setNomeDeUrna(String nomeDeUrna) {
-		this.campaignNameOfUrn = nomeDeUrna;
+	public void setCampaignNameOfUrn(String campaignNameOfUrn) {
+		this.campaignNameOfUrn = campaignNameOfUrn;
 	}
 
-	public String getUf() {
+	public String getCampaignCountryState() {
 		return campaignCountryState;
 	}
 
-	public void setUf(String uf) {
-		this.campaignCountryState = uf;
+	public void setCampaignCountryState(String campaignCountryState) {
+		this.campaignCountryState = campaignCountryState;
 	}
 
-	public Float getDespesaMaxDeclarada() {
+	public Float getCampaignMaximumExpenseDeclared() {
 		return campaignMaximumExpenseDeclared;
 	}
 
-	public void setDespesaMaxDeclarada(Float despesaMaxDeclarada) {
-		this.campaignMaximumExpenseDeclared = despesaMaxDeclarada;
+	public void setCampaignMaximumExpenseDeclared(Float campaignMaximumExpenseDeclared) {
+		this.campaignMaximumExpenseDeclared = campaignMaximumExpenseDeclared;
 	}
 
-	public Float getDespesaTotalCalculada() {
+	public Float getCampaignTotalExpenseCalculated() {
 		return campaignTotalExpenseCalculated;
 	}
 
-	public void setDespesaTotalCalculada(Float despesaTotalCalculada) {
-		this.campaignTotalExpenseCalculated = despesaTotalCalculada;
+	public void setCampaignTotalExpenseCalculated(Float campaignTotalExpenseCalculated) {
+		this.campaignTotalExpenseCalculated = campaignTotalExpenseCalculated;
 	}
 
-	public Float getReceitaTotalCalculada() {
+	public Float getCampaignTotalRevenueCalculated() {
 		return campaignTotalRevenueCalculated;
 	}
 
-	public void setReceitaTotalCalculada(Float receitaTotalCalculada) {
-		this.campaignTotalRevenueCalculated = receitaTotalCalculada;
+	public void setCampaignTotalRevenueCalculated(Float campaignTotalRevenueCalculated) {
+		this.campaignTotalRevenueCalculated = campaignTotalRevenueCalculated;
 	}
-	
 	
 	@Override
 	public boolean equals(Object object) {
@@ -150,11 +149,11 @@ public class Campaign {
 			return false;
 		else
 		{
-			Campaign outraCampanha = (Campaign) object;
-			return this.campaignYear.equals(outraCampanha.getAno()) &&
-				   this.campaignCandidateNumber.equals(outraCampanha.getNumeroCandidato()) &&
-				   this.campaignPosition.equals(outraCampanha.getCampaignPosition()) &&
-				   this.campaignNameOfUrn.equals(outraCampanha.getNomeDeUrna());
+			Campaign otherCampaign = (Campaign) object;
+			return this.campaignYear.equals(otherCampaign.getCampaignYear()) &&
+				   this.campaignCandidateNumber.equals(otherCampaign.getCampaignCandidateNumber()) &&
+				   this.campaignPosition.equals(otherCampaign.getCampaignPosition()) &&
+				   this.campaignNameOfUrn.equals(otherCampaign.getCampaignNameOfUrn());
 		}
 
 	}

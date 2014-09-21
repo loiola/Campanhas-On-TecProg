@@ -26,18 +26,18 @@ public class BeanTeste {
 	public static Campaign instanciarCampanha() {
 		
 		Campaign campaign = new Campaign();
-		campaign.setAno(INT_TESTE);
-		campaign.setCandidato(instanciarCandidato());
+		campaign.setCampaignYear(INT_TESTE);
+		campaign.setCampaignCandidate(instanciarCandidato());
 		campaign.setCampaignPosition(instanciarCargo());
-		campaign.setDespesaMaxDeclarada(FLOAT_TESTE);
-		campaign.setDespesaTotalCalculada(FLOAT_TESTE);
+		campaign.setCampaignMaximumExpenseDeclared(FLOAT_TESTE);
+		campaign.setCampaignTotalExpenseCalculated(FLOAT_TESTE);
 		campaign.setCampaignIdentifier(INT_TESTE);
-		campaign.setNomeDeUrna(STRING_TESTE); 
-		campaign.setNumeroCandidato(INT_TESTE);
-		campaign.setPartido(instanciarPartido());
-		campaign.setReceitaTotalCalculada(FLOAT_TESTE);
+		campaign.setCampaignNameOfUrn(STRING_TESTE); 
+		campaign.setCampaignCandidateNumber(INT_TESTE);
+		campaign.setCampaignParty(instanciarPartido());
+		campaign.setCampaignTotalRevenueCalculated(FLOAT_TESTE);
 		campaign.setCampaignResult(instanciarResultado());
-		campaign.setUf(STRING_TESTE);
+		campaign.setCampaignCountryState(STRING_TESTE);
 		
 		return campaign;
 	}

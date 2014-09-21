@@ -56,12 +56,12 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		Assert.assertEquals(this.campo[RESULTADO], campanhaCadastrada.getCampaignResult().getCodigo().toString());
 		Assert.assertEquals(this.campo[CARGO], campanhaCadastrada.getCampaignPosition().getCodigo().toString());
 		Assert.assertEquals(this.campo[PARTIDO], campanhaCadastrada.getCampaignParty().getNumero().toString());
-		Assert.assertEquals(this.campo[CANDIDATO_TITULO], campanhaCadastrada.getCandidato().getTituloEleitoral());
-		Assert.assertEquals(this.campo[ANO], campanhaCadastrada.getAno().toString());
-		Assert.assertEquals(this.campo[CANDIDATO_NUMERO], campanhaCadastrada.getNumeroCandidato().toString());
-		Assert.assertEquals(this.campo[NOME_URNA], campanhaCadastrada.getNomeDeUrna());
-		Assert.assertEquals(this.campo[UF], campanhaCadastrada.getUf());
-		Assert.assertEquals(this.campo[DESPESA_MAX], campanhaCadastrada.getDespesaMaxDeclarada().toString());
+		Assert.assertEquals(this.campo[CANDIDATO_TITULO], campanhaCadastrada.getCampaignCandidate().getTituloEleitoral());
+		Assert.assertEquals(this.campo[ANO], campanhaCadastrada.getCampaignYear().toString());
+		Assert.assertEquals(this.campo[CANDIDATO_NUMERO], campanhaCadastrada.getCampaignCandidateNumber().toString());
+		Assert.assertEquals(this.campo[NOME_URNA], campanhaCadastrada.getCampaignNameOfUrn());
+		Assert.assertEquals(this.campo[UF], campanhaCadastrada.getCampaignCountryState());
+		Assert.assertEquals(this.campo[DESPESA_MAX], campanhaCadastrada.getCampaignMaximumExpenseDeclared().toString());
 	}
 	
 	@Test

@@ -75,51 +75,51 @@ public class SelecionarCandidato implements Logica {
 		for(Campaign campaign : listaCampanha) {
 			
 			// Condition for receiving data from the 2002 campaign if there
-			if(campaign.getAno() == 2002) {
+			if(campaign.getCampaignYear() == 2002) {
 				this.listaReceita = 
 						this.movimentacaoControle.getListaReceitas(campaign);
 				this.listaDespesa = 
 						this.movimentacaoControle.getListaDespesas(campaign);
-				this.despesaMax2002 = campaign.getDespesaMaxDeclarada();
+				this.despesaMax2002 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
 					this.receitaCalc2002 += revenue.getValor();
 				for(Expense expense : listaDespesa)
 					this.despesaCalc2002 += expense.getValor();
 				
-				campaign.setDespesaTotalCalculada(this.despesaCalc2002);
-				campaign.setReceitaTotalCalculada(this.receitaCalc2002);
+				campaign.setCampaignTotalExpenseCalculated(this.despesaCalc2002);
+				campaign.setCampaignTotalRevenueCalculated(this.receitaCalc2002);
 			}
 			
 			// Condition for receiving data from the 2006 campaign if there
-			else if(campaign.getAno() == 2006) {
+			else if(campaign.getCampaignYear() == 2006) {
 				this.listaReceita = 
 						this.movimentacaoControle.getListaReceitas(campaign);
 				this.listaDespesa = 
 						this.movimentacaoControle.getListaDespesas(campaign);
-				this.despesaMax2006 = campaign.getDespesaMaxDeclarada();
+				this.despesaMax2006 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
 					this.receitaCalc2006 += revenue.getValor();
 				for(Expense expense : listaDespesa)
 					this.despesaCalc2006 += expense.getValor();
 
-				campaign.setDespesaTotalCalculada(this.despesaCalc2006);
-				campaign.setReceitaTotalCalculada(this.receitaCalc2006);
+				campaign.setCampaignTotalExpenseCalculated(this.despesaCalc2006);
+				campaign.setCampaignTotalRevenueCalculated(this.receitaCalc2006);
 			}
 			
 			// Condition for receiving data from the 2010 campaign if there
-			else if(campaign.getAno() == 2010) {
+			else if(campaign.getCampaignYear() == 2010) {
 				this.listaReceita = 
 						this.movimentacaoControle.getListaReceitas(campaign);
 				this.listaDespesa = 
 						this.movimentacaoControle.getListaDespesas(campaign);
-				this.despesaMax2010 = campaign.getDespesaMaxDeclarada();
+				this.despesaMax2010 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
 					this.receitaCalc2010 += revenue.getValor();
 				for(Expense expense : listaDespesa)
 					this.despesaCalc2010 += expense.getValor();
 			
-				campaign.setDespesaTotalCalculada(this.despesaCalc2010);
-				campaign.setReceitaTotalCalculada(this.receitaCalc2010);
+				campaign.setCampaignTotalExpenseCalculated(this.despesaCalc2010);
+				campaign.setCampaignTotalRevenueCalculated(this.receitaCalc2010);
 			}
 		}
 		

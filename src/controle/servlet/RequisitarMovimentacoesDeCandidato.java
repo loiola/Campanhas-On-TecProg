@@ -117,7 +117,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * Establishes what each parameter will receive
 	 */
 	private void estabeleceParametros() throws Exception {
-		this.despesaTot = formataDespesa(this.campaign.getDespesaMaxDeclarada());
+		this.despesaTot = formataDespesa(this.campaign.getCampaignMaximumExpenseDeclared());
 		this.listaReceita = this.movimentacaoControle
 				.getListaReceitas(this.campaign);
 		this.listaDespesa = this.movimentacaoControle
@@ -333,10 +333,10 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		position.setCodigo(cargo_cod);
 
 		Campaign campaign = new Campaign();
-		campaign.setNumeroCandidato(numero);
-		campaign.setAno(ano);
+		campaign.setCampaignCandidateNumber(numero);
+		campaign.setCampaignYear(ano);
 		campaign.setCampaignPosition(position);
-		campaign.setUf(uf);
+		campaign.setCampaignCountryState(uf);
 
 		return campaign;
 	}

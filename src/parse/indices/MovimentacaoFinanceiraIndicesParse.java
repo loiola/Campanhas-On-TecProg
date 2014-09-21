@@ -51,13 +51,13 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
 		
 		Campaign campaign = new Campaign();
-		campaign.setAno(ano);
+		campaign.setCampaignYear(ano);
 		
 		if(indiceValido(this.indiceCampanhaAno)) {
-			campaign.setAno(Integer.parseInt(campo[this.indiceCampanhaAno]));
+			campaign.setCampaignYear(Integer.parseInt(campo[this.indiceCampanhaAno]));
 		}
 		if(indiceValido(this.indiceCampanhaNumero)) {
-			campaign.setNumeroCandidato(Integer.parseInt(campo[this.indiceCampanhaNumero]));
+			campaign.setCampaignCandidateNumber(Integer.parseInt(campo[this.indiceCampanhaNumero]));
 		}
 		if(indiceValido(this.indiceCampanhaCargo)) {
 			Position position = new Position();
@@ -65,7 +65,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 			campaign.setCampaignPosition(position);
 		}
 		if(indiceValido(this.indiceCampanhaUf)) {
-			campaign.setUf(campo[this.indiceCampanhaUf]);
+			campaign.setCampaignCountryState(campo[this.indiceCampanhaUf]);
 		}
 		if(indiceValido(this.indiceNumeroDocumento)) {
 			financialTransaction.setNumeroDocumento(campo[this.indiceNumeroDocumento]);
