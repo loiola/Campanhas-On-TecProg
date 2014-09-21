@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.dao.DoadorDAO;
 
 import org.junit.Assert;
@@ -46,7 +46,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		this.doadorParseControle.cadastrarInstancias();
 		this.doadorParseControle.resetar();
 		
-		Doador doadorCadastrado = this.doadorDAO.getLista().get(0);
+		Donor doadorCadastrado = this.doadorDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[CPF_CNPJ], doadorCadastrado.getCpf_cnpj() );
 		Assert.assertEquals(this.campo[NOME], doadorCadastrado.getNome());

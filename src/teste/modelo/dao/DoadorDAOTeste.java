@@ -2,7 +2,7 @@ package teste.modelo.dao;
 
 import java.util.ArrayList;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.dao.DoadorDAO;
 
 import org.junit.Assert;
@@ -28,8 +28,8 @@ public class DoadorDAOTeste extends TemplateTeste {
 	@Test
 	public void valoresComparacaoParteI() throws Exception {
 		
-		Doador D1 = new Doador();
-		Doador D2 = new Doador();
+		Donor D1 = new Donor();
+		Donor D2 = new Donor();
 		D1.setCpf_cnpj("1234567");
 		D2.setCpf_cnpj("1234567");
 		int resultado;
@@ -42,11 +42,11 @@ public class DoadorDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveLancarExcecaoAoCadastrarUmDoadorInexistente() throws Exception {
 		
-		ArrayList<Doador> listaDoadores = new ArrayList<>();
+		ArrayList<Donor> listaDoadores = new ArrayList<>();
 		
-		Doador doador = new Doador();
-		doador.setNome("Nome");
-		listaDoadores.add(doador);
+		Donor donor = new Donor();
+		donor.setNome("Nome");
+		listaDoadores.add(donor);
 		
 		this.doadorDAO.cadastrarLista(listaDoadores);
 	}
@@ -54,11 +54,11 @@ public class DoadorDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarUmDoadorJaExistente() throws Exception {
 		
-		ArrayList<Doador> listaDoadores = new ArrayList<>();
+		ArrayList<Donor> listaDoadores = new ArrayList<>();
 		
-		Doador doador = new Doador();
-		doador.setNome("Nome");
-		listaDoadores.add(doador);
+		Donor donor = new Donor();
+		donor.setNome("Nome");
+		listaDoadores.add(donor);
 
 		this.doadorDAO.cadastrarLista(listaDoadores);
 		this.doadorDAO.cadastrarLista(listaDoadores);
@@ -69,21 +69,21 @@ public class DoadorDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmaListaComOsDoadoresCadastrados() throws Exception {
 		
-		ArrayList<Doador> listaDoadores = new ArrayList<>();
+		ArrayList<Donor> listaDoadores = new ArrayList<>();
 		
-		Doador doador = new Doador();
-		doador.setNome("Nome");
-		doador.setCpf_cnpj("123");
-		doador.setSituacaoCadastral("Cadastrado");
-		doador.setUf("DF");
-		listaDoadores.add(doador);
+		Donor donor = new Donor();
+		donor.setNome("Nome");
+		donor.setCpf_cnpj("123");
+		donor.setSituacaoCadastral("Cadastrado");
+		donor.setUf("DF");
+		listaDoadores.add(donor);
 		
-		doador = new Doador();
-		doador.setNome("Nome2");
-		doador.setCpf_cnpj("1234");
-		doador.setSituacaoCadastral("Cadastrado");
-		doador.setUf("DF");
-		listaDoadores.add(doador);
+		donor = new Donor();
+		donor.setNome("Nome2");
+		donor.setCpf_cnpj("1234");
+		donor.setSituacaoCadastral("Cadastrado");
+		donor.setUf("DF");
+		listaDoadores.add(donor);
 
 		this.doadorDAO.cadastrarLista(listaDoadores);
 		Assert.assertEquals(listaDoadores, this.doadorDAO.getLista());
@@ -92,17 +92,17 @@ public class DoadorDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmDoadorPeloNomeOuCpfCnpj() throws Exception {
 		
-		ArrayList<Doador> listaDoadoresACadastrar = new ArrayList<>();
-		Doador doadorRecuperado;
+		ArrayList<Donor> listaDoadoresACadastrar = new ArrayList<>();
+		Donor doadorRecuperado;
 		
-		Doador doador1 = new Doador();
+		Donor doador1 = new Donor();
 		doador1.setNome("nome");
 		doador1.setCpf_cnpj("123456");
 		doador1.setSituacaoCadastral("REGULAR");
 		doador1.setUf("DF");
 		listaDoadoresACadastrar.add(doador1);
 		
-		Doador doador2 = new Doador();
+		Donor doador2 = new Donor();
 		doador2.setNome("nome2");
 		doador2.setCpf_cnpj("12345678");
 		doador2.setSituacaoCadastral("IRREGULAR");

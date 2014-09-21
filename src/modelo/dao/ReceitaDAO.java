@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import modelo.beans.Campaign;
 import modelo.beans.Position;
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.beans.Receita;
 import parse.ParseDAO;
 
@@ -113,16 +113,16 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			campaign.setCargo(position);
 			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
 
-			Doador doador = new Doador();
-			doador.setNome(resultadoSQL.getString(NOME_DOADOR));
-			doador.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
+			Donor donor = new Donor();
+			donor.setNome(resultadoSQL.getString(NOME_DOADOR));
+			donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
 
 			Receita receita = new Receita();
 			receita.setId(resultadoSQL.getInt(ID));
 			receita.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 			receita.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
 			receita.setCampanha(campaign);
-			receita.setDoador(doador);
+			receita.setDoador(donor);
 			receita.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
 			receita.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
 			receita.setData(resultadoSQL.getString(DATA));
@@ -189,10 +189,10 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 				campaign.setCargo(position);
 				receita.setCampanha(campaign);
 				
-				Doador doador = new Doador();
-				doador.setNome(resultadoSQL.getString(NOME_DOADOR));
-				doador.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
-				receita.setDoador(doador);
+				Donor donor = new Donor();
+				donor.setNome(resultadoSQL.getString(NOME_DOADOR));
+				donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
+				receita.setDoador(donor);
 
 				receita.setData(resultadoSQL.getString(DATA));
 				receita.setDescricao(resultadoSQL.getString(DESCRICAO));

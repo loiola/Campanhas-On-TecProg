@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Doador {
+public class Donor {
 	
 	/*
-	 * Model Class Doador.java
+	 * Model Class Donor.java
 	 * This class is responsable for getting the Donor's informations
 	 */
 	 
@@ -17,7 +17,7 @@ public class Doador {
 	private String situacaoCadastral;
 	
 	// Empty Constructor
-	public Doador() {
+	public Donor() {
 		this.cpf_cnpj = STRING_VAZIO;
 		this.nome = STRING_VAZIO;
 		this.uf = STRING_VAZIO;
@@ -59,10 +59,10 @@ public class Doador {
 	
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Doador))
+		if( !(object instanceof Donor))
 			return false;
 		
-		Doador outroDoador = (Doador) object;
+		Donor outroDoador = (Donor) object;
 		return this.getNome().equalsIgnoreCase(outroDoador.getNome()) &&
 			   this.getCpf_cnpj().equalsIgnoreCase(outroDoador.getCpf_cnpj());
 	}

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import modelo.beans.Campaign;
 import modelo.beans.Position;
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.beans.Receita;
 import modelo.dao.ReceitaDAO;
 
@@ -19,10 +19,10 @@ public class ReceitaDAOTeste extends TemplateTeste {
 	private Receita receita1;
 	private Receita receita2;
 	private Campaign campanha1;
-	private Doador doador1;
+	private Donor doador1;
 	private Position cargo1;
 	private Campaign campanha2;
-	private Doador doador2;
+	private Donor doador2;
 	private Position cargo2;
 
 	@Override
@@ -30,12 +30,12 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		
 		this.receitaDAO = new ReceitaDAO();
 		this.campanha1 = new Campaign();
-		this.doador1 = new Doador();
+		this.doador1 = new Donor();
 		this.cargo1 = new Position();
 		this.receita1 = new Receita();
 		this.receita2 = new Receita();
 		this.campanha2 = new Campaign();
-		this.doador2 = new Doador();
+		this.doador2 = new Donor();
 		this.cargo2 = new Position();
 	}
 

@@ -6,11 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.beans.Fornecedor;
 import parse.ParseDAO;
 
-public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
+public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 
 	/*
 	 * Class for manipulating the data about donor
@@ -36,9 +36,9 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 	/*
 	 * Comparator to check if two instances are equal donor through CNPJ
 	 */
-	public enum Comparacao implements Comparator<Doador> {
+	public enum Comparacao implements Comparator<Donor> {
 		NOME {
-			public int compare(Doador d1, Doador d2) {
+			public int compare(Donor d1, Donor d2) {
 				return d1.getCpf_cnpj().compareToIgnoreCase(d2.getCpf_cnpj());
 			}
 		}
@@ -68,13 +68,13 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Doador> lista,
+	protected void adicionarListaNoBatch(ArrayList<Donor> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Doador doador : lista) {
-			instrucaoSQL.setString(1, doador.getCpf_cnpj());
-			instrucaoSQL.setString(2, doador.getNome());
-			instrucaoSQL.setString(3, doador.getUf());
-			instrucaoSQL.setString(4, doador.getSituacaoCadastral());
+		for(Donor donor : lista) {
+			instrucaoSQL.setString(1, donor.getCpf_cnpj());
+			instrucaoSQL.setString(2, donor.getNome());
+			instrucaoSQL.setString(3, donor.getUf());
+			instrucaoSQL.setString(4, donor.getSituacaoCadastral());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -85,16 +85,16 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Doador> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Donor> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Doador doador = new Doador();
-			doador.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
-			doador.setNome(resultadoSQL.getString(NOME));
-			doador.setUf(resultadoSQL.getString(UF));
-			doador.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
+			Donor donor = new Donor();
+			donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
+			donor.setNome(resultadoSQL.getString(NOME));
+			donor.setUf(resultadoSQL.getString(UF));
+			donor.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
 			
-			lista.add(doador);
+			lista.add(donor);
 		}
 	}
 
@@ -103,9 +103,9 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Donor>
 	 */
-	public ArrayList<Doador> buscaBD(String SQL) throws SQLException {
+	public ArrayList<Donor> buscaBD(String SQL) throws SQLException {
 
-		ArrayList<Doador> listaDoador = new ArrayList<>();
+		ArrayList<Donor> listaDoador = new ArrayList<>();
 		
 		try {
 			this.conexao = new ConexaoBancoDados().getConexao();
@@ -115,14 +115,14 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
 			while(resultadoSQL.next()) {
-				Doador doador = new Doador();
-				doador.setNome(resultadoSQL.getString(NOME));
-				doador.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
-				doador.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
-				doador.setUf(resultadoSQL.getString(UF));
+				Donor donor = new Donor();
+				donor.setNome(resultadoSQL.getString(NOME));
+				donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
+				donor.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
+				donor.setUf(resultadoSQL.getString(UF));
 
-				if(doador != null) {
-					listaDoador.add(doador);
+				if(donor != null) {
+					listaDoador.add(donor);
 				}
 			}
 		} catch(SQLException e) {
@@ -138,15 +138,15 @@ public class DoadorDAO extends BasicoDAO<Doador> implements ParseDAO<Doador> {
 	 * @param an instance of Class Donor
 	 * @return an instance of Class Donor
 	 */
-	public Doador getPeloNomeOuCpfCnpj(Doador doador) throws Exception {
+	public Donor getPeloNomeOuCpfCnpj(Donor donor) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
-		if(!doador.getNome().equals(Fornecedor.STRING_VAZIO)) {
+		if(!donor.getNome().equals(Fornecedor.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + NOME + " = " 
-		  + doador.getNome();
+		  + donor.getNome();
 		}
-		else if(!doador.getCpf_cnpj().equals(Fornecedor.STRING_VAZIO)) {
+		else if(!donor.getCpf_cnpj().equals(Fornecedor.STRING_VAZIO)) {
 			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
-		  + doador.getCpf_cnpj();
+		  + donor.getCpf_cnpj();
 		} else {
 			throw new Exception();
 		}

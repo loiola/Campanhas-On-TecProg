@@ -1,17 +1,17 @@
 package parse.controle;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.dao.DoadorDAO;
 import parse.indices.IndicesParse;
 
-public class DoadorParseControle extends ParseControle<Doador> {
+public class DoadorParseControle extends ParseControle<Donor> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Donor
 	 */
 
 	// Constructors
-	public DoadorParseControle(IndicesParse<Doador> indicesParse) {
+	public DoadorParseControle(IndicesParse<Donor> indicesParse) {
 		super(indicesParse, new DoadorDAO());
 	}
 
@@ -20,9 +20,9 @@ public class DoadorParseControle extends ParseControle<Doador> {
 	 * @return an instance of Class Donor
 	 */
 	@Override
-	public Doador novaInstancia() {
-		Doador doador = new Doador();
-		return doador;
+	public Donor novaInstancia() {
+		Donor donor = new Donor();
+		return donor;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class DoadorParseControle extends ParseControle<Doador> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Doador objetoUm, Doador objetoDois) {
+	public boolean iguais(Donor objetoUm, Donor objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}	
 	

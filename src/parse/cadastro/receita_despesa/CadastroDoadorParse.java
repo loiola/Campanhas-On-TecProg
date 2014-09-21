@@ -1,13 +1,13 @@
 package parse.cadastro.receita_despesa;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import parse.ParseException;
 import parse.controle.DoadorParseControle;
 import parse.controle.ParseControle;
 import parse.indices.DoadorIndicesParse;
 import parse.indices.IndicesParse;
 
-public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Doador> {
+public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Donor> {
 
 	public CadastroDoadorParse(String tipoArquivo, String ano)
 			throws ParseException {
@@ -16,7 +16,7 @@ public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Doador> {
 	}
 
 	@Override
-	public ParseControle<Doador> novaInstancia(IndicesParse<Doador> indicesParse) {
+	public ParseControle<Donor> novaInstancia(IndicesParse<Donor> indicesParse) {
 		DoadorParseControle doadorParseControle = new DoadorParseControle(indicesParse);
 		return doadorParseControle;
 	}
@@ -49,17 +49,17 @@ public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Doador> {
 	}
 
 	@Override
-	protected IndicesParse<Doador> getIndicesParseDespesa2002() {
+	protected IndicesParse<Donor> getIndicesParseDespesa2002() {
 		return new DoadorIndicesParse();
 	}
 
 	@Override
-	protected IndicesParse<Doador> getIndicesParseDespesa2006() {
+	protected IndicesParse<Donor> getIndicesParseDespesa2006() {
 		return new DoadorIndicesParse();
 	}
 
 	@Override
-	protected IndicesParse<Doador> getIndicesParseDespesa2010() {
+	protected IndicesParse<Donor> getIndicesParseDespesa2010() {
 		return new DoadorIndicesParse();
 	}
 

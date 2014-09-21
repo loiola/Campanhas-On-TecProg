@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,24 +26,24 @@ public class DoadorIndicesParseTeste {
 	@Test
 	public void iniciarUmDoadorComIndicesValidos() throws Exception {
 		
-		Doador doador = new Doador();
-		this.doadorIndicesParse.iniciarInstancia(doador, campo);
-		Assert.assertEquals(this.campo[0], doador.getCpf_cnpj().toString());
-		Assert.assertEquals(this.campo[1], doador.getNome());
-		Assert.assertEquals(this.campo[2], doador.getUf());
-		Assert.assertEquals(this.campo[3], doador.getSituacaoCadastral());
+		Donor donor = new Donor();
+		this.doadorIndicesParse.iniciarInstancia(donor, campo);
+		Assert.assertEquals(this.campo[0], donor.getCpf_cnpj().toString());
+		Assert.assertEquals(this.campo[1], donor.getNome());
+		Assert.assertEquals(this.campo[2], donor.getUf());
+		Assert.assertEquals(this.campo[3], donor.getSituacaoCadastral());
 	}
 	
 	@Test
 	public void iniciarUmDoadorComIndicesInvalidos() {
 		
 		this.doadorIndicesParse = new DoadorIndicesParse();
-		Doador doador = new Doador();
-		this.doadorIndicesParse.iniciarInstancia(doador, campo);
-		Assert.assertNotEquals(this.campo[0], doador.getCpf_cnpj().toString());
-		Assert.assertNotEquals(this.campo[1], doador.getNome());
-		Assert.assertNotEquals(this.campo[2], doador.getUf());
-		Assert.assertNotEquals(this.campo[3], doador.getSituacaoCadastral());
+		Donor donor = new Donor();
+		this.doadorIndicesParse.iniciarInstancia(donor, campo);
+		Assert.assertNotEquals(this.campo[0], donor.getCpf_cnpj().toString());
+		Assert.assertNotEquals(this.campo[1], donor.getNome());
+		Assert.assertNotEquals(this.campo[2], donor.getUf());
+		Assert.assertNotEquals(this.campo[3], donor.getSituacaoCadastral());
 	}
 	
 	private void iniciarIndices() {

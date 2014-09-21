@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.beans.Receita;
 
 public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Receita> {
@@ -32,17 +32,17 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 	protected void setIndicesValidos(Receita receita, String[] campo) {
 		super.setIndicesValidos(receita, campo);
 		
-		Doador doador = new Doador();
+		Donor donor = new Donor();
 		if(indiceValido(this.indiceReciboEleitoral)) {
 			receita.setReciboEleitoral(campo[this.indiceReciboEleitoral]);
 		}
 		if(indiceValido(this.indiceDoadorNome)) {
-			doador.setNome(campo[this.indiceDoadorNome]);
+			donor.setNome(campo[this.indiceDoadorNome]);
 		}
 		if(indiceValido(this.indiceDoadorCpfCnpj)) {
-			doador.setCpf_cnpj(campo[this.indiceDoadorCpfCnpj]);
+			donor.setCpf_cnpj(campo[this.indiceDoadorCpfCnpj]);
 		}
-		receita.setDoador(doador);
+		receita.setDoador(donor);
 
 	}
 	
@@ -55,7 +55,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 		super.setVazioEmTodosOsSetters(receita);
 
 		receita.setReciboEleitoral(Receita.STRING_VAZIO);
-		receita.setDoador((Doador)Receita.OBJETO_VAZIO);
+		receita.setDoador((Donor)Receita.OBJETO_VAZIO);
 		
 	}
 

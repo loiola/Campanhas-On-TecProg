@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.dao.DoadorDAO;
 
 import org.junit.Test;
@@ -50,7 +50,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Doador> listaDoadores = doadorDAO.getLista();
+		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
 		assertEquals(listaDoadores.get(0).getCpf_cnpj(), "123");
 	}
 	
@@ -64,7 +64,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Doador> listaDoadores = doadorDAO.getLista();
+		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
 		assertEquals(listaDoadores.get(0).getCpf_cnpj(), "12345");
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Doador> listaDoadores = doadorDAO.getLista();
+		ArrayList<Donor> listaDoadores = doadorDAO.getLista();
 		assertEquals(listaDoadores.get(0).getCpf_cnpj(), "12345");
 	}
 

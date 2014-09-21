@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 
-public class DoadorIndicesParse extends IndicesParse<Doador> {
+public class DoadorIndicesParse extends IndicesParse<Donor> {
 	
 	/*
 	 * Class to control the contents of information inherent to the donors
@@ -32,18 +32,18 @@ public class DoadorIndicesParse extends IndicesParse<Doador> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Doador doador, String[] campo) {
+	protected void setIndicesValidos(Donor donor, String[] campo) {
 		if(indiceValido(this.indiceCpf_Cnpj)) {
-			doador.setCpf_cnpj(campo[this.indiceCpf_Cnpj]);
+			donor.setCpf_cnpj(campo[this.indiceCpf_Cnpj]);
 		}
 		if(indiceValido(this.indiceNome)) {
-			doador.setNome(campo[this.indiceNome]);
+			donor.setNome(campo[this.indiceNome]);
 		}
 		if(indiceValido(this.indiceUf)) {
-			doador.setUf(campo[this.indiceUf]);
+			donor.setUf(campo[this.indiceUf]);
 		}
 		if(indiceValido(this.indiceSituacaoCadastral)) {
-			doador.setSituacaoCadastral(campo[this.indiceSituacaoCadastral]);
+			donor.setSituacaoCadastral(campo[this.indiceSituacaoCadastral]);
 		}
 	}
 
@@ -52,11 +52,11 @@ public class DoadorIndicesParse extends IndicesParse<Doador> {
 	 * @param an instance of Class Donor
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Doador doador) {
-		doador.setCpf_cnpj(Doador.STRING_VAZIO);
-		doador.setNome(Doador.STRING_VAZIO);
-		doador.setUf(Doador.STRING_VAZIO);
-		doador.setSituacaoCadastral(Doador.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Donor donor) {
+		donor.setCpf_cnpj(Donor.STRING_VAZIO);
+		donor.setNome(Donor.STRING_VAZIO);
+		donor.setUf(Donor.STRING_VAZIO);
+		donor.setSituacaoCadastral(Donor.STRING_VAZIO);
 	}
 
 	// Mutators for indexes of the array of fields

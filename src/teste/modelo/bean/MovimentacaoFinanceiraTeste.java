@@ -9,7 +9,7 @@ import static teste.modelo.bean.BeanTeste.instanciarMovimentacaoFinanceira;
 import static teste.modelo.bean.BeanTeste.instanciarReceita;
 import modelo.beans.Campaign;
 import modelo.beans.Expense;
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.beans.Fornecedor;
 import modelo.beans.MovimentacaoFinanceira;
 import modelo.beans.Receita;
@@ -57,7 +57,7 @@ public class MovimentacaoFinanceiraTeste {
 	
 	@Test
 	public void equalsDeveRetornarFalsoParaOutrosCasos() {
-		Doador doador2 = instanciarDoador();
+		Donor doador2 = instanciarDoador();
 		doador2.setCpf_cnpj(BeanTeste.STRING_TESTE_2);
 		
 		Fornecedor fornecedor2 = instanciarFornecedor();

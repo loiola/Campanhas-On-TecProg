@@ -8,17 +8,17 @@ public class Receita extends MovimentacaoFinanceira {
 	 */
 	 
 	// Constants 
-	public static final Doador DOADOR_VAZIO = new Doador();
+	public static final Donor DOADOR_VAZIO = new Donor();
 	
 	// Attributes
 	private String reciboEleitoral;
-	private Doador doador;
+	private Donor donor;
 	
 	// Empty Constructor
 	public Receita() {
 		super();
 		this.reciboEleitoral = STRING_VAZIO;
-		this.doador = DOADOR_VAZIO;
+		this.donor = DOADOR_VAZIO;
 	}
 	
 	// Getters and Setters
@@ -30,12 +30,12 @@ public class Receita extends MovimentacaoFinanceira {
 		this.reciboEleitoral = reciboEleitoral;
 	}
 	
-	public Doador getDoador() {
-		return doador;
+	public Donor getDoador() {
+		return donor;
 	}
 	
-	public void setDoador(Doador doador) {
-		this.doador = doador;
+	public void setDoador(Donor donor) {
+		this.donor = donor;
 	}
 	
 }

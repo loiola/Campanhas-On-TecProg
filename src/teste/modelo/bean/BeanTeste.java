@@ -4,7 +4,7 @@ import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
 import modelo.beans.Expense;
-import modelo.beans.Doador;
+import modelo.beans.Donor;
 import modelo.beans.Fornecedor;
 import modelo.beans.MovimentacaoFinanceira;
 import modelo.beans.Partido;
@@ -77,15 +77,15 @@ public class BeanTeste {
 		return expense;
 	}
 	
-	public static Doador instanciarDoador() {
+	public static Donor instanciarDoador() {
 		
-		Doador doador = new Doador();
-		doador.setCpf_cnpj(STRING_TESTE);
-		doador.setNome(STRING_TESTE);
-		doador.setSituacaoCadastral(STRING_TESTE);
-		doador.setUf(STRING_TESTE);
+		Donor donor = new Donor();
+		donor.setCpf_cnpj(STRING_TESTE);
+		donor.setNome(STRING_TESTE);
+		donor.setSituacaoCadastral(STRING_TESTE);
+		donor.setUf(STRING_TESTE);
 		
-		return doador;		
+		return donor;		
 	}
 	
 	public static Fornecedor instanciarFornecedor() {
