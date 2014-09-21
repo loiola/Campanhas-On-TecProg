@@ -7,7 +7,7 @@ import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
 import modelo.beans.Party;
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import modelo.dao.CampanhaDAO;
 import modelo.dao.CandidatoDAO;
 
@@ -20,11 +20,11 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	
 	private CampanhaDAO campanhaDAO;
 	private CandidatoDAO candidatoDAO;
-	private Resultado resultado1;
+	private Result resultado1;
 	private Position position;
 	private Party partido1;
 	private Candidate candidato1;
-	private Resultado resultado2;
+	private Result resultado2;
 	private Party partido2;
 	private Candidate candidato2;
 	private ArrayList<Campaign> listaCampanhas;
@@ -34,11 +34,11 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		
 		this.campanhaDAO = new CampanhaDAO();
 		this.candidatoDAO = new CandidatoDAO();
-		this.resultado1 = new Resultado();
+		this.resultado1 = new Result();
 		this.position = new Position();
 		this.partido1 = new Party();
 		this.candidato1 = new Candidate();
-		this.resultado2 = new Resultado();
+		this.resultado2 = new Result();
 		this.partido2 = new Party();
 		this.candidato2 = new Candidate();
 		this.listaCampanhas = new ArrayList<>();

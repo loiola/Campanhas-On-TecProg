@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,20 +26,20 @@ public class ResultadoIndicesParseTeste {
 	@Test
 	public void iniciarUmResultadoComIndicesValidos() throws Exception {
 		
-		Resultado resultado = new Resultado();
-		this.resultadoIndicesParse.iniciarInstancia(resultado, campo);
-		Assert.assertEquals(this.campo[0], resultado.getCodigo().toString());
-		Assert.assertEquals(this.campo[1], resultado.getDescricao());
+		Result result = new Result();
+		this.resultadoIndicesParse.iniciarInstancia(result, campo);
+		Assert.assertEquals(this.campo[0], result.getCodigo().toString());
+		Assert.assertEquals(this.campo[1], result.getDescricao());
 	}
 	
 	@Test
 	public void iniciarUmResultadoComIndicesInvalidos() throws Exception {
 		
 		this.resultadoIndicesParse = new ResultadoIndicesParse();
-		Resultado resultado = new Resultado();
-		this.resultadoIndicesParse.iniciarInstancia(resultado, campo);
-		Assert.assertNotEquals(this.campo[0], resultado.getCodigo().toString());
-		Assert.assertNotEquals(this.campo[1], resultado.getDescricao());
+		Result result = new Result();
+		this.resultadoIndicesParse.iniciarInstancia(result, campo);
+		Assert.assertNotEquals(this.campo[0], result.getCodigo().toString());
+		Assert.assertNotEquals(this.campo[1], result.getDescricao());
 	}
 	
 	private void iniciarIndices() {

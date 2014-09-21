@@ -7,7 +7,7 @@ import static teste.modelo.bean.BeanTeste.instanciarPartido;
 import static teste.modelo.bean.BeanTeste.instanciarResultado;
 import modelo.beans.Campaign;
 import modelo.beans.Position;
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -46,11 +46,11 @@ public class CampanhaTeste {
 	public void equalsDeveRetornarFalsoSeNaoCompararComCampanha() {
 		
 		Campaign campaign = instanciarCampanha();
-		Resultado resultado = instanciarResultado();
+		Result result = instanciarResultado();
 		
-		Assert.assertFalse(campaign.equals(resultado));
-		Assert.assertFalse(resultado.equals(campaign));
-		Assert.assertEquals(resultado,campaign.getResultado());
+		Assert.assertFalse(campaign.equals(result));
+		Assert.assertFalse(result.equals(campaign));
+		Assert.assertEquals(result,campaign.getResultado());
 		Assert.assertEquals(BeanTeste.INT_TESTE,campaign.getId());
 		Assert.assertEquals(instanciarPartido(),campaign.getPartido());
 		Assert.assertEquals(instanciarCandidato(),campaign.getCandidato());
@@ -58,7 +58,7 @@ public class CampanhaTeste {
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getDespesaMaxDeclarada(),0);
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getDespesaTotalCalculada(),0);
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getReceitaTotalCalculada(),0);
-		Assert.assertEquals(BeanTeste.INT_TESTE,resultado.getCodigo());
+		Assert.assertEquals(BeanTeste.INT_TESTE,result.getCodigo());
 	}
 	
 }

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import modelo.dao.ResultadoDAO;
 
 import org.junit.Test;
@@ -37,12 +37,12 @@ public class CadastroResultadoParseTeste extends TemplateTeste {
 		
 		String campo[] = new String[50];
 		campo[40] = "25";
-		campo[41] = "Resultado 25";
+		campo[41] = "Result 25";
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Resultado resultado = dao.getPeloCod(25);
-		assertEquals(resultado.getDescricao(), "Resultado 25");
+		Result result = dao.getPeloCod(25);
+		assertEquals(result.getDescricao(), "Result 25");
 	}
 
 }

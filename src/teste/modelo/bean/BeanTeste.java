@@ -9,7 +9,7 @@ import modelo.beans.Supplier;
 import modelo.beans.FinancialTransaction;
 import modelo.beans.Party;
 import modelo.beans.Revenue;
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 
 public class BeanTeste {
 	
@@ -142,13 +142,13 @@ public class BeanTeste {
 		return revenue;
 	}
 	
-	public static Resultado instanciarResultado() {
+	public static Result instanciarResultado() {
 		
-		Resultado resultado = new Resultado();
-		resultado.setCodigo(INT_TESTE);
-		resultado.setDescricao(STRING_TESTE);
+		Result result = new Result();
+		result.setCodigo(INT_TESTE);
+		result.setDescricao(STRING_TESTE);
 		
-		return resultado;
+		return result;
 	}
 	
 }

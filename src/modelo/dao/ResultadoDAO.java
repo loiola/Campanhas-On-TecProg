@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import parse.ParseDAO;
 
-public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resultado> {
+public class ResultadoDAO extends BasicoDAO<Result> implements ParseDAO<Result> {
 
 	/*
 	 * Class for manipulating the data about political result
@@ -33,10 +33,10 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 	/*
 	 * Comparator to check if two instances are equal result through Title code
 	 */
-	public enum Comparacao implements Comparator<Resultado> {
+	public enum Comparacao implements Comparator<Result> {
 		CODIGO {
 			@Override
-			public int compare(Resultado r1, Resultado r2) {
+			public int compare(Result r1, Result r2) {
 				return r1.getCodigo().compareTo(r2.getCodigo());
 			}
 		};
@@ -66,11 +66,11 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Resultado> lista,
+	protected void adicionarListaNoBatch(ArrayList<Result> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Resultado resultado : lista) {
-			instrucaoSQL.setInt(1, resultado.getCodigo());
-			instrucaoSQL.setString(2, resultado.getDescricao());
+		for(Result result : lista) {
+			instrucaoSQL.setInt(1, result.getCodigo());
+			instrucaoSQL.setString(2, result.getDescricao());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -81,13 +81,13 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Resultado> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Result> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Resultado resultado = new Resultado();
-			resultado.setCodigo(resultadoSQL.getInt(CODIGO));
-			resultado.setDescricao(resultadoSQL.getString(DESCRICAO));
-			lista.add(resultado);
+			Result result = new Result();
+			result.setCodigo(resultadoSQL.getInt(CODIGO));
+			result.setDescricao(resultadoSQL.getString(DESCRICAO));
+			lista.add(result);
 		}
 	}
 
@@ -96,8 +96,8 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 	 * @param an Integer representing a code
 	 * @return an instance of Class Result
 	 */
-	public Resultado getPeloCod(Integer codigo) throws SQLException {
-		Resultado resultado = new Resultado();
+	public Result getPeloCod(Integer codigo) throws SQLException {
+		Result result = new Result();
 		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+ codigo +" ";
 		try {
 			this.conexao = new ConexaoBancoDados().getConexao();
@@ -107,8 +107,8 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 			
 			while(resultadoSQL.next()) {
-				resultado.setCodigo(resultadoSQL.getInt(CODIGO));
-				resultado.setDescricao(resultadoSQL.getString(DESCRICAO));
+				result.setCodigo(resultadoSQL.getInt(CODIGO));
+				result.setDescricao(resultadoSQL.getString(DESCRICAO));
 			}
 
 		} catch(SQLException e) {
@@ -116,6 +116,6 @@ public class ResultadoDAO extends BasicoDAO<Resultado> implements ParseDAO<Resul
 		} finally {
 			fecharConexao();
 		}
-		return resultado;
+		return result;
 	}
 }

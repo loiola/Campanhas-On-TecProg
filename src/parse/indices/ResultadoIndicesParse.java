@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 
-public class ResultadoIndicesParse extends IndicesParse<Resultado> {
+public class ResultadoIndicesParse extends IndicesParse<Result> {
 	
 	/*
 	 * Class to control the contents of information inherent to the results
@@ -24,12 +24,12 @@ public class ResultadoIndicesParse extends IndicesParse<Resultado> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Resultado resultado, String[] campo) {
+	protected void setIndicesValidos(Result result, String[] campo) {
 		if (indiceValido(this.indiceCodigo)) {
-			resultado.setCodigo(Integer.parseInt(campo[this.indiceCodigo]));
+			result.setCodigo(Integer.parseInt(campo[this.indiceCodigo]));
 		}
 		if (indiceValido(this.indiceDescricao)) {
-			resultado.setDescricao(campo[this.indiceDescricao]);
+			result.setDescricao(campo[this.indiceDescricao]);
 		}	
 	}
 
@@ -38,9 +38,9 @@ public class ResultadoIndicesParse extends IndicesParse<Resultado> {
 	 * @param an instance of Class Result
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Resultado resultado) {
-		resultado.setCodigo(Resultado.INTEGER_VAZIO);
-		resultado.setDescricao(Resultado.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Result result) {
+		result.setCodigo(Result.INTEGER_VAZIO);
+		result.setDescricao(Result.STRING_VAZIO);
 	}
 
 	// Mutators for indexes of the array of fields

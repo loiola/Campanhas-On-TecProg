@@ -10,7 +10,7 @@ public class Campaign {
 	// Constants
 	public static final String STRING_VAZIO = "";
 	public static final Integer INTEGER_VAZIO = 0;
-	public static final Resultado RESULTADO_VAZIO = new Resultado();
+	public static final Result RESULTADO_VAZIO = new Result();
 	public static final Party PARTIDO_VAZIO = new Party();
 	public static final Position CARGO_VAZIO = new Position();
 	public static final Candidate CANDIDATO_VAZIO = new Candidate(); 
@@ -18,7 +18,7 @@ public class Campaign {
 	
 	// Attributes
 	private Integer id;
-	private Resultado resultado;
+	private Result result;
 	private Position position;
 	private Party party;
 	private Candidate candidate;
@@ -33,7 +33,7 @@ public class Campaign {
 	// Empty constructor
 	public Campaign() {
 		this.id = INTEGER_VAZIO;
-		this.resultado = RESULTADO_VAZIO;
+		this.result = RESULTADO_VAZIO;
 		this.position = CARGO_VAZIO;
 		this.party = PARTIDO_VAZIO;
 		this.candidate = CANDIDATO_VAZIO;
@@ -55,12 +55,12 @@ public class Campaign {
 		this.id = id;
 	}
 
-	public Resultado getResultado() {
-		return resultado;
+	public Result getResultado() {
+		return result;
 	}
 
-	public void setResultado(Resultado resultado) {
-		this.resultado = resultado;
+	public void setResultado(Result result) {
+		this.result = result;
 	}
 
 	public Position getCargo() {

@@ -4,7 +4,7 @@ import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
 import modelo.beans.Party;
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 
 public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 
@@ -45,9 +45,9 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 	@Override
 	protected void setIndicesValidos(Campaign campaign, String[] campo) {
 		if (indiceValido(this.indiceResultadoCod)) {
-			Resultado resultado = new Resultado();
-			resultado.setCodigo(Integer.parseInt(campo[this.indiceResultadoCod]));
-			campaign.setResultado(resultado);
+			Result result = new Result();
+			result.setCodigo(Integer.parseInt(campo[this.indiceResultadoCod]));
+			campaign.setResultado(result);
 		}
 		if (indiceValido(this.indiceCargoCod)) {
 			Position position = new Position();

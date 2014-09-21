@@ -1,6 +1,6 @@
 package parse.cadastro.campanha;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
 import parse.controle.ParseControle;
@@ -8,7 +8,7 @@ import parse.controle.ResultadoParseControle;
 import parse.indices.IndicesParse;
 import parse.indices.ResultadoIndicesParse;
 
-public class CadastroResultadoParse extends CadastroParse<Resultado>{
+public class CadastroResultadoParse extends CadastroParse<Result>{
 	
 	/* 
 	 * Class used to extract Result attributes and forward the register to the Database
@@ -35,8 +35,8 @@ public class CadastroResultadoParse extends CadastroParse<Resultado>{
 	 * @return a ParseResultControl
 	 */
 	@Override
-	public ParseControle<Resultado> novaInstancia(
-			IndicesParse<Resultado> indicesParse) {
+	public ParseControle<Result> novaInstancia(
+			IndicesParse<Result> indicesParse) {
 		ResultadoParseControle resultadoParseControle = new ResultadoParseControle(indicesParse);
 		return resultadoParseControle;
 	}
@@ -47,7 +47,7 @@ public class CadastroResultadoParse extends CadastroParse<Resultado>{
 	 * @return a ParseResultIndex
 	 */
 	@Override
-	protected IndicesParse<Resultado> getIndicesParse(String tipoArquivo,
+	protected IndicesParse<Result> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		ResultadoIndicesParse resultadoIndicesParse;

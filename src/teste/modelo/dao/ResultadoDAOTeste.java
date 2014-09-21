@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import modelo.dao.ResultadoDAO;
 
 import org.junit.Assert;
@@ -29,21 +29,21 @@ public class ResultadoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmResultadoPeloCodigo() throws SQLException {
 		
-		ArrayList<Resultado> lista = new ArrayList<>();
+		ArrayList<Result> lista = new ArrayList<>();
 		
-		Resultado r1 = new Resultado();
+		Result r1 = new Result();
 		r1.setCodigo(1);
-		r1.setDescricao("Resultado 1");
+		r1.setDescricao("Result 1");
 		lista.add(r1);
 		
-		Resultado r2 = new Resultado();
+		Result r2 = new Result();
 		r2.setCodigo(2);
-		r2.setDescricao("Resultado 2");
+		r2.setDescricao("Result 2");
 		lista.add(r2);
 		
 		this.dao.cadastrarLista(lista);
 			
-		Resultado r3 = new Resultado();
+		Result r3 = new Result();
 		r3 = this.dao.getPeloCod(1);
 		Assert.assertEquals(r1, r3);
 	}
@@ -51,21 +51,21 @@ public class ResultadoDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveAcharResultado() throws SQLException {
 		
-		ArrayList<Resultado> lista = new ArrayList<>();
+		ArrayList<Result> lista = new ArrayList<>();
 		
-		Resultado r1 = new Resultado();
+		Result r1 = new Result();
 		r1.setCodigo(1);
-		r1.setDescricao("Resultado 1");
+		r1.setDescricao("Result 1");
 		lista.add(r1);
 		
-		Resultado r2 = new Resultado();
+		Result r2 = new Result();
 		r2.setCodigo(2);
-		r2.setDescricao("Resultado 2");
+		r2.setDescricao("Result 2");
 		lista.add(r2);
 		
 		this.dao.cadastrarLista(lista);
 			
-		Resultado r3 = new Resultado();
+		Result r3 = new Result();
 		r3 = this.dao.getPeloCod(5);
 		Assert.assertNotEquals(r1, r3);
 	}
@@ -73,8 +73,8 @@ public class ResultadoDAOTeste extends TemplateTeste {
 	@Test
 	public void valoresComparacao() throws Exception {
 		
-		Resultado r1 = new Resultado();
-		Resultado r2 = new Resultado();
+		Result r1 = new Result();
+		Result r2 = new Result();
 		r1.setCodigo(1);
 		r2.setCodigo(2);
 		int resultado;

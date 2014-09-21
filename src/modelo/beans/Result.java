@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Resultado {
+public class Result {
 
 	/*
-	 * Class Resultado.java
+	 * Class Result.java
 	 * This class is responsable for getting the Result's informations
 	 */
 	
@@ -16,7 +16,7 @@ public class Resultado {
 	private String  descricao;
 	
 	// Empty constructor
-	public Resultado() {
+	public Result() {
 		this.codigo = INTEGER_VAZIO;
 		this.descricao = STRING_VAZIO;
 	}
@@ -37,10 +37,10 @@ public class Resultado {
 	
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Resultado))
+		if( !(object instanceof Result))
 			return false;
 		
-		Resultado outroResultado = (Resultado) object;
+		Result outroResultado = (Result) object;
 		return this.descricao.equalsIgnoreCase(outroResultado.getDescricao());
 	}
 }

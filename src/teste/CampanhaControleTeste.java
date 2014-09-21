@@ -7,7 +7,7 @@ import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
 import modelo.beans.Party;
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import modelo.dao.CampanhaDAO;
 import modelo.dao.CandidatoDAO;
 
@@ -24,11 +24,11 @@ public class CampanhaControleTeste extends TemplateTeste {
 	private Candidate candidate;
 	private Party partido1;
 	private Campaign campanha1;
-	private Resultado resultado1;
+	private Result resultado1;
 	private Position cargo1;
 	private Party partido2;
 	private Campaign campanha2;
-	private Resultado resultado2;
+	private Result resultado2;
 	private Position cargo2;
 
 	@Override
@@ -40,9 +40,9 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha1 = new Campaign();
 		this.partido1 = new Party();
 		this.candidate = new Candidate();
-		this.resultado1 = new Resultado();
+		this.resultado1 = new Result();
 		this.cargo1 = new Position();
-		this.resultado2 = new Resultado();
+		this.resultado2 = new Result();
 		this.cargo2 = new Position();
 		this.campanha2 = new Campaign();
 		this.partido2 = new Party();

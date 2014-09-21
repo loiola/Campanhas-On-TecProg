@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Resultado;
+import modelo.beans.Result;
 import modelo.dao.ResultadoDAO;
 
 import org.junit.Assert;
@@ -43,7 +43,7 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 		this.resultadoParseControle.cadastrarInstancias();
 		this.resultadoParseControle.resetar();
 		
-		Resultado resultadoCadastrado = this.resultadoDAO.getLista().get(0);
+		Result resultadoCadastrado = this.resultadoDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[CODIGO], resultadoCadastrado.getCodigo().toString());
 		Assert.assertEquals(this.campo[DESCRICAO], resultadoCadastrado.getDescricao());
