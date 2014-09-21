@@ -51,7 +51,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro1.cadastrarInstancias();
 		
 		ArrayList<Supplier> listaFornecedores = fornecedorDAO.getLista();
-		assertEquals(listaFornecedores.get(0).getCpf_cnpj(), "123");
+		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "123");
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro2.cadastrarInstancias();
 		
 		ArrayList<Supplier> listaFornecedores = fornecedorDAO.getLista();
-		assertEquals(listaFornecedores.get(0).getCpf_cnpj(), "12345");
+		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "12345");
 	}
 	
 	@Test
@@ -78,7 +78,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro3.cadastrarInstancias();
 		
 		ArrayList<Supplier> listaFornecedores = fornecedorDAO.getLista();
-		assertEquals(listaFornecedores.get(0).getCpf_cnpj(), "12345");
+		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "12345");
 	}
 
 }

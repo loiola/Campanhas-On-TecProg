@@ -61,7 +61,7 @@ public class MovimentacaoFinanceiraTeste {
 		doador2.setDonorPersonRegister(BeanTeste.STRING_TESTE_2);
 		
 		Supplier fornecedor2 = instanciarFornecedor();
-		fornecedor2.setCpf_cnpj(BeanTeste.STRING_TESTE_2);	
+		fornecedor2.setSupplierPersonRegister(BeanTeste.STRING_TESTE_2);	
 		
 		receita2.setDoador(doador2);
 		despesa2.setExpenseSupplier(fornecedor2);

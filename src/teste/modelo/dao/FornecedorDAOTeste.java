@@ -30,8 +30,8 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		
 		Supplier F1 = new Supplier();
 		Supplier F2 = new Supplier();
-		F1.setNome("FORNECEDOR UM");
-		F2.setNome("FORNECEDOR UM");
+		F1.setSupplierName("FORNECEDOR UM");
+		F2.setSupplierName("FORNECEDOR UM");
 		int resultado;
 
 		resultado = FornecedorDAO.Comparacao.NOME.compare(F1, F2);
@@ -45,7 +45,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		ArrayList<Supplier> listaFornecedores = new ArrayList<>();
 		
 		Supplier supplier = new Supplier();
-		supplier.setNome("Nome");
+		supplier.setSupplierName("Nome");
 		listaFornecedores.add(supplier);
 		
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
@@ -57,7 +57,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		ArrayList<Supplier> listaFornecedores = new ArrayList<>();
 		
 		Supplier supplier = new Supplier();
-		supplier.setNome("Nome");
+		supplier.setSupplierName("Nome");
 		listaFornecedores.add(supplier);
 
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
@@ -72,17 +72,17 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		ArrayList<Supplier> listaFornecedores = new ArrayList<>();
 		
 		Supplier supplier = new Supplier();
-		supplier.setNome("Nome");
-		supplier.setCpf_cnpj("123");
-		supplier.setSituacaoCadastral("Cadastrado");
-		supplier.setUf("DF");
+		supplier.setSupplierName("Nome");
+		supplier.setSupplierPersonRegister("123");
+		supplier.setSupplierRegisterSituation("Cadastrado");
+		supplier.setSupplierCountryState("DF");
 		listaFornecedores.add(supplier);
 		
 		supplier = new Supplier();
-		supplier.setNome("Nome2");
-		supplier.setCpf_cnpj("1234");
-		supplier.setSituacaoCadastral("Cadastrado");
-		supplier.setUf("DF");
+		supplier.setSupplierName("Nome2");
+		supplier.setSupplierPersonRegister("1234");
+		supplier.setSupplierRegisterSituation("Cadastrado");
+		supplier.setSupplierCountryState("DF");
 		listaFornecedores.add(supplier);
 
 		this.fornecedorDAO.cadastrarLista(listaFornecedores);
@@ -96,17 +96,17 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		Supplier fornecedorRecuperado;
 		
 		Supplier fornecedor1 = new Supplier();
-		fornecedor1.setNome("nome");
-		fornecedor1.setCpf_cnpj("123456");
-		fornecedor1.setSituacaoCadastral("REGULAR");
-		fornecedor1.setUf("DF");
+		fornecedor1.setSupplierName("nome");
+		fornecedor1.setSupplierPersonRegister("123456");
+		fornecedor1.setSupplierRegisterSituation("REGULAR");
+		fornecedor1.setSupplierCountryState("DF");
 		listaFornecedoresACadastrar.add(fornecedor1);
 		
 		Supplier fornecedor2 = new Supplier();
-		fornecedor2.setNome("nome2");
-		fornecedor2.setCpf_cnpj("12345678");
-		fornecedor2.setSituacaoCadastral("IRREGULAR");
-		fornecedor2.setUf("DF");
+		fornecedor2.setSupplierName("nome2");
+		fornecedor2.setSupplierPersonRegister("12345678");
+		fornecedor2.setSupplierRegisterSituation("IRREGULAR");
+		fornecedor2.setSupplierCountryState("DF");
 		listaFornecedoresACadastrar.add(fornecedor2);
 		
 		this.fornecedorDAO.cadastrarLista(listaFornecedoresACadastrar);

@@ -89,8 +89,8 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			instrucaoSQL.setString(8, expense.getTipoMovimentacao());
 			instrucaoSQL.setString(9, expense.getExpenseDocumentType());
 			instrucaoSQL.setString(10, expense.getNumeroDocumento());
-			instrucaoSQL.setString(11, expense.getExpenseSupplier().getNome());
-			instrucaoSQL.setString(12, expense.getExpenseSupplier().getCpf_cnpj());
+			instrucaoSQL.setString(11, expense.getExpenseSupplier().getSupplierName());
+			instrucaoSQL.setString(12, expense.getExpenseSupplier().getSupplierPersonRegister());
 			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getPositionDescription());
 			instrucaoSQL.setString(14, expense.getCampanha().getCampaignCountryState());
 			instrucaoSQL.addBatch();
@@ -115,8 +115,8 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			campaign.setCampaignPosition(position);
 
 			Supplier supplier = new Supplier();
-			supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
-			supplier.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
+			supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
+			supplier.setSupplierName(resultadoSQL.getString(NOME_FORNECEDOR));
 
 			Expense expense = new Expense();
 			expense.setId(resultadoSQL.getInt(ID));			
@@ -191,8 +191,8 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				expense.setCampanha(campaign);
 				
 				Supplier supplier = new Supplier();
-				supplier.setNome(resultadoSQL.getString(NOME_FORNECEDOR));
-				supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
+				supplier.setSupplierName(resultadoSQL.getString(NOME_FORNECEDOR));
+				supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
 				expense.setExpenseSupplier(supplier);
 
 				expense.setData(resultadoSQL.getString(DATA));

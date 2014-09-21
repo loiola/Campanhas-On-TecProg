@@ -36,9 +36,9 @@ public class CargoTeste {
 		Assert.assertFalse(position.equals(supplier));
 		Assert.assertFalse(supplier.equals(position));
 		Assert.assertEquals(BeanTeste.INT_TESTE,position.getPositionCode());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getNome());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getUf());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getSituacaoCadastral());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getSupplierName());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getSupplierCountryState());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,supplier.getSupplierRegisterSituation());
 	}
 
 }

@@ -64,7 +64,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		campaign.setCampaignCountryState(this.uf);
 		campaign.setCampaignCandidateNumber(this.numeroCandidato);
 		
-		supplier.setCpf_cnpj("555555555555");
+		supplier.setSupplierPersonRegister("555555555555");
 		donor.setDonorPersonRegister("333333333333");
 		
 		revenue.setValor((float) 55.0);

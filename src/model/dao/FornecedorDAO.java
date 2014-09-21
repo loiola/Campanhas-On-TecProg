@@ -39,7 +39,7 @@ public class FornecedorDAO extends BasicoDAO<Supplier> implements ParseDAO<Suppl
 	public enum Comparacao implements Comparator<Supplier> {
 		NOME {
 			public int compare(Supplier f1, Supplier f2) {
-				return f1.getNome().compareToIgnoreCase(f2.getNome());
+				return f1.getSupplierName().compareToIgnoreCase(f2.getSupplierName());
 			}
 		}	
 	}
@@ -71,10 +71,10 @@ public class FornecedorDAO extends BasicoDAO<Supplier> implements ParseDAO<Suppl
 	protected void adicionarListaNoBatch(ArrayList<Supplier> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Supplier supplier : lista) {
-			instrucaoSQL.setString(1, supplier.getCpf_cnpj());
-			instrucaoSQL.setString(2, supplier.getNome());
-			instrucaoSQL.setString(3, supplier.getUf());
-			instrucaoSQL.setString(4, supplier.getSituacaoCadastral());
+			instrucaoSQL.setString(1, supplier.getSupplierPersonRegister());
+			instrucaoSQL.setString(2, supplier.getSupplierName());
+			instrucaoSQL.setString(3, supplier.getSupplierCountryState());
+			instrucaoSQL.setString(4, supplier.getSupplierRegisterSituation());
 			instrucaoSQL.addBatch();
 		}	
 	}
@@ -89,10 +89,10 @@ public class FornecedorDAO extends BasicoDAO<Supplier> implements ParseDAO<Suppl
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Supplier supplier = new Supplier();
-			supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
-			supplier.setNome(resultadoSQL.getString(NOME));
-			supplier.setUf(resultadoSQL.getString(UF));
-			supplier.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
+			supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ));
+			supplier.setSupplierName(resultadoSQL.getString(NOME));
+			supplier.setSupplierCountryState(resultadoSQL.getString(UF));
+			supplier.setSupplierRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
 			lista.add(supplier);
 		}
 	}
@@ -104,13 +104,13 @@ public class FornecedorDAO extends BasicoDAO<Supplier> implements ParseDAO<Suppl
 	 */
 	public Supplier getPeloNomeOuCpfCnpj(Supplier supplier) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
-		if(!supplier.getNome().equals(Supplier.STRING_VAZIO)) {
+		if(!supplier.getSupplierName().equals(Supplier.EMPTY_TYPE_STRING)) {
 			comandoSQL = comandoSQL + NOME + " = " 
-		  + supplier.getNome();
+		  + supplier.getSupplierName();
 		}
-		else if(!supplier.getCpf_cnpj().equals(Supplier.STRING_VAZIO)) {
+		else if(!supplier.getSupplierPersonRegister().equals(Supplier.EMPTY_TYPE_STRING)) {
 			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
-		  + supplier.getCpf_cnpj();
+		  + supplier.getSupplierPersonRegister();
 		} else {
 			throw new Exception();
 		}
@@ -138,10 +138,10 @@ public class FornecedorDAO extends BasicoDAO<Supplier> implements ParseDAO<Suppl
 			while(resultadoSQL.next()) {
 				Supplier supplier = new Supplier();
 				
-				supplier.setNome(resultadoSQL.getString(NOME));
-				supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ));
-				supplier.setSituacaoCadastral(resultadoSQL.getString(SITUACAO_CADASTRAL));
-				supplier.setUf(resultadoSQL.getString(UF));
+				supplier.setSupplierName(resultadoSQL.getString(NOME));
+				supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ));
+				supplier.setSupplierRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
+				supplier.setSupplierCountryState(resultadoSQL.getString(UF));
 
 				if(supplier != null) {
 					listaFornecedor.add(supplier);

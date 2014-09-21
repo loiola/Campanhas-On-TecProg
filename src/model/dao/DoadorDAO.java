@@ -140,11 +140,11 @@ public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
 	 */
 	public Donor getPeloNomeOuCpfCnpj(Donor donor) throws Exception {
 		String comandoSQL = SQL_SELECAO + " WHERE ";
-		if(!donor.getDonorName().equals(Supplier.STRING_VAZIO)) {
+		if(!donor.getDonorName().equals(Supplier.EMPTY_TYPE_STRING)) {
 			comandoSQL = comandoSQL + NOME + " = " 
 		  + donor.getDonorName();
 		}
-		else if(!donor.getDonorPersonRegister().equals(Supplier.STRING_VAZIO)) {
+		else if(!donor.getDonorPersonRegister().equals(Supplier.EMPTY_TYPE_STRING)) {
 			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
 		  + donor.getDonorPersonRegister();
 		} else {

@@ -33,10 +33,10 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expe
 		Supplier supplier = new Supplier();
 
 		if(indiceValido(this.indiceFornecedorNome)) {
-			supplier.setNome(campo[this.indiceFornecedorNome]);
+			supplier.setSupplierName(campo[this.indiceFornecedorNome]);
 		}
 		if(indiceValido(this.indiceFornecedorCpfCnpj)) {
-			supplier.setCpf_cnpj(campo[this.indiceFornecedorCpfCnpj]);
+			supplier.setSupplierPersonRegister(campo[this.indiceFornecedorCpfCnpj]);
 		}
 		if(indiceValido(this.indiceTipoDocumento)) {
 			expense.setExpenseDocumentType(campo[this.indiceTipoDocumento]);

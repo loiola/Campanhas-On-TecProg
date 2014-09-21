@@ -33,16 +33,16 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	@Override
 	protected void setIndicesValidos(Supplier supplier, String[] campo) {
 		if(indiceValido(this.indiceCpf_Cnpj)) {
-			supplier.setCpf_cnpj(campo[this.indiceCpf_Cnpj]);
+			supplier.setSupplierPersonRegister(campo[this.indiceCpf_Cnpj]);
 		}
 		if(indiceValido(this.indiceNome)) {
-			supplier.setNome(campo[this.indiceNome]);
+			supplier.setSupplierName(campo[this.indiceNome]);
 		}
 		if(indiceValido(this.indiceUf)) {
-			supplier.setUf(campo[this.indiceUf]);
+			supplier.setSupplierCountryState(campo[this.indiceUf]);
 		}
 		if(indiceValido(this.indiceSituacaoCadastral)) {
-			supplier.setSituacaoCadastral(campo[this.indiceSituacaoCadastral]);
+			supplier.setSupplierRegisterSituation(campo[this.indiceSituacaoCadastral]);
 		}
 	}
 
@@ -52,10 +52,10 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Supplier supplier) {
-		supplier.setCpf_cnpj(Supplier.STRING_VAZIO);
-		supplier.setNome(Supplier.STRING_VAZIO);
-		supplier.setUf(Supplier.STRING_VAZIO);
-		supplier.setSituacaoCadastral(Supplier.STRING_VAZIO);
+		supplier.setSupplierPersonRegister(Supplier.EMPTY_TYPE_STRING);
+		supplier.setSupplierName(Supplier.EMPTY_TYPE_STRING);
+		supplier.setSupplierCountryState(Supplier.EMPTY_TYPE_STRING);
+		supplier.setSupplierRegisterSituation(Supplier.EMPTY_TYPE_STRING);
 	}
 
 	// Mutators for indexes of the array of fields

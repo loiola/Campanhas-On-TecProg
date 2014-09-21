@@ -46,10 +46,10 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 
 		Supplier fornecedorCadastrado = this.fornecedorDAO.getLista().get(0);
 
-		Assert.assertEquals(this.campo[CPF_CNPJ], fornecedorCadastrado.getCpf_cnpj()
+		Assert.assertEquals(this.campo[CPF_CNPJ], fornecedorCadastrado.getSupplierPersonRegister()
 				.toString());
 		Assert.assertEquals(this.campo[NOME],
-				fornecedorCadastrado.getNome());
+				fornecedorCadastrado.getSupplierName());
 	}
 
 	@Test

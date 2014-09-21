@@ -91,10 +91,10 @@ public class BeanTeste {
 	public static Supplier instanciarFornecedor() {
 		
 		Supplier supplier = new Supplier();
-		supplier.setCpf_cnpj(STRING_TESTE);
-		supplier.setNome(STRING_TESTE);
-		supplier.setSituacaoCadastral(STRING_TESTE);
-		supplier.setUf(STRING_TESTE);
+		supplier.setSupplierPersonRegister(STRING_TESTE);
+		supplier.setSupplierName(STRING_TESTE);
+		supplier.setSupplierRegisterSituation(STRING_TESTE);
+		supplier.setSupplierCountryState(STRING_TESTE);
 		
 		return supplier;
 	}

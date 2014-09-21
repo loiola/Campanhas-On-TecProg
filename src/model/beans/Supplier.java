@@ -8,53 +8,53 @@ public class Supplier {
 	 */
 	 
 	// Constant
-	public static final String STRING_VAZIO = "";
+	public static final String EMPTY_TYPE_STRING = "";
 	
 	// Attributes
-	private String cpf_cnpj;
-	private String nome;
-	private String uf;
-	private String situacaoCadastral;
+	private String supplierPersonRegister;
+	private String supplierName;
+	private String supplierCountryState;
+	private String supplierRegisterSituation;
 	
 	// Empty Constructor
 	public Supplier() {
-		this.cpf_cnpj = STRING_VAZIO;
-		this.nome = STRING_VAZIO;
-		this.uf = STRING_VAZIO;
-		this.situacaoCadastral = STRING_VAZIO;
+		this.supplierPersonRegister = EMPTY_TYPE_STRING;
+		this.supplierName = EMPTY_TYPE_STRING;
+		this.supplierCountryState = EMPTY_TYPE_STRING;
+		this.supplierRegisterSituation = EMPTY_TYPE_STRING;
 	}
 	
 	// Getters and Setters
-	public String getCpf_cnpj() {
-		return cpf_cnpj;
+	public String getSupplierPersonRegister() {
+		return supplierPersonRegister;
 	}
 	
-	public void setCpf_cnpj(String cpf_cnpj) {
-		this.cpf_cnpj = cpf_cnpj;
+	public void setSupplierPersonRegister(String supplierPersonRegister) {
+		this.supplierPersonRegister = supplierPersonRegister;
 	}
 	
-	public String getNome() {
-		return nome;
+	public String getSupplierName() {
+		return supplierName;
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setSupplierName(String supplierName) {
+		this.supplierName = supplierName;
 	}
 	
-	public String getUf() {
-		return uf;
+	public String getSupplierCountryState() {
+		return supplierCountryState;
 	}
 	
-	public void setUf(String uf) {
-		this.uf = uf;
+	public void setSupplierCountryState(String supplierCountryState) {
+		this.supplierCountryState = supplierCountryState;
 	}
 	
-	public String getSituacaoCadastral() {
-		return situacaoCadastral;
+	public String getSupplierRegisterSituation() {
+		return supplierRegisterSituation;
 	}
 	
-	public void setSituacaoCadastral(String situacaoCadastral) {
-		this.situacaoCadastral = situacaoCadastral;
+	public void setSupplierRegisterSituation(String supplierRegisterSituation) {
+		this.supplierRegisterSituation = supplierRegisterSituation;
 	}
 	
 	@Override
@@ -62,8 +62,8 @@ public class Supplier {
 		if( !(object instanceof Supplier))
 			return false;
 		
-		Supplier outroFornecedor = (Supplier) object;
-		return this.getNome().equalsIgnoreCase(outroFornecedor.getNome()) &&
-			   this.getCpf_cnpj().equalsIgnoreCase(outroFornecedor.getCpf_cnpj()) ;
+		Supplier otherSupplier = (Supplier) object;
+		return this.getSupplierName().equalsIgnoreCase(otherSupplier.getSupplierName()) &&
+			   this.getSupplierPersonRegister().equalsIgnoreCase(otherSupplier.getSupplierPersonRegister()) ;
 	}
 }

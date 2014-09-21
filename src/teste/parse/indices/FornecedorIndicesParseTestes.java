@@ -28,10 +28,10 @@ public class FornecedorIndicesParseTestes {
 		
 		Supplier supplier = new Supplier();
 		this.fornecedorIndicesParse.iniciarInstancia(supplier, campo);
-		Assert.assertEquals(this.campo[0], supplier.getCpf_cnpj().toString());
-		Assert.assertEquals(this.campo[1], supplier.getNome());
-		Assert.assertEquals(this.campo[2], supplier.getUf());
-		Assert.assertEquals(this.campo[3], supplier.getSituacaoCadastral());
+		Assert.assertEquals(this.campo[0], supplier.getSupplierPersonRegister().toString());
+		Assert.assertEquals(this.campo[1], supplier.getSupplierName());
+		Assert.assertEquals(this.campo[2], supplier.getSupplierCountryState());
+		Assert.assertEquals(this.campo[3], supplier.getSupplierRegisterSituation());
 	}
 	
 	@Test
@@ -40,10 +40,10 @@ public class FornecedorIndicesParseTestes {
 		this.fornecedorIndicesParse = new FornecedorIndicesParse();
 		Supplier supplier = new Supplier();
 		this.fornecedorIndicesParse.iniciarInstancia(supplier, campo);
-		Assert.assertNotEquals(this.campo[0], supplier.getCpf_cnpj().toString());
-		Assert.assertNotEquals(this.campo[1], supplier.getNome());
-		Assert.assertNotEquals(this.campo[2], supplier.getUf());
-		Assert.assertNotEquals(this.campo[3], supplier.getSituacaoCadastral());
+		Assert.assertNotEquals(this.campo[0], supplier.getSupplierPersonRegister().toString());
+		Assert.assertNotEquals(this.campo[1], supplier.getSupplierName());
+		Assert.assertNotEquals(this.campo[2], supplier.getSupplierCountryState());
+		Assert.assertNotEquals(this.campo[3], supplier.getSupplierRegisterSituation());
 	}
 	
 	private void iniciarIndices() {
