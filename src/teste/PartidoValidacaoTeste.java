@@ -1,7 +1,7 @@
 package teste;
 
 import modelo.beans.Partido;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import org.junit.Test;
 import controle.excecao.PartidoExcecao;
 import controle.validacao.PartidoValidacao;
@@ -11,7 +11,7 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	private PartidoValidacao partidoValidacao;
 	private PartidoExcecao partidoExcecao;
 	private Partido partido;
-	private Candidato candidato;
+	private Candidate candidate;
 	
 	@Override
 	public void beforeTest() throws Exception {
@@ -19,7 +19,7 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 		this.partidoValidacao = new PartidoValidacao();
 		this.partidoExcecao = new PartidoExcecao();
 		this.partido = new Partido();
-		this.candidato = new Candidato();
+		this.candidate = new Candidate();
 	}
 
 	@Override
@@ -63,6 +63,6 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	@Test
 	public void testeMetodoEqualsParteIII() throws PartidoExcecao {
 		
-		partido.equals(candidato);
+		partido.equals(candidate);
 	}
 }

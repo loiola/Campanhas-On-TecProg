@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.dao.CandidatoDAO;
 
 import org.junit.Assert;
@@ -32,21 +32,21 @@ public class CandidatoControleTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmaListaDeCandidatosPorUmNomeComum() throws SQLException {
 
-		ArrayList<Candidato> listaCandidatos = new ArrayList<>();
+		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 
-		LinkedList<Candidato> listaCandidatosNomeComum = new LinkedList<>();
+		LinkedList<Candidate> listaCandidatosNomeComum = new LinkedList<>();
 		
-		Candidato candidato1 = new Candidato();
+		Candidate candidato1 = new Candidate();
 		candidato1.setNome("CANDIDATO INEXISTENTE 1");
 		candidato1.setTituloEleitoral("000000");
 		listaCandidatos.add(candidato1);
 
-		Candidato candidato2 = new Candidato();
+		Candidate candidato2 = new Candidate();
 		candidato2.setNome("CANDIDATO INEXISTENTE 2");
 		candidato2.setTituloEleitoral("000001");
 		listaCandidatos.add(candidato2);
 		
-		Candidato candidato3 = new Candidato();
+		Candidate candidato3 = new Candidate();
 		candidato3.setNome("CANDIDATO EXISTENTE 1");
 		candidato3.setTituloEleitoral("000002");
 		listaCandidatos.add(candidato3);
@@ -61,15 +61,15 @@ public class CandidatoControleTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmCandidatoPeloTituloEleitoral() throws SQLException {
 		
-		ArrayList<Candidato> listaCandidatos = new ArrayList<>();
-		Candidato candidatoRecuperado = new Candidato();
+		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
+		Candidate candidatoRecuperado = new Candidate();
 		
-		Candidato candidato1 = new Candidato();
+		Candidate candidato1 = new Candidate();
 		candidato1.setNome("CANDIDATO EXISTENTE 1");
 		candidato1.setTituloEleitoral("000000");
 		listaCandidatos.add(candidato1);
 
-		Candidato candidato2 = new Candidato();
+		Candidate candidato2 = new Candidate();
 		candidato2.setNome("CANDIDATO EXISTENTE 2");
 		candidato2.setTituloEleitoral("000001");
 		listaCandidatos.add(candidato2);

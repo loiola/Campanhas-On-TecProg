@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Candidato {
+public class Candidate {
 	
 	/*
-	 * Model Class Candidato.java
+	 * Model Class Candidate.java
 	 * This class is responsable for getting the Candidate's informations
 	 */
 	 
@@ -16,7 +16,7 @@ public class Candidato {
 	private String tituloEleitoral;
 	
 	// Empty Constructor
-	public Candidato() {
+	public Candidate() {
 		this.nome = STRING_VAZIO;
 		this.tituloEleitoral = STRING_VAZIO;
 	}
@@ -40,10 +40,10 @@ public class Candidato {
 	
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Candidato))
+		if( !(object instanceof Candidate))
 			return false;
 
-		Candidato outroCandidato = (Candidato) object;
+		Candidate outroCandidato = (Candidate) object;
 
 		return this.tituloEleitoral.equals(outroCandidato.getTituloEleitoral());
 	}

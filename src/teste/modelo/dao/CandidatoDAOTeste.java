@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.dao.CandidatoDAO;
 
 import org.junit.Assert;
@@ -35,12 +35,12 @@ public class CandidatoDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveLancarExcecaoAoCadastrarUmCandidatoInexistente() throws Exception {
 		
-		ArrayList<Candidato> listaCandidatos = new ArrayList<>();
+		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 		
-		Candidato candidato = new Candidato();
-		candidato.setNome("CANDIDATO INEXISTENTE");
-		candidato.setTituloEleitoral("00000");
-		listaCandidatos.add(candidato);
+		Candidate candidate = new Candidate();
+		candidate.setNome("CANDIDATO INEXISTENTE");
+		candidate.setTituloEleitoral("00000");
+		listaCandidatos.add(candidate);
 		
 		this.candidatoDAO.cadastrarLista(listaCandidatos);
 	}
@@ -48,12 +48,12 @@ public class CandidatoDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarUmCandidatoJaExistente() throws Exception {
 		
-		ArrayList<Candidato> listaCandidatos = new ArrayList<>();
+		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 		
-		Candidato candidato = new Candidato();
-		candidato.setNome("CANDIDATO INEXISTENTE");
-		candidato.setTituloEleitoral("00000");
-		listaCandidatos.add(candidato);
+		Candidate candidate = new Candidate();
+		candidate.setNome("CANDIDATO INEXISTENTE");
+		candidate.setTituloEleitoral("00000");
+		listaCandidatos.add(candidate);
 
 		this.candidatoDAO.cadastrarLista(listaCandidatos);
 		this.candidatoDAO.cadastrarLista(listaCandidatos);
@@ -64,14 +64,14 @@ public class CandidatoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmaListaComOsCandidatosCadastrados() throws Exception {
 		
-		ArrayList<Candidato> listaCandidatos = new ArrayList<>();
+		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 		
-		Candidato candidato = new Candidato();
-		candidato.setNome("CANDIDATO INEXISTENTE");
-		candidato.setTituloEleitoral("00000");
-		listaCandidatos.add(candidato);
+		Candidate candidate = new Candidate();
+		candidate.setNome("CANDIDATO INEXISTENTE");
+		candidate.setTituloEleitoral("00000");
+		listaCandidatos.add(candidate);
 		
-		Candidato candidatoDois = new Candidato();
+		Candidate candidatoDois = new Candidate();
 		candidatoDois.setNome("CANDIDATO INEXISTENTE DOIS");
 		candidatoDois.setTituloEleitoral("00001");
 		listaCandidatos.add(candidatoDois);
@@ -85,15 +85,15 @@ public class CandidatoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveLancarFalsoSeUmCandidatoNaoExiste() throws Exception {
 		
-		Candidato candidato = new Candidato();
-		candidato.setNome("FULANO");
-		candidato.setTituloEleitoral("00000");
+		Candidate candidate = new Candidate();
+		candidate.setNome("FULANO");
+		candidate.setTituloEleitoral("00000");
 		
-		Candidato candidatoDois = new Candidato();
+		Candidate candidatoDois = new Candidate();
 		candidatoDois.setNome("FULANO");
 		candidatoDois.setTituloEleitoral("00001");
 
-		Assert.assertFalse(candidato.equals(candidatoDois));
+		Assert.assertFalse(candidate.equals(candidatoDois));
 	}
 	
 	@Test
@@ -101,8 +101,8 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		
 		CandidatoDAO.Comparacao.valueOf(CandidatoDAO.Comparacao.TITULO_ELEITORAL.toString());
 		
-		Candidato C1 = new Candidato();
-		Candidato C2 = new Candidato();
+		Candidate C1 = new Candidate();
+		Candidate C2 = new Candidate();
 		int resultado;
 
 		resultado = CandidatoDAO.Comparacao.TITULO_ELEITORAL.compare(C1, C2);		
@@ -113,7 +113,7 @@ public class CandidatoDAOTeste extends TemplateTeste {
 	
 	@Test
 	public void testeGetCandidatoComUmTituloVazio() throws Exception {
-		LinkedList<Candidato> LK = null;
+		LinkedList<Candidate> LK = null;
 		LK = candidatoDAO.getListaPeloNome(null);
 		
 		Assert.assertEquals(0,LK.size());

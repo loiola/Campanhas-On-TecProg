@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.beans.Cargo;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
@@ -23,10 +23,10 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	private Resultado resultado1;
 	private Cargo cargo;
 	private Partido partido1;
-	private Candidato candidato1;
+	private Candidate candidato1;
 	private Resultado resultado2;
 	private Partido partido2;
-	private Candidato candidato2;
+	private Candidate candidato2;
 	private ArrayList<Campaign> listaCampanhas;
 
 	@Override
@@ -37,10 +37,10 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		this.resultado1 = new Resultado();
 		this.cargo = new Cargo();
 		this.partido1 = new Partido();
-		this.candidato1 = new Candidato();
+		this.candidato1 = new Candidate();
 		this.resultado2 = new Resultado();
 		this.partido2 = new Partido();
-		this.candidato2 = new Candidato();
+		this.candidato2 = new Candidate();
 		this.listaCampanhas = new ArrayList<>();
 
 		cadastraNoBanco();
@@ -53,7 +53,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	
 	private void cadastraNoBanco() throws SQLException {
 
-		ArrayList<Candidato> listaCandidato = new ArrayList<>();
+		ArrayList<Candidate> listaCandidato = new ArrayList<>();
 		
 		Campaign camp1 = new Campaign();
 		this.resultado1.setCodigo(2);

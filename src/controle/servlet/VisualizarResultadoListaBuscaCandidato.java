@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import controle.CandidatoControle;
 
 public class VisualizarResultadoListaBuscaCandidato implements Logica {
@@ -17,7 +17,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 
 	// Attributes
 	private CandidatoControle controle;
-	private List<Candidato> listaCandidatos;
+	private List<Candidate> listaCandidatos;
 
 	private String nome;
 
@@ -111,7 +111,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 	 * @param a list of candidates and a number that is a divisor
 	 * @return a number representing the index of list
 	 */
-	private int geraIndiceDaLista(List<Candidato> lista, int divisor) {
+	private int geraIndiceDaLista(List<Candidate> lista, int divisor) {
 		if(divisor!=0) {
 			int indice = (int) Math.ceil((double)lista.size()/(double)divisor);
 			return indice;
@@ -125,7 +125,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 	 * @param a list of candidates
 	 * @return a number representing the index of paging
 	 */
-	private int geraIndiceDePaginacao(List<Candidato> lista) {
+	private int geraIndiceDePaginacao(List<Candidate> lista) {
 		int indice = (int) Math.floor((double) lista.size() / (double) 25);
 		if(indice >= 4 && indice < 10)
 			return 4;

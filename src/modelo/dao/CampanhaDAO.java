@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.beans.Cargo;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
@@ -121,16 +121,16 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			Cargo cargo = new Cargo();
 			Resultado resultado = new Resultado();
 			Partido partido = new Partido();
-			Candidato candidato = new Candidato();
+			Candidate candidate = new Candidate();
 			PreparaCamposCargoEResultado(cargo, resultado, resultadoSQL);
-			PreparaCamposCandidatoEPartido(partido, candidato, resultadoSQL);
+			PreparaCamposCandidatoEPartido(partido, candidate, resultadoSQL);
 
 			Campaign campaign = new Campaign();
 			campaign.setId(resultadoSQL.getInt(ID));
 			campaign.setResultado(resultado);
 			campaign.setCargo(cargo);
 			campaign.setPartido(partido);
-			campaign.setCandidato(candidato);
+			campaign.setCandidato(candidate);
 			campaign.setAno(resultadoSQL.getInt(ANO));
 			campaign.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
 			campaign.setNomeDeUrna(resultadoSQL.getString(NOME_URNA));
@@ -161,9 +161,9 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	 * @param a SQLresult
 	 */
 	private void PreparaCamposCandidatoEPartido(Partido partido,
-			Candidato candidato, ResultSet resultadoSQL) throws SQLException {
+			Candidate candidate, ResultSet resultadoSQL) throws SQLException {
 		partido.setNumero(resultadoSQL.getInt(NUMERO_PARTIDO));
-		candidato.setTituloEleitoral(resultadoSQL.getString(TITULO_CANDIDATO));
+		candidate.setTituloEleitoral(resultadoSQL.getString(TITULO_CANDIDATO));
 	}
 
 	/*
@@ -172,11 +172,11 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	 * @return an ArrayList<Campaign>
 	 */
 	public ArrayList<Campaign> getCampanhasPeloTituloEleitoral(
-			Candidato candidato) throws SQLException {
+			Candidate candidate) throws SQLException {
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_CANDIDATO + ")"
 				+ " WHERE " + TITULO_CANDIDATO + " = '"
-				+ candidato.getTituloEleitoral() + "' ";
+				+ candidate.getTituloEleitoral() + "' ";
 		listaCampanha = buscaBD(comandoSQL);
 		return listaCampanha;
 	}

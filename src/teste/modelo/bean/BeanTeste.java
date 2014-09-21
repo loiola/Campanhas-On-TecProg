@@ -1,7 +1,7 @@
 package teste.modelo.bean;
 
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.beans.Cargo;
 import modelo.beans.Despesa;
 import modelo.beans.Doador;
@@ -42,13 +42,13 @@ public class BeanTeste {
 		return campaign;
 	}
 	
-	public static Candidato instanciarCandidato() {
+	public static Candidate instanciarCandidato() {
 		
-		Candidato candidato = new Candidato();
-		candidato.setNome(STRING_TESTE);
-		candidato.setTituloEleitoral(STRING_TESTE);
+		Candidate candidate = new Candidate();
+		candidate.setNome(STRING_TESTE);
+		candidate.setTituloEleitoral(STRING_TESTE);
 		
-		return candidato;
+		return candidate;
 	}
 	
 	public static Cargo instanciarCargo() {

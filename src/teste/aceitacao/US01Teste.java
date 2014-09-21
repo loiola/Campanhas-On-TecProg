@@ -22,7 +22,7 @@ public class US01Teste {
 	}
 
 	/**
-	 * Cenário 01: Candidato existe.
+	 * Cenário 01: Candidate existe.
 	 * DADO QUE:
 	 * 		o usuário digitou "Luiz"
 	 * E:
@@ -61,7 +61,7 @@ public class US01Teste {
 	
 	
 	/**
-	 * Cenário 02: Candidato não existe.
+	 * Cenário 02: Candidate não existe.
 	 * DADO QUE:
 	 * 		o usuário digitou "xXxYxYzZz"
 	 * E:

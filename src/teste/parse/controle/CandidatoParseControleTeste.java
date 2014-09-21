@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.dao.CandidatoDAO;
 
 import org.junit.Assert;
@@ -44,7 +44,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		this.candidatoParseControle.cadastrarInstancias();
 		this.candidatoParseControle.resetar();
 		
-		Candidato candidatoCadastrado = this.candidatoDAO.getLista().get(0);
+		Candidate candidatoCadastrado = this.candidatoDAO.getLista().get(0);
 		
 		Assert.assertEquals(this.campo[NOME], candidatoCadastrado.getNome());
 		Assert.assertEquals(this.campo[TITULO_ELEITORAL],candidatoCadastrado.getTituloEleitoral());

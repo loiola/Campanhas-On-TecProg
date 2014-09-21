@@ -2,7 +2,7 @@ package controle;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.dao.CampanhaDAO;
 
 public class CampanhaControle {
@@ -25,8 +25,8 @@ public class CampanhaControle {
 	 * @param a candidate
 	 * @return an ArrayList of candidates for voter registration
 	 */
-	public ArrayList<Campaign> getListaCampanhas(Candidato candidato) throws SQLException {
-		return this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidato);
+	public ArrayList<Campaign> getListaCampanhas(Candidate candidate) throws SQLException {
+		return this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidate);
 	}
 	
 	/*

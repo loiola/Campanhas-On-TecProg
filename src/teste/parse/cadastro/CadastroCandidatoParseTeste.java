@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.dao.CandidatoDAO;
 
 import org.junit.Test;
@@ -41,8 +41,8 @@ public class CadastroCandidatoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Candidato candidato = this.candidatoDAO.getCandidatoPeloTitulo("55325424149");
-		assertEquals(candidato.getTituloEleitoral(), "55325424149");
+		Candidate candidate = this.candidatoDAO.getCandidatoPeloTitulo("55325424149");
+		assertEquals(candidate.getTituloEleitoral(), "55325424149");
 	}
 
 }

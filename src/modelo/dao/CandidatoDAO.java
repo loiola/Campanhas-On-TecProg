@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 
-public class CandidatoDAO extends BasicoDAO<Candidato> {
+public class CandidatoDAO extends BasicoDAO<Candidate> {
 	
 	/*
 	 * Class for manipulating the data about candidates
@@ -37,10 +37,10 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	/*
 	 * Comparator to check if two instances are equal candidates through Title Voter
 	 */
-	public enum Comparacao implements Comparator<Candidato> {
+	public enum Comparacao implements Comparator<Candidate> {
 		TITULO_ELEITORAL {
 			@Override
-			public int compare(Candidato c1, Candidato c2) {
+			public int compare(Candidate c1, Candidate c2) {
 				return c1.getTituloEleitoral().compareTo(
 						c2.getTituloEleitoral());
 			}
@@ -71,11 +71,11 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Candidato> lista,
+	protected void adicionarListaNoBatch(ArrayList<Candidate> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Candidato candidato : lista) {
-			instrucaoSQL.setString(1, candidato.getTituloEleitoral());
-			instrucaoSQL.setString(2, candidato.getNome());
+		for(Candidate candidate : lista) {
+			instrucaoSQL.setString(1, candidate.getTituloEleitoral());
+			instrucaoSQL.setString(2, candidate.getNome());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -86,14 +86,14 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Candidato> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Candidate> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Candidato candidato = new Candidato();
-			candidato.setNome(resultadoSQL.getString(NOME));
-			candidato.setTituloEleitoral(resultadoSQL
+			Candidate candidate = new Candidate();
+			candidate.setNome(resultadoSQL.getString(NOME));
+			candidate.setTituloEleitoral(resultadoSQL
 					.getString(TITULO_ELEITORAL));
-			lista.add(candidato);
+			lista.add(candidate);
 		}
 	}
 
@@ -102,8 +102,8 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	 * @param a String with the electoral title
 	 * @return an instance of Class Candidate
 	 */
-	public Candidato getCandidatoPeloTitulo(String tituloEleitoral) {
-		LinkedList<Candidato> listaCandidato = new LinkedList<>();
+	public Candidate getCandidatoPeloTitulo(String tituloEleitoral) {
+		LinkedList<Candidate> listaCandidato = new LinkedList<>();
 		String comandoSQL = SQL_SELECT + " WHERE " + TITULO_ELEITORAL + " = '"
 				+ tituloEleitoral + "'";
 		
@@ -111,7 +111,7 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 			listaCandidato = buscaBD(comandoSQL);
 			return listaCandidato.get(0);
 		} catch(SQLException e) {
-			Candidato cand = new Candidato();
+			Candidate cand = new Candidate();
 			cand.setTituloEleitoral("-1");
 			return cand;
 		}
@@ -122,10 +122,10 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	 * @param a String with the name
 	 * @return a LinkedList<Candidate>
 	 */
-	public LinkedList<Candidato> getListaPeloNome(String nome) {
+	public LinkedList<Candidate> getListaPeloNome(String nome) {
 		this.campanhaDAO = new CampanhaDAO();
 
-		LinkedList<Candidato> listaCandidato = new LinkedList<>();
+		LinkedList<Candidate> listaCandidato = new LinkedList<>();
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_NOME + ")"
 				+ " WHERE " + NOME + " LIKE '%" + nome + "%' "
 				+ " OR "
@@ -145,8 +145,8 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Candidate>
 	 */
-	public LinkedList<Candidato> buscaBD(String SQL) throws SQLException {
-		LinkedList<Candidato> listaCandidato = new LinkedList<>();
+	public LinkedList<Candidate> buscaBD(String SQL) throws SQLException {
+		LinkedList<Candidate> listaCandidato = new LinkedList<>();
 
 		try {
 			this.conexao = new ConexaoBancoDados().getConexao();
@@ -156,12 +156,12 @@ public class CandidatoDAO extends BasicoDAO<Candidato> {
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
 			while(resultadoSQL.next()) {
-				Candidato candidato = new Candidato();
-				candidato.setNome(resultadoSQL.getString(NOME));
-				candidato.setTituloEleitoral(resultadoSQL.getString(TITULO_ELEITORAL));
+				Candidate candidate = new Candidate();
+				candidate.setNome(resultadoSQL.getString(NOME));
+				candidate.setTituloEleitoral(resultadoSQL.getString(TITULO_ELEITORAL));
 
-				if(candidato != null) {
-					listaCandidato.add(candidato);
+				if(candidate != null) {
+					listaCandidato.add(candidate);
 				}
 			}			
 		} catch(SQLException e) {

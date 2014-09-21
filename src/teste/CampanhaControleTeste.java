@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.beans.Cargo;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
@@ -21,7 +21,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 	private CampanhaDAO campanhaDAO;
 	private CandidatoDAO candidatoDAO;
 	private CampanhaControle campanhaControle;
-	private Candidato candidato;
+	private Candidate candidate;
 	private Partido partido1;
 	private Campaign campanha1;
 	private Resultado resultado1;
@@ -39,7 +39,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanhaControle = new CampanhaControle();
 		this.campanha1 = new Campaign();
 		this.partido1 = new Partido();
-		this.candidato = new Candidato();
+		this.candidate = new Candidate();
 		this.resultado1 = new Resultado();
 		this.cargo1 = new Cargo();
 		this.resultado2 = new Resultado();
@@ -57,12 +57,12 @@ public class CampanhaControleTeste extends TemplateTeste {
 	public void deveRetornarUmaListaDeCampanhasDeUmDeterminadoCandidato() throws SQLException {
 		
 		ArrayList<Campaign> listaCampanhas = new ArrayList<>();
-		ArrayList<Candidato> listaCandidato = new ArrayList<>();
+		ArrayList<Candidate> listaCandidato = new ArrayList<>();
 
 		
-		this.candidato.setNome("CANDIDATO");
-		this.candidato.setTituloEleitoral("5532424149");
-		listaCandidato.add(candidato);
+		this.candidate.setNome("CANDIDATO");
+		this.candidate.setTituloEleitoral("5532424149");
+		listaCandidato.add(candidate);
 		
 		this.resultado1.setCodigo(1);
 		this.resultado1.setDescricao("NAO ELEITO");
@@ -76,7 +76,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha1.setResultado(resultado1);
 		this.campanha1.setCargo(cargo1);
 		this.campanha1.setPartido(partido1);
-		this.campanha1.setCandidato(candidato);
+		this.campanha1.setCandidato(candidate);
 		this.campanha1.setNomeDeUrna("CAND");
 		this.campanha1.setUf("DF");
 		this.campanha1.setDespesaMaxDeclarada((float) 450000.0);
@@ -96,7 +96,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha2.setResultado(resultado2);
 		this.campanha2.setCargo(cargo2);
 		this.campanha2.setPartido(partido2);
-		this.campanha2.setCandidato(candidato);
+		this.campanha2.setCandidato(candidate);
 		this.campanha2.setNomeDeUrna("CAND");
 		this.campanha2.setUf("DF");
 		this.campanha2.setDespesaMaxDeclarada((float) 450000.0);
@@ -107,7 +107,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanhaDAO.cadastrarLista(listaCampanhas);
 		this.candidatoDAO.cadastrarLista(listaCandidato);
 		
-		Assert.assertEquals(this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidato), this.campanhaControle.getListaCampanhas(candidato));
+		Assert.assertEquals(this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidate), this.campanhaControle.getListaCampanhas(candidate));
 		Assert.assertEquals(this.campanhaDAO.getCampanhasPorSiglaEAno("SGLL", "2006"), this.campanhaControle.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));
 		Assert.assertEquals(this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha1));
 		Assert.assertNotEquals(this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha2));

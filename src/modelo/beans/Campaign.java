@@ -13,7 +13,7 @@ public class Campaign {
 	public static final Resultado RESULTADO_VAZIO = new Resultado();
 	public static final Partido PARTIDO_VAZIO = new Partido();
 	public static final Cargo CARGO_VAZIO = new Cargo();
-	public static final Candidato CANDIDATO_VAZIO = new Candidato(); 
+	public static final Candidate CANDIDATO_VAZIO = new Candidate(); 
 	public static final float FLOAT_VAZIO = (float) 0.0;
 	
 	// Attributes
@@ -21,7 +21,7 @@ public class Campaign {
 	private Resultado resultado;
 	private Cargo cargo;
 	private Partido partido;
-	private Candidato candidato;
+	private Candidate candidate;
 	private Integer ano;
 	private Integer numeroCandidato;
 	private String nomeDeUrna;
@@ -36,7 +36,7 @@ public class Campaign {
 		this.resultado = RESULTADO_VAZIO;
 		this.cargo = CARGO_VAZIO;
 		this.partido = PARTIDO_VAZIO;
-		this.candidato = CANDIDATO_VAZIO;
+		this.candidate = CANDIDATO_VAZIO;
 		this.ano = INTEGER_VAZIO;
 		this.numeroCandidato = INTEGER_VAZIO;
 		this.nomeDeUrna = STRING_VAZIO;
@@ -79,12 +79,12 @@ public class Campaign {
 		this.partido = partido;
 	}
 
-	public Candidato getCandidato() {
-		return candidato;
+	public Candidate getCandidato() {
+		return candidate;
 	}
 
-	public void setCandidato(Candidato candidato) {
-		this.candidato = candidato;
+	public void setCandidato(Candidate candidate) {
+		this.candidate = candidate;
 	}
 
 	public Integer getAno() {

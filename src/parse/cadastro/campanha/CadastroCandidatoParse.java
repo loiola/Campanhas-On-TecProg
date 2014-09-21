@@ -1,6 +1,6 @@
 package parse.cadastro.campanha;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
 import parse.controle.CandidatoParseControle;
@@ -8,7 +8,7 @@ import parse.controle.ParseControle;
 import parse.indices.CandidatoIndicesParse;
 import parse.indices.IndicesParse;
 
-public class CadastroCandidatoParse extends CadastroParse<Candidato> {
+public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	
 	/* 
 	 * Class used to extract Candidate attributes and forward the register to the Database
@@ -35,8 +35,8 @@ public class CadastroCandidatoParse extends CadastroParse<Candidato> {
 	 * @return a ParseCandidateControl
 	 */
 	@Override
-	public ParseControle<Candidato> novaInstancia(
-			IndicesParse<Candidato> indicesParse) {
+	public ParseControle<Candidate> novaInstancia(
+			IndicesParse<Candidate> indicesParse) {
 		CandidatoParseControle candidatoParseControle = new CandidatoParseControle(indicesParse);
 		return candidatoParseControle;
 	}
@@ -47,7 +47,7 @@ public class CadastroCandidatoParse extends CadastroParse<Candidato> {
 	 * @return a ParseCandidateIndex
 	 */
 	@Override
-	protected IndicesParse<Candidato> getIndicesParse(String tipoArquivo,
+	protected IndicesParse<Candidate> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		CandidatoIndicesParse candidatoIndicesParse;

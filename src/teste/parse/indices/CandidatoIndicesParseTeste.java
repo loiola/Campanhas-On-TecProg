@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,20 +25,20 @@ public class CandidatoIndicesParseTeste {
 	@Test
 	public void iniciarUmCandidatoComIndicesValidos() throws Exception {
 		
-		Candidato candidato = new Candidato();
-		this.candidatoIndicesParse.iniciarInstancia(candidato, campo);
-		Assert.assertEquals(this.campo[0], candidato.getNome());
-		Assert.assertEquals(this.campo[1], candidato.getTituloEleitoral());
+		Candidate candidate = new Candidate();
+		this.candidatoIndicesParse.iniciarInstancia(candidate, campo);
+		Assert.assertEquals(this.campo[0], candidate.getNome());
+		Assert.assertEquals(this.campo[1], candidate.getTituloEleitoral());
 	}
 	
 	@Test
 	public void iniciarUmCandidatoComIndicesInvalidos() throws Exception {
 		
 		this.candidatoIndicesParse = new CandidatoIndicesParse();
-		Candidato candidato = new Candidato();
-		this.candidatoIndicesParse.iniciarInstancia(candidato, campo);		
-		Assert.assertNotEquals(this.campo[0], candidato.getNome());
-		Assert.assertNotEquals(this.campo[1], candidato.getTituloEleitoral());
+		Candidate candidate = new Candidate();
+		this.candidatoIndicesParse.iniciarInstancia(candidate, campo);		
+		Assert.assertNotEquals(this.campo[0], candidate.getNome());
+		Assert.assertNotEquals(this.campo[1], candidate.getTituloEleitoral());
 	}
 	
 	private void iniciarIndices() {

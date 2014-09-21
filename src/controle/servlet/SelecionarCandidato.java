@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.beans.Despesa;
 import modelo.beans.Receita;
 
@@ -22,7 +22,7 @@ public class SelecionarCandidato implements Logica {
 
 	// Attributes
 	private CandidatoControle candidatoControle;
-	private Candidato candidato;
+	private Candidate candidate;
 	private CampanhaControle campanhaControle;
 	private List<Campaign> listaCampanha;
 
@@ -67,9 +67,9 @@ public class SelecionarCandidato implements Logica {
 		this.campanhaControle = new CampanhaControle();
 		this.movimentacaoControle = new MovimentacaoControle();
 		
-		this.candidato = this.candidatoControle.getUmCandidato(this.tituloEleitoral);
+		this.candidate = this.candidatoControle.getUmCandidato(this.tituloEleitoral);
 
-		this.listaCampanha = this.campanhaControle.getListaCampanhas(this.candidato);
+		this.listaCampanha = this.campanhaControle.getListaCampanhas(this.candidate);
 		
 		// Loop to receive all the necessary information about their candidate campaigns
 		for(Campaign campaign : listaCampanha) {
@@ -124,9 +124,9 @@ public class SelecionarCandidato implements Logica {
 		}
 		
 		// Set of answers to requests made concerning the applicant requested
-		req.setAttribute("candidato", this.candidato);
+		req.setAttribute("candidate", this.candidate);
 		req.setAttribute("campanhas", this.listaCampanha);
-		req.setAttribute("candidato", this.candidato);
+		req.setAttribute("candidate", this.candidate);
 		req.setAttribute("campanhas", this.listaCampanha);
 		req.setAttribute("despesa1", this.despesaMax2002);
 		req.setAttribute("despesa2", this.despesaMax2006);

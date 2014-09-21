@@ -3,7 +3,7 @@ package teste;
 import java.util.ArrayList;
 
 import modelo.beans.Campaign;
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.beans.Cargo;
 import modelo.beans.Despesa;
 import modelo.beans.Doador;
@@ -22,7 +22,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	private DespesaDAO despesaDAO;
 	private ReceitaDAO receitaDAO;
 	private MovimentacaoControle movimentacaoControle;
-	private Candidato candidato;
+	private Candidate candidate;
 	private Campaign campaign;
 	private Cargo cargo;
 	private Receita receita;
@@ -39,7 +39,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.despesaDAO = new DespesaDAO();
 		this.receitaDAO = new ReceitaDAO();
 		this.movimentacaoControle = new MovimentacaoControle();
-		this.candidato = new Candidato();
+		this.candidate = new Candidate();
 		this.campaign = new Campaign();
 		this.receita = new Receita();
 		this.despesa = new Despesa();
@@ -53,13 +53,13 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		ArrayList<Despesa> listaDespesa = new ArrayList<>();
 		ArrayList<Receita> listaReceita = new ArrayList<>();
 
-		candidato.setNome("FULANO");
-		candidato.setTituloEleitoral("12345");
+		candidate.setNome("FULANO");
+		candidate.setTituloEleitoral("12345");
 		
 		cargo.setDescricao("Presidente");
 		
 		campaign.setCargo(cargo);
-		campaign.setCandidato(candidato);
+		campaign.setCandidato(candidate);
 		campaign.setAno(this.ano);
 		campaign.setUf(this.uf);
 		campaign.setNumeroCandidato(this.numeroCandidato);

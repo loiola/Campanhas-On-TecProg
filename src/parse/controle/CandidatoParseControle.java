@@ -1,17 +1,17 @@
 package parse.controle;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 import modelo.dao.CandidatoDAO;
 import parse.indices.IndicesParse;
 
-public class CandidatoParseControle extends ParseControle<Candidato> {
+public class CandidatoParseControle extends ParseControle<Candidate> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Candidate
 	 */
 
 	// Constructors
-	public CandidatoParseControle(IndicesParse<Candidato> indicesParse) {
+	public CandidatoParseControle(IndicesParse<Candidate> indicesParse) {
 		super(indicesParse, new CandidatoDAO());
 	}
 	
@@ -20,9 +20,9 @@ public class CandidatoParseControle extends ParseControle<Candidato> {
 	 * @return an instance of Class Candidate
 	 */
 	@Override
-	public Candidato novaInstancia() {
-		Candidato candidato = new Candidato();
-		return candidato;
+	public Candidate novaInstancia() {
+		Candidate candidate = new Candidate();
+		return candidate;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class CandidatoParseControle extends ParseControle<Candidato> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Candidato objetoUm, Candidato objetoDois) {
+	public boolean iguais(Candidate objetoUm, Candidate objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

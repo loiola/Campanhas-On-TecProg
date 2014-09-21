@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Candidato;
+import modelo.beans.Candidate;
 
-public class CandidatoIndicesParse extends IndicesParse<Candidato> {
+public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	
 	/*
 	 * Class to control the contents of information inherent to the candidates
@@ -24,12 +24,12 @@ public class CandidatoIndicesParse extends IndicesParse<Candidato> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Candidato candidato, String[] campo) {
+	protected void setIndicesValidos(Candidate candidate, String[] campo) {
 		if (indiceValido(this.indiceNome)) {
-			candidato.setNome(campo[this.indiceNome]);
+			candidate.setNome(campo[this.indiceNome]);
 		}
 		if (indiceValido(this.indiceTituloEleitoral)) {
-			candidato.setTituloEleitoral(campo[this.indiceTituloEleitoral]);
+			candidate.setTituloEleitoral(campo[this.indiceTituloEleitoral]);
 
 		}
 	}
@@ -39,9 +39,9 @@ public class CandidatoIndicesParse extends IndicesParse<Candidato> {
 	 * @param an instance of Class Candidate
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Candidato candidato) {
-		candidato.setNome(Candidato.STRING_VAZIO);
-		candidato.setTituloEleitoral(Candidato.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Candidate candidate) {
+		candidate.setNome(Candidate.STRING_VAZIO);
+		candidate.setTituloEleitoral(Candidate.STRING_VAZIO);
 	}
 
 	// Mutators for indexes of the array of fields
