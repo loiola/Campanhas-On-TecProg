@@ -8,54 +8,54 @@ public class Party {
 	 */ 
 	
 	// Constants 
-	public static final String STRING_VAZIO = "";
-	public static final Integer INTEGER_VAZIO = 0;
+	public static final String EMPTY_TYPE_STRING = "";
+	public static final Integer EMPTY_TYPE_INTEGER = 0;
 
 	// Attributes
-	private Integer numero;
-	private String sigla;
-	private String deferimento;
-	private String nome;
+	private Integer partyNumber;
+	private String partyAcronym;
+	private String partyConcession;
+	private String partyName;
 	
 	// Empty constructors
 	public Party() {
-		this.nome = STRING_VAZIO;
-		this.sigla = STRING_VAZIO;
-		this.numero = INTEGER_VAZIO;
-		this.deferimento = STRING_VAZIO;
+		this.partyName = EMPTY_TYPE_STRING;
+		this.partyAcronym = EMPTY_TYPE_STRING;
+		this.partyNumber = EMPTY_TYPE_INTEGER;
+		this.partyConcession = EMPTY_TYPE_STRING;
 	}
 	
 	// Getters and Setters
-	public Integer getNumero() {
-		return numero;
+	public Integer getPartyNumber() {
+		return partyNumber;
 	}
 	
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setPartyNumber(Integer partyNumber) {
+		this.partyNumber = partyNumber;
 	}
 	
-	public String getSigla() {
-		return sigla;
+	public String getPartyAcronym() {
+		return partyAcronym;
 	}
 	
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setPartyAcronym(String partyAcronym) {
+		this.partyAcronym = partyAcronym;
 	}
 
-	public String getDeferimento() {
-		return deferimento;
+	public String getPartyConcession() {
+		return partyConcession;
 	}
 
-	public void setDeferimento(String deferimento) {
-		this.deferimento = deferimento;
+	public void setPartyConcession(String partyConcession) {
+		this.partyConcession = partyConcession;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getPartyName() {
+		return partyName;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setPartyName(String partyName) {
+		this.partyName = partyName;
 	}
 	
 	@Override
@@ -63,7 +63,7 @@ public class Party {
 		if( !(object instanceof Party))
 			return false;
 		
-		Party outroPartido = (Party) object;
-		return this.sigla.equals(outroPartido.getSigla());
+		Party otherParty = (Party) object;
+		return this.partyAcronym.equals(otherParty.getPartyAcronym());
 	}
 }

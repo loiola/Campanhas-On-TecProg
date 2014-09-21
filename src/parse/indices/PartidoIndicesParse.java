@@ -31,16 +31,16 @@ public class PartidoIndicesParse extends IndicesParse<Party> {
 	@Override
 	protected void setIndicesValidos(Party party, String campo[]) {
 		if(indiceValido(this.indiceSigla)) {
-			party.setSigla(campo[this.indiceSigla]);
+			party.setPartyAcronym(campo[this.indiceSigla]);
 		}
 		if(indiceValido(this.indiceNumero)) {
-			party.setNumero(Integer.parseInt(campo[this.indiceNumero]));
+			party.setPartyNumber(Integer.parseInt(campo[this.indiceNumero]));
 		}
 		if(indiceValido(this.indiceDeferimento)){
-			party.setDeferimento(campo[this.indiceDeferimento]);
+			party.setPartyConcession(campo[this.indiceDeferimento]);
 		}
 		if(indiceValido(this.indiceNome)){
-			party.setNome(campo[this.indiceNome]);
+			party.setPartyName(campo[this.indiceNome]);
 		}
 	}
 
@@ -50,10 +50,10 @@ public class PartidoIndicesParse extends IndicesParse<Party> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Party party) {
-		party.setSigla(Party.STRING_VAZIO);
-		party.setNumero(Party.INTEGER_VAZIO);
-		party.setNome(Party.STRING_VAZIO);
-		party.setDeferimento(Party.STRING_VAZIO);
+		party.setPartyAcronym(Party.EMPTY_TYPE_STRING);
+		party.setPartyNumber(Party.EMPTY_TYPE_INTEGER);
+		party.setPartyName(Party.EMPTY_TYPE_STRING);
+		party.setPartyConcession(Party.EMPTY_TYPE_STRING);
 	}
 	
 	// Mutators for indexes of the array of fields

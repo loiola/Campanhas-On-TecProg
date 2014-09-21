@@ -68,8 +68,8 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.resultado1.setDescricao("NAO ELEITO");
 		this.cargo1.setPositionCode(2);
 		this.cargo1.setPositionDescription("DEPUTADO DISTRITAL");
-		this.partido1.setSigla("SGL");
-		this.partido1.setNumero(45);
+		this.partido1.setPartyAcronym("SGL");
+		this.partido1.setPartyNumber(45);
 		this.campanha1.setCampaignIdentifier(1);
 		this.campanha1.setCampaignYear(2002);
 		this.campanha1.setCampaignCandidateNumber(45555);
@@ -88,8 +88,8 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.resultado2.setDescricao("ELEITO");
 		this.cargo2.setPositionCode(1);
 		this.cargo2.setPositionDescription("DEPUTADO FEDERAL");
-		this.partido2.setSigla("SGLL");
-		this.partido2.setNumero(13);
+		this.partido2.setPartyAcronym("SGLL");
+		this.partido2.setPartyNumber(13);
 		this.campanha2.setCampaignIdentifier(2);
 		this.campanha2.setCampaignYear(2006);
 		this.campanha2.setCampaignCandidateNumber(1313);

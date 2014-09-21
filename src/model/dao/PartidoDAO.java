@@ -40,7 +40,7 @@ public class PartidoDAO extends BasicoDAO<Party> implements ParseDAO<Party> {
 		SIGLA {
 			@Override
 			public int compare(Party p1, Party p2) {
-				return p1.getSigla().compareToIgnoreCase(p2.getSigla());
+				return p1.getPartyAcronym().compareToIgnoreCase(p2.getPartyAcronym());
 			}
 		};
 	}
@@ -72,10 +72,10 @@ public class PartidoDAO extends BasicoDAO<Party> implements ParseDAO<Party> {
 	protected void adicionarListaNoBatch(ArrayList<Party> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Party party : lista) {
-			instrucaoSQL.setInt(1, party.getNumero());
-			instrucaoSQL.setString(2, party.getSigla());
-			instrucaoSQL.setString(3, party.getNome());
-			instrucaoSQL.setString(4, party.getDeferimento());
+			instrucaoSQL.setInt(1, party.getPartyNumber());
+			instrucaoSQL.setString(2, party.getPartyAcronym());
+			instrucaoSQL.setString(3, party.getPartyName());
+			instrucaoSQL.setString(4, party.getPartyConcession());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -90,10 +90,10 @@ public class PartidoDAO extends BasicoDAO<Party> implements ParseDAO<Party> {
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Party party = new Party();
-			party.setNome(resultadoSQL.getString(NOME));
-			party.setNumero(resultadoSQL.getInt(NUMERO));
-			party.setSigla(resultadoSQL.getString(SIGLA));
-			party.setDeferimento(resultadoSQL.getString(DEFERIMENTO));
+			party.setPartyName(resultadoSQL.getString(NOME));
+			party.setPartyNumber(resultadoSQL.getInt(NUMERO));
+			party.setPartyAcronym(resultadoSQL.getString(SIGLA));
+			party.setPartyConcession(resultadoSQL.getString(DEFERIMENTO));
 
 			lista.add(party);
 		}
@@ -138,10 +138,10 @@ public class PartidoDAO extends BasicoDAO<Party> implements ParseDAO<Party> {
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 	
 			while(resultadoSQL.next()) {
-				party.setSigla(resultadoSQL.getString(SIGLA));
-				party.setNome(resultadoSQL.getString(NOME));
-				party.setDeferimento(resultadoSQL.getString(DEFERIMENTO));
-				party.setNumero(resultadoSQL.getInt(NUMERO));
+				party.setPartyAcronym(resultadoSQL.getString(SIGLA));
+				party.setPartyName(resultadoSQL.getString(NOME));
+				party.setPartyConcession(resultadoSQL.getString(DEFERIMENTO));
+				party.setPartyNumber(resultadoSQL.getInt(NUMERO));
 			}
 	
 			if(this.instrucaoSQL != null) {

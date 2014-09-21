@@ -117,10 +117,10 @@ public class BeanTeste {
 	public static Party instanciarPartido() {
 		
 		Party party = new Party();
-		party.setDeferimento(STRING_TESTE);
-		party.setNome(STRING_TESTE);
-		party.setNumero(INT_TESTE);
-		party.setSigla(STRING_TESTE);
+		party.setPartyConcession(STRING_TESTE);
+		party.setPartyName(STRING_TESTE);
+		party.setPartyNumber(INT_TESTE);
+		party.setPartyAcronym(STRING_TESTE);
 		
 		return party;
 	}

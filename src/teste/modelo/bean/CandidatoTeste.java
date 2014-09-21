@@ -37,9 +37,9 @@ public class CandidatoTeste {
 		
 		Assert.assertEquals(BeanTeste.STRING_TESTE,candidate.getCandidateName());
 		
-		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getSigla());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getDeferimento());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getNome());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getPartyAcronym());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getPartyConcession());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getPartyName());
 	}
 
 }

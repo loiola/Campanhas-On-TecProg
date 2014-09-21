@@ -98,7 +98,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			instrucaoSQL.setInt(3, campaign.getCampaignCandidateNumber());
 			instrucaoSQL.setInt(4, campaign.getCampaignResult().getCodigo());
 			instrucaoSQL.setInt(5, campaign.getCampaignPosition().getPositionCode());
-			instrucaoSQL.setInt(6, campaign.getCampaignParty().getNumero());
+			instrucaoSQL.setInt(6, campaign.getCampaignParty().getPartyNumber());
 			instrucaoSQL.setString(7, campaign.getCampaignCandidate()
 					.getCandidateElectoralTitle());
 			instrucaoSQL.setString(8, campaign.getCampaignNameOfUrn());
@@ -162,7 +162,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	 */
 	private void PreparaCamposCandidatoEPartido(Party party,
 			Candidate candidate, ResultSet resultadoSQL) throws SQLException {
-		party.setNumero(resultadoSQL.getInt(NUMERO_PARTIDO));
+		party.setPartyNumber(resultadoSQL.getInt(NUMERO_PARTIDO));
 		candidate.setCandidateElectoralTitle(resultadoSQL.getString(TITULO_CANDIDATO));
 	}
 
@@ -195,7 +195,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 		Party party = this.partidoDAO.getPelaSigla(sigla);
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_PARTIDO + ", "
 				+ INDEX_ANO + ")" + " WHERE " + NUMERO_PARTIDO + " = '"
-				+ party.getNumero() + "' AND " + ANO + " = '" + ano + "' ";
+				+ party.getPartyNumber() + "' AND " + ANO + " = '" + ano + "' ";
 		listaCampanha = buscaBD(comandoSQL);
 		return listaCampanha;
 	}

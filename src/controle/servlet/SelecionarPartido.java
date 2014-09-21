@@ -58,7 +58,7 @@ public class SelecionarPartido implements Logica {
 	 * @return a String with exchanges
 	 */
 	private String trocaDeCaracteresEspeciais(Party party) {
-		String local = party.getNome().toLowerCase();
+		String local = party.getPartyName().toLowerCase();
 		local = local.replaceAll(" ", "-");
 		local = local.replaceAll("á", "a");
 		local = local.replaceAll("ã", "a");

@@ -58,7 +58,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		Campaign camp1 = new Campaign();
 		this.resultado1.setCodigo(2);
 		this.position.setPositionCode(1);
-		this.partido1.setNumero(45);
+		this.partido1.setPartyNumber(45);
 		this.candidato1.setCandidateElectoralTitle("55325424149");
 		camp1.setCampaignIdentifier(1);
 		camp1.setCampaignYear(2006);
@@ -77,7 +77,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		
 		Campaign camp2 = new Campaign();
 		this.resultado2.setCodigo(3);
-		this.partido2.setNumero(13);
+		this.partido2.setPartyNumber(13);
 		this.candidato2.setCandidateElectoralTitle("04725698130");
 		camp2.setCampaignIdentifier(2);
 		camp2.setCampaignYear(2006);

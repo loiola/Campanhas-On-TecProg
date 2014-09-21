@@ -24,7 +24,7 @@ public class PartidoValidacao {
 	 * @param a political party
 	 */
 	public void siglaNaoNula(Party party) throws PartidoExcecao {
-		if((party.getSigla() == null)) {
+		if((party.getPartyAcronym() == null)) {
 			throw new PartidoExcecao(SIGLA_VAZIA);
 		}
 	}
@@ -34,7 +34,7 @@ public class PartidoValidacao {
 	 * @param a political party
 	 */
 	public void numeroNaoNulo(Party party) throws PartidoExcecao {
-		if((party.getNumero() == null)) {
+		if((party.getPartyNumber() == null)) {
 			throw new PartidoExcecao(NUMERO_PARTIDO_VAZIO);
 		}
 	}

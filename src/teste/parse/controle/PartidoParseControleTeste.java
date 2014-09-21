@@ -48,10 +48,10 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		
 		Party partidoCadastrado = this.partidoDAO.getLista().get(0);
 				
-		Assert.assertEquals(this.campo[SIGLA], partidoCadastrado.getSigla());
-		Assert.assertEquals(this.campo[NUMERO], partidoCadastrado.getNumero().toString());
-		Assert.assertEquals(this.campo[DEFERIMENTO], partidoCadastrado.getDeferimento());
-		Assert.assertEquals(this.campo[NOME], partidoCadastrado.getNome());
+		Assert.assertEquals(this.campo[SIGLA], partidoCadastrado.getPartyAcronym());
+		Assert.assertEquals(this.campo[NUMERO], partidoCadastrado.getPartyNumber().toString());
+		Assert.assertEquals(this.campo[DEFERIMENTO], partidoCadastrado.getPartyConcession());
+		Assert.assertEquals(this.campo[NOME], partidoCadastrado.getPartyName());
 	}
 	
 	@Test

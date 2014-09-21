@@ -56,7 +56,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 		}	
 		if (indiceValido(this.indicePartidoNumero)) {
 			Party party = new Party();
-			party.setNumero(Integer.parseInt(campo[this.indicePartidoNumero]));
+			party.setPartyNumber(Integer.parseInt(campo[this.indicePartidoNumero]));
 			campaign.setCampaignParty(party);
 		}	
 		if (indiceValido(this.indiceCandidatoTitulo)) {

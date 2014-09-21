@@ -28,10 +28,10 @@ public class PartidoIndicesParseTeste {
 		
 		Party party = new Party();
 		this.partidoIndicesParse.iniciarInstancia(party, campo);
-		Assert.assertEquals(this.campo[0], party.getSigla());
-		Assert.assertEquals(this.campo[1], party.getNumero().toString());
-		Assert.assertEquals(this.campo[2], party.getDeferimento());
-		Assert.assertEquals(this.campo[3], party.getNome());
+		Assert.assertEquals(this.campo[0], party.getPartyAcronym());
+		Assert.assertEquals(this.campo[1], party.getPartyNumber().toString());
+		Assert.assertEquals(this.campo[2], party.getPartyConcession());
+		Assert.assertEquals(this.campo[3], party.getPartyName());
 	}
 	
 	@Test
@@ -40,10 +40,10 @@ public class PartidoIndicesParseTeste {
 		this.partidoIndicesParse = new PartidoIndicesParse();
 		Party party = new Party();
 		this.partidoIndicesParse.iniciarInstancia(party, campo);
-		Assert.assertNotEquals(this.campo[0], party.getSigla());
-		Assert.assertNotEquals(this.campo[1], party.getNumero().toString());
-		Assert.assertNotEquals(this.campo[2], party.getDeferimento());
-		Assert.assertNotEquals(this.campo[3], party.getNome());
+		Assert.assertNotEquals(this.campo[0], party.getPartyAcronym());
+		Assert.assertNotEquals(this.campo[1], party.getPartyNumber().toString());
+		Assert.assertNotEquals(this.campo[2], party.getPartyConcession());
+		Assert.assertNotEquals(this.campo[3], party.getPartyName());
 	}
 	
 	private void iniciarIndices() {

@@ -31,8 +31,8 @@ public class PartidoDAOTeste extends TemplateTeste {
 
 		Party P1 = new Party();
 		Party P2 = new Party();
-		P1.setSigla("AEIOU");
-		P2.setSigla("AEIOU");
+		P1.setPartyAcronym("AEIOU");
+		P2.setPartyAcronym("AEIOU");
 		int resultado;
 
 		resultado = PartidoDAO.Comparacao.SIGLA.compare(P1, P2);
@@ -46,10 +46,10 @@ public class PartidoDAOTeste extends TemplateTeste {
 		ArrayList<Party> listaPartidos = new ArrayList<>();
 
 		Party party = new Party();
-		party.setNumero(1);
-		party.setSigla("A");
-		party.setDeferimento("11.2.1982");
-		party.setNome("AEIOU");
+		party.setPartyNumber(1);
+		party.setPartyAcronym("A");
+		party.setPartyConcession("11.2.1982");
+		party.setPartyName("AEIOU");
 		listaPartidos.add(party);
 
 		this.partidoDAO.cadastrarLista(listaPartidos);
@@ -61,10 +61,10 @@ public class PartidoDAOTeste extends TemplateTeste {
 		ArrayList<Party> listaPartidos = new ArrayList<>();
 
 		Party party = new Party();
-		party.setNumero(1);
-		party.setSigla("A");
-		party.setDeferimento("11.2.1982");
-		party.setNome("AEIOU");
+		party.setPartyNumber(1);
+		party.setPartyAcronym("A");
+		party.setPartyConcession("11.2.1982");
+		party.setPartyName("AEIOU");
 		listaPartidos.add(party);
 
 		this.partidoDAO.cadastrarLista(listaPartidos);
@@ -83,17 +83,17 @@ public class PartidoDAOTeste extends TemplateTeste {
 		Party partidoRecuperado = new Party();
 		
 		Party p1 = new Party();
-		p1.setNumero(45);
-		p1.setSigla("PI1");
-		p1.setNome("PARTIDO INEXISTENTE 1");
-		p1.setDeferimento("11.8.1996");
+		p1.setPartyNumber(45);
+		p1.setPartyAcronym("PI1");
+		p1.setPartyName("PARTIDO INEXISTENTE 1");
+		p1.setPartyConcession("11.8.1996");
 		listaPartidos.add(p1);
 		
 		Party p2 = new Party();
-		p2.setNumero(23);
-		p2.setSigla("PI2");
-		p2.setNome("PARTIDO INEXISTENTE 2");
-		p2.setDeferimento("11.8.1994");
+		p2.setPartyNumber(23);
+		p2.setPartyAcronym("PI2");
+		p2.setPartyName("PARTIDO INEXISTENTE 2");
+		p2.setPartyConcession("11.8.1994");
 		listaPartidos.add(p2);
 		
 		this.partidoDAO.cadastrarLista(listaPartidos);
