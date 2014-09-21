@@ -50,7 +50,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERCAO;
 	}
 
@@ -59,7 +59,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECAO;
 	}
 
@@ -69,7 +69,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Party> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Party> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Party party : lista) {
 			instrucaoSQL.setInt(1, party.getPartyNumber());
@@ -86,7 +86,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Party> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Party> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Party party = new Party();
@@ -131,11 +131,11 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 		Party party = new Party();
 		
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 	
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 	
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 	
 			while(resultadoSQL.next()) {
 				party.setPartyAcronym(resultadoSQL.getString(SIGLA));
@@ -144,17 +144,17 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 				party.setPartyNumber(resultadoSQL.getInt(NUMERO));
 			}
 	
-			if(this.instrucaoSQL != null) {
-				instrucaoSQL.close();
+			if(this.daoSQLInstruction != null) {
+				daoSQLInstruction.close();
 			}
 
-			if(this.conexao != null) {
-				conexao.close();
+			if(this.connection != null) {
+				connection.close();
 			}
 		} catch(SQLException e) {
 			throw new SQLException("PartyDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return party;
 	}

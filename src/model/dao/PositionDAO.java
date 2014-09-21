@@ -47,7 +47,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERCAO;
 	}
 
@@ -56,7 +56,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECAO;
 	}
 
@@ -66,7 +66,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Position> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Position> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Position position : lista) {
 			instrucaoSQL.setInt(1, position.getPositionCode());
@@ -81,7 +81,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Position> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Position> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Position position = new Position();
@@ -122,11 +122,11 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 		String comandoSQL = SQL;
 		
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 			while(resultadoSQL.next()) {
 				position.setPositionCode(resultadoSQL.getInt(CODIGO));
 				position.setPositionDescription(resultadoSQL.getString(DESCRICAO));
@@ -134,7 +134,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 		} catch(SQLException e) {
 			throw new SQLException("PositionDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return position;
 	}

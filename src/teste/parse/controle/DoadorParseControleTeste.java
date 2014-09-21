@@ -46,7 +46,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		this.doadorParseControle.cadastrarInstancias();
 		this.doadorParseControle.resetar();
 		
-		Donor doadorCadastrado = this.donorDAO.getLista().get(0);
+		Donor doadorCadastrado = this.donorDAO.getObjectArrayListFromDatabase().get(0);
 				
 		Assert.assertEquals(this.campo[CPF_CNPJ], doadorCadastrado.getDonorPersonRegister() );
 		Assert.assertEquals(this.campo[NOME], doadorCadastrado.getDonorName());
@@ -62,7 +62,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		this.doadorParseControle.cadastrarInstancias();
 		this.doadorParseControle.resetar();
 		
-		int numeroDoadoresCadastrados = this.donorDAO.getLista().size();
+		int numeroDoadoresCadastrados = this.donorDAO.getObjectArrayListFromDatabase().size();
 		
 		Assert.assertEquals(1, numeroDoadoresCadastrados);
 	}

@@ -85,8 +85,8 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		receita2.setRevenueDonor(doador2);
 		listaReceitas.add(receita2);
 		
-		this.revenueDAO.cadastrarLista(listaReceitas);
-		this.revenueDAO.getLista();
+		this.revenueDAO.registerUnregisteredObjectArrayListOnDatabase(listaReceitas);
+		this.revenueDAO.getObjectArrayListFromDatabase();
 	}
 
 }

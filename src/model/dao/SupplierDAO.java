@@ -49,7 +49,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERCAO;
 	}
 
@@ -58,7 +58,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECAO;
 	}
 
@@ -68,7 +68,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Supplier> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Supplier> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Supplier supplier : lista) {
 			instrucaoSQL.setString(1, supplier.getSupplierPersonRegister());
@@ -85,7 +85,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Supplier> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Supplier> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Supplier supplier = new Supplier();
@@ -127,13 +127,13 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 		ArrayList<Supplier> listaFornecedor = new ArrayList<>();
 
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 
 			while(resultadoSQL.next()) {
 				Supplier supplier = new Supplier();
@@ -150,7 +150,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 		}  catch(SQLException e) {
 			throw new SQLException("SupplierDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return listaFornecedor;
 	}

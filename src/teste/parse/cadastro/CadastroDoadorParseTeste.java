@@ -50,7 +50,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Donor> listaDoadores = donorDAO.getLista();
+		ArrayList<Donor> listaDoadores = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "123");
 	}
 	
@@ -64,7 +64,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Donor> listaDoadores = donorDAO.getLista();
+		ArrayList<Donor> listaDoadores = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Donor> listaDoadores = donorDAO.getLista();
+		ArrayList<Donor> listaDoadores = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
 	}
 

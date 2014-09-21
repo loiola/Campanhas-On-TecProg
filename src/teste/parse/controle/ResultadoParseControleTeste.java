@@ -43,7 +43,7 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 		this.resultadoParseControle.cadastrarInstancias();
 		this.resultadoParseControle.resetar();
 		
-		Result resultadoCadastrado = this.resultDAO.getLista().get(0);
+		Result resultadoCadastrado = this.resultDAO.getObjectArrayListFromDatabase().get(0);
 				
 		Assert.assertEquals(this.campo[CODIGO], resultadoCadastrado.getResultType().toString());
 		Assert.assertEquals(this.campo[DESCRICAO], resultadoCadastrado.getResultDescription());

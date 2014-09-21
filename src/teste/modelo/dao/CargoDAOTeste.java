@@ -42,7 +42,7 @@ public class CargoDAOTeste extends TemplateTeste {
 		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 
-		this.positionDAO.cadastrarLista(listaCargos);
+		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
 
 		cargoRecuperado = this.positionDAO.getPeloCod(1);
 		Assert.assertEquals(c1, cargoRecuperado);
@@ -64,7 +64,7 @@ public class CargoDAOTeste extends TemplateTeste {
 		c2.setPositionDescription("CARGO DOIS");
 		listaCargos.add(c2);
 
-		this.positionDAO.cadastrarLista(listaCargos);
+		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
 
 		cargoRecuperado = this.positionDAO.getPelaDescricao("CARGO UM");
 		Assert.assertEquals(c1, cargoRecuperado);
@@ -91,10 +91,10 @@ public class CargoDAOTeste extends TemplateTeste {
 		c3.setPositionDescription("CARGO TR�S");
 		listaCargos.add(c3);
 		
-		this.positionDAO.cadastrarLista(listaCargos);
-		listaRecuperada = this.positionDAO.getLista();
+		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
+		listaRecuperada = this.positionDAO.getObjectArrayListFromDatabase();
 		
-		Assert.assertEquals(listaRecuperada, this.positionDAO.getLista());
+		Assert.assertEquals(listaRecuperada, this.positionDAO.getObjectArrayListFromDatabase());
 	}
 
 	@Test

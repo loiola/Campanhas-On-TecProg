@@ -42,7 +42,7 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		candidate.setCandidateElectoralTitle("00000");
 		listaCandidatos.add(candidate);
 		
-		this.candidateDAO.cadastrarLista(listaCandidatos);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 	}
 	
 	@Test
@@ -55,10 +55,10 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		candidate.setCandidateElectoralTitle("00000");
 		listaCandidatos.add(candidate);
 
-		this.candidateDAO.cadastrarLista(listaCandidatos);
-		this.candidateDAO.cadastrarLista(listaCandidatos);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		
-		Assert.assertEquals(1, this.candidateDAO.getLista().size());
+		Assert.assertEquals(1, this.candidateDAO.getObjectArrayListFromDatabase().size());
 	}
 	
 	@Test
@@ -76,10 +76,10 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		candidatoDois.setCandidateElectoralTitle("00001");
 		listaCandidatos.add(candidatoDois);
 		
-		candidateDAO.cadastrarLista(listaCandidatos);
+		candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 
-		this.candidateDAO.cadastrarLista(listaCandidatos);
-		Assert.assertEquals(listaCandidatos, candidateDAO.getLista());
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
+		Assert.assertEquals(listaCandidatos, candidateDAO.getObjectArrayListFromDatabase());
 	}
 
 	@Test

@@ -79,8 +79,8 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		expense.setExpenseSupplier(supplier);
 		listaDespesa.add(expense);
 		
-		this.expenseDAO.cadastrarLista(listaDespesa);
-		this.revenueDAO.cadastrarLista(listaReceita);
+		this.expenseDAO.registerUnregisteredObjectArrayListOnDatabase(listaDespesa);
+		this.revenueDAO.registerUnregisteredObjectArrayListOnDatabase(listaReceita);
 	}
 
 	@Override

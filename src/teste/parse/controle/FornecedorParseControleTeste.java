@@ -44,7 +44,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		this.fornecedorParseControle.cadastrarInstancias();
 		this.fornecedorParseControle.resetar();
 
-		Supplier fornecedorCadastrado = this.supplierDAO.getLista().get(0);
+		Supplier fornecedorCadastrado = this.supplierDAO.getObjectArrayListFromDatabase().get(0);
 
 		Assert.assertEquals(this.campo[CPF_CNPJ], fornecedorCadastrado.getSupplierPersonRegister()
 				.toString());
@@ -60,7 +60,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		this.fornecedorParseControle.cadastrarInstancias();
 		this.fornecedorParseControle.resetar();
 
-		int numeroFornecedorCadastrados = this.supplierDAO.getLista().size();
+		int numeroFornecedorCadastrados = this.supplierDAO.getObjectArrayListFromDatabase().size();
 
 		Assert.assertEquals(1, numeroFornecedorCadastrados);
 	}

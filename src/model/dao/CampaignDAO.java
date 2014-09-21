@@ -61,7 +61,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERT;
 	}
 
@@ -70,7 +70,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECT;
 	}
 
@@ -90,7 +90,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Campaign> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Campaign> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Campaign campaign : lista) {
 			instrucaoSQL.setInt(1, campaign.getCampaignIdentifier());
@@ -116,7 +116,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Campaign> lista, ResultSet resultadoSQL) throws SQLException {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Campaign> lista, ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Position position = new Position();
 			Result result = new Result();
@@ -234,11 +234,11 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		this.resultDAO = new ResultDAO();
 
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 
 			while(resultadoSQL.next()) {
 				Campaign campaign = new Campaign();
@@ -260,7 +260,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		} catch(SQLException e) {
 			throw new SQLException("CampaignDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return listaCampanha;
 	}

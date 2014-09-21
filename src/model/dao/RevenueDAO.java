@@ -56,7 +56,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERT;
 	}
 
@@ -65,7 +65,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECT;
 	}
 
@@ -75,7 +75,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Revenue> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Revenue> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Revenue revenue : lista) {
 			instrucaoSQL.setInt(1, revenue.getFinancialTransactionIdentifier());
@@ -102,7 +102,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Revenue> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Revenue> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
@@ -169,13 +169,13 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 
 			while(resultadoSQL.next()) {
 				Revenue revenue = new Revenue();
@@ -210,7 +210,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		} catch(SQLException e) {
 			throw new SQLException("RevenueDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return listaReceita;
 	}

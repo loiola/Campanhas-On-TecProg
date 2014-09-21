@@ -104,8 +104,8 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha2.setCampaignTotalRevenueCalculated((float) 450000.0);
 		listaCampanhas.add(campanha2);
 		
-		this.campaignDAO.cadastrarLista(listaCampanhas);
-		this.candidateDAO.cadastrarLista(listaCandidato);
+		this.campaignDAO.registerUnregisteredObjectArrayListOnDatabase(listaCampanhas);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidato);
 		
 		Assert.assertEquals(this.campaignDAO.getCampanhasPeloTituloEleitoral(candidate), this.campanhaControle.getListaCampanhas(candidate));
 		Assert.assertEquals(this.campaignDAO.getCampanhasPorSiglaEAno("SGLL", "2006"), this.campanhaControle.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));

@@ -50,8 +50,8 @@ public class PartidoControleTeste extends TemplateTeste {
 		partido1.setPartyConcession("15.4.1995");
 		listaPartidosACadastrar.add(partido2);
 		
-		this.partyDAO.cadastrarLista(listaPartidosACadastrar);
-		listaPartidosRecuperados = this.partyDAO.getLista();
+		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidosACadastrar);
+		listaPartidosRecuperados = this.partyDAO.getObjectArrayListFromDatabase();
 		
 		assertEquals(listaPartidosRecuperados, this.partidoControle.getListaTodosPartidos());
 	}
@@ -76,7 +76,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		partido1.setPartyConcession("15.4.1995");
 		listaPartidos.add(partido2);
 		
-		this.partyDAO.cadastrarLista(listaPartidos);
+		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
 		partidoRecuperado = this.partyDAO.getPelaSigla("PE1");
 		
 		assertEquals(partidoRecuperado, this.partidoControle.getPelaSigla("PE1"));
@@ -102,7 +102,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		partido1.setPartyConcession("15.5.1996");
 		listaPartidos.add(partido2);
 		
-		this.partyDAO.cadastrarLista(listaPartidos);
+		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
 		partidoRecuperado = this.partyDAO.getPeloNumero("47");
 		
 		assertEquals(partidoRecuperado, this.partidoControle.getPeloNumero("47"));

@@ -51,7 +51,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		this.campanhaParseControle.cadastrarInstancias();
 		this.campanhaParseControle.resetar();
 		
-		Campaign campanhaCadastrada = this.campaignDAO.getLista().get(0);
+		Campaign campanhaCadastrada = this.campaignDAO.getObjectArrayListFromDatabase().get(0);
 				
 		Assert.assertEquals(this.campo[RESULTADO], campanhaCadastrada.getCampaignResult().getResultType().toString());
 		Assert.assertEquals(this.campo[CARGO], campanhaCadastrada.getCampaignPosition().getPositionCode().toString());
@@ -72,7 +72,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		this.campanhaParseControle.cadastrarInstancias();
 		this.campanhaParseControle.resetar();
 		
-		int numeroCampanhasCadastradas = this.campaignDAO.getLista().size();
+		int numeroCampanhasCadastradas = this.campaignDAO.getObjectArrayListFromDatabase().size();
 		
 		Assert.assertEquals(1, numeroCampanhasCadastradas);
 	}

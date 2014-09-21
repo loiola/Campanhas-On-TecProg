@@ -52,7 +52,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERT;
 	}
 
@@ -61,7 +61,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECT;
 	}
 
@@ -71,7 +71,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Candidate> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Candidate> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Candidate candidate : lista) {
 			instrucaoSQL.setString(1, candidate.getCandidateElectoralTitle());
@@ -86,7 +86,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Candidate> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Candidate> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Candidate candidate = new Candidate();
@@ -149,11 +149,11 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 		LinkedList<Candidate> listaCandidato = new LinkedList<>();
 
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 
 			while(resultadoSQL.next()) {
 				Candidate candidate = new Candidate();
@@ -167,7 +167,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 		} catch(SQLException e) {
 			throw new SQLException("CandidateDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return listaCandidato;
 	}

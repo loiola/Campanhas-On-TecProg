@@ -46,7 +46,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 		this.receitaParseControle.cadastrarInstancias();
 		this.receitaParseControle.resetar();
 
-		Revenue receitaCadastrado = this.revenueDAO.getLista().get(0);
+		Revenue receitaCadastrado = this.revenueDAO.getObjectArrayListFromDatabase().get(0);
 
 		Assert.assertEquals(this.campo[RECIBO], receitaCadastrado.
 				getRevenueElectoralReceipt());

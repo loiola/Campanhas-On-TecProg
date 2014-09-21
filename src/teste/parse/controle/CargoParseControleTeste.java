@@ -43,7 +43,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 		this.cargoParseControle.cadastrarInstancias();
 		this.cargoParseControle.resetar();
 		
-		Position cargoCadastrado = this.positionDAO.getLista().get(0);
+		Position cargoCadastrado = this.positionDAO.getObjectArrayListFromDatabase().get(0);
 				
 		Assert.assertEquals(this.campo[CODIGO], cargoCadastrado.getPositionCode().toString());
 		Assert.assertEquals(this.campo[DESCRICAO], cargoCadastrado.getPositionDescription());
@@ -57,7 +57,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 		this.cargoParseControle.cadastrarInstancias();
 		this.cargoParseControle.resetar();
 		
-		int numeroCargosCadastrados = this.positionDAO.getLista().size();
+		int numeroCargosCadastrados = this.positionDAO.getObjectArrayListFromDatabase().size();
 		
 		Assert.assertEquals(1, numeroCargosCadastrados);
 	}

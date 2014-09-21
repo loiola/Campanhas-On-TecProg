@@ -61,7 +61,7 @@ public abstract class ParseControle<O> {
 	 * This method formalizes the registration of a list of instances
 	 */
 	public void cadastrarInstancias() throws ParseException {
-		this.basicoDAO.cadastrarListaParse(this.listaInstancias);
+		this.basicoDAO.registerObjectArrayListOnParse(this.listaInstancias);
 	}
 	
 	/*

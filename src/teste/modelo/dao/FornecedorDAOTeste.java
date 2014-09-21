@@ -48,7 +48,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		supplier.setSupplierName("Nome");
 		listaFornecedores.add(supplier);
 		
-		this.supplierDAO.cadastrarLista(listaFornecedores);
+		this.supplierDAO.registerUnregisteredObjectArrayListOnDatabase(listaFornecedores);
 	}
 	
 	@Test
@@ -60,10 +60,10 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		supplier.setSupplierName("Nome");
 		listaFornecedores.add(supplier);
 
-		this.supplierDAO.cadastrarLista(listaFornecedores);
-		this.supplierDAO.cadastrarLista(listaFornecedores);
+		this.supplierDAO.registerUnregisteredObjectArrayListOnDatabase(listaFornecedores);
+		this.supplierDAO.registerUnregisteredObjectArrayListOnDatabase(listaFornecedores);
 		
-		Assert.assertEquals(1, this.supplierDAO.getLista().size());
+		Assert.assertEquals(1, this.supplierDAO.getObjectArrayListFromDatabase().size());
 	}
 	
 	@Test
@@ -85,8 +85,8 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		supplier.setSupplierCountryState("DF");
 		listaFornecedores.add(supplier);
 
-		this.supplierDAO.cadastrarLista(listaFornecedores);
-		Assert.assertEquals(listaFornecedores, this.supplierDAO.getLista());
+		this.supplierDAO.registerUnregisteredObjectArrayListOnDatabase(listaFornecedores);
+		Assert.assertEquals(listaFornecedores, this.supplierDAO.getObjectArrayListFromDatabase());
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		fornecedor2.setSupplierCountryState("DF");
 		listaFornecedoresACadastrar.add(fornecedor2);
 		
-		this.supplierDAO.cadastrarLista(listaFornecedoresACadastrar);
+		this.supplierDAO.registerUnregisteredObjectArrayListOnDatabase(listaFornecedoresACadastrar);
 		fornecedorRecuperado = this.supplierDAO.getPeloNomeOuCpfCnpj(fornecedor1);
 		
 		Assert.assertEquals(fornecedor1, fornecedorRecuperado);

@@ -46,7 +46,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		this.partidoParseControle.cadastrarInstancias();
 		this.partidoParseControle.resetar();
 		
-		Party partidoCadastrado = this.partyDAO.getLista().get(0);
+		Party partidoCadastrado = this.partyDAO.getObjectArrayListFromDatabase().get(0);
 				
 		Assert.assertEquals(this.campo[SIGLA], partidoCadastrado.getPartyAcronym());
 		Assert.assertEquals(this.campo[NUMERO], partidoCadastrado.getPartyNumber().toString());
@@ -62,7 +62,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		this.partidoParseControle.cadastrarInstancias();
 		this.partidoParseControle.resetar();
 		
-		int numeroPartidosCadastrados = this.partyDAO.getLista().size();
+		int numeroPartidosCadastrados = this.partyDAO.getObjectArrayListFromDatabase().size();
 				
 		Assert.assertEquals(1, numeroPartidosCadastrados);
 	}

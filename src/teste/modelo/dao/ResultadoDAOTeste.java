@@ -41,7 +41,7 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		r2.setResultDescription("Result 2");
 		lista.add(r2);
 		
-		this.dao.cadastrarLista(lista);
+		this.dao.registerUnregisteredObjectArrayListOnDatabase(lista);
 			
 		Result r3 = new Result();
 		r3 = this.dao.getPeloCod(1);
@@ -63,7 +63,7 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		r2.setResultDescription("Result 2");
 		lista.add(r2);
 		
-		this.dao.cadastrarLista(lista);
+		this.dao.registerUnregisteredObjectArrayListOnDatabase(lista);
 			
 		Result r3 = new Result();
 		r3 = this.dao.getPeloCod(5);

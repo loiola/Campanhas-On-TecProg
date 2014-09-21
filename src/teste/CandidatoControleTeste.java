@@ -51,7 +51,7 @@ public class CandidatoControleTeste extends TemplateTeste {
 		candidato3.setCandidateElectoralTitle("000002");
 		listaCandidatos.add(candidato3);
 
-		this.candidateDAO.cadastrarLista(listaCandidatos);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		listaCandidatosNomeComum = this.candidateDAO.getListaPeloNome("INEXISTENTE");
 		this.candidatoControle.getListaCandidatos("INEXISTENTE");
 		
@@ -74,7 +74,7 @@ public class CandidatoControleTeste extends TemplateTeste {
 		candidato2.setCandidateElectoralTitle("000001");
 		listaCandidatos.add(candidato2);
 		
-		this.candidateDAO.cadastrarLista(listaCandidatos);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		candidatoRecuperado = this.candidateDAO.getCandidatoPeloTitulo("000000");
 		this.candidatoControle.getUmCandidato("000000");
 		

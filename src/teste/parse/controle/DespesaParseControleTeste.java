@@ -46,7 +46,7 @@ public class DespesaParseControleTeste extends TemplateTeste {
 		this.despesaParseControle.cadastrarInstancias();
 		this.despesaParseControle.resetar();
 
-		Expense despesaCadastrado = this.expenseDAO.getLista().get(0);
+		Expense despesaCadastrado = this.expenseDAO.getObjectArrayListFromDatabase().get(0);
 
 		Assert.assertEquals(this.campo[TIPODOCUMENTO], despesaCadastrado.getExpenseDocumentType()
 				.toString());

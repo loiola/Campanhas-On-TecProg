@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface ParseDAO<O> {
 
-	public void cadastrarListaParse(ArrayList<O> lista) throws ParseException;
-	public ArrayList<O> getListaParse() throws ParseException;
+	public void registerObjectArrayListOnParse(ArrayList<O> lista) throws ParseException;
+	public ArrayList<O> getObjectArrayListFromParse() throws ParseException;
 	
 }

@@ -48,7 +48,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		donor.setDonorName("Nome");
 		listaDoadores.add(donor);
 		
-		this.donorDAO.cadastrarLista(listaDoadores);
+		this.donorDAO.registerUnregisteredObjectArrayListOnDatabase(listaDoadores);
 	}
 	
 	@Test
@@ -60,10 +60,10 @@ public class DoadorDAOTeste extends TemplateTeste {
 		donor.setDonorName("Nome");
 		listaDoadores.add(donor);
 
-		this.donorDAO.cadastrarLista(listaDoadores);
-		this.donorDAO.cadastrarLista(listaDoadores);
+		this.donorDAO.registerUnregisteredObjectArrayListOnDatabase(listaDoadores);
+		this.donorDAO.registerUnregisteredObjectArrayListOnDatabase(listaDoadores);
 		
-		Assert.assertEquals(1, this.donorDAO.getLista().size());
+		Assert.assertEquals(1, this.donorDAO.getObjectArrayListFromDatabase().size());
 	}
 	
 	@Test
@@ -85,8 +85,8 @@ public class DoadorDAOTeste extends TemplateTeste {
 		donor.setDonorCountryState("DF");
 		listaDoadores.add(donor);
 
-		this.donorDAO.cadastrarLista(listaDoadores);
-		Assert.assertEquals(listaDoadores, this.donorDAO.getLista());
+		this.donorDAO.registerUnregisteredObjectArrayListOnDatabase(listaDoadores);
+		Assert.assertEquals(listaDoadores, this.donorDAO.getObjectArrayListFromDatabase());
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		doador2.setDonorCountryState("DF");
 		listaDoadoresACadastrar.add(doador2);
 		
-		this.donorDAO.cadastrarLista(listaDoadoresACadastrar);
+		this.donorDAO.registerUnregisteredObjectArrayListOnDatabase(listaDoadoresACadastrar);
 		doadorRecuperado = this.donorDAO.getPeloNomeOuCpfCnpj(doador1);
 		
 		Assert.assertEquals(doador1, doadorRecuperado);

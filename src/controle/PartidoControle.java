@@ -26,7 +26,7 @@ public class PartidoControle {
 	 * @return an ArrayList with all political parties
 	 */
 	public ArrayList<Party> getListaTodosPartidos() throws SQLException {
-		return this.partyDAO.getLista();
+		return this.partyDAO.getObjectArrayListFromDatabase();
 	}
 	
 	/*

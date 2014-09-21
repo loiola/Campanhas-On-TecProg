@@ -57,7 +57,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERT;
 	}
 
@@ -66,7 +66,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECT;
 	}
 
@@ -76,7 +76,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Expense> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Expense> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Expense expense : lista) {
 			instrucaoSQL.setInt(1, expense.getFinancialTransactionIdentifier());	
@@ -103,7 +103,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Expense> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Expense> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
@@ -171,13 +171,13 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
 
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
 
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 
 			while(resultadoSQL.next()) {
 				Expense expense = new Expense();
@@ -212,7 +212,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 		}  catch(SQLException e) {
 			throw new SQLException("ExpenseDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return listaDespesa;
 	}

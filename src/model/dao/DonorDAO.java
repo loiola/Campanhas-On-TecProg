@@ -49,7 +49,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERCAO;
 	}
 
@@ -58,7 +58,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECAO;
 	}
 
@@ -68,7 +68,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Donor> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Donor> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Donor donor : lista) {
 			instrucaoSQL.setString(1, donor.getDonorPersonRegister());
@@ -85,7 +85,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Donor> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Donor> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Donor donor = new Donor();
@@ -108,11 +108,11 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 		ArrayList<Donor> listaDoador = new ArrayList<>();
 		
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 
 			String comandoSQL = SQL;
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 
 			while(resultadoSQL.next()) {
 				Donor donor = new Donor();
@@ -128,7 +128,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 		} catch(SQLException e) {
 			throw new SQLException("DonorDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return listaDoador;
 	}

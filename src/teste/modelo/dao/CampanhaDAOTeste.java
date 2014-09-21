@@ -94,14 +94,14 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		listaCampanhas.add(camp2);
 		listaCandidato.add(candidato2);
 		
-		this.candidateDAO.cadastrarLista(listaCandidato);				
-		this.campaignDAO.cadastrarLista(listaCampanhas);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidato);				
+		this.campaignDAO.registerUnregisteredObjectArrayListOnDatabase(listaCampanhas);
 	}
 	
 	@Test
 	public void deveVerificarSeOTopFiveEstaOrdenado() throws SQLException {	
 		
-		Assert.assertEquals(listaCampanhas, this.campaignDAO.getLista());
+		Assert.assertEquals(listaCampanhas, this.campaignDAO.getObjectArrayListFromDatabase());
 	}
 	
 	@Test

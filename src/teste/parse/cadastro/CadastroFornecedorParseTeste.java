@@ -50,7 +50,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Supplier> listaFornecedores = supplierDAO.getLista();
+		ArrayList<Supplier> listaFornecedores = supplierDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "123");
 	}
 	
@@ -64,7 +64,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Supplier> listaFornecedores = supplierDAO.getLista();
+		ArrayList<Supplier> listaFornecedores = supplierDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "12345");
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Supplier> listaFornecedores = supplierDAO.getLista();
+		ArrayList<Supplier> listaFornecedores = supplierDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaFornecedores.get(0).getSupplierPersonRegister(), "12345");
 	}
 

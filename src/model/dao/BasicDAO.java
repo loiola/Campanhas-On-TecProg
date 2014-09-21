@@ -18,15 +18,15 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 */
 
 	// Attributes
-	protected Connection conexao;
-	protected PreparedStatement instrucaoSQL;
-	private Comparator<O> comparador;
-	private String nomeTabela;
+	protected Connection connection;
+	protected PreparedStatement daoSQLInstruction;
+	private Comparator<O> daoComparator;
+	private String tableName;
 	
 	// Constructors
-	public BasicDAO(String nomeTabela, Comparator<O> comparador) {
-		this.nomeTabela = nomeTabela;
-		this.comparador = comparador;
+	public BasicDAO(String tableName, Comparator<O> daoComparator) {
+		this.tableName = tableName;
+		this.daoComparator = daoComparator;
 	}
 	
 	/*
@@ -34,9 +34,9 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 * @param an ArrayList<O>
 	 */
 	@Override
-	public void cadastrarListaParse(ArrayList<O> lista) throws ParseException {
+	public void registerObjectArrayListOnParse(ArrayList<O> objectList) throws ParseException {
 		try {
-			cadastrarLista(lista);
+			registerUnregisteredObjectArrayListOnDatabase(objectList);
 		} catch(Exception e) {
 			throw new ParseException(e.getMessage());
 		}
@@ -47,15 +47,15 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 * @return an ArrayList<O>
 	 */
 	@Override
-	public ArrayList<O> getListaParse() throws ParseException {
-		ArrayList<O> lista = new ArrayList<>();
+	public ArrayList<O> getObjectArrayListFromParse() throws ParseException {
+		ArrayList<O> objectList = new ArrayList<>();
 		
 		try {
-			lista = getLista();
+			objectList = getObjectArrayListFromDatabase();
 		} catch (Exception e) {
 			throw new ParseException(e.getMessage());
 		}
-		return lista;
+		return objectList;
 	}
 	
 	/*
@@ -63,22 +63,22 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 * and register them
 	 * @param an ArrayList<O>
 	 */
-	public void cadastrarLista(ArrayList<O> lista) throws SQLException {
+	public void registerUnregisteredObjectArrayListOnDatabase(ArrayList<O> referenceFromParseObjectList) throws SQLException {
 		try {
-			ArrayList<O> listaNaoCadastrados = getListaNaoCadastrados(lista);
+			ArrayList<O> unregisteredObjectList = getUnregisteredObjectArrayListInDatabase(referenceFromParseObjectList);
 
-			this.conexao = new DatabaseConnection().getConexao();
-			this.instrucaoSQL = getInstrucaoSQL(getSqlInsert());
-			this.conexao.setAutoCommit(false);
+			this.connection = new DatabaseConnection().getConexao();
+			this.daoSQLInstruction = getSQLInstruction(getSQLInsertCommand());
+			this.connection.setAutoCommit(false);
 	
-			adicionarListaNoBatch(listaNaoCadastrados, instrucaoSQL);
+			registerObjectArrayListOnBatch(unregisteredObjectList, daoSQLInstruction);
 	
-			this.instrucaoSQL.executeBatch();
-			this.conexao.commit();			
+			this.daoSQLInstruction.executeBatch();
+			this.connection.commit();			
 		} catch (Exception e) {
-			throw new SQLException(nomeTabela + " - " + e.getMessage());
+			throw new SQLException(tableName + " - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 	}
 	
@@ -86,25 +86,25 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 * This method retrieves a list of registered objects
 	 * @param an ArrayList<O>
 	 */
-	public ArrayList<O> getLista() throws SQLException {
-		ArrayList<O> lista = new ArrayList<>();
+	public ArrayList<O> getObjectArrayListFromDatabase() throws SQLException {
+		ArrayList<O> objectList = new ArrayList<>();
 		
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 			
-			String comandoSQL = getSqlSelect();
+			String sqlCommand = getSQLSelectCommand();
 			
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
 			
-			ResultSet resultadoSQL = (ResultSet) this.instrucaoSQL.executeQuery();
+			ResultSet sqlResult = (ResultSet) this.daoSQLInstruction.executeQuery();
 			
-			adicionarResultSetNaLista(lista, resultadoSQL);
+			registerResultSetOnObjectArrayList(objectList, sqlResult);
 		} catch(Exception e) {
-			throw new SQLException(nomeTabela + " - " + e.getMessage());
+			throw new SQLException(tableName + " - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
-		return lista;
+		return objectList;
 	}
 	
 	/*
@@ -112,55 +112,55 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 * @param an ArrayList<O>
 	 * @return an ArrayList<O>
 	 */
-	protected ArrayList<O> getListaNaoCadastrados(ArrayList<O> lista) throws SQLException {
-		ArrayList<O> listaNaoCadastrados = new ArrayList<>();
-		ArrayList<O> listaCadastrados = getLista();
+	protected ArrayList<O> getUnregisteredObjectArrayListInDatabase(ArrayList<O> referenceObjectList) throws SQLException {
+		ArrayList<O> unregisteredObjectList = new ArrayList<>();
+		ArrayList<O> registeredObjectList = getObjectArrayListFromDatabase();
 		
-		if(this.comparador != null) {
-			Collections.sort(listaCadastrados, this.comparador);
-			for(O objeto : lista) {
-				if(Collections.binarySearch(listaCadastrados, objeto, this.comparador) < 0) {
-					listaNaoCadastrados.add(objeto);
+		if(this.daoComparator != null) {
+			Collections.sort(registeredObjectList, this.daoComparator);
+			for(O object : referenceObjectList) {
+				if(Collections.binarySearch(registeredObjectList, object, this.daoComparator) < 0) {
+					unregisteredObjectList.add(object);
 				}
 			}
 		} else {
-			for(O objeto : lista) {
-				if(!listaCadastrados.contains(objeto)) {
-					listaNaoCadastrados.add(objeto);
+			for(O object : referenceObjectList) {
+				if(!registeredObjectList.contains(object)) {
+					unregisteredObjectList.add(object);
 				}
 			}
 		}
-		return listaNaoCadastrados;
+		return unregisteredObjectList;
 	}
 	
 	// Signature of the method to recover the insert SQL command
-	protected abstract String getSqlInsert();
+	protected abstract String getSQLInsertCommand();
 	
 	// Signature of the method to recover the select SQL command
-	protected abstract String getSqlSelect();
+	protected abstract String getSQLSelectCommand();
 	
 	// Method signature for formalization joined a list of instances in the database
-	protected abstract void adicionarListaNoBatch(ArrayList<O> lista, PreparedStatement instrucaoSQL) throws SQLException;
+	protected abstract void registerObjectArrayListOnBatch(ArrayList<O> objectList, PreparedStatement daoSQLInstruction) throws SQLException;
 	
 	// Signature of the method to populates the ArrayList<O>
-	protected abstract void adicionarResultSetNaLista(ArrayList<O> lista, ResultSet resultadoSQL) throws SQLException ;
+	protected abstract void registerResultSetOnObjectArrayList(ArrayList<O> objectList, ResultSet sqlResult) throws SQLException ;
 	
 	/*
 	 * This method closes the connection with the database
 	 */
-	protected void fecharConexao() throws SQLException {
-		if(this.instrucaoSQL != null) {
-			this.instrucaoSQL.close();
+	protected void closeDatabaseConnection() throws SQLException {
+		if(this.daoSQLInstruction != null) {
+			this.daoSQLInstruction.close();
 		}
-		if(this.conexao != null) {
-			this.conexao.close();
+		if(this.connection != null) {
+			this.connection.close();
 		}
 	}
 	
 	/*
 	 * This method prepares statement for transactions in the database
 	 */
-	protected PreparedStatement getInstrucaoSQL(String comandoSQL) throws SQLException {		
-		return this.conexao.prepareStatement(comandoSQL);
+	protected PreparedStatement getSQLInstruction(String sqlCommand) throws SQLException {		
+		return this.connection.prepareStatement(sqlCommand);
 	}
 }

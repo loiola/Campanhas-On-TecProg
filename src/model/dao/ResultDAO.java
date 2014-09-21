@@ -47,7 +47,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlInsert() {
+	protected String getSQLInsertCommand() {
 		return SQL_INSERCAO;
 	}
 
@@ -56,7 +56,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @return a String with the SQL command
 	 */
 	@Override
-	protected String getSqlSelect() {
+	protected String getSQLSelectCommand() {
 		return SQL_SELECAO;
 	}
 
@@ -66,7 +66,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Result> lista,
+	protected void registerObjectArrayListOnBatch(ArrayList<Result> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Result result : lista) {
 			instrucaoSQL.setInt(1, result.getResultType());
@@ -81,7 +81,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Result> lista,
+	protected void registerResultSetOnObjectArrayList(ArrayList<Result> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Result result = new Result();
@@ -100,11 +100,11 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 		Result result = new Result();
 		String comandoSQL = SQL_SELECAO + " WHERE " + CODIGO +" = "+ codigo +" ";
 		try {
-			this.conexao = new DatabaseConnection().getConexao();
+			this.connection = new DatabaseConnection().getConexao();
 	
-			this.instrucaoSQL = this.conexao.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
 	
-			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
+			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
 			
 			while(resultadoSQL.next()) {
 				result.setResultType(resultadoSQL.getInt(CODIGO));
@@ -114,7 +114,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 		} catch(SQLException e) {
 			throw new SQLException("ResultDAO - " + e.getMessage());
 		} finally {
-			fecharConexao();
+			closeDatabaseConnection();
 		}
 		return result;
 	}

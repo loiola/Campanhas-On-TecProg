@@ -44,7 +44,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		this.candidatoParseControle.cadastrarInstancias();
 		this.candidatoParseControle.resetar();
 		
-		Candidate candidatoCadastrado = this.candidateDAO.getLista().get(0);
+		Candidate candidatoCadastrado = this.candidateDAO.getObjectArrayListFromDatabase().get(0);
 		
 		Assert.assertEquals(this.campo[NOME], candidatoCadastrado.getCandidateName());
 		Assert.assertEquals(this.campo[TITULO_ELEITORAL],candidatoCadastrado.getCandidateElectoralTitle());
@@ -58,7 +58,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		this.candidatoParseControle.cadastrarInstancias();
 		this.candidatoParseControle.resetar();
 		
-		int numeroCandidatosCadastrados = this.candidateDAO.getLista().size();
+		int numeroCandidatosCadastrados = this.candidateDAO.getObjectArrayListFromDatabase().size();
 		
 		Assert.assertEquals(1, numeroCandidatosCadastrados);
 	}
