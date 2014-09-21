@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
-import modelo.beans.Candidate;
-import modelo.dao.CandidatoDAO;
+import model.beans.Candidate;
+import model.dao.CandidatoDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

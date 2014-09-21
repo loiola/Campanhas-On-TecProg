@@ -1,7 +1,7 @@
 package controle.validacao;
 
 import controle.excecao.PartidoExcecao;
-import modelo.beans.Party;
+import model.beans.Party;
 
 public class PartidoValidacao {
 	

@@ -1,14 +1,14 @@
-package modelo.dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campaign;
-import modelo.beans.Position;
-import modelo.beans.Donor;
-import modelo.beans.Revenue;
+import model.beans.Campaign;
+import model.beans.Donor;
+import model.beans.Position;
+import model.beans.Revenue;
 import parse.ParseDAO;
 
 public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> {

@@ -1,7 +1,7 @@
 package parse.indices;
 
-import modelo.beans.Donor;
-import modelo.beans.Revenue;
+import model.beans.Donor;
+import model.beans.Revenue;
 
 public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Revenue> {
 	

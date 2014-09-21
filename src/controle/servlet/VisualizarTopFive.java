@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campaign;
+import model.beans.Campaign;
 import controle.CampanhaControle;
 
 @WebServlet("/VisualizarTopFive")

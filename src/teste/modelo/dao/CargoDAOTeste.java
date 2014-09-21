@@ -3,8 +3,8 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Position;
-import modelo.dao.CargoDAO;
+import model.beans.Position;
+import model.dao.CargoDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

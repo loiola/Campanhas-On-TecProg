@@ -1,15 +1,15 @@
 package teste.modelo.bean;
 
-import modelo.beans.Campaign;
-import modelo.beans.Candidate;
-import modelo.beans.Position;
-import modelo.beans.Expense;
-import modelo.beans.Donor;
-import modelo.beans.Supplier;
-import modelo.beans.FinancialTransaction;
-import modelo.beans.Party;
-import modelo.beans.Revenue;
-import modelo.beans.Result;
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.beans.Donor;
+import model.beans.Expense;
+import model.beans.FinancialTransaction;
+import model.beans.Party;
+import model.beans.Position;
+import model.beans.Result;
+import model.beans.Revenue;
+import model.beans.Supplier;
 
 public class BeanTeste {
 	

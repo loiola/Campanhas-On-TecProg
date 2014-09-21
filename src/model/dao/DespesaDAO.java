@@ -1,14 +1,14 @@
-package modelo.dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campaign;
-import modelo.beans.Position;
-import modelo.beans.Expense;
-import modelo.beans.Supplier;
+import model.beans.Campaign;
+import model.beans.Expense;
+import model.beans.Position;
+import model.beans.Supplier;
 import parse.ParseDAO;
 
 public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> {

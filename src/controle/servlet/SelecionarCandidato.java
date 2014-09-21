@@ -5,11 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campaign;
-import modelo.beans.Candidate;
-import modelo.beans.Expense;
-import modelo.beans.Revenue;
-
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.beans.Expense;
+import model.beans.Revenue;
 import controle.CampanhaControle;
 import controle.CandidatoControle;
 import controle.MovimentacaoControle;

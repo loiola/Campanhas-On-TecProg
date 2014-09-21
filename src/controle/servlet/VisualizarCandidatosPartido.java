@@ -7,8 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campaign;
-import modelo.beans.Party;
+import model.beans.Campaign;
+import model.beans.Party;
 import controle.CampanhaControle;
 import controle.PartidoControle;
 

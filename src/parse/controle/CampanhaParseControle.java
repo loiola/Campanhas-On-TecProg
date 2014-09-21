@@ -2,8 +2,8 @@ package parse.controle;
 
 import java.util.ArrayList;
 
-import modelo.beans.Campaign;
-import modelo.dao.CampanhaDAO;
+import model.beans.Campaign;
+import model.dao.CampanhaDAO;
 import parse.ParseException;
 import parse.indices.IndicesParse;
 

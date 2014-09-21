@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Supplier;
+import model.beans.Supplier;
 
 public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	

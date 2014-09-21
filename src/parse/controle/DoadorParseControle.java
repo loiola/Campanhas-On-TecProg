@@ -1,7 +1,7 @@
 package parse.controle;
 
-import modelo.beans.Donor;
-import modelo.dao.DoadorDAO;
+import model.beans.Donor;
+import model.dao.DoadorDAO;
 import parse.indices.IndicesParse;
 
 public class DoadorParseControle extends ParseControle<Donor> {

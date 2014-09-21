@@ -1,7 +1,7 @@
 package parse.controle;
 
-import modelo.beans.Supplier;
-import modelo.dao.FornecedorDAO;
+import model.beans.Supplier;
+import model.dao.FornecedorDAO;
 import parse.indices.IndicesParse;
 
 public class FornecedorParseControle extends ParseControle<Supplier> {

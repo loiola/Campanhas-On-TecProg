@@ -1,7 +1,7 @@
 package parse.controle;
 
-import modelo.beans.Result;
-import modelo.dao.ResultadoDAO;
+import model.beans.Result;
+import model.dao.ResultadoDAO;
 import parse.indices.IndicesParse;
 
 public class ResultadoParseControle extends ParseControle<Result> {

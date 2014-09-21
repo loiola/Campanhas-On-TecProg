@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Donor;
-import modelo.dao.DoadorDAO;
+import model.beans.Donor;
+import model.dao.DoadorDAO;
 
 import org.junit.Test;
 

@@ -3,8 +3,8 @@ package teste.modelo.dao;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import modelo.beans.Candidate;
-import modelo.dao.CandidatoDAO;
+import model.beans.Candidate;
+import model.dao.CandidatoDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

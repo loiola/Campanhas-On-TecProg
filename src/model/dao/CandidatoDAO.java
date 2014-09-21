@@ -1,4 +1,4 @@
-package modelo.dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-import modelo.beans.Candidate;
+import model.beans.Candidate;
 
 public class CandidatoDAO extends BasicoDAO<Candidate> {
 	

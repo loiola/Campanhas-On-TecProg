@@ -1,4 +1,4 @@
-package modelo.dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import modelo.beans.Donor;
-import modelo.beans.Supplier;
+import model.beans.Donor;
+import model.beans.Supplier;
 import parse.ParseDAO;
 
 public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {

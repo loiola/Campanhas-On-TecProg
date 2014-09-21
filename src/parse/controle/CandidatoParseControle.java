@@ -1,7 +1,7 @@
 package parse.controle;
 
-import modelo.beans.Candidate;
-import modelo.dao.CandidatoDAO;
+import model.beans.Candidate;
+import model.dao.CandidatoDAO;
 import parse.indices.IndicesParse;
 
 public class CandidatoParseControle extends ParseControle<Candidate> {

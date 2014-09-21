@@ -1,6 +1,6 @@
 package parse.cadastro.campanha;
 
-import modelo.beans.Campaign;
+import model.beans.Campaign;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
 import parse.controle.CampanhaParseControle;

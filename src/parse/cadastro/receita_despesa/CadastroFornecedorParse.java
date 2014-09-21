@@ -1,6 +1,6 @@
 package parse.cadastro.receita_despesa;
 
-import modelo.beans.Supplier;
+import model.beans.Supplier;
 import parse.ParseException;
 import parse.controle.FornecedorParseControle;
 import parse.controle.ParseControle;

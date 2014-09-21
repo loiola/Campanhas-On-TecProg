@@ -1,4 +1,4 @@
-package modelo.beans;
+package model.beans;
 
 
 public class FinancialTransaction {

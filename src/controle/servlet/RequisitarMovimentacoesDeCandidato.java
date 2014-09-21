@@ -9,10 +9,10 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campaign;
-import modelo.beans.Position;
-import modelo.beans.Expense;
-import modelo.beans.Revenue;
+import model.beans.Campaign;
+import model.beans.Expense;
+import model.beans.Position;
+import model.beans.Revenue;
 import controle.CampanhaControle;
 import controle.MovimentacaoControle;
 

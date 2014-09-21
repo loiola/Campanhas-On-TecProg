@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Candidate;
+import model.beans.Candidate;
 import controle.CandidatoControle;
 
 public class VisualizarResultadoListaBuscaCandidato implements Logica {

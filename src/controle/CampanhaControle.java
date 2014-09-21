@@ -1,9 +1,10 @@
 package controle;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.beans.Campaign;
-import modelo.beans.Candidate;
-import modelo.dao.CampanhaDAO;
+
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.dao.CampanhaDAO;
 
 public class CampanhaControle {
 	

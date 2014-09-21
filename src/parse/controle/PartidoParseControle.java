@@ -1,7 +1,7 @@
 package parse.controle;
 
-import modelo.beans.Party;
-import modelo.dao.PartidoDAO;
+import model.beans.Party;
+import model.dao.PartidoDAO;
 import parse.indices.IndicesParse;
 
 public class PartidoParseControle extends ParseControle<Party> {

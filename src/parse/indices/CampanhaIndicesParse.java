@@ -1,10 +1,10 @@
 package parse.indices;
 
-import modelo.beans.Campaign;
-import modelo.beans.Candidate;
-import modelo.beans.Position;
-import modelo.beans.Party;
-import modelo.beans.Result;
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.beans.Party;
+import model.beans.Position;
+import model.beans.Result;
 
 public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 

@@ -5,9 +5,9 @@ import static teste.modelo.bean.BeanTeste.instanciarCandidato;
 import static teste.modelo.bean.BeanTeste.instanciarCargo;
 import static teste.modelo.bean.BeanTeste.instanciarPartido;
 import static teste.modelo.bean.BeanTeste.instanciarResultado;
-import modelo.beans.Campaign;
-import modelo.beans.Position;
-import modelo.beans.Result;
+import model.beans.Campaign;
+import model.beans.Position;
+import model.beans.Result;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import modelo.dao.ConexaoBancoDados;
+import model.dao.ConexaoBancoDados;
 
 import org.junit.Before;
 import org.junit.Test;

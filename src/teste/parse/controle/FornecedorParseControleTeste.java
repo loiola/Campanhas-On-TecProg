@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
-import modelo.beans.Supplier;
-import modelo.dao.FornecedorDAO;
+import model.beans.Supplier;
+import model.dao.FornecedorDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

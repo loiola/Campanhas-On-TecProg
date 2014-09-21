@@ -2,7 +2,7 @@ package teste;
 
 import java.io.File;
 
-import modelo.dao.ConexaoBancoDados;
+import model.dao.ConexaoBancoDados;
 
 import org.junit.After;
 import org.junit.Before;

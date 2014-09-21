@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Revenue;
-import modelo.dao.ReceitaDAO;
+import model.beans.Revenue;
+import model.dao.ReceitaDAO;
 
 import org.junit.Test;
 

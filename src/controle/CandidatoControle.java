@@ -1,8 +1,9 @@
 package controle;
 
 import java.util.LinkedList;
-import modelo.beans.Candidate;
-import modelo.dao.CandidatoDAO;
+
+import model.beans.Candidate;
+import model.dao.CandidatoDAO;
 
 public class CandidatoControle {
 	

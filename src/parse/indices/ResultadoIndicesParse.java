@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Result;
+import model.beans.Result;
 
 public class ResultadoIndicesParse extends IndicesParse<Result> {
 	

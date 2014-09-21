@@ -1,6 +1,6 @@
 package parse.cadastro.campanha;
 
-import modelo.beans.Position;
+import model.beans.Position;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
 import parse.controle.CargoParseControle;

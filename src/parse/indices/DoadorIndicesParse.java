@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Donor;
+import model.beans.Donor;
 
 public class DoadorIndicesParse extends IndicesParse<Donor> {
 	

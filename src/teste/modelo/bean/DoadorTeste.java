@@ -2,8 +2,8 @@ package teste.modelo.bean;
 
 import static teste.modelo.bean.BeanTeste.instanciarDoador;
 import static teste.modelo.bean.BeanTeste.instanciarMovimentacaoFinanceira;
-import modelo.beans.Donor;
-import modelo.beans.FinancialTransaction;
+import model.beans.Donor;
+import model.beans.FinancialTransaction;
 
 import org.junit.Assert;
 import org.junit.Test;

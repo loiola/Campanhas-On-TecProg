@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Expense;
+import model.beans.Expense;
 
 import org.junit.Assert;
 import org.junit.Before;

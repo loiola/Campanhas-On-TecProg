@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Candidate;
+import model.beans.Candidate;
 
 public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	

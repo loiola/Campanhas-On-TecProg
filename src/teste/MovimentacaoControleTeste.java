@@ -2,15 +2,15 @@ package teste;
 
 import java.util.ArrayList;
 
-import modelo.beans.Campaign;
-import modelo.beans.Candidate;
-import modelo.beans.Position;
-import modelo.beans.Expense;
-import modelo.beans.Donor;
-import modelo.beans.Supplier;
-import modelo.beans.Revenue;
-import modelo.dao.DespesaDAO;
-import modelo.dao.ReceitaDAO;
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.beans.Donor;
+import model.beans.Expense;
+import model.beans.Position;
+import model.beans.Revenue;
+import model.beans.Supplier;
+import model.dao.DespesaDAO;
+import model.dao.ReceitaDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

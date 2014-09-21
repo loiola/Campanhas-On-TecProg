@@ -7,12 +7,12 @@ import static teste.modelo.bean.BeanTeste.instanciarDoador;
 import static teste.modelo.bean.BeanTeste.instanciarFornecedor;
 import static teste.modelo.bean.BeanTeste.instanciarMovimentacaoFinanceira;
 import static teste.modelo.bean.BeanTeste.instanciarReceita;
-import modelo.beans.Campaign;
-import modelo.beans.Expense;
-import modelo.beans.Donor;
-import modelo.beans.Supplier;
-import modelo.beans.FinancialTransaction;
-import modelo.beans.Revenue;
+import model.beans.Campaign;
+import model.beans.Donor;
+import model.beans.Expense;
+import model.beans.FinancialTransaction;
+import model.beans.Revenue;
+import model.beans.Supplier;
 
 import org.junit.Assert;
 import org.junit.Before;

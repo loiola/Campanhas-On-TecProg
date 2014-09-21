@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import modelo.beans.Candidate;
-import modelo.dao.CandidatoDAO;
+import model.beans.Candidate;
+import model.dao.CandidatoDAO;
 
 import org.junit.Test;
 

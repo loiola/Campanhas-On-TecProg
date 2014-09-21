@@ -1,8 +1,10 @@
 package teste;
 
-import modelo.beans.Party;
-import modelo.beans.Candidate;
+import model.beans.Candidate;
+import model.beans.Party;
+
 import org.junit.Test;
+
 import controle.excecao.PartidoExcecao;
 import controle.validacao.PartidoValidacao;
 

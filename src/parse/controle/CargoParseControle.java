@@ -1,7 +1,7 @@
 package parse.controle;
 
-import modelo.beans.Position;
-import modelo.dao.CargoDAO;
+import model.beans.Position;
+import model.dao.CargoDAO;
 import parse.indices.IndicesParse;
 
 public class CargoParseControle extends ParseControle<Position> {

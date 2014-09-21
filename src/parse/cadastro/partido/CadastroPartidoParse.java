@@ -6,7 +6,7 @@ import parse.controle.ParseControle;
 import parse.controle.PartidoParseControle;
 import parse.indices.IndicesParse;
 import parse.indices.PartidoIndicesParse;
-import modelo.beans.Party;
+import model.beans.Party;
 
 public class CadastroPartidoParse extends CadastroParse<Party> {
 	

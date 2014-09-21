@@ -3,8 +3,8 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Party;
-import modelo.dao.PartidoDAO;
+import model.beans.Party;
+import model.dao.PartidoDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

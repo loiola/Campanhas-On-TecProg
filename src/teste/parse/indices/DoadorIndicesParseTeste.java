@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Donor;
+import model.beans.Donor;
 
 import org.junit.Assert;
 import org.junit.Before;

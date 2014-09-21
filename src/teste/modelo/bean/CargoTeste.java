@@ -2,8 +2,8 @@ package teste.modelo.bean;
 
 import static teste.modelo.bean.BeanTeste.instanciarCargo;
 import static teste.modelo.bean.BeanTeste.instanciarFornecedor;
-import modelo.beans.Position;
-import modelo.beans.Supplier;
+import model.beans.Position;
+import model.beans.Supplier;
 
 import org.junit.Assert;
 import org.junit.Test;

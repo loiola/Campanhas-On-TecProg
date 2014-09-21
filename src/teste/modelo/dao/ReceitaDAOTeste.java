@@ -3,11 +3,11 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campaign;
-import modelo.beans.Position;
-import modelo.beans.Donor;
-import modelo.beans.Revenue;
-import modelo.dao.ReceitaDAO;
+import model.beans.Campaign;
+import model.beans.Donor;
+import model.beans.Position;
+import model.beans.Revenue;
+import model.dao.ReceitaDAO;
 
 import org.junit.Test;
 

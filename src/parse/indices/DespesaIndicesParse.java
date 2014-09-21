@@ -1,7 +1,7 @@
 package parse.indices;
 
-import modelo.beans.Expense;
-import modelo.beans.Supplier;
+import model.beans.Expense;
+import model.beans.Supplier;
 
 public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expense> {
 	

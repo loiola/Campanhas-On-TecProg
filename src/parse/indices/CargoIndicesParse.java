@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Position;
+import model.beans.Position;
 
 public class CargoIndicesParse extends IndicesParse<Position> {
 	

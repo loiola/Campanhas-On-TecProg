@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
-import modelo.beans.Campaign;
-import modelo.dao.CampanhaDAO;
+import model.beans.Campaign;
+import model.dao.CampanhaDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

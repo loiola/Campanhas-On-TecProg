@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import modelo.beans.Position;
-import modelo.dao.CargoDAO;
+import model.beans.Position;
+import model.dao.CargoDAO;
 
 import org.junit.Test;
 

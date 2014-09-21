@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Campaign;
-import modelo.beans.Position;
-import modelo.beans.FinancialTransaction;
+import model.beans.Campaign;
+import model.beans.FinancialTransaction;
+import model.beans.Position;
 
 public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	

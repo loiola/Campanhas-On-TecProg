@@ -2,8 +2,8 @@ package teste.modelo.bean;
 
 import static teste.modelo.bean.BeanTeste.instanciarCandidato;
 import static teste.modelo.bean.BeanTeste.instanciarPartido;
-import modelo.beans.Candidate;
-import modelo.beans.Party;
+import model.beans.Candidate;
+import model.beans.Party;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
-import modelo.beans.Expense;
-import modelo.dao.DespesaDAO;
+import model.beans.Expense;
+import model.dao.DespesaDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

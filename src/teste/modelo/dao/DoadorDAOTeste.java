@@ -2,8 +2,8 @@ package teste.modelo.dao;
 
 import java.util.ArrayList;
 
-import modelo.beans.Donor;
-import modelo.dao.DoadorDAO;
+import model.beans.Donor;
+import model.dao.DoadorDAO;
 
 import org.junit.Assert;
 import org.junit.Test;

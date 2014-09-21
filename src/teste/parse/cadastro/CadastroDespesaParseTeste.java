@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Expense;
-import modelo.dao.DespesaDAO;
+import model.beans.Expense;
+import model.dao.DespesaDAO;
 
 import org.junit.Test;
 

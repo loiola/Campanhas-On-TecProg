@@ -1,15 +1,15 @@
-package modelo.dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campaign;
-import modelo.beans.Candidate;
-import modelo.beans.Position;
-import modelo.beans.Party;
-import modelo.beans.Result;
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.beans.Party;
+import model.beans.Position;
+import model.beans.Result;
 
 public class CampanhaDAO extends BasicoDAO<Campaign> {
 	

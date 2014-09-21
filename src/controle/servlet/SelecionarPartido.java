@@ -3,7 +3,7 @@ package controle.servlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Party;
+import model.beans.Party;
 import controle.PartidoControle;
 
 public class SelecionarPartido implements Logica {
