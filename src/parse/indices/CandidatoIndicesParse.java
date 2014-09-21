@@ -26,10 +26,10 @@ public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	@Override
 	protected void setIndicesValidos(Candidate candidate, String[] campo) {
 		if (indiceValido(this.indiceNome)) {
-			candidate.setNome(campo[this.indiceNome]);
+			candidate.setCandidateName(campo[this.indiceNome]);
 		}
 		if (indiceValido(this.indiceTituloEleitoral)) {
-			candidate.setTituloEleitoral(campo[this.indiceTituloEleitoral]);
+			candidate.setCandidateElectoralTitle(campo[this.indiceTituloEleitoral]);
 
 		}
 	}
@@ -40,8 +40,8 @@ public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Candidate candidate) {
-		candidate.setNome(Candidate.STRING_VAZIO);
-		candidate.setTituloEleitoral(Candidate.STRING_VAZIO);
+		candidate.setCandidateName(Candidate.EMPTY_TYPE_STRING);
+		candidate.setCandidateElectoralTitle(Candidate.EMPTY_TYPE_STRING);
 	}
 
 	// Mutators for indexes of the array of fields

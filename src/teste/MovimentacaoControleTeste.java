@@ -53,8 +53,8 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 
-		candidate.setNome("FULANO");
-		candidate.setTituloEleitoral("12345");
+		candidate.setCandidateName("FULANO");
+		candidate.setCandidateElectoralTitle("12345");
 		
 		position.setDescricao("Presidente");
 		

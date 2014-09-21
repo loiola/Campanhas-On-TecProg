@@ -100,7 +100,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			instrucaoSQL.setInt(5, campaign.getCampaignPosition().getCodigo());
 			instrucaoSQL.setInt(6, campaign.getCampaignParty().getNumero());
 			instrucaoSQL.setString(7, campaign.getCampaignCandidate()
-					.getTituloEleitoral());
+					.getCandidateElectoralTitle());
 			instrucaoSQL.setString(8, campaign.getCampaignNameOfUrn());
 			instrucaoSQL.setString(9, campaign.getCampaignCountryState());
 			instrucaoSQL.setFloat(10, campaign.getCampaignMaximumExpenseDeclared());
@@ -163,7 +163,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	private void PreparaCamposCandidatoEPartido(Party party,
 			Candidate candidate, ResultSet resultadoSQL) throws SQLException {
 		party.setNumero(resultadoSQL.getInt(NUMERO_PARTIDO));
-		candidate.setTituloEleitoral(resultadoSQL.getString(TITULO_CANDIDATO));
+		candidate.setCandidateElectoralTitle(resultadoSQL.getString(TITULO_CANDIDATO));
 	}
 
 	/*
@@ -176,7 +176,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_CANDIDATO + ")"
 				+ " WHERE " + TITULO_CANDIDATO + " = '"
-				+ candidate.getTituloEleitoral() + "' ";
+				+ candidate.getCandidateElectoralTitle() + "' ";
 		listaCampanha = buscaBD(comandoSQL);
 		return listaCampanha;
 	}

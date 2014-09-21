@@ -61,7 +61,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 		}	
 		if (indiceValido(this.indiceCandidatoTitulo)) {
 			Candidate candidate = new Candidate();
-			candidate.setTituloEleitoral(campo[this.indiceCandidatoTitulo]);
+			candidate.setCandidateElectoralTitle(campo[this.indiceCandidatoTitulo]);
 			campaign.setCampaignCandidate(candidate);
 		}	
 		if (indiceValido(this.indiceAno)) {

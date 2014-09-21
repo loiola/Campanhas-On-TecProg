@@ -37,18 +37,18 @@ public class CandidatoControleTeste extends TemplateTeste {
 		LinkedList<Candidate> listaCandidatosNomeComum = new LinkedList<>();
 		
 		Candidate candidato1 = new Candidate();
-		candidato1.setNome("CANDIDATO INEXISTENTE 1");
-		candidato1.setTituloEleitoral("000000");
+		candidato1.setCandidateName("CANDIDATO INEXISTENTE 1");
+		candidato1.setCandidateElectoralTitle("000000");
 		listaCandidatos.add(candidato1);
 
 		Candidate candidato2 = new Candidate();
-		candidato2.setNome("CANDIDATO INEXISTENTE 2");
-		candidato2.setTituloEleitoral("000001");
+		candidato2.setCandidateName("CANDIDATO INEXISTENTE 2");
+		candidato2.setCandidateElectoralTitle("000001");
 		listaCandidatos.add(candidato2);
 		
 		Candidate candidato3 = new Candidate();
-		candidato3.setNome("CANDIDATO EXISTENTE 1");
-		candidato3.setTituloEleitoral("000002");
+		candidato3.setCandidateName("CANDIDATO EXISTENTE 1");
+		candidato3.setCandidateElectoralTitle("000002");
 		listaCandidatos.add(candidato3);
 
 		this.candidatoDAO.cadastrarLista(listaCandidatos);
@@ -65,13 +65,13 @@ public class CandidatoControleTeste extends TemplateTeste {
 		Candidate candidatoRecuperado = new Candidate();
 		
 		Candidate candidato1 = new Candidate();
-		candidato1.setNome("CANDIDATO EXISTENTE 1");
-		candidato1.setTituloEleitoral("000000");
+		candidato1.setCandidateName("CANDIDATO EXISTENTE 1");
+		candidato1.setCandidateElectoralTitle("000000");
 		listaCandidatos.add(candidato1);
 
 		Candidate candidato2 = new Candidate();
-		candidato2.setNome("CANDIDATO EXISTENTE 2");
-		candidato2.setTituloEleitoral("000001");
+		candidato2.setCandidateName("CANDIDATO EXISTENTE 2");
+		candidato2.setCandidateElectoralTitle("000001");
 		listaCandidatos.add(candidato2);
 		
 		this.candidatoDAO.cadastrarLista(listaCandidatos);

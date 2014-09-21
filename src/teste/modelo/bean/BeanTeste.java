@@ -45,8 +45,8 @@ public class BeanTeste {
 	public static Candidate instanciarCandidato() {
 		
 		Candidate candidate = new Candidate();
-		candidate.setNome(STRING_TESTE);
-		candidate.setTituloEleitoral(STRING_TESTE);
+		candidate.setCandidateName(STRING_TESTE);
+		candidate.setCandidateElectoralTitle(STRING_TESTE);
 		
 		return candidate;
 	}

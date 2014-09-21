@@ -46,8 +46,8 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		
 		Candidate candidatoCadastrado = this.candidatoDAO.getLista().get(0);
 		
-		Assert.assertEquals(this.campo[NOME], candidatoCadastrado.getNome());
-		Assert.assertEquals(this.campo[TITULO_ELEITORAL],candidatoCadastrado.getTituloEleitoral());
+		Assert.assertEquals(this.campo[NOME], candidatoCadastrado.getCandidateName());
+		Assert.assertEquals(this.campo[TITULO_ELEITORAL],candidatoCadastrado.getCandidateElectoralTitle());
 	}
 	
 	@Test

@@ -8,34 +8,34 @@ public class Candidate {
 	 */
 	 
 	// Constants
-	public static final String  STRING_VAZIO = "";
-	public static final Integer  INTEGER_VAZIO = 0;
+	public static final String  EMPTY_TYPE_STRING = "";
+	public static final Integer  EMPTY_TYPE_INTEGER = 0;
 	
 	// Attributes
-	private String nome;
-	private String tituloEleitoral;
+	private String candidateName;
+	private String candidateElectoralTitle;
 	
 	// Empty Constructor
 	public Candidate() {
-		this.nome = STRING_VAZIO;
-		this.tituloEleitoral = STRING_VAZIO;
+		this.candidateName = EMPTY_TYPE_STRING;
+		this.candidateElectoralTitle = EMPTY_TYPE_STRING;
 	}
 
 	// Getters and Setters
-	public String getNome() {
-		return nome;
+	public String getCandidateName() {
+		return candidateName;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCandidateName(String candidateName) {
+		this.candidateName = candidateName;
 	}
 
-	public String getTituloEleitoral() {
-		return tituloEleitoral;
+	public String getCandidateElectoralTitle() {
+		return candidateElectoralTitle;
 	}
 
-	public void setTituloEleitoral(String tituloEleitoral) {
-		this.tituloEleitoral = tituloEleitoral;
+	public void setCandidateElectoralTitle(String candidateElectoralTitle) {
+		this.candidateElectoralTitle = candidateElectoralTitle;
 	}
 	
 	@Override
@@ -43,8 +43,8 @@ public class Candidate {
 		if( !(object instanceof Candidate))
 			return false;
 
-		Candidate outroCandidato = (Candidate) object;
+		Candidate otherCandidate = (Candidate) object;
 
-		return this.tituloEleitoral.equals(outroCandidato.getTituloEleitoral());
+		return this.candidateElectoralTitle.equals(otherCandidate.getCandidateElectoralTitle());
 	}
 }

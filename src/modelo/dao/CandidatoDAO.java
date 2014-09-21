@@ -41,8 +41,8 @@ public class CandidatoDAO extends BasicoDAO<Candidate> {
 		TITULO_ELEITORAL {
 			@Override
 			public int compare(Candidate c1, Candidate c2) {
-				return c1.getTituloEleitoral().compareTo(
-						c2.getTituloEleitoral());
+				return c1.getCandidateElectoralTitle().compareTo(
+						c2.getCandidateElectoralTitle());
 			}
 		};
 	}
@@ -74,8 +74,8 @@ public class CandidatoDAO extends BasicoDAO<Candidate> {
 	protected void adicionarListaNoBatch(ArrayList<Candidate> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Candidate candidate : lista) {
-			instrucaoSQL.setString(1, candidate.getTituloEleitoral());
-			instrucaoSQL.setString(2, candidate.getNome());
+			instrucaoSQL.setString(1, candidate.getCandidateElectoralTitle());
+			instrucaoSQL.setString(2, candidate.getCandidateName());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -90,8 +90,8 @@ public class CandidatoDAO extends BasicoDAO<Candidate> {
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Candidate candidate = new Candidate();
-			candidate.setNome(resultadoSQL.getString(NOME));
-			candidate.setTituloEleitoral(resultadoSQL
+			candidate.setCandidateName(resultadoSQL.getString(NOME));
+			candidate.setCandidateElectoralTitle(resultadoSQL
 					.getString(TITULO_ELEITORAL));
 			lista.add(candidate);
 		}
@@ -112,7 +112,7 @@ public class CandidatoDAO extends BasicoDAO<Candidate> {
 			return listaCandidato.get(0);
 		} catch(SQLException e) {
 			Candidate cand = new Candidate();
-			cand.setTituloEleitoral("-1");
+			cand.setCandidateElectoralTitle("-1");
 			return cand;
 		}
 	}
@@ -157,8 +157,8 @@ public class CandidatoDAO extends BasicoDAO<Candidate> {
 
 			while(resultadoSQL.next()) {
 				Candidate candidate = new Candidate();
-				candidate.setNome(resultadoSQL.getString(NOME));
-				candidate.setTituloEleitoral(resultadoSQL.getString(TITULO_ELEITORAL));
+				candidate.setCandidateName(resultadoSQL.getString(NOME));
+				candidate.setCandidateElectoralTitle(resultadoSQL.getString(TITULO_ELEITORAL));
 
 				if(candidate != null) {
 					listaCandidato.add(candidate);

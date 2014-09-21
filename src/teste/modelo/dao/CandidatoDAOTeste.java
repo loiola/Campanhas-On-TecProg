@@ -38,8 +38,8 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 		
 		Candidate candidate = new Candidate();
-		candidate.setNome("CANDIDATO INEXISTENTE");
-		candidate.setTituloEleitoral("00000");
+		candidate.setCandidateName("CANDIDATO INEXISTENTE");
+		candidate.setCandidateElectoralTitle("00000");
 		listaCandidatos.add(candidate);
 		
 		this.candidatoDAO.cadastrarLista(listaCandidatos);
@@ -51,8 +51,8 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 		
 		Candidate candidate = new Candidate();
-		candidate.setNome("CANDIDATO INEXISTENTE");
-		candidate.setTituloEleitoral("00000");
+		candidate.setCandidateName("CANDIDATO INEXISTENTE");
+		candidate.setCandidateElectoralTitle("00000");
 		listaCandidatos.add(candidate);
 
 		this.candidatoDAO.cadastrarLista(listaCandidatos);
@@ -67,13 +67,13 @@ public class CandidatoDAOTeste extends TemplateTeste {
 		ArrayList<Candidate> listaCandidatos = new ArrayList<>();
 		
 		Candidate candidate = new Candidate();
-		candidate.setNome("CANDIDATO INEXISTENTE");
-		candidate.setTituloEleitoral("00000");
+		candidate.setCandidateName("CANDIDATO INEXISTENTE");
+		candidate.setCandidateElectoralTitle("00000");
 		listaCandidatos.add(candidate);
 		
 		Candidate candidatoDois = new Candidate();
-		candidatoDois.setNome("CANDIDATO INEXISTENTE DOIS");
-		candidatoDois.setTituloEleitoral("00001");
+		candidatoDois.setCandidateName("CANDIDATO INEXISTENTE DOIS");
+		candidatoDois.setCandidateElectoralTitle("00001");
 		listaCandidatos.add(candidatoDois);
 		
 		candidatoDAO.cadastrarLista(listaCandidatos);
@@ -86,12 +86,12 @@ public class CandidatoDAOTeste extends TemplateTeste {
 	public void deveLancarFalsoSeUmCandidatoNaoExiste() throws Exception {
 		
 		Candidate candidate = new Candidate();
-		candidate.setNome("FULANO");
-		candidate.setTituloEleitoral("00000");
+		candidate.setCandidateName("FULANO");
+		candidate.setCandidateElectoralTitle("00000");
 		
 		Candidate candidatoDois = new Candidate();
-		candidatoDois.setNome("FULANO");
-		candidatoDois.setTituloEleitoral("00001");
+		candidatoDois.setCandidateName("FULANO");
+		candidatoDois.setCandidateElectoralTitle("00001");
 
 		Assert.assertFalse(candidate.equals(candidatoDois));
 	}

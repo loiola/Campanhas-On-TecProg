@@ -23,7 +23,7 @@ public class CandidatoTeste {
 		
 		Candidate candidate = instanciarCandidato();
 		Candidate candidato2 = instanciarCandidato();
-		candidato2.setTituloEleitoral(BeanTeste.STRING_TESTE_2);
+		candidato2.setCandidateElectoralTitle(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(candidate.equals(candidato2));
 	}
 	
@@ -35,7 +35,7 @@ public class CandidatoTeste {
 		Assert.assertFalse(candidate.equals(party));
 		Assert.assertFalse(party.equals(candidate));
 		
-		Assert.assertEquals(BeanTeste.STRING_TESTE,candidate.getNome());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,candidate.getCandidateName());
 		
 		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getSigla());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getDeferimento());

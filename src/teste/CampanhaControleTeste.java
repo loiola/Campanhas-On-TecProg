@@ -60,8 +60,8 @@ public class CampanhaControleTeste extends TemplateTeste {
 		ArrayList<Candidate> listaCandidato = new ArrayList<>();
 
 		
-		this.candidate.setNome("CANDIDATO");
-		this.candidate.setTituloEleitoral("5532424149");
+		this.candidate.setCandidateName("CANDIDATO");
+		this.candidate.setCandidateElectoralTitle("5532424149");
 		listaCandidato.add(candidate);
 		
 		this.resultado1.setCodigo(1);

@@ -27,8 +27,8 @@ public class CandidatoIndicesParseTeste {
 		
 		Candidate candidate = new Candidate();
 		this.candidatoIndicesParse.iniciarInstancia(candidate, campo);
-		Assert.assertEquals(this.campo[0], candidate.getNome());
-		Assert.assertEquals(this.campo[1], candidate.getTituloEleitoral());
+		Assert.assertEquals(this.campo[0], candidate.getCandidateName());
+		Assert.assertEquals(this.campo[1], candidate.getCandidateElectoralTitle());
 	}
 	
 	@Test
@@ -37,8 +37,8 @@ public class CandidatoIndicesParseTeste {
 		this.candidatoIndicesParse = new CandidatoIndicesParse();
 		Candidate candidate = new Candidate();
 		this.candidatoIndicesParse.iniciarInstancia(candidate, campo);		
-		Assert.assertNotEquals(this.campo[0], candidate.getNome());
-		Assert.assertNotEquals(this.campo[1], candidate.getTituloEleitoral());
+		Assert.assertNotEquals(this.campo[0], candidate.getCandidateName());
+		Assert.assertNotEquals(this.campo[1], candidate.getCandidateElectoralTitle());
 	}
 	
 	private void iniciarIndices() {
