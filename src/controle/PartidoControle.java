@@ -2,7 +2,7 @@ package controle;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.dao.PartidoDAO;
 
 public class PartidoControle {
@@ -24,7 +24,7 @@ public class PartidoControle {
 	 * Method that requests a search of all political parties 
 	 * @return an ArrayList with all political parties
 	 */
-	public ArrayList<Partido> getListaTodosPartidos() throws SQLException {
+	public ArrayList<Party> getListaTodosPartidos() throws SQLException {
 		return this.partidoDAO.getLista();
 	}
 	
@@ -33,7 +33,7 @@ public class PartidoControle {
 	 * @param the abbreviation of the political party
 	 * @return the political party with the abbreviation informed
 	 */
-	public Partido getPelaSigla(String sigla) throws SQLException {
+	public Party getPelaSigla(String sigla) throws SQLException {
 		return this.partidoDAO.getPelaSigla(sigla);
 	}
 	
@@ -42,7 +42,7 @@ public class PartidoControle {
 	 * @param the political number of the political party
 	 * @return the political party with the political number informed
 	 */
-	public Partido getPeloNumero(String numero) throws SQLException {
+	public Party getPeloNumero(String numero) throws SQLException {
 		return this.partidoDAO.getPeloNumero(numero);
 	}
 }

@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Partido {
+public class Party {
 	
 	/*
-	 * Model class Partido.java
+	 * Model class Party.java
 	 * This class is responsable for getting the Political Party's informations
 	 */ 
 	
@@ -18,7 +18,7 @@ public class Partido {
 	private String nome;
 	
 	// Empty constructors
-	public Partido() {
+	public Party() {
 		this.nome = STRING_VAZIO;
 		this.sigla = STRING_VAZIO;
 		this.numero = INTEGER_VAZIO;
@@ -60,10 +60,10 @@ public class Partido {
 	
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Partido))
+		if( !(object instanceof Party))
 			return false;
 		
-		Partido outroPartido = (Partido) object;
+		Party outroPartido = (Party) object;
 		return this.sigla.equals(outroPartido.getSigla());
 	}
 }

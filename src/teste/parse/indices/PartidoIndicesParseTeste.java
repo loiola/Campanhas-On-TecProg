@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,24 +26,24 @@ public class PartidoIndicesParseTeste {
 	@Test
 	public void iniciarUmPartidoComIndicesValidos() throws Exception {
 		
-		Partido partido = new Partido();
-		this.partidoIndicesParse.iniciarInstancia(partido, campo);
-		Assert.assertEquals(this.campo[0], partido.getSigla());
-		Assert.assertEquals(this.campo[1], partido.getNumero().toString());
-		Assert.assertEquals(this.campo[2], partido.getDeferimento());
-		Assert.assertEquals(this.campo[3], partido.getNome());
+		Party party = new Party();
+		this.partidoIndicesParse.iniciarInstancia(party, campo);
+		Assert.assertEquals(this.campo[0], party.getSigla());
+		Assert.assertEquals(this.campo[1], party.getNumero().toString());
+		Assert.assertEquals(this.campo[2], party.getDeferimento());
+		Assert.assertEquals(this.campo[3], party.getNome());
 	}
 	
 	@Test
 	public void iniciarUmPartidoComIndicesInvalidos() throws Exception {
 		
 		this.partidoIndicesParse = new PartidoIndicesParse();
-		Partido partido = new Partido();
-		this.partidoIndicesParse.iniciarInstancia(partido, campo);
-		Assert.assertNotEquals(this.campo[0], partido.getSigla());
-		Assert.assertNotEquals(this.campo[1], partido.getNumero().toString());
-		Assert.assertNotEquals(this.campo[2], partido.getDeferimento());
-		Assert.assertNotEquals(this.campo[3], partido.getNome());
+		Party party = new Party();
+		this.partidoIndicesParse.iniciarInstancia(party, campo);
+		Assert.assertNotEquals(this.campo[0], party.getSigla());
+		Assert.assertNotEquals(this.campo[1], party.getNumero().toString());
+		Assert.assertNotEquals(this.campo[2], party.getDeferimento());
+		Assert.assertNotEquals(this.campo[3], party.getNome());
 	}
 	
 	private void iniciarIndices() {

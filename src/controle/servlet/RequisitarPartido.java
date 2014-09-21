@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import controle.PartidoControle;
 
 public class RequisitarPartido implements Logica {
@@ -17,7 +17,7 @@ public class RequisitarPartido implements Logica {
 
 	// Attributes
 	private PartidoControle controle;
-	private List<Partido> listaPartidos;
+	private List<Party> listaPartidos;
 
 	private HttpServletRequest req;
 
@@ -92,7 +92,7 @@ public class RequisitarPartido implements Logica {
 	 * @param a list of candidates and a number that is a divisor
 	 * @return a number representing the index of list
 	 */
-	private int geraIndiceDaLista(List<Partido> lista, int divisor) {
+	private int geraIndiceDaLista(List<Party> lista, int divisor) {
 		if(divisor!=0) {
 			int indice = (int) Math.ceil((double)lista.size()/(double)divisor);
 			return indice;
@@ -106,7 +106,7 @@ public class RequisitarPartido implements Logica {
 	 * @param a list of candidates
 	 * @return a number representing the index of paging
 	 */
-	private int geraIndiceDePaginacao(List<Partido> lista) {
+	private int geraIndiceDePaginacao(List<Party> lista) {
 		int indice = (int) Math.floor((double)lista.size()/(double)25);
 		return indice;
 	}

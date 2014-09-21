@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.dao.PartidoDAO;
 
 import org.junit.Assert;
@@ -29,8 +29,8 @@ public class PartidoDAOTeste extends TemplateTeste {
 	@Test
 	public void valoresComparacao() throws Exception {
 
-		Partido P1 = new Partido();
-		Partido P2 = new Partido();
+		Party P1 = new Party();
+		Party P2 = new Party();
 		P1.setSigla("AEIOU");
 		P2.setSigla("AEIOU");
 		int resultado;
@@ -43,14 +43,14 @@ public class PartidoDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveLancarExcecaoAoCadastrarUmPartidoInexistente() throws Exception {
 
-		ArrayList<Partido> listaPartidos = new ArrayList<>();
+		ArrayList<Party> listaPartidos = new ArrayList<>();
 
-		Partido partido = new Partido();
-		partido.setNumero(1);
-		partido.setSigla("A");
-		partido.setDeferimento("11.2.1982");
-		partido.setNome("AEIOU");
-		listaPartidos.add(partido);
+		Party party = new Party();
+		party.setNumero(1);
+		party.setSigla("A");
+		party.setDeferimento("11.2.1982");
+		party.setNome("AEIOU");
+		listaPartidos.add(party);
 
 		this.partidoDAO.cadastrarLista(listaPartidos);
 	}
@@ -58,14 +58,14 @@ public class PartidoDAOTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarUmPartidoJaCadastrado() throws Exception {
 
-		ArrayList<Partido> listaPartidos = new ArrayList<>();
+		ArrayList<Party> listaPartidos = new ArrayList<>();
 
-		Partido partido = new Partido();
-		partido.setNumero(1);
-		partido.setSigla("A");
-		partido.setDeferimento("11.2.1982");
-		partido.setNome("AEIOU");
-		listaPartidos.add(partido);
+		Party party = new Party();
+		party.setNumero(1);
+		party.setSigla("A");
+		party.setDeferimento("11.2.1982");
+		party.setNome("AEIOU");
+		listaPartidos.add(party);
 
 		this.partidoDAO.cadastrarLista(listaPartidos);
 		int numeroDePartidosNaLista = this.partidoDAO.getLista().size();
@@ -79,17 +79,17 @@ public class PartidoDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmPartidoPelaSigla() throws SQLException {
 		
-		ArrayList<Partido> listaPartidos = new ArrayList<>();
-		Partido partidoRecuperado = new Partido();
+		ArrayList<Party> listaPartidos = new ArrayList<>();
+		Party partidoRecuperado = new Party();
 		
-		Partido p1 = new Partido();
+		Party p1 = new Party();
 		p1.setNumero(45);
 		p1.setSigla("PI1");
 		p1.setNome("PARTIDO INEXISTENTE 1");
 		p1.setDeferimento("11.8.1996");
 		listaPartidos.add(p1);
 		
-		Partido p2 = new Partido();
+		Party p2 = new Party();
 		p2.setNumero(23);
 		p2.setSigla("PI2");
 		p2.setNome("PARTIDO INEXISTENTE 2");

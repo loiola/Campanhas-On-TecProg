@@ -1,17 +1,17 @@
 package parse.controle;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.dao.PartidoDAO;
 import parse.indices.IndicesParse;
 
-public class PartidoParseControle extends ParseControle<Partido> {
+public class PartidoParseControle extends ParseControle<Party> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Party
 	 */
 
 	// Constructors
-	public PartidoParseControle(IndicesParse<Partido> indicesParse) {
+	public PartidoParseControle(IndicesParse<Party> indicesParse) {
 		super(indicesParse, new PartidoDAO());
 	}
 
@@ -20,9 +20,9 @@ public class PartidoParseControle extends ParseControle<Partido> {
 	 * @return an instance of Class Party
 	 */
 	@Override
-	public Partido novaInstancia() {
-		Partido partido = new Partido();
-		return partido;
+	public Party novaInstancia() {
+		Party party = new Party();
+		return party;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class PartidoParseControle extends ParseControle<Partido> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Partido objetoUm, Partido objetoDois) {
+	public boolean iguais(Party objetoUm, Party objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 	

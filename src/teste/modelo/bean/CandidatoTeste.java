@@ -3,7 +3,7 @@ package teste.modelo.bean;
 import static teste.modelo.bean.BeanTeste.instanciarCandidato;
 import static teste.modelo.bean.BeanTeste.instanciarPartido;
 import modelo.beans.Candidate;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,15 +31,15 @@ public class CandidatoTeste {
 	public void equalsDeveRetornarFalsoSeNaoCompararComCandidato() {
 		
 		Candidate candidate = instanciarCandidato();
-		Partido partido = instanciarPartido();
-		Assert.assertFalse(candidate.equals(partido));
-		Assert.assertFalse(partido.equals(candidate));
+		Party party = instanciarPartido();
+		Assert.assertFalse(candidate.equals(party));
+		Assert.assertFalse(party.equals(candidate));
 		
 		Assert.assertEquals(BeanTeste.STRING_TESTE,candidate.getNome());
 		
-		Assert.assertEquals(BeanTeste.STRING_TESTE,partido.getSigla());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,partido.getDeferimento());
-		Assert.assertEquals(BeanTeste.STRING_TESTE,partido.getNome());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getSigla());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getDeferimento());
+		Assert.assertEquals(BeanTeste.STRING_TESTE,party.getNome());
 	}
 
 }

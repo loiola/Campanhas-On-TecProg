@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.beans.Resultado;
 import modelo.dao.CampanhaDAO;
 import modelo.dao.CandidatoDAO;
@@ -22,10 +22,10 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	private CandidatoDAO candidatoDAO;
 	private Resultado resultado1;
 	private Position position;
-	private Partido partido1;
+	private Party partido1;
 	private Candidate candidato1;
 	private Resultado resultado2;
-	private Partido partido2;
+	private Party partido2;
 	private Candidate candidato2;
 	private ArrayList<Campaign> listaCampanhas;
 
@@ -36,10 +36,10 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		this.candidatoDAO = new CandidatoDAO();
 		this.resultado1 = new Resultado();
 		this.position = new Position();
-		this.partido1 = new Partido();
+		this.partido1 = new Party();
 		this.candidato1 = new Candidate();
 		this.resultado2 = new Resultado();
-		this.partido2 = new Partido();
+		this.partido2 = new Party();
 		this.candidato2 = new Candidate();
 		this.listaCampanhas = new ArrayList<>();
 

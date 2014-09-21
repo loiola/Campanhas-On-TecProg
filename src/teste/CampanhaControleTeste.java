@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.beans.Resultado;
 import modelo.dao.CampanhaDAO;
 import modelo.dao.CandidatoDAO;
@@ -22,11 +22,11 @@ public class CampanhaControleTeste extends TemplateTeste {
 	private CandidatoDAO candidatoDAO;
 	private CampanhaControle campanhaControle;
 	private Candidate candidate;
-	private Partido partido1;
+	private Party partido1;
 	private Campaign campanha1;
 	private Resultado resultado1;
 	private Position cargo1;
-	private Partido partido2;
+	private Party partido2;
 	private Campaign campanha2;
 	private Resultado resultado2;
 	private Position cargo2;
@@ -38,14 +38,14 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.candidatoDAO = new CandidatoDAO();
 		this.campanhaControle = new CampanhaControle();
 		this.campanha1 = new Campaign();
-		this.partido1 = new Partido();
+		this.partido1 = new Party();
 		this.candidate = new Candidate();
 		this.resultado1 = new Resultado();
 		this.cargo1 = new Position();
 		this.resultado2 = new Resultado();
 		this.cargo2 = new Position();
 		this.campanha2 = new Campaign();
-		this.partido2 = new Partido();
+		this.partido2 = new Party();
 	}
 
 	@Override

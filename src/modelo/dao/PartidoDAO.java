@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import parse.ParseDAO;
 
-public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> {
+public class PartidoDAO extends BasicoDAO<Party> implements ParseDAO<Party> {
 
 	/*
 	 * Class for manipulating the data about political parties
@@ -36,10 +36,10 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	/*
 	 * Comparator to check if two instances are equal parties through acronym
 	 */
-	public enum Comparacao implements Comparator<Partido> {
+	public enum Comparacao implements Comparator<Party> {
 		SIGLA {
 			@Override
-			public int compare(Partido p1, Partido p2) {
+			public int compare(Party p1, Party p2) {
 				return p1.getSigla().compareToIgnoreCase(p2.getSigla());
 			}
 		};
@@ -69,13 +69,13 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Partido> lista,
+	protected void adicionarListaNoBatch(ArrayList<Party> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Partido partido : lista) {
-			instrucaoSQL.setInt(1, partido.getNumero());
-			instrucaoSQL.setString(2, partido.getSigla());
-			instrucaoSQL.setString(3, partido.getNome());
-			instrucaoSQL.setString(4, partido.getDeferimento());
+		for(Party party : lista) {
+			instrucaoSQL.setInt(1, party.getNumero());
+			instrucaoSQL.setString(2, party.getSigla());
+			instrucaoSQL.setString(3, party.getNome());
+			instrucaoSQL.setString(4, party.getDeferimento());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -86,16 +86,16 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Partido> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Party> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Partido partido = new Partido();
-			partido.setNome(resultadoSQL.getString(NOME));
-			partido.setNumero(resultadoSQL.getInt(NUMERO));
-			partido.setSigla(resultadoSQL.getString(SIGLA));
-			partido.setDeferimento(resultadoSQL.getString(DEFERIMENTO));
+			Party party = new Party();
+			party.setNome(resultadoSQL.getString(NOME));
+			party.setNumero(resultadoSQL.getInt(NUMERO));
+			party.setSigla(resultadoSQL.getString(SIGLA));
+			party.setDeferimento(resultadoSQL.getString(DEFERIMENTO));
 
-			lista.add(partido);
+			lista.add(party);
 		}
 	}
 
@@ -104,7 +104,7 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	 * @param a String with the acronym
 	 * @return an instance of Class Party
 	 */
-	public Partido getPelaSigla(String sigla) throws SQLException {
+	public Party getPelaSigla(String sigla) throws SQLException {
 		String comandoSQL = SQL_SELECAO
 				+ " WHERE " + SIGLA + " = '" + sigla + "'";
 		return BuscaBD(comandoSQL);
@@ -115,7 +115,7 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	 * @param a String with the number
 	 * @return an instance of Class Party
 	 */
-	public Partido getPeloNumero(String numero) throws SQLException {
+	public Party getPeloNumero(String numero) throws SQLException {
 		String comandoSQL = SQL_SELECAO
 				+ " WHERE " + NUMERO + " = '" + numero + "'";
 		return BuscaBD(comandoSQL);
@@ -126,9 +126,9 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Party>
 	 */
-	private Partido BuscaBD(String comandoSQL) throws SQLException{
+	private Party BuscaBD(String comandoSQL) throws SQLException{
 		
-		Partido partido = new Partido();
+		Party party = new Party();
 		
 		try {
 			this.conexao = new ConexaoBancoDados().getConexao();
@@ -138,10 +138,10 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 	
 			while(resultadoSQL.next()) {
-				partido.setSigla(resultadoSQL.getString(SIGLA));
-				partido.setNome(resultadoSQL.getString(NOME));
-				partido.setDeferimento(resultadoSQL.getString(DEFERIMENTO));
-				partido.setNumero(resultadoSQL.getInt(NUMERO));
+				party.setSigla(resultadoSQL.getString(SIGLA));
+				party.setNome(resultadoSQL.getString(NOME));
+				party.setDeferimento(resultadoSQL.getString(DEFERIMENTO));
+				party.setNumero(resultadoSQL.getInt(NUMERO));
 			}
 	
 			if(this.instrucaoSQL != null) {
@@ -156,6 +156,6 @@ public class PartidoDAO extends BasicoDAO<Partido> implements ParseDAO<Partido> 
 		} finally {
 			fecharConexao();
 		}
-		return partido;
+		return party;
 	}
 }

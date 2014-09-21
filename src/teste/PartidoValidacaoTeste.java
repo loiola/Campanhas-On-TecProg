@@ -1,6 +1,6 @@
 package teste;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.beans.Candidate;
 import org.junit.Test;
 import controle.excecao.PartidoExcecao;
@@ -10,7 +10,7 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	
 	private PartidoValidacao partidoValidacao;
 	private PartidoExcecao partidoExcecao;
-	private Partido partido;
+	private Party party;
 	private Candidate candidate;
 	
 	@Override
@@ -18,7 +18,7 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 		
 		this.partidoValidacao = new PartidoValidacao();
 		this.partidoExcecao = new PartidoExcecao();
-		this.partido = new Partido();
+		this.party = new Party();
 		this.candidate = new Candidate();
 	}
 
@@ -30,39 +30,39 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	@Test
 	public void naoLancaExcecaoSeSiglaNaoEhNula() throws PartidoExcecao {
 		
-		this.partido.setSigla("PT");
-		this.partidoValidacao.siglaNaoNula(partido);
+		this.party.setSigla("PT");
+		this.partidoValidacao.siglaNaoNula(party);
 	}
 	
 	@Test
 	public void naoLancaExcecaoSeSiglaNaoEhNula2() throws PartidoExcecao {
 		
-		this.partido.setSigla("PT");
-		this.partidoValidacao.numeroNaoNulo(partido);
+		this.party.setSigla("PT");
+		this.partidoValidacao.numeroNaoNulo(party);
 	}
 	
 	@Test
 	public void naoLancaExcecaoSeNumeroPartidoNaoEhNulo() throws PartidoExcecao {
 		
-		this.partido.setNumero(13);
-		this.partidoValidacao.numeroNaoNulo(partido);
+		this.party.setNumero(13);
+		this.partidoValidacao.numeroNaoNulo(party);
 	}
 	
 	@Test
 	public void testeMetodoEqualsParteI() throws PartidoExcecao {
 		
-		partido.equals(null);
+		party.equals(null);
 	}
 
 	@Test
 	public void testeMetodoEqualsParteII() throws PartidoExcecao {
 		
-		partido.equals(partido);
+		party.equals(party);
 	}
 	
 	@Test
 	public void testeMetodoEqualsParteIII() throws PartidoExcecao {
 		
-		partido.equals(candidate);
+		party.equals(candidate);
 	}
 }

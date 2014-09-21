@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Position;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.beans.Resultado;
 
 public class CampanhaDAO extends BasicoDAO<Campaign> {
@@ -120,16 +120,16 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 		while(resultadoSQL.next()) {
 			Position position = new Position();
 			Resultado resultado = new Resultado();
-			Partido partido = new Partido();
+			Party party = new Party();
 			Candidate candidate = new Candidate();
 			PreparaCamposCargoEResultado(position, resultado, resultadoSQL);
-			PreparaCamposCandidatoEPartido(partido, candidate, resultadoSQL);
+			PreparaCamposCandidatoEPartido(party, candidate, resultadoSQL);
 
 			Campaign campaign = new Campaign();
 			campaign.setId(resultadoSQL.getInt(ID));
 			campaign.setResultado(resultado);
 			campaign.setCargo(position);
-			campaign.setPartido(partido);
+			campaign.setPartido(party);
 			campaign.setCandidato(candidate);
 			campaign.setAno(resultadoSQL.getInt(ANO));
 			campaign.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
@@ -160,9 +160,9 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 	 * @param an instance of Class Candidate
 	 * @param a SQLresult
 	 */
-	private void PreparaCamposCandidatoEPartido(Partido partido,
+	private void PreparaCamposCandidatoEPartido(Party party,
 			Candidate candidate, ResultSet resultadoSQL) throws SQLException {
-		partido.setNumero(resultadoSQL.getInt(NUMERO_PARTIDO));
+		party.setNumero(resultadoSQL.getInt(NUMERO_PARTIDO));
 		candidate.setTituloEleitoral(resultadoSQL.getString(TITULO_CANDIDATO));
 	}
 
@@ -192,10 +192,10 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 		this.partidoDAO = new PartidoDAO();
 
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
-		Partido partido = this.partidoDAO.getPelaSigla(sigla);
+		Party party = this.partidoDAO.getPelaSigla(sigla);
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_PARTIDO + ", "
 				+ INDEX_ANO + ")" + " WHERE " + NUMERO_PARTIDO + " = '"
-				+ partido.getNumero() + "' AND " + ANO + " = '" + ano + "' ";
+				+ party.getNumero() + "' AND " + ANO + " = '" + ano + "' ";
 		listaCampanha = buscaBD(comandoSQL);
 		return listaCampanha;
 	}

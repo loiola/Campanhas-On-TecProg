@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.beans.Campaign;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import controle.CampanhaControle;
 import controle.PartidoControle;
 
@@ -22,7 +22,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	private CampanhaControle campanhaControle;
 	private ArrayList<Campaign> listaCampanhas;
 	private PartidoControle partidoControle;
-	private Partido partido;
+	private Party party;
 
 	private String sigla;
 	private String ano;
@@ -75,7 +75,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	private void estabeleceParametros() throws SQLException {
 		this.campanhaControle = new CampanhaControle();
 		this.partidoControle = new PartidoControle();
-		this.partido = this.partidoControle.getPelaSigla(this.sigla);
+		this.party = this.partidoControle.getPelaSigla(this.sigla);
 		this.listaCampanhas = new ArrayList<>();
 		this.listaCampanhas = this.campanhaControle
 				.getListaCampanhasPorSiglaPartidoEAno(this.sigla,this.ano);
@@ -92,7 +92,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	private void preparaEnvioDeParametros() {
 		this.req.setAttribute("ano", this.ano);
 		this.req.setAttribute("listaCampanhas", this.listaCampanhas);
-		this.req.setAttribute("partido", this.partido);
+		this.req.setAttribute("party", this.party);
 		this.req.setAttribute("sigla", this.sigla);
 		this.req.setAttribute("inicio", this.inicio);
 		

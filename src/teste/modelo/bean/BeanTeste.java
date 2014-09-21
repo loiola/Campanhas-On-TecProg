@@ -7,7 +7,7 @@ import modelo.beans.Expense;
 import modelo.beans.Donor;
 import modelo.beans.Supplier;
 import modelo.beans.FinancialTransaction;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.beans.Receita;
 import modelo.beans.Resultado;
 
@@ -114,15 +114,15 @@ public class BeanTeste {
 		return financialTransaction;
 	}
 	
-	public static Partido instanciarPartido() {
+	public static Party instanciarPartido() {
 		
-		Partido partido = new Partido();
-		partido.setDeferimento(STRING_TESTE);
-		partido.setNome(STRING_TESTE);
-		partido.setNumero(INT_TESTE);
-		partido.setSigla(STRING_TESTE);
+		Party party = new Party();
+		party.setDeferimento(STRING_TESTE);
+		party.setNome(STRING_TESTE);
+		party.setNumero(INT_TESTE);
+		party.setSigla(STRING_TESTE);
 		
-		return partido;
+		return party;
 	}
 	
 	public static Receita instanciarReceita() {

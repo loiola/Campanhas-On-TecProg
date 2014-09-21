@@ -1,8 +1,8 @@
 package parse.indices;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 
-public class PartidoIndicesParse extends IndicesParse<Partido> {
+public class PartidoIndicesParse extends IndicesParse<Party> {
 	
 	/*
 	 * Class to control the contents of information inherent to the political parties
@@ -29,18 +29,18 @@ public class PartidoIndicesParse extends IndicesParse<Partido> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Partido partido, String campo[]) {
+	protected void setIndicesValidos(Party party, String campo[]) {
 		if(indiceValido(this.indiceSigla)) {
-			partido.setSigla(campo[this.indiceSigla]);
+			party.setSigla(campo[this.indiceSigla]);
 		}
 		if(indiceValido(this.indiceNumero)) {
-			partido.setNumero(Integer.parseInt(campo[this.indiceNumero]));
+			party.setNumero(Integer.parseInt(campo[this.indiceNumero]));
 		}
 		if(indiceValido(this.indiceDeferimento)){
-			partido.setDeferimento(campo[this.indiceDeferimento]);
+			party.setDeferimento(campo[this.indiceDeferimento]);
 		}
 		if(indiceValido(this.indiceNome)){
-			partido.setNome(campo[this.indiceNome]);
+			party.setNome(campo[this.indiceNome]);
 		}
 	}
 
@@ -49,11 +49,11 @@ public class PartidoIndicesParse extends IndicesParse<Partido> {
 	 * @param an instance of Class Party
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Partido partido) {
-		partido.setSigla(Partido.STRING_VAZIO);
-		partido.setNumero(Partido.INTEGER_VAZIO);
-		partido.setNome(Partido.STRING_VAZIO);
-		partido.setDeferimento(Partido.STRING_VAZIO);
+	protected void setVazioEmTodosOsSetters(Party party) {
+		party.setSigla(Party.STRING_VAZIO);
+		party.setNumero(Party.INTEGER_VAZIO);
+		party.setNome(Party.STRING_VAZIO);
+		party.setDeferimento(Party.STRING_VAZIO);
 	}
 	
 	// Mutators for indexes of the array of fields

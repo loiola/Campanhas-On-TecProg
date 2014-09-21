@@ -6,9 +6,9 @@ import parse.controle.ParseControle;
 import parse.controle.PartidoParseControle;
 import parse.indices.IndicesParse;
 import parse.indices.PartidoIndicesParse;
-import modelo.beans.Partido;
+import modelo.beans.Party;
 
-public class CadastroPartidoParse extends CadastroParse<Partido> {
+public class CadastroPartidoParse extends CadastroParse<Party> {
 	
 	/*
 	 * Class responsible for identifying the contents of the file to read and get information
@@ -26,8 +26,8 @@ public class CadastroPartidoParse extends CadastroParse<Partido> {
 	 * @return an instance of class PartyParseControl
 	 */
 	@Override
-	public ParseControle<Partido> novaInstancia(
-			IndicesParse<Partido> indicesParse) {
+	public ParseControle<Party> novaInstancia(
+			IndicesParse<Party> indicesParse) {
 		PartidoParseControle partidoParseControle;
 		partidoParseControle = new PartidoParseControle(indicesParse);
 		return partidoParseControle;
@@ -41,7 +41,7 @@ public class CadastroPartidoParse extends CadastroParse<Partido> {
 	 * @return an instance of class PartyIndicesParse
 	 */
 	@Override
-	protected IndicesParse<Partido> getIndicesParse(String tipoArquivo,
+	protected IndicesParse<Party> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		PartidoIndicesParse partidoIndicesParse;
 		partidoIndicesParse = new PartidoIndicesParse();

@@ -76,7 +76,7 @@ public class US32Teste {
 	}
 	
 	/**
-	 * Cenário 05: Informações Adicionais em Campos de Partido
+	 * Cenário 05: Informações Adicionais em Campos de Party
 	 * DADO QUE:
 	 * 		o usuário acessou a página de um partido;
 	 * QUANDO:
@@ -87,7 +87,7 @@ public class US32Teste {
 	 */
 	
 	/**
-	 * Cenário 06: Símbolo do Partido
+	 * Cenário 06: Símbolo do Party
 	 * DADO QUE:
 	 * 		o usuário acessou a página de um partido;
 	 * QUANDO:
@@ -112,7 +112,7 @@ public class US32Teste {
 	}
 	
 	/**
-	 * Cenário 07: Lista de Candidatos de um Partido
+	 * Cenário 07: Lista de Candidatos de um Party
 	 * DADO QUE:
 	 * 		o usuário acessou a página de um partido;
 	 * QUANDO:

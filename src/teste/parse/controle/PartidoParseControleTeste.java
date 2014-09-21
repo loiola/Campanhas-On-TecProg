@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Partido;
+import modelo.beans.Party;
 import modelo.dao.PartidoDAO;
 
 import org.junit.Assert;
@@ -46,7 +46,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		this.partidoParseControle.cadastrarInstancias();
 		this.partidoParseControle.resetar();
 		
-		Partido partidoCadastrado = this.partidoDAO.getLista().get(0);
+		Party partidoCadastrado = this.partidoDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[SIGLA], partidoCadastrado.getSigla());
 		Assert.assertEquals(this.campo[NUMERO], partidoCadastrado.getNumero().toString());
