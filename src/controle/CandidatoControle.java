@@ -26,7 +26,7 @@ public class CandidatoControle {
 	 * @return an LinkedList a list with all candidate with name informed
 	 */
 	public LinkedList<Candidate> getListaCandidatos(String nome) {
-		return this.candidateDAO.getListaPeloNome(nome);
+		return this.candidateDAO.getCandidateListByName(nome);
 	}
 
 	/*
@@ -35,6 +35,6 @@ public class CandidatoControle {
 	 * @return a candidate with voter informed
 	 */
 	public Candidate getUmCandidato(String tituloEleitoral) {
-		return this.candidateDAO.getCandidatoPeloTitulo(tituloEleitoral);
+		return this.candidateDAO.getCandidateByElectoralTitle(tituloEleitoral);
 	}
 }

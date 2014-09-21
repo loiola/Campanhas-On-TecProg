@@ -41,7 +41,7 @@ public class CadastroCandidatoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Candidate candidate = this.candidateDAO.getCandidatoPeloTitulo("55325424149");
+		Candidate candidate = this.candidateDAO.getCandidateByElectoralTitle("55325424149");
 		assertEquals(candidate.getCandidateElectoralTitle(), "55325424149");
 	}
 
