@@ -16,27 +16,27 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 */
 	
 	// Constants	
-	private static final String NOME_TABELA = "fornecedor";
-	private static final String CPF_CNPJ = "cpf_cnpj";
-	private static final String NOME = "nome";
-	private static final String UF = "uf";
-	private static final String SITUACAO_CADASTRAL = "situacao_cadastral";
+	private static final String DATABASE_SUPPLIER_TABLE_NAME = "fornecedor";
+	private static final String DATABASE_SUPPLIER_PERSON_REGISTER = "cpf_cnpj";
+	private static final String DATABASE_SUPPLIER_NAME = "nome";
+	private static final String DATABASE_SUPPLIER_COUNTRY_STATE = "uf";
+	private static final String DATABASE_SUPPLIER_REGISTER_SITUATION = "situacao_cadastral";
 	
-	private static final String SQL_INSERCAO = "INSERT INTO " + NOME_TABELA
-			+ " (" + CPF_CNPJ + ", " + NOME + ", " + UF + ", " + SITUACAO_CADASTRAL + ") "
+	private static final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO " + DATABASE_SUPPLIER_TABLE_NAME
+			+ " (" + DATABASE_SUPPLIER_PERSON_REGISTER + ", " + DATABASE_SUPPLIER_NAME + ", " + DATABASE_SUPPLIER_COUNTRY_STATE + ", " + DATABASE_SUPPLIER_REGISTER_SITUATION + ") "
 			+ "VALUES(?, ?, ?, ?)";
-	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
+	private static final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_SUPPLIER_TABLE_NAME;
 	
 	// Constructors
 	public SupplierDAO() {
-		super(NOME_TABELA, Comparacao.NOME);
+		super(DATABASE_SUPPLIER_TABLE_NAME, CompareTwoSuppliersName.NOME);
 	}
 	
 	// Other methods
 	/*
 	 * Comparator to check if two instances are equal supplier through name
 	 */
-	public enum Comparacao implements Comparator<Supplier> {
+	public enum CompareTwoSuppliersName implements Comparator<Supplier> {
 		NOME {
 			public int compare(Supplier f1, Supplier f2) {
 				return f1.getSupplierName().compareToIgnoreCase(f2.getSupplierName());
@@ -50,7 +50,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 */
 	@Override
 	protected String getSQLInsertCommand() {
-		return SQL_INSERCAO;
+		return DATABASE_SQL_COMMAND_INSERT;
 	}
 
 	/*
@@ -59,7 +59,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 */
 	@Override
 	protected String getSQLSelectCommand() {
-		return SQL_SELECAO;
+		return DATABASE_SQL_COMMAND_SELECT;
 	}
 
 	/*
@@ -68,14 +68,14 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void registerObjectArrayListOnBatch(ArrayList<Supplier> lista,
-			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Supplier supplier : lista) {
-			instrucaoSQL.setString(1, supplier.getSupplierPersonRegister());
-			instrucaoSQL.setString(2, supplier.getSupplierName());
-			instrucaoSQL.setString(3, supplier.getSupplierCountryState());
-			instrucaoSQL.setString(4, supplier.getSupplierRegisterSituation());
-			instrucaoSQL.addBatch();
+	protected void registerObjectArrayListOnBatch(ArrayList<Supplier> supplierList,
+			PreparedStatement daoSQLInstruction) throws SQLException {
+		for(Supplier supplier : supplierList) {
+			daoSQLInstruction.setString(1, supplier.getSupplierPersonRegister());
+			daoSQLInstruction.setString(2, supplier.getSupplierName());
+			daoSQLInstruction.setString(3, supplier.getSupplierCountryState());
+			daoSQLInstruction.setString(4, supplier.getSupplierRegisterSituation());
+			daoSQLInstruction.addBatch();
 		}	
 	}
 
@@ -85,15 +85,15 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Supplier> lista,
-			ResultSet resultadoSQL) throws SQLException {
-		while(resultadoSQL.next()) {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Supplier> supplierList,
+			ResultSet sqlResult) throws SQLException {
+		while(sqlResult.next()) {
 			Supplier supplier = new Supplier();
-			supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ));
-			supplier.setSupplierName(resultadoSQL.getString(NOME));
-			supplier.setSupplierCountryState(resultadoSQL.getString(UF));
-			supplier.setSupplierRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
-			lista.add(supplier);
+			supplier.setSupplierPersonRegister(sqlResult.getString(DATABASE_SUPPLIER_PERSON_REGISTER));
+			supplier.setSupplierName(sqlResult.getString(DATABASE_SUPPLIER_NAME));
+			supplier.setSupplierCountryState(sqlResult.getString(DATABASE_SUPPLIER_COUNTRY_STATE));
+			supplier.setSupplierRegisterSituation(sqlResult.getString(DATABASE_SUPPLIER_REGISTER_SITUATION));
+			supplierList.add(supplier);
 		}
 	}
 
@@ -102,19 +102,19 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param an instance of Class Supplier
 	 * @return an instance of Class Supplier
 	 */
-	public Supplier getPeloNomeOuCpfCnpj(Supplier supplier) throws Exception {
-		String comandoSQL = SQL_SELECAO + " WHERE ";
+	public Supplier getSupplierByNameOfPersonRegister(Supplier supplier) throws Exception {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE ";
 		if(!supplier.getSupplierName().equals(Supplier.EMPTY_TYPE_STRING)) {
-			comandoSQL = comandoSQL + NOME + " = " 
+			sqlCommand = sqlCommand + DATABASE_SUPPLIER_NAME + " = " 
 		  + supplier.getSupplierName();
 		}
 		else if(!supplier.getSupplierPersonRegister().equals(Supplier.EMPTY_TYPE_STRING)) {
-			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
+			sqlCommand = sqlCommand + DATABASE_SUPPLIER_PERSON_REGISTER + " = " 
 		  + supplier.getSupplierPersonRegister();
 		} else {
 			throw new Exception();
 		}
-		return buscaBD(comandoSQL).get(0);
+		return searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
 	}
 
 	/*
@@ -122,29 +122,29 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Supplier>
 	 */
-	public ArrayList<Supplier> buscaBD(String SQL) throws SQLException {
+	public ArrayList<Supplier> searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
 
-		ArrayList<Supplier> listaFornecedor = new ArrayList<>();
+		ArrayList<Supplier> supplierList = new ArrayList<>();
 
 		try {
 			this.connection = new DatabaseConnection().getConnection();
 
-			String comandoSQL = SQL;
+			String sqlCommand = sqlCommandConfiguredBefore;
 
-			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
 
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
+			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
 
-			while(resultadoSQL.next()) {
+			while(sqlResult.next()) {
 				Supplier supplier = new Supplier();
 				
-				supplier.setSupplierName(resultadoSQL.getString(NOME));
-				supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ));
-				supplier.setSupplierRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
-				supplier.setSupplierCountryState(resultadoSQL.getString(UF));
+				supplier.setSupplierName(sqlResult.getString(DATABASE_SUPPLIER_NAME));
+				supplier.setSupplierPersonRegister(sqlResult.getString(DATABASE_SUPPLIER_PERSON_REGISTER));
+				supplier.setSupplierRegisterSituation(sqlResult.getString(DATABASE_SUPPLIER_REGISTER_SITUATION));
+				supplier.setSupplierCountryState(sqlResult.getString(DATABASE_SUPPLIER_COUNTRY_STATE));
 
 				if(supplier != null) {
-					listaFornecedor.add(supplier);
+					supplierList.add(supplier);
 				}
 			}
 		}  catch(SQLException e) {
@@ -152,6 +152,6 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 		} finally {
 			closeDatabaseConnection();
 		}
-		return listaFornecedor;
+		return supplierList;
 	}
 }

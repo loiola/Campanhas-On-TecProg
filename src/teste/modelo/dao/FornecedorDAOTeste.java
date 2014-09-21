@@ -34,7 +34,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		F2.setSupplierName("FORNECEDOR UM");
 		int resultado;
 
-		resultado = SupplierDAO.Comparacao.NOME.compare(F1, F2);
+		resultado = SupplierDAO.CompareTwoSuppliersName.NOME.compare(F1, F2);
 		
 		Assert.assertEquals(0,resultado);
 	}
@@ -110,7 +110,7 @@ public class FornecedorDAOTeste extends TemplateTeste {
 		listaFornecedoresACadastrar.add(fornecedor2);
 		
 		this.supplierDAO.registerUnregisteredObjectArrayListOnDatabase(listaFornecedoresACadastrar);
-		fornecedorRecuperado = this.supplierDAO.getPeloNomeOuCpfCnpj(fornecedor1);
+		fornecedorRecuperado = this.supplierDAO.getSupplierByNameOfPersonRegister(fornecedor1);
 		
 		Assert.assertEquals(fornecedor1, fornecedorRecuperado);
 	}
