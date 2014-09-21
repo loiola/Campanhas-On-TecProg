@@ -17,26 +17,26 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 */
 	
 	// Constants
-	private static final String NOME_TABELA = "doador";
-	private static final String CPF_CNPJ = "cpf_cnpj";
-	private static final String NOME = "nome";
-	private static final String UF = "uf";
-	private static final String SITUACAO_CADASTRAL = "situacao_cadastral";
-	private static final String SQL_INSERCAO = "INSERT INTO " + NOME_TABELA
-			+ " (" + CPF_CNPJ + ", " + NOME + ", " + UF + ", " + SITUACAO_CADASTRAL + ") "
+	private static final String DATABASE_DONOR_TABLE_NAME = "doador";
+	private static final String DATABASE_DONOR_PERSON_REGISTER = "cpf_cnpj";
+	private static final String DATABASE_DONOR_NAME = "nome";
+	private static final String DATABASE_DONOR_COUNTRY_STATE = "uf";
+	private static final String DATABASE_DONOR_REGISTER_SITUATION = "situacao_cadastral";
+	private static final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO " + DATABASE_DONOR_TABLE_NAME
+			+ " (" + DATABASE_DONOR_PERSON_REGISTER + ", " + DATABASE_DONOR_NAME + ", " + DATABASE_DONOR_COUNTRY_STATE + ", " + DATABASE_DONOR_REGISTER_SITUATION + ") "
 			+ "values (?, ?, ?, ?)";
-	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
+	private static final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_DONOR_TABLE_NAME;
 	
 	// Constructors
 	public DonorDAO() {
-		super(NOME_TABELA, Comparacao.NOME);
+		super(DATABASE_DONOR_TABLE_NAME, CompareTwoDonorsPersonRegister.NOME);
 	}
 
 	// Other methods
 	/*
 	 * Comparator to check if two instances are equal donor through CNPJ
 	 */
-	public enum Comparacao implements Comparator<Donor> {
+	public enum CompareTwoDonorsPersonRegister implements Comparator<Donor> {
 		NOME {
 			public int compare(Donor d1, Donor d2) {
 				return d1.getDonorPersonRegister().compareToIgnoreCase(d2.getDonorPersonRegister());
@@ -50,7 +50,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 */
 	@Override
 	protected String getSQLInsertCommand() {
-		return SQL_INSERCAO;
+		return DATABASE_SQL_COMMAND_INSERT;
 	}
 
 	/*
@@ -59,7 +59,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 */
 	@Override
 	protected String getSQLSelectCommand() {
-		return SQL_SELECAO;
+		return DATABASE_SQL_COMMAND_SELECT;
 	}
 
 	/*
@@ -68,14 +68,14 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void registerObjectArrayListOnBatch(ArrayList<Donor> lista,
-			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Donor donor : lista) {
-			instrucaoSQL.setString(1, donor.getDonorPersonRegister());
-			instrucaoSQL.setString(2, donor.getDonorName());
-			instrucaoSQL.setString(3, donor.getDonorCountryState());
-			instrucaoSQL.setString(4, donor.getDonorRegisterSituation());
-			instrucaoSQL.addBatch();
+	protected void registerObjectArrayListOnBatch(ArrayList<Donor> donorList,
+			PreparedStatement daoSQLInstruction) throws SQLException {
+		for(Donor donor : donorList) {
+			daoSQLInstruction.setString(1, donor.getDonorPersonRegister());
+			daoSQLInstruction.setString(2, donor.getDonorName());
+			daoSQLInstruction.setString(3, donor.getDonorCountryState());
+			daoSQLInstruction.setString(4, donor.getDonorRegisterSituation());
+			daoSQLInstruction.addBatch();
 		}
 	}
 
@@ -85,16 +85,16 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Donor> lista,
-			ResultSet resultadoSQL) throws SQLException {
-		while(resultadoSQL.next()) {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Donor> donorList,
+			ResultSet sqlResult) throws SQLException {
+		while(sqlResult.next()) {
 			Donor donor = new Donor();
-			donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ));
-			donor.setDonorName(resultadoSQL.getString(NOME));
-			donor.setDonorCountryState(resultadoSQL.getString(UF));
-			donor.setDonorRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
+			donor.setDonorPersonRegister(sqlResult.getString(DATABASE_DONOR_PERSON_REGISTER));
+			donor.setDonorName(sqlResult.getString(DATABASE_DONOR_NAME));
+			donor.setDonorCountryState(sqlResult.getString(DATABASE_DONOR_COUNTRY_STATE));
+			donor.setDonorRegisterSituation(sqlResult.getString(DATABASE_DONOR_REGISTER_SITUATION));
 			
-			lista.add(donor);
+			donorList.add(donor);
 		}
 	}
 
@@ -103,26 +103,26 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Donor>
 	 */
-	public ArrayList<Donor> buscaBD(String SQL) throws SQLException {
+	public ArrayList<Donor> searchDonorInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
 
-		ArrayList<Donor> listaDoador = new ArrayList<>();
+		ArrayList<Donor> donorList = new ArrayList<>();
 		
 		try {
 			this.connection = new DatabaseConnection().getConnection();
 
-			String comandoSQL = SQL;
-			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
+			String sqlCommand = sqlCommandConfiguredBefore;
+			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
 
-			while(resultadoSQL.next()) {
+			while(sqlResult.next()) {
 				Donor donor = new Donor();
-				donor.setDonorName(resultadoSQL.getString(NOME));
-				donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ));
-				donor.setDonorRegisterSituation(resultadoSQL.getString(SITUACAO_CADASTRAL));
-				donor.setDonorCountryState(resultadoSQL.getString(UF));
+				donor.setDonorName(sqlResult.getString(DATABASE_DONOR_NAME));
+				donor.setDonorPersonRegister(sqlResult.getString(DATABASE_DONOR_PERSON_REGISTER));
+				donor.setDonorRegisterSituation(sqlResult.getString(DATABASE_DONOR_REGISTER_SITUATION));
+				donor.setDonorCountryState(sqlResult.getString(DATABASE_DONOR_COUNTRY_STATE));
 
 				if(donor != null) {
-					listaDoador.add(donor);
+					donorList.add(donor);
 				}
 			}
 		} catch(SQLException e) {
@@ -130,7 +130,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 		} finally {
 			closeDatabaseConnection();
 		}
-		return listaDoador;
+		return donorList;
 	}
 	
 	/*
@@ -138,18 +138,18 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @param an instance of Class Donor
 	 * @return an instance of Class Donor
 	 */
-	public Donor getPeloNomeOuCpfCnpj(Donor donor) throws Exception {
-		String comandoSQL = SQL_SELECAO + " WHERE ";
+	public Donor getDonorByNameAndPersonRegister(Donor donor) throws Exception {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE ";
 		if(!donor.getDonorName().equals(Supplier.EMPTY_TYPE_STRING)) {
-			comandoSQL = comandoSQL + NOME + " = " 
+			sqlCommand = sqlCommand + DATABASE_DONOR_NAME + " = " 
 		  + donor.getDonorName();
 		}
 		else if(!donor.getDonorPersonRegister().equals(Supplier.EMPTY_TYPE_STRING)) {
-			comandoSQL = comandoSQL + CPF_CNPJ + " = " 
+			sqlCommand = sqlCommand + DATABASE_DONOR_PERSON_REGISTER + " = " 
 		  + donor.getDonorPersonRegister();
 		} else {
 			throw new Exception();
 		}
-		return buscaBD(comandoSQL).get(0);
+		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
 	}
 }

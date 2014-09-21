@@ -34,7 +34,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		D2.setDonorPersonRegister("1234567");
 		int resultado;
 
-		resultado = DonorDAO.Comparacao.NOME.compare(D1, D2);
+		resultado = DonorDAO.CompareTwoDonorsPersonRegister.NOME.compare(D1, D2);
 		
 		Assert.assertEquals(0,resultado);
 	}
@@ -110,7 +110,7 @@ public class DoadorDAOTeste extends TemplateTeste {
 		listaDoadoresACadastrar.add(doador2);
 		
 		this.donorDAO.registerUnregisteredObjectArrayListOnDatabase(listaDoadoresACadastrar);
-		doadorRecuperado = this.donorDAO.getPeloNomeOuCpfCnpj(doador1);
+		doadorRecuperado = this.donorDAO.getDonorByNameAndPersonRegister(doador1);
 		
 		Assert.assertEquals(doador1, doadorRecuperado);
 	}

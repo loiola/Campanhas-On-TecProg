@@ -19,18 +19,18 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	private CampaignDAO campaignDAO;
 
 	// Constants
-	private static final String DATABASE_CANDIDATE_TABLE = "candidato";
+	private static final String DATABASE_CANDIDATE_TABLE_NAME = "candidato";
 	private final String DATABASE_CANDIDATE_ELECTORAL_TITLE = "titulo_eleitoral";
 	private final String DATABASE_CANDIDATE_NAME = "nome";
-	private final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_CANDIDATE_TABLE;
-	private final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO " + DATABASE_CANDIDATE_TABLE + " ("
+	private final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_CANDIDATE_TABLE_NAME;
+	private final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO " + DATABASE_CANDIDATE_TABLE_NAME + " ("
 			+ DATABASE_CANDIDATE_ELECTORAL_TITLE + ", " + DATABASE_CANDIDATE_NAME + ") VALUES(?,?)";
 
 	private final String DATABASE_CANDIDATE_NAME_INDEX = "candidato_sk_1";
 
 	// Constructors
 	public CandidateDAO() {
-		super(DATABASE_CANDIDATE_TABLE, CompareTwoCandidatesElectoralTitle.TITULO_ELEITORAL);
+		super(DATABASE_CANDIDATE_TABLE_NAME, CompareTwoCandidatesElectoralTitle.TITULO_ELEITORAL);
 	}
 
 	// Other methods
