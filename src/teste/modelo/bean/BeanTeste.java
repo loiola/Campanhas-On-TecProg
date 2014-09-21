@@ -8,7 +8,7 @@ import modelo.beans.Donor;
 import modelo.beans.Supplier;
 import modelo.beans.FinancialTransaction;
 import modelo.beans.Party;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.beans.Resultado;
 
 public class BeanTeste {
@@ -125,21 +125,21 @@ public class BeanTeste {
 		return party;
 	}
 	
-	public static Receita instanciarReceita() {
+	public static Revenue instanciarReceita() {
 		
-		Receita receita = new Receita();
-		receita.setCampanha(instanciarCampanha());
-		receita.setData(STRING_TESTE);
-		receita.setDescricao(STRING_TESTE);
-		receita.setDoador(instanciarDoador());
-		receita.setFormaPagamento(STRING_TESTE);
-		receita.setId(INT_TESTE);
-		receita.setNumeroDocumento(STRING_TESTE);
-		receita.setReciboEleitoral(STRING_TESTE);
-		receita.setTipoMovimentacao(STRING_TESTE);
-		receita.setValor(FLOAT_TESTE);
+		Revenue revenue = new Revenue();
+		revenue.setCampanha(instanciarCampanha());
+		revenue.setData(STRING_TESTE);
+		revenue.setDescricao(STRING_TESTE);
+		revenue.setDoador(instanciarDoador());
+		revenue.setFormaPagamento(STRING_TESTE);
+		revenue.setId(INT_TESTE);
+		revenue.setNumeroDocumento(STRING_TESTE);
+		revenue.setReciboEleitoral(STRING_TESTE);
+		revenue.setTipoMovimentacao(STRING_TESTE);
+		revenue.setValor(FLOAT_TESTE);
 
-		return receita;
+		return revenue;
 	}
 	
 	public static Resultado instanciarResultado() {

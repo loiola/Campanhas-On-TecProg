@@ -20,7 +20,7 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 	private CadastroDoadorParse cadastro2;
 	private CadastroDoadorParse cadastro3;
 	private DoadorDAO doadorDAO;
-	String  tipoArquivo = "receita";
+	String  tipoArquivo = "revenue";
 	String  ano1         = "2006";
 	String  ano2         = "2002";
 	String  ano3         = "2010";

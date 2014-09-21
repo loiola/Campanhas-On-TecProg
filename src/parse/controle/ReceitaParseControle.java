@@ -1,17 +1,17 @@
 package parse.controle;
 
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.dao.ReceitaDAO;
 import parse.indices.IndicesParse;
 
-public class ReceitaParseControle extends ParseControle<Receita> {
+public class ReceitaParseControle extends ParseControle<Revenue> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Revenue
 	 */
 
 	// Constructors
-	public ReceitaParseControle(IndicesParse<Receita> indicesParse) {
+	public ReceitaParseControle(IndicesParse<Revenue> indicesParse) {
 		super(indicesParse, new ReceitaDAO());
 	}
 
@@ -20,9 +20,9 @@ public class ReceitaParseControle extends ParseControle<Receita> {
 	 * @return an instance of Class Revenue
 	 */
 	@Override
-	public Receita novaInstancia() {
-		Receita receita = new Receita();
-		return receita;
+	public Revenue novaInstancia() {
+		Revenue revenue = new Revenue();
+		return revenue;
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class ReceitaParseControle extends ParseControle<Receita> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Receita objetoUm, Receita objetoDois) {
+	public boolean iguais(Revenue objetoUm, Revenue objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

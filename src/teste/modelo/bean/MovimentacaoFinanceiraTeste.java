@@ -12,7 +12,7 @@ import modelo.beans.Expense;
 import modelo.beans.Donor;
 import modelo.beans.Supplier;
 import modelo.beans.FinancialTransaction;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,15 +21,15 @@ import org.junit.Test;
 public class MovimentacaoFinanceiraTeste {
 
 	Expense expense;
-	Receita receita;
+	Revenue revenue;
 	Expense despesa2;
-	Receita receita2;
+	Revenue receita2;
 	
 	@Before
 	public void SetUp() {
 		
 		this.expense = instanciarDespesa();
-		this.receita = instanciarReceita();
+		this.revenue = instanciarReceita();
 		this.despesa2 = instanciarDespesa();
 		this.receita2 = instanciarReceita();
 	}
@@ -37,22 +37,22 @@ public class MovimentacaoFinanceiraTeste {
 	@Test
 	public void equalsDeveRetornarFalsoEmQualquerCondicao() {
 
-		Assert.assertFalse(expense.equals(receita));
-		Assert.assertFalse(receita.equals(expense));
+		Assert.assertFalse(expense.equals(revenue));
+		Assert.assertFalse(revenue.equals(expense));
 		Assert.assertEquals(BeanTeste.STRING_TESTE, expense.getTipoDocumento());
 		Assert.assertEquals(instanciarFornecedor(), expense.getFornecedor());
-		Assert.assertEquals(BeanTeste.STRING_TESTE, receita.getReciboEleitoral());
-		Assert.assertEquals(instanciarDoador(), receita.getDoador());
+		Assert.assertEquals(BeanTeste.STRING_TESTE, revenue.getReciboEleitoral());
+		Assert.assertEquals(instanciarDoador(), revenue.getDoador());
 	}
 	
 	@Test
 	public void equalsDeveRetornarVerdadeiro() {
 
 		Expense outraDespesa = expense;
-		Receita outraReceita = receita;
+		Revenue outraReceita = revenue;
 		
 		Assert.assertFalse(expense.equals(outraDespesa));
-		Assert.assertFalse(receita.equals(outraReceita));
+		Assert.assertFalse(revenue.equals(outraReceita));
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class MovimentacaoFinanceiraTeste {
 		receita2.setDoador(doador2);
 		despesa2.setFornecedor(fornecedor2);
 		
-		assertFalse(receita.equals(receita2));
+		assertFalse(revenue.equals(receita2));
 		assertFalse(expense.equals(despesa2));
 		
 	}

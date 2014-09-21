@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.beans.Campaign;
 import modelo.beans.Position;
 import modelo.beans.Expense;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import controle.CampanhaControle;
 import controle.MovimentacaoControle;
 
@@ -33,7 +33,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	private float despesaTC;
 	private float receitaTC;
 
-	private List<Receita> listaReceita;
+	private List<Revenue> listaReceita;
 	private List<Expense> listaDespesa;
 
 	private HttpServletRequest req;
@@ -169,7 +169,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * @param a list of receipt and a number that is a divisor
 	 * @return a number representing the index of list
 	 */
-	private int geraIndiceDaListaR(List<Receita> lista, int divisor) {
+	private int geraIndiceDaListaR(List<Revenue> lista, int divisor) {
 		if(divisor != 0) {
 			int indice = (int) Math.ceil((double) lista.size()
 					/ (double) divisor);
@@ -184,7 +184,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * @param a list of receipt
 	 * @return a number representing the index of paging
 	 */
-	private int geraIndiceDePaginacaoR(List<Receita> lista) {
+	private int geraIndiceDePaginacaoR(List<Revenue> lista) {
 		int indice = (int) Math.floor((double) lista.size() / (double) 25);
 		if(indice >= 4 && indice < 10)
 			return 4;

@@ -1,9 +1,9 @@
 package parse.indices;
 
 import modelo.beans.Donor;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 
-public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Receita> {
+public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Revenue> {
 	
 	/*
 	 * Class to control the contents of information inherent to the revenue
@@ -29,12 +29,12 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Receita receita, String[] campo) {
-		super.setIndicesValidos(receita, campo);
+	protected void setIndicesValidos(Revenue revenue, String[] campo) {
+		super.setIndicesValidos(revenue, campo);
 		
 		Donor donor = new Donor();
 		if(indiceValido(this.indiceReciboEleitoral)) {
-			receita.setReciboEleitoral(campo[this.indiceReciboEleitoral]);
+			revenue.setReciboEleitoral(campo[this.indiceReciboEleitoral]);
 		}
 		if(indiceValido(this.indiceDoadorNome)) {
 			donor.setNome(campo[this.indiceDoadorNome]);
@@ -42,7 +42,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 		if(indiceValido(this.indiceDoadorCpfCnpj)) {
 			donor.setCpf_cnpj(campo[this.indiceDoadorCpfCnpj]);
 		}
-		receita.setDoador(donor);
+		revenue.setDoador(donor);
 
 	}
 	
@@ -51,11 +51,11 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Rece
 	 * @param an instance of Class Revenue
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Receita receita) {
-		super.setVazioEmTodosOsSetters(receita);
+	protected void setVazioEmTodosOsSetters(Revenue revenue) {
+		super.setVazioEmTodosOsSetters(revenue);
 
-		receita.setReciboEleitoral(Receita.STRING_VAZIO);
-		receita.setDoador((Donor)Receita.OBJETO_VAZIO);
+		revenue.setReciboEleitoral(Revenue.STRING_VAZIO);
+		revenue.setDoador((Donor)Revenue.OBJETO_VAZIO);
 		
 	}
 

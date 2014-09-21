@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.beans.Campaign;
 import modelo.beans.Expense;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.dao.DespesaDAO;
 import modelo.dao.ReceitaDAO;
 
@@ -30,9 +30,9 @@ public class MovimentacaoControle {
 	 * @param a campaign
 	 * @return a List with revenues campaign informed
 	 */
-	public List<Receita> getListaReceitas(Campaign campaign) throws Exception {
+	public List<Revenue> getListaReceitas(Campaign campaign) throws Exception {
 
-		ArrayList<Receita> listaReceita = new ArrayList<>();
+		ArrayList<Revenue> listaReceita = new ArrayList<>();
 		
 		if((campaign.getCargo().getDescricao().equals(Campaign.STRING_VAZIO)) 
 				|| (campaign.getAno().equals(Campaign.INTEGER_VAZIO)) 
@@ -44,8 +44,8 @@ public class MovimentacaoControle {
 			listaReceita = this.receitaDAO.getPorAnoNumeroCargoUf(campaign);
 			
 			if(campaign.getAno() == 2002) {
-				for(Receita receita : listaReceita)
-					receita.setTipoMovimentacao("Receita");
+				for(Revenue revenue : listaReceita)
+					revenue.setTipoMovimentacao("Revenue");
 			}
 		}
 		return listaReceita;
@@ -76,7 +76,7 @@ public class MovimentacaoControle {
 	 * @param a ID
 	 * @return the reported income
 	 */
-	public Receita getReceitaPeloId(int id) throws Exception {
+	public Revenue getReceitaPeloId(int id) throws Exception {
 		return this.receitaDAO.getPeloId(id);
 	}
 

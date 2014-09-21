@@ -1,9 +1,9 @@
 package modelo.beans;
 
-public class Receita extends FinancialTransaction {
+public class Revenue extends FinancialTransaction {
 
 	/*
-	 *  Class Receita.java
+	 *  Class Revenue.java
 	 * This class is responsable for getting the Receipts's informations
 	 */
 	 
@@ -15,7 +15,7 @@ public class Receita extends FinancialTransaction {
 	private Donor donor;
 	
 	// Empty Constructor
-	public Receita() {
+	public Revenue() {
 		super();
 		this.reciboEleitoral = STRING_VAZIO;
 		this.donor = DOADOR_VAZIO;

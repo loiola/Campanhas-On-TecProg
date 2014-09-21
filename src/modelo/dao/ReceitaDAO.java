@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Position;
 import modelo.beans.Donor;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import parse.ParseDAO;
 
-public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> {
+public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> {
 
 	/*
 	 * Class for manipulating the data about revenue
 	 */
 	
 	// Constants
-	private static final String NOME_TABELA = "receita";
+	private static final String NOME_TABELA = "revenue";
 	private final String ID = "id_receita";
 	private final String CAMPANHA_ANO = "campanha_ano";
 	private final String CAMPANHA_NUMERO = "campanha_numero_candidato";
@@ -75,23 +75,23 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Receita> lista,
+	protected void adicionarListaNoBatch(ArrayList<Revenue> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Receita receita : lista) {
-			instrucaoSQL.setInt(1, receita.getId());
-			instrucaoSQL.setInt(2, receita.getCampanha().getAno());
-			instrucaoSQL.setInt(3, receita.getCampanha().getNumeroCandidato());
-			instrucaoSQL.setFloat(4, receita.getValor());
-			instrucaoSQL.setString(5, receita.getFormaPagamento());
-			instrucaoSQL.setString(6, receita.getDescricao());
-			instrucaoSQL.setString(7, receita.getData());
-			instrucaoSQL.setString(8, receita.getTipoMovimentacao());
-			instrucaoSQL.setString(9, receita.getReciboEleitoral());
-			instrucaoSQL.setString(10, receita.getNumeroDocumento());
-			instrucaoSQL.setString(11, receita.getDoador().getNome());
-			instrucaoSQL.setString(12, receita.getDoador().getCpf_cnpj());
-			instrucaoSQL.setString(13, receita.getCampanha().getCargo().getDescricao());
-			instrucaoSQL.setString(14, receita.getCampanha().getUf());
+		for(Revenue revenue : lista) {
+			instrucaoSQL.setInt(1, revenue.getId());
+			instrucaoSQL.setInt(2, revenue.getCampanha().getAno());
+			instrucaoSQL.setInt(3, revenue.getCampanha().getNumeroCandidato());
+			instrucaoSQL.setFloat(4, revenue.getValor());
+			instrucaoSQL.setString(5, revenue.getFormaPagamento());
+			instrucaoSQL.setString(6, revenue.getDescricao());
+			instrucaoSQL.setString(7, revenue.getData());
+			instrucaoSQL.setString(8, revenue.getTipoMovimentacao());
+			instrucaoSQL.setString(9, revenue.getReciboEleitoral());
+			instrucaoSQL.setString(10, revenue.getNumeroDocumento());
+			instrucaoSQL.setString(11, revenue.getDoador().getNome());
+			instrucaoSQL.setString(12, revenue.getDoador().getCpf_cnpj());
+			instrucaoSQL.setString(13, revenue.getCampanha().getCargo().getDescricao());
+			instrucaoSQL.setString(14, revenue.getCampanha().getUf());
 			instrucaoSQL.addBatch();
 		}	
 	}
@@ -102,7 +102,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Receita> lista,
+	protected void adicionarResultSetNaLista(ArrayList<Revenue> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Campaign campaign = new Campaign();
@@ -117,18 +117,18 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			donor.setNome(resultadoSQL.getString(NOME_DOADOR));
 			donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
 
-			Receita receita = new Receita();
-			receita.setId(resultadoSQL.getInt(ID));
-			receita.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-			receita.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-			receita.setCampanha(campaign);
-			receita.setDoador(donor);
-			receita.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
-			receita.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-			receita.setData(resultadoSQL.getString(DATA));
-			receita.setValor(resultadoSQL.getFloat(VALOR));
-			receita.setDescricao(resultadoSQL.getString(DESCRICAO));
-			lista.add(receita);
+			Revenue revenue = new Revenue();
+			revenue.setId(resultadoSQL.getInt(ID));
+			revenue.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+			revenue.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
+			revenue.setCampanha(campaign);
+			revenue.setDoador(donor);
+			revenue.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
+			revenue.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+			revenue.setData(resultadoSQL.getString(DATA));
+			revenue.setValor(resultadoSQL.getFloat(VALOR));
+			revenue.setDescricao(resultadoSQL.getString(DESCRICAO));
+			lista.add(revenue);
 		}
 	}
 	
@@ -137,7 +137,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	 * @param an instance of Class Campaign
 	 * @return an instance of Class Revenue
 	 */
-	public ArrayList<Receita> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
+	public ArrayList<Revenue> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
 				  + CAMPANHA_ANO + " = " + campaign.getAno() + " AND "
 				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
@@ -153,7 +153,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	 * @param an Integer with the ID
 	 * @return an instance of Class Revenue
 	 */
-	public Receita getPeloId(int id) throws Exception {
+	public Revenue getPeloId(int id) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
 				  + ID + " = " + id;
 		return buscaBD(comandoSQL).get(0);
@@ -164,9 +164,9 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Revenue>
 	 */
-	public ArrayList<Receita> buscaBD(String SQL) throws Exception {
+	public ArrayList<Revenue> buscaBD(String SQL) throws Exception {
 
-		ArrayList<Receita> listaReceita = new ArrayList<>();
+		ArrayList<Revenue> listaReceita = new ArrayList<>();
 
 		try {
 			this.conexao = new ConexaoBancoDados().getConexao();
@@ -178,7 +178,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
 			while(resultadoSQL.next()) {
-				Receita receita = new Receita();
+				Revenue revenue = new Revenue();
 				
 				Position position = new Position();
 				position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
@@ -187,24 +187,24 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
 				campaign.setCargo(position);
-				receita.setCampanha(campaign);
+				revenue.setCampanha(campaign);
 				
 				Donor donor = new Donor();
 				donor.setNome(resultadoSQL.getString(NOME_DOADOR));
 				donor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_DOADOR));
-				receita.setDoador(donor);
+				revenue.setDoador(donor);
 
-				receita.setData(resultadoSQL.getString(DATA));
-				receita.setDescricao(resultadoSQL.getString(DESCRICAO));
-				receita.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-				receita.setId(resultadoSQL.getInt(ID));
-				receita.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-				receita.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
-				receita.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-				receita.setValor(resultadoSQL.getFloat(VALOR));
+				revenue.setData(resultadoSQL.getString(DATA));
+				revenue.setDescricao(resultadoSQL.getString(DESCRICAO));
+				revenue.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
+				revenue.setId(resultadoSQL.getInt(ID));
+				revenue.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+				revenue.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
+				revenue.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+				revenue.setValor(resultadoSQL.getFloat(VALOR));
 				
-				if(receita != null) {
-					listaReceita.add(receita);
+				if(revenue != null) {
+					listaReceita.add(revenue);
 				}
 			}
 		} catch(SQLException e) {

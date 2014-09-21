@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.beans.Campaign;
 import modelo.beans.Candidate;
 import modelo.beans.Expense;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 
 import controle.CampanhaControle;
 import controle.CandidatoControle;
@@ -29,7 +29,7 @@ public class SelecionarCandidato implements Logica {
 	private String tituloEleitoral;
 	
 	private MovimentacaoControle movimentacaoControle;
-	private List<Receita> listaReceita;
+	private List<Revenue> listaReceita;
 	private List<Expense> listaDespesa;
 	
 	private float despesaMax2002;
@@ -81,8 +81,8 @@ public class SelecionarCandidato implements Logica {
 				this.listaDespesa = 
 						this.movimentacaoControle.getListaDespesas(campaign);
 				this.despesaMax2002 = campaign.getDespesaMaxDeclarada();
-				for(Receita receita : listaReceita)
-					this.receitaCalc2002 += receita.getValor();
+				for(Revenue revenue : listaReceita)
+					this.receitaCalc2002 += revenue.getValor();
 				for(Expense expense : listaDespesa)
 					this.despesaCalc2002 += expense.getValor();
 				
@@ -97,8 +97,8 @@ public class SelecionarCandidato implements Logica {
 				this.listaDespesa = 
 						this.movimentacaoControle.getListaDespesas(campaign);
 				this.despesaMax2006 = campaign.getDespesaMaxDeclarada();
-				for(Receita receita : listaReceita)
-					this.receitaCalc2006 += receita.getValor();
+				for(Revenue revenue : listaReceita)
+					this.receitaCalc2006 += revenue.getValor();
 				for(Expense expense : listaDespesa)
 					this.despesaCalc2006 += expense.getValor();
 
@@ -113,8 +113,8 @@ public class SelecionarCandidato implements Logica {
 				this.listaDespesa = 
 						this.movimentacaoControle.getListaDespesas(campaign);
 				this.despesaMax2010 = campaign.getDespesaMaxDeclarada();
-				for(Receita receita : listaReceita)
-					this.receitaCalc2010 += receita.getValor();
+				for(Revenue revenue : listaReceita)
+					this.receitaCalc2010 += revenue.getValor();
 				for(Expense expense : listaDespesa)
 					this.despesaCalc2010 += expense.getValor();
 			

@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.dao.ReceitaDAO;
 
 import org.junit.Assert;
@@ -46,7 +46,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 		this.receitaParseControle.cadastrarInstancias();
 		this.receitaParseControle.resetar();
 
-		Receita receitaCadastrado = this.receitaDAO.getLista().get(0);
+		Revenue receitaCadastrado = this.receitaDAO.getLista().get(0);
 
 		Assert.assertEquals(this.campo[RECIBO], receitaCadastrado.
 				getReciboEleitoral());

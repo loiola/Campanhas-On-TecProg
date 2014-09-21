@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.dao.ReceitaDAO;
 
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 	private CadastroReceitaParse cadastro2;
 	private CadastroReceitaParse cadastro3;
 	private ReceitaDAO receitaDAO;
-	String  tipoArquivo = "receita";
+	String  tipoArquivo = "revenue";
 	String  ano1         = "2002";
 	String  ano2         = "2006";
 	String  ano3         = "2010";
@@ -57,7 +57,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Receita> listaReceita = receitaDAO.getLista();
+		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
 		assertEquals(listaReceita.get(0).getDoador().getCpf_cnpj(), "1234");	
 	}
 	
@@ -77,7 +77,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Receita> listaReceita = receitaDAO.getLista();
+		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
 		assertEquals(listaReceita.get(0).getDoador().getCpf_cnpj(), "1234");
 	}
 	
@@ -100,7 +100,7 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Receita> listaReceita = receitaDAO.getLista();
+		ArrayList<Revenue> listaReceita = receitaDAO.getLista();
 		assertEquals(listaReceita.get(0).getDoador().getCpf_cnpj(), "12345");
 	}
 

@@ -8,7 +8,7 @@ import modelo.beans.Position;
 import modelo.beans.Expense;
 import modelo.beans.Donor;
 import modelo.beans.Supplier;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.dao.DespesaDAO;
 import modelo.dao.ReceitaDAO;
 
@@ -25,7 +25,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	private Candidate candidate;
 	private Campaign campaign;
 	private Position position;
-	private Receita receita;
+	private Revenue revenue;
 	private Expense expense;
 	private Donor donor;
 	private Supplier supplier;
@@ -41,7 +41,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.movimentacaoControle = new MovimentacaoControle();
 		this.candidate = new Candidate();
 		this.campaign = new Campaign();
-		this.receita = new Receita();
+		this.revenue = new Revenue();
 		this.expense = new Expense();
 		this.donor = new Donor();
 		this.supplier = new Supplier();
@@ -51,7 +51,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.numeroCandidato = 1234;
 		
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
-		ArrayList<Receita> listaReceita = new ArrayList<>();
+		ArrayList<Revenue> listaReceita = new ArrayList<>();
 
 		candidate.setNome("FULANO");
 		candidate.setTituloEleitoral("12345");
@@ -67,11 +67,11 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		supplier.setCpf_cnpj("555555555555");
 		donor.setCpf_cnpj("333333333333");
 		
-		receita.setValor((float) 55.0);
-		receita.setCampanha(campaign);
-		receita.setId(3);
-		receita.setDoador(donor);
-		listaReceita.add(receita);
+		revenue.setValor((float) 55.0);
+		revenue.setCampanha(campaign);
+		revenue.setId(3);
+		revenue.setDoador(donor);
+		listaReceita.add(revenue);
 		
 		expense.setValor((float) 90.0);
 		expense.setCampanha(campaign);

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import modelo.beans.Campaign;
 import modelo.beans.Position;
 import modelo.beans.Donor;
-import modelo.beans.Receita;
+import modelo.beans.Revenue;
 import modelo.dao.ReceitaDAO;
 
 import org.junit.Test;
@@ -16,8 +16,8 @@ import teste.TemplateTeste;
 public class ReceitaDAOTeste extends TemplateTeste {
 	
 	private ReceitaDAO receitaDAO;
-	private Receita receita1;
-	private Receita receita2;
+	private Revenue receita1;
+	private Revenue receita2;
 	private Campaign campanha1;
 	private Donor doador1;
 	private Position cargo1;
@@ -32,8 +32,8 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		this.campanha1 = new Campaign();
 		this.doador1 = new Donor();
 		this.cargo1 = new Position();
-		this.receita1 = new Receita();
-		this.receita2 = new Receita();
+		this.receita1 = new Revenue();
+		this.receita2 = new Revenue();
 		this.campanha2 = new Campaign();
 		this.doador2 = new Donor();
 		this.cargo2 = new Position();
@@ -47,7 +47,7 @@ public class ReceitaDAOTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarUmaListaDeReceitas() throws SQLException {
 		
-		ArrayList<Receita> listaReceitas = new ArrayList<>();
+		ArrayList<Revenue> listaReceitas = new ArrayList<>();
 		
 		this.cargo1.setDescricao("CARGO UM");
 		this.campanha1.setId(1);
