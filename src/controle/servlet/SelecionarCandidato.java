@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.beans.Despesa;
 import modelo.beans.Receita;
@@ -24,7 +24,7 @@ public class SelecionarCandidato implements Logica {
 	private CandidatoControle candidatoControle;
 	private Candidato candidato;
 	private CampanhaControle campanhaControle;
-	private List<Campanha> listaCampanha;
+	private List<Campaign> listaCampanha;
 
 	private String tituloEleitoral;
 	
@@ -72,54 +72,54 @@ public class SelecionarCandidato implements Logica {
 		this.listaCampanha = this.campanhaControle.getListaCampanhas(this.candidato);
 		
 		// Loop to receive all the necessary information about their candidate campaigns
-		for(Campanha campanha : listaCampanha) {
+		for(Campaign campaign : listaCampanha) {
 			
 			// Condition for receiving data from the 2002 campaign if there
-			if(campanha.getAno() == 2002) {
+			if(campaign.getAno() == 2002) {
 				this.listaReceita = 
-						this.movimentacaoControle.getListaReceitas(campanha);
+						this.movimentacaoControle.getListaReceitas(campaign);
 				this.listaDespesa = 
-						this.movimentacaoControle.getListaDespesas(campanha);
-				this.despesaMax2002 = campanha.getDespesaMaxDeclarada();
+						this.movimentacaoControle.getListaDespesas(campaign);
+				this.despesaMax2002 = campaign.getDespesaMaxDeclarada();
 				for(Receita receita : listaReceita)
 					this.receitaCalc2002 += receita.getValor();
 				for(Despesa despesa : listaDespesa)
 					this.despesaCalc2002 += despesa.getValor();
 				
-				campanha.setDespesaTotalCalculada(this.despesaCalc2002);
-				campanha.setReceitaTotalCalculada(this.receitaCalc2002);
+				campaign.setDespesaTotalCalculada(this.despesaCalc2002);
+				campaign.setReceitaTotalCalculada(this.receitaCalc2002);
 			}
 			
 			// Condition for receiving data from the 2006 campaign if there
-			else if(campanha.getAno() == 2006) {
+			else if(campaign.getAno() == 2006) {
 				this.listaReceita = 
-						this.movimentacaoControle.getListaReceitas(campanha);
+						this.movimentacaoControle.getListaReceitas(campaign);
 				this.listaDespesa = 
-						this.movimentacaoControle.getListaDespesas(campanha);
-				this.despesaMax2006 = campanha.getDespesaMaxDeclarada();
+						this.movimentacaoControle.getListaDespesas(campaign);
+				this.despesaMax2006 = campaign.getDespesaMaxDeclarada();
 				for(Receita receita : listaReceita)
 					this.receitaCalc2006 += receita.getValor();
 				for(Despesa despesa : listaDespesa)
 					this.despesaCalc2006 += despesa.getValor();
 
-				campanha.setDespesaTotalCalculada(this.despesaCalc2006);
-				campanha.setReceitaTotalCalculada(this.receitaCalc2006);
+				campaign.setDespesaTotalCalculada(this.despesaCalc2006);
+				campaign.setReceitaTotalCalculada(this.receitaCalc2006);
 			}
 			
 			// Condition for receiving data from the 2010 campaign if there
-			else if(campanha.getAno() == 2010) {
+			else if(campaign.getAno() == 2010) {
 				this.listaReceita = 
-						this.movimentacaoControle.getListaReceitas(campanha);
+						this.movimentacaoControle.getListaReceitas(campaign);
 				this.listaDespesa = 
-						this.movimentacaoControle.getListaDespesas(campanha);
-				this.despesaMax2010 = campanha.getDespesaMaxDeclarada();
+						this.movimentacaoControle.getListaDespesas(campaign);
+				this.despesaMax2010 = campaign.getDespesaMaxDeclarada();
 				for(Receita receita : listaReceita)
 					this.receitaCalc2010 += receita.getValor();
 				for(Despesa despesa : listaDespesa)
 					this.despesaCalc2010 += despesa.getValor();
 			
-				campanha.setDespesaTotalCalculada(this.despesaCalc2010);
-				campanha.setReceitaTotalCalculada(this.receitaCalc2010);
+				campaign.setDespesaTotalCalculada(this.despesaCalc2010);
+				campaign.setReceitaTotalCalculada(this.receitaCalc2010);
 			}
 		}
 		

@@ -7,7 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Partido;
 import controle.CampanhaControle;
 import controle.PartidoControle;
@@ -20,7 +20,7 @@ public class VisualizarCandidatosPartido implements Logica {
 
 	// Attributes
 	private CampanhaControle campanhaControle;
-	private ArrayList<Campanha> listaCampanhas;
+	private ArrayList<Campaign> listaCampanhas;
 	private PartidoControle partidoControle;
 	private Partido partido;
 
@@ -111,7 +111,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	 * @param a list of candidates and a number that is a divisor
 	 * @return a number representing the index of list
 	 */
-	private int geraIndiceDaLista(List<Campanha> lista, int divisor) {
+	private int geraIndiceDaLista(List<Campaign> lista, int divisor) {
 		if(divisor!=0) {
 			int indice = (int) Math.ceil((double)lista.size()/(double)divisor);
 			return indice;
@@ -125,7 +125,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	 * @param a list of candidates
 	 * @return a number representing the index of paging
 	 */
-	private int geraIndiceDePaginacao(List<Campanha> lista) {
+	private int geraIndiceDePaginacao(List<Campaign> lista) {
 		int indice = (int) Math.floor((double)lista.size()/(double)25);
 		return indice;
 	}

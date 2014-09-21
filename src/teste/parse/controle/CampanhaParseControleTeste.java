@@ -1,6 +1,6 @@
 package teste.parse.controle;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.dao.CampanhaDAO;
 
 import org.junit.Assert;
@@ -51,7 +51,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		this.campanhaParseControle.cadastrarInstancias();
 		this.campanhaParseControle.resetar();
 		
-		Campanha campanhaCadastrada = this.campanhaDAO.getLista().get(0);
+		Campaign campanhaCadastrada = this.campanhaDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[RESULTADO], campanhaCadastrada.getResultado().getCodigo().toString());
 		Assert.assertEquals(this.campo[CARGO], campanhaCadastrada.getCargo().getCodigo().toString());

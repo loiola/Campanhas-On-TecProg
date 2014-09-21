@@ -2,7 +2,7 @@ package controle;
 
 import java.util.ArrayList;
 import java.util.List;
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Despesa;
 import modelo.beans.Receita;
 import modelo.dao.DespesaDAO;
@@ -30,20 +30,20 @@ public class MovimentacaoControle {
 	 * @param a campaign
 	 * @return a List with revenues campaign informed
 	 */
-	public List<Receita> getListaReceitas(Campanha campanha) throws Exception {
+	public List<Receita> getListaReceitas(Campaign campaign) throws Exception {
 
 		ArrayList<Receita> listaReceita = new ArrayList<>();
 		
-		if((campanha.getCargo().getDescricao().equals(Campanha.STRING_VAZIO)) 
-				|| (campanha.getAno().equals(Campanha.INTEGER_VAZIO)) 
-				|| (campanha.getNumeroCandidato()).equals(Campanha.INTEGER_VAZIO)
-				|| (campanha.getUf()).equals(Campanha.STRING_VAZIO)) {
+		if((campaign.getCargo().getDescricao().equals(Campaign.STRING_VAZIO)) 
+				|| (campaign.getAno().equals(Campaign.INTEGER_VAZIO)) 
+				|| (campaign.getNumeroCandidato()).equals(Campaign.INTEGER_VAZIO)
+				|| (campaign.getUf()).equals(Campaign.STRING_VAZIO)) {
 			listaReceita =  null;
 			
 		} else {
-			listaReceita = this.receitaDAO.getPorAnoNumeroCargoUf(campanha);
+			listaReceita = this.receitaDAO.getPorAnoNumeroCargoUf(campaign);
 			
-			if(campanha.getAno() == 2002) {
+			if(campaign.getAno() == 2002) {
 				for(Receita receita : listaReceita)
 					receita.setTipoMovimentacao("Receita");
 			}
@@ -56,17 +56,17 @@ public class MovimentacaoControle {
 	 * @param a campaign
 	 * @return a List with expenses campaign informed
 	 */
-	public List<Despesa> getListaDespesas(Campanha campanha) throws Exception {
+	public List<Despesa> getListaDespesas(Campaign campaign) throws Exception {
 		
 		ArrayList<Despesa> listaDespesa = new ArrayList<>();
 		
-		if((campanha.getCargo().getDescricao().equals(Campanha.STRING_VAZIO)) 
-				|| (campanha.getAno().equals(Campanha.INTEGER_VAZIO)) 
-				|| (campanha.getNumeroCandidato()).equals(Campanha.INTEGER_VAZIO)
-				|| (campanha.getUf()).equals(Campanha.STRING_VAZIO)) {
+		if((campaign.getCargo().getDescricao().equals(Campaign.STRING_VAZIO)) 
+				|| (campaign.getAno().equals(Campaign.INTEGER_VAZIO)) 
+				|| (campaign.getNumeroCandidato()).equals(Campaign.INTEGER_VAZIO)
+				|| (campaign.getUf()).equals(Campaign.STRING_VAZIO)) {
 			listaDespesa =  null;
 		} else {
-			listaDespesa =  this.despesaDAO.getPorAnoNumeroCargoUf(campanha);
+			listaDespesa =  this.despesaDAO.getPorAnoNumeroCargoUf(campaign);
 		}
 		return listaDespesa;
 	}

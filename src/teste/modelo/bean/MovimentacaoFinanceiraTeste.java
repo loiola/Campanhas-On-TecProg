@@ -7,7 +7,7 @@ import static teste.modelo.bean.BeanTeste.instanciarDoador;
 import static teste.modelo.bean.BeanTeste.instanciarFornecedor;
 import static teste.modelo.bean.BeanTeste.instanciarMovimentacaoFinanceira;
 import static teste.modelo.bean.BeanTeste.instanciarReceita;
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Despesa;
 import modelo.beans.Doador;
 import modelo.beans.Fornecedor;
@@ -84,12 +84,12 @@ public class MovimentacaoFinanceiraTeste {
 		
 		MovimentacaoFinanceira movimentacaoFinanceira = instanciarMovimentacaoFinanceira();
 		MovimentacaoFinanceira movimentacaoFinanceira2 = instanciarMovimentacaoFinanceira();
-		Campanha campanha = instanciarCampanha();
-		campanha.setNomeDeUrna(BeanTeste.STRING_TESTE_2);
-		movimentacaoFinanceira2.setCampanha(campanha);
+		Campaign campaign = instanciarCampanha();
+		campaign.setNomeDeUrna(BeanTeste.STRING_TESTE_2);
+		movimentacaoFinanceira2.setCampanha(campaign);
 		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
-		campanha.setNomeDeUrna(BeanTeste.STRING_TESTE);
-		movimentacaoFinanceira2.setCampanha(campanha);
+		campaign.setNomeDeUrna(BeanTeste.STRING_TESTE);
+		movimentacaoFinanceira2.setCampanha(campaign);
 		movimentacaoFinanceira2.setDescricao(BeanTeste.STRING_TESTE_2);
 		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
 		movimentacaoFinanceira2.setDescricao(BeanTeste.STRING_TESTE);

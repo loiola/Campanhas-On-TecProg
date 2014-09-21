@@ -5,13 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.beans.Cargo;
 import modelo.beans.Partido;
 import modelo.beans.Resultado;
 
-public class CampanhaDAO extends BasicoDAO<Campanha> {
+public class CampanhaDAO extends BasicoDAO<Campaign> {
 	
 	/*
 	 * Class for manipulating the data about election campaigns
@@ -90,22 +90,22 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void adicionarListaNoBatch(ArrayList<Campanha> lista,
+	protected void adicionarListaNoBatch(ArrayList<Campaign> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Campanha campanha : lista) {
-			instrucaoSQL.setInt(1, campanha.getId());
-			instrucaoSQL.setInt(2, campanha.getAno());
-			instrucaoSQL.setInt(3, campanha.getNumeroCandidato());
-			instrucaoSQL.setInt(4, campanha.getResultado().getCodigo());
-			instrucaoSQL.setInt(5, campanha.getCargo().getCodigo());
-			instrucaoSQL.setInt(6, campanha.getPartido().getNumero());
-			instrucaoSQL.setString(7, campanha.getCandidato()
+		for(Campaign campaign : lista) {
+			instrucaoSQL.setInt(1, campaign.getId());
+			instrucaoSQL.setInt(2, campaign.getAno());
+			instrucaoSQL.setInt(3, campaign.getNumeroCandidato());
+			instrucaoSQL.setInt(4, campaign.getResultado().getCodigo());
+			instrucaoSQL.setInt(5, campaign.getCargo().getCodigo());
+			instrucaoSQL.setInt(6, campaign.getPartido().getNumero());
+			instrucaoSQL.setString(7, campaign.getCandidato()
 					.getTituloEleitoral());
-			instrucaoSQL.setString(8, campanha.getNomeDeUrna());
-			instrucaoSQL.setString(9, campanha.getUf());
-			instrucaoSQL.setFloat(10, campanha.getDespesaMaxDeclarada());
-			instrucaoSQL.setFloat(11, campanha.getDespesaTotalCalculada());
-			instrucaoSQL.setFloat(12, campanha.getReceitaTotalCalculada());
+			instrucaoSQL.setString(8, campaign.getNomeDeUrna());
+			instrucaoSQL.setString(9, campaign.getUf());
+			instrucaoSQL.setFloat(10, campaign.getDespesaMaxDeclarada());
+			instrucaoSQL.setFloat(11, campaign.getDespesaTotalCalculada());
+			instrucaoSQL.setFloat(12, campaign.getReceitaTotalCalculada());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -116,7 +116,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void adicionarResultSetNaLista(ArrayList<Campanha> lista, ResultSet resultadoSQL) throws SQLException {
+	protected void adicionarResultSetNaLista(ArrayList<Campaign> lista, ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
 			Cargo cargo = new Cargo();
 			Resultado resultado = new Resultado();
@@ -125,20 +125,20 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 			PreparaCamposCargoEResultado(cargo, resultado, resultadoSQL);
 			PreparaCamposCandidatoEPartido(partido, candidato, resultadoSQL);
 
-			Campanha campanha = new Campanha();
-			campanha.setId(resultadoSQL.getInt(ID));
-			campanha.setResultado(resultado);
-			campanha.setCargo(cargo);
-			campanha.setPartido(partido);
-			campanha.setCandidato(candidato);
-			campanha.setAno(resultadoSQL.getInt(ANO));
-			campanha.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
-			campanha.setNomeDeUrna(resultadoSQL.getString(NOME_URNA));
-			campanha.setUf(resultadoSQL.getString(UF));
-			campanha.setDespesaMaxDeclarada(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
-			campanha.setDespesaTotalCalculada(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
-			campanha.setReceitaTotalCalculada(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
-			lista.add(campanha);
+			Campaign campaign = new Campaign();
+			campaign.setId(resultadoSQL.getInt(ID));
+			campaign.setResultado(resultado);
+			campaign.setCargo(cargo);
+			campaign.setPartido(partido);
+			campaign.setCandidato(candidato);
+			campaign.setAno(resultadoSQL.getInt(ANO));
+			campaign.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
+			campaign.setNomeDeUrna(resultadoSQL.getString(NOME_URNA));
+			campaign.setUf(resultadoSQL.getString(UF));
+			campaign.setDespesaMaxDeclarada(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
+			campaign.setDespesaTotalCalculada(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
+			campaign.setReceitaTotalCalculada(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
+			lista.add(campaign);
 		}
 	}
 
@@ -171,9 +171,9 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param an instance of Class Candidate
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campanha> getCampanhasPeloTituloEleitoral(
+	public ArrayList<Campaign> getCampanhasPeloTituloEleitoral(
 			Candidato candidato) throws SQLException {
-		ArrayList<Campanha> listaCampanha = new ArrayList<>();
+		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_CANDIDATO + ")"
 				+ " WHERE " + TITULO_CANDIDATO + " = '"
 				+ candidato.getTituloEleitoral() + "' ";
@@ -187,11 +187,11 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param a String year
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campanha> getCampanhasPorSiglaEAno(String sigla, String ano)
+	public ArrayList<Campaign> getCampanhasPorSiglaEAno(String sigla, String ano)
 			throws SQLException {
 		this.partidoDAO = new PartidoDAO();
 
-		ArrayList<Campanha> listaCampanha = new ArrayList<>();
+		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		Partido partido = this.partidoDAO.getPelaSigla(sigla);
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_PARTIDO + ", "
 				+ INDEX_ANO + ")" + " WHERE " + NUMERO_PARTIDO + " = '"
@@ -205,14 +205,14 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param an instance of Class Campaign
 	 * @return an instance of Class Campaign
 	 */
-	public Campanha getPeloAnoNumeroCodCargoEUf(Campanha campanha)
+	public Campaign getPeloAnoNumeroCodCargoEUf(Campaign campaign)
 			throws SQLException {
-		ArrayList<Campanha> listaCampanha = new ArrayList<>();
+		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		String comandoSQL = SQL_SELECT + " WHERE " + ANO + " = "
-				+ campanha.getAno() + " AND " + UF + " = '" + campanha.getUf()
+				+ campaign.getAno() + " AND " + UF + " = '" + campaign.getUf()
 				+ "' AND " + NUM_CANDIDATO + " = '"
-				+ campanha.getNumeroCandidato() + "' AND " + COD_CARGO + " = "
-				+ campanha.getCargo().getCodigo();
+				+ campaign.getNumeroCandidato() + "' AND " + COD_CARGO + " = "
+				+ campaign.getCargo().getCodigo();
 		listaCampanha = buscaBD(comandoSQL);
 		if(listaCampanha.isEmpty()) {
 			return null;
@@ -226,8 +226,8 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campanha> buscaBD(String SQL) throws SQLException {
-		ArrayList<Campanha> listaCampanha = new ArrayList<>();
+	public ArrayList<Campaign> buscaBD(String SQL) throws SQLException {
+		ArrayList<Campaign> listaCampanha = new ArrayList<>();
 		this.candidatoDAO = new CandidatoDAO();
 		this.cargoDAO = new CargoDAO();
 		this.partidoDAO = new PartidoDAO();
@@ -241,20 +241,20 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 			ResultSet resultadoSQL = (ResultSet) instrucaoSQL.executeQuery();
 
 			while(resultadoSQL.next()) {
-				Campanha campanha = new Campanha();
-				campanha.setAno(resultadoSQL.getInt(ANO));
-				campanha.setCargo(cargoDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
-				campanha.setDespesaMaxDeclarada(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
-				campanha.setDespesaTotalCalculada(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
-				campanha.setNomeDeUrna(resultadoSQL.getString(NOME_URNA));
-				campanha.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
-				campanha.setPartido(partidoDAO.getPeloNumero(resultadoSQL.getString(NUMERO_PARTIDO)));
-				campanha.setReceitaTotalCalculada(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
-				campanha.setResultado(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
-				campanha.setUf(resultadoSQL.getString(UF));
-				campanha.setCandidato(candidatoDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
-				if(campanha != null) {
-					listaCampanha.add(campanha);
+				Campaign campaign = new Campaign();
+				campaign.setAno(resultadoSQL.getInt(ANO));
+				campaign.setCargo(cargoDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
+				campaign.setDespesaMaxDeclarada(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
+				campaign.setDespesaTotalCalculada(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
+				campaign.setNomeDeUrna(resultadoSQL.getString(NOME_URNA));
+				campaign.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
+				campaign.setPartido(partidoDAO.getPeloNumero(resultadoSQL.getString(NUMERO_PARTIDO)));
+				campaign.setReceitaTotalCalculada(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
+				campaign.setResultado(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
+				campaign.setUf(resultadoSQL.getString(UF));
+				campaign.setCandidato(candidatoDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
+				if(campaign != null) {
+					listaCampanha.add(campaign);
 				}
 			}
 		} catch(SQLException e) {
@@ -271,7 +271,7 @@ public class CampanhaDAO extends BasicoDAO<Campanha> {
 	 * @param an Integer with the year
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campanha> TopFive(String cargo, Integer ano) throws SQLException {
+	public ArrayList<Campaign> TopFive(String cargo, Integer ano) throws SQLException {
 		int codigo = 0;
 		switch(cargo.toLowerCase()) {
 		

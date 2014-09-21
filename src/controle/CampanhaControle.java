@@ -1,7 +1,7 @@
 package controle;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.dao.CampanhaDAO;
 
@@ -25,7 +25,7 @@ public class CampanhaControle {
 	 * @param a candidate
 	 * @return an ArrayList of candidates for voter registration
 	 */
-	public ArrayList<Campanha> getListaCampanhas(Candidato candidato) throws SQLException {
+	public ArrayList<Campaign> getListaCampanhas(Candidato candidato) throws SQLException {
 		return this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidato);
 	}
 	
@@ -34,7 +34,7 @@ public class CampanhaControle {
 	 * @param the abbreviation of the party and year
 	 * @return an ArrayLista the political party with the abbreviation of the party and year informed
 	 */
-	public ArrayList<Campanha> getListaCampanhasPorSiglaPartidoEAno(String sigla, String ano) throws SQLException{
+	public ArrayList<Campaign> getListaCampanhasPorSiglaPartidoEAno(String sigla, String ano) throws SQLException{
 		return this.campanhaDAO.getCampanhasPorSiglaEAno(sigla,ano);
 	}
 	
@@ -43,7 +43,7 @@ public class CampanhaControle {
 	 * @param the political cargo and year
 	 * @return an ArrayLista with the highest values ​​for the position and informed year
 	 */
-	public ArrayList<Campanha> topFivePorCargoEAno(String cargo, Integer ano) throws SQLException{
+	public ArrayList<Campaign> topFivePorCargoEAno(String cargo, Integer ano) throws SQLException{
 		return this.campanhaDAO.TopFive(cargo, ano);
 	}
 
@@ -52,7 +52,7 @@ public class CampanhaControle {
 	 * @param the campaign of the desired candidate
 	 * @return a campaign
 	 */
-	public Campanha getPeloAnoNumeroCodCargoEUf(Campanha campanha) throws SQLException {
-		return this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campanha);
+	public Campaign getPeloAnoNumeroCodCargoEUf(Campaign campaign) throws SQLException {
+		return this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campaign);
 	}
 }

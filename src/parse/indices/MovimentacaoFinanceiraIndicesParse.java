@@ -1,6 +1,6 @@
 package parse.indices;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Cargo;
 import modelo.beans.MovimentacaoFinanceira;
 
@@ -50,22 +50,22 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	protected void setIndicesValidos(O objeto, String[] campo) {
 		MovimentacaoFinanceira movimentacaoFinanceira = (MovimentacaoFinanceira) objeto;
 		
-		Campanha campanha = new Campanha();
-		campanha.setAno(ano);
+		Campaign campaign = new Campaign();
+		campaign.setAno(ano);
 		
 		if(indiceValido(this.indiceCampanhaAno)) {
-			campanha.setAno(Integer.parseInt(campo[this.indiceCampanhaAno]));
+			campaign.setAno(Integer.parseInt(campo[this.indiceCampanhaAno]));
 		}
 		if(indiceValido(this.indiceCampanhaNumero)) {
-			campanha.setNumeroCandidato(Integer.parseInt(campo[this.indiceCampanhaNumero]));
+			campaign.setNumeroCandidato(Integer.parseInt(campo[this.indiceCampanhaNumero]));
 		}
 		if(indiceValido(this.indiceCampanhaCargo)) {
 			Cargo cargo = new Cargo();
 			cargo.setDescricao(campo[this.indiceCampanhaCargo]);
-			campanha.setCargo(cargo);
+			campaign.setCargo(cargo);
 		}
 		if(indiceValido(this.indiceCampanhaUf)) {
-			campanha.setUf(campo[this.indiceCampanhaUf]);
+			campaign.setUf(campo[this.indiceCampanhaUf]);
 		}
 		if(indiceValido(this.indiceNumeroDocumento)) {
 			movimentacaoFinanceira.setNumeroDocumento(campo[this.indiceNumeroDocumento]);
@@ -86,7 +86,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 		if(indiceValido(this.indiceDescricao)) {
 			movimentacaoFinanceira.setDescricao(campo[this.indiceDescricao]);
 		}
-		movimentacaoFinanceira.setCampanha(campanha);
+		movimentacaoFinanceira.setCampanha(campaign);
 
 	}
 
@@ -98,7 +98,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	protected void setVazioEmTodosOsSetters(O objeto) {
 		MovimentacaoFinanceira movimentacaoFinanceira = (MovimentacaoFinanceira) objeto;
 		movimentacaoFinanceira.setId(MovimentacaoFinanceira.INTEGER_VAZIO);
-		movimentacaoFinanceira.setCampanha((Campanha)MovimentacaoFinanceira.OBJETO_VAZIO);
+		movimentacaoFinanceira.setCampanha((Campaign)MovimentacaoFinanceira.OBJETO_VAZIO);
 		movimentacaoFinanceira.setNumeroDocumento(MovimentacaoFinanceira.STRING_VAZIO);
 		movimentacaoFinanceira.setData(MovimentacaoFinanceira.STRING_VAZIO);
 		movimentacaoFinanceira.setValor(MovimentacaoFinanceira.FLOAT_VAZIO);

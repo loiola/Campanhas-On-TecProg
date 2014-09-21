@@ -3,7 +3,7 @@ package teste;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.beans.Cargo;
 import modelo.beans.Partido;
@@ -23,11 +23,11 @@ public class CampanhaControleTeste extends TemplateTeste {
 	private CampanhaControle campanhaControle;
 	private Candidato candidato;
 	private Partido partido1;
-	private Campanha campanha1;
+	private Campaign campanha1;
 	private Resultado resultado1;
 	private Cargo cargo1;
 	private Partido partido2;
-	private Campanha campanha2;
+	private Campaign campanha2;
 	private Resultado resultado2;
 	private Cargo cargo2;
 
@@ -37,14 +37,14 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanhaDAO = new CampanhaDAO();
 		this.candidatoDAO = new CandidatoDAO();
 		this.campanhaControle = new CampanhaControle();
-		this.campanha1 = new Campanha();
+		this.campanha1 = new Campaign();
 		this.partido1 = new Partido();
 		this.candidato = new Candidato();
 		this.resultado1 = new Resultado();
 		this.cargo1 = new Cargo();
 		this.resultado2 = new Resultado();
 		this.cargo2 = new Cargo();
-		this.campanha2 = new Campanha();
+		this.campanha2 = new Campaign();
 		this.partido2 = new Partido();
 	}
 
@@ -56,7 +56,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmaListaDeCampanhasDeUmDeterminadoCandidato() throws SQLException {
 		
-		ArrayList<Campanha> listaCampanhas = new ArrayList<>();
+		ArrayList<Campaign> listaCampanhas = new ArrayList<>();
 		ArrayList<Candidato> listaCandidato = new ArrayList<>();
 
 		

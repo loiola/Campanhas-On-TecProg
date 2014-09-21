@@ -16,7 +16,7 @@ public class MovimentacaoFinanceira {
 	
 	// Attributes
 	private Integer id;
-	private Campanha campanha;
+	private Campaign campaign;
 	private String numeroDocumento;
 	private String data;
 	private Float valor;
@@ -27,7 +27,7 @@ public class MovimentacaoFinanceira {
 	// Empty Constructor
 	public MovimentacaoFinanceira(){
 		this.id = INTEGER_VAZIO;
-		this.campanha = (Campanha) OBJETO_VAZIO;
+		this.campaign = (Campaign) OBJETO_VAZIO;
 		this.numeroDocumento = STRING_VAZIO;
 		this.data = STRING_VAZIO;
 		this.valor = FLOAT_VAZIO;
@@ -69,12 +69,12 @@ public class MovimentacaoFinanceira {
 		this.id = id;
 	}
 
-	public Campanha getCampanha() {
-		return campanha;
+	public Campaign getCampanha() {
+		return campaign;
 	}
 
-	public void setCampanha(Campanha campanha) {
-		this.campanha = campanha;
+	public void setCampanha(Campaign campaign) {
+		this.campaign = campaign;
 	}
 
 	public String getData() {

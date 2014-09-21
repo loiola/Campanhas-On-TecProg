@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,34 +26,34 @@ public class CampanhaIndicesParseTeste {
 	@Test
 	public void iniciarUmaCampanhaComIndicesValidos() throws Exception {
 		
-		Campanha campanha = new Campanha();
-		this.campanhaIndicesParse.iniciarInstancia(campanha, campo);
-		Assert.assertEquals(this.campo[0], campanha.getResultado().getCodigo().toString());
-		Assert.assertEquals(this.campo[1], campanha.getCargo().getCodigo().toString());
-		Assert.assertEquals(this.campo[2], campanha.getPartido().getNumero().toString());
-		Assert.assertEquals(this.campo[3], campanha.getCandidato().getTituloEleitoral());
-		Assert.assertEquals(this.campo[4], campanha.getAno().toString());
-		Assert.assertEquals(this.campo[5], campanha.getNumeroCandidato().toString());
-		Assert.assertEquals(this.campo[6], campanha.getNomeDeUrna());
-		Assert.assertEquals(this.campo[7], campanha.getUf());
-		Assert.assertEquals(this.campo[8], campanha.getDespesaMaxDeclarada().toString());
+		Campaign campaign = new Campaign();
+		this.campanhaIndicesParse.iniciarInstancia(campaign, campo);
+		Assert.assertEquals(this.campo[0], campaign.getResultado().getCodigo().toString());
+		Assert.assertEquals(this.campo[1], campaign.getCargo().getCodigo().toString());
+		Assert.assertEquals(this.campo[2], campaign.getPartido().getNumero().toString());
+		Assert.assertEquals(this.campo[3], campaign.getCandidato().getTituloEleitoral());
+		Assert.assertEquals(this.campo[4], campaign.getAno().toString());
+		Assert.assertEquals(this.campo[5], campaign.getNumeroCandidato().toString());
+		Assert.assertEquals(this.campo[6], campaign.getNomeDeUrna());
+		Assert.assertEquals(this.campo[7], campaign.getUf());
+		Assert.assertEquals(this.campo[8], campaign.getDespesaMaxDeclarada().toString());
 	}
 	
 	@Test
 	public void iniciarUmaCampanhaComIndicesInvalidos() throws Exception {
 		
 		this.campanhaIndicesParse = new CampanhaIndicesParse();
-		Campanha campanha = new Campanha();
-		this.campanhaIndicesParse.iniciarInstancia(campanha, campo);
-		Assert.assertNotEquals(this.campo[0], campanha.getResultado().getCodigo().toString());
-		Assert.assertNotEquals(this.campo[1], campanha.getCargo().getCodigo().toString());
-		Assert.assertNotEquals(this.campo[2], campanha.getPartido().getNumero().toString());
-		Assert.assertNotEquals(this.campo[3], campanha.getCandidato().getTituloEleitoral());
-		Assert.assertNotEquals(this.campo[4], campanha.getAno().toString());
-		Assert.assertNotEquals(this.campo[5], campanha.getNumeroCandidato().toString());
-		Assert.assertNotEquals(this.campo[6], campanha.getNomeDeUrna());
-		Assert.assertNotEquals(this.campo[7], campanha.getUf());
-		Assert.assertNotEquals(this.campo[8], campanha.getDespesaMaxDeclarada().toString());
+		Campaign campaign = new Campaign();
+		this.campanhaIndicesParse.iniciarInstancia(campaign, campo);
+		Assert.assertNotEquals(this.campo[0], campaign.getResultado().getCodigo().toString());
+		Assert.assertNotEquals(this.campo[1], campaign.getCargo().getCodigo().toString());
+		Assert.assertNotEquals(this.campo[2], campaign.getPartido().getNumero().toString());
+		Assert.assertNotEquals(this.campo[3], campaign.getCandidato().getTituloEleitoral());
+		Assert.assertNotEquals(this.campo[4], campaign.getAno().toString());
+		Assert.assertNotEquals(this.campo[5], campaign.getNumeroCandidato().toString());
+		Assert.assertNotEquals(this.campo[6], campaign.getNomeDeUrna());
+		Assert.assertNotEquals(this.campo[7], campaign.getUf());
+		Assert.assertNotEquals(this.campo[8], campaign.getDespesaMaxDeclarada().toString());
 	}
 	
 	private void iniciarIndices() {

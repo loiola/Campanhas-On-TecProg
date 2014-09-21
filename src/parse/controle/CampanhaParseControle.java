@@ -2,19 +2,19 @@ package parse.controle;
 
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.dao.CampanhaDAO;
 import parse.ParseException;
 import parse.indices.IndicesParse;
 
-public class CampanhaParseControle extends ParseControle<Campanha> {
+public class CampanhaParseControle extends ParseControle<Campaign> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Campaign
 	 */
 
 	// Constructors
-	public CampanhaParseControle(IndicesParse<Campanha> indicesParse) {
+	public CampanhaParseControle(IndicesParse<Campaign> indicesParse) {
 		super(indicesParse, new CampanhaDAO());
 	}
 
@@ -23,9 +23,9 @@ public class CampanhaParseControle extends ParseControle<Campanha> {
 	 * @return an instance of Class Campaign
 	 */
 	@Override
-	public Campanha novaInstancia() {
-		Campanha campanha = new Campanha();
-		return campanha;
+	public Campaign novaInstancia() {
+		Campaign campaign = new Campaign();
+		return campaign;
 	}
 
 	/*
@@ -34,7 +34,7 @@ public class CampanhaParseControle extends ParseControle<Campanha> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Campanha objetoUm, Campanha objetoDois) {
+	public boolean iguais(Campaign objetoUm, Campaign objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 	
@@ -43,7 +43,7 @@ public class CampanhaParseControle extends ParseControle<Campanha> {
 	 */
 	@Override
 	public void cadastrarInstancias() throws ParseException {
-		ArrayList<Campanha> listaCampanhas = new ArrayList<>();
+		ArrayList<Campaign> listaCampanhas = new ArrayList<>();
 		
 		boolean foiEleito;
 		for(int i = 0; i < this.listaInstancias.size(); i++) {

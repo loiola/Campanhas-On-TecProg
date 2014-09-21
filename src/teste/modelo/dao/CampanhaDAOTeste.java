@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.beans.Cargo;
 import modelo.beans.Partido;
@@ -27,7 +27,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	private Resultado resultado2;
 	private Partido partido2;
 	private Candidato candidato2;
-	private ArrayList<Campanha> listaCampanhas;
+	private ArrayList<Campaign> listaCampanhas;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -55,7 +55,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 
 		ArrayList<Candidato> listaCandidato = new ArrayList<>();
 		
-		Campanha camp1 = new Campanha();
+		Campaign camp1 = new Campaign();
 		this.resultado1.setCodigo(2);
 		this.cargo.setCodigo(1);
 		this.partido1.setNumero(45);
@@ -75,7 +75,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		listaCampanhas.add(camp1);
 		listaCandidato.add(candidato1);
 		
-		Campanha camp2 = new Campanha();
+		Campaign camp2 = new Campaign();
 		this.resultado2.setCodigo(3);
 		this.partido2.setNumero(13);
 		this.candidato2.setTituloEleitoral("04725698130");
@@ -107,13 +107,13 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	@Test
 	public void deveListarCandidatosPorOrdemDeDespesa() throws Exception {
 		
-		ArrayList<Campanha> listaTop1= this.campanhaDAO.TopFive("presidente",2006);
+		ArrayList<Campaign> listaTop1= this.campanhaDAO.TopFive("presidente",2006);
 		Assert.assertTrue(listaTop1.get(0).getDespesaMaxDeclarada() >= listaTop1.get(1).getDespesaMaxDeclarada());
 		
-		//ArrayList<Campanha> listaTop2 = this.campanhaDAO.TopFive("senador",2010);
+		//ArrayList<Campaign> listaTop2 = this.campanhaDAO.TopFive("senador",2010);
 		//Assert.assertTrue(listaTop2.get(0).getDespesaMaxDeclarada() >= listaTop2.get(1).getDespesaMaxDeclarada());
 		
-		//ArrayList<Campanha> listaTop3 = this.campanhaDAO.TopFive("governador",2002);
+		//ArrayList<Campaign> listaTop3 = this.campanhaDAO.TopFive("governador",2002);
 		//Assert.assertTrue(listaTop3.get(0).getDespesaMaxDeclarada() >= listaTop3.get(1).getDespesaMaxDeclarada());
 	}
 

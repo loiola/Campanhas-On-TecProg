@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Cargo;
 import modelo.beans.Doador;
 import modelo.beans.Receita;
@@ -105,13 +105,13 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	protected void adicionarResultSetNaLista(ArrayList<Receita> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Campanha campanha = new Campanha();
+			Campaign campaign = new Campaign();
 			Cargo cargo = new Cargo();
 			cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
-			campanha.setAno(resultadoSQL.getInt(CAMPANHA_ANO));	
-			campanha.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));	
-			campanha.setCargo(cargo);
-			campanha.setUf(resultadoSQL.getString(CAMPANHA_UF));
+			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));	
+			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));	
+			campaign.setCargo(cargo);
+			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
 
 			Doador doador = new Doador();
 			doador.setNome(resultadoSQL.getString(NOME_DOADOR));
@@ -121,7 +121,7 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 			receita.setId(resultadoSQL.getInt(ID));
 			receita.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
 			receita.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-			receita.setCampanha(campanha);
+			receita.setCampanha(campaign);
 			receita.setDoador(doador);
 			receita.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
 			receita.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
@@ -137,13 +137,13 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 	 * @param an instance of Class Campaign
 	 * @return an instance of Class Revenue
 	 */
-	public ArrayList<Receita> getPorAnoNumeroCargoUf(Campanha campanha) throws Exception {
+	public ArrayList<Receita> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
-				  + CAMPANHA_ANO + " = " + campanha.getAno() + " AND "
-				  + CAMPANHA_NUMERO + " = " + campanha.getNumeroCandidato()
-				  + " AND " + CAMPANHA_UF + " = '" + campanha.getUf()
+				  + CAMPANHA_ANO + " = " + campaign.getAno() + " AND "
+				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
+				  + " AND " + CAMPANHA_UF + " = '" + campaign.getUf()
 				  + "' AND " + CAMPANHA_CARGO + " LIKE '%" 
-				  + campanha.getCargo().getDescricao() 
+				  + campaign.getCargo().getDescricao() 
 				  + "%'";
 		return buscaBD(comandoSQL);
 	}
@@ -183,11 +183,11 @@ public class ReceitaDAO extends BasicoDAO<Receita> implements ParseDAO<Receita> 
 				Cargo cargo = new Cargo();
 				cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
-				Campanha campanha = new Campanha();
-				campanha.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
-				campanha.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-				campanha.setCargo(cargo);
-				receita.setCampanha(campanha);
+				Campaign campaign = new Campaign();
+				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
+				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
+				campaign.setCargo(cargo);
+				receita.setCampanha(campaign);
 				
 				Doador doador = new Doador();
 				doador.setNome(resultadoSQL.getString(NOME_DOADOR));

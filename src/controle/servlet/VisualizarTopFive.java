@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import controle.CampanhaControle;
 
 @WebServlet("/VisualizarTopFive")
@@ -19,7 +19,7 @@ public class VisualizarTopFive implements Logica {
 
 	// Attributes
 	private CampanhaControle campanhaControle;
-	private ArrayList<Campanha> listaCampanha;
+	private ArrayList<Campaign> listaCampanha;
 	
 	private String cargo;
 	private Integer ano;

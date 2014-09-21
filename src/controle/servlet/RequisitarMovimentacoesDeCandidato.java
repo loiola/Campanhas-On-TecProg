@@ -9,7 +9,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Cargo;
 import modelo.beans.Despesa;
 import modelo.beans.Receita;
@@ -24,8 +24,8 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 
 	// Attributes
 	private CampanhaControle campanhaControle;
-	private Campanha campanhaBusca;
-	private Campanha campanha;
+	private Campaign campanhaBusca;
+	private Campaign campaign;
 	private MovimentacaoControle movimentacaoControle;
 
 	private String despesaTot;
@@ -71,7 +71,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		// Call refactored methods
 		recebeParametros();
 
-		if(this.campanha == null) {
+		if(this.campaign == null) {
 			
 			// Returns an error page if the list is empty
 			return "/erro_candidato_inexistente.jsp";
@@ -108,7 +108,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 				.getParameter("verTodosD"));
 		this.centroD = Integer.parseInt(this.req.getParameter("centroD"));
 		this.campanhaControle = new CampanhaControle();
-		this.campanha = this.campanhaControle
+		this.campaign = this.campanhaControle
 				.getPeloAnoNumeroCodCargoEUf(this.campanhaBusca);
 		this.movimentacaoControle = new MovimentacaoControle();
 	}
@@ -117,11 +117,11 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * Establishes what each parameter will receive
 	 */
 	private void estabeleceParametros() throws Exception {
-		this.despesaTot = formataDespesa(this.campanha.getDespesaMaxDeclarada());
+		this.despesaTot = formataDespesa(this.campaign.getDespesaMaxDeclarada());
 		this.listaReceita = this.movimentacaoControle
-				.getListaReceitas(this.campanha);
+				.getListaReceitas(this.campaign);
 		this.listaDespesa = this.movimentacaoControle
-				.getListaDespesas(this.campanha);
+				.getListaDespesas(this.campaign);
 		this.indiceR = geraIndiceDaListaR(this.listaReceita, this.qtdPorPaginaR);
 		this.qtdDePPR = geraIndiceDePaginacaoR(this.listaReceita);
 		this.indiceD = geraIndiceDaListaD(this.listaDespesa, this.qtdPorPaginaD);
@@ -134,7 +134,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	private void preparaEnvioDeParametros() {
 		this.req.setAttribute("listaReceitas", this.listaReceita);
 		this.req.setAttribute("listaDespesas", this.listaDespesa);
-		this.req.setAttribute("campanha", this.campanha);
+		this.req.setAttribute("campaign", this.campaign);
 		this.req.setAttribute("depesaTot", this.despesaTot);
 		this.req.setAttribute("despesaTC", despesaTC);
 		this.req.setAttribute("receitaTC", receitaTC);
@@ -322,7 +322,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * @param  an HTTP request
 	 * @return a political campaign
 	 */
-	private Campanha constroiCampanha(HttpServletRequest req) {
+	private Campaign constroiCampanha(HttpServletRequest req) {
 
 		int ano = Integer.parseInt(req.getParameter("ano"));
 		int numero = Integer.parseInt(req.getParameter("numero_cand"));
@@ -332,12 +332,12 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		Cargo cargo = new Cargo();
 		cargo.setCodigo(cargo_cod);
 
-		Campanha campanha = new Campanha();
-		campanha.setNumeroCandidato(numero);
-		campanha.setAno(ano);
-		campanha.setCargo(cargo);
-		campanha.setUf(uf);
+		Campaign campaign = new Campaign();
+		campaign.setNumeroCandidato(numero);
+		campaign.setAno(ano);
+		campaign.setCargo(cargo);
+		campaign.setUf(uf);
 
-		return campanha;
+		return campaign;
 	}
 }

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Cargo;
 import modelo.beans.Despesa;
 import modelo.beans.Fornecedor;
@@ -106,13 +106,13 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	protected void adicionarResultSetNaLista(ArrayList<Despesa> lista,
 			ResultSet resultadoSQL) throws SQLException {
 		while(resultadoSQL.next()) {
-			Campanha campanha = new Campanha();
+			Campaign campaign = new Campaign();
 			Cargo cargo = new Cargo();
 			cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
-			campanha.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
-			campanha.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-			campanha.setUf(resultadoSQL.getString(CAMPANHA_UF));
-			campanha.setCargo(cargo);
+			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
+			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
+			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
+			campaign.setCargo(cargo);
 
 			Fornecedor fornecedor = new Fornecedor();
 			fornecedor.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
@@ -120,7 +120,7 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 
 			Despesa despesa = new Despesa();
 			despesa.setId(resultadoSQL.getInt(ID));			
-			despesa.setCampanha(campanha);
+			despesa.setCampanha(campaign);
 			despesa.setData(resultadoSQL.getString(DATA));
 			despesa.setDescricao(resultadoSQL.getString(DESCRICAO));
 			despesa.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
@@ -140,13 +140,13 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 	 * @param an instance of Class Campaign
 	 * @return an ArrayList<Expense>
 	 */
-	public ArrayList<Despesa> getPorAnoNumeroCargoUf(Campanha campanha) throws Exception {
+	public ArrayList<Despesa> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
 		String comandoSQL = SQL_SELECT + " WHERE "
-				  + CAMPANHA_ANO + " = " + campanha.getAno() + " AND "
-				  + CAMPANHA_NUMERO + " = " + campanha.getNumeroCandidato()
-				  + " AND " + CAMPANHA_UF + " = '" + campanha.getUf()
+				  + CAMPANHA_ANO + " = " + campaign.getAno() + " AND "
+				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
+				  + " AND " + CAMPANHA_UF + " = '" + campaign.getUf()
 				  + "' AND " + CAMPANHA_CARGO 
-				  + " LIKE '%" + campanha.getCargo().getDescricao()
+				  + " LIKE '%" + campaign.getCargo().getDescricao()
 				  + "%'";
 		return buscaBD(comandoSQL);
 	}
@@ -184,11 +184,11 @@ public class DespesaDAO extends BasicoDAO<Despesa> implements ParseDAO<Despesa> 
 				Cargo cargo = new Cargo();
 				cargo.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 
-				Campanha campanha = new Campanha();
-				campanha.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
-				campanha.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-				campanha.setCargo(cargo);
-				despesa.setCampanha(campanha);
+				Campaign campaign = new Campaign();
+				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
+				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
+				campaign.setCargo(cargo);
+				despesa.setCampanha(campaign);
 				
 				Fornecedor fornecedor = new Fornecedor();
 				fornecedor.setNome(resultadoSQL.getString(NOME_FORNECEDOR));

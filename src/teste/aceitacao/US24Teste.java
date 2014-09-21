@@ -49,11 +49,11 @@ public class US24Teste {
 		Thread.sleep(2000);
 		
 		driver.findElement(By.linkText("ROBERTO EDUARDO VENTURA GIFFONI")).click();
-		Assert.assertTrue(driver.findElement(By.linkText("Campanha de 2010")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.linkText("Campaign de 2010")).isDisplayed());
 		Thread.sleep(2000);
 		
-		driver.findElement(By.linkText("Campanha de 2010")).click();
-		Assert.assertTrue(driver.getPageSource().contains("Saldo da Campanha:"));
+		driver.findElement(By.linkText("Campaign de 2010")).click();
+		Assert.assertTrue(driver.getPageSource().contains("Saldo da Campaign:"));
 		Assert.assertTrue(driver.getPageSource().contains("Receita Total Calculada:"));
 		Assert.assertTrue(driver.getPageSource().contains("Despesa Total Calculada:"));
 		Thread.sleep(2000);

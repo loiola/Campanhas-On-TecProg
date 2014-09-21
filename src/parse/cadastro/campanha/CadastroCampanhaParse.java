@@ -1,6 +1,6 @@
 package parse.cadastro.campanha;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
 import parse.controle.CampanhaParseControle;
@@ -8,7 +8,7 @@ import parse.controle.ParseControle;
 import parse.indices.CampanhaIndicesParse;
 import parse.indices.IndicesParse;
 
-public class CadastroCampanhaParse extends CadastroParse<Campanha> {
+public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	
 	/* 
 	 * Class used to extract Campaign attributes and forward the register to the Database
@@ -37,8 +37,8 @@ public class CadastroCampanhaParse extends CadastroParse<Campanha> {
 	 * @return a ParseCampaignControl
 	 */
 	@Override
-	public ParseControle<Campanha> novaInstancia(
-			IndicesParse<Campanha> indicesParse) {
+	public ParseControle<Campaign> novaInstancia(
+			IndicesParse<Campaign> indicesParse) {
 		CampanhaParseControle campanhaParseControle = new CampanhaParseControle(indicesParse);	
 		return campanhaParseControle;
 	}
@@ -49,7 +49,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campanha> {
 	 * @return a ParseCampaignIndex
 	 */
 	@Override
-	protected IndicesParse<Campanha> getIndicesParse(String tipoArquivo,
+	protected IndicesParse<Campaign> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		CampanhaIndicesParse campanhaIndicesParse;

@@ -2,7 +2,7 @@ package teste;
 
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.beans.Cargo;
 import modelo.beans.Despesa;
@@ -23,7 +23,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	private ReceitaDAO receitaDAO;
 	private MovimentacaoControle movimentacaoControle;
 	private Candidato candidato;
-	private Campanha campanha;
+	private Campaign campaign;
 	private Cargo cargo;
 	private Receita receita;
 	private Despesa despesa;
@@ -40,7 +40,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.receitaDAO = new ReceitaDAO();
 		this.movimentacaoControle = new MovimentacaoControle();
 		this.candidato = new Candidato();
-		this.campanha = new Campanha();
+		this.campaign = new Campaign();
 		this.receita = new Receita();
 		this.despesa = new Despesa();
 		this.doador = new Doador();
@@ -58,23 +58,23 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		
 		cargo.setDescricao("Presidente");
 		
-		campanha.setCargo(cargo);
-		campanha.setCandidato(candidato);
-		campanha.setAno(this.ano);
-		campanha.setUf(this.uf);
-		campanha.setNumeroCandidato(this.numeroCandidato);
+		campaign.setCargo(cargo);
+		campaign.setCandidato(candidato);
+		campaign.setAno(this.ano);
+		campaign.setUf(this.uf);
+		campaign.setNumeroCandidato(this.numeroCandidato);
 		
 		fornecedor.setCpf_cnpj("555555555555");
 		doador.setCpf_cnpj("333333333333");
 		
 		receita.setValor((float) 55.0);
-		receita.setCampanha(campanha);
+		receita.setCampanha(campaign);
 		receita.setId(3);
 		receita.setDoador(doador);
 		listaReceita.add(receita);
 		
 		despesa.setValor((float) 90.0);
-		despesa.setCampanha(campanha);
+		despesa.setCampanha(campaign);
 		despesa.setId(5);
 		despesa.setFornecedor(fornecedor);
 		listaDespesa.add(despesa);
@@ -99,7 +99,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	@Test
 	public void deveRecuperarMovimentacoesDeUmaCampanha() throws Exception {
 		
-		Campanha campanhaTeste = new Campanha();
+		Campaign campanhaTeste = new Campaign();
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 

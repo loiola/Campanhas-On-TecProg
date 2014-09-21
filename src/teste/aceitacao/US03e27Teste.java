@@ -54,7 +54,7 @@ public class US03e27Teste {
 		Thread.sleep(2000);
 		
 		driver.findElement(By.linkText("ADELMIR ARAUJO SANTANA")).click();
-		Assert.assertTrue(driver.findElement(By.linkText("Campanha de 2002")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.linkText("Campaign de 2002")).isDisplayed());
 		Thread.sleep(2000);
 	}
 	

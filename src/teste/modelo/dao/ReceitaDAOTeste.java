@@ -3,7 +3,7 @@ package teste.modelo.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Cargo;
 import modelo.beans.Doador;
 import modelo.beans.Receita;
@@ -18,10 +18,10 @@ public class ReceitaDAOTeste extends TemplateTeste {
 	private ReceitaDAO receitaDAO;
 	private Receita receita1;
 	private Receita receita2;
-	private Campanha campanha1;
+	private Campaign campanha1;
 	private Doador doador1;
 	private Cargo cargo1;
-	private Campanha campanha2;
+	private Campaign campanha2;
 	private Doador doador2;
 	private Cargo cargo2;
 
@@ -29,12 +29,12 @@ public class ReceitaDAOTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.receitaDAO = new ReceitaDAO();
-		this.campanha1 = new Campanha();
+		this.campanha1 = new Campaign();
 		this.doador1 = new Doador();
 		this.cargo1 = new Cargo();
 		this.receita1 = new Receita();
 		this.receita2 = new Receita();
-		this.campanha2 = new Campanha();
+		this.campanha2 = new Campaign();
 		this.doador2 = new Doador();
 		this.cargo2 = new Cargo();
 	}

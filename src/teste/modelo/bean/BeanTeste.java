@@ -1,6 +1,6 @@
 package teste.modelo.bean;
 
-import modelo.beans.Campanha;
+import modelo.beans.Campaign;
 import modelo.beans.Candidato;
 import modelo.beans.Cargo;
 import modelo.beans.Despesa;
@@ -23,23 +23,23 @@ public class BeanTeste {
 	public static final String STRING_TESTE = "String Teste";
 	public static final String STRING_TESTE_2 = "String Teste Dois";
 	
-	public static Campanha instanciarCampanha() {
+	public static Campaign instanciarCampanha() {
 		
-		Campanha campanha = new Campanha();
-		campanha.setAno(INT_TESTE);
-		campanha.setCandidato(instanciarCandidato());
-		campanha.setCargo(instanciarCargo());
-		campanha.setDespesaMaxDeclarada(FLOAT_TESTE);
-		campanha.setDespesaTotalCalculada(FLOAT_TESTE);
-		campanha.setId(INT_TESTE);
-		campanha.setNomeDeUrna(STRING_TESTE); 
-		campanha.setNumeroCandidato(INT_TESTE);
-		campanha.setPartido(instanciarPartido());
-		campanha.setReceitaTotalCalculada(FLOAT_TESTE);
-		campanha.setResultado(instanciarResultado());
-		campanha.setUf(STRING_TESTE);
+		Campaign campaign = new Campaign();
+		campaign.setAno(INT_TESTE);
+		campaign.setCandidato(instanciarCandidato());
+		campaign.setCargo(instanciarCargo());
+		campaign.setDespesaMaxDeclarada(FLOAT_TESTE);
+		campaign.setDespesaTotalCalculada(FLOAT_TESTE);
+		campaign.setId(INT_TESTE);
+		campaign.setNomeDeUrna(STRING_TESTE); 
+		campaign.setNumeroCandidato(INT_TESTE);
+		campaign.setPartido(instanciarPartido());
+		campaign.setReceitaTotalCalculada(FLOAT_TESTE);
+		campaign.setResultado(instanciarResultado());
+		campaign.setUf(STRING_TESTE);
 		
-		return campanha;
+		return campaign;
 	}
 	
 	public static Candidato instanciarCandidato() {
