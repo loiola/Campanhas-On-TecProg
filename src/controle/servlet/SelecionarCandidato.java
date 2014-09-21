@@ -81,9 +81,9 @@ public class SelecionarCandidato implements Logica {
 						this.movimentacaoControle.getListaDespesas(campaign);
 				this.despesaMax2002 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
-					this.receitaCalc2002 += revenue.getValor();
+					this.receitaCalc2002 += revenue.getFinancialTransactionPrice();
 				for(Expense expense : listaDespesa)
-					this.despesaCalc2002 += expense.getValor();
+					this.despesaCalc2002 += expense.getFinancialTransactionPrice();
 				
 				campaign.setCampaignTotalExpenseCalculated(this.despesaCalc2002);
 				campaign.setCampaignTotalRevenueCalculated(this.receitaCalc2002);
@@ -97,9 +97,9 @@ public class SelecionarCandidato implements Logica {
 						this.movimentacaoControle.getListaDespesas(campaign);
 				this.despesaMax2006 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
-					this.receitaCalc2006 += revenue.getValor();
+					this.receitaCalc2006 += revenue.getFinancialTransactionPrice();
 				for(Expense expense : listaDespesa)
-					this.despesaCalc2006 += expense.getValor();
+					this.despesaCalc2006 += expense.getFinancialTransactionPrice();
 
 				campaign.setCampaignTotalExpenseCalculated(this.despesaCalc2006);
 				campaign.setCampaignTotalRevenueCalculated(this.receitaCalc2006);
@@ -113,9 +113,9 @@ public class SelecionarCandidato implements Logica {
 						this.movimentacaoControle.getListaDespesas(campaign);
 				this.despesaMax2010 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
-					this.receitaCalc2010 += revenue.getValor();
+					this.receitaCalc2010 += revenue.getFinancialTransactionPrice();
 				for(Expense expense : listaDespesa)
-					this.despesaCalc2010 += expense.getValor();
+					this.despesaCalc2010 += expense.getFinancialTransactionPrice();
 			
 				campaign.setCampaignTotalExpenseCalculated(this.despesaCalc2010);
 				campaign.setCampaignTotalRevenueCalculated(this.receitaCalc2010);

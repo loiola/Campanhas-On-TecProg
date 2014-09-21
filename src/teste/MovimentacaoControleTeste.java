@@ -67,15 +67,15 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		supplier.setSupplierPersonRegister("555555555555");
 		donor.setDonorPersonRegister("333333333333");
 		
-		revenue.setValor((float) 55.0);
-		revenue.setCampanha(campaign);
-		revenue.setId(3);
+		revenue.setFinancialTransactionPrice((float) 55.0);
+		revenue.setFinancialTransactionCampaign(campaign);
+		revenue.setFinancialTransactionIdentifier(3);
 		revenue.setDoador(donor);
 		listaReceita.add(revenue);
 		
-		expense.setValor((float) 90.0);
-		expense.setCampanha(campaign);
-		expense.setId(5);
+		expense.setFinancialTransactionPrice((float) 90.0);
+		expense.setFinancialTransactionCampaign(campaign);
+		expense.setFinancialTransactionIdentifier(5);
 		expense.setExpenseSupplier(supplier);
 		listaDespesa.add(expense);
 		
@@ -91,8 +91,8 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmaMovimentacaoPeloId() throws Exception {
 		
-		Assert.assertEquals(this.receitaDAO.getPeloId(3).getValor(), this.movimentacaoControle.getReceitaPeloId(3).getValor());
-		Assert.assertEquals(this.despesaDAO.getPeloId(5).getValor(), this.movimentacaoControle.getDespesaPeloId(5).getValor());
+		Assert.assertEquals(this.receitaDAO.getPeloId(3).getFinancialTransactionPrice(), this.movimentacaoControle.getReceitaPeloId(3).getFinancialTransactionPrice());
+		Assert.assertEquals(this.despesaDAO.getPeloId(5).getFinancialTransactionPrice(), this.movimentacaoControle.getDespesaPeloId(5).getFinancialTransactionPrice());
 	}
 	
 	

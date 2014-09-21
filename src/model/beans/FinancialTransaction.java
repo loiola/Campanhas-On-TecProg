@@ -10,95 +10,95 @@ public class FinancialTransaction {
 	 
 	// Constants
 	public static final String EMPTY_TYPE_STRING = "";
-	public static final Integer INTEGER_VAZIO = 0;
-	public static final Float FLOAT_VAZIO = (float) 0;
-	public static final Object OBJETO_VAZIO = null;
+	public static final Integer EMPTY_TYPE_INTEGER = 0;
+	public static final Float EMPTY_TYPE_FLOAT = (float) 0;
+	public static final Object EMPTY_OBJECT = null;
 	
 	// Attributes
-	private Integer id;
-	private Campaign campaign;
-	private String numeroDocumento;
-	private String data;
-	private Float valor;
-	private String tipoMovimentacao;
-	private String formaPagamento;
-	private String descricao;
+	private Integer financialTransactionIdentifier;
+	private Campaign financialTransactionCampaign;
+	private String financialTransactionDocumentNumber;
+	private String financialTransactionDate;
+	private Float financialTransactionPrice;
+	private String financialTransactionType;
+	private String financialTransactionPaymentType;
+	private String financialTransactionDescription;
 	
 	// Empty Constructor
 	public FinancialTransaction(){
-		this.id = INTEGER_VAZIO;
-		this.campaign = (Campaign) OBJETO_VAZIO;
-		this.numeroDocumento = EMPTY_TYPE_STRING;
-		this.data = EMPTY_TYPE_STRING;
-		this.valor = FLOAT_VAZIO;
-		this.descricao = EMPTY_TYPE_STRING;
-		this.tipoMovimentacao = EMPTY_TYPE_STRING;
-		this.formaPagamento = EMPTY_TYPE_STRING;
+		this.financialTransactionIdentifier = EMPTY_TYPE_INTEGER;
+		this.financialTransactionCampaign = (Campaign) EMPTY_OBJECT;
+		this.financialTransactionDocumentNumber = EMPTY_TYPE_STRING;
+		this.financialTransactionDate = EMPTY_TYPE_STRING;
+		this.financialTransactionPrice = EMPTY_TYPE_FLOAT;
+		this.financialTransactionDescription = EMPTY_TYPE_STRING;
+		this.financialTransactionType = EMPTY_TYPE_STRING;
+		this.financialTransactionPaymentType = EMPTY_TYPE_STRING;
 	}
 
 	// Getters and Setters
-	public String getNumeroDocumento() {
-		return numeroDocumento;
+	public String getFinancialTransactionDocumentNumber() {
+		return financialTransactionDocumentNumber;
 	}
 
-	public void setNumeroDocumento(String numeroDocumento) {
-		this.numeroDocumento = numeroDocumento;
+	public void setFinancialTransactionDocumentNumber(String financialTransactionDocumentNumber) {
+		this.financialTransactionDocumentNumber = financialTransactionDocumentNumber;
 	}
 
-	public Float getValor() {
-		return valor;
+	public Float getFinancialTransactionPrice() {
+		return financialTransactionPrice;
 	}
 
-	public void setValor(Float valor) {
-		this.valor = valor;
+	public void setFinancialTransactionPrice(Float financialTransactionPrice) {
+		this.financialTransactionPrice = financialTransactionPrice;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getFinancialTransactionDescription() {
+		return financialTransactionDescription;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setFinancialTransactionDescription(String financialTransactionDescription) {
+		this.financialTransactionDescription = financialTransactionDescription;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getFinancialTransactionIdentifier() {
+		return financialTransactionIdentifier;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setFinancialTransactionIdentifier(Integer financialTransactionIdentifier) {
+		this.financialTransactionIdentifier = financialTransactionIdentifier;
 	}
 
-	public Campaign getCampanha() {
-		return campaign;
+	public Campaign getFinancialTransactionCampaign() {
+		return financialTransactionCampaign;
 	}
 
-	public void setCampanha(Campaign campaign) {
-		this.campaign = campaign;
+	public void setFinancialTransactionCampaign(Campaign financialTransactionCampaign) {
+		this.financialTransactionCampaign = financialTransactionCampaign;
 	}
 
-	public String getData() {
-		return data;
+	public String getFinancialTransactionDate() {
+		return financialTransactionDate;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setFinancialTransactionDate(String financialTransactionDate) {
+		this.financialTransactionDate = financialTransactionDate;
 	}
 
-	public String getTipoMovimentacao() {
-		return tipoMovimentacao;
+	public String getFinancialTransactionType() {
+		return financialTransactionType;
 	}
 
-	public void setTipoMovimentacao(String tipoMovimentacao) {
-		this.tipoMovimentacao = tipoMovimentacao;
+	public void setFinancialTransactionType(String financialTransactionType) {
+		this.financialTransactionType = financialTransactionType;
 	}
 
-	public String getFormaPagamento() {
-		return formaPagamento;
+	public String getFinancialTransactionPaymentType() {
+		return financialTransactionPaymentType;
 	}
 
-	public void setFormaPagamento(String formaPagamento) {
-		this.formaPagamento = formaPagamento;
+	public void setFinancialTransactionPaymentType(String financialTransactionPaymentType) {
+		this.financialTransactionPaymentType = financialTransactionPaymentType;
 	}
 	
 	@Override

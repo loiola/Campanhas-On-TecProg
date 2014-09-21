@@ -55,7 +55,7 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 		super.setVazioEmTodosOsSetters(revenue);
 
 		revenue.setReciboEleitoral(Revenue.EMPTY_TYPE_STRING);
-		revenue.setDoador((Donor)Revenue.OBJETO_VAZIO);
+		revenue.setDoador((Donor)Revenue.EMPTY_OBJECT);
 		
 	}
 

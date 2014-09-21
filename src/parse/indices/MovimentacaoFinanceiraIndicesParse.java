@@ -68,25 +68,25 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 			campaign.setCampaignCountryState(campo[this.indiceCampanhaUf]);
 		}
 		if(indiceValido(this.indiceNumeroDocumento)) {
-			financialTransaction.setNumeroDocumento(campo[this.indiceNumeroDocumento]);
+			financialTransaction.setFinancialTransactionDocumentNumber(campo[this.indiceNumeroDocumento]);
 		}
 		if(indiceValido(this.indiceData)) {
-			financialTransaction.setData(campo[this.indiceData]);
+			financialTransaction.setFinancialTransactionDate(campo[this.indiceData]);
 		}
 		if(indiceValido(this.indiceValor)) {
 			float valor = Float.parseFloat(campo[this.indiceValor].replace(',', '.'));
-			financialTransaction.setValor(valor);
+			financialTransaction.setFinancialTransactionPrice(valor);
 		}
 		if(indiceValido(this.indiceTipoMovimentacao)) {
-			financialTransaction.setTipoMovimentacao(campo[this.indiceTipoMovimentacao]);
+			financialTransaction.setFinancialTransactionType(campo[this.indiceTipoMovimentacao]);
 		}
 		if(indiceValido(this.indiceFormaPagamento)) {
-			financialTransaction.setFormaPagamento(campo[this.indiceFormaPagamento]);
+			financialTransaction.setFinancialTransactionPaymentType(campo[this.indiceFormaPagamento]);
 		}
 		if(indiceValido(this.indiceDescricao)) {
-			financialTransaction.setDescricao(campo[this.indiceDescricao]);
+			financialTransaction.setFinancialTransactionDescription(campo[this.indiceDescricao]);
 		}
-		financialTransaction.setCampanha(campaign);
+		financialTransaction.setFinancialTransactionCampaign(campaign);
 
 	}
 
@@ -97,14 +97,14 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	@Override
 	protected void setVazioEmTodosOsSetters(O objeto) {
 		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
-		financialTransaction.setId(FinancialTransaction.INTEGER_VAZIO);
-		financialTransaction.setCampanha((Campaign)FinancialTransaction.OBJETO_VAZIO);
-		financialTransaction.setNumeroDocumento(FinancialTransaction.EMPTY_TYPE_STRING);
-		financialTransaction.setData(FinancialTransaction.EMPTY_TYPE_STRING);
-		financialTransaction.setValor(FinancialTransaction.FLOAT_VAZIO);
-		financialTransaction.setFormaPagamento(FinancialTransaction.EMPTY_TYPE_STRING);
-		financialTransaction.setTipoMovimentacao(FinancialTransaction.EMPTY_TYPE_STRING);
-		financialTransaction.setDescricao(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setFinancialTransactionIdentifier(FinancialTransaction.EMPTY_TYPE_INTEGER);
+		financialTransaction.setFinancialTransactionCampaign((Campaign)FinancialTransaction.EMPTY_OBJECT);
+		financialTransaction.setFinancialTransactionDocumentNumber(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setFinancialTransactionDate(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setFinancialTransactionPrice(FinancialTransaction.EMPTY_TYPE_FLOAT);
+		financialTransaction.setFinancialTransactionPaymentType(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setFinancialTransactionType(FinancialTransaction.EMPTY_TYPE_STRING);
+		financialTransaction.setFinancialTransactionDescription(FinancialTransaction.EMPTY_TYPE_STRING);
 	}
 	
 	/*

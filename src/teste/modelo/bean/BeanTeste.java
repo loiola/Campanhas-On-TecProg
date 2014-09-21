@@ -63,16 +63,16 @@ public class BeanTeste {
 	public static Expense instanciarDespesa() {
 		
 		Expense expense = new Expense();
-		expense.setCampanha(instanciarCampanha());
-		expense.setData(STRING_TESTE);
-		expense.setDescricao(STRING_TESTE);
-		expense.setFormaPagamento(STRING_TESTE);
+		expense.setFinancialTransactionCampaign(instanciarCampanha());
+		expense.setFinancialTransactionDate(STRING_TESTE);
+		expense.setFinancialTransactionDescription(STRING_TESTE);
+		expense.setFinancialTransactionPaymentType(STRING_TESTE);
 		expense.setExpenseSupplier(instanciarFornecedor());
-		expense.setId(INT_TESTE);
-		expense.setNumeroDocumento(STRING_TESTE);
+		expense.setFinancialTransactionIdentifier(INT_TESTE);
+		expense.setFinancialTransactionDocumentNumber(STRING_TESTE);
 		expense.setExpenseDocumentType(STRING_TESTE);
-		expense.setTipoMovimentacao(STRING_TESTE);
-		expense.setValor(FLOAT_TESTE);
+		expense.setFinancialTransactionType(STRING_TESTE);
+		expense.setFinancialTransactionPrice(FLOAT_TESTE);
 		
 		return expense;
 	}
@@ -102,14 +102,14 @@ public class BeanTeste {
 	public static FinancialTransaction instanciarMovimentacaoFinanceira() {
 		
 		FinancialTransaction financialTransaction = new FinancialTransaction();
-		financialTransaction.setCampanha(instanciarCampanha());
-		financialTransaction.setData(STRING_TESTE);
-		financialTransaction.setDescricao(STRING_TESTE);
-		financialTransaction.setFormaPagamento(STRING_TESTE);
-		financialTransaction.setId(INT_TESTE);
-		financialTransaction.setNumeroDocumento(STRING_TESTE);
-		financialTransaction.setTipoMovimentacao(STRING_TESTE);
-		financialTransaction.setValor(FLOAT_TESTE);
+		financialTransaction.setFinancialTransactionCampaign(instanciarCampanha());
+		financialTransaction.setFinancialTransactionDate(STRING_TESTE);
+		financialTransaction.setFinancialTransactionDescription(STRING_TESTE);
+		financialTransaction.setFinancialTransactionPaymentType(STRING_TESTE);
+		financialTransaction.setFinancialTransactionIdentifier(INT_TESTE);
+		financialTransaction.setFinancialTransactionDocumentNumber(STRING_TESTE);
+		financialTransaction.setFinancialTransactionType(STRING_TESTE);
+		financialTransaction.setFinancialTransactionPrice(FLOAT_TESTE);
 		
 		return financialTransaction;
 	}
@@ -128,16 +128,16 @@ public class BeanTeste {
 	public static Revenue instanciarReceita() {
 		
 		Revenue revenue = new Revenue();
-		revenue.setCampanha(instanciarCampanha());
-		revenue.setData(STRING_TESTE);
-		revenue.setDescricao(STRING_TESTE);
+		revenue.setFinancialTransactionCampaign(instanciarCampanha());
+		revenue.setFinancialTransactionDate(STRING_TESTE);
+		revenue.setFinancialTransactionDescription(STRING_TESTE);
 		revenue.setDoador(instanciarDoador());
-		revenue.setFormaPagamento(STRING_TESTE);
-		revenue.setId(INT_TESTE);
-		revenue.setNumeroDocumento(STRING_TESTE);
+		revenue.setFinancialTransactionPaymentType(STRING_TESTE);
+		revenue.setFinancialTransactionIdentifier(INT_TESTE);
+		revenue.setFinancialTransactionDocumentNumber(STRING_TESTE);
 		revenue.setReciboEleitoral(STRING_TESTE);
-		revenue.setTipoMovimentacao(STRING_TESTE);
-		revenue.setValor(FLOAT_TESTE);
+		revenue.setFinancialTransactionType(STRING_TESTE);
+		revenue.setFinancialTransactionPrice(FLOAT_TESTE);
 
 		return revenue;
 	}

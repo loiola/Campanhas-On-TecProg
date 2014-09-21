@@ -30,15 +30,15 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		
 		FinancialTransaction financialTransaction = new FinancialTransaction();
 		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
-		Assert.assertEquals(this.campo[0], financialTransaction.getCampanha().getCampaignYear().toString());
-		Assert.assertEquals(this.campo[1], financialTransaction.getCampanha().getCampaignCandidateNumber().toString());
-		Assert.assertEquals(this.campo[2], financialTransaction.getCampanha().getCampaignPosition().getPositionDescription());
-		Assert.assertEquals(this.campo[3], financialTransaction.getNumeroDocumento());
-		Assert.assertEquals(this.campo[4], financialTransaction.getData());
-		Assert.assertEquals(this.campo[5], financialTransaction.getValor().toString());
-		Assert.assertEquals(this.campo[6], financialTransaction.getTipoMovimentacao());
-		Assert.assertEquals(this.campo[7], financialTransaction.getFormaPagamento());
-		Assert.assertEquals(this.campo[8], financialTransaction.getDescricao());
+		Assert.assertEquals(this.campo[0], financialTransaction.getFinancialTransactionCampaign().getCampaignYear().toString());
+		Assert.assertEquals(this.campo[1], financialTransaction.getFinancialTransactionCampaign().getCampaignCandidateNumber().toString());
+		Assert.assertEquals(this.campo[2], financialTransaction.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
+		Assert.assertEquals(this.campo[3], financialTransaction.getFinancialTransactionDocumentNumber());
+		Assert.assertEquals(this.campo[4], financialTransaction.getFinancialTransactionDate());
+		Assert.assertEquals(this.campo[5], financialTransaction.getFinancialTransactionPrice().toString());
+		Assert.assertEquals(this.campo[6], financialTransaction.getFinancialTransactionType());
+		Assert.assertEquals(this.campo[7], financialTransaction.getFinancialTransactionPaymentType());
+		Assert.assertEquals(this.campo[8], financialTransaction.getFinancialTransactionDescription());
 	}
 	
 	@Test
@@ -47,15 +47,15 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		this.movimentacaoFinanceiraIndicesParse = new MovimentacaoFinanceiraIndicesParse<>(anoTeste);
 		FinancialTransaction financialTransaction = new FinancialTransaction();
 		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
-		Assert.assertNotEquals(this.campo[0], financialTransaction.getCampanha().getCampaignYear().toString());
-		Assert.assertNotEquals(this.campo[1], financialTransaction.getCampanha().getCampaignCandidateNumber().toString());
-		Assert.assertNotEquals(this.campo[2], financialTransaction.getCampanha().getCampaignPosition().getPositionDescription());
-		Assert.assertNotEquals(this.campo[3], financialTransaction.getNumeroDocumento());
-		Assert.assertNotEquals(this.campo[4], financialTransaction.getData());
-		Assert.assertNotEquals(this.campo[5], financialTransaction.getValor().toString());
-		Assert.assertNotEquals(this.campo[6], financialTransaction.getTipoMovimentacao());
-		Assert.assertNotEquals(this.campo[7], financialTransaction.getFormaPagamento());
-		Assert.assertNotEquals(this.campo[8], financialTransaction.getDescricao());
+		Assert.assertNotEquals(this.campo[0], financialTransaction.getFinancialTransactionCampaign().getCampaignYear().toString());
+		Assert.assertNotEquals(this.campo[1], financialTransaction.getFinancialTransactionCampaign().getCampaignCandidateNumber().toString());
+		Assert.assertNotEquals(this.campo[2], financialTransaction.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
+		Assert.assertNotEquals(this.campo[3], financialTransaction.getFinancialTransactionDocumentNumber());
+		Assert.assertNotEquals(this.campo[4], financialTransaction.getFinancialTransactionDate());
+		Assert.assertNotEquals(this.campo[5], financialTransaction.getFinancialTransactionPrice().toString());
+		Assert.assertNotEquals(this.campo[6], financialTransaction.getFinancialTransactionType());
+		Assert.assertNotEquals(this.campo[7], financialTransaction.getFinancialTransactionPaymentType());
+		Assert.assertNotEquals(this.campo[8], financialTransaction.getFinancialTransactionDescription());
 	}
 	
 	private void iniciarIndices() {

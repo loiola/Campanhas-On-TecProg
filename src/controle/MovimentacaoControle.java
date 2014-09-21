@@ -46,7 +46,7 @@ public class MovimentacaoControle {
 			
 			if(campaign.getCampaignYear() == 2002) {
 				for(Revenue revenue : listaReceita)
-					revenue.setTipoMovimentacao("Revenue");
+					revenue.setFinancialTransactionType("Revenue");
 			}
 		}
 		return listaReceita;

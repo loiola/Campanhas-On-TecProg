@@ -60,7 +60,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro1.cadastrarInstancias();
 		
 		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
-		assertEquals(listaDespesa.get(0).getTipoMovimentacao(), "TipoMov");
+		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
 	}
 	
 	@Test
@@ -79,7 +79,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro2.cadastrarInstancias();
 		
 		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
-		assertEquals(listaDespesa.get(0).getTipoMovimentacao(), "TipoMov");
+		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
 	}
 	
 	@Test
@@ -103,7 +103,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro3.cadastrarInstancias();
 		
 		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
-		assertEquals(listaDespesa.get(0).getTipoMovimentacao(), "TipoMov");
+		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
 	}
 
 }

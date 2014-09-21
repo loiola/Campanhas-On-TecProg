@@ -78,20 +78,20 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 	protected void adicionarListaNoBatch(ArrayList<Revenue> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Revenue revenue : lista) {
-			instrucaoSQL.setInt(1, revenue.getId());
-			instrucaoSQL.setInt(2, revenue.getCampanha().getCampaignYear());
-			instrucaoSQL.setInt(3, revenue.getCampanha().getCampaignCandidateNumber());
-			instrucaoSQL.setFloat(4, revenue.getValor());
-			instrucaoSQL.setString(5, revenue.getFormaPagamento());
-			instrucaoSQL.setString(6, revenue.getDescricao());
-			instrucaoSQL.setString(7, revenue.getData());
-			instrucaoSQL.setString(8, revenue.getTipoMovimentacao());
+			instrucaoSQL.setInt(1, revenue.getFinancialTransactionIdentifier());
+			instrucaoSQL.setInt(2, revenue.getFinancialTransactionCampaign().getCampaignYear());
+			instrucaoSQL.setInt(3, revenue.getFinancialTransactionCampaign().getCampaignCandidateNumber());
+			instrucaoSQL.setFloat(4, revenue.getFinancialTransactionPrice());
+			instrucaoSQL.setString(5, revenue.getFinancialTransactionPaymentType());
+			instrucaoSQL.setString(6, revenue.getFinancialTransactionDescription());
+			instrucaoSQL.setString(7, revenue.getFinancialTransactionDate());
+			instrucaoSQL.setString(8, revenue.getFinancialTransactionType());
 			instrucaoSQL.setString(9, revenue.getReciboEleitoral());
-			instrucaoSQL.setString(10, revenue.getNumeroDocumento());
+			instrucaoSQL.setString(10, revenue.getFinancialTransactionDocumentNumber());
 			instrucaoSQL.setString(11, revenue.getDoador().getDonorName());
 			instrucaoSQL.setString(12, revenue.getDoador().getDonorPersonRegister());
-			instrucaoSQL.setString(13, revenue.getCampanha().getCampaignPosition().getPositionDescription());
-			instrucaoSQL.setString(14, revenue.getCampanha().getCampaignCountryState());
+			instrucaoSQL.setString(13, revenue.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
+			instrucaoSQL.setString(14, revenue.getFinancialTransactionCampaign().getCampaignCountryState());
 			instrucaoSQL.addBatch();
 		}	
 	}
@@ -118,16 +118,16 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
 
 			Revenue revenue = new Revenue();
-			revenue.setId(resultadoSQL.getInt(ID));
-			revenue.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-			revenue.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-			revenue.setCampanha(campaign);
+			revenue.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));
+			revenue.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+			revenue.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
+			revenue.setFinancialTransactionCampaign(campaign);
 			revenue.setDoador(donor);
 			revenue.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
-			revenue.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
-			revenue.setData(resultadoSQL.getString(DATA));
-			revenue.setValor(resultadoSQL.getFloat(VALOR));
-			revenue.setDescricao(resultadoSQL.getString(DESCRICAO));
+			revenue.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
+			revenue.setFinancialTransactionDate(resultadoSQL.getString(DATA));
+			revenue.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
+			revenue.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
 			lista.add(revenue);
 		}
 	}
@@ -187,21 +187,21 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
 				campaign.setCampaignPosition(position);
-				revenue.setCampanha(campaign);
+				revenue.setFinancialTransactionCampaign(campaign);
 				
 				Donor donor = new Donor();
 				donor.setDonorName(resultadoSQL.getString(NOME_DOADOR));
 				donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
 				revenue.setDoador(donor);
 
-				revenue.setData(resultadoSQL.getString(DATA));
-				revenue.setDescricao(resultadoSQL.getString(DESCRICAO));
-				revenue.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-				revenue.setId(resultadoSQL.getInt(ID));
-				revenue.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+				revenue.setFinancialTransactionDate(resultadoSQL.getString(DATA));
+				revenue.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
+				revenue.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
+				revenue.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));
+				revenue.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
 				revenue.setReciboEleitoral(resultadoSQL.getString(RECIBO_ELEITORAL));
-				revenue.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-				revenue.setValor(resultadoSQL.getFloat(VALOR));
+				revenue.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+				revenue.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
 				
 				if(revenue != null) {
 					listaReceita.add(revenue);

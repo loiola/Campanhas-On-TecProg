@@ -79,20 +79,20 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 	protected void adicionarListaNoBatch(ArrayList<Expense> lista,
 			PreparedStatement instrucaoSQL) throws SQLException {
 		for(Expense expense : lista) {
-			instrucaoSQL.setInt(1, expense.getId());	
-			instrucaoSQL.setInt(2, expense.getCampanha().getCampaignYear());
-			instrucaoSQL.setInt(3, expense.getCampanha().getCampaignCandidateNumber());
-			instrucaoSQL.setFloat(4, expense.getValor());	
-			instrucaoSQL.setString(5, expense.getFormaPagamento());
-			instrucaoSQL.setString(6, expense.getDescricao());
-			instrucaoSQL.setString(7, expense.getData());	
-			instrucaoSQL.setString(8, expense.getTipoMovimentacao());
+			instrucaoSQL.setInt(1, expense.getFinancialTransactionIdentifier());	
+			instrucaoSQL.setInt(2, expense.getFinancialTransactionCampaign().getCampaignYear());
+			instrucaoSQL.setInt(3, expense.getFinancialTransactionCampaign().getCampaignCandidateNumber());
+			instrucaoSQL.setFloat(4, expense.getFinancialTransactionPrice());	
+			instrucaoSQL.setString(5, expense.getFinancialTransactionPaymentType());
+			instrucaoSQL.setString(6, expense.getFinancialTransactionDescription());
+			instrucaoSQL.setString(7, expense.getFinancialTransactionDate());	
+			instrucaoSQL.setString(8, expense.getFinancialTransactionType());
 			instrucaoSQL.setString(9, expense.getExpenseDocumentType());
-			instrucaoSQL.setString(10, expense.getNumeroDocumento());
+			instrucaoSQL.setString(10, expense.getFinancialTransactionDocumentNumber());
 			instrucaoSQL.setString(11, expense.getExpenseSupplier().getSupplierName());
 			instrucaoSQL.setString(12, expense.getExpenseSupplier().getSupplierPersonRegister());
-			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getPositionDescription());
-			instrucaoSQL.setString(14, expense.getCampanha().getCampaignCountryState());
+			instrucaoSQL.setString(13, expense.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
+			instrucaoSQL.setString(14, expense.getFinancialTransactionCampaign().getCampaignCountryState());
 			instrucaoSQL.addBatch();
 		}
 	}
@@ -119,16 +119,16 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			supplier.setSupplierName(resultadoSQL.getString(NOME_FORNECEDOR));
 
 			Expense expense = new Expense();
-			expense.setId(resultadoSQL.getInt(ID));			
-			expense.setCampanha(campaign);
-			expense.setData(resultadoSQL.getString(DATA));
-			expense.setDescricao(resultadoSQL.getString(DESCRICAO));
-			expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
+			expense.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));			
+			expense.setFinancialTransactionCampaign(campaign);
+			expense.setFinancialTransactionDate(resultadoSQL.getString(DATA));
+			expense.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
+			expense.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
 			expense.setExpenseSupplier(supplier);
-			expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+			expense.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
 			expense.setExpenseDocumentType(resultadoSQL.getString(TIPO_DOCUMENTO));
-			expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-			expense.setValor(resultadoSQL.getFloat(VALOR));
+			expense.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+			expense.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
 			
 			lista.add(expense);
 		}
@@ -188,21 +188,21 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
 				campaign.setCampaignPosition(position);
-				expense.setCampanha(campaign);
+				expense.setFinancialTransactionCampaign(campaign);
 				
 				Supplier supplier = new Supplier();
 				supplier.setSupplierName(resultadoSQL.getString(NOME_FORNECEDOR));
 				supplier.setSupplierPersonRegister(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
 				expense.setExpenseSupplier(supplier);
 
-				expense.setData(resultadoSQL.getString(DATA));
-				expense.setDescricao(resultadoSQL.getString(DESCRICAO));
-				expense.setFormaPagamento(resultadoSQL.getString(FORMA_PAGAMENTO));
-				expense.setId(resultadoSQL.getInt(ID));
-				expense.setNumeroDocumento(resultadoSQL.getString(NUMERO_DOCUMENTO));
+				expense.setFinancialTransactionDate(resultadoSQL.getString(DATA));
+				expense.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
+				expense.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
+				expense.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));
+				expense.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
 				expense.setExpenseDocumentType(resultadoSQL.getString(TIPO_DOCUMENTO));
-				expense.setTipoMovimentacao(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-				expense.setValor(resultadoSQL.getFloat(VALOR));
+				expense.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
+				expense.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
 				
 				if(expense != null) {
 					listaDespesa.add(expense);

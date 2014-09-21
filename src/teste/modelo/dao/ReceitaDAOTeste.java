@@ -56,14 +56,14 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		this.campanha1.setCampaignPosition(cargo1);
 		this.doador1.setDonorName("DOADOR UM");
 		this.doador1.setDonorPersonRegister("55325424149");
-		receita1.setCampanha(campanha1);
-		receita1.setValor((float) 450000.0);
-		receita1.setFormaPagamento("FORMA PAGAMENTO UM");
-		receita1.setDescricao("DESCRICAO UM");
-		receita1.setData("12/10/2006");
-		receita1.setTipoMovimentacao("TIPO MOVIMENTACAO UM");
+		receita1.setFinancialTransactionCampaign(campanha1);
+		receita1.setFinancialTransactionPrice((float) 450000.0);
+		receita1.setFinancialTransactionPaymentType("FORMA PAGAMENTO UM");
+		receita1.setFinancialTransactionDescription("DESCRICAO UM");
+		receita1.setFinancialTransactionDate("12/10/2006");
+		receita1.setFinancialTransactionType("TIPO MOVIMENTACAO UM");
 		receita1.setReciboEleitoral("RECIBO ELEITORAL UM");
-		receita1.setNumeroDocumento("NUMERO DOCUMENTO UM");
+		receita1.setFinancialTransactionDocumentNumber("NUMERO DOCUMENTO UM");
 		receita1.setDoador(doador1);
 		listaReceitas.add(receita1);
 		
@@ -74,14 +74,14 @@ public class ReceitaDAOTeste extends TemplateTeste {
 		this.campanha2.setCampaignPosition(cargo2);
 		this.doador2.setDonorName("DOADOR DOIS");
 		this.doador2.setDonorPersonRegister("55325424149");
-		receita2.setCampanha(campanha2);
-		receita2.setValor((float) 500000.0);
-		receita2.setFormaPagamento("FORMA PAGAMENTO DOIS");
-		receita2.setDescricao("DESCRICAO DOIS");
-		receita2.setData("12/10/2006");
-		receita2.setTipoMovimentacao("TIPO MOVIMENTACAO DOIS");
+		receita2.setFinancialTransactionCampaign(campanha2);
+		receita2.setFinancialTransactionPrice((float) 500000.0);
+		receita2.setFinancialTransactionPaymentType("FORMA PAGAMENTO DOIS");
+		receita2.setFinancialTransactionDescription("DESCRICAO DOIS");
+		receita2.setFinancialTransactionDate("12/10/2006");
+		receita2.setFinancialTransactionType("TIPO MOVIMENTACAO DOIS");
 		receita2.setReciboEleitoral("RECIBO ELEITORAL DOIS");
-		receita2.setNumeroDocumento("NUMERO DOCUMENTO DOIS");
+		receita2.setFinancialTransactionDocumentNumber("NUMERO DOCUMENTO DOIS");
 		receita2.setDoador(doador2);
 		listaReceitas.add(receita2);
 		
