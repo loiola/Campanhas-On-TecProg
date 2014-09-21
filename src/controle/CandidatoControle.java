@@ -3,7 +3,7 @@ package controle;
 import java.util.LinkedList;
 
 import model.beans.Candidate;
-import model.dao.CandidatoDAO;
+import model.dao.CandidateDAO;
 
 public class CandidatoControle {
 	
@@ -12,11 +12,11 @@ public class CandidatoControle {
 	 */
 
 	// Attributes
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 
 	// Constructors	
 	public CandidatoControle() {
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 	}
 	
 	// Other methods
@@ -26,7 +26,7 @@ public class CandidatoControle {
 	 * @return an LinkedList a list with all candidate with name informed
 	 */
 	public LinkedList<Candidate> getListaCandidatos(String nome) {
-		return this.candidatoDAO.getListaPeloNome(nome);
+		return this.candidateDAO.getListaPeloNome(nome);
 	}
 
 	/*
@@ -35,6 +35,6 @@ public class CandidatoControle {
 	 * @return a candidate with voter informed
 	 */
 	public Candidate getUmCandidato(String tituloEleitoral) {
-		return this.candidatoDAO.getCandidatoPeloTitulo(tituloEleitoral);
+		return this.candidateDAO.getCandidatoPeloTitulo(tituloEleitoral);
 	}
 }

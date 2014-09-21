@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 import model.beans.Candidate;
 
-public class CandidatoDAO extends BasicDAO<Candidate> {
+public class CandidateDAO extends BasicDAO<Candidate> {
 	
 	/*
 	 * Class for manipulating the data about candidates
@@ -29,7 +29,7 @@ public class CandidatoDAO extends BasicDAO<Candidate> {
 	private final String INDEX_NOME = "candidato_sk_1";
 
 	// Constructors
-	public CandidatoDAO() {
+	public CandidateDAO() {
 		super(NOME_TABELA, Comparacao.TITULO_ELEITORAL);
 	}
 
@@ -165,7 +165,7 @@ public class CandidatoDAO extends BasicDAO<Candidate> {
 				}
 			}			
 		} catch(SQLException e) {
-			throw new SQLException("CandidatoDAO - " + e.getMessage());
+			throw new SQLException("CandidateDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

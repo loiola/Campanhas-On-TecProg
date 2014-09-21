@@ -18,7 +18,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 */
 
 	//Attributes
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 	private PartidoDAO partidoDAO;
 	private CargoDAO cargoDAO;
 	private ResultadoDAO resultadoDAO;
@@ -228,7 +228,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 */
 	public ArrayList<Campaign> buscaBD(String SQL) throws SQLException {
 		ArrayList<Campaign> listaCampanha = new ArrayList<>();
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 		this.cargoDAO = new CargoDAO();
 		this.partidoDAO = new PartidoDAO();
 		this.resultadoDAO = new ResultadoDAO();
@@ -252,7 +252,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 				campaign.setCampaignTotalRevenueCalculated(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
 				campaign.setCampaignResult(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
 				campaign.setCampaignCountryState(resultadoSQL.getString(UF));
-				campaign.setCampaignCandidate(candidatoDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
+				campaign.setCampaignCandidate(candidateDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
 				if(campaign != null) {
 					listaCampanha.add(campaign);
 				}

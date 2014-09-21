@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import model.beans.Candidate;
-import model.dao.CandidatoDAO;
+import model.dao.CandidateDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,13 +14,13 @@ import controle.CandidatoControle;
 
 public class CandidatoControleTeste extends TemplateTeste {
 
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 	private CandidatoControle candidatoControle;
 
 	@Override 
 	public void beforeTest() throws Exception {
 		
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 		this.candidatoControle = new CandidatoControle();
 	}
 
@@ -51,8 +51,8 @@ public class CandidatoControleTeste extends TemplateTeste {
 		candidato3.setCandidateElectoralTitle("000002");
 		listaCandidatos.add(candidato3);
 
-		this.candidatoDAO.cadastrarLista(listaCandidatos);
-		listaCandidatosNomeComum = this.candidatoDAO.getListaPeloNome("INEXISTENTE");
+		this.candidateDAO.cadastrarLista(listaCandidatos);
+		listaCandidatosNomeComum = this.candidateDAO.getListaPeloNome("INEXISTENTE");
 		this.candidatoControle.getListaCandidatos("INEXISTENTE");
 		
 		Assert.assertEquals(listaCandidatosNomeComum, this.candidatoControle.getListaCandidatos("INEXISTENTE"));
@@ -74,8 +74,8 @@ public class CandidatoControleTeste extends TemplateTeste {
 		candidato2.setCandidateElectoralTitle("000001");
 		listaCandidatos.add(candidato2);
 		
-		this.candidatoDAO.cadastrarLista(listaCandidatos);
-		candidatoRecuperado = this.candidatoDAO.getCandidatoPeloTitulo("000000");
+		this.candidateDAO.cadastrarLista(listaCandidatos);
+		candidatoRecuperado = this.candidateDAO.getCandidatoPeloTitulo("000000");
 		this.candidatoControle.getUmCandidato("000000");
 		
 		Assert.assertEquals(candidatoRecuperado, this.candidatoControle.getUmCandidato("000000"));

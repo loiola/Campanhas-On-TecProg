@@ -9,7 +9,7 @@ import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
 import model.dao.CampaignDAO;
-import model.dao.CandidatoDAO;
+import model.dao.CandidateDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import controle.CampanhaControle;
 public class CampanhaControleTeste extends TemplateTeste {
 	
 	private CampaignDAO campaignDAO;
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 	private CampanhaControle campanhaControle;
 	private Candidate candidate;
 	private Party partido1;
@@ -35,7 +35,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campaignDAO = new CampaignDAO();
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 		this.campanhaControle = new CampanhaControle();
 		this.campanha1 = new Campaign();
 		this.partido1 = new Party();
@@ -105,7 +105,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		listaCampanhas.add(campanha2);
 		
 		this.campaignDAO.cadastrarLista(listaCampanhas);
-		this.candidatoDAO.cadastrarLista(listaCandidato);
+		this.candidateDAO.cadastrarLista(listaCandidato);
 		
 		Assert.assertEquals(this.campaignDAO.getCampanhasPeloTituloEleitoral(candidate), this.campanhaControle.getListaCampanhas(candidate));
 		Assert.assertEquals(this.campaignDAO.getCampanhasPorSiglaEAno("SGLL", "2006"), this.campanhaControle.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));

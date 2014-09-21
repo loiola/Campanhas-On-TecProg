@@ -9,7 +9,7 @@ import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
 import model.dao.CampaignDAO;
-import model.dao.CandidatoDAO;
+import model.dao.CandidateDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ import teste.TemplateTeste;
 public class CampanhaDAOTeste extends TemplateTeste {
 	
 	private CampaignDAO campaignDAO;
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 	private Result resultado1;
 	private Position position;
 	private Party partido1;
@@ -33,7 +33,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campaignDAO = new CampaignDAO();
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 		this.resultado1 = new Result();
 		this.position = new Position();
 		this.partido1 = new Party();
@@ -94,7 +94,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		listaCampanhas.add(camp2);
 		listaCandidato.add(candidato2);
 		
-		this.candidatoDAO.cadastrarLista(listaCandidato);				
+		this.candidateDAO.cadastrarLista(listaCandidato);				
 		this.campaignDAO.cadastrarLista(listaCampanhas);
 	}
 	

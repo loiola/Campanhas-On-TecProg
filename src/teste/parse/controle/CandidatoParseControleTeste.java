@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Candidate;
-import model.dao.CandidatoDAO;
+import model.dao.CandidateDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	public static final int TITULO_ELEITORAL = 1;
 	
 	private String campo[];
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 	private CandidatoIndicesParse candidatoIndicesParse;
 	private CandidatoParseControle candidatoParseControle;
 	
@@ -24,7 +24,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[2];
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 		this.candidatoIndicesParse = new CandidatoIndicesParse();
 		this.candidatoParseControle = new CandidatoParseControle(this.candidatoIndicesParse);
 		
@@ -44,7 +44,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		this.candidatoParseControle.cadastrarInstancias();
 		this.candidatoParseControle.resetar();
 		
-		Candidate candidatoCadastrado = this.candidatoDAO.getLista().get(0);
+		Candidate candidatoCadastrado = this.candidateDAO.getLista().get(0);
 		
 		Assert.assertEquals(this.campo[NOME], candidatoCadastrado.getCandidateName());
 		Assert.assertEquals(this.campo[TITULO_ELEITORAL],candidatoCadastrado.getCandidateElectoralTitle());
@@ -58,7 +58,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		this.candidatoParseControle.cadastrarInstancias();
 		this.candidatoParseControle.resetar();
 		
-		int numeroCandidatosCadastrados = this.candidatoDAO.getLista().size();
+		int numeroCandidatosCadastrados = this.candidateDAO.getLista().size();
 		
 		Assert.assertEquals(1, numeroCandidatosCadastrados);
 	}

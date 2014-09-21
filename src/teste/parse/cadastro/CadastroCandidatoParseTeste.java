@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 
 import model.beans.Candidate;
-import model.dao.CandidatoDAO;
+import model.dao.CandidateDAO;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ import teste.TemplateTeste;
 public class CadastroCandidatoParseTeste extends TemplateTeste {
 
 	private CadastroCandidatoParse cadastro;
-	private CandidatoDAO candidatoDAO;
+	private CandidateDAO candidateDAO;
 	String  tipoArquivo = "campanha";
 	String  ano         = "2006";
 	
@@ -24,7 +24,7 @@ public class CadastroCandidatoParseTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.cadastro = new CadastroCandidatoParse(this.tipoArquivo, this.ano);	
-		this.candidatoDAO = new CandidatoDAO();
+		this.candidateDAO = new CandidateDAO();
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class CadastroCandidatoParseTeste extends TemplateTeste {
 		cadastro.executarLinhaDoArquivo(campo);
 		cadastro.cadastrarInstancias();
 		
-		Candidate candidate = this.candidatoDAO.getCandidatoPeloTitulo("55325424149");
+		Candidate candidate = this.candidateDAO.getCandidatoPeloTitulo("55325424149");
 		assertEquals(candidate.getCandidateElectoralTitle(), "55325424149");
 	}
 
