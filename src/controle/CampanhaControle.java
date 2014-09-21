@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import model.beans.Campaign;
 import model.beans.Candidate;
-import model.dao.CampanhaDAO;
+import model.dao.CampaignDAO;
 
 public class CampanhaControle {
 	
@@ -13,11 +13,11 @@ public class CampanhaControle {
 	 */
 
 	// Attributes
-	private CampanhaDAO campanhaDAO;
+	private CampaignDAO campaignDAO;
 
 	// Constructors	
 	public CampanhaControle() {
-		this.campanhaDAO = new CampanhaDAO();
+		this.campaignDAO = new CampaignDAO();
 	}
 	
 	// Other methods
@@ -27,7 +27,7 @@ public class CampanhaControle {
 	 * @return an ArrayList of candidates for voter registration
 	 */
 	public ArrayList<Campaign> getListaCampanhas(Candidate candidate) throws SQLException {
-		return this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidate);
+		return this.campaignDAO.getCampanhasPeloTituloEleitoral(candidate);
 	}
 	
 	/*
@@ -36,7 +36,7 @@ public class CampanhaControle {
 	 * @return an ArrayLista the political party with the abbreviation of the party and year informed
 	 */
 	public ArrayList<Campaign> getListaCampanhasPorSiglaPartidoEAno(String sigla, String ano) throws SQLException{
-		return this.campanhaDAO.getCampanhasPorSiglaEAno(sigla,ano);
+		return this.campaignDAO.getCampanhasPorSiglaEAno(sigla,ano);
 	}
 	
 	/*
@@ -45,7 +45,7 @@ public class CampanhaControle {
 	 * @return an ArrayLista with the highest values ​​for the position and informed year
 	 */
 	public ArrayList<Campaign> topFivePorCargoEAno(String cargo, Integer ano) throws SQLException{
-		return this.campanhaDAO.TopFive(cargo, ano);
+		return this.campaignDAO.TopFive(cargo, ano);
 	}
 
 	/*
@@ -54,6 +54,6 @@ public class CampanhaControle {
 	 * @return a campaign
 	 */
 	public Campaign getPeloAnoNumeroCodCargoEUf(Campaign campaign) throws SQLException {
-		return this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campaign);
+		return this.campaignDAO.getPeloAnoNumeroCodCargoEUf(campaign);
 	}
 }

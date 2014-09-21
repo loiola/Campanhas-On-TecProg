@@ -8,7 +8,7 @@ import model.beans.Candidate;
 import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
-import model.dao.CampanhaDAO;
+import model.dao.CampaignDAO;
 import model.dao.CandidatoDAO;
 
 import org.junit.Assert;
@@ -18,7 +18,7 @@ import controle.CampanhaControle;
 
 public class CampanhaControleTeste extends TemplateTeste {
 	
-	private CampanhaDAO campanhaDAO;
+	private CampaignDAO campaignDAO;
 	private CandidatoDAO candidatoDAO;
 	private CampanhaControle campanhaControle;
 	private Candidate candidate;
@@ -34,7 +34,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.campanhaDAO = new CampanhaDAO();
+		this.campaignDAO = new CampaignDAO();
 		this.candidatoDAO = new CandidatoDAO();
 		this.campanhaControle = new CampanhaControle();
 		this.campanha1 = new Campaign();
@@ -104,13 +104,13 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha2.setCampaignTotalRevenueCalculated((float) 450000.0);
 		listaCampanhas.add(campanha2);
 		
-		this.campanhaDAO.cadastrarLista(listaCampanhas);
+		this.campaignDAO.cadastrarLista(listaCampanhas);
 		this.candidatoDAO.cadastrarLista(listaCandidato);
 		
-		Assert.assertEquals(this.campanhaDAO.getCampanhasPeloTituloEleitoral(candidate), this.campanhaControle.getListaCampanhas(candidate));
-		Assert.assertEquals(this.campanhaDAO.getCampanhasPorSiglaEAno("SGLL", "2006"), this.campanhaControle.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));
-		Assert.assertEquals(this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha1));
-		Assert.assertNotEquals(this.campanhaDAO.getPeloAnoNumeroCodCargoEUf(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha2));
+		Assert.assertEquals(this.campaignDAO.getCampanhasPeloTituloEleitoral(candidate), this.campanhaControle.getListaCampanhas(candidate));
+		Assert.assertEquals(this.campaignDAO.getCampanhasPorSiglaEAno("SGLL", "2006"), this.campanhaControle.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));
+		Assert.assertEquals(this.campaignDAO.getPeloAnoNumeroCodCargoEUf(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha1));
+		Assert.assertNotEquals(this.campaignDAO.getPeloAnoNumeroCodCargoEUf(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha2));
 	}
 
 }

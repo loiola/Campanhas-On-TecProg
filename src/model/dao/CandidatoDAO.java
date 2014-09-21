@@ -16,7 +16,7 @@ public class CandidatoDAO extends BasicDAO<Candidate> {
 	 */
 	
 	// Attributes
-	private CampanhaDAO campanhaDAO;
+	private CampaignDAO campaignDAO;
 
 	// Constants
 	private static final String NOME_TABELA = "candidato";
@@ -123,13 +123,13 @@ public class CandidatoDAO extends BasicDAO<Candidate> {
 	 * @return a LinkedList<Candidate>
 	 */
 	public LinkedList<Candidate> getListaPeloNome(String nome) {
-		this.campanhaDAO = new CampanhaDAO();
+		this.campaignDAO = new CampaignDAO();
 
 		LinkedList<Candidate> listaCandidato = new LinkedList<>();
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_NOME + ")"
 				+ " WHERE " + NOME + " LIKE '%" + nome + "%' "
 				+ " OR "
-				+ TITULO_ELEITORAL + " IN (" + this.campanhaDAO.getSqlSelectNomeUrna(nome)
+				+ TITULO_ELEITORAL + " IN (" + this.campaignDAO.getSqlSelectNomeUrna(nome)
 				+ ")";
 		
 		try {

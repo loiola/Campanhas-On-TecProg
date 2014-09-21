@@ -11,7 +11,7 @@ import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
 
-public class CampanhaDAO extends BasicDAO<Campaign> {
+public class CampaignDAO extends BasicDAO<Campaign> {
 	
 	/*
 	 * Class for manipulating the data about election campaigns
@@ -51,7 +51,7 @@ public class CampanhaDAO extends BasicDAO<Campaign> {
 	private final String INDEX_ANO = "campanha_sk_1";
 
 	// Constructors
-	public CampanhaDAO() {
+	public CampaignDAO() {
 		super(NOME_TABELA, null);
 	}
 
@@ -258,7 +258,7 @@ public class CampanhaDAO extends BasicDAO<Campaign> {
 				}
 			}
 		} catch(SQLException e) {
-			throw new SQLException("CampanhaDAO - " + e.getMessage());
+			throw new SQLException("CampaignDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

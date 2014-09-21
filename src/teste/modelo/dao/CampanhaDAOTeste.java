@@ -8,7 +8,7 @@ import model.beans.Candidate;
 import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
-import model.dao.CampanhaDAO;
+import model.dao.CampaignDAO;
 import model.dao.CandidatoDAO;
 
 import org.junit.Assert;
@@ -18,7 +18,7 @@ import teste.TemplateTeste;
 
 public class CampanhaDAOTeste extends TemplateTeste {
 	
-	private CampanhaDAO campanhaDAO;
+	private CampaignDAO campaignDAO;
 	private CandidatoDAO candidatoDAO;
 	private Result resultado1;
 	private Position position;
@@ -32,7 +32,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.campanhaDAO = new CampanhaDAO();
+		this.campaignDAO = new CampaignDAO();
 		this.candidatoDAO = new CandidatoDAO();
 		this.resultado1 = new Result();
 		this.position = new Position();
@@ -95,19 +95,19 @@ public class CampanhaDAOTeste extends TemplateTeste {
 		listaCandidato.add(candidato2);
 		
 		this.candidatoDAO.cadastrarLista(listaCandidato);				
-		this.campanhaDAO.cadastrarLista(listaCampanhas);
+		this.campaignDAO.cadastrarLista(listaCampanhas);
 	}
 	
 	@Test
 	public void deveVerificarSeOTopFiveEstaOrdenado() throws SQLException {	
 		
-		Assert.assertEquals(listaCampanhas, this.campanhaDAO.getLista());
+		Assert.assertEquals(listaCampanhas, this.campaignDAO.getLista());
 	}
 	
 	@Test
 	public void deveListarCandidatosPorOrdemDeDespesa() throws Exception {
 		
-		ArrayList<Campaign> listaTop1= this.campanhaDAO.TopFive("presidente",2006);
+		ArrayList<Campaign> listaTop1= this.campaignDAO.TopFive("presidente",2006);
 		Assert.assertTrue(listaTop1.get(0).getCampaignMaximumExpenseDeclared() >= listaTop1.get(1).getCampaignMaximumExpenseDeclared());
 		
 		//ArrayList<Campaign> listaTop2 = this.campanhaDAO.TopFive("senador",2010);

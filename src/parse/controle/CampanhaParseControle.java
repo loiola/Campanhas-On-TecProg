@@ -3,7 +3,7 @@ package parse.controle;
 import java.util.ArrayList;
 
 import model.beans.Campaign;
-import model.dao.CampanhaDAO;
+import model.dao.CampaignDAO;
 import parse.ParseException;
 import parse.indices.IndicesParse;
 
@@ -15,7 +15,7 @@ public class CampanhaParseControle extends ParseControle<Campaign> {
 
 	// Constructors
 	public CampanhaParseControle(IndicesParse<Campaign> indicesParse) {
-		super(indicesParse, new CampanhaDAO());
+		super(indicesParse, new CampaignDAO());
 	}
 
 	/*
