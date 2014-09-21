@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Result;
-import model.dao.ResultadoDAO;
+import model.dao.ResultDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,12 +13,12 @@ import teste.TemplateTeste;
 
 public class ResultadoDAOTeste extends TemplateTeste {
 
-	private ResultadoDAO dao;
+	private ResultDAO dao;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.dao = new ResultadoDAO();
+		this.dao = new ResultDAO();
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class ResultadoDAOTeste extends TemplateTeste {
 		r2.setResultType(2);
 		int resultado;
 
-		resultado = ResultadoDAO.Comparacao.CODIGO.compare(r1, r2);
+		resultado = ResultDAO.Comparacao.CODIGO.compare(r1, r2);
 		
 		Assert.assertNotEquals(0,resultado);
 	}

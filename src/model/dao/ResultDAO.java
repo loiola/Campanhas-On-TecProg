@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Result;
 import parse.ParseDAO;
 
-public class ResultadoDAO extends BasicDAO<Result> implements ParseDAO<Result> {
+public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 
 	/*
 	 * Class for manipulating the data about political result
@@ -25,7 +25,7 @@ public class ResultadoDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	private static final String SQL_SELECAO = "SELECT * FROM " + NOME_TABELA;
 	
 	// Constructors
-	public ResultadoDAO() {
+	public ResultDAO() {
 		super(NOME_TABELA, Comparacao.CODIGO);
 	}
 
@@ -112,7 +112,7 @@ public class ResultadoDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 			}
 
 		} catch(SQLException e) {
-			throw new SQLException("ResultadoDAO - " + e.getMessage());
+			throw new SQLException("ResultDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

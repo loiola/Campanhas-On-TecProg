@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.SQLException;
 
 import model.beans.Result;
-import model.dao.ResultadoDAO;
+import model.dao.ResultDAO;
 
 import org.junit.Test;
 
@@ -16,7 +16,7 @@ import teste.TemplateTeste;
 public class CadastroResultadoParseTeste extends TemplateTeste {
 	
 	private CadastroResultadoParse cadastro;
-	private ResultadoDAO dao;
+	private ResultDAO dao;
 	String  tipoArquivo = "campanha";
 	String  ano         = "2006";
 	
@@ -24,7 +24,7 @@ public class CadastroResultadoParseTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.cadastro = new CadastroResultadoParse(this.tipoArquivo, this.ano);	
-		this.dao = new ResultadoDAO();
+		this.dao = new ResultDAO();
 	}
 
 	@Override

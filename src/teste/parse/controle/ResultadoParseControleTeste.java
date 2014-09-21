@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Result;
-import model.dao.ResultadoDAO;
+import model.dao.ResultDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,14 +16,14 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	public static final int DESCRICAO = 1;
 	
 	private String campo[];
-	private ResultadoDAO resultadoDAO;
+	private ResultDAO resultDAO;
 	private ResultadoIndicesParse resultadoIndicesParse;
 	private ResultadoParseControle resultadoParseControle;
 
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[2];
-		this.resultadoDAO = new ResultadoDAO();
+		this.resultDAO = new ResultDAO();
 		this.resultadoIndicesParse = new ResultadoIndicesParse();
 		this.resultadoParseControle = new ResultadoParseControle(this.resultadoIndicesParse);
 		
@@ -43,7 +43,7 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 		this.resultadoParseControle.cadastrarInstancias();
 		this.resultadoParseControle.resetar();
 		
-		Result resultadoCadastrado = this.resultadoDAO.getLista().get(0);
+		Result resultadoCadastrado = this.resultDAO.getLista().get(0);
 				
 		Assert.assertEquals(this.campo[CODIGO], resultadoCadastrado.getResultType().toString());
 		Assert.assertEquals(this.campo[DESCRICAO], resultadoCadastrado.getResultDescription());

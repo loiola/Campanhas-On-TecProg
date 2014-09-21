@@ -21,7 +21,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	private CandidateDAO candidateDAO;
 	private PartyDAO partyDAO;
 	private PositionDAO positionDAO;
-	private ResultadoDAO resultadoDAO;
+	private ResultDAO resultDAO;
 
 	// Constants
 	private static final String NOME_TABELA = "campanha";
@@ -231,7 +231,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		this.candidateDAO = new CandidateDAO();
 		this.positionDAO = new PositionDAO();
 		this.partyDAO = new PartyDAO();
-		this.resultadoDAO = new ResultadoDAO();
+		this.resultDAO = new ResultDAO();
 
 		try {
 			this.conexao = new DatabaseConnection().getConexao();
@@ -250,7 +250,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(NUM_CANDIDATO));
 				campaign.setCampaignParty(partyDAO.getPeloNumero(resultadoSQL.getString(NUMERO_PARTIDO)));
 				campaign.setCampaignTotalRevenueCalculated(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
-				campaign.setCampaignResult(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
+				campaign.setCampaignResult(resultDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
 				campaign.setCampaignCountryState(resultadoSQL.getString(UF));
 				campaign.setCampaignCandidate(candidateDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
 				if(campaign != null) {
