@@ -8,139 +8,139 @@ public class Campaign {
  	 */
 	
 	// Constants
-	public static final String STRING_VAZIO = "";
-	public static final Integer INTEGER_VAZIO = 0;
-	public static final Result RESULTADO_VAZIO = new Result();
-	public static final Party PARTIDO_VAZIO = new Party();
-	public static final Position CARGO_VAZIO = new Position();
-	public static final Candidate CANDIDATO_VAZIO = new Candidate(); 
-	public static final float FLOAT_VAZIO = (float) 0.0;
+	public static final String EMPTY_TYPE_STRING = "";
+	public static final Integer EMPTY_TYPE_INTEGER = 0;
+	public static final Result EMPTY_CLASS_RESULT = new Result();
+	public static final Party EMPTY_CLASS_PARTY = new Party();
+	public static final Position EMPTY_CLASS_POSITION = new Position();
+	public static final Candidate EMPTY_CLASS_CANDIDATE = new Candidate(); 
+	public static final float EMPTY_TYPE_FLOAT = (float) 0.0;
 	
 	// Attributes
-	private Integer id;
-	private Result result;
-	private Position position;
-	private Party party;
-	private Candidate candidate;
-	private Integer ano;
-	private Integer numeroCandidato;
-	private String nomeDeUrna;
-	private String uf;
-	private Float despesaMaxDeclarada;
-	private Float despesaTotalCalculada;
-	private Float receitaTotalCalculada;
+	private Integer campaignIdentifier;
+	private Result campaignResult;
+	private Position campaignPosition;
+	private Party campaignParty;
+	private Candidate campaignCandidate;
+	private Integer campaignYear;
+	private Integer campaignCandidateNumber;
+	private String campaignNameOfUrn;
+	private String campaignCountryState;
+	private Float campaignMaximumExpenseDeclared;
+	private Float campaignTotalExpenseCalculated;
+	private Float campaignTotalRevenueCalculated;
 	
 	// Empty constructor
 	public Campaign() {
-		this.id = INTEGER_VAZIO;
-		this.result = RESULTADO_VAZIO;
-		this.position = CARGO_VAZIO;
-		this.party = PARTIDO_VAZIO;
-		this.candidate = CANDIDATO_VAZIO;
-		this.ano = INTEGER_VAZIO;
-		this.numeroCandidato = INTEGER_VAZIO;
-		this.nomeDeUrna = STRING_VAZIO;
-		this.uf = STRING_VAZIO;
-		this.despesaMaxDeclarada = FLOAT_VAZIO;
-		this.despesaTotalCalculada = FLOAT_VAZIO;
-		this.receitaTotalCalculada = FLOAT_VAZIO;
+		this.campaignIdentifier = EMPTY_TYPE_INTEGER;
+		this.campaignResult = EMPTY_CLASS_RESULT;
+		this.campaignPosition = EMPTY_CLASS_POSITION;
+		this.campaignParty = EMPTY_CLASS_PARTY;
+		this.campaignCandidate = EMPTY_CLASS_CANDIDATE;
+		this.campaignYear = EMPTY_TYPE_INTEGER;
+		this.campaignCandidateNumber = EMPTY_TYPE_INTEGER;
+		this.campaignNameOfUrn = EMPTY_TYPE_STRING;
+		this.campaignCountryState = EMPTY_TYPE_STRING;
+		this.campaignMaximumExpenseDeclared = EMPTY_TYPE_FLOAT;
+		this.campaignTotalExpenseCalculated = EMPTY_TYPE_FLOAT;
+		this.campaignTotalRevenueCalculated = EMPTY_TYPE_FLOAT;
 	}
 	
 	// Getters and Setters
 	public Integer getId() {
-		return id;
+		return campaignIdentifier;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.campaignIdentifier = id;
 	}
 
 	public Result getResultado() {
-		return result;
+		return campaignResult;
 	}
 
 	public void setResultado(Result result) {
-		this.result = result;
+		this.campaignResult = result;
 	}
 
 	public Position getCargo() {
-		return position;
+		return campaignPosition;
 	}
 
 	public void setCargo(Position position) {
-		this.position = position;
+		this.campaignPosition = position;
 	}
 
 	public Party getPartido() {
-		return party;
+		return campaignParty;
 	}
 
 	public void setPartido(Party party) {
-		this.party = party;
+		this.campaignParty = party;
 	}
 
 	public Candidate getCandidato() {
-		return candidate;
+		return campaignCandidate;
 	}
 
 	public void setCandidato(Candidate candidate) {
-		this.candidate = candidate;
+		this.campaignCandidate = candidate;
 	}
 
 	public Integer getAno() {
-		return ano;
+		return campaignYear;
 	}
 
 	public void setAno(Integer ano) {
-		this.ano = ano;
+		this.campaignYear = ano;
 	}
 
 	public Integer getNumeroCandidato() {
-		return numeroCandidato;
+		return campaignCandidateNumber;
 	}
 
 	public void setNumeroCandidato(Integer numeroCandidato) {
-		this.numeroCandidato = numeroCandidato;
+		this.campaignCandidateNumber = numeroCandidato;
 	}
 
 	public String getNomeDeUrna() {
-		return nomeDeUrna;
+		return campaignNameOfUrn;
 	}
 
 	public void setNomeDeUrna(String nomeDeUrna) {
-		this.nomeDeUrna = nomeDeUrna;
+		this.campaignNameOfUrn = nomeDeUrna;
 	}
 
 	public String getUf() {
-		return uf;
+		return campaignCountryState;
 	}
 
 	public void setUf(String uf) {
-		this.uf = uf;
+		this.campaignCountryState = uf;
 	}
 
 	public Float getDespesaMaxDeclarada() {
-		return despesaMaxDeclarada;
+		return campaignMaximumExpenseDeclared;
 	}
 
 	public void setDespesaMaxDeclarada(Float despesaMaxDeclarada) {
-		this.despesaMaxDeclarada = despesaMaxDeclarada;
+		this.campaignMaximumExpenseDeclared = despesaMaxDeclarada;
 	}
 
 	public Float getDespesaTotalCalculada() {
-		return despesaTotalCalculada;
+		return campaignTotalExpenseCalculated;
 	}
 
 	public void setDespesaTotalCalculada(Float despesaTotalCalculada) {
-		this.despesaTotalCalculada = despesaTotalCalculada;
+		this.campaignTotalExpenseCalculated = despesaTotalCalculada;
 	}
 
 	public Float getReceitaTotalCalculada() {
-		return receitaTotalCalculada;
+		return campaignTotalRevenueCalculated;
 	}
 
 	public void setReceitaTotalCalculada(Float receitaTotalCalculada) {
-		this.receitaTotalCalculada = receitaTotalCalculada;
+		this.campaignTotalRevenueCalculated = receitaTotalCalculada;
 	}
 	
 	
@@ -151,10 +151,10 @@ public class Campaign {
 		else
 		{
 			Campaign outraCampanha = (Campaign) object;
-			return this.ano.equals(outraCampanha.getAno()) &&
-				   this.numeroCandidato.equals(outraCampanha.getNumeroCandidato()) &&
-				   this.position.equals(outraCampanha.getCargo()) &&
-				   this.nomeDeUrna.equals(outraCampanha.getNomeDeUrna());
+			return this.campaignYear.equals(outraCampanha.getAno()) &&
+				   this.campaignCandidateNumber.equals(outraCampanha.getNumeroCandidato()) &&
+				   this.campaignPosition.equals(outraCampanha.getCargo()) &&
+				   this.campaignNameOfUrn.equals(outraCampanha.getNomeDeUrna());
 		}
 
 	}

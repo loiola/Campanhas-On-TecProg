@@ -34,10 +34,10 @@ public class MovimentacaoControle {
 
 		ArrayList<Revenue> listaReceita = new ArrayList<>();
 		
-		if((campaign.getCargo().getDescricao().equals(Campaign.STRING_VAZIO)) 
-				|| (campaign.getAno().equals(Campaign.INTEGER_VAZIO)) 
-				|| (campaign.getNumeroCandidato()).equals(Campaign.INTEGER_VAZIO)
-				|| (campaign.getUf()).equals(Campaign.STRING_VAZIO)) {
+		if((campaign.getCargo().getDescricao().equals(Campaign.EMPTY_TYPE_STRING)) 
+				|| (campaign.getAno().equals(Campaign.EMPTY_TYPE_INTEGER)) 
+				|| (campaign.getNumeroCandidato()).equals(Campaign.EMPTY_TYPE_INTEGER)
+				|| (campaign.getUf()).equals(Campaign.EMPTY_TYPE_STRING)) {
 			listaReceita =  null;
 			
 		} else {
@@ -60,10 +60,10 @@ public class MovimentacaoControle {
 		
 		ArrayList<Expense> listaDespesa = new ArrayList<>();
 		
-		if((campaign.getCargo().getDescricao().equals(Campaign.STRING_VAZIO)) 
-				|| (campaign.getAno().equals(Campaign.INTEGER_VAZIO)) 
-				|| (campaign.getNumeroCandidato()).equals(Campaign.INTEGER_VAZIO)
-				|| (campaign.getUf()).equals(Campaign.STRING_VAZIO)) {
+		if((campaign.getCargo().getDescricao().equals(Campaign.EMPTY_TYPE_STRING)) 
+				|| (campaign.getAno().equals(Campaign.EMPTY_TYPE_INTEGER)) 
+				|| (campaign.getNumeroCandidato()).equals(Campaign.EMPTY_TYPE_INTEGER)
+				|| (campaign.getUf()).equals(Campaign.EMPTY_TYPE_STRING)) {
 			listaDespesa =  null;
 		} else {
 			listaDespesa =  this.despesaDAO.getPorAnoNumeroCargoUf(campaign);

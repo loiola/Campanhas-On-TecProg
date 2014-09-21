@@ -88,18 +88,18 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Campaign campaign) {
-		campaign.setId(Campaign.INTEGER_VAZIO);
-		campaign.setResultado(Campaign.RESULTADO_VAZIO);	
-		campaign.setCargo(Campaign.CARGO_VAZIO);	
-		campaign.setPartido(Campaign.PARTIDO_VAZIO);	
-		campaign.setCandidato(Campaign.CANDIDATO_VAZIO);	
-		campaign.setAno(Campaign.INTEGER_VAZIO);	
-		campaign.setNumeroCandidato(Campaign.INTEGER_VAZIO);	
-		campaign.setNomeDeUrna(Campaign.STRING_VAZIO);	
-		campaign.setUf(Campaign.STRING_VAZIO);	
-		campaign.setDespesaMaxDeclarada(Campaign.FLOAT_VAZIO);	
-		campaign.setDespesaTotalCalculada(Campaign.FLOAT_VAZIO);	
-		campaign.setReceitaTotalCalculada(Campaign.FLOAT_VAZIO);	
+		campaign.setId(Campaign.EMPTY_TYPE_INTEGER);
+		campaign.setResultado(Campaign.EMPTY_CLASS_RESULT);	
+		campaign.setCargo(Campaign.EMPTY_CLASS_POSITION);	
+		campaign.setPartido(Campaign.EMPTY_CLASS_PARTY);	
+		campaign.setCandidato(Campaign.EMPTY_CLASS_CANDIDATE);	
+		campaign.setAno(Campaign.EMPTY_TYPE_INTEGER);	
+		campaign.setNumeroCandidato(Campaign.EMPTY_TYPE_INTEGER);	
+		campaign.setNomeDeUrna(Campaign.EMPTY_TYPE_STRING);	
+		campaign.setUf(Campaign.EMPTY_TYPE_STRING);	
+		campaign.setDespesaMaxDeclarada(Campaign.EMPTY_TYPE_FLOAT);	
+		campaign.setDespesaTotalCalculada(Campaign.EMPTY_TYPE_FLOAT);	
+		campaign.setReceitaTotalCalculada(Campaign.EMPTY_TYPE_FLOAT);	
 	}
 
 	// Mutators for indexes of the array of fields
