@@ -11,7 +11,7 @@ import model.beans.Position;
 import model.beans.Supplier;
 import parse.ParseDAO;
 
-public class DespesaDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
+public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	
 	/*
 	 * Class for manipulating the data about expenses
@@ -47,7 +47,7 @@ public class DespesaDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	
 
 	// Constructors
-	public DespesaDAO() {
+	public ExpenseDAO() {
 		super(NOME_TABELA, null);
 	}
 
@@ -210,7 +210,7 @@ public class DespesaDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 			}
 
 		}  catch(SQLException e) {
-			throw new SQLException("DespesaDAO - " + e.getMessage());
+			throw new SQLException("ExpenseDAO - " + e.getMessage());
 		} finally {
 			fecharConexao();
 		}

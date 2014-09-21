@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.beans.Expense;
-import model.dao.DespesaDAO;
+import model.dao.ExpenseDAO;
 
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 	private CadastroDespesaParse cadastro1;
 	private CadastroDespesaParse cadastro2;
 	private CadastroDespesaParse cadastro3;
-	private DespesaDAO despesaDAO;
+	private ExpenseDAO expenseDAO;
 	String  tipoArquivo = "expense";
 	String  ano1         = "2006";
 	String  ano2         = "2002";
@@ -33,7 +33,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		this.cadastro1 = new CadastroDespesaParse(this.tipoArquivo, this.ano1);
 		this.cadastro2 = new CadastroDespesaParse(this.tipoArquivo, this.ano2);
 		this.cadastro3 = new CadastroDespesaParse(this.tipoArquivo, this.ano3);
-		this.despesaDAO = new DespesaDAO();
+		this.expenseDAO = new ExpenseDAO();
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro1.executarLinhaDoArquivo(campo);
 		cadastro1.cadastrarInstancias();
 		
-		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
+		ArrayList<Expense> listaDespesa = expenseDAO.getLista();
 		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
 	}
 	
@@ -78,7 +78,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro2.executarLinhaDoArquivo(campo);
 		cadastro2.cadastrarInstancias();
 		
-		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
+		ArrayList<Expense> listaDespesa = expenseDAO.getLista();
 		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
 	}
 	
@@ -102,7 +102,7 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		cadastro3.executarLinhaDoArquivo(campo);
 		cadastro3.cadastrarInstancias();
 		
-		ArrayList<Expense> listaDespesa = despesaDAO.getLista();
+		ArrayList<Expense> listaDespesa = expenseDAO.getLista();
 		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
 	}
 

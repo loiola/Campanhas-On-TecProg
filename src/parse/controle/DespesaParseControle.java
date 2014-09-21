@@ -1,7 +1,7 @@
 package parse.controle;
 
 import model.beans.Expense;
-import model.dao.DespesaDAO;
+import model.dao.ExpenseDAO;
 import parse.indices.IndicesParse;
 
 public class DespesaParseControle extends ParseControle<Expense> {
@@ -12,7 +12,7 @@ public class DespesaParseControle extends ParseControle<Expense> {
 
 	// Constructors
 	public DespesaParseControle(IndicesParse<Expense> indicesParse) {
-		super(indicesParse, new DespesaDAO());
+		super(indicesParse, new ExpenseDAO());
 	}
 
 	/*

@@ -9,7 +9,7 @@ import model.beans.Expense;
 import model.beans.Position;
 import model.beans.Revenue;
 import model.beans.Supplier;
-import model.dao.DespesaDAO;
+import model.dao.ExpenseDAO;
 import model.dao.ReceitaDAO;
 
 import org.junit.Assert;
@@ -19,7 +19,7 @@ import controle.MovimentacaoControle;
 
 public class MovimentacaoControleTeste extends TemplateTeste {
 
-	private DespesaDAO despesaDAO;
+	private ExpenseDAO expenseDAO;
 	private ReceitaDAO receitaDAO;
 	private MovimentacaoControle movimentacaoControle;
 	private Candidate candidate;
@@ -36,7 +36,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.despesaDAO = new DespesaDAO();
+		this.expenseDAO = new ExpenseDAO();
 		this.receitaDAO = new ReceitaDAO();
 		this.movimentacaoControle = new MovimentacaoControle();
 		this.candidate = new Candidate();
@@ -79,7 +79,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		expense.setExpenseSupplier(supplier);
 		listaDespesa.add(expense);
 		
-		this.despesaDAO.cadastrarLista(listaDespesa);
+		this.expenseDAO.cadastrarLista(listaDespesa);
 		this.receitaDAO.cadastrarLista(listaReceita);
 	}
 
@@ -92,7 +92,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	public void deveRetornarUmaMovimentacaoPeloId() throws Exception {
 		
 		Assert.assertEquals(this.receitaDAO.getPeloId(3).getFinancialTransactionPrice(), this.movimentacaoControle.getReceitaPeloId(3).getFinancialTransactionPrice());
-		Assert.assertEquals(this.despesaDAO.getPeloId(5).getFinancialTransactionPrice(), this.movimentacaoControle.getDespesaPeloId(5).getFinancialTransactionPrice());
+		Assert.assertEquals(this.expenseDAO.getPeloId(5).getFinancialTransactionPrice(), this.movimentacaoControle.getDespesaPeloId(5).getFinancialTransactionPrice());
 	}
 	
 	
@@ -116,7 +116,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 		
 		campanhaTeste.setCampaignCountryState(this.uf);
-		Assert.assertEquals(this.despesaDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaDespesas(campanhaTeste).size());
+		Assert.assertEquals(this.expenseDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaDespesas(campanhaTeste).size());
 		Assert.assertEquals(this.receitaDAO.getPorAnoNumeroCargoUf(campanhaTeste).size(),this.movimentacaoControle.getListaReceitas(campanhaTeste).size());
 	}
 

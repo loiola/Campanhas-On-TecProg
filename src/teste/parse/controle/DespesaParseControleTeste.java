@@ -1,7 +1,7 @@
 package teste.parse.controle;
 
 import model.beans.Expense;
-import model.dao.DespesaDAO;
+import model.dao.ExpenseDAO;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,14 +19,14 @@ public class DespesaParseControleTeste extends TemplateTeste {
 	
 
 	private String campo[];
-	private DespesaDAO despesaDAO;
+	private ExpenseDAO expenseDAO;
 	private DespesaIndicesParse despesaIndicesParse;
 	private DespesaParseControle despesaParseControle;
 
 	@Override
 	public void beforeTest() throws Exception {
 		this.campo = new String[3];
-		this.despesaDAO = new DespesaDAO();
+		this.expenseDAO = new ExpenseDAO();
 		this.despesaIndicesParse = new DespesaIndicesParse(ANO);
 		this.despesaParseControle = new DespesaParseControle(this.despesaIndicesParse);
 
@@ -46,7 +46,7 @@ public class DespesaParseControleTeste extends TemplateTeste {
 		this.despesaParseControle.cadastrarInstancias();
 		this.despesaParseControle.resetar();
 
-		Expense despesaCadastrado = this.despesaDAO.getLista().get(0);
+		Expense despesaCadastrado = this.expenseDAO.getLista().get(0);
 
 		Assert.assertEquals(this.campo[TIPODOCUMENTO], despesaCadastrado.getExpenseDocumentType()
 				.toString());

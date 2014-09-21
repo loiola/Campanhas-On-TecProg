@@ -6,7 +6,7 @@ import java.util.List;
 import model.beans.Campaign;
 import model.beans.Expense;
 import model.beans.Revenue;
-import model.dao.DespesaDAO;
+import model.dao.ExpenseDAO;
 import model.dao.ReceitaDAO;
 
 public class MovimentacaoControle {
@@ -16,12 +16,12 @@ public class MovimentacaoControle {
 	 */
 
 	// Attributes
-	DespesaDAO despesaDAO;
+	ExpenseDAO expenseDAO;
 	ReceitaDAO receitaDAO;
 	
 	// Constructors
 	public MovimentacaoControle(){
-		this.despesaDAO = new DespesaDAO();
+		this.expenseDAO = new ExpenseDAO();
 		this.receitaDAO = new ReceitaDAO();
 	}
 
@@ -67,7 +67,7 @@ public class MovimentacaoControle {
 				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
 			listaDespesa =  null;
 		} else {
-			listaDespesa =  this.despesaDAO.getPorAnoNumeroCargoUf(campaign);
+			listaDespesa =  this.expenseDAO.getPorAnoNumeroCargoUf(campaign);
 		}
 		return listaDespesa;
 	}
@@ -87,6 +87,6 @@ public class MovimentacaoControle {
 	 * @return the reported expense
 	 */
 	public Expense getDespesaPeloId(int id) throws Exception {
-		return this.despesaDAO.getPeloId(id);
+		return this.expenseDAO.getPeloId(id);
 	}
 }
