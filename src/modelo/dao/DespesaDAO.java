@@ -91,7 +91,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			instrucaoSQL.setString(10, expense.getNumeroDocumento());
 			instrucaoSQL.setString(11, expense.getFornecedor().getNome());
 			instrucaoSQL.setString(12, expense.getFornecedor().getCpf_cnpj());
-			instrucaoSQL.setString(13, expense.getCampanha().getCargo().getDescricao());
+			instrucaoSQL.setString(13, expense.getCampanha().getCampaignPosition().getDescricao());
 			instrucaoSQL.setString(14, expense.getCampanha().getUf());
 			instrucaoSQL.addBatch();
 		}
@@ -112,7 +112,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
 			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
-			campaign.setCargo(position);
+			campaign.setCampaignPosition(position);
 
 			Supplier supplier = new Supplier();
 			supplier.setCpf_cnpj(resultadoSQL.getString(CPF_CNPJ_FORNECEDOR));
@@ -146,7 +146,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
 				  + " AND " + CAMPANHA_UF + " = '" + campaign.getUf()
 				  + "' AND " + CAMPANHA_CARGO 
-				  + " LIKE '%" + campaign.getCargo().getDescricao()
+				  + " LIKE '%" + campaign.getCampaignPosition().getDescricao()
 				  + "%'";
 		return buscaBD(comandoSQL);
 	}
@@ -187,7 +187,7 @@ public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> 
 				Campaign campaign = new Campaign();
 				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-				campaign.setCargo(position);
+				campaign.setCampaignPosition(position);
 				expense.setCampanha(campaign);
 				
 				Supplier supplier = new Supplier();

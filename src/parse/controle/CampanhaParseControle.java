@@ -56,8 +56,8 @@ public class CampanhaParseControle extends ParseControle<Campaign> {
 			
 			for(int j = i; j < this.listaInstancias.size(); j++) {
 				if(this.listaInstancias.get(i).getNomeDeUrna().equalsIgnoreCase(this.listaInstancias.get(j).getNomeDeUrna())) {
-					if(this.listaInstancias.get(j).getResultado().getCodigo() == 1 ||
-					   this.listaInstancias.get(j).getResultado().getCodigo() == 5) {
+					if(this.listaInstancias.get(j).getCampaignResult().getCodigo() == 1 ||
+					   this.listaInstancias.get(j).getCampaignResult().getCodigo() == 5) {
 						foiEleito = true;
 						listaCampanhas.add(this.listaInstancias.get(j));
 						break;
@@ -66,7 +66,7 @@ public class CampanhaParseControle extends ParseControle<Campaign> {
 			}
 			
 			if(!foiEleito) {
-				this.listaInstancias.get(i).getResultado().setCodigo(4);
+				this.listaInstancias.get(i).getCampaignResult().setCodigo(4);
 				listaCampanhas.add(this.listaInstancias.get(i));
 			}
 

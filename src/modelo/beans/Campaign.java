@@ -51,27 +51,27 @@ public class Campaign {
 		return campaignIdentifier;
 	}
 
-	public void setId(Integer id) {
-		this.campaignIdentifier = id;
+	public void setCampaignIdentifier(Integer campaignIdentifier) {
+		this.campaignIdentifier = campaignIdentifier;
 	}
 
-	public Result getResultado() {
+	public Result getCampaignResult() {
 		return campaignResult;
 	}
 
-	public void setResultado(Result result) {
-		this.campaignResult = result;
+	public void setCampaignResult(Result campaignResult) {
+		this.campaignResult = campaignResult;
 	}
 
-	public Position getCargo() {
+	public Position getCampaignPosition() {
 		return campaignPosition;
 	}
 
-	public void setCargo(Position position) {
-		this.campaignPosition = position;
+	public void setCampaignPosition(Position campaignPosition) {
+		this.campaignPosition = campaignPosition;
 	}
 
-	public Party getPartido() {
+	public Party getCampaignParty() {
 		return campaignParty;
 	}
 
@@ -153,7 +153,7 @@ public class Campaign {
 			Campaign outraCampanha = (Campaign) object;
 			return this.campaignYear.equals(outraCampanha.getAno()) &&
 				   this.campaignCandidateNumber.equals(outraCampanha.getNumeroCandidato()) &&
-				   this.campaignPosition.equals(outraCampanha.getCargo()) &&
+				   this.campaignPosition.equals(outraCampanha.getCampaignPosition()) &&
 				   this.campaignNameOfUrn.equals(outraCampanha.getNomeDeUrna());
 		}
 

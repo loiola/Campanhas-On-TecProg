@@ -32,7 +32,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
 		Assert.assertEquals(this.campo[0], financialTransaction.getCampanha().getAno().toString());
 		Assert.assertEquals(this.campo[1], financialTransaction.getCampanha().getNumeroCandidato().toString());
-		Assert.assertEquals(this.campo[2], financialTransaction.getCampanha().getCargo().getDescricao());
+		Assert.assertEquals(this.campo[2], financialTransaction.getCampanha().getCampaignPosition().getDescricao());
 		Assert.assertEquals(this.campo[3], financialTransaction.getNumeroDocumento());
 		Assert.assertEquals(this.campo[4], financialTransaction.getData());
 		Assert.assertEquals(this.campo[5], financialTransaction.getValor().toString());
@@ -49,7 +49,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
 		Assert.assertNotEquals(this.campo[0], financialTransaction.getCampanha().getAno().toString());
 		Assert.assertNotEquals(this.campo[1], financialTransaction.getCampanha().getNumeroCandidato().toString());
-		Assert.assertNotEquals(this.campo[2], financialTransaction.getCampanha().getCargo().getDescricao());
+		Assert.assertNotEquals(this.campo[2], financialTransaction.getCampanha().getCampaignPosition().getDescricao());
 		Assert.assertNotEquals(this.campo[3], financialTransaction.getNumeroDocumento());
 		Assert.assertNotEquals(this.campo[4], financialTransaction.getData());
 		Assert.assertNotEquals(this.campo[5], financialTransaction.getValor().toString());

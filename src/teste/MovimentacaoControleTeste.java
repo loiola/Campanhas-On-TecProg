@@ -58,7 +58,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		
 		position.setDescricao("Presidente");
 		
-		campaign.setCargo(position);
+		campaign.setCampaignPosition(position);
 		campaign.setCandidato(candidate);
 		campaign.setAno(this.ano);
 		campaign.setUf(this.uf);
@@ -103,7 +103,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 
-		campanhaTeste.setCargo(this.position);
+		campanhaTeste.setCampaignPosition(this.position);
 		Assert.assertNull(this.movimentacaoControle.getListaDespesas(campanhaTeste));
 		Assert.assertNull(this.movimentacaoControle.getListaReceitas(campanhaTeste));
 		

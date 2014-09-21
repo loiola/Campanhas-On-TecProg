@@ -96,9 +96,9 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			instrucaoSQL.setInt(1, campaign.getId());
 			instrucaoSQL.setInt(2, campaign.getAno());
 			instrucaoSQL.setInt(3, campaign.getNumeroCandidato());
-			instrucaoSQL.setInt(4, campaign.getResultado().getCodigo());
-			instrucaoSQL.setInt(5, campaign.getCargo().getCodigo());
-			instrucaoSQL.setInt(6, campaign.getPartido().getNumero());
+			instrucaoSQL.setInt(4, campaign.getCampaignResult().getCodigo());
+			instrucaoSQL.setInt(5, campaign.getCampaignPosition().getCodigo());
+			instrucaoSQL.setInt(6, campaign.getCampaignParty().getNumero());
 			instrucaoSQL.setString(7, campaign.getCandidato()
 					.getTituloEleitoral());
 			instrucaoSQL.setString(8, campaign.getNomeDeUrna());
@@ -126,9 +126,9 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			PreparaCamposCandidatoEPartido(party, candidate, resultadoSQL);
 
 			Campaign campaign = new Campaign();
-			campaign.setId(resultadoSQL.getInt(ID));
-			campaign.setResultado(result);
-			campaign.setCargo(position);
+			campaign.setCampaignIdentifier(resultadoSQL.getInt(ID));
+			campaign.setCampaignResult(result);
+			campaign.setCampaignPosition(position);
 			campaign.setPartido(party);
 			campaign.setCandidato(candidate);
 			campaign.setAno(resultadoSQL.getInt(ANO));
@@ -212,7 +212,7 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 				+ campaign.getAno() + " AND " + UF + " = '" + campaign.getUf()
 				+ "' AND " + NUM_CANDIDATO + " = '"
 				+ campaign.getNumeroCandidato() + "' AND " + COD_CARGO + " = "
-				+ campaign.getCargo().getCodigo();
+				+ campaign.getCampaignPosition().getCodigo();
 		listaCampanha = buscaBD(comandoSQL);
 		if(listaCampanha.isEmpty()) {
 			return null;
@@ -243,14 +243,14 @@ public class CampanhaDAO extends BasicoDAO<Campaign> {
 			while(resultadoSQL.next()) {
 				Campaign campaign = new Campaign();
 				campaign.setAno(resultadoSQL.getInt(ANO));
-				campaign.setCargo(cargoDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
+				campaign.setCampaignPosition(cargoDAO.getPeloCod(resultadoSQL.getInt(COD_CARGO)));
 				campaign.setDespesaMaxDeclarada(resultadoSQL.getFloat(DESPESA_MAX_DECLARADA));
 				campaign.setDespesaTotalCalculada(resultadoSQL.getFloat(DESPESA_MAX_CALCULADA));
 				campaign.setNomeDeUrna(resultadoSQL.getString(NOME_URNA));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(NUM_CANDIDATO));
 				campaign.setPartido(partidoDAO.getPeloNumero(resultadoSQL.getString(NUMERO_PARTIDO)));
 				campaign.setReceitaTotalCalculada(resultadoSQL.getFloat(RECEITA_MAX_CALCULADA));
-				campaign.setResultado(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
+				campaign.setCampaignResult(resultadoDAO.getPeloCod(resultadoSQL.getInt(COD_RESULTADO)));
 				campaign.setUf(resultadoSQL.getString(UF));
 				campaign.setCandidato(candidatoDAO.getCandidatoPeloTitulo(resultadoSQL.getString(TITULO_CANDIDATO)));
 				if(campaign != null) {

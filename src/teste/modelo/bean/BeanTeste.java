@@ -28,15 +28,15 @@ public class BeanTeste {
 		Campaign campaign = new Campaign();
 		campaign.setAno(INT_TESTE);
 		campaign.setCandidato(instanciarCandidato());
-		campaign.setCargo(instanciarCargo());
+		campaign.setCampaignPosition(instanciarCargo());
 		campaign.setDespesaMaxDeclarada(FLOAT_TESTE);
 		campaign.setDespesaTotalCalculada(FLOAT_TESTE);
-		campaign.setId(INT_TESTE);
+		campaign.setCampaignIdentifier(INT_TESTE);
 		campaign.setNomeDeUrna(STRING_TESTE); 
 		campaign.setNumeroCandidato(INT_TESTE);
 		campaign.setPartido(instanciarPartido());
 		campaign.setReceitaTotalCalculada(FLOAT_TESTE);
-		campaign.setResultado(instanciarResultado());
+		campaign.setCampaignResult(instanciarResultado());
 		campaign.setUf(STRING_TESTE);
 		
 		return campaign;

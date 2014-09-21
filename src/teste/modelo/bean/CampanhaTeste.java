@@ -32,7 +32,7 @@ public class CampanhaTeste {
 		campanha2.setAno(BeanTeste.INT_TESTE);
 		Position position = instanciarCargo();
 		position.setDescricao(BeanTeste.STRING_TESTE_2);
-		campanha2.setCargo(position);
+		campanha2.setCampaignPosition(position);
 		Assert.assertFalse(campaign.equals(campanha2));
 		position.setDescricao(BeanTeste.STRING_TESTE);
 		campanha2.setNomeDeUrna(BeanTeste.STRING_TESTE_2);
@@ -50,9 +50,9 @@ public class CampanhaTeste {
 		
 		Assert.assertFalse(campaign.equals(result));
 		Assert.assertFalse(result.equals(campaign));
-		Assert.assertEquals(result,campaign.getResultado());
+		Assert.assertEquals(result,campaign.getCampaignResult());
 		Assert.assertEquals(BeanTeste.INT_TESTE,campaign.getId());
-		Assert.assertEquals(instanciarPartido(),campaign.getPartido());
+		Assert.assertEquals(instanciarPartido(),campaign.getCampaignParty());
 		Assert.assertEquals(instanciarCandidato(),campaign.getCandidato());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,campaign.getUf());
 		Assert.assertEquals(BeanTeste.FLOAT_TESTE,campaign.getDespesaMaxDeclarada(),0);

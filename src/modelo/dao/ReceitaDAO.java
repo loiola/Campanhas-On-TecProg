@@ -90,7 +90,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			instrucaoSQL.setString(10, revenue.getNumeroDocumento());
 			instrucaoSQL.setString(11, revenue.getDoador().getNome());
 			instrucaoSQL.setString(12, revenue.getDoador().getCpf_cnpj());
-			instrucaoSQL.setString(13, revenue.getCampanha().getCargo().getDescricao());
+			instrucaoSQL.setString(13, revenue.getCampanha().getCampaignPosition().getDescricao());
 			instrucaoSQL.setString(14, revenue.getCampanha().getUf());
 			instrucaoSQL.addBatch();
 		}	
@@ -110,7 +110,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 			position.setDescricao(resultadoSQL.getString(CAMPANHA_CARGO));
 			campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));	
 			campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));	
-			campaign.setCargo(position);
+			campaign.setCampaignPosition(position);
 			campaign.setUf(resultadoSQL.getString(CAMPANHA_UF));
 
 			Donor donor = new Donor();
@@ -143,7 +143,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				  + CAMPANHA_NUMERO + " = " + campaign.getNumeroCandidato()
 				  + " AND " + CAMPANHA_UF + " = '" + campaign.getUf()
 				  + "' AND " + CAMPANHA_CARGO + " LIKE '%" 
-				  + campaign.getCargo().getDescricao() 
+				  + campaign.getCampaignPosition().getDescricao() 
 				  + "%'";
 		return buscaBD(comandoSQL);
 	}
@@ -186,7 +186,7 @@ public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> 
 				Campaign campaign = new Campaign();
 				campaign.setAno(resultadoSQL.getInt(CAMPANHA_ANO));
 				campaign.setNumeroCandidato(resultadoSQL.getInt(CAMPANHA_NUMERO));
-				campaign.setCargo(position);
+				campaign.setCampaignPosition(position);
 				revenue.setCampanha(campaign);
 				
 				Donor donor = new Donor();

@@ -47,12 +47,12 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 		if (indiceValido(this.indiceResultadoCod)) {
 			Result result = new Result();
 			result.setCodigo(Integer.parseInt(campo[this.indiceResultadoCod]));
-			campaign.setResultado(result);
+			campaign.setCampaignResult(result);
 		}
 		if (indiceValido(this.indiceCargoCod)) {
 			Position position = new Position();
 			position.setCodigo(Integer.parseInt(campo[this.indiceCargoCod]));
-			campaign.setCargo(position);
+			campaign.setCampaignPosition(position);
 		}	
 		if (indiceValido(this.indicePartidoNumero)) {
 			Party party = new Party();
@@ -88,9 +88,9 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(Campaign campaign) {
-		campaign.setId(Campaign.EMPTY_TYPE_INTEGER);
-		campaign.setResultado(Campaign.EMPTY_CLASS_RESULT);	
-		campaign.setCargo(Campaign.EMPTY_CLASS_POSITION);	
+		campaign.setCampaignIdentifier(Campaign.EMPTY_TYPE_INTEGER);
+		campaign.setCampaignResult(Campaign.EMPTY_CLASS_RESULT);	
+		campaign.setCampaignPosition(Campaign.EMPTY_CLASS_POSITION);	
 		campaign.setPartido(Campaign.EMPTY_CLASS_PARTY);	
 		campaign.setCandidato(Campaign.EMPTY_CLASS_CANDIDATE);	
 		campaign.setAno(Campaign.EMPTY_TYPE_INTEGER);	

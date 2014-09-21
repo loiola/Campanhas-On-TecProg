@@ -335,7 +335,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		Campaign campaign = new Campaign();
 		campaign.setNumeroCandidato(numero);
 		campaign.setAno(ano);
-		campaign.setCargo(position);
+		campaign.setCampaignPosition(position);
 		campaign.setUf(uf);
 
 		return campaign;
