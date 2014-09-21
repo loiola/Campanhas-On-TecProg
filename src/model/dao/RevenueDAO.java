@@ -18,37 +18,37 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 */
 	
 	// Constants
-	private static final String NOME_TABELA = "revenue";
-	private final String ID = "id_receita";
-	private final String CAMPANHA_ANO = "campanha_ano";
-	private final String CAMPANHA_NUMERO = "campanha_numero_candidato";
-	private final String VALOR = "valor";
-	private final String FORMA_PAGAMENTO = "forma_pagamento";
-	private final String DESCRICAO = "descricao";
-	private final String DATA  = "data_receita";
-	private final String TIPO_MOVIMENTACAO = "tipo_movimentacao";
-	private final String RECIBO_ELEITORAL = "recibo_eleitoral";
-	private final String NUMERO_DOCUMENTO = "numero_documento";
-	private final String NOME_DOADOR = "doador_nome";
-	private final String CPF_CNPJ_DOADOR = "doador_cpf_cnpj";
-	private final String CAMPANHA_CARGO = "cargo";
-	private final String CAMPANHA_UF = "campanha_uf";
+	private static final String DATABASE_REVENUE_TABLE_NAME = "revenue";
+	private final String DATABASE_REVENUE_IDENTIFIER = "id_receita";
+	private final String DATABASE_REVENUE_CAMPAIGN_YEAR = "campanha_ano";
+	private final String DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER = "campanha_numero_candidato";
+	private final String DATABASE_REVENUE_VALUE = "valor";
+	private final String DATABASE_REVENUE_PAYMENT_TYPE = "forma_pagamento";
+	private final String DATABASE_REVENUE_DESCRIPTION = "descricao";
+	private final String DATABASE_REVENUE_DATE = "data_receita";
+	private final String DATABASE_REVENUE_TYPE = "tipo_movimentacao";
+	private final String DATABASE_REVENUE_ELECTORAL_RECEIPT = "recibo_eleitoral";
+	private final String DATABASE_REVENUE_DOCUMENT_NUMBER = "numero_documento";
+	private final String DATABASE_REVENUE_DONOR_NAME = "doador_nome";
+	private final String DATABASE_REVENUE_DONOR_PERSON_REGISTER = "doador_cpf_cnpj";
+	private final String DATABASE_REVENUE_CAMPAIGN_POSITION = "cargo";
+	private final String DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE = "campanha_uf";
 	
-	private final String SQL_SELECT = "SELECT * FROM " + NOME_TABELA;
-	private final String SQL_INSERT = "INSERT INTO "
-					   + NOME_TABELA + " (" + ID + ", " + CAMPANHA_ANO + ", "
-					   + CAMPANHA_NUMERO + ", " + VALOR + ", " 
-					   + FORMA_PAGAMENTO + ", " + DESCRICAO + ", " + DATA
-					   + ", " + TIPO_MOVIMENTACAO + ", " + RECIBO_ELEITORAL 
-					   + ", " + NUMERO_DOCUMENTO + ", "
-					   + NOME_DOADOR + ", " + CPF_CNPJ_DOADOR + ", " 
-					   + CAMPANHA_CARGO + ", " + CAMPANHA_UF
+	private final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_REVENUE_TABLE_NAME;
+	private final String DATABASE_SQL_COMMAND_INSERT = "INSERT INTO "
+					   + DATABASE_REVENUE_TABLE_NAME + " (" + DATABASE_REVENUE_IDENTIFIER + ", " + DATABASE_REVENUE_CAMPAIGN_YEAR + ", "
+					   + DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER + ", " + DATABASE_REVENUE_VALUE + ", " 
+					   + DATABASE_REVENUE_PAYMENT_TYPE + ", " + DATABASE_REVENUE_DESCRIPTION + ", " + DATABASE_REVENUE_DATE
+					   + ", " + DATABASE_REVENUE_TYPE + ", " + DATABASE_REVENUE_ELECTORAL_RECEIPT 
+					   + ", " + DATABASE_REVENUE_DOCUMENT_NUMBER + ", "
+					   + DATABASE_REVENUE_DONOR_NAME + ", " + DATABASE_REVENUE_DONOR_PERSON_REGISTER + ", " 
+					   + DATABASE_REVENUE_CAMPAIGN_POSITION + ", " + DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE
 					   + ") VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 
 	// Constructors
 	public RevenueDAO() {
-		super(NOME_TABELA, null);
+		super(DATABASE_REVENUE_TABLE_NAME, null);
 	}
 
 	/*
@@ -57,7 +57,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 */
 	@Override
 	protected String getSQLInsertCommand() {
-		return SQL_INSERT;
+		return DATABASE_SQL_COMMAND_INSERT;
 	}
 
 	/*
@@ -66,7 +66,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 */
 	@Override
 	protected String getSQLSelectCommand() {
-		return SQL_SELECT;
+		return DATABASE_SQL_COMMAND_SELECT;
 	}
 
 	/*
@@ -75,24 +75,24 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a SQLinstruction
 	 */
 	@Override
-	protected void registerObjectArrayListOnBatch(ArrayList<Revenue> lista,
-			PreparedStatement instrucaoSQL) throws SQLException {
-		for(Revenue revenue : lista) {
-			instrucaoSQL.setInt(1, revenue.getFinancialTransactionIdentifier());
-			instrucaoSQL.setInt(2, revenue.getFinancialTransactionCampaign().getCampaignYear());
-			instrucaoSQL.setInt(3, revenue.getFinancialTransactionCampaign().getCampaignCandidateNumber());
-			instrucaoSQL.setFloat(4, revenue.getFinancialTransactionPrice());
-			instrucaoSQL.setString(5, revenue.getFinancialTransactionPaymentType());
-			instrucaoSQL.setString(6, revenue.getFinancialTransactionDescription());
-			instrucaoSQL.setString(7, revenue.getFinancialTransactionDate());
-			instrucaoSQL.setString(8, revenue.getFinancialTransactionType());
-			instrucaoSQL.setString(9, revenue.getRevenueElectoralReceipt());
-			instrucaoSQL.setString(10, revenue.getFinancialTransactionDocumentNumber());
-			instrucaoSQL.setString(11, revenue.getRevenueDonor().getDonorName());
-			instrucaoSQL.setString(12, revenue.getRevenueDonor().getDonorPersonRegister());
-			instrucaoSQL.setString(13, revenue.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
-			instrucaoSQL.setString(14, revenue.getFinancialTransactionCampaign().getCampaignCountryState());
-			instrucaoSQL.addBatch();
+	protected void registerObjectArrayListOnBatch(ArrayList<Revenue> revenueList,
+			PreparedStatement daoSQLInstruction) throws SQLException {
+		for(Revenue revenue : revenueList) {
+			daoSQLInstruction.setInt(1, revenue.getFinancialTransactionIdentifier());
+			daoSQLInstruction.setInt(2, revenue.getFinancialTransactionCampaign().getCampaignYear());
+			daoSQLInstruction.setInt(3, revenue.getFinancialTransactionCampaign().getCampaignCandidateNumber());
+			daoSQLInstruction.setFloat(4, revenue.getFinancialTransactionPrice());
+			daoSQLInstruction.setString(5, revenue.getFinancialTransactionPaymentType());
+			daoSQLInstruction.setString(6, revenue.getFinancialTransactionDescription());
+			daoSQLInstruction.setString(7, revenue.getFinancialTransactionDate());
+			daoSQLInstruction.setString(8, revenue.getFinancialTransactionType());
+			daoSQLInstruction.setString(9, revenue.getRevenueElectoralReceipt());
+			daoSQLInstruction.setString(10, revenue.getFinancialTransactionDocumentNumber());
+			daoSQLInstruction.setString(11, revenue.getRevenueDonor().getDonorName());
+			daoSQLInstruction.setString(12, revenue.getRevenueDonor().getDonorPersonRegister());
+			daoSQLInstruction.setString(13, revenue.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
+			daoSQLInstruction.setString(14, revenue.getFinancialTransactionCampaign().getCampaignCountryState());
+			daoSQLInstruction.addBatch();
 		}	
 	}
 
@@ -102,33 +102,33 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Revenue> lista,
-			ResultSet resultadoSQL) throws SQLException {
-		while(resultadoSQL.next()) {
+	protected void registerResultSetOnObjectArrayList(ArrayList<Revenue> revenueList,
+			ResultSet sqlResult) throws SQLException {
+		while(sqlResult.next()) {
 			Campaign campaign = new Campaign();
 			Position position = new Position();
-			position.setPositionDescription(resultadoSQL.getString(CAMPANHA_CARGO));
-			campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));	
-			campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));	
+			position.setPositionDescription(sqlResult.getString(DATABASE_REVENUE_CAMPAIGN_POSITION));
+			campaign.setCampaignYear(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_YEAR));	
+			campaign.setCampaignCandidateNumber(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));	
 			campaign.setCampaignPosition(position);
-			campaign.setCampaignCountryState(resultadoSQL.getString(CAMPANHA_UF));
+			campaign.setCampaignCountryState(sqlResult.getString(DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE));
 
 			Donor donor = new Donor();
-			donor.setDonorName(resultadoSQL.getString(NOME_DOADOR));
-			donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
+			donor.setDonorName(sqlResult.getString(DATABASE_REVENUE_DONOR_NAME));
+			donor.setDonorPersonRegister(sqlResult.getString(DATABASE_REVENUE_DONOR_PERSON_REGISTER));
 
 			Revenue revenue = new Revenue();
-			revenue.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));
-			revenue.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-			revenue.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
+			revenue.setFinancialTransactionIdentifier(sqlResult.getInt(DATABASE_REVENUE_IDENTIFIER));
+			revenue.setFinancialTransactionType(sqlResult.getString(DATABASE_REVENUE_TYPE));
+			revenue.setFinancialTransactionPaymentType(sqlResult.getString(DATABASE_REVENUE_PAYMENT_TYPE));
 			revenue.setFinancialTransactionCampaign(campaign);
 			revenue.setRevenueDonor(donor);
-			revenue.setRevenueElectoralReceipt(resultadoSQL.getString(RECIBO_ELEITORAL));
-			revenue.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
-			revenue.setFinancialTransactionDate(resultadoSQL.getString(DATA));
-			revenue.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
-			revenue.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
-			lista.add(revenue);
+			revenue.setRevenueElectoralReceipt(sqlResult.getString(DATABASE_REVENUE_ELECTORAL_RECEIPT));
+			revenue.setFinancialTransactionDocumentNumber(sqlResult.getString(DATABASE_REVENUE_DOCUMENT_NUMBER));
+			revenue.setFinancialTransactionDate(sqlResult.getString(DATABASE_REVENUE_DATE));
+			revenue.setFinancialTransactionPrice(sqlResult.getFloat(DATABASE_REVENUE_VALUE));
+			revenue.setFinancialTransactionDescription(sqlResult.getString(DATABASE_REVENUE_DESCRIPTION));
+			revenueList.add(revenue);
 		}
 	}
 	
@@ -137,26 +137,26 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param an instance of Class Campaign
 	 * @return an instance of Class Revenue
 	 */
-	public ArrayList<Revenue> getPorAnoNumeroCargoUf(Campaign campaign) throws Exception {
-		String comandoSQL = SQL_SELECT + " WHERE "
-				  + CAMPANHA_ANO + " = " + campaign.getCampaignYear() + " AND "
-				  + CAMPANHA_NUMERO + " = " + campaign.getCampaignCandidateNumber()
-				  + " AND " + CAMPANHA_UF + " = '" + campaign.getCampaignCountryState()
-				  + "' AND " + CAMPANHA_CARGO + " LIKE '%" 
+	public ArrayList<Revenue> getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(Campaign campaign) throws Exception {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				  + DATABASE_REVENUE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear() + " AND "
+				  + DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER + " = " + campaign.getCampaignCandidateNumber()
+				  + " AND " + DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE + " = '" + campaign.getCampaignCountryState()
+				  + "' AND " + DATABASE_REVENUE_CAMPAIGN_POSITION + " LIKE '%" 
 				  + campaign.getCampaignPosition().getPositionDescription() 
 				  + "%'";
-		return buscaBD(comandoSQL);
+		return searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 	}
 	
 	/*
-	 * This method retrieves a receipt through the ID
-	 * @param an Integer with the ID
+	 * This method retrieves a receipt through the DATABASE_REVENUE_IDENTIFIER
+	 * @param an Integer with the DATABASE_REVENUE_IDENTIFIER
 	 * @return an instance of Class Revenue
 	 */
-	public Revenue getPeloId(int id) throws Exception {
-		String comandoSQL = SQL_SELECT + " WHERE "
-				  + ID + " = " + id;
-		return buscaBD(comandoSQL).get(0);
+	public Revenue getRevenueByIdentifier(int id) throws Exception {
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				  + DATABASE_REVENUE_IDENTIFIER + " = " + id;
+		return searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
 	}
 	
 	/*
@@ -164,47 +164,47 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Revenue>
 	 */
-	public ArrayList<Revenue> buscaBD(String SQL) throws Exception {
+	public ArrayList<Revenue> searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws Exception {
 
-		ArrayList<Revenue> listaReceita = new ArrayList<>();
+		ArrayList<Revenue> revenueList = new ArrayList<>();
 
 		try {
 			this.connection = new DatabaseConnection().getConnection();
 
-			String comandoSQL = SQL;
+			String sqlCommand = sqlCommandConfiguredBefore;
 
-			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
+			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
 
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
+			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
 
-			while(resultadoSQL.next()) {
+			while(sqlResult.next()) {
 				Revenue revenue = new Revenue();
 				
 				Position position = new Position();
-				position.setPositionDescription(resultadoSQL.getString(CAMPANHA_CARGO));
+				position.setPositionDescription(sqlResult.getString(DATABASE_REVENUE_CAMPAIGN_POSITION));
 
 				Campaign campaign = new Campaign();
-				campaign.setCampaignYear(resultadoSQL.getInt(CAMPANHA_ANO));
-				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(CAMPANHA_NUMERO));
+				campaign.setCampaignYear(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_YEAR));
+				campaign.setCampaignCandidateNumber(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));
 				campaign.setCampaignPosition(position);
 				revenue.setFinancialTransactionCampaign(campaign);
 				
 				Donor donor = new Donor();
-				donor.setDonorName(resultadoSQL.getString(NOME_DOADOR));
-				donor.setDonorPersonRegister(resultadoSQL.getString(CPF_CNPJ_DOADOR));
+				donor.setDonorName(sqlResult.getString(DATABASE_REVENUE_DONOR_NAME));
+				donor.setDonorPersonRegister(sqlResult.getString(DATABASE_REVENUE_DONOR_PERSON_REGISTER));
 				revenue.setRevenueDonor(donor);
 
-				revenue.setFinancialTransactionDate(resultadoSQL.getString(DATA));
-				revenue.setFinancialTransactionDescription(resultadoSQL.getString(DESCRICAO));
-				revenue.setFinancialTransactionPaymentType(resultadoSQL.getString(FORMA_PAGAMENTO));
-				revenue.setFinancialTransactionIdentifier(resultadoSQL.getInt(ID));
-				revenue.setFinancialTransactionDocumentNumber(resultadoSQL.getString(NUMERO_DOCUMENTO));
-				revenue.setRevenueElectoralReceipt(resultadoSQL.getString(RECIBO_ELEITORAL));
-				revenue.setFinancialTransactionType(resultadoSQL.getString(TIPO_MOVIMENTACAO));
-				revenue.setFinancialTransactionPrice(resultadoSQL.getFloat(VALOR));
+				revenue.setFinancialTransactionDate(sqlResult.getString(DATABASE_REVENUE_DATE));
+				revenue.setFinancialTransactionDescription(sqlResult.getString(DATABASE_REVENUE_DESCRIPTION));
+				revenue.setFinancialTransactionPaymentType(sqlResult.getString(DATABASE_REVENUE_PAYMENT_TYPE));
+				revenue.setFinancialTransactionIdentifier(sqlResult.getInt(DATABASE_REVENUE_IDENTIFIER));
+				revenue.setFinancialTransactionDocumentNumber(sqlResult.getString(DATABASE_REVENUE_DOCUMENT_NUMBER));
+				revenue.setRevenueElectoralReceipt(sqlResult.getString(DATABASE_REVENUE_ELECTORAL_RECEIPT));
+				revenue.setFinancialTransactionType(sqlResult.getString(DATABASE_REVENUE_TYPE));
+				revenue.setFinancialTransactionPrice(sqlResult.getFloat(DATABASE_REVENUE_VALUE));
 				
 				if(revenue != null) {
-					listaReceita.add(revenue);
+					revenueList.add(revenue);
 				}
 			}
 		} catch(SQLException e) {
@@ -212,6 +212,6 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		} finally {
 			closeDatabaseConnection();
 		}
-		return listaReceita;
+		return revenueList;
 	}
 }

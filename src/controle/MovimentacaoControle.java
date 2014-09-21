@@ -42,7 +42,7 @@ public class MovimentacaoControle {
 			listaReceita =  null;
 			
 		} else {
-			listaReceita = this.revenueDAO.getPorAnoNumeroCargoUf(campaign);
+			listaReceita = this.revenueDAO.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campaign);
 			
 			if(campaign.getCampaignYear() == 2002) {
 				for(Revenue revenue : listaReceita)
@@ -78,7 +78,7 @@ public class MovimentacaoControle {
 	 * @return the reported income
 	 */
 	public Revenue getReceitaPeloId(int id) throws Exception {
-		return this.revenueDAO.getPeloId(id);
+		return this.revenueDAO.getRevenueByIdentifier(id);
 	}
 
 	/*
