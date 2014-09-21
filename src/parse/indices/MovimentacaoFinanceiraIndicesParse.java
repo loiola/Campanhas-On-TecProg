@@ -2,7 +2,7 @@ package parse.indices;
 
 import modelo.beans.Campaign;
 import modelo.beans.Position;
-import modelo.beans.MovimentacaoFinanceira;
+import modelo.beans.FinancialTransaction;
 
 public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	
@@ -48,7 +48,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 */
 	@Override
 	protected void setIndicesValidos(O objeto, String[] campo) {
-		MovimentacaoFinanceira movimentacaoFinanceira = (MovimentacaoFinanceira) objeto;
+		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
 		
 		Campaign campaign = new Campaign();
 		campaign.setAno(ano);
@@ -68,25 +68,25 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 			campaign.setUf(campo[this.indiceCampanhaUf]);
 		}
 		if(indiceValido(this.indiceNumeroDocumento)) {
-			movimentacaoFinanceira.setNumeroDocumento(campo[this.indiceNumeroDocumento]);
+			financialTransaction.setNumeroDocumento(campo[this.indiceNumeroDocumento]);
 		}
 		if(indiceValido(this.indiceData)) {
-			movimentacaoFinanceira.setData(campo[this.indiceData]);
+			financialTransaction.setData(campo[this.indiceData]);
 		}
 		if(indiceValido(this.indiceValor)) {
 			float valor = Float.parseFloat(campo[this.indiceValor].replace(',', '.'));
-			movimentacaoFinanceira.setValor(valor);
+			financialTransaction.setValor(valor);
 		}
 		if(indiceValido(this.indiceTipoMovimentacao)) {
-			movimentacaoFinanceira.setTipoMovimentacao(campo[this.indiceTipoMovimentacao]);
+			financialTransaction.setTipoMovimentacao(campo[this.indiceTipoMovimentacao]);
 		}
 		if(indiceValido(this.indiceFormaPagamento)) {
-			movimentacaoFinanceira.setFormaPagamento(campo[this.indiceFormaPagamento]);
+			financialTransaction.setFormaPagamento(campo[this.indiceFormaPagamento]);
 		}
 		if(indiceValido(this.indiceDescricao)) {
-			movimentacaoFinanceira.setDescricao(campo[this.indiceDescricao]);
+			financialTransaction.setDescricao(campo[this.indiceDescricao]);
 		}
-		movimentacaoFinanceira.setCampanha(campaign);
+		financialTransaction.setCampanha(campaign);
 
 	}
 
@@ -96,15 +96,15 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 */
 	@Override
 	protected void setVazioEmTodosOsSetters(O objeto) {
-		MovimentacaoFinanceira movimentacaoFinanceira = (MovimentacaoFinanceira) objeto;
-		movimentacaoFinanceira.setId(MovimentacaoFinanceira.INTEGER_VAZIO);
-		movimentacaoFinanceira.setCampanha((Campaign)MovimentacaoFinanceira.OBJETO_VAZIO);
-		movimentacaoFinanceira.setNumeroDocumento(MovimentacaoFinanceira.STRING_VAZIO);
-		movimentacaoFinanceira.setData(MovimentacaoFinanceira.STRING_VAZIO);
-		movimentacaoFinanceira.setValor(MovimentacaoFinanceira.FLOAT_VAZIO);
-		movimentacaoFinanceira.setFormaPagamento(MovimentacaoFinanceira.STRING_VAZIO);
-		movimentacaoFinanceira.setTipoMovimentacao(MovimentacaoFinanceira.STRING_VAZIO);
-		movimentacaoFinanceira.setDescricao(MovimentacaoFinanceira.STRING_VAZIO);
+		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
+		financialTransaction.setId(FinancialTransaction.INTEGER_VAZIO);
+		financialTransaction.setCampanha((Campaign)FinancialTransaction.OBJETO_VAZIO);
+		financialTransaction.setNumeroDocumento(FinancialTransaction.STRING_VAZIO);
+		financialTransaction.setData(FinancialTransaction.STRING_VAZIO);
+		financialTransaction.setValor(FinancialTransaction.FLOAT_VAZIO);
+		financialTransaction.setFormaPagamento(FinancialTransaction.STRING_VAZIO);
+		financialTransaction.setTipoMovimentacao(FinancialTransaction.STRING_VAZIO);
+		financialTransaction.setDescricao(FinancialTransaction.STRING_VAZIO);
 	}
 	
 	/*

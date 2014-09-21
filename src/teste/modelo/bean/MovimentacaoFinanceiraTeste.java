@@ -11,7 +11,7 @@ import modelo.beans.Campaign;
 import modelo.beans.Expense;
 import modelo.beans.Donor;
 import modelo.beans.Supplier;
-import modelo.beans.MovimentacaoFinanceira;
+import modelo.beans.FinancialTransaction;
 import modelo.beans.Receita;
 
 import org.junit.Assert;
@@ -74,39 +74,39 @@ public class MovimentacaoFinanceiraTeste {
 	@Test
 	public void equalsDeveRetornarVerdadeiroSeForemMovimentacoesFinanceiraIguais() {
 		
-		MovimentacaoFinanceira movimentacaoFinanceira = instanciarMovimentacaoFinanceira();
-		MovimentacaoFinanceira movimentacaoFinanceira2 = instanciarMovimentacaoFinanceira();
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		FinancialTransaction financialTransaction = instanciarMovimentacaoFinanceira();
+		FinancialTransaction movimentacaoFinanceira2 = instanciarMovimentacaoFinanceira();
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 	}
 	
 	@Test
 	public void equalsDeveRetornarFalsoSeForemMovimentacoesFinancierasDiferentes() {
 		
-		MovimentacaoFinanceira movimentacaoFinanceira = instanciarMovimentacaoFinanceira();
-		MovimentacaoFinanceira movimentacaoFinanceira2 = instanciarMovimentacaoFinanceira();
+		FinancialTransaction financialTransaction = instanciarMovimentacaoFinanceira();
+		FinancialTransaction movimentacaoFinanceira2 = instanciarMovimentacaoFinanceira();
 		Campaign campaign = instanciarCampanha();
 		campaign.setNomeDeUrna(BeanTeste.STRING_TESTE_2);
 		movimentacaoFinanceira2.setCampanha(campaign);
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 		campaign.setNomeDeUrna(BeanTeste.STRING_TESTE);
 		movimentacaoFinanceira2.setCampanha(campaign);
 		movimentacaoFinanceira2.setDescricao(BeanTeste.STRING_TESTE_2);
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 		movimentacaoFinanceira2.setDescricao(BeanTeste.STRING_TESTE);
 		movimentacaoFinanceira2.setFormaPagamento(BeanTeste.STRING_TESTE_2);
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 		movimentacaoFinanceira2.setFormaPagamento(BeanTeste.STRING_TESTE);
 		movimentacaoFinanceira2.setNumeroDocumento(BeanTeste.STRING_TESTE_2);
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 		movimentacaoFinanceira2.setNumeroDocumento(BeanTeste.STRING_TESTE);
 		movimentacaoFinanceira2.setTipoMovimentacao(BeanTeste.STRING_TESTE_2);
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 		movimentacaoFinanceira2.setTipoMovimentacao(BeanTeste.STRING_TESTE);
 		movimentacaoFinanceira2.setValor(BeanTeste.FLOAT_TESTE_2);
-		Assert.assertFalse(movimentacaoFinanceira.equals(movimentacaoFinanceira2));
+		Assert.assertFalse(financialTransaction.equals(movimentacaoFinanceira2));
 		
-		Assert.assertEquals(BeanTeste.INT_TESTE, movimentacaoFinanceira.getId());
-		Assert.assertEquals(BeanTeste.STRING_TESTE, movimentacaoFinanceira.getData());
+		Assert.assertEquals(BeanTeste.INT_TESTE, financialTransaction.getId());
+		Assert.assertEquals(BeanTeste.STRING_TESTE, financialTransaction.getData());
 		
 		BeanTeste bt = new BeanTeste();
 		bt.usarBeanTeste();

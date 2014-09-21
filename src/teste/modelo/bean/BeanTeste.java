@@ -6,7 +6,7 @@ import modelo.beans.Position;
 import modelo.beans.Expense;
 import modelo.beans.Donor;
 import modelo.beans.Supplier;
-import modelo.beans.MovimentacaoFinanceira;
+import modelo.beans.FinancialTransaction;
 import modelo.beans.Partido;
 import modelo.beans.Receita;
 import modelo.beans.Resultado;
@@ -99,19 +99,19 @@ public class BeanTeste {
 		return supplier;
 	}
 	
-	public static MovimentacaoFinanceira instanciarMovimentacaoFinanceira() {
+	public static FinancialTransaction instanciarMovimentacaoFinanceira() {
 		
-		MovimentacaoFinanceira movimentacaoFinanceira = new MovimentacaoFinanceira();
-		movimentacaoFinanceira.setCampanha(instanciarCampanha());
-		movimentacaoFinanceira.setData(STRING_TESTE);
-		movimentacaoFinanceira.setDescricao(STRING_TESTE);
-		movimentacaoFinanceira.setFormaPagamento(STRING_TESTE);
-		movimentacaoFinanceira.setId(INT_TESTE);
-		movimentacaoFinanceira.setNumeroDocumento(STRING_TESTE);
-		movimentacaoFinanceira.setTipoMovimentacao(STRING_TESTE);
-		movimentacaoFinanceira.setValor(FLOAT_TESTE);
+		FinancialTransaction financialTransaction = new FinancialTransaction();
+		financialTransaction.setCampanha(instanciarCampanha());
+		financialTransaction.setData(STRING_TESTE);
+		financialTransaction.setDescricao(STRING_TESTE);
+		financialTransaction.setFormaPagamento(STRING_TESTE);
+		financialTransaction.setId(INT_TESTE);
+		financialTransaction.setNumeroDocumento(STRING_TESTE);
+		financialTransaction.setTipoMovimentacao(STRING_TESTE);
+		financialTransaction.setValor(FLOAT_TESTE);
 		
-		return movimentacaoFinanceira;
+		return financialTransaction;
 	}
 	
 	public static Partido instanciarPartido() {

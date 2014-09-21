@@ -1,6 +1,6 @@
 package teste.parse.indices;
 
-import modelo.beans.MovimentacaoFinanceira;
+import modelo.beans.FinancialTransaction;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,34 +28,34 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 	@Test
 	public void iniciarUmaMovimentacaoFinanceiraComIndicesValidos() throws Exception {
 		
-		MovimentacaoFinanceira movimentacaoFinanceira = new MovimentacaoFinanceira();
-		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(movimentacaoFinanceira, campo);
-		Assert.assertEquals(this.campo[0], movimentacaoFinanceira.getCampanha().getAno().toString());
-		Assert.assertEquals(this.campo[1], movimentacaoFinanceira.getCampanha().getNumeroCandidato().toString());
-		Assert.assertEquals(this.campo[2], movimentacaoFinanceira.getCampanha().getCargo().getDescricao());
-		Assert.assertEquals(this.campo[3], movimentacaoFinanceira.getNumeroDocumento());
-		Assert.assertEquals(this.campo[4], movimentacaoFinanceira.getData());
-		Assert.assertEquals(this.campo[5], movimentacaoFinanceira.getValor().toString());
-		Assert.assertEquals(this.campo[6], movimentacaoFinanceira.getTipoMovimentacao());
-		Assert.assertEquals(this.campo[7], movimentacaoFinanceira.getFormaPagamento());
-		Assert.assertEquals(this.campo[8], movimentacaoFinanceira.getDescricao());
+		FinancialTransaction financialTransaction = new FinancialTransaction();
+		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
+		Assert.assertEquals(this.campo[0], financialTransaction.getCampanha().getAno().toString());
+		Assert.assertEquals(this.campo[1], financialTransaction.getCampanha().getNumeroCandidato().toString());
+		Assert.assertEquals(this.campo[2], financialTransaction.getCampanha().getCargo().getDescricao());
+		Assert.assertEquals(this.campo[3], financialTransaction.getNumeroDocumento());
+		Assert.assertEquals(this.campo[4], financialTransaction.getData());
+		Assert.assertEquals(this.campo[5], financialTransaction.getValor().toString());
+		Assert.assertEquals(this.campo[6], financialTransaction.getTipoMovimentacao());
+		Assert.assertEquals(this.campo[7], financialTransaction.getFormaPagamento());
+		Assert.assertEquals(this.campo[8], financialTransaction.getDescricao());
 	}
 	
 	@Test
 	public void iniciarUmaMovimentacaoFinanceiraComIndicesInvalidos() throws Exception {
 		
 		this.movimentacaoFinanceiraIndicesParse = new MovimentacaoFinanceiraIndicesParse<>(anoTeste);
-		MovimentacaoFinanceira movimentacaoFinanceira = new MovimentacaoFinanceira();
-		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(movimentacaoFinanceira, campo);
-		Assert.assertNotEquals(this.campo[0], movimentacaoFinanceira.getCampanha().getAno().toString());
-		Assert.assertNotEquals(this.campo[1], movimentacaoFinanceira.getCampanha().getNumeroCandidato().toString());
-		Assert.assertNotEquals(this.campo[2], movimentacaoFinanceira.getCampanha().getCargo().getDescricao());
-		Assert.assertNotEquals(this.campo[3], movimentacaoFinanceira.getNumeroDocumento());
-		Assert.assertNotEquals(this.campo[4], movimentacaoFinanceira.getData());
-		Assert.assertNotEquals(this.campo[5], movimentacaoFinanceira.getValor().toString());
-		Assert.assertNotEquals(this.campo[6], movimentacaoFinanceira.getTipoMovimentacao());
-		Assert.assertNotEquals(this.campo[7], movimentacaoFinanceira.getFormaPagamento());
-		Assert.assertNotEquals(this.campo[8], movimentacaoFinanceira.getDescricao());
+		FinancialTransaction financialTransaction = new FinancialTransaction();
+		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
+		Assert.assertNotEquals(this.campo[0], financialTransaction.getCampanha().getAno().toString());
+		Assert.assertNotEquals(this.campo[1], financialTransaction.getCampanha().getNumeroCandidato().toString());
+		Assert.assertNotEquals(this.campo[2], financialTransaction.getCampanha().getCargo().getDescricao());
+		Assert.assertNotEquals(this.campo[3], financialTransaction.getNumeroDocumento());
+		Assert.assertNotEquals(this.campo[4], financialTransaction.getData());
+		Assert.assertNotEquals(this.campo[5], financialTransaction.getValor().toString());
+		Assert.assertNotEquals(this.campo[6], financialTransaction.getTipoMovimentacao());
+		Assert.assertNotEquals(this.campo[7], financialTransaction.getFormaPagamento());
+		Assert.assertNotEquals(this.campo[8], financialTransaction.getDescricao());
 	}
 	
 	private void iniciarIndices() {

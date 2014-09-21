@@ -1,10 +1,10 @@
 package modelo.beans;
 
 
-public class MovimentacaoFinanceira {
+public class FinancialTransaction {
 	
 	/*
-	 * Model Class MovimentacaoFinanceira.java
+	 * Model Class FinancialTransaction.java
 	 * This class is responsable for getting the handling financial's informations
 	 */
 	 
@@ -25,7 +25,7 @@ public class MovimentacaoFinanceira {
 	private String descricao;
 	
 	// Empty Constructor
-	public MovimentacaoFinanceira(){
+	public FinancialTransaction(){
 		this.id = INTEGER_VAZIO;
 		this.campaign = (Campaign) OBJETO_VAZIO;
 		this.numeroDocumento = STRING_VAZIO;

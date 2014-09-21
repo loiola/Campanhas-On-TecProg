@@ -1,6 +1,6 @@
 package modelo.beans;
 
-public class Receita extends MovimentacaoFinanceira {
+public class Receita extends FinancialTransaction {
 
 	/*
 	 *  Class Receita.java

@@ -3,7 +3,7 @@ package teste.modelo.bean;
 import static teste.modelo.bean.BeanTeste.instanciarDoador;
 import static teste.modelo.bean.BeanTeste.instanciarMovimentacaoFinanceira;
 import modelo.beans.Donor;
-import modelo.beans.MovimentacaoFinanceira;
+import modelo.beans.FinancialTransaction;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -31,10 +31,10 @@ public class DoadorTeste {
 	public void equalsDeveRetornarFalsoSeNaoCompararComDoador() {
 		
 		Donor donor = instanciarDoador();
-		MovimentacaoFinanceira movimentacaoFinanceira = instanciarMovimentacaoFinanceira();
+		FinancialTransaction financialTransaction = instanciarMovimentacaoFinanceira();
 		
-		Assert.assertFalse(donor.equals(movimentacaoFinanceira));
-		Assert.assertFalse(movimentacaoFinanceira.equals(donor));
+		Assert.assertFalse(donor.equals(financialTransaction));
+		Assert.assertFalse(financialTransaction.equals(donor));
 		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getNome());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getUf());
 		Assert.assertEquals(BeanTeste.STRING_TESTE,donor.getSituacaoCadastral());

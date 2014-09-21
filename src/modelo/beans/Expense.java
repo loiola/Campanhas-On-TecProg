@@ -1,6 +1,6 @@
 package modelo.beans;
 
-public class Expense extends MovimentacaoFinanceira {
+public class Expense extends FinancialTransaction {
 	
 	/*
 	 * Model Class Expense.java
