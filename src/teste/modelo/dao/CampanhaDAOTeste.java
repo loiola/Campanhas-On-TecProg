@@ -107,7 +107,7 @@ public class CampanhaDAOTeste extends TemplateTeste {
 	@Test
 	public void deveListarCandidatosPorOrdemDeDespesa() throws Exception {
 		
-		ArrayList<Campaign> listaTop1= this.campaignDAO.TopFive("presidente",2006);
+		ArrayList<Campaign> listaTop1= this.campaignDAO.generateTopFiveCampaignListAboutMaximumExpenseDeclared("presidente",2006);
 		Assert.assertTrue(listaTop1.get(0).getCampaignMaximumExpenseDeclared() >= listaTop1.get(1).getCampaignMaximumExpenseDeclared());
 		
 		//ArrayList<Campaign> listaTop2 = this.campanhaDAO.TopFive("senador",2010);

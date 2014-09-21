@@ -27,7 +27,7 @@ public class CampanhaControle {
 	 * @return an ArrayList of candidates for voter registration
 	 */
 	public ArrayList<Campaign> getListaCampanhas(Candidate candidate) throws SQLException {
-		return this.campaignDAO.getCampanhasPeloTituloEleitoral(candidate);
+		return this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate);
 	}
 	
 	/*
@@ -36,7 +36,7 @@ public class CampanhaControle {
 	 * @return an ArrayLista the political party with the abbreviation of the party and year informed
 	 */
 	public ArrayList<Campaign> getListaCampanhasPorSiglaPartidoEAno(String sigla, String ano) throws SQLException{
-		return this.campaignDAO.getCampanhasPorSiglaEAno(sigla,ano);
+		return this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(sigla,ano);
 	}
 	
 	/*
@@ -45,7 +45,7 @@ public class CampanhaControle {
 	 * @return an ArrayLista with the highest values ​​for the position and informed year
 	 */
 	public ArrayList<Campaign> topFivePorCargoEAno(String cargo, Integer ano) throws SQLException{
-		return this.campaignDAO.TopFive(cargo, ano);
+		return this.campaignDAO.generateTopFiveCampaignListAboutMaximumExpenseDeclared(cargo, ano);
 	}
 
 	/*
@@ -54,6 +54,6 @@ public class CampanhaControle {
 	 * @return a campaign
 	 */
 	public Campaign getPeloAnoNumeroCodCargoEUf(Campaign campaign) throws SQLException {
-		return this.campaignDAO.getPeloAnoNumeroCodCargoEUf(campaign);
+		return this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campaign);
 	}
 }

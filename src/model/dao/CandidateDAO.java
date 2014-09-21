@@ -129,7 +129,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 		String comandoSQL = SQL_SELECT + " USE INDEX (" + INDEX_NOME + ")"
 				+ " WHERE " + NOME + " LIKE '%" + nome + "%' "
 				+ " OR "
-				+ TITULO_ELEITORAL + " IN (" + this.campaignDAO.getSqlSelectNomeUrna(nome)
+				+ TITULO_ELEITORAL + " IN (" + this.campaignDAO.getSQLSelectNameOfUrnCommand(nome)
 				+ ")";
 		
 		try {
