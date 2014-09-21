@@ -10,7 +10,7 @@ import model.beans.Donor;
 import model.beans.Supplier;
 import parse.ParseDAO;
 
-public class DoadorDAO extends BasicoDAO<Donor> implements ParseDAO<Donor> {
+public class DoadorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 
 	/*
 	 * Class for manipulating the data about donor

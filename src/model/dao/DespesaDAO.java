@@ -11,7 +11,7 @@ import model.beans.Position;
 import model.beans.Supplier;
 import parse.ParseDAO;
 
-public class DespesaDAO extends BasicoDAO<Expense> implements ParseDAO<Expense> {
+public class DespesaDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	
 	/*
 	 * Class for manipulating the data about expenses

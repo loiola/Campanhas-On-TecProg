@@ -11,7 +11,7 @@ import model.beans.Position;
 import model.beans.Revenue;
 import parse.ParseDAO;
 
-public class ReceitaDAO extends BasicoDAO<Revenue> implements ParseDAO<Revenue> {
+public class ReceitaDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 
 	/*
 	 * Class for manipulating the data about revenue

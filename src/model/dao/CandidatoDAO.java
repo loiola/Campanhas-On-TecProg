@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 import model.beans.Candidate;
 
-public class CandidatoDAO extends BasicoDAO<Candidate> {
+public class CandidatoDAO extends BasicDAO<Candidate> {
 	
 	/*
 	 * Class for manipulating the data about candidates

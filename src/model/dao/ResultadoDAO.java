@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Result;
 import parse.ParseDAO;
 
-public class ResultadoDAO extends BasicoDAO<Result> implements ParseDAO<Result> {
+public class ResultadoDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 
 	/*
 	 * Class for manipulating the data about political result

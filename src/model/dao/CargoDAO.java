@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Position;
 import parse.ParseDAO;
 
-public class CargoDAO extends BasicoDAO<Position> implements ParseDAO<Position> {
+public class CargoDAO extends BasicDAO<Position> implements ParseDAO<Position> {
 	
 	/*
 	 * Class for manipulating the data about positions

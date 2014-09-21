@@ -11,7 +11,7 @@ import java.util.Comparator;
 import parse.ParseDAO;
 import parse.ParseException;
 
-public abstract class BasicoDAO<O> implements ParseDAO<O> {
+public abstract class BasicDAO<O> implements ParseDAO<O> {
 	
 	/*
 	 * Abstract class with generic methods for data management by the subclasses in DAO package
@@ -24,7 +24,7 @@ public abstract class BasicoDAO<O> implements ParseDAO<O> {
 	private String nomeTabela;
 	
 	// Constructors
-	public BasicoDAO(String nomeTabela, Comparator<O> comparador) {
+	public BasicDAO(String nomeTabela, Comparator<O> comparador) {
 		this.nomeTabela = nomeTabela;
 		this.comparador = comparador;
 	}

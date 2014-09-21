@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Supplier;
 import parse.ParseDAO;
 
-public class FornecedorDAO extends BasicoDAO<Supplier> implements ParseDAO<Supplier> {
+public class FornecedorDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier> {
 	
 	/*
 	 * Class for manipulating the data about supplier

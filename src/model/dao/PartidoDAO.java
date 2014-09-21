@@ -9,7 +9,7 @@ import java.util.Comparator;
 import model.beans.Party;
 import parse.ParseDAO;
 
-public class PartidoDAO extends BasicoDAO<Party> implements ParseDAO<Party> {
+public class PartidoDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 
 	/*
 	 * Class for manipulating the data about political parties

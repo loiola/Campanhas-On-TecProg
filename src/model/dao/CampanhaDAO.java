@@ -11,7 +11,7 @@ import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
 
-public class CampanhaDAO extends BasicoDAO<Campaign> {
+public class CampanhaDAO extends BasicDAO<Campaign> {
 	
 	/*
 	 * Class for manipulating the data about election campaigns
