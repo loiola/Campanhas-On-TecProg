@@ -1,4 +1,4 @@
-package parse.controle;
+package parse.control;
 
 import model.beans.Party;
 import model.dao.PartyDAO;

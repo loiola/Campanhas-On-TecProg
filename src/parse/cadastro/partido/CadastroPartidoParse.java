@@ -2,8 +2,8 @@ package parse.cadastro.partido;
 
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
-import parse.controle.ParseControle;
-import parse.controle.PartidoParseControle;
+import parse.control.ParseControle;
+import parse.control.PartidoParseControle;
 import parse.indices.IndicesParse;
 import parse.indices.PartidoIndicesParse;
 import model.beans.Party;

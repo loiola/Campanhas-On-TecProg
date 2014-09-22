@@ -3,8 +3,8 @@ package parse.cadastro.campanha;
 import model.beans.Position;
 import parse.ParseException;
 import parse.cadastro.CadastroParse;
-import parse.controle.CargoParseControle;
-import parse.controle.ParseControle;
+import parse.control.CargoParseControle;
+import parse.control.ParseControle;
 import parse.indices.CargoIndicesParse;
 import parse.indices.IndicesParse;
 

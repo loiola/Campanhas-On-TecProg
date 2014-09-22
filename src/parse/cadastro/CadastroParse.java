@@ -1,7 +1,7 @@
 package parse.cadastro;
 
 import parse.ParseException;
-import parse.controle.ParseControle;
+import parse.control.ParseControle;
 import parse.indices.IndicesParse;
 
 public abstract class CadastroParse<O> {

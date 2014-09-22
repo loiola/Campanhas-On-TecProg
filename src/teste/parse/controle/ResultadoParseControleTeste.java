@@ -6,7 +6,7 @@ import model.dao.ResultDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.controle.ResultadoParseControle;
+import parse.control.ResultadoParseControle;
 import parse.indices.ResultadoIndicesParse;
 import teste.TemplateTeste;
 

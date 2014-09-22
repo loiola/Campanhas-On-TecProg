@@ -6,7 +6,7 @@ import model.dao.RevenueDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.controle.ReceitaParseControle;
+import parse.control.ReceitaParseControle;
 import parse.indices.ReceitaIndicesParse;
 import teste.TemplateTeste;
 

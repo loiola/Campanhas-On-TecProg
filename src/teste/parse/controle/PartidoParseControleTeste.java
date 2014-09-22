@@ -6,7 +6,7 @@ import model.dao.PartyDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.controle.PartidoParseControle;
+import parse.control.PartidoParseControle;
 import parse.indices.PartidoIndicesParse;
 import teste.TemplateTeste;
 

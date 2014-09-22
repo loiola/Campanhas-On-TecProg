@@ -6,7 +6,7 @@ import model.dao.ExpenseDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.controle.DespesaParseControle;
+import parse.control.DespesaParseControle;
 import parse.indices.DespesaIndicesParse;
 import teste.TemplateTeste;
 

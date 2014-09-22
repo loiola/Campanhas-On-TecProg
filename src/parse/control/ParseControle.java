@@ -1,4 +1,4 @@
-package parse.controle;
+package parse.control;
 
 import java.util.ArrayList;
 

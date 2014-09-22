@@ -6,7 +6,7 @@ import model.dao.DonorDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.controle.DoadorParseControle;
+import parse.control.DoadorParseControle;
 import parse.indices.DoadorIndicesParse;
 import teste.TemplateTeste;
 

@@ -6,7 +6,7 @@ import model.dao.SupplierDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.controle.FornecedorParseControle;
+import parse.control.FornecedorParseControle;
 import parse.indices.FornecedorIndicesParse;
 import teste.TemplateTeste;
 
