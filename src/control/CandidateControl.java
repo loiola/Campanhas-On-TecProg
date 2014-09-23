@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import model.beans.Candidate;
 import model.dao.CandidateDAO;
 
-public class CandidatoControle {
+public class CandidateControl {
 	
 	/*
 	 * Control class political party, which mediates the application layer with the model
@@ -15,7 +15,7 @@ public class CandidatoControle {
 	private CandidateDAO candidateDAO;
 
 	// Constructors	
-	public CandidatoControle() {
+	public CandidateControl() {
 		this.candidateDAO = new CandidateDAO();
 	}
 	

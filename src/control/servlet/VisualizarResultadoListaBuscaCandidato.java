@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Candidate;
-import control.CandidatoControle;
+import control.CandidateControl;
 
 public class VisualizarResultadoListaBuscaCandidato implements Logica {
 	
@@ -16,7 +16,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 	 */
 
 	// Attributes
-	private CandidatoControle controle;
+	private CandidateControl controle;
 	private List<Candidate> listaCandidatos;
 
 	private String nome;
@@ -74,7 +74,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 		this.qtdPorPagina = Integer.parseInt(this.req.getParameter("qtdPorPagina"));
 		this.verTodos = Boolean.parseBoolean(this.req.getParameter("verTodos"));
 		this.centro = Integer.parseInt(this.req.getParameter("centro"));
-		this.controle = new CandidatoControle();
+		this.controle = new CandidateControl();
 		this.listaCandidatos = this.controle.getListaCandidatos(this.nome);
 	}
 

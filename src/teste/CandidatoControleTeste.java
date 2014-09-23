@@ -10,18 +10,18 @@ import model.dao.CandidateDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import control.CandidatoControle;
+import control.CandidateControl;
 
 public class CandidatoControleTeste extends TemplateTeste {
 
 	private CandidateDAO candidateDAO;
-	private CandidatoControle candidatoControle;
+	private CandidateControl candidateControl;
 
 	@Override 
 	public void beforeTest() throws Exception {
 		
 		this.candidateDAO = new CandidateDAO();
-		this.candidatoControle = new CandidatoControle();
+		this.candidateControl = new CandidateControl();
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class CandidatoControleTeste extends TemplateTeste {
 
 		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		listaCandidatosNomeComum = this.candidateDAO.getCandidateListByName("INEXISTENTE");
-		this.candidatoControle.getListaCandidatos("INEXISTENTE");
+		this.candidateControl.getListaCandidatos("INEXISTENTE");
 		
-		Assert.assertEquals(listaCandidatosNomeComum, this.candidatoControle.getListaCandidatos("INEXISTENTE"));
+		Assert.assertEquals(listaCandidatosNomeComum, this.candidateControl.getListaCandidatos("INEXISTENTE"));
 	}
 	
 	@Test
@@ -76,9 +76,9 @@ public class CandidatoControleTeste extends TemplateTeste {
 		
 		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		candidatoRecuperado = this.candidateDAO.getCandidateByElectoralTitle("000000");
-		this.candidatoControle.getUmCandidato("000000");
+		this.candidateControl.getUmCandidato("000000");
 		
-		Assert.assertEquals(candidatoRecuperado, this.candidatoControle.getUmCandidato("000000"));
+		Assert.assertEquals(candidatoRecuperado, this.candidateControl.getUmCandidato("000000"));
 	}
 	
 }
