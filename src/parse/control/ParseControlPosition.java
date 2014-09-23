@@ -4,7 +4,7 @@ import model.beans.Position;
 import model.dao.PositionDAO;
 import parse.index.IndicesParse;
 
-public class ParseControlPosition extends ParseControle<Position> {
+public class ParseControlPosition extends ParseControl<Position> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Position

@@ -1,7 +1,7 @@
 package parse.register;
 
 import parse.ParseException;
-import parse.control.ParseControle;
+import parse.control.ParseControl;
 import parse.index.IndicesParse;
 
 public abstract class CadastroParse<O> {
@@ -16,7 +16,7 @@ public abstract class CadastroParse<O> {
 	protected int linhasLidas;
 	protected int linhasParaFazerCadastro;
 	protected IndicesParse<O> indicesParse;
-	protected ParseControle<O> parseControle;
+	protected ParseControl<O> parseControl;
 	
 	// Constructor
 	
@@ -32,7 +32,7 @@ public abstract class CadastroParse<O> {
 		this.linhasParaFazerCadastro = 1500;
 		
 		this.indicesParse = getIndicesParse(tipoArquivo, ano);
-		this.parseControle = novaInstancia(this.indicesParse);
+		this.parseControl = novaInstancia(this.indicesParse);
 	}
 	
 	// Methods
@@ -42,7 +42,7 @@ public abstract class CadastroParse<O> {
 	 * @param vector of Strings
 	 */
 	public void executarLinhaDoArquivo(String campo[]) throws ParseException {
-		this.parseControle.addInstancia(campo);
+		this.parseControl.addInstancia(campo);
 		this.linhasLidas++;
 		if(this.linhasLidas >= this.linhasParaFazerCadastro) {
 			cadastrarInstancias();
@@ -53,8 +53,8 @@ public abstract class CadastroParse<O> {
 	 * This method register instances stored in an Array List on ParseControl attribute
 	 */
 	public void cadastrarInstancias() throws ParseException {
-		this.parseControle.registeringInstances();
-		this.parseControle.resetar();
+		this.parseControl.registeringInstances();
+		this.parseControl.resetar();
 		this.linhasLidas = 0;
 	}
 	
@@ -64,7 +64,7 @@ public abstract class CadastroParse<O> {
 	 * @param a ParseIndex who'll be used by the ParseControl constructor
 	 * @return a ParseControl object
 	 */
-	public abstract ParseControle<O> novaInstancia(IndicesParse<O> indicesParse);
+	public abstract ParseControl<O> novaInstancia(IndicesParse<O> indicesParse);
 	
 	/*
 	 * Abstract method who'll be used by children classes to return a ParseIndex

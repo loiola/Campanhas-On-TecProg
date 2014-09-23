@@ -7,7 +7,7 @@ import model.dao.CampaignDAO;
 import parse.ParseException;
 import parse.index.IndicesParse;
 
-public class ParseControlCampaign extends ParseControle<Campaign> {
+public class ParseControlCampaign extends ParseControl<Campaign> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Campaign

@@ -6,7 +6,7 @@ import parse.ParseDAO;
 import parse.ParseException;
 import parse.index.IndicesParse;
 
-public abstract class ParseControle<O> {
+public abstract class ParseControl<O> {
 	
 	/*
 	 * Abstract class for template methods to be used by subclasses to parse control
@@ -19,7 +19,7 @@ public abstract class ParseControle<O> {
 	protected ArrayList<O> listInstance;
 	
 	// Constructors
-	public ParseControle(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO) {
+	public ParseControl(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO) {
 		this.listInstance = new ArrayList<>();
 
 		this.basicoDAO = basicoDAO;

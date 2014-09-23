@@ -4,7 +4,7 @@ import model.beans.Result;
 import model.dao.ResultDAO;
 import parse.index.IndicesParse;
 
-public class ResultadoParseControle extends ParseControle<Result> {
+public class ResultadoParseControle extends ParseControl<Result> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Result

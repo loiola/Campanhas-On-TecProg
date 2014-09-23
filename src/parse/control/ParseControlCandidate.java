@@ -4,7 +4,7 @@ import model.beans.Candidate;
 import model.dao.CandidateDAO;
 import parse.index.IndicesParse;
 
-public class ParseControlCandidate extends ParseControle<Candidate> {
+public class ParseControlCandidate extends ParseControl<Candidate> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Candidate

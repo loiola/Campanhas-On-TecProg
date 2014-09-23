@@ -3,7 +3,7 @@ package parse.register.campaign;
 import model.beans.Campaign;
 import parse.ParseException;
 import parse.control.ParseControlCampaign;
-import parse.control.ParseControle;
+import parse.control.ParseControl;
 import parse.index.CampanhaIndicesParse;
 import parse.index.IndicesParse;
 import parse.register.CadastroParse;
@@ -37,7 +37,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	 * @return a ParseCampaignControl
 	 */
 	@Override
-	public ParseControle<Campaign> novaInstancia(
+	public ParseControl<Campaign> novaInstancia(
 			IndicesParse<Campaign> indicesParse) {
 		ParseControlCampaign parseControlCampaign = new ParseControlCampaign(indicesParse);	
 		return parseControlCampaign;
@@ -73,7 +73,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	 */
 	@Override
 	public void executarLinhaDoArquivo(String[] campo) throws ParseException {
-		this.parseControle.addInstanciaIgual(campo);
+		this.parseControl.addInstanciaIgual(campo);
 		this.linhasLidas++;
 		if(this.linhasLidas >= this.linhasParaFazerCadastro) {
 			cadastrarInstancias();

@@ -4,7 +4,7 @@ import model.beans.Party;
 import model.dao.PartyDAO;
 import parse.index.IndicesParse;
 
-public class PartidoParseControle extends ParseControle<Party> {
+public class PartidoParseControle extends ParseControl<Party> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Party

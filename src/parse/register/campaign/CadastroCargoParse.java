@@ -3,7 +3,7 @@ package parse.register.campaign;
 import model.beans.Position;
 import parse.ParseException;
 import parse.control.ParseControlPosition;
-import parse.control.ParseControle;
+import parse.control.ParseControl;
 import parse.index.CargoIndicesParse;
 import parse.index.IndicesParse;
 import parse.register.CadastroParse;
@@ -35,7 +35,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	 * @return a ParsePositionControl
 	 */
 	@Override
-	public ParseControle<Position> novaInstancia(
+	public ParseControl<Position> novaInstancia(
 			IndicesParse<Position> indicesParse) {
 		ParseControlPosition parseControlPosition = new ParseControlPosition(indicesParse);
 		return parseControlPosition;

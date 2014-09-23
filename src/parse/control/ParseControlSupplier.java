@@ -4,7 +4,7 @@ import model.beans.Supplier;
 import model.dao.SupplierDAO;
 import parse.index.IndicesParse;
 
-public class ParseControlSupplier extends ParseControle<Supplier> {
+public class ParseControlSupplier extends ParseControl<Supplier> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Supplier

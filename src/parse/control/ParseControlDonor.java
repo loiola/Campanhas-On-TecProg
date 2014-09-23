@@ -4,7 +4,7 @@ import model.beans.Donor;
 import model.dao.DonorDAO;
 import parse.index.IndicesParse;
 
-public class ParseControlDonor extends ParseControle<Donor> {
+public class ParseControlDonor extends ParseControl<Donor> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Donor

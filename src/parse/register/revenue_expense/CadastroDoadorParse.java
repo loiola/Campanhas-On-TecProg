@@ -3,7 +3,7 @@ package parse.register.revenue_expense;
 import model.beans.Donor;
 import parse.ParseException;
 import parse.control.ParseControlDonor;
-import parse.control.ParseControle;
+import parse.control.ParseControl;
 import parse.index.DoadorIndicesParse;
 import parse.index.IndicesParse;
 
@@ -16,7 +16,7 @@ public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Donor> {
 	}
 
 	@Override
-	public ParseControle<Donor> novaInstancia(IndicesParse<Donor> indicesParse) {
+	public ParseControl<Donor> novaInstancia(IndicesParse<Donor> indicesParse) {
 		ParseControlDonor parseControlDonor = new ParseControlDonor(indicesParse);
 		return parseControlDonor;
 	}

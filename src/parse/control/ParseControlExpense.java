@@ -4,7 +4,7 @@ import model.beans.Expense;
 import model.dao.ExpenseDAO;
 import parse.index.IndicesParse;
 
-public class ParseControlExpense extends ParseControle<Expense> {
+public class ParseControlExpense extends ParseControl<Expense> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Expense
