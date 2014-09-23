@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.SelecionarCandidato;
+import control.servlet.SelectCandidate;
 
 public class SelecionarCandidatoTeste extends TemplateTeste {
 
-	SelecionarCandidato selecionarCandidato;
+	SelectCandidate selectCandidate;
 	HttpServletRequest req;
 	HttpServletResponse res;
 	
@@ -21,26 +21,26 @@ public class SelecionarCandidatoTeste extends TemplateTeste {
 	public void simulaServletComAno2002() throws Exception {
 		when(req.getParameter("tituloEleitoral")).thenReturn("001364742003");
 		
-		this.selecionarCandidato.execute(req, res);
+		this.selectCandidate.execute(req, res);
 	}
 
 	@Test
 	public void simulaServletComAno2006() throws Exception {
 		when(req.getParameter("tituloEleitoral")).thenReturn("002143582054");
 		
-		this.selecionarCandidato.execute(req, res);
+		this.selectCandidate.execute(req, res);
 	}
 	
 	@Test
 	public void simulaServletComAno2010() throws Exception {
 		when(req.getParameter("tituloEleitoral")).thenReturn("007235102003");
 		
-		this.selecionarCandidato.execute(req, res);
+		this.selectCandidate.execute(req, res);
 	}
 
 	@Override
 	public void beforeTest() throws Exception {
-		this.selecionarCandidato = new SelecionarCandidato();
+		this.selectCandidate = new SelectCandidate();
 		
 		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
 		
