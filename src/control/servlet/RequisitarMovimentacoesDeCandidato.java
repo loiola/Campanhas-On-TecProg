@@ -14,7 +14,7 @@ import model.beans.Expense;
 import model.beans.Position;
 import model.beans.Revenue;
 import control.CampaignControl;
-import control.MovimentacaoControle;
+import control.TransactionControl;
 
 public class RequisitarMovimentacoesDeCandidato implements Logica {
 	
@@ -26,7 +26,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	private CampaignControl campaignControl;
 	private Campaign campanhaBusca;
 	private Campaign campaign;
-	private MovimentacaoControle movimentacaoControle;
+	private TransactionControl transactionControl;
 
 	private String despesaTot;
 
@@ -110,7 +110,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		this.campaignControl = new CampaignControl();
 		this.campaign = this.campaignControl
 				.getByYearNumberCodePositionAndUF(this.campanhaBusca);
-		this.movimentacaoControle = new MovimentacaoControle();
+		this.transactionControl = new TransactionControl();
 	}
 
 	/*
@@ -118,9 +118,9 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 */
 	private void estabeleceParametros() throws Exception {
 		this.despesaTot = formataDespesa(this.campaign.getCampaignMaximumExpenseDeclared());
-		this.listaReceita = this.movimentacaoControle
+		this.listaReceita = this.transactionControl
 				.getListaReceitas(this.campaign);
-		this.listaDespesa = this.movimentacaoControle
+		this.listaDespesa = this.transactionControl
 				.getListaDespesas(this.campaign);
 		this.indiceR = geraIndiceDaListaR(this.listaReceita, this.qtdPorPaginaR);
 		this.qtdDePPR = geraIndiceDePaginacaoR(this.listaReceita);

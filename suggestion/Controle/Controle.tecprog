@@ -677,7 +677,7 @@ Sugestão: private void prepareParametersTransmission()
 
  public class MovimentacaoControle
  Comentário: Control class Transactions financial, which mediates the application layer with the model
- Sugestão: controlTransactions
+ Sugestão: controlTransaction
 
  DespesaDAO despesaDAO;
  Sugestão: expensesDAO

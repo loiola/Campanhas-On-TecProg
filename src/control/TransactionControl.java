@@ -9,7 +9,7 @@ import model.beans.Revenue;
 import model.dao.ExpenseDAO;
 import model.dao.RevenueDAO;
 
-public class MovimentacaoControle {
+public class TransactionControl {
 	
 	/*
 	 * Control class handling financial, which mediates the application layer with the model
@@ -20,7 +20,7 @@ public class MovimentacaoControle {
 	RevenueDAO revenueDAO;
 	
 	// Constructors
-	public MovimentacaoControle(){
+	public TransactionControl(){
 		this.expenseDAO = new ExpenseDAO();
 		this.revenueDAO = new RevenueDAO();
 	}
