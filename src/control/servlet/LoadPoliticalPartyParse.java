@@ -45,12 +45,12 @@ public class LoadPoliticalPartyParse extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter saida = response.getWriter();
+		PrintWriter output = response.getWriter();
 
-		Part part = request.getPart("arquivo_linha_inicial");
+		Part part = request.getPart("file_line_initial");
 		if(part != null) {
 			Scanner scanner = new Scanner(part.getInputStream());
-			saida.println("linha inicial: " + scanner.nextLine());
+			output.println("initial line: " + scanner.nextLine());
 			scanner.close();
 		} try {
 			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
@@ -60,24 +60,24 @@ public class LoadPoliticalPartyParse extends HttpServlet {
 
 				List<FileItem> fields = upload.parseRequest(request);
 
-				FileItem arquivo = null;
-				int linhaInicial = 1;
-				String tipoArquivo = "partido";
+				FileItem file = null;
+				int initialLine = 1;
+				String fileType = "partido";
 
 				for(FileItem fileItem : fields) {
 					if(!fileItem.isFormField()) {
-						arquivo = fileItem;
+						file = fileItem;
 					}
 				}
 
-				String divisao = ";";
-				Parse parse = new ParsePartido(tipoArquivo, "");
-				parse.executarParse(arquivo, divisao, linhaInicial);
-				saida.println("Parse Realizado com Sucesso!");
+				String division = ";";
+				Parse parse = new ParsePartido(fileType, "");
+				parse.executarParse(file, division, initialLine);
+				output.println("Parse Completed!");
 			}
 
 		} catch(Exception e) {
-			saida.println("ERROR teste upload: " + e.getMessage());
+			output.println("ERROR teste upload: " + e.getMessage());
 		}
 	}
 }
