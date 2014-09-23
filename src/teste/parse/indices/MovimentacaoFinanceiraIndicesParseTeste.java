@@ -29,7 +29,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 	public void iniciarUmaMovimentacaoFinanceiraComIndicesValidos() throws Exception {
 		
 		FinancialTransaction financialTransaction = new FinancialTransaction();
-		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
+		this.movimentacaoFinanceiraIndicesParse.startInstance(financialTransaction, campo);
 		Assert.assertEquals(this.campo[0], financialTransaction.getFinancialTransactionCampaign().getCampaignYear().toString());
 		Assert.assertEquals(this.campo[1], financialTransaction.getFinancialTransactionCampaign().getCampaignCandidateNumber().toString());
 		Assert.assertEquals(this.campo[2], financialTransaction.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
@@ -46,7 +46,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		
 		this.movimentacaoFinanceiraIndicesParse = new MovimentacaoFinanceiraIndicesParse<>(anoTeste);
 		FinancialTransaction financialTransaction = new FinancialTransaction();
-		this.movimentacaoFinanceiraIndicesParse.iniciarInstancia(financialTransaction, campo);
+		this.movimentacaoFinanceiraIndicesParse.startInstance(financialTransaction, campo);
 		Assert.assertNotEquals(this.campo[0], financialTransaction.getFinancialTransactionCampaign().getCampaignYear().toString());
 		Assert.assertNotEquals(this.campo[1], financialTransaction.getFinancialTransactionCampaign().getCampaignCandidateNumber().toString());
 		Assert.assertNotEquals(this.campo[2], financialTransaction.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());

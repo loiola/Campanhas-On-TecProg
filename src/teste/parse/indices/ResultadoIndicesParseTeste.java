@@ -27,7 +27,7 @@ public class ResultadoIndicesParseTeste {
 	public void iniciarUmResultadoComIndicesValidos() throws Exception {
 		
 		Result result = new Result();
-		this.resultadoIndicesParse.iniciarInstancia(result, campo);
+		this.resultadoIndicesParse.startInstance(result, campo);
 		Assert.assertEquals(this.campo[0], result.getResultType().toString());
 		Assert.assertEquals(this.campo[1], result.getResultDescription());
 	}
@@ -37,7 +37,7 @@ public class ResultadoIndicesParseTeste {
 		
 		this.resultadoIndicesParse = new ResultadoIndicesParse();
 		Result result = new Result();
-		this.resultadoIndicesParse.iniciarInstancia(result, campo);
+		this.resultadoIndicesParse.startInstance(result, campo);
 		Assert.assertNotEquals(this.campo[0], result.getResultType().toString());
 		Assert.assertNotEquals(this.campo[1], result.getResultDescription());
 	}

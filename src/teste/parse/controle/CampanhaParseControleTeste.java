@@ -47,9 +47,9 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarCampanha() throws Exception {
 		
-		this.parseControlCampaign.addInstancia(campo);
+		this.parseControlCampaign.addInstance(campo);
 		this.parseControlCampaign.registeringInstances();
-		this.parseControlCampaign.resetar();
+		this.parseControlCampaign.clear();
 		
 		Campaign campanhaCadastrada = this.campaignDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -67,10 +67,10 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDuasCampanhasIguais() throws Exception {
 		
-		this.parseControlCampaign.addInstancia(campo);
-		this.parseControlCampaign.addInstancia(campo);
+		this.parseControlCampaign.addInstance(campo);
+		this.parseControlCampaign.addInstance(campo);
 		this.parseControlCampaign.registeringInstances();
-		this.parseControlCampaign.resetar();
+		this.parseControlCampaign.clear();
 		
 		int numeroCampanhasCadastradas = this.campaignDAO.getObjectArrayListFromDatabase().size();
 		

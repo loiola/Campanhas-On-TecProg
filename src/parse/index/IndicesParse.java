@@ -19,7 +19,7 @@ public abstract class IndicesParse<O> {
 	 * @param an instance of any class
 	 * @param an array of strings
 	 */
-	public void iniciarInstancia(O objeto, String campo[]) {
+	public void startInstance(O objeto, String campo[]) {
 		reiniciarInstancia(objeto);
 		setIndicesValidos(objeto, campo);
 	}

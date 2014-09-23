@@ -27,7 +27,7 @@ public class CargoIndicesParseTeste {
 	public void iniciarUmCargoComIndicesValidos() throws Exception {
 		
 		Position position = new Position();
-		this.cargoIndicesParse.iniciarInstancia(position, campo);
+		this.cargoIndicesParse.startInstance(position, campo);
 		Assert.assertEquals(this.campo[0], position.getPositionCode().toString());
 		Assert.assertEquals(this.campo[1], position.getPositionDescription());
 	}
@@ -37,7 +37,7 @@ public class CargoIndicesParseTeste {
 		
 		this.cargoIndicesParse = new CargoIndicesParse();
 		Position position = new Position();
-		this.cargoIndicesParse.iniciarInstancia(position, campo);
+		this.cargoIndicesParse.startInstance(position, campo);
 		Assert.assertNotEquals(this.campo[0], position.getPositionCode().toString());
 		Assert.assertNotEquals(this.campo[1], position.getPositionDescription());
 	}

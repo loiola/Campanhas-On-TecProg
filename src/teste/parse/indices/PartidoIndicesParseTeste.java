@@ -27,7 +27,7 @@ public class PartidoIndicesParseTeste {
 	public void iniciarUmPartidoComIndicesValidos() throws Exception {
 		
 		Party party = new Party();
-		this.partidoIndicesParse.iniciarInstancia(party, campo);
+		this.partidoIndicesParse.startInstance(party, campo);
 		Assert.assertEquals(this.campo[0], party.getPartyAcronym());
 		Assert.assertEquals(this.campo[1], party.getPartyNumber().toString());
 		Assert.assertEquals(this.campo[2], party.getPartyConcession());
@@ -39,7 +39,7 @@ public class PartidoIndicesParseTeste {
 		
 		this.partidoIndicesParse = new PartidoIndicesParse();
 		Party party = new Party();
-		this.partidoIndicesParse.iniciarInstancia(party, campo);
+		this.partidoIndicesParse.startInstance(party, campo);
 		Assert.assertNotEquals(this.campo[0], party.getPartyAcronym());
 		Assert.assertNotEquals(this.campo[1], party.getPartyNumber().toString());
 		Assert.assertNotEquals(this.campo[2], party.getPartyConcession());

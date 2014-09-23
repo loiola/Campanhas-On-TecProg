@@ -42,9 +42,9 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarDoadores() throws Exception {
 		
-		this.parseControlDonor.addInstancia(campo);
+		this.parseControlDonor.addInstance(campo);
 		this.parseControlDonor.registeringInstances();
-		this.parseControlDonor.resetar();
+		this.parseControlDonor.clear();
 		
 		Donor doadorCadastrado = this.donorDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -57,10 +57,10 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisDoadoresIguais() throws Exception {
 		
-		this.parseControlDonor.addInstancia(campo);
-		this.parseControlDonor.addInstancia(campo);
+		this.parseControlDonor.addInstance(campo);
+		this.parseControlDonor.addInstance(campo);
 		this.parseControlDonor.registeringInstances();
-		this.parseControlDonor.resetar();
+		this.parseControlDonor.clear();
 		
 		int numeroDoadoresCadastrados = this.donorDAO.getObjectArrayListFromDatabase().size();
 		
