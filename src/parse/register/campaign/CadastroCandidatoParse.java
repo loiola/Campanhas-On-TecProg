@@ -53,8 +53,8 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 		CandidateParseIndex candidateParseIndex;
 		candidateParseIndex = new CandidateParseIndex();
 		
-		candidateParseIndex.setIndiceNome(10);
-		candidateParseIndex.setIndiceTituloEleitoral(26);
+		candidateParseIndex.setIndexName(10);
+		candidateParseIndex.setIndexElectionTitle(26);
 		
 		return candidateParseIndex;
 	}

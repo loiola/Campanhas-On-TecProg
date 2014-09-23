@@ -65,8 +65,8 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.candidateParseIndex.setIndiceNome(NOME);
-		this.candidateParseIndex.setIndiceTituloEleitoral(TITULO_ELEITORAL);
+		this.candidateParseIndex.setIndexName(NOME);
+		this.candidateParseIndex.setIndexElectionTitle(TITULO_ELEITORAL);
 	}
 	
 	private void iniciarCampos() {

@@ -42,8 +42,8 @@ public class CandidatoIndicesParseTeste {
 	}
 	
 	private void iniciarIndices() {
-		this.candidateParseIndex.setIndiceNome(0);
-		this.candidateParseIndex.setIndiceTituloEleitoral(1);
+		this.candidateParseIndex.setIndexName(0);
+		this.candidateParseIndex.setIndexElectionTitle(1);
 	}
 	
 	private void iniciarCampos() {

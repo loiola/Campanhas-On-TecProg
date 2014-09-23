@@ -9,13 +9,13 @@ public class CandidateParseIndex extends IndicesParse<Candidate> {
 	 */
 
 	// Attributes
-	private int indiceNome;
-	private int indiceTituloEleitoral;
+	private int indexName;
+	private int indexElectionTitle;
 
 	// Constructors
 	public CandidateParseIndex() {
-		this.indiceNome = INVALID_INDEX;
-		this.indiceTituloEleitoral = INVALID_INDEX;
+		this.indexName = INVALID_INDEX;
+		this.indexElectionTitle = INVALID_INDEX;
 	}
 
 	/*
@@ -24,12 +24,12 @@ public class CandidateParseIndex extends IndicesParse<Candidate> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Candidate candidate, String[] campo) {
-		if (validIndex(this.indiceNome)) {
-			candidate.setCandidateName(campo[this.indiceNome]);
+	protected void setValidIndex(Candidate candidate, String[] field) {
+		if (validIndex(this.indexName)) {
+			candidate.setCandidateName(field[this.indexName]);
 		}
-		if (validIndex(this.indiceTituloEleitoral)) {
-			candidate.setCandidateElectoralTitle(campo[this.indiceTituloEleitoral]);
+		if (validIndex(this.indexElectionTitle)) {
+			candidate.setCandidateElectoralTitle(field[this.indexElectionTitle]);
 
 		}
 	}
@@ -45,12 +45,12 @@ public class CandidateParseIndex extends IndicesParse<Candidate> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceTituloEleitoral(int indiceTituloEleitoral) {
-		this.indiceTituloEleitoral = indiceTituloEleitoral;
+	public void setIndexElectionTitle(int indexElectionTitle) {
+		this.indexElectionTitle = indexElectionTitle;
 	}
 
-	public void setIndiceNome(int indiceNome) {
-		this.indiceNome = indiceNome;
+	public void setIndexName(int indexName) {
+		this.indexName = indexName;
 	}
 
 }
