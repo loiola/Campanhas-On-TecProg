@@ -75,7 +75,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 		this.verTodos = Boolean.parseBoolean(this.req.getParameter("verTodos"));
 		this.centro = Integer.parseInt(this.req.getParameter("centro"));
 		this.controle = new CandidateControl();
-		this.listaCandidatos = this.controle.getListaCandidatos(this.nome);
+		this.listaCandidatos = this.controle.getListCandidate(this.nome);
 	}
 
 	/*

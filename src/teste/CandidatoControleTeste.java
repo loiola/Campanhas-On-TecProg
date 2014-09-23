@@ -53,9 +53,9 @@ public class CandidatoControleTeste extends TemplateTeste {
 
 		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		listaCandidatosNomeComum = this.candidateDAO.getCandidateListByName("INEXISTENTE");
-		this.candidateControl.getListaCandidatos("INEXISTENTE");
+		this.candidateControl.getListCandidate("INEXISTENTE");
 		
-		Assert.assertEquals(listaCandidatosNomeComum, this.candidateControl.getListaCandidatos("INEXISTENTE"));
+		Assert.assertEquals(listaCandidatosNomeComum, this.candidateControl.getListCandidate("INEXISTENTE"));
 	}
 	
 	@Test
@@ -76,9 +76,9 @@ public class CandidatoControleTeste extends TemplateTeste {
 		
 		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidatos);
 		candidatoRecuperado = this.candidateDAO.getCandidateByElectoralTitle("000000");
-		this.candidateControl.getUmCandidato("000000");
+		this.candidateControl.getACandidate("000000");
 		
-		Assert.assertEquals(candidatoRecuperado, this.candidateControl.getUmCandidato("000000"));
+		Assert.assertEquals(candidatoRecuperado, this.candidateControl.getACandidate("000000"));
 	}
 	
 }

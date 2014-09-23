@@ -66,7 +66,7 @@ public class SelecionarCandidato implements Logica {
 		this.campaignControl = new CampaignControl();
 		this.movimentacaoControle = new MovimentacaoControle();
 		
-		this.candidate = this.candidateControl.getUmCandidato(this.tituloEleitoral);
+		this.candidate = this.candidateControl.getACandidate(this.tituloEleitoral);
 
 		this.listaCampanha = this.campaignControl.getListCampaign(this.candidate);
 		
