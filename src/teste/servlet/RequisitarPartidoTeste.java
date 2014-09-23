@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.RequisitarPartido;
+import control.servlet.RequestPoliticalParty;
 
 public class RequisitarPartidoTeste extends TemplateTeste {
 	
-	RequisitarPartido requisitarPartido;
+	RequestPoliticalParty requestPoliticalParty;
 	HttpServletRequest req;
 	HttpServletResponse res;
 
@@ -23,7 +23,7 @@ public class RequisitarPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("10");
 		when(req.getParameter("verTodos")).thenReturn("false");
 		
-		this.requisitarPartido.execute(req, res);
+		this.requestPoliticalParty.execute(req, res);
 	}
 	
 	@Test
@@ -32,12 +32,12 @@ public class RequisitarPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("0");
 		when(req.getParameter("verTodos")).thenReturn("true");
 		
-		this.requisitarPartido.execute(req, res);
+		this.requestPoliticalParty.execute(req, res);
 	}
 
 	@Override
 	public void beforeTest() throws Exception {
-		this.requisitarPartido = new RequisitarPartido();
+		this.requestPoliticalParty = new RequestPoliticalParty();
 		this.req = mock(HttpServletRequest.class);
 		this.res = mock(HttpServletResponse.class);
 	}
