@@ -27,7 +27,7 @@ public class FornecedorIndicesParseTestes {
 	public void iniciarUmFornecedorComIndicesValidos() throws Exception {
 		
 		Supplier supplier = new Supplier();
-		this.fornecedorIndicesParse.iniciarInstancia(supplier, campo);
+		this.fornecedorIndicesParse.startInstance(supplier, campo);
 		Assert.assertEquals(this.campo[0], supplier.getSupplierPersonRegister().toString());
 		Assert.assertEquals(this.campo[1], supplier.getSupplierName());
 		Assert.assertEquals(this.campo[2], supplier.getSupplierCountryState());
@@ -39,7 +39,7 @@ public class FornecedorIndicesParseTestes {
 		
 		this.fornecedorIndicesParse = new FornecedorIndicesParse();
 		Supplier supplier = new Supplier();
-		this.fornecedorIndicesParse.iniciarInstancia(supplier, campo);
+		this.fornecedorIndicesParse.startInstance(supplier, campo);
 		Assert.assertNotEquals(this.campo[0], supplier.getSupplierPersonRegister().toString());
 		Assert.assertNotEquals(this.campo[1], supplier.getSupplierName());
 		Assert.assertNotEquals(this.campo[2], supplier.getSupplierCountryState());

@@ -27,7 +27,7 @@ public class DoadorIndicesParseTeste {
 	public void iniciarUmDoadorComIndicesValidos() throws Exception {
 		
 		Donor donor = new Donor();
-		this.doadorIndicesParse.iniciarInstancia(donor, campo);
+		this.doadorIndicesParse.startInstance(donor, campo);
 		Assert.assertEquals(this.campo[0], donor.getDonorPersonRegister().toString());
 		Assert.assertEquals(this.campo[1], donor.getDonorName());
 		Assert.assertEquals(this.campo[2], donor.getDonorCountryState());
@@ -39,7 +39,7 @@ public class DoadorIndicesParseTeste {
 		
 		this.doadorIndicesParse = new DoadorIndicesParse();
 		Donor donor = new Donor();
-		this.doadorIndicesParse.iniciarInstancia(donor, campo);
+		this.doadorIndicesParse.startInstance(donor, campo);
 		Assert.assertNotEquals(this.campo[0], donor.getDonorPersonRegister().toString());
 		Assert.assertNotEquals(this.campo[1], donor.getDonorName());
 		Assert.assertNotEquals(this.campo[2], donor.getDonorCountryState());

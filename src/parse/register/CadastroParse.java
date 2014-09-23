@@ -42,7 +42,7 @@ public abstract class CadastroParse<O> {
 	 * @param vector of Strings
 	 */
 	public void executarLinhaDoArquivo(String campo[]) throws ParseException {
-		this.parseControl.addInstancia(campo);
+		this.parseControl.addInstance(campo);
 		this.linhasLidas++;
 		if(this.linhasLidas >= this.linhasParaFazerCadastro) {
 			cadastrarInstancias();
@@ -54,7 +54,7 @@ public abstract class CadastroParse<O> {
 	 */
 	public void cadastrarInstancias() throws ParseException {
 		this.parseControl.registeringInstances();
-		this.parseControl.resetar();
+		this.parseControl.clear();
 		this.linhasLidas = 0;
 	}
 	

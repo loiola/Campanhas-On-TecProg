@@ -13,35 +13,35 @@ public abstract class ParseControl<O> {
 	 */
 
 	// Attributes
-	private O objetoVazio;
-	private ParseDAO<O> basicoDAO;
-	private IndicesParse<O> indicesParse;
+	private O emptyObject;
+	private ParseDAO<O> basicDAO;
+	private IndicesParse<O> indexParse;
 	protected ArrayList<O> listInstance;
 	
 	// Constructors
-	public ParseControl(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO) {
+	public ParseControl(IndicesParse<O> indexParse, ParseDAO<O> basicDAO) {
 		this.listInstance = new ArrayList<>();
 
-		this.basicoDAO = basicoDAO;
-		this.indicesParse = indicesParse;
-		this.objetoVazio = newInstance();
+		this.basicDAO = basicDAO;
+		this.indexParse = indexParse;
+		this.emptyObject = newInstance();
 	}
 
 	// Method signature to make a new instance of an object of any class
 	public abstract O newInstance();
 	
 	// Signature of the method to compare two objects of any class
-	public abstract boolean equalObjects(O objetoUm, O objetoDois);
+	public abstract boolean equalObjects(O objectOne, O objectTwo);
 	
 	/*
 	 * This method adds an instance of a class in the list of instances
 	 * @param an array of strings
 	 */
-	public void addInstancia(String campo[]) {
-		O objeto = fazerNovaInstancia(campo);		
-		if((!equalObjects(objeto, objetoVazio)) && 
-				(!this.listInstance.contains(objeto))) {
-			this.listInstance.add(objeto);
+	public void addInstance(String field[]) {
+		O object = makeNewInstance(field);		
+		if((!equalObjects(object, emptyObject)) && 
+				(!this.listInstance.contains(object))) {
+			this.listInstance.add(object);
 		}
 	}
 
@@ -50,10 +50,10 @@ public abstract class ParseControl<O> {
 	 * in the list of instances
 	 * @param an array of strings
 	 */
-	public void addInstanciaIgual(String campo[]) {
-		O objeto = fazerNovaInstancia(campo);
-		if((!equalObjects(objeto, objetoVazio))) {
-			this.listInstance.add(objeto);
+	public void addEqualInstance(String field[]) {
+		O object = makeNewInstance(field);
+		if((!equalObjects(object, emptyObject))) {
+			this.listInstance.add(object);
 		}
 	}
 	
@@ -61,13 +61,13 @@ public abstract class ParseControl<O> {
 	 * This method formalizes the registration of a list of instances
 	 */
 	public void registeringInstances() throws ParseException {
-		this.basicoDAO.registerObjectArrayListOnParse(this.listInstance);
+		this.basicDAO.registerObjectArrayListOnParse(this.listInstance);
 	}
 	
 	/*
 	 * This method performs a cleaning at the array of instances to register
 	 */
-	public void resetar() {
+	public void clear() {
 		this.listInstance.clear();
 	}
 	
@@ -76,10 +76,10 @@ public abstract class ParseControl<O> {
 	 * @param an array of strings
 	 * @return an object of any class
 	 */
-	private O fazerNovaInstancia(String campo[]) {
-		O objeto = newInstance();
-		this.indicesParse.iniciarInstancia(objeto, campo);
-		return objeto;
+	private O makeNewInstance(String field[]) {
+		O object = newInstance();
+		this.indexParse.startInstance(object, field);
+		return object;
 	}
 	
 }

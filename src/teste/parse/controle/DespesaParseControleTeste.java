@@ -42,9 +42,9 @@ public class DespesaParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarDespesa() throws Exception {
 
-		this.parseControlExpense.addInstancia(campo);
+		this.parseControlExpense.addInstance(campo);
 		this.parseControlExpense.registeringInstances();
-		this.parseControlExpense.resetar();
+		this.parseControlExpense.clear();
 
 		Expense despesaCadastrado = this.expenseDAO.getObjectArrayListFromDatabase().get(0);
 

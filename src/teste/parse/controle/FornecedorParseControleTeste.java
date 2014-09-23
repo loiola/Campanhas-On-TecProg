@@ -40,9 +40,9 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarFornecedor() throws Exception {
 
-		this.parseControlSupplier.addInstancia(campo);
+		this.parseControlSupplier.addInstance(campo);
 		this.parseControlSupplier.registeringInstances();
-		this.parseControlSupplier.resetar();
+		this.parseControlSupplier.clear();
 
 		Supplier fornecedorCadastrado = this.supplierDAO.getObjectArrayListFromDatabase().get(0);
 
@@ -55,10 +55,10 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisFornecedoresIguais() throws Exception {
 
-		this.parseControlSupplier.addInstancia(campo);
-		this.parseControlSupplier.addInstancia(campo);
+		this.parseControlSupplier.addInstance(campo);
+		this.parseControlSupplier.addInstance(campo);
 		this.parseControlSupplier.registeringInstances();
-		this.parseControlSupplier.resetar();
+		this.parseControlSupplier.clear();
 
 		int numeroFornecedorCadastrados = this.supplierDAO.getObjectArrayListFromDatabase().size();
 

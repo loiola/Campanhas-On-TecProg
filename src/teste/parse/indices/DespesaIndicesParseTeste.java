@@ -28,7 +28,7 @@ public class DespesaIndicesParseTeste {
 	public void iniciarUmaDespesaComIndicesValidos() throws Exception {
 		
 		Expense expense = new Expense();
-		this.despesaIndicesParse.iniciarInstancia(expense, campo);
+		this.despesaIndicesParse.startInstance(expense, campo);
 		Assert.assertEquals(this.campo[0], expense.getExpenseSupplier().getSupplierName());
 		Assert.assertEquals(this.campo[1], expense.getExpenseSupplier().getSupplierPersonRegister());
 		Assert.assertEquals(this.campo[2], expense.getExpenseDocumentType());
@@ -39,7 +39,7 @@ public class DespesaIndicesParseTeste {
 		
 		this.despesaIndicesParse = new DespesaIndicesParse(ano);
 		Expense expense = new Expense();
-		this.despesaIndicesParse.iniciarInstancia(expense, campo);
+		this.despesaIndicesParse.startInstance(expense, campo);
 		Assert.assertNotEquals(this.campo[0], expense.getExpenseSupplier().getSupplierName());
 		Assert.assertNotEquals(this.campo[1], expense.getExpenseSupplier().getSupplierPersonRegister());
 		Assert.assertNotEquals(this.campo[2], expense.getExpenseDocumentType());

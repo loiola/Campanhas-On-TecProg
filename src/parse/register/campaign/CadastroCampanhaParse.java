@@ -73,7 +73,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	 */
 	@Override
 	public void executarLinhaDoArquivo(String[] campo) throws ParseException {
-		this.parseControl.addInstanciaIgual(campo);
+		this.parseControl.addEqualInstance(campo);
 		this.linhasLidas++;
 		if(this.linhasLidas >= this.linhasParaFazerCadastro) {
 			cadastrarInstancias();

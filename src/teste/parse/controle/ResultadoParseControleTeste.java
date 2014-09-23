@@ -39,9 +39,9 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarResultado() throws Exception {
 		
-		this.resultadoParseControle.addInstancia(campo);
+		this.resultadoParseControle.addInstance(campo);
 		this.resultadoParseControle.registeringInstances();
-		this.resultadoParseControle.resetar();
+		this.resultadoParseControle.clear();
 		
 		Result resultadoCadastrado = this.resultDAO.getObjectArrayListFromDatabase().get(0);
 				

@@ -39,9 +39,9 @@ public class CargoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarCargo() throws Exception {
 		
-		this.parseControlPosition.addInstancia(campo);
+		this.parseControlPosition.addInstance(campo);
 		this.parseControlPosition.registeringInstances();
-		this.parseControlPosition.resetar();
+		this.parseControlPosition.clear();
 		
 		Position cargoCadastrado = this.positionDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -52,10 +52,10 @@ public class CargoParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisCargosIguais() throws Exception {
 		
-		this.parseControlPosition.addInstancia(campo);
-		this.parseControlPosition.addInstancia(campo);
+		this.parseControlPosition.addInstance(campo);
+		this.parseControlPosition.addInstance(campo);
 		this.parseControlPosition.registeringInstances();
-		this.parseControlPosition.resetar();
+		this.parseControlPosition.clear();
 		
 		int numeroCargosCadastrados = this.positionDAO.getObjectArrayListFromDatabase().size();
 		

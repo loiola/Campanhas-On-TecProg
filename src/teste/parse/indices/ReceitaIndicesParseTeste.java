@@ -28,7 +28,7 @@ public class ReceitaIndicesParseTeste {
 	public void iniciarUmaReceitaComIndicesValidos() throws Exception {
 		
 		Revenue revenue = new Revenue();
-		this.receitaIndicesParse.iniciarInstancia(revenue, campo);
+		this.receitaIndicesParse.startInstance(revenue, campo);
 		Assert.assertEquals(this.campo[0], revenue.getRevenueElectoralReceipt());
 		Assert.assertEquals(this.campo[1], revenue.getRevenueDonor().getDonorName());
 		Assert.assertEquals(this.campo[2], revenue.getRevenueDonor().getDonorPersonRegister());
@@ -39,7 +39,7 @@ public class ReceitaIndicesParseTeste {
 		
 		this.receitaIndicesParse = new ReceitaIndicesParse(ano);
 		Revenue revenue = new Revenue();
-		this.receitaIndicesParse.iniciarInstancia(revenue, campo);
+		this.receitaIndicesParse.startInstance(revenue, campo);
 		Assert.assertNotEquals(this.campo[0], revenue.getRevenueElectoralReceipt());
 		Assert.assertNotEquals(this.campo[1], revenue.getRevenueDonor().getDonorName());
 		Assert.assertNotEquals(this.campo[2], revenue.getRevenueDonor().getDonorPersonRegister());

@@ -27,7 +27,7 @@ public class CampanhaIndicesParseTeste {
 	public void iniciarUmaCampanhaComIndicesValidos() throws Exception {
 		
 		Campaign campaign = new Campaign();
-		this.campanhaIndicesParse.iniciarInstancia(campaign, campo);
+		this.campanhaIndicesParse.startInstance(campaign, campo);
 		Assert.assertEquals(this.campo[0], campaign.getCampaignResult().getResultType().toString());
 		Assert.assertEquals(this.campo[1], campaign.getCampaignPosition().getPositionCode().toString());
 		Assert.assertEquals(this.campo[2], campaign.getCampaignParty().getPartyNumber().toString());
@@ -44,7 +44,7 @@ public class CampanhaIndicesParseTeste {
 		
 		this.campanhaIndicesParse = new CampanhaIndicesParse();
 		Campaign campaign = new Campaign();
-		this.campanhaIndicesParse.iniciarInstancia(campaign, campo);
+		this.campanhaIndicesParse.startInstance(campaign, campo);
 		Assert.assertNotEquals(this.campo[0], campaign.getCampaignResult().getResultType().toString());
 		Assert.assertNotEquals(this.campo[1], campaign.getCampaignPosition().getPositionCode().toString());
 		Assert.assertNotEquals(this.campo[2], campaign.getCampaignParty().getPartyNumber().toString());

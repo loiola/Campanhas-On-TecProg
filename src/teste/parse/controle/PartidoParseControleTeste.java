@@ -42,9 +42,9 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarPartido() throws Exception {
 		
-		this.partidoParseControle.addInstancia(campo);
+		this.partidoParseControle.addInstance(campo);
 		this.partidoParseControle.registeringInstances();
-		this.partidoParseControle.resetar();
+		this.partidoParseControle.clear();
 		
 		Party partidoCadastrado = this.partyDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -57,10 +57,10 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisPartidosIguais() throws Exception {
 		
-		this.partidoParseControle.addInstancia(campo);
-		this.partidoParseControle.addInstancia(campo);
+		this.partidoParseControle.addInstance(campo);
+		this.partidoParseControle.addInstance(campo);
 		this.partidoParseControle.registeringInstances();
-		this.partidoParseControle.resetar();
+		this.partidoParseControle.clear();
 		
 		int numeroPartidosCadastrados = this.partyDAO.getObjectArrayListFromDatabase().size();
 				

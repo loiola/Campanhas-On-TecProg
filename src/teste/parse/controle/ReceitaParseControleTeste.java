@@ -42,9 +42,9 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarReceita() throws Exception {
 
-		this.receitaParseControle.addInstancia(campo);
+		this.receitaParseControle.addInstance(campo);
 		this.receitaParseControle.registeringInstances();
-		this.receitaParseControle.resetar();
+		this.receitaParseControle.clear();
 
 		Revenue receitaCadastrado = this.revenueDAO.getObjectArrayListFromDatabase().get(0);
 
