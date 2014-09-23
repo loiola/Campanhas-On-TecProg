@@ -1,4 +1,4 @@
-package controle.excecao;
+package control.exception;
 
 public class PartidoExcecao extends Exception {
 	

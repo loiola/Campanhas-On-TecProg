@@ -5,7 +5,7 @@ import model.beans.Party;
 
 import org.junit.Test;
 
-import controle.excecao.PartidoExcecao;
+import control.exception.PartidoExcecao;
 import controle.validacao.PartidoValidacao;
 
 public class PartidoValidacaoTeste extends TemplateTeste {
