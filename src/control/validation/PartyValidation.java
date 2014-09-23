@@ -10,8 +10,8 @@ public class PartyValidation {
 	 */
 
 	// Attributes
-	private static final String SIGLA_VAZIA = "Campo Sigla do Party vazia!";
-	private static final String NUMERO_PARTIDO_VAZIO = "Campo Número do Party vazio!";
+	private static final String EMPTY_SIGLA = "Party abbreviation field empty!";
+	private static final String EMPTY_NUMBER_PARTY = "Party number field empty!";
 
 	// Constructors
 	public PartyValidation() {
@@ -23,9 +23,9 @@ public class PartyValidation {
 	 * Method that checks if the abbreviation entered is zero and returns a positive error case 
 	 * @param a political party
 	 */
-	public void siglaNaoNula(Party party) throws PartyException {
+	public void siglaNotNull(Party party) throws PartyException {
 		if((party.getPartyAcronym() == null)) {
-			throw new PartyException(SIGLA_VAZIA);
+			throw new PartyException(EMPTY_SIGLA);
 		}
 	}
 	
@@ -33,9 +33,9 @@ public class PartyValidation {
 	 * Method that checks if the entered number is null and returns a positive error if
 	 * @param a political party
 	 */
-	public void numeroNaoNulo(Party party) throws PartyException {
+	public void numberNotNull(Party party) throws PartyException {
 		if((party.getPartyNumber() == null)) {
-			throw new PartyException(NUMERO_PARTIDO_VAZIO);
+			throw new PartyException(EMPTY_NUMBER_PARTY);
 		}
 	}
 }

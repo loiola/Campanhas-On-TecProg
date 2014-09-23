@@ -33,21 +33,21 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	public void naoLancaExcecaoSeSiglaNaoEhNula() throws PartyException {
 		
 		this.party.setPartyAcronym("PT");
-		this.partyValidation.siglaNaoNula(party);
+		this.partyValidation.siglaNotNull(party);
 	}
 	
 	@Test
 	public void naoLancaExcecaoSeSiglaNaoEhNula2() throws PartyException {
 		
 		this.party.setPartyAcronym("PT");
-		this.partyValidation.numeroNaoNulo(party);
+		this.partyValidation.numberNotNull(party);
 	}
 	
 	@Test
 	public void naoLancaExcecaoSeNumeroPartidoNaoEhNulo() throws PartyException {
 		
 		this.party.setPartyNumber(13);
-		this.partyValidation.numeroNaoNulo(party);
+		this.partyValidation.numberNotNull(party);
 	}
 	
 	@Test
