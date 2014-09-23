@@ -6,7 +6,7 @@ import model.dao.PositionDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.CargoParseControle;
+import parse.control.ParseControlPosition;
 import parse.index.CargoIndicesParse;
 import teste.TemplateTeste;
 
@@ -18,14 +18,14 @@ public class CargoParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private PositionDAO positionDAO;
 	private CargoIndicesParse cargoIndicesParse;
-	private CargoParseControle cargoParseControle;
+	private ParseControlPosition parseControlPosition;
 
 	@Override
 	public void beforeTest() throws Exception {
 		this.campo = new String[2];
 		this.positionDAO = new PositionDAO();
 		this.cargoIndicesParse = new CargoIndicesParse();
-		this.cargoParseControle = new CargoParseControle(this.cargoIndicesParse);
+		this.parseControlPosition = new ParseControlPosition(this.cargoIndicesParse);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -39,9 +39,9 @@ public class CargoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarCargo() throws Exception {
 		
-		this.cargoParseControle.addInstancia(campo);
-		this.cargoParseControle.registeringInstances();
-		this.cargoParseControle.resetar();
+		this.parseControlPosition.addInstancia(campo);
+		this.parseControlPosition.registeringInstances();
+		this.parseControlPosition.resetar();
 		
 		Position cargoCadastrado = this.positionDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -52,10 +52,10 @@ public class CargoParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisCargosIguais() throws Exception {
 		
-		this.cargoParseControle.addInstancia(campo);
-		this.cargoParseControle.addInstancia(campo);
-		this.cargoParseControle.registeringInstances();
-		this.cargoParseControle.resetar();
+		this.parseControlPosition.addInstancia(campo);
+		this.parseControlPosition.addInstancia(campo);
+		this.parseControlPosition.registeringInstances();
+		this.parseControlPosition.resetar();
 		
 		int numeroCargosCadastrados = this.positionDAO.getObjectArrayListFromDatabase().size();
 		

@@ -4,14 +4,14 @@ import model.beans.Position;
 import model.dao.PositionDAO;
 import parse.index.IndicesParse;
 
-public class CargoParseControle extends ParseControle<Position> {
+public class ParseControlPosition extends ParseControle<Position> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Position
 	 */
 
 	// Constructors
-	public CargoParseControle(IndicesParse<Position> indicesParse) {
+	public ParseControlPosition(IndicesParse<Position> indicesParse) {
 		super(indicesParse, new PositionDAO());
 	}
 
