@@ -4,14 +4,14 @@ import model.beans.Candidate;
 import model.dao.CandidateDAO;
 import parse.index.IndicesParse;
 
-public class CandidatoParseControle extends ParseControle<Candidate> {
+public class ParseControlCandidate extends ParseControle<Candidate> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Candidate
 	 */
 
 	// Constructors
-	public CandidatoParseControle(IndicesParse<Candidate> indicesParse) {
+	public ParseControlCandidate(IndicesParse<Candidate> indicesParse) {
 		super(indicesParse, new CandidateDAO());
 	}
 	

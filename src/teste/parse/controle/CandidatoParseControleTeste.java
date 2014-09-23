@@ -6,7 +6,7 @@ import model.dao.CandidateDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.CandidatoParseControle;
+import parse.control.ParseControlCandidate;
 import parse.index.CandidatoIndicesParse;
 import teste.TemplateTeste;
 
@@ -18,7 +18,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private CandidateDAO candidateDAO;
 	private CandidatoIndicesParse candidatoIndicesParse;
-	private CandidatoParseControle candidatoParseControle;
+	private ParseControlCandidate parseControlCandidate;
 	
 	@Override
 	public void beforeTest() throws Exception {
@@ -26,7 +26,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		this.campo = new String[2];
 		this.candidateDAO = new CandidateDAO();
 		this.candidatoIndicesParse = new CandidatoIndicesParse();
-		this.candidatoParseControle = new CandidatoParseControle(this.candidatoIndicesParse);
+		this.parseControlCandidate = new ParseControlCandidate(this.candidatoIndicesParse);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -40,9 +40,9 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarCandidato() throws Exception {
 		
-		this.candidatoParseControle.addInstancia(campo);
-		this.candidatoParseControle.registeringInstances();
-		this.candidatoParseControle.resetar();
+		this.parseControlCandidate.addInstancia(campo);
+		this.parseControlCandidate.registeringInstances();
+		this.parseControlCandidate.resetar();
 		
 		Candidate candidatoCadastrado = this.candidateDAO.getObjectArrayListFromDatabase().get(0);
 		
@@ -53,10 +53,10 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisCandidatosIguais() throws Exception {
 		
-		this.candidatoParseControle.addInstancia(campo);
-		this.candidatoParseControle.addInstancia(campo);
-		this.candidatoParseControle.registeringInstances();
-		this.candidatoParseControle.resetar();
+		this.parseControlCandidate.addInstancia(campo);
+		this.parseControlCandidate.addInstancia(campo);
+		this.parseControlCandidate.registeringInstances();
+		this.parseControlCandidate.resetar();
 		
 		int numeroCandidatosCadastrados = this.candidateDAO.getObjectArrayListFromDatabase().size();
 		
