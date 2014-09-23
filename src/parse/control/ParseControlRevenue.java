@@ -4,14 +4,14 @@ import model.beans.Revenue;
 import model.dao.RevenueDAO;
 import parse.index.IndicesParse;
 
-public class ReceitaParseControle extends ParseControl<Revenue> {
+public class ParseControlRevenue extends ParseControl<Revenue> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Revenue
 	 */
 
 	// Constructors
-	public ReceitaParseControle(IndicesParse<Revenue> indicesParse) {
+	public ParseControlRevenue(IndicesParse<Revenue> indicesParse) {
 		super(indicesParse, new RevenueDAO());
 	}
 

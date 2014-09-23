@@ -11,8 +11,8 @@ public class ParseControlParty extends ParseControl<Party> {
 	 */
 
 	// Constructors
-	public ParseControlParty(IndicesParse<Party> indicesParse) {
-		super(indicesParse, new PartyDAO());
+	public ParseControlParty(IndicesParse<Party> indexParse) {
+		super(indexParse, new PartyDAO());
 	}
 
 	/*
@@ -31,8 +31,8 @@ public class ParseControlParty extends ParseControl<Party> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean equalObjects(Party objetoUm, Party objetoDois) {
-		return objetoUm.equals(objetoDois);
+	public boolean equalObjects(Party objectOne, Party objectTwo) {
+		return objectOne.equals(objectTwo);
 	}
 	
 }
