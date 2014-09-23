@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import controle.servlet.VisualizarResultadoListaBuscaCandidato;
+import control.servlet.VisualizarResultadoListaBuscaCandidato;
 
 public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 	

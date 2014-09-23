@@ -1,31 +1,23 @@
-package controle.servlet;
+package control.servlet;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.beans.Campaign;
 import model.beans.Party;
-import control.CampanhaControle;
 import control.PartidoControle;
 
-public class VisualizarCandidatosPartido implements Logica {
+public class RequisitarPartido implements Logica {
 	
 	/*
-	 * Servlet request to control display political candidate
+	 * Servlet to request control of political parties
 	 */
 
 	// Attributes
-	private CampanhaControle campanhaControle;
-	private ArrayList<Campaign> listaCampanhas;
-	private PartidoControle partidoControle;
-	private Party party;
-
-	private String sigla;
-	private String ano;
+	private PartidoControle controle;
+	private List<Party> listaPartidos;
 
 	private HttpServletRequest req;
 
@@ -39,8 +31,7 @@ public class VisualizarCandidatosPartido implements Logica {
 
 	// Other methods
 	/*
-	 * Concretizing method that implements requests for display of a
-	 * candidate in all their years of election campaign 
+	 * Concretizing method that implements requests for requests the political parties
 	 * @param an HTTP request and HTTP response
 	 * @return the next HTML page and their responses to requests
 	 */
@@ -50,55 +41,45 @@ public class VisualizarCandidatosPartido implements Logica {
 
 		this.req = req;
 		
-		//Call refactored methods
-		recebeParametros();
+		// Call refactored methods
+		recebeParametrosDeListagem();
 		estabeleceParametros();
 		preparaEnvioDeParametros();
-
-		return "/visualizar_candidato_partido.jsp";
+		
+		// Returns the page with the list of candidates
+		return "/listar_partidos.jsp";	
 	}
 
 	/*
 	 * Rebecer methods for the parameters of the request
 	 */
-	private void recebeParametros() {
-		this.sigla = req.getParameter("sigla");
-		this.ano =  req.getParameter("ano");
-		this.inicio = Integer.parseInt(req.getParameter("inicio"));
-		this.qtdPorPagina = Integer.parseInt(req.getParameter("qtdPorPagina"));
-		this.verTodos = Boolean.parseBoolean(req.getParameter("verTodos"));
+	private void recebeParametrosDeListagem() {
+		this.inicio = Integer.parseInt(this.req.getParameter("inicio"));
+		this.qtdPorPagina = Integer.parseInt(this.req.getParameter("qtdPorPagina"));
+		this.verTodos = Boolean.parseBoolean(this.req.getParameter("verTodos"));
 	}
 
 	/*
 	 * Establishes what each parameter will receive
 	 */
 	private void estabeleceParametros() throws SQLException {
-		this.campanhaControle = new CampanhaControle();
-		this.partidoControle = new PartidoControle();
-		this.party = this.partidoControle.getPelaSigla(this.sigla);
-		this.listaCampanhas = new ArrayList<>();
-		this.listaCampanhas = this.campanhaControle
-				.getListaCampanhasPorSiglaPartidoEAno(this.sigla,this.ano);
-		this.indice = geraIndiceDaLista(this.listaCampanhas,this.qtdPorPagina);
-		this.qtdDePP = geraIndiceDePaginacao(this.listaCampanhas);
-		
-		// Sets the amount of per page
+		this.controle = new PartidoControle();
+		this.listaPartidos = controle.getListaTodosPartidos();
+		this.indice = geraIndiceDaLista(this.listaPartidos,this.qtdPorPagina);
+		this.qtdDePP = geraIndiceDePaginacao(this.listaPartidos);
 		this.atual = (int) Math.round((float) this.inicio / (float) this.qtdPorPagina)+1;
 	}
-
+	
 	/*
 	 * Prepare responses of forwarded requests
 	 */
 	private void preparaEnvioDeParametros() {
-		this.req.setAttribute("ano", this.ano);
-		this.req.setAttribute("listaCampanhas", this.listaCampanhas);
-		this.req.setAttribute("party", this.party);
-		this.req.setAttribute("sigla", this.sigla);
+		this.req.setAttribute("listaPartidos", this.listaPartidos);
 		this.req.setAttribute("inicio", this.inicio);
 		
 		// Defines the number of pages is equal to the size of the candidate list
 		if(this.verTodos) {
-			this.qtdPorPagina = this.listaCampanhas.size();
+			this.qtdPorPagina = this.listaPartidos.size();
 		}
 		this.req.setAttribute("qtdPorPagina", this.qtdPorPagina);
 		this.req.setAttribute("indice", this.indice);
@@ -111,7 +92,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	 * @param a list of candidates and a number that is a divisor
 	 * @return a number representing the index of list
 	 */
-	private int geraIndiceDaLista(List<Campaign> lista, int divisor) {
+	private int geraIndiceDaLista(List<Party> lista, int divisor) {
 		if(divisor!=0) {
 			int indice = (int) Math.ceil((double)lista.size()/(double)divisor);
 			return indice;
@@ -119,13 +100,13 @@ public class VisualizarCandidatosPartido implements Logica {
 			return 1;
 		}
 	}
-
+	
 	/*
 	 * Generate index list for paging
 	 * @param a list of candidates
 	 * @return a number representing the index of paging
 	 */
-	private int geraIndiceDePaginacao(List<Campaign> lista) {
+	private int geraIndiceDePaginacao(List<Party> lista) {
 		int indice = (int) Math.floor((double)lista.size()/(double)25);
 		return indice;
 	}

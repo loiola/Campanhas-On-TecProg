@@ -1,16 +1,14 @@
-package controle.servlet;
+package control.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Scanner;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -18,17 +16,19 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
-import parse.ParsePartido;
+import parse.ParseMovimentacoes;
+import parse.register.revenue_expense.CadastroDoadorParse;
+import parse.register.revenue_expense.CadastroFornecedorParse;
 
-@WebServlet("/carregarParsePartido")
-public class CarregarParsePartido extends HttpServlet {
+@WebServlet("/carregarParseMovimentacoes")
+public class CarregarParseMovimentacoes extends HttpServlet {
 	
 	/*
-	 * Servlet to control the loading parse political parties
+	 * Servlet to control the loading parse financial transactions
 	 */
 
 	// Attributes
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 5625867877274809499L;
 
 	// Empty Constructor
 	@Override
@@ -47,12 +47,7 @@ public class CarregarParsePartido extends HttpServlet {
 
 		PrintWriter saida = response.getWriter();
 
-		Part part = request.getPart("arquivo_linha_inicial");
-		if(part != null) {
-			Scanner scanner = new Scanner(part.getInputStream());
-			saida.println("linha inicial: " + scanner.nextLine());
-			scanner.close();
-		} try {
+		try {
 			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
 			if(isMultpart) {
 				FileItemFactory factory = new DiskFileItemFactory();
@@ -61,17 +56,47 @@ public class CarregarParsePartido extends HttpServlet {
 				List<FileItem> fields = upload.parseRequest(request);
 
 				FileItem arquivo = null;
+				String tipoArquivo = "";
+				String ano = "";
+				String divisao = ";";
 				int linhaInicial = 1;
-				String tipoArquivo = "partido";
 
 				for(FileItem fileItem : fields) {
 					if(!fileItem.isFormField()) {
 						arquivo = fileItem;
+					} else {
+						if(fileItem.getFieldName().equals("arquivo_tipo")) {
+							
+							// Checks the file type, whether income or expense
+							if(fileItem.getString().equals("expense")) {
+								tipoArquivo = CadastroFornecedorParse.DESPESA;
+							} else {
+								tipoArquivo = CadastroDoadorParse.RECEITA;
+							}
+						} else if(fileItem.getFieldName().equals("arquivo_ano")) {
+							
+							// Checks joined donor according to selected year
+							switch (fileItem.getString()) {
+							case "2002":
+								ano = CadastroDoadorParse.ANO_2002;
+								break;
+
+							case "2006":
+								ano = CadastroDoadorParse.ANO_2006;
+								break;
+
+							case "2010":
+								ano = CadastroDoadorParse.ANO_2010;
+								break;
+
+							default:
+								break;
+							}
+						}
 					}
 				}
 
-				String divisao = ";";
-				Parse parse = new ParsePartido(tipoArquivo, "");
+				Parse parse = new ParseMovimentacoes(tipoArquivo, ano);
 				parse.executarParse(arquivo, divisao, linhaInicial);
 				saida.println("Parse Realizado com Sucesso!");
 			}

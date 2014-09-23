@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import controle.servlet.RequisitarPartido;
+import control.servlet.RequisitarPartido;
 
 public class RequisitarPartidoTeste extends TemplateTeste {
 	
