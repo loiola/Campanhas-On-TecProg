@@ -12,16 +12,16 @@
 			<div id="menu">
 				<ul>
 					<li><a href="index.jsp" class="home">Home</a></li>
-					<li><a href="requisitar_candidato.jsp" class="candidatos">Candidatos</a>
+					<li><a href="request_candidate.jsp" class="candidatos">Candidatos</a>
 					</li>
 					<li>
 					<c:url var="url_partido" value="/mvc">
-						<c:param name="logica" value="RequisitarPartido"></c:param>
-						<c:param name="inicio" value="${0}"></c:param>
-						<c:param name="qtdPorPagina" value="${10}"></c:param>
-						<c:param name="verTodos" value="${false}"></c:param>
+						<c:param name="logic" value="RequestPoliticalParty"></c:param>
+						<c:param name="firstPoliticalParty" value="${0}"></c:param>
+						<c:param name="quantityPoliticalPartyPerPage" value="${10}"></c:param>
+						<c:param name="seeAllPoliticalParties" value="${false}"></c:param>
 					</c:url>
-					<a href="${url_partido}" class="partidos">Partidos</a>					</li>
+					<a href="${url_partido}" class="partidos">Partidos</a></li>
 					<li><a href="top_five.jsp" class="top5static">TOP 5</a>
 					</li>
 				</ul>

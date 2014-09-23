@@ -24,15 +24,15 @@
     	  
         var data = google.visualization.arrayToDataTable([                                                
           ['Nome do Candidato',	'Despesa Total Declarado'],
-          ["${candidato1.nomeDeUrna}",	${candidato1.despesaMaxDeclarada}],
-          ["${candidato2.nomeDeUrna}",	${candidato2.despesaMaxDeclarada}],
-          ["${candidato3.nomeDeUrna}",	${candidato3.despesaMaxDeclarada}],
-          ["${candidato4.nomeDeUrna}",	${candidato4.despesaMaxDeclarada}],
-          ["${candidato5.nomeDeUrna}",	${candidato5.despesaMaxDeclarada}],
+          ["${candidate1.campaignNameOfUrn}",	${candidate1.campaignMaximumExpenseDeclared}],
+          ["${candidate2.campaignNameOfUrn}",	${candidate2.campaignMaximumExpenseDeclared}],
+          ["${candidate3.campaignNameOfUrn}",	${candidate3.campaignMaximumExpenseDeclared}],
+          ["${candidate4.campaignNameOfUrn}",	${candidate4.campaignMaximumExpenseDeclared}],
+          ["${candidate5.campaignNameOfUrn}",	${candidate5.campaignMaximumExpenseDeclared}],
         ]);
 
         var options = {
-          title: '5 Maiores Despesas Máximas Declaradas para no ano de '+${ano}+' : '+"${cargo}",
+          title: '5 Maiores Despesas Máximas Declaradas para no ano de '+${electionYear}+' : '+"${position}",
           hAxis: {title: 'Candidatos'}
         };
 
@@ -66,12 +66,12 @@
 				</div>
 				<p>
 				<c:url var="link_submit" value="/mvc">
-					<c:param name="logica" value="VisualizarTopFive"></c:param>
+					<c:param name="logic" value="VisualizeTopFive"></c:param>
 				</c:url>
 				<br>
 				<form action="${link_submit}" method="post">
 					<div id="primeiroSelect">
-						Ano: <select name="ano">
+						Ano: <select name="electionYear">
 							<option value="2010">2010
 							<option value="2006">2006
 							<option value="2002">2002
@@ -79,7 +79,7 @@
 					</div>
 					<br> <br>
 					<div id="segundoSelect">
-						Cargo: <select name="cargo">
+						Cargo: <select name="position">
 							<option value="Presidente">Presidente
 							<option value="Governador">Governador
 							<option value="Senador">Senador

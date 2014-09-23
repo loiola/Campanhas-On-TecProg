@@ -28,12 +28,12 @@
 		<div id="conteudo_informacoes">
 			<div class="informacoes">
 				<h1>
-					<c:url var="url_partido" value="/mvc">
-						<c:param name="logica" value="SelecionarPartido"></c:param>
-						<c:param name="sigla" value="${partido.sigla}"></c:param>
+					<c:url var="url_party" value="/mvc">
+						<c:param name="logic" value="SelectPoliticalParty"></c:param>
+						<c:param name="partyAcronym" value="${party.partyAcronym}"></c:param>
 					</c:url>
 					<center>
-						<span id="perfilPartido"><a href="${url_partido}">${partido.nome}</a></span>
+						<span id="perfilPartido"><a href="${url_party}">${party.partyName}</a></span>
 					</center>
 				</h1>
 				<center>
@@ -54,24 +54,23 @@
 							</tr>
 						</thead>
 
-						<c:forEach var="campanha" items="${listaCampanhas}"
-							begin="${inicio}" end="${inicio+(qtdPorPagina-1)}"
-							varStatus="listagem">
+						<c:forEach var="campaign" items="${listCampaign}" begin="${first}"
+							end="${first+(quantityPerPage-1)}" varStatus="listagem">
 							<tr>
-								<td><c:url var="candidatoUrl" value="/mvc">
-										<c:param name="logica" value="SelecionarCandidato"></c:param>
-										<c:param name="tituloEleitoral"
-											value="${campanha.candidato.tituloEleitoral}"></c:param>
-									</c:url> <a href="${candidatoUrl}">${campanha.candidato.nome}</a> <br>
+								<td><c:url var="candidateUrl" value="/mvc">
+										<c:param name="logic" value="SelectCandidate"></c:param>
+										<c:param name="electoralTitle"
+											value="${campaign.campaignCandidate.candidateElectoralTitle}"></c:param>
+									</c:url> <a href="${candidateUrl}">${campaign.campaignCandidate.candidateName}</a>
+									<br></td>
+								<td>
+									<center>${campaign.campaignNameOfUrn}</center>
 								</td>
 								<td>
-									<center>${campanha.nomeDeUrna}</center>
+									<center>${campaign.campaignPosition.positionDescription}</center>
 								</td>
 								<td>
-									<center>${campanha.cargo.descricao}</center>
-								</td>
-								<td>
-									<center>${campanha.numeroCandidato}</center>
+									<center>${campaign.campaignCandidateNumber}</center>
 								</td>
 							</tr>
 						</c:forEach>
@@ -80,17 +79,18 @@
 							<tr>
 								<td colspan="4"><center>
 										Páginas:
-										<c:forEach var="i" begin="1" end="${indice}">
+										<c:forEach var="i" begin="1" end="${index}">
 											<c:url var="url_pag" value="/mvc">
-												<c:param name="logica" value="VisualizarCandidatosPartido"></c:param>
-												<c:param name="sigla" value="${sigla}"></c:param>
-												<c:param name="ano" value="${ano}"></c:param>
-												<c:param name="inicio" value="${(i-1)*qtdPorPagina}"></c:param>
-												<c:param name="qtdPorPagina" value="${qtdPorPagina}"></c:param>
-												<c:param name="verTodos" value="${false}"></c:param>
+												<c:param name="logic"
+													value="VisualizeCandidateOfPoliticalParty"></c:param>
+												<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+												<c:param name="year" value="${year}"></c:param>
+												<c:param name="first" value="${(i-1)*quantityPerPage}"></c:param>
+												<c:param name="quantityPerPage" value="${quantityPerPage}"></c:param>
+												<c:param name="seeAllPoliticalParties" value="${false}"></c:param>
 											</c:url>
 											<c:choose>
-												<c:when test="${i == atual}">[ ${i} ]</c:when>
+												<c:when test="${i == actual}">[ ${i} ]</c:when>
 												<c:otherwise>
 													<a href="${url_pag}"><c:out value="${i}" /></a>
 												</c:otherwise>
@@ -98,32 +98,35 @@
 										</c:forEach>
 										<br> Partidos por Página:
 										<c:url var="url_tamanhoOriginal" value="/mvc">
-											<c:param name="logica" value="VisualizarCandidatosPartido"></c:param>
-											<c:param name="sigla" value="${sigla}"></c:param>
-											<c:param name="ano" value="${ano}"></c:param>
-											<c:param name="inicio" value="${0}"></c:param>
-											<c:param name="qtdPorPagina" value="${10}"></c:param>
-											<c:param name="verTodos" value="${false}"></c:param>
+											<c:param name="logic"
+												value="VisualizeCandidateOfPoliticalParty"></c:param>
+											<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+											<c:param name="year" value="${year}"></c:param>
+											<c:param name="first" value="${0}"></c:param>
+											<c:param name="quantityPerPage" value="${10}"></c:param>
+											<c:param name="seeAllPoliticalParties" value="${false}"></c:param>
 										</c:url>
 										<a href="${url_tamanhoOriginal}"> ${10}</a>
-										<c:forEach var="i" begin="1" end="${qtdDePP}">
+										<c:forEach var="i" begin="1" end="${quantityOfPP}">
 											<c:url var="url_tamanhos" value="/mvc">
-												<c:param name="logica" value="VisualizarCandidatosPartido"></c:param>
-												<c:param name="sigla" value="${sigla}"></c:param>
-												<c:param name="ano" value="${ano}"></c:param>
-												<c:param name="inicio" value="${0}"></c:param>
-												<c:param name="qtdPorPagina" value="${i*25}"></c:param>
-												<c:param name="verTodos" value="${false}"></c:param>
+												<c:param name="logic"
+													value="VisualizeCandidateOfPoliticalParty"></c:param>
+												<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+												<c:param name="year" value="${year}"></c:param>
+												<c:param name="first" value="${0}"></c:param>
+												<c:param name="quantityPerPage" value="${i*25}"></c:param>
+												<c:param name="seeAllPoliticalParties" value="${false}"></c:param>
 											</c:url>
 											<a href="${url_tamanhos}"> ${i*25}</a>
 										</c:forEach>
 										<c:url var="url_todos" value="/mvc">
-											<c:param name="logica" value="VisualizarCandidatosPartido"></c:param>
-											<c:param name="sigla" value="${sigla}"></c:param>
-											<c:param name="ano" value="${ano}"></c:param>
-											<c:param name="inicio" value="${0}"></c:param>
-											<c:param name="qtdPorPagina" value="${0}"></c:param>
-											<c:param name="verTodos" value="${true}"></c:param>
+											<c:param name="logic"
+												value="VisualizeCandidateOfPoliticalParty"></c:param>
+											<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+											<c:param name="year" value="${year}"></c:param>
+											<c:param name="first" value="${0}"></c:param>
+											<c:param name="quantityPerPage" value="${0}"></c:param>
+											<c:param name="seeAllPoliticalParties" value="${true}"></c:param>
 										</c:url>
 										<a href="${url_todos}"> Ver Todos</a>
 									</center></td>

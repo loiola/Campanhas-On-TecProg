@@ -28,7 +28,13 @@ public class ServletControl extends HttpServlet {
 
 		String parameter = request.getParameter("logic");
 		String nameOfClass = "control.servlet." + parameter;
+		
+		
+		//RETIRAR, APENAS PARA TESTE
+		System.out.println(parameter);
+		//RETIRAR, APENAS PARA TESTE
 
+		
 		try { 
 			
 			//Conseguir uma tradução para CLASSE (Não pode ser class)

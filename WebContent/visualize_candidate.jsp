@@ -22,9 +22,9 @@
     	  
         var data = google.visualization.arrayToDataTable([                                                
           ['Ano',	'Despesa Máxima Declarada', 'Despesa Total Calculada', 'Receita Total Calculada'],
-          ['2002',	${despesa1}, ${despesa01}, ${receita1}],
-          ['2006',	${despesa2}, ${despesa02}, ${receita2}],
-          ['2010',	${despesa3}, ${despesa03}, ${receita3}],
+          ['2002',	${expense1}, ${expense01}, ${revenue1}],
+          ['2006',	${expense2}, ${expense02}, ${revenue2}],
+          ['2010',	${expense3}, ${expense03}, ${revenue3}],
         ]);
 
         var options = {
@@ -51,7 +51,7 @@
 				<div id="perfil_partido">
 					<center>
 						<h1>
-							<c:out value="${candidato.nome}" />
+							<c:out value="${candidate.candidateName}" />
 						</h1>
 					</center>
 					<br />
@@ -65,12 +65,12 @@
 							<table>
 								<tr>
 									<td><b>Nome:</b></td>
-									<td><c:out value="${candidato.nome}" /></td>
+									<td><c:out value="${candidate.candidateName}" /></td>
 
 								</tr>
 								<tr>
 									<td><b>Título Eleitoral:</b></td>
-									<td><c:out value="${candidato.tituloEleitoral}" /></td>
+									<td><c:out value="${candidate.candidateElectoralTitle}" /></td>
 								</tr>
 
 							</table>
@@ -85,45 +85,45 @@
 							<div id="ano_partido">
 								<h2 align="center">Consulta à Movimentação</h2>
 								<!-- Anos em que ele concorreu -->
-								<c:forEach var="campanha" items="${campanhas}">
+								<c:forEach var="campaign" items="${campaigns}">
 									<table id="gradient-style-perfilCandidato"
 										summary="Meeting Results">
 										<thead>
 											<tr>
-												<th scope="col" colspan="4"><c:url var="AnoUrl"
+												<th scope="col" colspan="4"><c:url var="YearUrl"
 														value="/mvc">
-														<c:param name="logica"
-															value="RequisitarMovimentacoesDeCandidato" />
-														<c:param name="despesaTC"
-															value="${campanha.despesaTotalCalculada}" />
-														<c:param name="receitaTC"
-															value="${campanha.receitaTotalCalculada}" />
-														<c:param name="numero_cand"
-															value="${campanha.numeroCandidato}" />
-														<c:param name="ano" value="${campanha.ano}" />
-														<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-														<c:param name="uf" value="${campanha.uf}" />
-														<c:param name="inicioR" value="${0}" />
-														<c:param name="qtdPorPaginaR" value="${10}" />
-														<c:param name="verTodosR" value="${false}" />
-														<c:param name="centroR" value="${1}" />
-														<c:param name="inicioD" value="${0}" />
-														<c:param name="qtdPorPaginaD" value="${10}" />
-														<c:param name="verTodosD" value="${false}" />
-														<c:param name="centroD" value="${1}" />
-													</c:url> <a href="${AnoUrl}"><center>Campanha de ${campanha.ano}</center></a></th>
+														<c:param name="logic"
+															value="RequestFinancialTransactionOfCandidate" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${campaign.campaignTotalExpenseCalculated}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${campaign.campaignTotalRevenueCalculated}" />
+														<c:param name="candidateNumber"
+															value="${campaign.campaignCandidateNumber}" />
+														<c:param name="year" value="${campaign.campaignYear}" />
+														<c:param name="codeOfPosition" value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="uf" value="${campaign.campaignCountryState}" />
+														<c:param name="firstRevenue" value="${0}" />
+														<c:param name="quantityRevenuePerPage" value="${10}" />
+														<c:param name="seeAllRevenues" value="${false}" />
+														<c:param name="centerOfRevenue" value="${1}" />
+														<c:param name="firstExpense" value="${0}" />
+														<c:param name="quantityExpensePerPage" value="${10}" />
+														<c:param name="seeAllExpenses" value="${false}" />
+														<c:param name="centerOfExpense" value="${1}" />
+													</c:url> <a href="${YearUrl}"><center>Campanha de ${campaign.campaignYear}</center></a></th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td width=""><c:url var="partidoUrl" value="/mvc">
-														<c:param name="logica" value="SelecionarPartido" />
-														<c:param name="sigla" value="${campanha.partido.sigla}" />
-													</c:url> <b>Partido:</b> <a href="${partidoUrl}">${campanha.partido.sigla}</a>
+												<td width=""><c:url var="PartyUrl" value="/mvc">
+														<c:param name="logic" value="SelectPoliticalParty" />
+														<c:param name="partyAcronym" value="${campaign.campaignParty.partyAcronym}" />
+													</c:url> <b>Partido:</b> <a href="${PartyUrl}">${campaign.campaignParty.partyAcronym}</a>
 												</td>
-												<td width="250"><b>Cargo Pleiteado:</b> <br>${campanha.cargo.descricao}</td>
-												<td><b>UF:</b> ${campanha.uf}</td>
-												<td><b>Número:</b> ${campanha.numeroCandidato}</td>
+												<td width="250"><b>Cargo Pleiteado:</b> <br>${campaign.campaignPosition.positionDescription}</td>
+												<td><b>UF:</b> ${campaign.campaignCountryState}</td>
+												<td><b>Número:</b> ${campaign.campaignCandidateNumber}</td>
 											</tr>
 										</tbody>
 									</table>
@@ -134,7 +134,7 @@
 					</div>
 				</div>
 			</div>
-			<br><br><br><br><br>
+			<br><br>
 			<center>
 				<div id="chart_div" style="width: 900px; height: 500px;"></div>
 			</center>

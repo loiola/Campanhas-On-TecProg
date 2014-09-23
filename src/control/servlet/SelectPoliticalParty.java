@@ -17,7 +17,7 @@ public class SelectPoliticalParty implements Logic {
 	private PartyControl partyControl;
 	private Party party;
 
-	private String sigla;
+	private String partyAcronym;
 	private String siglaWithUnder;
 	private String linkTSE;
 
@@ -35,11 +35,11 @@ public class SelectPoliticalParty implements Logic {
 		this.party = new Party();
 		this.partyControl = new PartyControl();
 
-		this.sigla = req.getParameter("sigla");
-		this.siglaWithUnder = this.sigla.replaceAll(" ", "_");
+		this.partyAcronym = req.getParameter("partyAcronym");
+		this.siglaWithUnder = this.partyAcronym.replaceAll(" ", "_");
 		this.siglaWithUnder = this.siglaWithUnder.toLowerCase();
 
-		this.party = this.partyControl.getBySigla(this.sigla);
+		this.party = this.partyControl.getBySigla(this.partyAcronym);
 		this.linkTSE = changeSpecialCharacters(this.party);
 
 		// Set of answers to requests made concerning the applicant requested

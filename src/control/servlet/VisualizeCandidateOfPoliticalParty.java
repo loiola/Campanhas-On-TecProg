@@ -24,7 +24,7 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	private PartyControl partyControl;
 	private Party party;
 
-	private String sigla;
+	private String partyAcronym;
 	private String year;
 
 	private HttpServletRequest req;
@@ -62,7 +62,7 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	 * Rebecer methods for the parameters of the request
 	 */
 	private void receiveParameters() {
-		this.sigla = req.getParameter("sigla");
+		this.partyAcronym = req.getParameter("partyAcronym");
 		this.year =  req.getParameter("year");
 		this.first = Integer.parseInt(req.getParameter("first"));
 		this.quantityPerPage = Integer.parseInt(req.getParameter("quantityPerPage"));
@@ -75,10 +75,10 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	private void setParameters() throws SQLException {
 		this.campaignControl = new CampaignControl();
 		this.partyControl = new PartyControl();
-		this.party = this.partyControl.getBySigla(this.sigla);
+		this.party = this.partyControl.getBySigla(this.partyAcronym);
 		this.listCampaign = new ArrayList<>();
 		this.listCampaign = this.campaignControl
-				.getListCampaignBySiglaPartyAndYear(this.sigla,this.year);
+				.getListCampaignBySiglaPartyAndYear(this.partyAcronym,this.year);
 		this.index = generateCandidateListIndexes(this.listCampaign,this.quantityPerPage);
 		this.quantityOfPP = generatePageIndex(this.listCampaign);
 		
@@ -93,7 +93,7 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 		this.req.setAttribute("year", this.year);
 		this.req.setAttribute("listCampaign", this.listCampaign);
 		this.req.setAttribute("party", this.party);
-		this.req.setAttribute("sigla", this.sigla);
+		this.req.setAttribute("partyAcronym", this.partyAcronym);
 		this.req.setAttribute("first", this.first);
 		
 		// Defines the number of pages is equal to the size of the candidate list

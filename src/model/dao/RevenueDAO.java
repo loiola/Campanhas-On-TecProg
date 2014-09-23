@@ -18,7 +18,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 */
 	
 	// Constants
-	private static final String DATABASE_REVENUE_TABLE_NAME = "revenue";
+	private static final String DATABASE_REVENUE_TABLE_NAME = "receita";
 	private final String DATABASE_REVENUE_IDENTIFIER = "id_receita";
 	private final String DATABASE_REVENUE_CAMPAIGN_YEAR = "campanha_ano";
 	private final String DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER = "campanha_numero_candidato";

@@ -29,7 +29,7 @@
 			<div class="informacoes">
 				<div id="perfil_partido">
 					<center>
-						<h1>${partido.nome}</h1>
+						<h1>${party.partyName}</h1>
 					</center>
 					<br />
 
@@ -45,17 +45,17 @@
 							<table>
 								<tr>
 									<td><b>Sigla:</b></td>
-									<td>${partido.sigla}</td>
+									<td>${party.partyAcronym}</td>
 								</tr>
 								<tr>
 									<td><b>Número:</b></td>
-									<td>${partido.numero}</td>
+									<td>${party.partyNumber}</td>
 								</tr>
 								<c:choose>
-									<c:when test="${not empty partido.deferimento}">
+									<c:when test="${not empty party.partyConcession}">
 										<tr>
 											<td><b>Deferimento:</b></td>
-											<td>${partido.deferimento}</td>
+											<td>${party.partyConcession}</td>
 										</tr>
 										<tr>
 											<td><b>Mais informações:</b></td>
@@ -91,19 +91,19 @@
 										</tr>
 									</thead>
 
-									<c:forEach var="ano" items="${anos}">
+									<c:forEach var="year" items="${years}">
 										<tbody>
 											<tr>
-												<td><c:url var="AnoUrl" value="/mvc">
-														<c:param name="logica" value="VisualizarCandidatosPartido" />
-														<c:param name="sigla" value="${partido.sigla}" />
-														<c:param name="ano" value="${ano}" />
-														<c:param name="inicio" value="${0}" />
-														<c:param name="qtdPorPagina" value="${10}" />
-														<c:param name="verTodos" value="${false}" />
+												<td><c:url var="YearUrl" value="/mvc">
+														<c:param name="logic" value="VisualizeCandidateOfPoliticalParty" />
+														<c:param name="partyAcronym" value="${party.partyAcronym}" />
+														<c:param name="year" value="${year}" />
+														<c:param name="first" value="${0}" />
+														<c:param name="quantityPerPage" value="${10}" />
+														<c:param name="seeAllPoliticalParties" value="${false}" />
 													</c:url>
 													<center>
-														<a href="${AnoUrl}">${ano}</a>
+														<a href="${YearUrl}">${year}</a>
 													</center></td>
 											</tr>
 										</tbody>

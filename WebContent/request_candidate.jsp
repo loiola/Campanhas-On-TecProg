@@ -34,17 +34,17 @@
 							que deseja buscar, e em seguida, clique em buscar.
 						</p>
 
-						<c:url var="link_busca" value="/mvc">
-							<c:param name="logica"
-								value="VisualizarResultadoListaBuscaCandidato"></c:param>
-							<c:param name="inicio" value="${0}"></c:param>
-							<c:param name="qtdPorPagina" value="${10}"></c:param>
-							<c:param name="verTodos" value="${false}"></c:param>
-							<c:param name="centro" value="${1}"></c:param>
+						<c:url var="link_search" value="/mvc">
+							<c:param name="logic"
+								value="VisualizeResultOfSearchCandidateList"></c:param>
+							<c:param name="firstCandidate" value="${0}"></c:param>
+							<c:param name="quantityCandidatePerPage" value="${10}"></c:param>
+							<c:param name="seeAllCandidates" value="${false}"></c:param>
+							<c:param name="centerCandidate" value="${1}"></c:param>
 						</c:url>
 
-						<form action="${link_busca}" method="post">
-							<br> <input class="campoRapido" type="text" name="nome"
+						<form action="${link_search}" method="post">
+							<br> <input class="campoRapido" type="text" name="name"
 								required> <br> <br> <br> <input
 								id="botao" type="submit" value="Buscar" />
 						</form>

@@ -18,7 +18,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 */
 	
 	// Constants
-	private static final String DATABASE_EXPENSE_TABLE_NAME = "expense";
+	private static final String DATABASE_EXPENSE_TABLE_NAME = "despesa";
 	private final String DATABASE_EXPENSE_IDENTIFIER = "id_despesa";
 	private final String DATABASE_EXPENSE_CAMPAIGN_YEAR = "campanha_ano";
 	private final String DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER = "campanha_numero_candidato";

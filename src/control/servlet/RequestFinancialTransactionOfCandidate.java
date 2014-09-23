@@ -137,7 +137,7 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 		this.req.setAttribute("revenueList", this.revenueList);
 		this.req.setAttribute("expenseList", this.expenseList);
 		this.req.setAttribute("campaign", this.campaign);
-		this.req.setAttribute("depesaTot", this.totalExpense);
+		this.req.setAttribute("totalExpense", this.totalExpense);
 		this.req.setAttribute("totalExpenseCalculatedValue", totalExpenseCalculatedValue);
 		this.req.setAttribute("totalRevenueCalculatedValue", totalRevenueCalculatedValue);
 		this.req.setAttribute("firstRevenue", this.firstRevenue);

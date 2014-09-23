@@ -42,18 +42,18 @@
 							</tr>
 						</thead>
 
-						<c:forEach var="candidato" items="${listaCandidatos}"
-							begin="${inicio}" end="${inicio+(qtdPorPagina-1)}"
+						<c:forEach var="candidates" items="${listCandidates}"
+							begin="${firstCandidate}" end="${firstCandidate+(quantityCandidatePerPage-1)}"
 							varStatus="listagem">
 
 							<tr>
-								<td><c:url var="candidatoUrl" value="/mvc">
-										<c:param name="logica" value="SelecionarCandidato" />
-										<c:param name="tituloEleitoral"
-											value="${candidato.tituloEleitoral}" />
+								<td><c:url var="candidateUrl" value="/mvc">
+										<c:param name="logic" value="SelectCandidate" />
+										<c:param name="electoralTitle"
+											value="${candidates.candidateElectoralTitle}" />
 									</c:url>
 									<center>
-										<a href="${candidatoUrl}">${candidato.nome}</a> <br>
+										<a href="${candidateUrl}">${candidates.candidateName}</a> <br>
 									</center></td>
 							</tr>
 
@@ -64,78 +64,78 @@
 								<td colspan="4"><center>
 										Páginas:
 										<c:url var="url_pagInicial" value="/mvc">
-											<c:param name="logica"
-												value="VisualizarResultadoListaBuscaCandidato" />
-											<c:param name="nome" value="${nome}" />
-											<c:param name="inicio" value="${0}" />
-											<c:param name="qtdPorPagina" value="${qtdPorPagina}" />
-											<c:param name="verTodos" value="${false}" />
-											<c:param name="centro" value="${1}" />
+											<c:param name="logic"
+												value="VisualizeResultOfSearchCandidateList" />
+											<c:param name="name" value="${name}" />
+											<c:param name="firstCandidate" value="${0}" />
+											<c:param name="quantityCandidatePerPage" value="${quantityCandidatePerPage}" />
+											<c:param name="seeAllCandidates" value="${false}" />
+											<c:param name="centerCandidate" value="${1}" />
 										</c:url>
 										<a href="${url_pagInicial}"><c:out value="primeira... " /></a>
-										<c:forEach var="i" begin="${minRaio}" end="${maxRaio}">
+										<c:forEach var="i" begin="${minimumRadius}" end="${maximumRadius}">
 											<c:url var="url_pag" value="/mvc">
-												<c:param name="logica"
-													value="VisualizarResultadoListaBuscaCandidato" />
-												<c:param name="nome" value="${nome}" />
-												<c:param name="inicio" value="${(i-1)*qtdPorPagina}" />
-												<c:param name="qtdPorPagina" value="${qtdPorPagina}" />
-												<c:param name="verTodos" value="${false}" />
-												<c:param name="centro" value="${i}" />
+												<c:param name="logic"
+													value="VisualizeResultOfSearchCandidateList" />
+												<c:param name="name" value="${name}" />
+												<c:param name="firstCandidate" value="${(i-1)*quantityCandidatePerPage}" />
+												<c:param name="quantityCandidatePerPage" value="${quantityCandidatePerPage}" />
+												<c:param name="seeAllCandidates" value="${false}" />
+												<c:param name="centerCandidate" value="${i}" />
 											</c:url>
 											<c:choose>
-												<c:when test="${i == centro}">[ ${i} ]</c:when>
+												<c:when test="${i == centerCandidate}">[ ${i} ]</c:when>
 												<c:otherwise>
 													<a href="${url_pag}"><c:out value="${i}" /></a>
 												</c:otherwise>
 											</c:choose>
 										</c:forEach>
 										<c:url var="url_pagFinal" value="/mvc">
-											<c:param name="logica"
-												value="VisualizarResultadoListaBuscaCandidato" />
-											<c:param name="nome" value="${nome}" />
-											<c:param name="inicio" value="${(indice-1)*qtdPorPagina}" />
-											<c:param name="qtdPorPagina" value="${qtdPorPagina}" />
-											<c:param name="verTodos" value="${false}" />
-											<c:param name="centro" value="${indice}" />
+											<c:param name="logic"
+												value="VisualizeResultOfSearchCandidateList" />
+											<c:param name="name" value="${name}" />
+											<c:param name="firstCandidate" value="${(index-1)*quantityCandidatePerPage}" />
+											<c:param name="quantityCandidatePerPage" value="${quantityCandidatePerPage}" />
+											<c:param name="seeAllCandidates" value="${false}" />
+											<c:param name="centerCandidate" value="${index}" />
 										</c:url>
 										<a href="${url_pagFinal}"><c:out value=" ...última" /></a> <br>
 										Candidatos por Página:
 										<c:url var="url_tamanhoOriginal" value="/mvc">
-											<c:param name="logica"
-												value="VisualizarResultadoListaBuscaCandidato" />
-											<c:param name="nome" value="${nome}" />
-											<c:param name="inicio" value="${0}" />
-											<c:param name="qtdPorPagina" value="${10}" />
-											<c:param name="verTodos" value="${false}" />
-											<c:param name="centro" value="${1}" />
+											<c:param name="logic"
+												value="VisualizeResultOfSearchCandidateList" />
+											<c:param name="name" value="${name}" />
+											<c:param name="firstCandidate" value="${0}" />
+											<c:param name="quantityCandidatePerPage" value="${10}" />
+											<c:param name="seeAllCandidates" value="${false}" />
+											<c:param name="centerCandidate" value="${1}" />
 										</c:url>
 										<a href="${url_tamanhoOriginal}"> ${10}</a>
-										<c:forEach var="i" begin="1" end="${qtdDePP}">
+										<c:forEach var="i" begin="1" end="${quantityOfPP}">
 											<c:url var="url_tamanhos" value="/mvc">
-												<c:param name="logica"
-													value="VisualizarResultadoListaBuscaCandidato" />
-												<c:param name="nome" value="${nome}" />
-												<c:param name="inicio" value="${0}" />
+												<c:param name="logic"
+													value="VisualizeResultOfSearchCandidateList" />
+												<c:param name="name" value="${name}" />
+												<c:param name="firstCandidate" value="${0}" />
 												<c:choose>
 													<c:when test="${i == 5}">
-														<c:param name="qtdPorPagina" value="${250}" />
+														<c:param name="quantityCandidatePerPage" value="${250}" />
 													</c:when>
 													<c:when test="${i == 6 }">
-														<c:param name="qtdPorPagina" value="${500}" />
+														<c:param name="quantityCandidatePerPage" value="${500}" />
 													</c:when>
 													<c:when test="${i == 7 }">
-														<c:param name="qtdPorPagina" value="${1000}" />
+														<c:param name="quantityCandidatePerPage" value="${1000}" />
 													</c:when>
 													<c:when test="${i == 8 }">
-														<c:param name="qtdPorPagina" value="${2000}" />
+														<c:param name="quantityCandidatePerPage" value="${2000}" />
 													</c:when>
 													<c:otherwise>
-														<c:param name="qtdPorPagina" value="${i*25}" />
+														<c:param name="quantityCandidatePerPage" value="${i*25}" />
 													</c:otherwise>
 												</c:choose>
-												<c:param name="verTodos" value="${false}" />
-												<c:param name="centro" value="${1}" />
+												<c:param name="seeAllCandidates" value="${false}" />
+												<c:param name="centerCandidate" value="${1}" />
 											</c:url>
 											<a href="${url_tamanhos}"> <c:choose>
 													<c:when test="${i == 5}">
@@ -156,13 +156,13 @@
 												</c:choose></a>
 										</c:forEach>
 										<c:url var="url_todos" value="/mvc">
-											<c:param name="logica"
-												value="VisualizarResultadoListaBuscaCandidato" />
-											<c:param name="nome" value="${nome}" />
-											<c:param name="inicio" value="${0}" />
-											<c:param name="qtdPorPagina" value="${0}" />
-											<c:param name="verTodos" value="${true}" />
-											<c:param name="centro" value="${1}" />
+											<c:param name="logic"
+												value="VisualizeResultOfSearchCandidateList" />
+											<c:param name="name" value="${name}" />
+											<c:param name="firstCandidate" value="${0}" />
+											<c:param name="quantityCandidatePerPage" value="${0}" />
+											<c:param name="seeAllCandidates" value="${true}" />
+											<c:param name="centerCandidate" value="${1}" />
 										</c:url>
 										<a href="${url_todos}"> Ver Todos</a>
 									</center></td>
