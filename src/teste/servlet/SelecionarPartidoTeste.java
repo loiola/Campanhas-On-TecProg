@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.SelecionarPartido;
+import control.servlet.SelectPoliticalParty;
 
 public class SelecionarPartidoTeste extends TemplateTeste {
 
-	SelecionarPartido selecionarPartido;
+	SelectPoliticalParty selectPoliticalParty;
 	HttpServletRequest req;
 	HttpServletResponse res;
 
@@ -21,12 +21,12 @@ public class SelecionarPartidoTeste extends TemplateTeste {
 	public void simulaServletComSiglaDiferenteDeZero() throws Exception {
 		when(req.getParameter("sigla")).thenReturn("SD");
 
-		this.selecionarPartido.execute(req, res);
+		this.selectPoliticalParty.execute(req, res);
 	}
 
 	@Override
 	public void beforeTest() throws Exception {
-		this.selecionarPartido = new SelecionarPartido();
+		this.selectPoliticalParty = new SelectPoliticalParty();
 		this.req = mock(HttpServletRequest.class);
 		this.res = mock(HttpServletResponse.class);
 	}

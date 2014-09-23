@@ -6,19 +6,19 @@ import javax.servlet.http.HttpServletResponse;
 import model.beans.Party;
 import control.PartyControl;
 
-public class SelecionarPartido implements Logic {
+public class SelectPoliticalParty implements Logic {
 	
 	/*
 	 * Servlet requests to control the selection of political parties
 	 */
 
 	// Attributes
-	private final int[] ANOS = {2010, 2006, 2002};
+	private final int[] YEARS = {2010, 2006, 2002};
 	private PartyControl partyControl;
 	private Party party;
 
 	private String sigla;
-	private String siglaComUnder;
+	private String siglaWithUnder;
 	private String linkTSE;
 
 	// Other methods
@@ -36,20 +36,20 @@ public class SelecionarPartido implements Logic {
 		this.partyControl = new PartyControl();
 
 		this.sigla = req.getParameter("sigla");
-		this.siglaComUnder = this.sigla.replaceAll(" ", "_");
-		this.siglaComUnder = this.siglaComUnder.toLowerCase();
+		this.siglaWithUnder = this.sigla.replaceAll(" ", "_");
+		this.siglaWithUnder = this.siglaWithUnder.toLowerCase();
 
 		this.party = this.partyControl.getBySigla(this.sigla);
-		this.linkTSE = trocaDeCaracteresEspeciais(this.party);
+		this.linkTSE = changeSpecialCharacters(this.party);
 
 		// Set of answers to requests made concerning the applicant requested
 		req.setAttribute("party", this.party);
-		req.setAttribute("anos", this.ANOS);
+		req.setAttribute("years", this.YEARS);
 		req.setAttribute("linktse", this.linkTSE);
-		req.setAttribute("siglaUnder", this.siglaComUnder);
+		req.setAttribute("siglaUnder", this.siglaWithUnder);
 
 		// Return the HTML page with the requested information
-		return "/visualizar_partido.jsp";
+		return "/visualize_political_party.jsp";
 	}
 	
 	/*
@@ -57,7 +57,7 @@ public class SelecionarPartido implements Logic {
 	 * @param a political parties
 	 * @return a String with exchanges
 	 */
-	private String trocaDeCaracteresEspeciais(Party party) {
+	private String changeSpecialCharacters(Party party) {
 		String local = party.getPartyName().toLowerCase();
 		local = local.replaceAll(" ", "-");
 		local = local.replaceAll("á", "a");
