@@ -2,7 +2,7 @@ package parse.register.revenue_expense;
 
 import model.beans.Expense;
 import parse.ParseException;
-import parse.control.DespesaParseControle;
+import parse.control.ParseControlExpense;
 import parse.control.ParseControle;
 import parse.index.DespesaIndicesParse;
 import parse.index.IndicesParse;
@@ -36,7 +36,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	@Override
 	public ParseControle<Expense> novaInstancia(
 			IndicesParse<Expense> indicesParse) {
-		return new DespesaParseControle(indicesParse);
+		return new ParseControlExpense(indicesParse);
 	}
 
 	/*

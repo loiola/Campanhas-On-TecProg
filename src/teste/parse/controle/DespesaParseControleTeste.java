@@ -6,7 +6,7 @@ import model.dao.ExpenseDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.DespesaParseControle;
+import parse.control.ParseControlExpense;
 import parse.index.DespesaIndicesParse;
 import teste.TemplateTeste;
 
@@ -21,14 +21,14 @@ public class DespesaParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private ExpenseDAO expenseDAO;
 	private DespesaIndicesParse despesaIndicesParse;
-	private DespesaParseControle despesaParseControle;
+	private ParseControlExpense parseControlExpense;
 
 	@Override
 	public void beforeTest() throws Exception {
 		this.campo = new String[3];
 		this.expenseDAO = new ExpenseDAO();
 		this.despesaIndicesParse = new DespesaIndicesParse(ANO);
-		this.despesaParseControle = new DespesaParseControle(this.despesaIndicesParse);
+		this.parseControlExpense = new ParseControlExpense(this.despesaIndicesParse);
 
 		iniciarCampos();
 		iniciarIndices();
@@ -42,9 +42,9 @@ public class DespesaParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarDespesa() throws Exception {
 
-		this.despesaParseControle.addInstancia(campo);
-		this.despesaParseControle.registeringInstances();
-		this.despesaParseControle.resetar();
+		this.parseControlExpense.addInstancia(campo);
+		this.parseControlExpense.registeringInstances();
+		this.parseControlExpense.resetar();
 
 		Expense despesaCadastrado = this.expenseDAO.getObjectArrayListFromDatabase().get(0);
 

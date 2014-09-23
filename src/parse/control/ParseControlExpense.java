@@ -4,14 +4,14 @@ import model.beans.Expense;
 import model.dao.ExpenseDAO;
 import parse.index.IndicesParse;
 
-public class DespesaParseControle extends ParseControle<Expense> {
+public class ParseControlExpense extends ParseControle<Expense> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Expense
 	 */
 
 	// Constructors
-	public DespesaParseControle(IndicesParse<Expense> indicesParse) {
+	public ParseControlExpense(IndicesParse<Expense> indicesParse) {
 		super(indicesParse, new ExpenseDAO());
 	}
 
@@ -31,8 +31,8 @@ public class DespesaParseControle extends ParseControle<Expense> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean equalObjects(Expense objetoUm, Expense objetoDois) {
-		return objetoUm.equals(objetoDois);
+	public boolean equalObjects(Expense objectOne, Expense objectTwo) {
+		return objectOne.equals(objectTwo);
 	}
 
 }
