@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.VisualizarCandidatosPartido;
+import control.servlet.VisualizeCandidateOfPoliticalParty;
 
 public class VisualizarCandidatosPartidoTeste extends TemplateTeste {
 	
-	VisualizarCandidatosPartido visualizarCandidatosPartido;
+	VisualizeCandidateOfPoliticalParty visualizeCandidateOfPoliticalParty;
 	HttpServletRequest req;
 	HttpServletResponse res;
 
@@ -25,7 +25,7 @@ public class VisualizarCandidatosPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("10");
 		when(req.getParameter("verTodos")).thenReturn("false");
 		
-		this.visualizarCandidatosPartido.execute(req, res);
+		this.visualizeCandidateOfPoliticalParty.execute(req, res);
 	}
 	
 	@Test
@@ -36,12 +36,12 @@ public class VisualizarCandidatosPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("0");
 		when(req.getParameter("verTodos")).thenReturn("true");
 		
-		this.visualizarCandidatosPartido.execute(req, res);
+		this.visualizeCandidateOfPoliticalParty.execute(req, res);
 	}
 
 	@Override
 	public void beforeTest() throws Exception {
-		this.visualizarCandidatosPartido = new VisualizarCandidatosPartido();
+		this.visualizeCandidateOfPoliticalParty = new VisualizeCandidateOfPoliticalParty();
 		this.req = mock(HttpServletRequest.class);
 		this.res = mock(HttpServletResponse.class);
 	}
