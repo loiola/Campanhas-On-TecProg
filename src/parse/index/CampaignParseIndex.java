@@ -13,27 +13,27 @@ public class CampaignParseIndex extends IndicesParse<Campaign> {
 	 */
 	
 	// Attributes
-	private int indiceResultadoCod;
-	private int indiceCargoCod;
-	private int indicePartidoNumero;
-	private int indiceCandidatoTitulo;
-	private int indiceAno;
-	private int indiceNumeroCandidato;
-	private int indiceNomeDeUrna;
-	private int indiceUf;
-	private int indiceDespesaMaxDeclarada;
+	private int indexCodeResult;
+	private int indexCodePosition;
+	private int indexNumberParty;
+	private int indexTitleCandidate;
+	private int indexYear;
+	private int indexNumberCandidate;
+	private int indexUrnName;
+	private int indexUnitFederation;
+	private int indexMaximumExpenseDeclared;
 
 	// Constructors
 	public CampaignParseIndex() {
-		this.indiceResultadoCod = INDICE_INVALIDO;	
-		this.indiceCargoCod = INDICE_INVALIDO;	
-		this.indicePartidoNumero = INDICE_INVALIDO;	
-		this.indiceCandidatoTitulo = INDICE_INVALIDO;	
-		this.indiceAno = INDICE_INVALIDO;	
-		this.indiceNumeroCandidato = INDICE_INVALIDO;	
-		this.indiceNomeDeUrna = INDICE_INVALIDO;	
-		this.indiceUf = INDICE_INVALIDO;	
-		this.indiceDespesaMaxDeclarada = INDICE_INVALIDO;	
+		this.indexCodeResult = INVALID_INDEX;	
+		this.indexCodePosition = INVALID_INDEX;	
+		this.indexNumberParty = INVALID_INDEX;	
+		this.indexTitleCandidate = INVALID_INDEX;	
+		this.indexYear = INVALID_INDEX;	
+		this.indexNumberCandidate = INVALID_INDEX;	
+		this.indexUrnName = INVALID_INDEX;	
+		this.indexUnitFederation = INVALID_INDEX;	
+		this.indexMaximumExpenseDeclared = INVALID_INDEX;	
 	}
 	
 	// Other methods
@@ -43,42 +43,42 @@ public class CampaignParseIndex extends IndicesParse<Campaign> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Campaign campaign, String[] campo) {
-		if (indiceValido(this.indiceResultadoCod)) {
+	protected void setValidIndex(Campaign campaign, String[] field) {
+		if (validIndex(this.indexCodeResult)) {
 			Result result = new Result();
-			result.setResultType(Integer.parseInt(campo[this.indiceResultadoCod]));
+			result.setResultType(Integer.parseInt(field[this.indexCodeResult]));
 			campaign.setCampaignResult(result);
 		}
-		if (indiceValido(this.indiceCargoCod)) {
+		if (validIndex(this.indexCodePosition)) {
 			Position position = new Position();
-			position.setPositionCode(Integer.parseInt(campo[this.indiceCargoCod]));
+			position.setPositionCode(Integer.parseInt(field[this.indexCodePosition]));
 			campaign.setCampaignPosition(position);
 		}	
-		if (indiceValido(this.indicePartidoNumero)) {
+		if (validIndex(this.indexNumberParty)) {
 			Party party = new Party();
-			party.setPartyNumber(Integer.parseInt(campo[this.indicePartidoNumero]));
+			party.setPartyNumber(Integer.parseInt(field[this.indexNumberParty]));
 			campaign.setCampaignParty(party);
 		}	
-		if (indiceValido(this.indiceCandidatoTitulo)) {
+		if (validIndex(this.indexTitleCandidate)) {
 			Candidate candidate = new Candidate();
-			candidate.setCandidateElectoralTitle(campo[this.indiceCandidatoTitulo]);
+			candidate.setCandidateElectoralTitle(field[this.indexTitleCandidate]);
 			campaign.setCampaignCandidate(candidate);
 		}	
-		if (indiceValido(this.indiceAno)) {
-			campaign.setCampaignYear(Integer.parseInt(campo[this.indiceAno]));
+		if (validIndex(this.indexYear)) {
+			campaign.setCampaignYear(Integer.parseInt(field[this.indexYear]));
 		}	
-		if (indiceValido(this.indiceNumeroCandidato)) {
-			campaign.setCampaignCandidateNumber(Integer.parseInt(campo[this.indiceNumeroCandidato]));
+		if (validIndex(this.indexNumberCandidate)) {
+			campaign.setCampaignCandidateNumber(Integer.parseInt(field[this.indexNumberCandidate]));
 		}	
-		if (indiceValido(this.indiceNomeDeUrna)) {
-			campaign.setCampaignNameOfUrn(campo[this.indiceNomeDeUrna]);
+		if (validIndex(this.indexUrnName)) {
+			campaign.setCampaignNameOfUrn(field[this.indexUrnName]);
 		}	
-		if (indiceValido(this.indiceUf)) {
-			campaign.setCampaignCountryState(campo[this.indiceUf]);
+		if (validIndex(this.indexUnitFederation)) {
+			campaign.setCampaignCountryState(field[this.indexUnitFederation]);
 		}	
-		if (indiceValido(this.indiceDespesaMaxDeclarada)) {
+		if (validIndex(this.indexMaximumExpenseDeclared)) {
 			campaign.setCampaignMaximumExpenseDeclared(
-					Float.parseFloat(campo[this.indiceDespesaMaxDeclarada].replace(',', '.')));
+					Float.parseFloat(field[this.indexMaximumExpenseDeclared].replace(',', '.')));
 		}		
 	}
 
@@ -87,7 +87,7 @@ public class CampaignParseIndex extends IndicesParse<Campaign> {
 	 * @param an instance of Class Campaign
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Campaign campaign) {
+	protected void setEmptyInAllSetters(Campaign campaign) {
 		campaign.setCampaignIdentifier(Campaign.EMPTY_TYPE_INTEGER);
 		campaign.setCampaignResult(Campaign.EMPTY_CLASS_RESULT);	
 		campaign.setCampaignPosition(Campaign.EMPTY_CLASS_POSITION);	
@@ -103,40 +103,40 @@ public class CampaignParseIndex extends IndicesParse<Campaign> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceResultadoCod(int indiceResultadoId) {
-		this.indiceResultadoCod = indiceResultadoId;
+	public void setIndexCodeResult(int indexCodeResult) {
+		this.indexCodeResult = indexCodeResult;
 	}
 
-	public void setIndiceCargoCod(int indiceCargoId) {
-		this.indiceCargoCod = indiceCargoId;
+	public void setIndexCodePosition(int indexCodePosition) {
+		this.indexCodePosition = indexCodePosition;
 	}
 
-	public void setIndicePartidoNumero(int indicePartidoNumero) {
-		this.indicePartidoNumero = indicePartidoNumero;
+	public void setIndexNumberParty(int indexNumberParty) {
+		this.indexNumberParty = indexNumberParty;
 	}
 
-	public void setIndiceCandidatoTitulo(int indiceCandidatoTitulo) {
-		this.indiceCandidatoTitulo = indiceCandidatoTitulo;
+	public void setIndexTitleCandidate(int indexTitleCandidate) {
+		this.indexTitleCandidate = indexTitleCandidate;
 	}
 
-	public void setIndiceAno(int indiceAno) {
-		this.indiceAno = indiceAno;
+	public void setIndexYear(int indexYear) {
+		this.indexYear = indexYear;
 	}
 
-	public void setIndiceNumeroCandidato(int indiceNumeroCandidato) {
-		this.indiceNumeroCandidato = indiceNumeroCandidato;
+	public void setIndexNumberCandidate(int indexNumberCandidate) {
+		this.indexNumberCandidate = indexNumberCandidate;
 	}
 
-	public void setIndiceNomeDeUrna(int indiceNomeDeUrna) {
-		this.indiceNomeDeUrna = indiceNomeDeUrna;
+	public void setIndexUrnName(int indexUrnName) {
+		this.indexUrnName = indexUrnName;
 	}
 
-	public void setIndiceUf(int indiceUf) {
-		this.indiceUf = indiceUf;
+	public void setIndexUnitFederation(int indexUnitFederation) {
+		this.indexUnitFederation = indexUnitFederation;
 	}
 
-	public void setIndiceDespesaMaxDeclarada(int indiceDespesaMaxDeclarada) {
-		this.indiceDespesaMaxDeclarada = indiceDespesaMaxDeclarada;
+	public void setIndexMaximumExpenseDeclared(int indexMaximumExpenseDeclared) {
+		this.indexMaximumExpenseDeclared = indexMaximumExpenseDeclared;
 	}
 
 }

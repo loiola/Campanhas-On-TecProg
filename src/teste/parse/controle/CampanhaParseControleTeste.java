@@ -79,15 +79,15 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.campaignParseIndex.setIndiceResultadoCod(RESULTADO);
-		this.campaignParseIndex.setIndiceCargoCod(CARGO);
-		this.campaignParseIndex.setIndicePartidoNumero(PARTIDO);
-		this.campaignParseIndex.setIndiceCandidatoTitulo(CANDIDATO_TITULO);
-		this.campaignParseIndex.setIndiceAno(ANO);
-		this.campaignParseIndex.setIndiceNumeroCandidato(CANDIDATO_NUMERO);
-		this.campaignParseIndex.setIndiceNomeDeUrna(NOME_URNA);
-		this.campaignParseIndex.setIndiceUf(UF);
-		this.campaignParseIndex.setIndiceDespesaMaxDeclarada(DESPESA_MAX);
+		this.campaignParseIndex.setIndexCodeResult(RESULTADO);
+		this.campaignParseIndex.setIndexCodePosition(CARGO);
+		this.campaignParseIndex.setIndexNumberParty(PARTIDO);
+		this.campaignParseIndex.setIndexTitleCandidate(CANDIDATO_TITULO);
+		this.campaignParseIndex.setIndexYear(ANO);
+		this.campaignParseIndex.setIndexNumberCandidate(CANDIDATO_NUMERO);
+		this.campaignParseIndex.setIndexUrnName(NOME_URNA);
+		this.campaignParseIndex.setIndexUnitFederation(UF);
+		this.campaignParseIndex.setIndexMaximumExpenseDeclared(DESPESA_MAX);
 	}
 	
 	private void iniciarCampos() {

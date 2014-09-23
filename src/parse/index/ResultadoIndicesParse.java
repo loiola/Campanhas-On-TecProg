@@ -14,8 +14,8 @@ public class ResultadoIndicesParse extends IndicesParse<Result> {
 	
 	// Constructors
 	public ResultadoIndicesParse() {
-		this.indiceCodigo = INDICE_INVALIDO;
-		this.indiceDescricao = INDICE_INVALIDO;
+		this.indiceCodigo = INVALID_INDEX;
+		this.indiceDescricao = INVALID_INDEX;
 	}
 	
 	/*
@@ -24,11 +24,11 @@ public class ResultadoIndicesParse extends IndicesParse<Result> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Result result, String[] campo) {
-		if (indiceValido(this.indiceCodigo)) {
+	protected void setValidIndex(Result result, String[] campo) {
+		if (validIndex(this.indiceCodigo)) {
 			result.setResultType(Integer.parseInt(campo[this.indiceCodigo]));
 		}
-		if (indiceValido(this.indiceDescricao)) {
+		if (validIndex(this.indiceDescricao)) {
 			result.setResultDescription(campo[this.indiceDescricao]);
 		}	
 	}
@@ -38,7 +38,7 @@ public class ResultadoIndicesParse extends IndicesParse<Result> {
 	 * @param an instance of Class Result
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Result result) {
+	protected void setEmptyInAllSetters(Result result) {
 		result.setResultType(Result.EMPTY_TYPE_INTEGER);
 		result.setResultDescription(Result.EMPTY_TYPE_STRING);
 	}

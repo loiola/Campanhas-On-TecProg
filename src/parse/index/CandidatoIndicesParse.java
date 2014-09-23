@@ -14,8 +14,8 @@ public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 
 	// Constructors
 	public CandidatoIndicesParse() {
-		this.indiceNome = INDICE_INVALIDO;
-		this.indiceTituloEleitoral = INDICE_INVALIDO;
+		this.indiceNome = INVALID_INDEX;
+		this.indiceTituloEleitoral = INVALID_INDEX;
 	}
 
 	/*
@@ -24,11 +24,11 @@ public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Candidate candidate, String[] campo) {
-		if (indiceValido(this.indiceNome)) {
+	protected void setValidIndex(Candidate candidate, String[] campo) {
+		if (validIndex(this.indiceNome)) {
 			candidate.setCandidateName(campo[this.indiceNome]);
 		}
-		if (indiceValido(this.indiceTituloEleitoral)) {
+		if (validIndex(this.indiceTituloEleitoral)) {
 			candidate.setCandidateElectoralTitle(campo[this.indiceTituloEleitoral]);
 
 		}
@@ -39,7 +39,7 @@ public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	 * @param an instance of Class Candidate
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Candidate candidate) {
+	protected void setEmptyInAllSetters(Candidate candidate) {
 		candidate.setCandidateName(Candidate.EMPTY_TYPE_STRING);
 		candidate.setCandidateElectoralTitle(Candidate.EMPTY_TYPE_STRING);
 	}

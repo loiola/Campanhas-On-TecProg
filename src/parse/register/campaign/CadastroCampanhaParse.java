@@ -55,15 +55,15 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 		CampaignParseIndex campaignParseIndex;
 		campaignParseIndex = new CampaignParseIndex();
 		
-		campaignParseIndex.setIndiceAno(2);
-		campaignParseIndex.setIndiceNumeroCandidato(12);
-		campaignParseIndex.setIndiceNomeDeUrna(13);
-		campaignParseIndex.setIndiceUf(5);
-		campaignParseIndex.setIndiceCargoCod(8);
-		campaignParseIndex.setIndiceCandidatoTitulo(26);
-		campaignParseIndex.setIndicePartidoNumero(16);
-		campaignParseIndex.setIndiceResultadoCod(40);
-		campaignParseIndex.setIndiceDespesaMaxDeclarada(39);
+		campaignParseIndex.setIndexYear(2);
+		campaignParseIndex.setIndexNumberCandidate(12);
+		campaignParseIndex.setIndexUrnName(13);
+		campaignParseIndex.setIndexUnitFederation(5);
+		campaignParseIndex.setIndexCodePosition(8);
+		campaignParseIndex.setIndexTitleCandidate(26);
+		campaignParseIndex.setIndexNumberParty(16);
+		campaignParseIndex.setIndexCodeResult(40);
+		campaignParseIndex.setIndexMaximumExpenseDeclared(39);
 	
 		return campaignParseIndex;
 	}

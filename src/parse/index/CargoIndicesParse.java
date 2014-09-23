@@ -15,8 +15,8 @@ public class CargoIndicesParse extends IndicesParse<Position> {
 	// Constructors
 	public CargoIndicesParse() {
 		super();
-		this.indiceCodigo = INDICE_INVALIDO;
-		this.indiceDescricao = INDICE_INVALIDO;
+		this.indiceCodigo = INVALID_INDEX;
+		this.indiceDescricao = INVALID_INDEX;
 	}
 	
 	/*
@@ -25,11 +25,11 @@ public class CargoIndicesParse extends IndicesParse<Position> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Position position, String campo[]) {
-		if(indiceValido(this.indiceCodigo)) {
+	protected void setValidIndex(Position position, String campo[]) {
+		if(validIndex(this.indiceCodigo)) {
 			position.setPositionCode(Integer.parseInt(campo[this.indiceCodigo]));
 		}
-		if(indiceValido(this.indiceDescricao)) {
+		if(validIndex(this.indiceDescricao)) {
 			position.setPositionDescription(campo[this.indiceDescricao]);
 		}
 	}
@@ -39,7 +39,7 @@ public class CargoIndicesParse extends IndicesParse<Position> {
 	 * @param an instance of Class Position
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Position position) {
+	protected void setEmptyInAllSetters(Position position) {
 		position.setPositionCode(Position.EMPTY_TYPE_INTEGER);
 		position.setPositionDescription(Position.EMPTY_TYPE_STRING);
 	}

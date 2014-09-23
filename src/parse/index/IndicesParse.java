@@ -7,7 +7,7 @@ public abstract class IndicesParse<O> {
 	 */
 	
 	// Constants
-	public static final int INDICE_INVALIDO = -1;
+	public static final int INVALID_INDEX = -1;
 	
 	// Constructors
 	public IndicesParse() {
@@ -21,7 +21,7 @@ public abstract class IndicesParse<O> {
 	 */
 	public void startInstance(O objeto, String campo[]) {
 		reiniciarInstancia(objeto);
-		setIndicesValidos(objeto, campo);
+		setValidIndex(objeto, campo);
 	}
 	
 	/*
@@ -29,20 +29,20 @@ public abstract class IndicesParse<O> {
 	 * @param an instance of any class
 	 */
 	private void reiniciarInstancia(O objeto) {
-		setVazioEmTodosOsSetters(objeto);
+		setEmptyInAllSetters(objeto);
 	}	
 	
 	// Signature of abstract methods
-	protected abstract void setIndicesValidos(O objeto, String campo[]);
-	protected abstract void setVazioEmTodosOsSetters(O objeto);
+	protected abstract void setValidIndex(O objeto, String campo[]);
+	protected abstract void setEmptyInAllSetters(O objeto);
 	
 	/*
 	 * This method validates an index
 	 * @param an integer value
 	 * @return a Boolean value
 	 */
-	protected boolean indiceValido(int indice) {
-		return indice > INDICE_INVALIDO;
+	protected boolean validIndex(int indice) {
+		return indice > INVALID_INDEX;
 	}
 	
 }

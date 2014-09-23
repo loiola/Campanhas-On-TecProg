@@ -58,15 +58,15 @@ public class CampanhaIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.campaignParseIndex.setIndiceResultadoCod(0);
-		this.campaignParseIndex.setIndiceCargoCod(1);
-		this.campaignParseIndex.setIndicePartidoNumero(2);
-		this.campaignParseIndex.setIndiceCandidatoTitulo(3);
-		this.campaignParseIndex.setIndiceAno(4);
-		this.campaignParseIndex.setIndiceNumeroCandidato(5);
-		this.campaignParseIndex.setIndiceNomeDeUrna(6);
-		this.campaignParseIndex.setIndiceUf(7);
-		this.campaignParseIndex.setIndiceDespesaMaxDeclarada(8);
+		this.campaignParseIndex.setIndexCodeResult(0);
+		this.campaignParseIndex.setIndexCodePosition(1);
+		this.campaignParseIndex.setIndexNumberParty(2);
+		this.campaignParseIndex.setIndexTitleCandidate(3);
+		this.campaignParseIndex.setIndexYear(4);
+		this.campaignParseIndex.setIndexNumberCandidate(5);
+		this.campaignParseIndex.setIndexUrnName(6);
+		this.campaignParseIndex.setIndexUnitFederation(7);
+		this.campaignParseIndex.setIndexMaximumExpenseDeclared(8);
 	}
 	
 	private void iniciarCampos() {

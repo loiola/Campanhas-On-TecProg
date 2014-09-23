@@ -28,17 +28,17 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expe
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Expense expense, String[] campo) {
-		super.setIndicesValidos(expense, campo);
+	protected void setValidIndex(Expense expense, String[] campo) {
+		super.setValidIndex(expense, campo);
 		Supplier supplier = new Supplier();
 
-		if(indiceValido(this.indiceFornecedorNome)) {
+		if(validIndex(this.indiceFornecedorNome)) {
 			supplier.setSupplierName(campo[this.indiceFornecedorNome]);
 		}
-		if(indiceValido(this.indiceFornecedorCpfCnpj)) {
+		if(validIndex(this.indiceFornecedorCpfCnpj)) {
 			supplier.setSupplierPersonRegister(campo[this.indiceFornecedorCpfCnpj]);
 		}
-		if(indiceValido(this.indiceTipoDocumento)) {
+		if(validIndex(this.indiceTipoDocumento)) {
 			expense.setExpenseDocumentType(campo[this.indiceTipoDocumento]);
 		}
 		expense.setExpenseSupplier(supplier);
@@ -50,8 +50,8 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expe
 	 * @param an instance of Class Expense
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Expense expense) {
-		super.setVazioEmTodosOsSetters(expense);
+	protected void setEmptyInAllSetters(Expense expense) {
+		super.setEmptyInAllSetters(expense);
 		expense.setExpenseSupplier((Supplier)Expense.EMPTY_OBJECT);
 		expense.setExpenseDocumentType(Expense.EMPTY_TYPE_STRING);
 	}

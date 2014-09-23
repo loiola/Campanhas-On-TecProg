@@ -47,43 +47,43 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(O objeto, String[] campo) {
+	protected void setValidIndex(O objeto, String[] campo) {
 		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
 		
 		Campaign campaign = new Campaign();
 		campaign.setCampaignYear(ano);
 		
-		if(indiceValido(this.indiceCampanhaAno)) {
+		if(validIndex(this.indiceCampanhaAno)) {
 			campaign.setCampaignYear(Integer.parseInt(campo[this.indiceCampanhaAno]));
 		}
-		if(indiceValido(this.indiceCampanhaNumero)) {
+		if(validIndex(this.indiceCampanhaNumero)) {
 			campaign.setCampaignCandidateNumber(Integer.parseInt(campo[this.indiceCampanhaNumero]));
 		}
-		if(indiceValido(this.indiceCampanhaCargo)) {
+		if(validIndex(this.indiceCampanhaCargo)) {
 			Position position = new Position();
 			position.setPositionDescription(campo[this.indiceCampanhaCargo]);
 			campaign.setCampaignPosition(position);
 		}
-		if(indiceValido(this.indiceCampanhaUf)) {
+		if(validIndex(this.indiceCampanhaUf)) {
 			campaign.setCampaignCountryState(campo[this.indiceCampanhaUf]);
 		}
-		if(indiceValido(this.indiceNumeroDocumento)) {
+		if(validIndex(this.indiceNumeroDocumento)) {
 			financialTransaction.setFinancialTransactionDocumentNumber(campo[this.indiceNumeroDocumento]);
 		}
-		if(indiceValido(this.indiceData)) {
+		if(validIndex(this.indiceData)) {
 			financialTransaction.setFinancialTransactionDate(campo[this.indiceData]);
 		}
-		if(indiceValido(this.indiceValor)) {
+		if(validIndex(this.indiceValor)) {
 			float valor = Float.parseFloat(campo[this.indiceValor].replace(',', '.'));
 			financialTransaction.setFinancialTransactionPrice(valor);
 		}
-		if(indiceValido(this.indiceTipoMovimentacao)) {
+		if(validIndex(this.indiceTipoMovimentacao)) {
 			financialTransaction.setFinancialTransactionType(campo[this.indiceTipoMovimentacao]);
 		}
-		if(indiceValido(this.indiceFormaPagamento)) {
+		if(validIndex(this.indiceFormaPagamento)) {
 			financialTransaction.setFinancialTransactionPaymentType(campo[this.indiceFormaPagamento]);
 		}
-		if(indiceValido(this.indiceDescricao)) {
+		if(validIndex(this.indiceDescricao)) {
 			financialTransaction.setFinancialTransactionDescription(campo[this.indiceDescricao]);
 		}
 		financialTransaction.setFinancialTransactionCampaign(campaign);
@@ -95,7 +95,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 * @param an instance of any class
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(O objeto) {
+	protected void setEmptyInAllSetters(O objeto) {
 		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
 		financialTransaction.setFinancialTransactionIdentifier(FinancialTransaction.EMPTY_TYPE_INTEGER);
 		financialTransaction.setFinancialTransactionCampaign((Campaign)FinancialTransaction.EMPTY_OBJECT);
@@ -112,7 +112,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 * @param an integer value
 	 * @return a Boolean value
 	 */
-	protected boolean indiceValido(int indice) {
+	protected boolean validIndex(int indice) {
 		return indice > INDICE_INVALIDO;
 	}
 

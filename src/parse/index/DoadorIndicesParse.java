@@ -32,17 +32,17 @@ public class DoadorIndicesParse extends IndicesParse<Donor> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Donor donor, String[] campo) {
-		if(indiceValido(this.indiceCpf_Cnpj)) {
+	protected void setValidIndex(Donor donor, String[] campo) {
+		if(validIndex(this.indiceCpf_Cnpj)) {
 			donor.setDonorPersonRegister(campo[this.indiceCpf_Cnpj]);
 		}
-		if(indiceValido(this.indiceNome)) {
+		if(validIndex(this.indiceNome)) {
 			donor.setDonorName(campo[this.indiceNome]);
 		}
-		if(indiceValido(this.indiceUf)) {
+		if(validIndex(this.indiceUf)) {
 			donor.setDonorCountryState(campo[this.indiceUf]);
 		}
-		if(indiceValido(this.indiceSituacaoCadastral)) {
+		if(validIndex(this.indiceSituacaoCadastral)) {
 			donor.setDonorRegisterSituation(campo[this.indiceSituacaoCadastral]);
 		}
 	}
@@ -52,7 +52,7 @@ public class DoadorIndicesParse extends IndicesParse<Donor> {
 	 * @param an instance of Class Donor
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Donor donor) {
+	protected void setEmptyInAllSetters(Donor donor) {
 		donor.setDonorPersonRegister(Donor.EMPTY_TYPE_STRING);
 		donor.setDonorName(Donor.EMPTY_TYPE_STRING);
 		donor.setDonorCountryState(Donor.EMPTY_TYPE_STRING);

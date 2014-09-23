@@ -17,10 +17,10 @@ public class PartidoIndicesParse extends IndicesParse<Party> {
 	// Constructors
 	public PartidoIndicesParse() {
 		super();
-		this.indiceSigla = INDICE_INVALIDO;
-		this.indiceNumero = INDICE_INVALIDO;
-		this.indiceDeferimento = INDICE_INVALIDO;
-		this.indiceNome = INDICE_INVALIDO;
+		this.indiceSigla = INVALID_INDEX;
+		this.indiceNumero = INVALID_INDEX;
+		this.indiceDeferimento = INVALID_INDEX;
+		this.indiceNome = INVALID_INDEX;
 	}
 	
 	/*
@@ -29,17 +29,17 @@ public class PartidoIndicesParse extends IndicesParse<Party> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Party party, String campo[]) {
-		if(indiceValido(this.indiceSigla)) {
+	protected void setValidIndex(Party party, String campo[]) {
+		if(validIndex(this.indiceSigla)) {
 			party.setPartyAcronym(campo[this.indiceSigla]);
 		}
-		if(indiceValido(this.indiceNumero)) {
+		if(validIndex(this.indiceNumero)) {
 			party.setPartyNumber(Integer.parseInt(campo[this.indiceNumero]));
 		}
-		if(indiceValido(this.indiceDeferimento)){
+		if(validIndex(this.indiceDeferimento)){
 			party.setPartyConcession(campo[this.indiceDeferimento]);
 		}
-		if(indiceValido(this.indiceNome)){
+		if(validIndex(this.indiceNome)){
 			party.setPartyName(campo[this.indiceNome]);
 		}
 	}
@@ -49,7 +49,7 @@ public class PartidoIndicesParse extends IndicesParse<Party> {
 	 * @param an instance of Class Party
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Party party) {
+	protected void setEmptyInAllSetters(Party party) {
 		party.setPartyAcronym(Party.EMPTY_TYPE_STRING);
 		party.setPartyNumber(Party.EMPTY_TYPE_INTEGER);
 		party.setPartyName(Party.EMPTY_TYPE_STRING);

@@ -29,17 +29,17 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Revenue revenue, String[] campo) {
-		super.setIndicesValidos(revenue, campo);
+	protected void setValidIndex(Revenue revenue, String[] campo) {
+		super.setValidIndex(revenue, campo);
 		
 		Donor donor = new Donor();
-		if(indiceValido(this.indiceReciboEleitoral)) {
+		if(validIndex(this.indiceReciboEleitoral)) {
 			revenue.setRevenueElectoralReceipt(campo[this.indiceReciboEleitoral]);
 		}
-		if(indiceValido(this.indiceDoadorNome)) {
+		if(validIndex(this.indiceDoadorNome)) {
 			donor.setDonorName(campo[this.indiceDoadorNome]);
 		}
-		if(indiceValido(this.indiceDoadorCpfCnpj)) {
+		if(validIndex(this.indiceDoadorCpfCnpj)) {
 			donor.setDonorPersonRegister(campo[this.indiceDoadorCpfCnpj]);
 		}
 		revenue.setRevenueDonor(donor);
@@ -51,8 +51,8 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 	 * @param an instance of Class Revenue
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Revenue revenue) {
-		super.setVazioEmTodosOsSetters(revenue);
+	protected void setEmptyInAllSetters(Revenue revenue) {
+		super.setEmptyInAllSetters(revenue);
 
 		revenue.setRevenueElectoralReceipt(Revenue.EMPTY_TYPE_STRING);
 		revenue.setRevenueDonor((Donor)Revenue.EMPTY_OBJECT);

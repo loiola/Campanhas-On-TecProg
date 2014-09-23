@@ -31,17 +31,17 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Supplier supplier, String[] campo) {
-		if(indiceValido(this.indiceCpf_Cnpj)) {
+	protected void setValidIndex(Supplier supplier, String[] campo) {
+		if(validIndex(this.indiceCpf_Cnpj)) {
 			supplier.setSupplierPersonRegister(campo[this.indiceCpf_Cnpj]);
 		}
-		if(indiceValido(this.indiceNome)) {
+		if(validIndex(this.indiceNome)) {
 			supplier.setSupplierName(campo[this.indiceNome]);
 		}
-		if(indiceValido(this.indiceUf)) {
+		if(validIndex(this.indiceUf)) {
 			supplier.setSupplierCountryState(campo[this.indiceUf]);
 		}
-		if(indiceValido(this.indiceSituacaoCadastral)) {
+		if(validIndex(this.indiceSituacaoCadastral)) {
 			supplier.setSupplierRegisterSituation(campo[this.indiceSituacaoCadastral]);
 		}
 	}
@@ -51,7 +51,7 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	 * @param an instance of Class Supplier
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Supplier supplier) {
+	protected void setEmptyInAllSetters(Supplier supplier) {
 		supplier.setSupplierPersonRegister(Supplier.EMPTY_TYPE_STRING);
 		supplier.setSupplierName(Supplier.EMPTY_TYPE_STRING);
 		supplier.setSupplierCountryState(Supplier.EMPTY_TYPE_STRING);
