@@ -3,7 +3,7 @@ package parse.register.campaign;
 import model.beans.Result;
 import parse.ParseException;
 import parse.control.ParseControl;
-import parse.control.ResultadoParseControle;
+import parse.control.ParseControlResult;
 import parse.index.IndicesParse;
 import parse.index.ResultadoIndicesParse;
 import parse.register.CadastroParse;
@@ -37,8 +37,8 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	@Override
 	public ParseControl<Result> novaInstancia(
 			IndicesParse<Result> indicesParse) {
-		ResultadoParseControle resultadoParseControle = new ResultadoParseControle(indicesParse);
-		return resultadoParseControle;
+		ParseControlResult parseControlResult = new ParseControlResult(indicesParse);
+		return parseControlResult;
 	}
 
 	/*
