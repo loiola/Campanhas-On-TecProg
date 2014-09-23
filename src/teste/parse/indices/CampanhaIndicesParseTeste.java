@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.CampanhaIndicesParse;
+import parse.index.CampaignParseIndex;
 
 public class CampanhaIndicesParseTeste {
 
 	private String campo[];
-	private CampanhaIndicesParse campanhaIndicesParse;
+	private CampaignParseIndex campaignParseIndex;
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.campanhaIndicesParse = new CampanhaIndicesParse();
+		this.campaignParseIndex = new CampaignParseIndex();
 		this.campo = new String[11];
 		
 		iniciarCampos();
@@ -27,7 +27,7 @@ public class CampanhaIndicesParseTeste {
 	public void iniciarUmaCampanhaComIndicesValidos() throws Exception {
 		
 		Campaign campaign = new Campaign();
-		this.campanhaIndicesParse.startInstance(campaign, campo);
+		this.campaignParseIndex.startInstance(campaign, campo);
 		Assert.assertEquals(this.campo[0], campaign.getCampaignResult().getResultType().toString());
 		Assert.assertEquals(this.campo[1], campaign.getCampaignPosition().getPositionCode().toString());
 		Assert.assertEquals(this.campo[2], campaign.getCampaignParty().getPartyNumber().toString());
@@ -42,9 +42,9 @@ public class CampanhaIndicesParseTeste {
 	@Test
 	public void iniciarUmaCampanhaComIndicesInvalidos() throws Exception {
 		
-		this.campanhaIndicesParse = new CampanhaIndicesParse();
+		this.campaignParseIndex = new CampaignParseIndex();
 		Campaign campaign = new Campaign();
-		this.campanhaIndicesParse.startInstance(campaign, campo);
+		this.campaignParseIndex.startInstance(campaign, campo);
 		Assert.assertNotEquals(this.campo[0], campaign.getCampaignResult().getResultType().toString());
 		Assert.assertNotEquals(this.campo[1], campaign.getCampaignPosition().getPositionCode().toString());
 		Assert.assertNotEquals(this.campo[2], campaign.getCampaignParty().getPartyNumber().toString());
@@ -58,15 +58,15 @@ public class CampanhaIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.campanhaIndicesParse.setIndiceResultadoCod(0);
-		this.campanhaIndicesParse.setIndiceCargoCod(1);
-		this.campanhaIndicesParse.setIndicePartidoNumero(2);
-		this.campanhaIndicesParse.setIndiceCandidatoTitulo(3);
-		this.campanhaIndicesParse.setIndiceAno(4);
-		this.campanhaIndicesParse.setIndiceNumeroCandidato(5);
-		this.campanhaIndicesParse.setIndiceNomeDeUrna(6);
-		this.campanhaIndicesParse.setIndiceUf(7);
-		this.campanhaIndicesParse.setIndiceDespesaMaxDeclarada(8);
+		this.campaignParseIndex.setIndiceResultadoCod(0);
+		this.campaignParseIndex.setIndiceCargoCod(1);
+		this.campaignParseIndex.setIndicePartidoNumero(2);
+		this.campaignParseIndex.setIndiceCandidatoTitulo(3);
+		this.campaignParseIndex.setIndiceAno(4);
+		this.campaignParseIndex.setIndiceNumeroCandidato(5);
+		this.campaignParseIndex.setIndiceNomeDeUrna(6);
+		this.campaignParseIndex.setIndiceUf(7);
+		this.campaignParseIndex.setIndiceDespesaMaxDeclarada(8);
 	}
 	
 	private void iniciarCampos() {

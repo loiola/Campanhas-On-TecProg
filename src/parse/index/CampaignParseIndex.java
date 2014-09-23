@@ -6,7 +6,7 @@ import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
 
-public class CampanhaIndicesParse extends IndicesParse<Campaign> {
+public class CampaignParseIndex extends IndicesParse<Campaign> {
 
 	/*
 	 * Class to control the indices of the information inherent in electoral campaigns
@@ -24,7 +24,7 @@ public class CampanhaIndicesParse extends IndicesParse<Campaign> {
 	private int indiceDespesaMaxDeclarada;
 
 	// Constructors
-	public CampanhaIndicesParse() {
+	public CampaignParseIndex() {
 		this.indiceResultadoCod = INDICE_INVALIDO;	
 		this.indiceCargoCod = INDICE_INVALIDO;	
 		this.indicePartidoNumero = INDICE_INVALIDO;	

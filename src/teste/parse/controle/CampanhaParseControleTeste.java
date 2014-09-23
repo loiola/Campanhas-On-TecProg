@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlCampaign;
-import parse.index.CampanhaIndicesParse;
+import parse.index.CampaignParseIndex;
 import teste.TemplateTeste;
 
 public class CampanhaParseControleTeste extends TemplateTeste {
@@ -24,7 +24,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	
 	private String campo[];
 	private CampaignDAO campaignDAO;
-	private CampanhaIndicesParse campanhaIndicesParse;
+	private CampaignParseIndex campaignParseIndex;
 	private ParseControlCampaign parseControlCampaign;
 
 	@Override
@@ -32,8 +32,8 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		
 		this.campo = new String[11];
 		this.campaignDAO = new CampaignDAO();
-		this.campanhaIndicesParse = new CampanhaIndicesParse();
-		this.parseControlCampaign = new ParseControlCampaign(this.campanhaIndicesParse);
+		this.campaignParseIndex = new CampaignParseIndex();
+		this.parseControlCampaign = new ParseControlCampaign(this.campaignParseIndex);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -79,15 +79,15 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.campanhaIndicesParse.setIndiceResultadoCod(RESULTADO);
-		this.campanhaIndicesParse.setIndiceCargoCod(CARGO);
-		this.campanhaIndicesParse.setIndicePartidoNumero(PARTIDO);
-		this.campanhaIndicesParse.setIndiceCandidatoTitulo(CANDIDATO_TITULO);
-		this.campanhaIndicesParse.setIndiceAno(ANO);
-		this.campanhaIndicesParse.setIndiceNumeroCandidato(CANDIDATO_NUMERO);
-		this.campanhaIndicesParse.setIndiceNomeDeUrna(NOME_URNA);
-		this.campanhaIndicesParse.setIndiceUf(UF);
-		this.campanhaIndicesParse.setIndiceDespesaMaxDeclarada(DESPESA_MAX);
+		this.campaignParseIndex.setIndiceResultadoCod(RESULTADO);
+		this.campaignParseIndex.setIndiceCargoCod(CARGO);
+		this.campaignParseIndex.setIndicePartidoNumero(PARTIDO);
+		this.campaignParseIndex.setIndiceCandidatoTitulo(CANDIDATO_TITULO);
+		this.campaignParseIndex.setIndiceAno(ANO);
+		this.campaignParseIndex.setIndiceNumeroCandidato(CANDIDATO_NUMERO);
+		this.campaignParseIndex.setIndiceNomeDeUrna(NOME_URNA);
+		this.campaignParseIndex.setIndiceUf(UF);
+		this.campaignParseIndex.setIndiceDespesaMaxDeclarada(DESPESA_MAX);
 	}
 	
 	private void iniciarCampos() {
