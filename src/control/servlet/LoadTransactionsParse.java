@@ -45,7 +45,7 @@ public class LoadTransactionsParse extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter saida = response.getWriter();
+		PrintWriter output = response.getWriter();
 
 		try {
 			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
@@ -55,38 +55,38 @@ public class LoadTransactionsParse extends HttpServlet {
 
 				List<FileItem> fields = upload.parseRequest(request);
 
-				FileItem arquivo = null;
-				String tipoArquivo = "";
-				String ano = "";
-				String divisao = ";";
-				int linhaInicial = 1;
+				FileItem file = null;
+				String fileType = "";
+				String electionYear = "";
+				String division = ";";
+				int initialLine = 1;
 
 				for(FileItem fileItem : fields) {
 					if(!fileItem.isFormField()) {
-						arquivo = fileItem;
+						file = fileItem;
 					} else {
-						if(fileItem.getFieldName().equals("arquivo_tipo")) {
+						if(fileItem.getFieldName().equals("file_type")) {
 							
 							// Checks the file type, whether income or expense
 							if(fileItem.getString().equals("expense")) {
-								tipoArquivo = CadastroFornecedorParse.DESPESA;
+								fileType = CadastroFornecedorParse.EXPENSE;
 							} else {
-								tipoArquivo = CadastroDoadorParse.RECEITA;
+								fileType = CadastroDoadorParse.REVENUE;
 							}
-						} else if(fileItem.getFieldName().equals("arquivo_ano")) {
+						} else if(fileItem.getFieldName().equals("file_year")) {
 							
 							// Checks joined donor according to selected year
 							switch (fileItem.getString()) {
 							case "2002":
-								ano = CadastroDoadorParse.ANO_2002;
+								electionYear = CadastroDoadorParse.ANO_2002;
 								break;
 
 							case "2006":
-								ano = CadastroDoadorParse.ANO_2006;
+								electionYear = CadastroDoadorParse.ANO_2006;
 								break;
 
 							case "2010":
-								ano = CadastroDoadorParse.ANO_2010;
+								electionYear = CadastroDoadorParse.ANO_2010;
 								break;
 
 							default:
@@ -96,13 +96,13 @@ public class LoadTransactionsParse extends HttpServlet {
 					}
 				}
 
-				Parse parse = new ParseMovimentacoes(tipoArquivo, ano);
-				parse.executarParse(arquivo, divisao, linhaInicial);
-				saida.println("Parse Realizado com Sucesso!");
+				Parse parse = new ParseMovimentacoes(fileType, electionYear);
+				parse.executarParse(file, division, initialLine);
+				output.println("Parse Completed!");
 			}
 
 		} catch(Exception e) {
-			saida.println("ERROR teste upload: " + e.getMessage());
+			output.println("ERROR teste upload: " + e.getMessage());
 		}
 	}
 }

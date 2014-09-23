@@ -6,8 +6,8 @@ import parse.register.CadastroParse;
 
 public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> {
 
-	public static final String DESPESA = "expense";
-	public static final String RECEITA = "revenue";
+	public static final String EXPENSE = "expense";
+	public static final String REVENUE = "revenue";
 
 	public static final String ANO_2002 = "2002";
 	public static final String ANO_2006 = "2006";
@@ -21,9 +21,9 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 	@Override
 	protected IndicesParse<O> getIndicesParse(String tipoArquivo, String ano)
 			throws ParseException {
-		if(tipoArquivo.equals(DESPESA)) {
+		if(tipoArquivo.equals(EXPENSE)) {
 			return getIndicesParseDespesa(ano);
-		} else if (tipoArquivo.equals(RECEITA)) {
+		} else if (tipoArquivo.equals(REVENUE)) {
 			return getIndicesParseReceita(ano);
 		}
 		

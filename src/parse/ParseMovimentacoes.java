@@ -32,7 +32,7 @@ public class ParseMovimentacoes extends Parse {
 			ArrayList<CadastroParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 		
-		if(tipoArquivo.equals(CadastroParseReceitasDespesas.DESPESA))
+		if(tipoArquivo.equals(CadastroParseReceitasDespesas.EXPENSE))
 		{
 			listaCadastrosParse.add(new CadastroFornecedorParse(tipoArquivo, ano));
 			listaCadastrosParse.add(new CadastroDespesaParse(tipoArquivo, ano));
