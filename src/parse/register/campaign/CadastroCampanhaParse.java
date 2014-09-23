@@ -2,7 +2,7 @@ package parse.register.campaign;
 
 import model.beans.Campaign;
 import parse.ParseException;
-import parse.control.CampanhaParseControle;
+import parse.control.ParseControlCampaign;
 import parse.control.ParseControle;
 import parse.index.CampanhaIndicesParse;
 import parse.index.IndicesParse;
@@ -39,8 +39,8 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	@Override
 	public ParseControle<Campaign> novaInstancia(
 			IndicesParse<Campaign> indicesParse) {
-		CampanhaParseControle campanhaParseControle = new CampanhaParseControle(indicesParse);	
-		return campanhaParseControle;
+		ParseControlCampaign parseControlCampaign = new ParseControlCampaign(indicesParse);	
+		return parseControlCampaign;
 	}
 
 	/*

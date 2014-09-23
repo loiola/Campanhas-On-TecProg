@@ -20,7 +20,7 @@ public class CargoParseControle extends ParseControle<Position> {
 	 * @return an instance of Class Position
 	 */
 	@Override
-	public Position novaInstancia() {
+	public Position newInstance() {
 		Position position = new Position();
 		return position;
 	}
@@ -31,7 +31,7 @@ public class CargoParseControle extends ParseControle<Position> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Position objetoUm, Position objetoDois) {
+	public boolean equalObjects(Position objetoUm, Position objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

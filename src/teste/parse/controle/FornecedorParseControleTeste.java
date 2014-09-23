@@ -41,7 +41,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	public void cadastrarFornecedor() throws Exception {
 
 		this.fornecedorParseControle.addInstancia(campo);
-		this.fornecedorParseControle.cadastrarInstancias();
+		this.fornecedorParseControle.registeringInstances();
 		this.fornecedorParseControle.resetar();
 
 		Supplier fornecedorCadastrado = this.supplierDAO.getObjectArrayListFromDatabase().get(0);
@@ -57,7 +57,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 
 		this.fornecedorParseControle.addInstancia(campo);
 		this.fornecedorParseControle.addInstancia(campo);
-		this.fornecedorParseControle.cadastrarInstancias();
+		this.fornecedorParseControle.registeringInstances();
 		this.fornecedorParseControle.resetar();
 
 		int numeroFornecedorCadastrados = this.supplierDAO.getObjectArrayListFromDatabase().size();

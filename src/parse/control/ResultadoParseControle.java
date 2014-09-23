@@ -20,7 +20,7 @@ public class ResultadoParseControle extends ParseControle<Result> {
 	 * @return an instance of Class Result
 	 */
 	@Override
-	public Result novaInstancia() {
+	public Result newInstance() {
 		Result result = new Result();
 		return result;
 	}
@@ -31,7 +31,7 @@ public class ResultadoParseControle extends ParseControle<Result> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Result objetoUm, Result objetoDois) {
+	public boolean equalObjects(Result objetoUm, Result objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

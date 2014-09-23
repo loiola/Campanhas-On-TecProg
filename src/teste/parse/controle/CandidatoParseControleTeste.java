@@ -41,7 +41,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	public void cadastrarCandidato() throws Exception {
 		
 		this.candidatoParseControle.addInstancia(campo);
-		this.candidatoParseControle.cadastrarInstancias();
+		this.candidatoParseControle.registeringInstances();
 		this.candidatoParseControle.resetar();
 		
 		Candidate candidatoCadastrado = this.candidateDAO.getObjectArrayListFromDatabase().get(0);
@@ -55,7 +55,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		
 		this.candidatoParseControle.addInstancia(campo);
 		this.candidatoParseControle.addInstancia(campo);
-		this.candidatoParseControle.cadastrarInstancias();
+		this.candidatoParseControle.registeringInstances();
 		this.candidatoParseControle.resetar();
 		
 		int numeroCandidatosCadastrados = this.candidateDAO.getObjectArrayListFromDatabase().size();

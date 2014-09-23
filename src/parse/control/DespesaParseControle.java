@@ -20,7 +20,7 @@ public class DespesaParseControle extends ParseControle<Expense> {
 	 * @return an instance of Class Expense
 	 */
 	@Override
-	public Expense novaInstancia() {
+	public Expense newInstance() {
 		Expense expense = new Expense();
 		return expense;
 	}
@@ -31,7 +31,7 @@ public class DespesaParseControle extends ParseControle<Expense> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Expense objetoUm, Expense objetoDois) {
+	public boolean equalObjects(Expense objetoUm, Expense objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

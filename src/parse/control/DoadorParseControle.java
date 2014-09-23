@@ -20,7 +20,7 @@ public class DoadorParseControle extends ParseControle<Donor> {
 	 * @return an instance of Class Donor
 	 */
 	@Override
-	public Donor novaInstancia() {
+	public Donor newInstance() {
 		Donor donor = new Donor();
 		return donor;
 	}
@@ -31,7 +31,7 @@ public class DoadorParseControle extends ParseControle<Donor> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Donor objetoUm, Donor objetoDois) {
+	public boolean equalObjects(Donor objetoUm, Donor objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}	
 	

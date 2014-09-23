@@ -40,7 +40,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 	public void cadastrarCargo() throws Exception {
 		
 		this.cargoParseControle.addInstancia(campo);
-		this.cargoParseControle.cadastrarInstancias();
+		this.cargoParseControle.registeringInstances();
 		this.cargoParseControle.resetar();
 		
 		Position cargoCadastrado = this.positionDAO.getObjectArrayListFromDatabase().get(0);
@@ -54,7 +54,7 @@ public class CargoParseControleTeste extends TemplateTeste {
 		
 		this.cargoParseControle.addInstancia(campo);
 		this.cargoParseControle.addInstancia(campo);
-		this.cargoParseControle.cadastrarInstancias();
+		this.cargoParseControle.registeringInstances();
 		this.cargoParseControle.resetar();
 		
 		int numeroCargosCadastrados = this.positionDAO.getObjectArrayListFromDatabase().size();

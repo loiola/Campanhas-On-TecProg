@@ -20,7 +20,7 @@ public class ReceitaParseControle extends ParseControle<Revenue> {
 	 * @return an instance of Class Revenue
 	 */
 	@Override
-	public Revenue novaInstancia() {
+	public Revenue newInstance() {
 		Revenue revenue = new Revenue();
 		return revenue;
 	}
@@ -31,7 +31,7 @@ public class ReceitaParseControle extends ParseControle<Revenue> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Revenue objetoUm, Revenue objetoDois) {
+	public boolean equalObjects(Revenue objetoUm, Revenue objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 

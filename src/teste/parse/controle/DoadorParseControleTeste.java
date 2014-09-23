@@ -43,7 +43,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	public void cadastrarDoadores() throws Exception {
 		
 		this.doadorParseControle.addInstancia(campo);
-		this.doadorParseControle.cadastrarInstancias();
+		this.doadorParseControle.registeringInstances();
 		this.doadorParseControle.resetar();
 		
 		Donor doadorCadastrado = this.donorDAO.getObjectArrayListFromDatabase().get(0);
@@ -59,7 +59,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		
 		this.doadorParseControle.addInstancia(campo);
 		this.doadorParseControle.addInstancia(campo);
-		this.doadorParseControle.cadastrarInstancias();
+		this.doadorParseControle.registeringInstances();
 		this.doadorParseControle.resetar();
 		
 		int numeroDoadoresCadastrados = this.donorDAO.getObjectArrayListFromDatabase().size();

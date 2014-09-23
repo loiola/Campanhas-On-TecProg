@@ -20,7 +20,7 @@ public class FornecedorParseControle extends ParseControle<Supplier> {
 	 * @return an instance of Class Supplier
 	 */
 	@Override
-	public Supplier novaInstancia() {
+	public Supplier newInstance() {
 		Supplier supplier = new Supplier();
 		return supplier;
 	}
@@ -31,7 +31,7 @@ public class FornecedorParseControle extends ParseControle<Supplier> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Supplier objetoUm, Supplier objetoDois) {
+	public boolean equalObjects(Supplier objetoUm, Supplier objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}	
 	

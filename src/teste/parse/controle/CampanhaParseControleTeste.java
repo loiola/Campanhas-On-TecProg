@@ -6,7 +6,7 @@ import model.dao.CampaignDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.CampanhaParseControle;
+import parse.control.ParseControlCampaign;
 import parse.index.CampanhaIndicesParse;
 import teste.TemplateTeste;
 
@@ -25,7 +25,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private CampaignDAO campaignDAO;
 	private CampanhaIndicesParse campanhaIndicesParse;
-	private CampanhaParseControle campanhaParseControle;
+	private ParseControlCampaign parseControlCampaign;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -33,7 +33,7 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 		this.campo = new String[11];
 		this.campaignDAO = new CampaignDAO();
 		this.campanhaIndicesParse = new CampanhaIndicesParse();
-		this.campanhaParseControle = new CampanhaParseControle(this.campanhaIndicesParse);
+		this.parseControlCampaign = new ParseControlCampaign(this.campanhaIndicesParse);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -47,9 +47,9 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarCampanha() throws Exception {
 		
-		this.campanhaParseControle.addInstancia(campo);
-		this.campanhaParseControle.cadastrarInstancias();
-		this.campanhaParseControle.resetar();
+		this.parseControlCampaign.addInstancia(campo);
+		this.parseControlCampaign.registeringInstances();
+		this.parseControlCampaign.resetar();
 		
 		Campaign campanhaCadastrada = this.campaignDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -67,10 +67,10 @@ public class CampanhaParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDuasCampanhasIguais() throws Exception {
 		
-		this.campanhaParseControle.addInstancia(campo);
-		this.campanhaParseControle.addInstancia(campo);
-		this.campanhaParseControle.cadastrarInstancias();
-		this.campanhaParseControle.resetar();
+		this.parseControlCampaign.addInstancia(campo);
+		this.parseControlCampaign.addInstancia(campo);
+		this.parseControlCampaign.registeringInstances();
+		this.parseControlCampaign.resetar();
 		
 		int numeroCampanhasCadastradas = this.campaignDAO.getObjectArrayListFromDatabase().size();
 		

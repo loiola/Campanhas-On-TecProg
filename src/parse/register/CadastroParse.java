@@ -53,7 +53,7 @@ public abstract class CadastroParse<O> {
 	 * This method register instances stored in an Array List on ParseControl attribute
 	 */
 	public void cadastrarInstancias() throws ParseException {
-		this.parseControle.cadastrarInstancias();
+		this.parseControle.registeringInstances();
 		this.parseControle.resetar();
 		this.linhasLidas = 0;
 	}

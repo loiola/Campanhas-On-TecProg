@@ -16,22 +16,22 @@ public abstract class ParseControle<O> {
 	private O objetoVazio;
 	private ParseDAO<O> basicoDAO;
 	private IndicesParse<O> indicesParse;
-	protected ArrayList<O> listaInstancias;
+	protected ArrayList<O> listInstance;
 	
 	// Constructors
 	public ParseControle(IndicesParse<O> indicesParse, ParseDAO<O> basicoDAO) {
-		this.listaInstancias = new ArrayList<>();
+		this.listInstance = new ArrayList<>();
 
 		this.basicoDAO = basicoDAO;
 		this.indicesParse = indicesParse;
-		this.objetoVazio = novaInstancia();
+		this.objetoVazio = newInstance();
 	}
 
 	// Method signature to make a new instance of an object of any class
-	public abstract O novaInstancia();
+	public abstract O newInstance();
 	
 	// Signature of the method to compare two objects of any class
-	public abstract boolean iguais(O objetoUm, O objetoDois);
+	public abstract boolean equalObjects(O objetoUm, O objetoDois);
 	
 	/*
 	 * This method adds an instance of a class in the list of instances
@@ -39,9 +39,9 @@ public abstract class ParseControle<O> {
 	 */
 	public void addInstancia(String campo[]) {
 		O objeto = fazerNovaInstancia(campo);		
-		if((!iguais(objeto, objetoVazio)) && 
-				(!this.listaInstancias.contains(objeto))) {
-			this.listaInstancias.add(objeto);
+		if((!equalObjects(objeto, objetoVazio)) && 
+				(!this.listInstance.contains(objeto))) {
+			this.listInstance.add(objeto);
 		}
 	}
 
@@ -52,23 +52,23 @@ public abstract class ParseControle<O> {
 	 */
 	public void addInstanciaIgual(String campo[]) {
 		O objeto = fazerNovaInstancia(campo);
-		if((!iguais(objeto, objetoVazio))) {
-			this.listaInstancias.add(objeto);
+		if((!equalObjects(objeto, objetoVazio))) {
+			this.listInstance.add(objeto);
 		}
 	}
 	
 	/*
 	 * This method formalizes the registration of a list of instances
 	 */
-	public void cadastrarInstancias() throws ParseException {
-		this.basicoDAO.registerObjectArrayListOnParse(this.listaInstancias);
+	public void registeringInstances() throws ParseException {
+		this.basicoDAO.registerObjectArrayListOnParse(this.listInstance);
 	}
 	
 	/*
 	 * This method performs a cleaning at the array of instances to register
 	 */
 	public void resetar() {
-		this.listaInstancias.clear();
+		this.listInstance.clear();
 	}
 	
 	/*
@@ -77,7 +77,7 @@ public abstract class ParseControle<O> {
 	 * @return an object of any class
 	 */
 	private O fazerNovaInstancia(String campo[]) {
-		O objeto = novaInstancia();
+		O objeto = newInstance();
 		this.indicesParse.iniciarInstancia(objeto, campo);
 		return objeto;
 	}

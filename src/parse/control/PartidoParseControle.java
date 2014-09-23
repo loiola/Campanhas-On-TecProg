@@ -20,7 +20,7 @@ public class PartidoParseControle extends ParseControle<Party> {
 	 * @return an instance of Class Party
 	 */
 	@Override
-	public Party novaInstancia() {
+	public Party newInstance() {
 		Party party = new Party();
 		return party;
 	}
@@ -31,7 +31,7 @@ public class PartidoParseControle extends ParseControle<Party> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Party objetoUm, Party objetoDois) {
+	public boolean equalObjects(Party objetoUm, Party objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 	

@@ -20,7 +20,7 @@ public class CandidatoParseControle extends ParseControle<Candidate> {
 	 * @return an instance of Class Candidate
 	 */
 	@Override
-	public Candidate novaInstancia() {
+	public Candidate newInstance() {
 		Candidate candidate = new Candidate();
 		return candidate;
 	}
@@ -31,7 +31,7 @@ public class CandidatoParseControle extends ParseControle<Candidate> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean iguais(Candidate objetoUm, Candidate objetoDois) {
+	public boolean equalObjects(Candidate objetoUm, Candidate objetoDois) {
 		return objetoUm.equals(objetoDois);
 	}
 
