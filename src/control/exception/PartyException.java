@@ -1,6 +1,6 @@
 package control.exception;
 
-public class PartidoExcecao extends Exception {
+public class PartyException extends Exception {
 	
 	/*
 	 * Exception class electoral party, which mediates the application layer with the model
@@ -10,11 +10,11 @@ public class PartidoExcecao extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	// Constructors
-	public PartidoExcecao() {
+	public PartyException() {
 		
 	}
 	
-	public PartidoExcecao(String message) {
+	public PartyException(String message) {
 		super(message);
 	}
 }

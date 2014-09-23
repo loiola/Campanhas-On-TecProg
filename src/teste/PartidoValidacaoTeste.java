@@ -5,13 +5,13 @@ import model.beans.Party;
 
 import org.junit.Test;
 
-import control.exception.PartidoExcecao;
+import control.exception.PartyException;
 import control.validation.PartidoValidacao;
 
 public class PartidoValidacaoTeste extends TemplateTeste {
 	
 	private PartidoValidacao partidoValidacao;
-	private PartidoExcecao partidoExcecao;
+	private PartyException partyException;
 	private Party party;
 	private Candidate candidate;
 	
@@ -19,7 +19,7 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	public void beforeTest() throws Exception {
 		
 		this.partidoValidacao = new PartidoValidacao();
-		this.partidoExcecao = new PartidoExcecao();
+		this.partyException = new PartyException();
 		this.party = new Party();
 		this.candidate = new Candidate();
 	}
@@ -30,40 +30,40 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	}
 	
 	@Test
-	public void naoLancaExcecaoSeSiglaNaoEhNula() throws PartidoExcecao {
+	public void naoLancaExcecaoSeSiglaNaoEhNula() throws PartyException {
 		
 		this.party.setPartyAcronym("PT");
 		this.partidoValidacao.siglaNaoNula(party);
 	}
 	
 	@Test
-	public void naoLancaExcecaoSeSiglaNaoEhNula2() throws PartidoExcecao {
+	public void naoLancaExcecaoSeSiglaNaoEhNula2() throws PartyException {
 		
 		this.party.setPartyAcronym("PT");
 		this.partidoValidacao.numeroNaoNulo(party);
 	}
 	
 	@Test
-	public void naoLancaExcecaoSeNumeroPartidoNaoEhNulo() throws PartidoExcecao {
+	public void naoLancaExcecaoSeNumeroPartidoNaoEhNulo() throws PartyException {
 		
 		this.party.setPartyNumber(13);
 		this.partidoValidacao.numeroNaoNulo(party);
 	}
 	
 	@Test
-	public void testeMetodoEqualsParteI() throws PartidoExcecao {
+	public void testeMetodoEqualsParteI() throws PartyException {
 		
 		party.equals(null);
 	}
 
 	@Test
-	public void testeMetodoEqualsParteII() throws PartidoExcecao {
+	public void testeMetodoEqualsParteII() throws PartyException {
 		
 		party.equals(party);
 	}
 	
 	@Test
-	public void testeMetodoEqualsParteIII() throws PartidoExcecao {
+	public void testeMetodoEqualsParteIII() throws PartyException {
 		
 		party.equals(candidate);
 	}
