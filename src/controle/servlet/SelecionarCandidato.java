@@ -9,9 +9,9 @@ import model.beans.Campaign;
 import model.beans.Candidate;
 import model.beans.Expense;
 import model.beans.Revenue;
-import controle.CampanhaControle;
-import controle.CandidatoControle;
-import controle.MovimentacaoControle;
+import control.CampanhaControle;
+import control.CandidatoControle;
+import control.MovimentacaoControle;
 
 public class SelecionarCandidato implements Logica {
 	

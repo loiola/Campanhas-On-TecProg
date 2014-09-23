@@ -11,7 +11,7 @@ import model.dao.PartyDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import controle.PartidoControle;
+import control.PartidoControle;
 
 public class PartidoControleTeste extends TemplateTeste {
 	

@@ -27,7 +27,7 @@ public class ServletControle extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String parametro = request.getParameter("logica");
-		String nomeDaClasse = "controle.servlet." + parametro;
+		String nomeDaClasse = "control.servlet." + parametro;
 
 		try {
 			Class<?> classe = Class.forName(nomeDaClasse);

@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Party;
-import controle.PartidoControle;
+import control.PartidoControle;
 
 public class SelecionarPartido implements Logica {
 	

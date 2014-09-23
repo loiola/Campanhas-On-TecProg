@@ -15,7 +15,7 @@ import model.dao.RevenueDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import controle.MovimentacaoControle;
+import control.MovimentacaoControle;
 
 public class MovimentacaoControleTeste extends TemplateTeste {
 
