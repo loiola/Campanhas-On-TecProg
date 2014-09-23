@@ -669,7 +669,7 @@ Sugestão: private void prepareParametersTransmission()
 
  public Candidato getUmCandidato(String tituloEleitoral)
  Comentário: Manter comentario do metodo
- Sugestão: public Candidate getACandidate(String ElectionTitle)
+ Sugestão: public Candidate getACandidate(String ElectoralTitle)
 
 ---------------------------------------------------------------------------------------------------
 

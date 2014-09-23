@@ -10,7 +10,7 @@ import model.beans.Candidate;
 import model.beans.Expense;
 import model.beans.Revenue;
 import control.CampaignControl;
-import control.CandidatoControle;
+import control.CandidateControl;
 import control.MovimentacaoControle;
 
 public class SelecionarCandidato implements Logica {
@@ -20,7 +20,7 @@ public class SelecionarCandidato implements Logica {
 	 */
 
 	// Attributes
-	private CandidatoControle candidatoControle;
+	private CandidateControl candidateControl;
 	private Candidate candidate;
 	private CampaignControl campaignControl;
 	private List<Campaign> listaCampanha;
@@ -62,11 +62,11 @@ public class SelecionarCandidato implements Logica {
 		
 		this.tituloEleitoral = req.getParameter("tituloEleitoral");
 
-		this.candidatoControle = new CandidatoControle();
+		this.candidateControl = new CandidateControl();
 		this.campaignControl = new CampaignControl();
 		this.movimentacaoControle = new MovimentacaoControle();
 		
-		this.candidate = this.candidatoControle.getUmCandidato(this.tituloEleitoral);
+		this.candidate = this.candidateControl.getACandidate(this.tituloEleitoral);
 
 		this.listaCampanha = this.campaignControl.getListCampaign(this.candidate);
 		

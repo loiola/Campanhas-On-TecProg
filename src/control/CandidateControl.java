@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import model.beans.Candidate;
 import model.dao.CandidateDAO;
 
-public class CandidatoControle {
+public class CandidateControl {
 	
 	/*
 	 * Control class political party, which mediates the application layer with the model
@@ -15,7 +15,7 @@ public class CandidatoControle {
 	private CandidateDAO candidateDAO;
 
 	// Constructors	
-	public CandidatoControle() {
+	public CandidateControl() {
 		this.candidateDAO = new CandidateDAO();
 	}
 	
@@ -25,8 +25,8 @@ public class CandidatoControle {
 	 * @param the name of candidate
 	 * @return an LinkedList a list with all candidate with name informed
 	 */
-	public LinkedList<Candidate> getListaCandidatos(String nome) {
-		return this.candidateDAO.getCandidateListByName(nome);
+	public LinkedList<Candidate> getListCandidate(String name) {
+		return this.candidateDAO.getCandidateListByName(name);
 	}
 
 	/*
@@ -34,7 +34,7 @@ public class CandidatoControle {
 	 * @param the voter of the candidate
 	 * @return a candidate with voter informed
 	 */
-	public Candidate getUmCandidato(String tituloEleitoral) {
-		return this.candidateDAO.getCandidateByElectoralTitle(tituloEleitoral);
+	public Candidate getACandidate(String ElectoralTitle) {
+		return this.candidateDAO.getCandidateByElectoralTitle(ElectoralTitle);
 	}
 }
