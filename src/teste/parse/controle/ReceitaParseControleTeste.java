@@ -6,7 +6,7 @@ import model.dao.RevenueDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.ReceitaParseControle;
+import parse.control.ParseControlRevenue;
 import parse.index.ReceitaIndicesParse;
 import teste.TemplateTeste;
 
@@ -20,7 +20,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private RevenueDAO revenueDAO;
 	private ReceitaIndicesParse receitaIndicesParse;
-	private ReceitaParseControle receitaParseControle;
+	private ParseControlRevenue parseControlRevenue;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -28,7 +28,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 		this.campo = new String[3];
 		this.revenueDAO = new RevenueDAO();
 		this.receitaIndicesParse = new ReceitaIndicesParse(ANO);
-		this.receitaParseControle = new ReceitaParseControle(this.receitaIndicesParse);
+		this.parseControlRevenue = new ParseControlRevenue(this.receitaIndicesParse);
 
 		iniciarCampos();
 		iniciarIndices();
@@ -42,9 +42,9 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarReceita() throws Exception {
 
-		this.receitaParseControle.addInstance(campo);
-		this.receitaParseControle.registeringInstances();
-		this.receitaParseControle.clear();
+		this.parseControlRevenue.addInstance(campo);
+		this.parseControlRevenue.registeringInstances();
+		this.parseControlRevenue.clear();
 
 		Revenue receitaCadastrado = this.revenueDAO.getObjectArrayListFromDatabase().get(0);
 
