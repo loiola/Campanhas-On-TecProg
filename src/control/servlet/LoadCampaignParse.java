@@ -47,10 +47,10 @@ public class LoadCampaignParse extends HttpServlet {
 
 		PrintWriter output = response.getWriter();
 
-		Part part = request.getPart("arquivo_linha_inicial");
+		Part part = request.getPart("file_line_initial");
 		if(part != null) {
 			Scanner scanner = new Scanner(part.getInputStream());
-			output.println("linha inicial: " + scanner.nextLine());
+			output.println("initial line: " + scanner.nextLine());
 			scanner.close();
 		} try {
 			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
@@ -74,11 +74,11 @@ public class LoadCampaignParse extends HttpServlet {
 				Parse parse = new ParseCampanha(fileType, "");
 				parse.executarParse(file, division, initialLine);
 
-				output.println("Parse Realizado com Sucesso!");
+				output.println("Parse Completed!");
 			}
 
 		} catch(Exception e) {
-			output.println("ERROR teste upload: " + e.getMessage());
+			output.println("ERROR test upload: " + e.getMessage());
 		}
 	}
 }

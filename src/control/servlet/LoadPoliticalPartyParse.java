@@ -77,7 +77,7 @@ public class LoadPoliticalPartyParse extends HttpServlet {
 			}
 
 		} catch(Exception e) {
-			output.println("ERROR teste upload: " + e.getMessage());
+			output.println("ERROR test upload: " + e.getMessage());
 		}
 	}
 }

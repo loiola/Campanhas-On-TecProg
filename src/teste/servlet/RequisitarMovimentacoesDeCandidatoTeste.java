@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.RequisitarMovimentacoesDeCandidato;
+import control.servlet.RequestFinancialTransactionOfCandidate;
 
 public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 	
-	RequisitarMovimentacoesDeCandidato requisitarMovimentacoesDeCandidato;
+	RequestFinancialTransactionOfCandidate requestFinancialTransactionOfCandidate;
 	HttpServletRequest req;
 	HttpServletResponse res;
 
@@ -34,7 +34,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("false");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.execute(req, res);
+		this.requestFinancialTransactionOfCandidate.execute(req, res);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.execute(req, res);
+		this.requestFinancialTransactionOfCandidate.execute(req, res);
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.execute(req, res);
+		this.requestFinancialTransactionOfCandidate.execute(req, res);
 	}
 	
 	@Test
@@ -94,7 +94,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.execute(req, res);
+		this.requestFinancialTransactionOfCandidate.execute(req, res);
 	}
 	
 	@Test
@@ -114,14 +114,14 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("695");
 		
-		this.requisitarMovimentacoesDeCandidato.execute(req, res);
+		this.requestFinancialTransactionOfCandidate.execute(req, res);
 	}
 	
 	
 	
 	@Override
 	public void beforeTest() throws Exception {
-		this.requisitarMovimentacoesDeCandidato = new RequisitarMovimentacoesDeCandidato();
+		this.requestFinancialTransactionOfCandidate = new RequestFinancialTransactionOfCandidate();
 		
 		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
 		
