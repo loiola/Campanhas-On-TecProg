@@ -25,7 +25,7 @@ public class PartyControl {
 	 * Method that requests a search of all political parties 
 	 * @return an ArrayList with all political parties
 	 */
-	public ArrayList<Party> getListaTodosPartidos() throws SQLException {
+	public ArrayList<Party> getListAllParties() throws SQLException {
 		return this.partyDAO.getObjectArrayListFromDatabase();
 	}
 	
@@ -34,7 +34,7 @@ public class PartyControl {
 	 * @param the abbreviation of the political party
 	 * @return the political party with the abbreviation informed
 	 */
-	public Party getPelaSigla(String sigla) throws SQLException {
+	public Party getBySigla(String sigla) throws SQLException {
 		return this.partyDAO.getPartyByAcronym(sigla);
 	}
 	
@@ -43,7 +43,7 @@ public class PartyControl {
 	 * @param the political number of the political party
 	 * @return the political party with the political number informed
 	 */
-	public Party getPeloNumero(String numero) throws SQLException {
-		return this.partyDAO.getPartyByNumber(numero);
+	public Party getByNumber(String number) throws SQLException {
+		return this.partyDAO.getPartyByNumber(number);
 	}
 }

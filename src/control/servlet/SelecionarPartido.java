@@ -39,7 +39,7 @@ public class SelecionarPartido implements Logica {
 		this.siglaComUnder = this.sigla.replaceAll(" ", "_");
 		this.siglaComUnder = this.siglaComUnder.toLowerCase();
 
-		this.party = this.partyControl.getPelaSigla(this.sigla);
+		this.party = this.partyControl.getBySigla(this.sigla);
 		this.linkTSE = trocaDeCaracteresEspeciais(this.party);
 
 		// Set of answers to requests made concerning the applicant requested

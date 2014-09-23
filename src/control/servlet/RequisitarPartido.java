@@ -64,7 +64,7 @@ public class RequisitarPartido implements Logica {
 	 */
 	private void estabeleceParametros() throws SQLException {
 		this.controle = new PartyControl();
-		this.listaPartidos = controle.getListaTodosPartidos();
+		this.listaPartidos = controle.getListAllParties();
 		this.indice = geraIndiceDaLista(this.listaPartidos,this.qtdPorPagina);
 		this.qtdDePP = geraIndiceDePaginacao(this.listaPartidos);
 		this.atual = (int) Math.round((float) this.inicio / (float) this.qtdPorPagina)+1;

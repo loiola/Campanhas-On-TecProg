@@ -75,7 +75,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	private void estabeleceParametros() throws SQLException {
 		this.campaignControl = new CampaignControl();
 		this.partyControl = new PartyControl();
-		this.party = this.partyControl.getPelaSigla(this.sigla);
+		this.party = this.partyControl.getBySigla(this.sigla);
 		this.listaCampanhas = new ArrayList<>();
 		this.listaCampanhas = this.campaignControl
 				.getListCampaignBySiglaPartyAndYear(this.sigla,this.ano);
