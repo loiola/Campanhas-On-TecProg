@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import controle.servlet.RequisitarMovimentacoesDeCandidato;
+import control.servlet.RequisitarMovimentacoesDeCandidato;
 
 public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 	

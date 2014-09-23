@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import controle.servlet.VisualizarTopFive;
+import control.servlet.VisualizarTopFive;
 
 public class VisualizarTopFiveTeste extends TemplateTeste {
 

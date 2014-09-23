@@ -1,4 +1,4 @@
-package controle.servlet;
+package control.servlet;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

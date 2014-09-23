@@ -1,4 +1,4 @@
-package controle.servlet;
+package control.servlet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
