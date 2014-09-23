@@ -46,7 +46,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected IndicesParse<Revenue> getIndicesParseDespesa2002() {
-		return new ReceitaIndicesParse(ANO_2002);
+		return new ReceitaIndicesParse(YEAR_2002);
 	}
 
 	/*
@@ -56,7 +56,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected IndicesParse<Revenue> getIndicesParseDespesa2006() {
-		return new ReceitaIndicesParse(ANO_2006);
+		return new ReceitaIndicesParse(YEAR_2006);
 	}
 
 	/*
@@ -66,7 +66,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected IndicesParse<Revenue> getIndicesParseDespesa2010() {
-		return new ReceitaIndicesParse(ANO_2010);
+		return new ReceitaIndicesParse(YEAR_2010);
 	}
 
 	/*
@@ -77,7 +77,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected IndicesParse<Revenue> getIndicesParseReceita2002() {
-		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(ANO_2002);
+		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2002);
 		receitaIndicesParse.setIndiceCampanhaUf(0);
 		receitaIndicesParse.setIndiceCampanhaNumero(4);
 		receitaIndicesParse.setIndiceCampanhaCargo(2);
@@ -98,7 +98,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected IndicesParse<Revenue> getIndicesParseReceita2006() {
-		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(ANO_2006);
+		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2006);
 		receitaIndicesParse.setIndiceCampanhaUf(4);
 		receitaIndicesParse.setIndiceCampanhaNumero(3);
 		receitaIndicesParse.setIndiceCampanhaCargo(1);
@@ -120,7 +120,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected IndicesParse<Revenue> getIndicesParseReceita2010() {
-		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(ANO_2010);
+		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2010);
 		receitaIndicesParse.setIndiceCampanhaUf(1);
 		receitaIndicesParse.setIndiceCampanhaNumero(3);
 		receitaIndicesParse.setIndiceCampanhaCargo(4);

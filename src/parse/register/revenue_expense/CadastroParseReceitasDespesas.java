@@ -9,9 +9,9 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 	public static final String EXPENSE = "expense";
 	public static final String REVENUE = "revenue";
 
-	public static final String ANO_2002 = "2002";
-	public static final String ANO_2006 = "2006";
-	public static final String ANO_2010 = "2010";
+	public static final String YEAR_2002 = "2002";
+	public static final String YEAR_2006 = "2006";
+	public static final String YEAR_2010 = "2010";
 	
 	public CadastroParseReceitasDespesas(String tipoArquivo, String ano)
 			throws ParseException {
@@ -40,11 +40,11 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 
 	private IndicesParse<O> getIndicesParseDespesa(String ano) throws ParseException {
 		switch (ano) {
-		case ANO_2002:
+		case YEAR_2002:
 			return getIndicesParseDespesa2002();
-		case ANO_2006:
+		case YEAR_2006:
 			return getIndicesParseDespesa2006();
-		case ANO_2010:
+		case YEAR_2010:
 			return getIndicesParseDespesa2010();
 		}
 		throw new ParseException("Ano do arquivo está invalido!");
@@ -52,11 +52,11 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 	
 	private IndicesParse<O> getIndicesParseReceita(String ano) throws ParseException {
 		switch (ano) {
-		case ANO_2002:
+		case YEAR_2002:
 			return getIndicesParseReceita2002();
-		case ANO_2006:
+		case YEAR_2006:
 			return getIndicesParseReceita2006();
-		case ANO_2010:
+		case YEAR_2010:
 			return getIndicesParseReceita2010();
 		}
 		throw new ParseException("Ano do arquivo está invalido!");

@@ -78,15 +78,15 @@ public class LoadTransactionParse extends HttpServlet {
 							// Checks joined donor according to selected year
 							switch (fileItem.getString()) {
 							case "2002":
-								electionYear = CadastroDoadorParse.ANO_2002;
+								electionYear = CadastroDoadorParse.YEAR_2002;
 								break;
 
 							case "2006":
-								electionYear = CadastroDoadorParse.ANO_2006;
+								electionYear = CadastroDoadorParse.YEAR_2006;
 								break;
 
 							case "2010":
-								electionYear = CadastroDoadorParse.ANO_2010;
+								electionYear = CadastroDoadorParse.YEAR_2010;
 								break;
 
 							default:

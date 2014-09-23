@@ -62,7 +62,7 @@ public class LoadPoliticalPartyParse extends HttpServlet {
 
 				FileItem file = null;
 				int initialLine = 1;
-				String fileType = "partido";
+				String fileType = "party";
 
 				for(FileItem fileItem : fields) {
 					if(!fileItem.isFormField()) {
