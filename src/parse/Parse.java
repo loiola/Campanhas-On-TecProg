@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.apache.commons.fileupload.FileItem;
 
 import parse.LeitorCSV.ExecutorLeitorCSVObservador;
-import parse.cadastro.CadastroParse;
+import parse.register.CadastroParse;
 
 public abstract class Parse implements ExecutorLeitorCSVObservador {
 

@@ -1,8 +1,8 @@
 package parse.cadastro.receita_despesa;
 
 import parse.ParseException;
-import parse.cadastro.CadastroParse;
 import parse.indices.IndicesParse;
+import parse.register.CadastroParse;
 
 public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> {
 

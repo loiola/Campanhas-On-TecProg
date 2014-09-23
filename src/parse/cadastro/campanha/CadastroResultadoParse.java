@@ -2,11 +2,11 @@ package parse.cadastro.campanha;
 
 import model.beans.Result;
 import parse.ParseException;
-import parse.cadastro.CadastroParse;
 import parse.control.ParseControle;
 import parse.control.ResultadoParseControle;
 import parse.indices.IndicesParse;
 import parse.indices.ResultadoIndicesParse;
+import parse.register.CadastroParse;
 
 public class CadastroResultadoParse extends CadastroParse<Result>{
 	
@@ -30,7 +30,7 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	// Methods
 	
 	/*
-	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
 	 * This method generate a ParseResultControl to be used by constructor
 	 * @return a ParseResultControl
 	 */
@@ -42,7 +42,7 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	}
 
 	/*
-	 * @see parse.cadastro.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParseResultIndex, setting the index number for each attribute
 	 * @return a ParseResultIndex
 	 */

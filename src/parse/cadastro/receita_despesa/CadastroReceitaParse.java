@@ -29,7 +29,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	// Methods
 
 	/*
-	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
 	 * This method generate a ParseRevenueControl to be used by constructor
 	 * @return a ParseRevenueControl
 	 */
@@ -40,7 +40,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	}
 
 	/*
-	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2002()
+	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2002()
 	 * This method generate the ParseRevenueIndex from the Campaign of 2002
 	 * @return a ParseRevenueIndex
 	 */
@@ -50,7 +50,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	}
 
 	/*
-	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2006()
+	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2006()
 	 * This method generate the ParseRevenueIndex from the Campaign of 2006
 	 * @return a ParseRevenueIndex
 	 */
@@ -60,7 +60,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	}
 
 	/*
-	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2010()
+	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2010()
 	 * This method generate the ParseRevenueIndex from the Campaign of 2010
 	 * @return a ParseRevenueIndex
 	 */
@@ -70,7 +70,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	}
 
 	/*
-	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2002()
+	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2002()
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2002
 	 * @return a ParseRevenueIndex
@@ -91,7 +91,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	}
 
 	/*
-	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2006()
+	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2006()
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2006
 	 * @return a ParseRevenueIndex
@@ -113,7 +113,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	}
 
 	/*
-	 * @see parse.cadastro.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2010()
+	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2010()
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2010
 	 * @return a ParseRevenueIndex

@@ -1,4 +1,4 @@
-package parse.cadastro;
+package parse.register;
 
 import parse.ParseException;
 import parse.control.ParseControle;

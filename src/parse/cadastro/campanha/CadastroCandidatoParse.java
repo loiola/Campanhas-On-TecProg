@@ -2,11 +2,11 @@ package parse.cadastro.campanha;
 
 import model.beans.Candidate;
 import parse.ParseException;
-import parse.cadastro.CadastroParse;
 import parse.control.CandidatoParseControle;
 import parse.control.ParseControle;
 import parse.indices.CandidatoIndicesParse;
 import parse.indices.IndicesParse;
+import parse.register.CadastroParse;
 
 public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	
@@ -30,7 +30,7 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	// Methods
 	
 	/*
-	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
 	 * This method generate a ParseCandidateControl to be used by constructor
 	 * @return a ParseCandidateControl
 	 */
@@ -42,7 +42,7 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	}
 
 	/*
-	 * @see parse.cadastro.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParseCandidateIndex, setting the index number for each attribute
 	 * @return a ParseCandidateIndex
 	 */

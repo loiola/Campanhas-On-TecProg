@@ -2,11 +2,11 @@ package parse.cadastro.campanha;
 
 import model.beans.Position;
 import parse.ParseException;
-import parse.cadastro.CadastroParse;
 import parse.control.CargoParseControle;
 import parse.control.ParseControle;
 import parse.indices.CargoIndicesParse;
 import parse.indices.IndicesParse;
+import parse.register.CadastroParse;
 
 public class CadastroCargoParse extends CadastroParse<Position> {
 	
@@ -30,7 +30,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	// Methods
 	
 	/*
-	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
 	 * This method generate a ParsePositionControl to be used by constructor
 	 * @return a ParsePositionControl
 	 */
@@ -42,7 +42,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	}
 
 	/*
-	 * @see parse.cadastro.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParsePositionIndex, setting the index number for each attribute
 	 * @return a ParsePositionIndex
 	 */

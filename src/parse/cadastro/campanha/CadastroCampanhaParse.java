@@ -2,11 +2,11 @@ package parse.cadastro.campanha;
 
 import model.beans.Campaign;
 import parse.ParseException;
-import parse.cadastro.CadastroParse;
 import parse.control.CampanhaParseControle;
 import parse.control.ParseControle;
 import parse.indices.CampanhaIndicesParse;
 import parse.indices.IndicesParse;
+import parse.register.CadastroParse;
 
 public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	
@@ -32,7 +32,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	// Methods
 	
 	/*
-	 * @see parse.cadastro.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
 	 * This method generate a ParseCampaignControl to be used by constructor
 	 * @return a ParseCampaignControl
 	 */
@@ -44,7 +44,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	}
 
 	/*
-	 * @see parse.cadastro.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParseCampaignIndex, setting the index number for each attribute
 	 * @return a ParseCampaignIndex
 	 */
@@ -69,7 +69,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	}
 	
 	/*
-	 * @see parse.cadastro.CadastroParse#executarLinhaDoArquivo(java.lang.String[])
+	 * @see parse.register.CadastroParse#executarLinhaDoArquivo(java.lang.String[])
 	 */
 	@Override
 	public void executarLinhaDoArquivo(String[] campo) throws ParseException {

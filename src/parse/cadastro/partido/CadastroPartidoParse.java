@@ -1,11 +1,11 @@
 package parse.cadastro.partido;
 
 import parse.ParseException;
-import parse.cadastro.CadastroParse;
 import parse.control.ParseControle;
 import parse.control.PartidoParseControle;
 import parse.indices.IndicesParse;
 import parse.indices.PartidoIndicesParse;
+import parse.register.CadastroParse;
 import model.beans.Party;
 
 public class CadastroPartidoParse extends CadastroParse<Party> {
