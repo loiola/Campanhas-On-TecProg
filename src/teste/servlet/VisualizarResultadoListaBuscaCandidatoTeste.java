@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.VisualizarResultadoListaBuscaCandidato;
+import control.servlet.VisualizeResultOfSearchCandidateList;
 
 public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 	
-	VisualizarResultadoListaBuscaCandidato visualizarResultadoListaBuscaCandidato;
+	VisualizeResultOfSearchCandidateList visualizeResultOfSearchCandidateList;
 	HttpServletRequest req;
 	HttpServletResponse res;
 
@@ -25,7 +25,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("false");
 		when(req.getParameter("centro")).thenReturn("1");
 		
-		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
+		this.visualizeResultOfSearchCandidateList.execute(req, res);
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("true");
 		when(req.getParameter("centro")).thenReturn("1");
 		
-		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
+		this.visualizeResultOfSearchCandidateList.execute(req, res);
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("true");
 		when(req.getParameter("centro")).thenReturn("1");
 		
-		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
+		this.visualizeResultOfSearchCandidateList.execute(req, res);
 	}
 	
 	@Test
@@ -58,12 +58,12 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("true");
 		when(req.getParameter("centro")).thenReturn("20");
 		
-		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
+		this.visualizeResultOfSearchCandidateList.execute(req, res);
 	}
 
 	@Override
 	public void beforeTest() throws Exception {
-		this.visualizarResultadoListaBuscaCandidato = new VisualizarResultadoListaBuscaCandidato();
+		this.visualizeResultOfSearchCandidateList = new VisualizeResultOfSearchCandidateList();
 		
 		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
 		
