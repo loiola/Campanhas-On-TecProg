@@ -6,7 +6,7 @@ import model.dao.PartyDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.PartidoParseControle;
+import parse.control.ParseControlParty;
 import parse.index.PartidoIndicesParse;
 import teste.TemplateTeste;
 
@@ -20,7 +20,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private PartyDAO partyDAO;
 	private PartidoIndicesParse partidoIndicesParse;
-	private PartidoParseControle partidoParseControle;
+	private ParseControlParty parseControlParty;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -28,7 +28,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		this.campo = new String[4];
 		this.partyDAO = new PartyDAO();
 		this.partidoIndicesParse = new PartidoIndicesParse();
-		this.partidoParseControle = new PartidoParseControle(this.partidoIndicesParse);
+		this.parseControlParty = new ParseControlParty(this.partidoIndicesParse);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -42,9 +42,9 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarPartido() throws Exception {
 		
-		this.partidoParseControle.addInstance(campo);
-		this.partidoParseControle.registeringInstances();
-		this.partidoParseControle.clear();
+		this.parseControlParty.addInstance(campo);
+		this.parseControlParty.registeringInstances();
+		this.parseControlParty.clear();
 		
 		Party partidoCadastrado = this.partyDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -57,10 +57,10 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisPartidosIguais() throws Exception {
 		
-		this.partidoParseControle.addInstance(campo);
-		this.partidoParseControle.addInstance(campo);
-		this.partidoParseControle.registeringInstances();
-		this.partidoParseControle.clear();
+		this.parseControlParty.addInstance(campo);
+		this.parseControlParty.addInstance(campo);
+		this.parseControlParty.registeringInstances();
+		this.parseControlParty.clear();
 		
 		int numeroPartidosCadastrados = this.partyDAO.getObjectArrayListFromDatabase().size();
 				

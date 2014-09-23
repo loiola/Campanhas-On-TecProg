@@ -2,7 +2,7 @@ package parse.register.party;
 
 import parse.ParseException;
 import parse.control.ParseControl;
-import parse.control.PartidoParseControle;
+import parse.control.ParseControlParty;
 import parse.index.IndicesParse;
 import parse.index.PartidoIndicesParse;
 import parse.register.CadastroParse;
@@ -28,9 +28,9 @@ public class CadastroPartidoParse extends CadastroParse<Party> {
 	@Override
 	public ParseControl<Party> novaInstancia(
 			IndicesParse<Party> indicesParse) {
-		PartidoParseControle partidoParseControle;
-		partidoParseControle = new PartidoParseControle(indicesParse);
-		return partidoParseControle;
+		ParseControlParty parseControlParty;
+		parseControlParty = new ParseControlParty(indicesParse);
+		return parseControlParty;
 	}
 
 	/*
