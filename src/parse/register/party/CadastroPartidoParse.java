@@ -1,4 +1,4 @@
-package parse.cadastro.partido;
+package parse.register.party;
 
 import parse.ParseException;
 import parse.control.ParseControle;

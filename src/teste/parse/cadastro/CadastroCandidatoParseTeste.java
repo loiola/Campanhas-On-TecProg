@@ -10,7 +10,7 @@ import model.dao.CandidateDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.cadastro.campanha.CadastroCandidatoParse;
+import parse.register.campaign.CadastroCandidatoParse;
 import teste.TemplateTeste;
 
 public class CadastroCandidatoParseTeste extends TemplateTeste {

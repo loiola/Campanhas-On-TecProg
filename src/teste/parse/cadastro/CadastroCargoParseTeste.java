@@ -10,7 +10,7 @@ import model.dao.PositionDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.cadastro.campanha.CadastroCargoParse;
+import parse.register.campaign.CadastroCargoParse;
 import teste.TemplateTeste;
 
 public class CadastroCargoParseTeste extends TemplateTeste {

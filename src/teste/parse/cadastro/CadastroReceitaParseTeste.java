@@ -11,7 +11,7 @@ import model.dao.RevenueDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.cadastro.receita_despesa.CadastroReceitaParse;
+import parse.register.revenue_expense.CadastroReceitaParse;
 import teste.TemplateTeste;
 
 public class CadastroReceitaParseTeste extends TemplateTeste {

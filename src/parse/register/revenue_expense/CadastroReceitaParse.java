@@ -1,4 +1,4 @@
-package parse.cadastro.receita_despesa;
+package parse.register.revenue_expense;
 
 import model.beans.Revenue;
 import parse.ParseException;

@@ -2,12 +2,12 @@ package parse;
 
 import java.util.ArrayList;
 
-import parse.cadastro.receita_despesa.CadastroDespesaParse;
-import parse.cadastro.receita_despesa.CadastroDoadorParse;
-import parse.cadastro.receita_despesa.CadastroFornecedorParse;
-import parse.cadastro.receita_despesa.CadastroParseReceitasDespesas;
-import parse.cadastro.receita_despesa.CadastroReceitaParse;
 import parse.register.CadastroParse;
+import parse.register.revenue_expense.CadastroDespesaParse;
+import parse.register.revenue_expense.CadastroDoadorParse;
+import parse.register.revenue_expense.CadastroFornecedorParse;
+import parse.register.revenue_expense.CadastroParseReceitasDespesas;
+import parse.register.revenue_expense.CadastroReceitaParse;
 
 public class ParseMovimentacoes extends Parse {
 	

@@ -2,8 +2,8 @@ package parse;
 
 import java.util.ArrayList;
 
-import parse.cadastro.partido.CadastroPartidoParse;
 import parse.register.CadastroParse;
+import parse.register.party.CadastroPartidoParse;
 
 public class ParsePartido extends Parse {
 	

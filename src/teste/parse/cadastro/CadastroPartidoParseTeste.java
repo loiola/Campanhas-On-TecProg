@@ -10,7 +10,7 @@ import model.dao.PartyDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.cadastro.partido.CadastroPartidoParse;
+import parse.register.party.CadastroPartidoParse;
 import teste.TemplateTeste;
 
 public class CadastroPartidoParseTeste extends TemplateTeste {

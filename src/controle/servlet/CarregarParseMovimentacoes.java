@@ -17,8 +17,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
 import parse.ParseMovimentacoes;
-import parse.cadastro.receita_despesa.CadastroDoadorParse;
-import parse.cadastro.receita_despesa.CadastroFornecedorParse;
+import parse.register.revenue_expense.CadastroDoadorParse;
+import parse.register.revenue_expense.CadastroFornecedorParse;
 
 @WebServlet("/carregarParseMovimentacoes")
 public class CarregarParseMovimentacoes extends HttpServlet {

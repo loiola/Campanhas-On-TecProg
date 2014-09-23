@@ -1,4 +1,4 @@
-package parse.cadastro.campanha;
+package parse.register.campaign;
 
 import model.beans.Position;
 import parse.ParseException;

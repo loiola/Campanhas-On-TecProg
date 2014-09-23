@@ -2,12 +2,12 @@ package parse;
 
 import java.util.ArrayList;
 
-import parse.cadastro.campanha.CadastroCampanhaParse;
-import parse.cadastro.campanha.CadastroCandidatoParse;
-import parse.cadastro.campanha.CadastroCargoParse;
-import parse.cadastro.campanha.CadastroResultadoParse;
-import parse.cadastro.partido.CadastroPartidoParse;
 import parse.register.CadastroParse;
+import parse.register.campaign.CadastroCampanhaParse;
+import parse.register.campaign.CadastroCandidatoParse;
+import parse.register.campaign.CadastroCargoParse;
+import parse.register.campaign.CadastroResultadoParse;
+import parse.register.party.CadastroPartidoParse;
 
 public class ParseCampanha extends Parse {
 
