@@ -11,8 +11,8 @@ public class ParseControlRevenue extends ParseControl<Revenue> {
 	 */
 
 	// Constructors
-	public ParseControlRevenue(IndicesParse<Revenue> indicesParse) {
-		super(indicesParse, new RevenueDAO());
+	public ParseControlRevenue(IndicesParse<Revenue> indexParse) {
+		super(indexParse, new RevenueDAO());
 	}
 
 	/*
@@ -31,8 +31,8 @@ public class ParseControlRevenue extends ParseControl<Revenue> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean equalObjects(Revenue objetoUm, Revenue objetoDois) {
-		return objetoUm.equals(objetoDois);
+	public boolean equalObjects(Revenue objectOne, Revenue objectTwo) {
+		return objectOne.equals(objectTwo);
 	}
 
 }
