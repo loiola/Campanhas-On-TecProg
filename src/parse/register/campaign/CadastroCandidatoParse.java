@@ -4,7 +4,7 @@ import model.beans.Candidate;
 import parse.ParseException;
 import parse.control.ParseControlCandidate;
 import parse.control.ParseControl;
-import parse.index.CandidatoIndicesParse;
+import parse.index.CandidateParseIndex;
 import parse.index.IndicesParse;
 import parse.register.CadastroParse;
 
@@ -50,13 +50,13 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	protected IndicesParse<Candidate> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
-		CandidatoIndicesParse candidatoIndicesParse;
-		candidatoIndicesParse = new CandidatoIndicesParse();
+		CandidateParseIndex candidateParseIndex;
+		candidateParseIndex = new CandidateParseIndex();
 		
-		candidatoIndicesParse.setIndiceNome(10);
-		candidatoIndicesParse.setIndiceTituloEleitoral(26);
+		candidateParseIndex.setIndiceNome(10);
+		candidateParseIndex.setIndiceTituloEleitoral(26);
 		
-		return candidatoIndicesParse;
+		return candidateParseIndex;
 	}
 	
 }

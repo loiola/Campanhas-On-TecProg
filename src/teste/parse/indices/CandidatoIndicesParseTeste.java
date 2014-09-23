@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.CandidatoIndicesParse;
+import parse.index.CandidateParseIndex;
 
 public class CandidatoIndicesParseTeste {
 
-	private CandidatoIndicesParse candidatoIndicesParse;
+	private CandidateParseIndex candidateParseIndex;
 	private String campo[];
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.candidatoIndicesParse = new CandidatoIndicesParse();
+		this.candidateParseIndex = new CandidateParseIndex();
 		this.campo = new String[2];
 		iniciarCampos();
 		iniciarIndices();
@@ -26,7 +26,7 @@ public class CandidatoIndicesParseTeste {
 	public void iniciarUmCandidatoComIndicesValidos() throws Exception {
 		
 		Candidate candidate = new Candidate();
-		this.candidatoIndicesParse.startInstance(candidate, campo);
+		this.candidateParseIndex.startInstance(candidate, campo);
 		Assert.assertEquals(this.campo[0], candidate.getCandidateName());
 		Assert.assertEquals(this.campo[1], candidate.getCandidateElectoralTitle());
 	}
@@ -34,16 +34,16 @@ public class CandidatoIndicesParseTeste {
 	@Test
 	public void iniciarUmCandidatoComIndicesInvalidos() throws Exception {
 		
-		this.candidatoIndicesParse = new CandidatoIndicesParse();
+		this.candidateParseIndex = new CandidateParseIndex();
 		Candidate candidate = new Candidate();
-		this.candidatoIndicesParse.startInstance(candidate, campo);		
+		this.candidateParseIndex.startInstance(candidate, campo);		
 		Assert.assertNotEquals(this.campo[0], candidate.getCandidateName());
 		Assert.assertNotEquals(this.campo[1], candidate.getCandidateElectoralTitle());
 	}
 	
 	private void iniciarIndices() {
-		this.candidatoIndicesParse.setIndiceNome(0);
-		this.candidatoIndicesParse.setIndiceTituloEleitoral(1);
+		this.candidateParseIndex.setIndiceNome(0);
+		this.candidateParseIndex.setIndiceTituloEleitoral(1);
 	}
 	
 	private void iniciarCampos() {

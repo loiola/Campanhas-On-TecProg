@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlCandidate;
-import parse.index.CandidatoIndicesParse;
+import parse.index.CandidateParseIndex;
 import teste.TemplateTeste;
 
 public class CandidatoParseControleTeste extends TemplateTeste {
@@ -17,7 +17,7 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	
 	private String campo[];
 	private CandidateDAO candidateDAO;
-	private CandidatoIndicesParse candidatoIndicesParse;
+	private CandidateParseIndex candidateParseIndex;
 	private ParseControlCandidate parseControlCandidate;
 	
 	@Override
@@ -25,8 +25,8 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 		
 		this.campo = new String[2];
 		this.candidateDAO = new CandidateDAO();
-		this.candidatoIndicesParse = new CandidatoIndicesParse();
-		this.parseControlCandidate = new ParseControlCandidate(this.candidatoIndicesParse);
+		this.candidateParseIndex = new CandidateParseIndex();
+		this.parseControlCandidate = new ParseControlCandidate(this.candidateParseIndex);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -65,8 +65,8 @@ public class CandidatoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.candidatoIndicesParse.setIndiceNome(NOME);
-		this.candidatoIndicesParse.setIndiceTituloEleitoral(TITULO_ELEITORAL);
+		this.candidateParseIndex.setIndiceNome(NOME);
+		this.candidateParseIndex.setIndiceTituloEleitoral(TITULO_ELEITORAL);
 	}
 	
 	private void iniciarCampos() {

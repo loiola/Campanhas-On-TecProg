@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Candidate;
 
-public class CandidatoIndicesParse extends IndicesParse<Candidate> {
+public class CandidateParseIndex extends IndicesParse<Candidate> {
 	
 	/*
 	 * Class to control the contents of information inherent to the candidates
@@ -13,7 +13,7 @@ public class CandidatoIndicesParse extends IndicesParse<Candidate> {
 	private int indiceTituloEleitoral;
 
 	// Constructors
-	public CandidatoIndicesParse() {
+	public CandidateParseIndex() {
 		this.indiceNome = INVALID_INDEX;
 		this.indiceTituloEleitoral = INVALID_INDEX;
 	}
