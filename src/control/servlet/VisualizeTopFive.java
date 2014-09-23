@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.beans.Campaign;
 import control.CampaignControl;
 
-@WebServlet("/VisualizarTopFive")
-public class VisualizarTopFive implements Logic {
+@WebServlet("/VisualizeTopFive")
+public class VisualizeTopFive implements Logic {
 	
 	/*
 	 * Servlet requests to control display TOP Five
@@ -19,10 +19,10 @@ public class VisualizarTopFive implements Logic {
 
 	// Attributes
 	private CampaignControl campaignControl;
-	private ArrayList<Campaign> listaCampanha;
+	private ArrayList<Campaign> campaignList;
 	
-	private String cargo;
-	private Integer ano;
+	private String position;
+	private Integer electionYear;
 	
 	HttpServletRequest req;
 	
@@ -40,9 +40,9 @@ public class VisualizarTopFive implements Logic {
 		this.req = req;
 		
 		// Call refactored methods
-		recebeParametros();
-		estabeleceParametros();
-		preparaEnvioDeParametros();
+		receiveParameters();
+		setParameters();
+		prepareParametersTransmission();
 		
 		// Returns the page TOP Five
 		return "/top_five.jsp";
@@ -51,31 +51,31 @@ public class VisualizarTopFive implements Logic {
 	/*
 	 * Rebecer methods for the parameters of the request
 	 */
-	private void recebeParametros() {
-		this.ano =  Integer.parseInt(this.req.getParameter("ano"));
-		this.cargo = this.req.getParameter("cargo");
+	private void receiveParameters() {
+		this.electionYear =  Integer.parseInt(this.req.getParameter("electionYear"));
+		this.position = this.req.getParameter("position");
 	}
 	
 	/*
 	 * Establishes what each parameter will receive
 	 */
-	private void estabeleceParametros() throws SQLException {
+	private void setParameters() throws SQLException {
 		this.campaignControl = new CampaignControl();
-		this.listaCampanha = new ArrayList<>();
-		this.listaCampanha = this.campaignControl.topFiveByPositionAndYear(this.cargo, this.ano);
+		this.campaignList = new ArrayList<>();
+		this.campaignList = this.campaignControl.topFiveByPositionAndYear(this.position, this.electionYear);
 	}
 	
 	/*
 	 * Prepare responses of forwarded requests
 	 */
-	private void preparaEnvioDeParametros() {
-		this.req.setAttribute("ano", this.ano);
-		this.req.setAttribute("cargo", this.cargo);
-		this.req.setAttribute("candidato1", this.listaCampanha.get(0));
-		this.req.setAttribute("candidato2", this.listaCampanha.get(1));
-		this.req.setAttribute("candidato3", this.listaCampanha.get(2));
-		this.req.setAttribute("candidato4", this.listaCampanha.get(3));
-		this.req.setAttribute("candidato5", this.listaCampanha.get(4));
+	private void prepareParametersTransmission() {
+		this.req.setAttribute("electionYear", this.electionYear);
+		this.req.setAttribute("position", this.position);
+		this.req.setAttribute("candidate1", this.campaignList.get(0));
+		this.req.setAttribute("candidate2", this.campaignList.get(1));
+		this.req.setAttribute("candidate3", this.campaignList.get(2));
+		this.req.setAttribute("candidate4", this.campaignList.get(3));
+		this.req.setAttribute("candidate5", this.campaignList.get(4));
 		
 	}
 }

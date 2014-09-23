@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Test;
 
 import teste.TemplateTeste;
-import control.servlet.VisualizarTopFive;
+import control.servlet.VisualizeTopFive;
 
 public class VisualizarTopFiveTeste extends TemplateTeste {
 
-	VisualizarTopFive visualizarTopFive;
+	VisualizeTopFive visualizeTopFive;
 	HttpServletRequest req;
 	HttpServletResponse res;
 
@@ -22,12 +22,12 @@ public class VisualizarTopFiveTeste extends TemplateTeste {
 		when(req.getParameter("cargo")).thenReturn("presidente");
 		when(req.getParameter("ano")).thenReturn("2002");
 
-		this.visualizarTopFive.execute(req, res);
+		this.visualizeTopFive.execute(req, res);
 	}
 
 	@Override
 	public void beforeTest() throws Exception {
-		this.visualizarTopFive = new VisualizarTopFive();
+		this.visualizeTopFive = new VisualizeTopFive();
 		
 		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
 		
