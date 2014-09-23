@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/mvc")
-public class ServletControle extends HttpServlet {
+public class ServletControl extends HttpServlet {
 	
 	/*
 	 * Controller servlet instance
@@ -26,20 +26,22 @@ public class ServletControle extends HttpServlet {
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-		String parametro = request.getParameter("logica");
-		String nomeDaClasse = "control.servlet." + parametro;
+		String parameter = request.getParameter("logic");
+		String nameOfClass = "control.servlet." + parameter;
 
-		try {
-			Class<?> classe = Class.forName(nomeDaClasse);
+		try { 
+			
+			//Conseguir uma tradução para CLASSE (Não pode ser class)
+			Class<?> classe = Class.forName(nameOfClass);
 
 			Logic logic = (Logic) classe.newInstance();
-			String pagina = logic.execute(request, response);
+			String page = logic.execute(request, response);
 
-			request.getRequestDispatcher(pagina).forward(request, response);
+			request.getRequestDispatcher(page).forward(request, response);
 
 		} catch(Exception e) {
 			throw new ServletException(
-					"A lógica de negócios causou uma exceção", e);
+					"Business logic caused an exception!", e);
 		}
 	}
 }
