@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.beans.Campaign;
 import model.beans.Party;
 import control.CampaignControl;
-import control.PartidoControle;
+import control.PartyControl;
 
 public class VisualizarCandidatosPartido implements Logica {
 	
@@ -21,7 +21,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	// Attributes
 	private CampaignControl campaignControl;
 	private ArrayList<Campaign> listaCampanhas;
-	private PartidoControle partidoControle;
+	private PartyControl partyControl;
 	private Party party;
 
 	private String sigla;
@@ -74,8 +74,8 @@ public class VisualizarCandidatosPartido implements Logica {
 	 */
 	private void estabeleceParametros() throws SQLException {
 		this.campaignControl = new CampaignControl();
-		this.partidoControle = new PartidoControle();
-		this.party = this.partidoControle.getPelaSigla(this.sigla);
+		this.partyControl = new PartyControl();
+		this.party = this.partyControl.getPelaSigla(this.sigla);
 		this.listaCampanhas = new ArrayList<>();
 		this.listaCampanhas = this.campaignControl
 				.getListCampaignBySiglaPartyAndYear(this.sigla,this.ano);

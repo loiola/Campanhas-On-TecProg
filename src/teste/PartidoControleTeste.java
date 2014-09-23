@@ -11,17 +11,17 @@ import model.dao.PartyDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import control.PartidoControle;
+import control.PartyControl;
 
 public class PartidoControleTeste extends TemplateTeste {
 	
 	private PartyDAO partyDAO;
-	private PartidoControle partidoControle;
+	private PartyControl partyControl;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.partidoControle = new PartidoControle();
+		this.partyControl = new PartyControl();
 		this.partyDAO = new PartyDAO();
 	}
 
@@ -53,7 +53,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidosACadastrar);
 		listaPartidosRecuperados = this.partyDAO.getObjectArrayListFromDatabase();
 		
-		assertEquals(listaPartidosRecuperados, this.partidoControle.getListaTodosPartidos());
+		assertEquals(listaPartidosRecuperados, this.partyControl.getListaTodosPartidos());
 	}
 	
 	@Test
@@ -79,7 +79,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
 		partidoRecuperado = this.partyDAO.getPartyByAcronym("PE1");
 		
-		assertEquals(partidoRecuperado, this.partidoControle.getPelaSigla("PE1"));
+		assertEquals(partidoRecuperado, this.partyControl.getPelaSigla("PE1"));
 	}
 	
 	@Test
@@ -105,7 +105,7 @@ public class PartidoControleTeste extends TemplateTeste {
 		this.partyDAO.registerUnregisteredObjectArrayListOnDatabase(listaPartidos);
 		partidoRecuperado = this.partyDAO.getPartyByNumber("47");
 		
-		assertEquals(partidoRecuperado, this.partidoControle.getPeloNumero("47"));
+		assertEquals(partidoRecuperado, this.partyControl.getPeloNumero("47"));
 	}
 	
 }

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Party;
-import control.PartidoControle;
+import control.PartyControl;
 
 public class RequisitarPartido implements Logica {
 	
@@ -16,7 +16,7 @@ public class RequisitarPartido implements Logica {
 	 */
 
 	// Attributes
-	private PartidoControle controle;
+	private PartyControl controle;
 	private List<Party> listaPartidos;
 
 	private HttpServletRequest req;
@@ -63,7 +63,7 @@ public class RequisitarPartido implements Logica {
 	 * Establishes what each parameter will receive
 	 */
 	private void estabeleceParametros() throws SQLException {
-		this.controle = new PartidoControle();
+		this.controle = new PartyControl();
 		this.listaPartidos = controle.getListaTodosPartidos();
 		this.indice = geraIndiceDaLista(this.listaPartidos,this.qtdPorPagina);
 		this.qtdDePP = geraIndiceDePaginacao(this.listaPartidos);

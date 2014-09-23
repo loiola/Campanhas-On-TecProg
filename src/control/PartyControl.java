@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import model.beans.Party;
 import model.dao.PartyDAO;
 
-public class PartidoControle {
+public class PartyControl {
 	
 	/*
 	 * Control class political party, which mediates the application layer with the model
@@ -16,7 +16,7 @@ public class PartidoControle {
 	private PartyDAO partyDAO;
 	
 	// Constructors	
-	public PartidoControle() {
+	public PartyControl() {
 		this.partyDAO = new PartyDAO();
 	}
 	

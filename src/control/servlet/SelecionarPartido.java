@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Party;
-import control.PartidoControle;
+import control.PartyControl;
 
 public class SelecionarPartido implements Logica {
 	
@@ -14,7 +14,7 @@ public class SelecionarPartido implements Logica {
 
 	// Attributes
 	private final int[] ANOS = {2010, 2006, 2002};
-	private PartidoControle partidoControle;
+	private PartyControl partyControl;
 	private Party party;
 
 	private String sigla;
@@ -33,13 +33,13 @@ public class SelecionarPartido implements Logica {
 			throws Exception {
 
 		this.party = new Party();
-		this.partidoControle = new PartidoControle();
+		this.partyControl = new PartyControl();
 
 		this.sigla = req.getParameter("sigla");
 		this.siglaComUnder = this.sigla.replaceAll(" ", "_");
 		this.siglaComUnder = this.siglaComUnder.toLowerCase();
 
-		this.party = this.partidoControle.getPelaSigla(this.sigla);
+		this.party = this.partyControl.getPelaSigla(this.sigla);
 		this.linkTSE = trocaDeCaracteresEspeciais(this.party);
 
 		// Set of answers to requests made concerning the applicant requested
