@@ -14,13 +14,13 @@ import model.dao.CandidateDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import control.CampanhaControle;
+import control.CampaignControl;
 
 public class CampanhaControleTeste extends TemplateTeste {
 	
 	private CampaignDAO campaignDAO;
 	private CandidateDAO candidateDAO;
-	private CampanhaControle campanhaControle;
+	private CampaignControl campaignControl;
 	private Candidate candidate;
 	private Party partido1;
 	private Campaign campanha1;
@@ -36,7 +36,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		
 		this.campaignDAO = new CampaignDAO();
 		this.candidateDAO = new CandidateDAO();
-		this.campanhaControle = new CampanhaControle();
+		this.campaignControl = new CampaignControl();
 		this.campanha1 = new Campaign();
 		this.partido1 = new Party();
 		this.candidate = new Candidate();
@@ -107,10 +107,10 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campaignDAO.registerUnregisteredObjectArrayListOnDatabase(listaCampanhas);
 		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidato);
 		
-		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate), this.campanhaControle.getListaCampanhas(candidate));
-		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear("SGLL", "2006"), this.campanhaControle.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));
-		Assert.assertEquals(this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha1));
-		Assert.assertNotEquals(this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campanha1), this.campanhaControle.getPeloAnoNumeroCodCargoEUf(campanha2));
+		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate), this.campaignControl.getListaCampanhas(candidate));
+		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear("SGLL", "2006"), this.campaignControl.getListaCampanhasPorSiglaPartidoEAno("SGLL", "2006"));
+		Assert.assertEquals(this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campanha1), this.campaignControl.getPeloAnoNumeroCodCargoEUf(campanha1));
+		Assert.assertNotEquals(this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campanha1), this.campaignControl.getPeloAnoNumeroCodCargoEUf(campanha2));
 	}
 
 }

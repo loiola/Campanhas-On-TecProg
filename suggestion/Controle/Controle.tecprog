@@ -625,7 +625,7 @@ Sugestão: private void prepareParametersTransmission()
 
  public class CampanhaControle
  Comentário: Control class political campaign, which mediates the application layer with the model
- Sugestão: controlCampaign
+ Sugestão: campaignControl
 
  private CampanhaDAO campanhaDAO
  Sugestão: CampaignDAO

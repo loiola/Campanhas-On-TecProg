@@ -6,7 +6,7 @@ import model.beans.Campaign;
 import model.beans.Candidate;
 import model.dao.CampaignDAO;
 
-public class CampanhaControle {
+public class CampaignControl {
 	
 	/*
 	 * Control class political campaign, which mediates the application layer with the model
@@ -16,7 +16,7 @@ public class CampanhaControle {
 	private CampaignDAO campaignDAO;
 
 	// Constructors	
-	public CampanhaControle() {
+	public CampaignControl() {
 		this.campaignDAO = new CampaignDAO();
 	}
 	

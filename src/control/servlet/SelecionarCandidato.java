@@ -9,7 +9,7 @@ import model.beans.Campaign;
 import model.beans.Candidate;
 import model.beans.Expense;
 import model.beans.Revenue;
-import control.CampanhaControle;
+import control.CampaignControl;
 import control.CandidatoControle;
 import control.MovimentacaoControle;
 
@@ -22,7 +22,7 @@ public class SelecionarCandidato implements Logica {
 	// Attributes
 	private CandidatoControle candidatoControle;
 	private Candidate candidate;
-	private CampanhaControle campanhaControle;
+	private CampaignControl campaignControl;
 	private List<Campaign> listaCampanha;
 
 	private String tituloEleitoral;
@@ -63,12 +63,12 @@ public class SelecionarCandidato implements Logica {
 		this.tituloEleitoral = req.getParameter("tituloEleitoral");
 
 		this.candidatoControle = new CandidatoControle();
-		this.campanhaControle = new CampanhaControle();
+		this.campaignControl = new CampaignControl();
 		this.movimentacaoControle = new MovimentacaoControle();
 		
 		this.candidate = this.candidatoControle.getUmCandidato(this.tituloEleitoral);
 
-		this.listaCampanha = this.campanhaControle.getListaCampanhas(this.candidate);
+		this.listaCampanha = this.campaignControl.getListaCampanhas(this.candidate);
 		
 		// Loop to receive all the necessary information about their candidate campaigns
 		for(Campaign campaign : listaCampanha) {

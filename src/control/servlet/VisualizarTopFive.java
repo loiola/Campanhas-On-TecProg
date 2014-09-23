@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Campaign;
-import control.CampanhaControle;
+import control.CampaignControl;
 
 @WebServlet("/VisualizarTopFive")
 public class VisualizarTopFive implements Logica {
@@ -18,7 +18,7 @@ public class VisualizarTopFive implements Logica {
 	 */
 
 	// Attributes
-	private CampanhaControle campanhaControle;
+	private CampaignControl campaignControl;
 	private ArrayList<Campaign> listaCampanha;
 	
 	private String cargo;
@@ -60,9 +60,9 @@ public class VisualizarTopFive implements Logica {
 	 * Establishes what each parameter will receive
 	 */
 	private void estabeleceParametros() throws SQLException {
-		this.campanhaControle = new CampanhaControle();
+		this.campaignControl = new CampaignControl();
 		this.listaCampanha = new ArrayList<>();
-		this.listaCampanha = this.campanhaControle.topFivePorCargoEAno(this.cargo, this.ano);
+		this.listaCampanha = this.campaignControl.topFivePorCargoEAno(this.cargo, this.ano);
 	}
 	
 	/*

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Campaign;
 import model.beans.Party;
-import control.CampanhaControle;
+import control.CampaignControl;
 import control.PartidoControle;
 
 public class VisualizarCandidatosPartido implements Logica {
@@ -19,7 +19,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	 */
 
 	// Attributes
-	private CampanhaControle campanhaControle;
+	private CampaignControl campaignControl;
 	private ArrayList<Campaign> listaCampanhas;
 	private PartidoControle partidoControle;
 	private Party party;
@@ -73,11 +73,11 @@ public class VisualizarCandidatosPartido implements Logica {
 	 * Establishes what each parameter will receive
 	 */
 	private void estabeleceParametros() throws SQLException {
-		this.campanhaControle = new CampanhaControle();
+		this.campaignControl = new CampaignControl();
 		this.partidoControle = new PartidoControle();
 		this.party = this.partidoControle.getPelaSigla(this.sigla);
 		this.listaCampanhas = new ArrayList<>();
-		this.listaCampanhas = this.campanhaControle
+		this.listaCampanhas = this.campaignControl
 				.getListaCampanhasPorSiglaPartidoEAno(this.sigla,this.ano);
 		this.indice = geraIndiceDaLista(this.listaCampanhas,this.qtdPorPagina);
 		this.qtdDePP = geraIndiceDePaginacao(this.listaCampanhas);

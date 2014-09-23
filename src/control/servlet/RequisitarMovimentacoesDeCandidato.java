@@ -13,7 +13,7 @@ import model.beans.Campaign;
 import model.beans.Expense;
 import model.beans.Position;
 import model.beans.Revenue;
-import control.CampanhaControle;
+import control.CampaignControl;
 import control.MovimentacaoControle;
 
 public class RequisitarMovimentacoesDeCandidato implements Logica {
@@ -23,7 +23,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 */
 
 	// Attributes
-	private CampanhaControle campanhaControle;
+	private CampaignControl campaignControl;
 	private Campaign campanhaBusca;
 	private Campaign campaign;
 	private MovimentacaoControle movimentacaoControle;
@@ -107,8 +107,8 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		this.verTodosD = Boolean.parseBoolean(this.req
 				.getParameter("verTodosD"));
 		this.centroD = Integer.parseInt(this.req.getParameter("centroD"));
-		this.campanhaControle = new CampanhaControle();
-		this.campaign = this.campanhaControle
+		this.campaignControl = new CampaignControl();
+		this.campaign = this.campaignControl
 				.getPeloAnoNumeroCodCargoEUf(this.campanhaBusca);
 		this.movimentacaoControle = new MovimentacaoControle();
 	}

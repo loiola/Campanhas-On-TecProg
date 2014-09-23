@@ -10,8 +10,9 @@ public class PartyValidation {
 	 */
 
 	// Attributes
-	private static final String EMPTY_SIGLA = "Party abbreviation field empty!";
-	private static final String EMPTY_NUMBER_PARTY = "Party number field empty!";
+	private static final String EMPTY_SIGLA = "Party abbreviation field empty!"; //Constant for represent sigla empty
+	private static final String EMPTY_NUMBER_PARTY = "Party number field empty!"; //Constant for represent the number of party
+	
 
 	// Constructors
 	public PartyValidation() {
