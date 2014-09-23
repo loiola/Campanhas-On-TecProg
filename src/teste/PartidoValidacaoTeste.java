@@ -6,11 +6,11 @@ import model.beans.Party;
 import org.junit.Test;
 
 import control.exception.PartyException;
-import control.validation.PartidoValidacao;
+import control.validation.PartyValidation;
 
 public class PartidoValidacaoTeste extends TemplateTeste {
 	
-	private PartidoValidacao partidoValidacao;
+	private PartyValidation partyValidation;
 	private PartyException partyException;
 	private Party party;
 	private Candidate candidate;
@@ -18,7 +18,7 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.partidoValidacao = new PartidoValidacao();
+		this.partyValidation = new PartyValidation();
 		this.partyException = new PartyException();
 		this.party = new Party();
 		this.candidate = new Candidate();
@@ -33,21 +33,21 @@ public class PartidoValidacaoTeste extends TemplateTeste {
 	public void naoLancaExcecaoSeSiglaNaoEhNula() throws PartyException {
 		
 		this.party.setPartyAcronym("PT");
-		this.partidoValidacao.siglaNaoNula(party);
+		this.partyValidation.siglaNaoNula(party);
 	}
 	
 	@Test
 	public void naoLancaExcecaoSeSiglaNaoEhNula2() throws PartyException {
 		
 		this.party.setPartyAcronym("PT");
-		this.partidoValidacao.numeroNaoNulo(party);
+		this.partyValidation.numeroNaoNulo(party);
 	}
 	
 	@Test
 	public void naoLancaExcecaoSeNumeroPartidoNaoEhNulo() throws PartyException {
 		
 		this.party.setPartyNumber(13);
-		this.partidoValidacao.numeroNaoNulo(party);
+		this.partyValidation.numeroNaoNulo(party);
 	}
 	
 	@Test

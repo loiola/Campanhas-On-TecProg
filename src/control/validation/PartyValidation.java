@@ -3,7 +3,7 @@ package control.validation;
 import control.exception.PartyException;
 import model.beans.Party;
 
-public class PartidoValidacao {
+public class PartyValidation {
 	
 	/*
 	 * Validation class electoral party, which mediates the application layer with the model
@@ -14,7 +14,7 @@ public class PartidoValidacao {
 	private static final String NUMERO_PARTIDO_VAZIO = "Campo Número do Party vazio!";
 
 	// Constructors
-	public PartidoValidacao() {
+	public PartyValidation() {
 
 	}
 
