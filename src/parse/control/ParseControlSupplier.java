@@ -4,14 +4,14 @@ import model.beans.Supplier;
 import model.dao.SupplierDAO;
 import parse.index.IndicesParse;
 
-public class FornecedorParseControle extends ParseControle<Supplier> {
+public class ParseControlSupplier extends ParseControle<Supplier> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Supplier
 	 */
 
 	// Constructors
-	public FornecedorParseControle(IndicesParse<Supplier> indicesParse) {
+	public ParseControlSupplier(IndicesParse<Supplier> indicesParse) {
 		super(indicesParse, new SupplierDAO());
 	}
 

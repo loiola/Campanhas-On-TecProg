@@ -6,7 +6,7 @@ import model.dao.SupplierDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.FornecedorParseControle;
+import parse.control.ParseControlSupplier;
 import parse.index.FornecedorIndicesParse;
 import teste.TemplateTeste;
 
@@ -18,7 +18,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private SupplierDAO supplierDAO;
 	private FornecedorIndicesParse fornecedorIndicesParse;
-	private FornecedorParseControle fornecedorParseControle;
+	private ParseControlSupplier parseControlSupplier;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -26,7 +26,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		this.campo = new String[2];
 		this.supplierDAO = new SupplierDAO();
 		this.fornecedorIndicesParse = new FornecedorIndicesParse();
-		this.fornecedorParseControle = new FornecedorParseControle(this.fornecedorIndicesParse);
+		this.parseControlSupplier = new ParseControlSupplier(this.fornecedorIndicesParse);
 
 		iniciarCampos();
 		iniciarIndices();
@@ -40,9 +40,9 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarFornecedor() throws Exception {
 
-		this.fornecedorParseControle.addInstancia(campo);
-		this.fornecedorParseControle.registeringInstances();
-		this.fornecedorParseControle.resetar();
+		this.parseControlSupplier.addInstancia(campo);
+		this.parseControlSupplier.registeringInstances();
+		this.parseControlSupplier.resetar();
 
 		Supplier fornecedorCadastrado = this.supplierDAO.getObjectArrayListFromDatabase().get(0);
 
@@ -55,10 +55,10 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisFornecedoresIguais() throws Exception {
 
-		this.fornecedorParseControle.addInstancia(campo);
-		this.fornecedorParseControle.addInstancia(campo);
-		this.fornecedorParseControle.registeringInstances();
-		this.fornecedorParseControle.resetar();
+		this.parseControlSupplier.addInstancia(campo);
+		this.parseControlSupplier.addInstancia(campo);
+		this.parseControlSupplier.registeringInstances();
+		this.parseControlSupplier.resetar();
 
 		int numeroFornecedorCadastrados = this.supplierDAO.getObjectArrayListFromDatabase().size();
 
