@@ -31,25 +31,25 @@ public class TransactionControl {
 	 * @param a campaign
 	 * @return a List with revenues campaign informed
 	 */
-	public List<Revenue> getListaReceitas(Campaign campaign) throws Exception {
+	public List<Revenue> getListRevenue(Campaign campaign) throws Exception {
 
-		ArrayList<Revenue> listaReceita = new ArrayList<>();
+		ArrayList<Revenue> listRevenue = new ArrayList<>();
 		
 		if((campaign.getCampaignPosition().getPositionDescription().equals(Campaign.EMPTY_TYPE_STRING)) 
 				|| (campaign.getCampaignYear().equals(Campaign.EMPTY_TYPE_INTEGER)) 
 				|| (campaign.getCampaignCandidateNumber()).equals(Campaign.EMPTY_TYPE_INTEGER)
 				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
-			listaReceita =  null;
+			listRevenue =  null;
 			
 		} else {
-			listaReceita = this.revenueDAO.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campaign);
+			listRevenue = this.revenueDAO.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campaign);
 			
 			if(campaign.getCampaignYear() == 2002) {
-				for(Revenue revenue : listaReceita)
+				for(Revenue revenue : listRevenue)
 					revenue.setFinancialTransactionType("Revenue");
 			}
 		}
-		return listaReceita;
+		return listRevenue;
 	}
 
 	/*
@@ -57,19 +57,19 @@ public class TransactionControl {
 	 * @param a campaign
 	 * @return a List with expenses campaign informed
 	 */
-	public List<Expense> getListaDespesas(Campaign campaign) throws Exception {
+	public List<Expense> getListExpense(Campaign campaign) throws Exception {
 		
-		ArrayList<Expense> listaDespesa = new ArrayList<>();
+		ArrayList<Expense> listExpense = new ArrayList<>();
 		
 		if((campaign.getCampaignPosition().getPositionDescription().equals(Campaign.EMPTY_TYPE_STRING)) 
 				|| (campaign.getCampaignYear().equals(Campaign.EMPTY_TYPE_INTEGER)) 
 				|| (campaign.getCampaignCandidateNumber()).equals(Campaign.EMPTY_TYPE_INTEGER)
 				|| (campaign.getCampaignCountryState()).equals(Campaign.EMPTY_TYPE_STRING)) {
-			listaDespesa =  null;
+			listExpense =  null;
 		} else {
-			listaDespesa =  this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaign);
+			listExpense =  this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaign);
 		}
-		return listaDespesa;
+		return listExpense;
 	}
 
 	/*
@@ -77,7 +77,7 @@ public class TransactionControl {
 	 * @param a ID
 	 * @return the reported income
 	 */
-	public Revenue getReceitaPeloId(int id) throws Exception {
+	public Revenue getRevenueById(int id) throws Exception {
 		return this.revenueDAO.getRevenueByIdentifier(id);
 	}
 
@@ -86,7 +86,7 @@ public class TransactionControl {
 	 * @param a ID
 	 * @return the reported expense
 	 */
-	public Expense getDespesaPeloId(int id) throws Exception {
+	public Expense getExpenseById(int id) throws Exception {
 		return this.expenseDAO.getExpenseByIdentifier(id);
 	}
 }

@@ -119,9 +119,9 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	private void estabeleceParametros() throws Exception {
 		this.despesaTot = formataDespesa(this.campaign.getCampaignMaximumExpenseDeclared());
 		this.listaReceita = this.transactionControl
-				.getListaReceitas(this.campaign);
+				.getListRevenue(this.campaign);
 		this.listaDespesa = this.transactionControl
-				.getListaDespesas(this.campaign);
+				.getListExpense(this.campaign);
 		this.indiceR = geraIndiceDaListaR(this.listaReceita, this.qtdPorPaginaR);
 		this.qtdDePPR = geraIndiceDePaginacaoR(this.listaReceita);
 		this.indiceD = geraIndiceDaListaD(this.listaDespesa, this.qtdPorPaginaD);

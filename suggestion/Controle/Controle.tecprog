@@ -694,7 +694,7 @@ Sugestão: private void prepareParametersTransmission()
 
  public List<Despesa> getListaDespesas(Campanha campanha) 
  Comentário: Manter comentario do metodo
- Sugestão: public List<Expense> getListExpenses(Campaign campaign))
+ Sugestão: public List<Expense> getListExpense(Campaign campaign))
 
  public Receita getReceitaPeloId(int id)
  Comentário: Manter comentario do metodo

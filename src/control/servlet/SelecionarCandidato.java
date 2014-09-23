@@ -76,9 +76,9 @@ public class SelecionarCandidato implements Logica {
 			// Condition for receiving data from the 2002 campaign if there
 			if(campaign.getCampaignYear() == 2002) {
 				this.listaReceita = 
-						this.transactionControl.getListaReceitas(campaign);
+						this.transactionControl.getListRevenue(campaign);
 				this.listaDespesa = 
-						this.transactionControl.getListaDespesas(campaign);
+						this.transactionControl.getListExpense(campaign);
 				this.despesaMax2002 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
 					this.receitaCalc2002 += revenue.getFinancialTransactionPrice();
@@ -92,9 +92,9 @@ public class SelecionarCandidato implements Logica {
 			// Condition for receiving data from the 2006 campaign if there
 			else if(campaign.getCampaignYear() == 2006) {
 				this.listaReceita = 
-						this.transactionControl.getListaReceitas(campaign);
+						this.transactionControl.getListRevenue(campaign);
 				this.listaDespesa = 
-						this.transactionControl.getListaDespesas(campaign);
+						this.transactionControl.getListExpense(campaign);
 				this.despesaMax2006 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
 					this.receitaCalc2006 += revenue.getFinancialTransactionPrice();
@@ -108,9 +108,9 @@ public class SelecionarCandidato implements Logica {
 			// Condition for receiving data from the 2010 campaign if there
 			else if(campaign.getCampaignYear() == 2010) {
 				this.listaReceita = 
-						this.transactionControl.getListaReceitas(campaign);
+						this.transactionControl.getListRevenue(campaign);
 				this.listaDespesa = 
-						this.transactionControl.getListaDespesas(campaign);
+						this.transactionControl.getListExpense(campaign);
 				this.despesaMax2010 = campaign.getCampaignMaximumExpenseDeclared();
 				for(Revenue revenue : listaReceita)
 					this.receitaCalc2010 += revenue.getFinancialTransactionPrice();
