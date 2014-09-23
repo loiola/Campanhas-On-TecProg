@@ -1,4 +1,4 @@
-package parse.indices;
+package parse.index;
 
 import model.beans.Position;
 

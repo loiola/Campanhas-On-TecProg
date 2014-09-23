@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Supplier;
 import model.dao.SupplierDAO;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class FornecedorParseControle extends ParseControle<Supplier> {
 	

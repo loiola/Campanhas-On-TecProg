@@ -4,8 +4,8 @@ import model.beans.Supplier;
 import parse.ParseException;
 import parse.control.FornecedorParseControle;
 import parse.control.ParseControle;
-import parse.indices.FornecedorIndicesParse;
-import parse.indices.IndicesParse;
+import parse.index.FornecedorIndicesParse;
+import parse.index.IndicesParse;
 
 public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Supplier> {
 

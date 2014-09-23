@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.CandidatoParseControle;
-import parse.indices.CandidatoIndicesParse;
+import parse.index.CandidatoIndicesParse;
 import teste.TemplateTeste;
 
 public class CandidatoParseControleTeste extends TemplateTeste {

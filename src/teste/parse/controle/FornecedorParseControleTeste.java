@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.FornecedorParseControle;
-import parse.indices.FornecedorIndicesParse;
+import parse.index.FornecedorIndicesParse;
 import teste.TemplateTeste;
 
 public class FornecedorParseControleTeste extends TemplateTeste {

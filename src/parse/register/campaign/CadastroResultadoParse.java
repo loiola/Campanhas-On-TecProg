@@ -4,8 +4,8 @@ import model.beans.Result;
 import parse.ParseException;
 import parse.control.ParseControle;
 import parse.control.ResultadoParseControle;
-import parse.indices.IndicesParse;
-import parse.indices.ResultadoIndicesParse;
+import parse.index.IndicesParse;
+import parse.index.ResultadoIndicesParse;
 import parse.register.CadastroParse;
 
 public class CadastroResultadoParse extends CadastroParse<Result>{
@@ -30,7 +30,7 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
 	 * This method generate a ParseResultControl to be used by constructor
 	 * @return a ParseResultControl
 	 */

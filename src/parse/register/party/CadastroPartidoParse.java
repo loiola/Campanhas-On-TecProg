@@ -3,8 +3,8 @@ package parse.register.party;
 import parse.ParseException;
 import parse.control.ParseControle;
 import parse.control.PartidoParseControle;
-import parse.indices.IndicesParse;
-import parse.indices.PartidoIndicesParse;
+import parse.index.IndicesParse;
+import parse.index.PartidoIndicesParse;
 import parse.register.CadastroParse;
 import model.beans.Party;
 

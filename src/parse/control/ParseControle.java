@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import parse.ParseDAO;
 import parse.ParseException;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public abstract class ParseControle<O> {
 	

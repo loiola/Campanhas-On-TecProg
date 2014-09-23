@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Result;
 import model.dao.ResultDAO;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class ResultadoParseControle extends ParseControle<Result> {
 	

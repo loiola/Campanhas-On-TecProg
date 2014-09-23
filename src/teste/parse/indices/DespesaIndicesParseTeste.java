@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.indices.DespesaIndicesParse;
+import parse.index.DespesaIndicesParse;
 
 public class DespesaIndicesParseTeste {
 

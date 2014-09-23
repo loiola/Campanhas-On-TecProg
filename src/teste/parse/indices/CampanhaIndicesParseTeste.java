@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.indices.CampanhaIndicesParse;
+import parse.index.CampanhaIndicesParse;
 
 public class CampanhaIndicesParseTeste {
 

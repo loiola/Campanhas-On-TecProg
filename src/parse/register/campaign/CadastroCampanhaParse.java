@@ -4,8 +4,8 @@ import model.beans.Campaign;
 import parse.ParseException;
 import parse.control.CampanhaParseControle;
 import parse.control.ParseControle;
-import parse.indices.CampanhaIndicesParse;
-import parse.indices.IndicesParse;
+import parse.index.CampanhaIndicesParse;
+import parse.index.IndicesParse;
 import parse.register.CadastroParse;
 
 public class CadastroCampanhaParse extends CadastroParse<Campaign> {
@@ -32,7 +32,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
 	 * This method generate a ParseCampaignControl to be used by constructor
 	 * @return a ParseCampaignControl
 	 */

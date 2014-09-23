@@ -4,8 +4,8 @@ import model.beans.Candidate;
 import parse.ParseException;
 import parse.control.CandidatoParseControle;
 import parse.control.ParseControle;
-import parse.indices.CandidatoIndicesParse;
-import parse.indices.IndicesParse;
+import parse.index.CandidatoIndicesParse;
+import parse.index.IndicesParse;
 import parse.register.CadastroParse;
 
 public class CadastroCandidatoParse extends CadastroParse<Candidate> {
@@ -30,7 +30,7 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
 	 * This method generate a ParseCandidateControl to be used by constructor
 	 * @return a ParseCandidateControl
 	 */

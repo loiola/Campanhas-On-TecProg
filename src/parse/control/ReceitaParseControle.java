@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Revenue;
 import model.dao.RevenueDAO;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class ReceitaParseControle extends ParseControle<Revenue> {
 	

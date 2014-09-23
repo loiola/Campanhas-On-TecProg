@@ -4,8 +4,8 @@ import model.beans.Donor;
 import parse.ParseException;
 import parse.control.DoadorParseControle;
 import parse.control.ParseControle;
-import parse.indices.DoadorIndicesParse;
-import parse.indices.IndicesParse;
+import parse.index.DoadorIndicesParse;
+import parse.index.IndicesParse;
 
 public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Donor> {
 

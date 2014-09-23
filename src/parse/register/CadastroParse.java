@@ -2,7 +2,7 @@ package parse.register;
 
 import parse.ParseException;
 import parse.control.ParseControle;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public abstract class CadastroParse<O> {
 	

@@ -1,4 +1,4 @@
-package parse.indices;
+package parse.index;
 
 import model.beans.Expense;
 import model.beans.Supplier;

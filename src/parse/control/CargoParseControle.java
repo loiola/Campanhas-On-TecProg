@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Position;
 import model.dao.PositionDAO;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class CargoParseControle extends ParseControle<Position> {
 	

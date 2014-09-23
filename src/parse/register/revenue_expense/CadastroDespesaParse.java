@@ -4,8 +4,8 @@ import model.beans.Expense;
 import parse.ParseException;
 import parse.control.DespesaParseControle;
 import parse.control.ParseControle;
-import parse.indices.DespesaIndicesParse;
-import parse.indices.IndicesParse;
+import parse.index.DespesaIndicesParse;
+import parse.index.IndicesParse;
 
 public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense> {
 	
@@ -29,7 +29,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
 	 * This method generate a ParseExpenseControl to be used by constructor
 	 * @return a ParseExpenseControl
 	 */

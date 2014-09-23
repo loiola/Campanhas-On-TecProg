@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Party;
 import model.dao.PartyDAO;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class PartidoParseControle extends ParseControle<Party> {
 	

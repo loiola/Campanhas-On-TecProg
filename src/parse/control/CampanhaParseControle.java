@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.beans.Campaign;
 import model.dao.CampaignDAO;
 import parse.ParseException;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class CampanhaParseControle extends ParseControle<Campaign> {
 	

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.CampanhaParseControle;
-import parse.indices.CampanhaIndicesParse;
+import parse.index.CampanhaIndicesParse;
 import teste.TemplateTeste;
 
 public class CampanhaParseControleTeste extends TemplateTeste {

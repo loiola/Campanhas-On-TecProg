@@ -4,8 +4,8 @@ import model.beans.Revenue;
 import parse.ParseException;
 import parse.control.ParseControle;
 import parse.control.ReceitaParseControle;
-import parse.indices.IndicesParse;
-import parse.indices.ReceitaIndicesParse;
+import parse.index.IndicesParse;
+import parse.index.ReceitaIndicesParse;
 
 public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue> {
 	
@@ -29,7 +29,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	// Methods
 
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
 	 * This method generate a ParseRevenueControl to be used by constructor
 	 * @return a ParseRevenueControl
 	 */

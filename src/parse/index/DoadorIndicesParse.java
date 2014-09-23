@@ -1,16 +1,16 @@
-package parse.indices;
+package parse.index;
 
-import model.beans.Supplier;
+import model.beans.Donor;
 
-public class FornecedorIndicesParse extends IndicesParse<Supplier> {
+public class DoadorIndicesParse extends IndicesParse<Donor> {
 	
 	/*
-	 * Class to control the contents of information inherent to the suppliers
+	 * Class to control the contents of information inherent to the donors
 	 */
 
 	// Constants
 	public static final int INDICE_INVALIDO = -1;
-
+	
 	// Attributes
 	private int indiceCpf_Cnpj;
 	private int indiceNome;
@@ -18,7 +18,8 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	private int indiceSituacaoCadastral;
 	
 	// Constructors
-	public FornecedorIndicesParse() {
+	public DoadorIndicesParse() {
+		super();
 		this.indiceCpf_Cnpj = INDICE_INVALIDO;
 		this.indiceNome = INDICE_INVALIDO;
 		this.indiceUf = INDICE_INVALIDO;
@@ -26,36 +27,36 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	}
 	
 	/*
-	 * This method formalizes the indices for reading the information about the suppliers in the file
-	 * @param an instance of the Class Supplier
+	 * This method formalizes the indices for reading the information about the donors in the file
+	 * @param an instance of the Class Donor
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setIndicesValidos(Supplier supplier, String[] campo) {
+	protected void setIndicesValidos(Donor donor, String[] campo) {
 		if(indiceValido(this.indiceCpf_Cnpj)) {
-			supplier.setSupplierPersonRegister(campo[this.indiceCpf_Cnpj]);
+			donor.setDonorPersonRegister(campo[this.indiceCpf_Cnpj]);
 		}
 		if(indiceValido(this.indiceNome)) {
-			supplier.setSupplierName(campo[this.indiceNome]);
+			donor.setDonorName(campo[this.indiceNome]);
 		}
 		if(indiceValido(this.indiceUf)) {
-			supplier.setSupplierCountryState(campo[this.indiceUf]);
+			donor.setDonorCountryState(campo[this.indiceUf]);
 		}
 		if(indiceValido(this.indiceSituacaoCadastral)) {
-			supplier.setSupplierRegisterSituation(campo[this.indiceSituacaoCadastral]);
+			donor.setDonorRegisterSituation(campo[this.indiceSituacaoCadastral]);
 		}
 	}
 
 	/*
 	 * This method ensures the boot empty content for attributes
-	 * @param an instance of Class Supplier
+	 * @param an instance of Class Donor
 	 */
 	@Override
-	protected void setVazioEmTodosOsSetters(Supplier supplier) {
-		supplier.setSupplierPersonRegister(Supplier.EMPTY_TYPE_STRING);
-		supplier.setSupplierName(Supplier.EMPTY_TYPE_STRING);
-		supplier.setSupplierCountryState(Supplier.EMPTY_TYPE_STRING);
-		supplier.setSupplierRegisterSituation(Supplier.EMPTY_TYPE_STRING);
+	protected void setVazioEmTodosOsSetters(Donor donor) {
+		donor.setDonorPersonRegister(Donor.EMPTY_TYPE_STRING);
+		donor.setDonorName(Donor.EMPTY_TYPE_STRING);
+		donor.setDonorCountryState(Donor.EMPTY_TYPE_STRING);
+		donor.setDonorRegisterSituation(Donor.EMPTY_TYPE_STRING);
 	}
 
 	// Mutators for indexes of the array of fields

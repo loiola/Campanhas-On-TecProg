@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.CargoParseControle;
-import parse.indices.CargoIndicesParse;
+import parse.index.CargoIndicesParse;
 import teste.TemplateTeste;
 
 public class CargoParseControleTeste extends TemplateTeste {

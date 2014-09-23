@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ReceitaParseControle;
-import parse.indices.ReceitaIndicesParse;
+import parse.index.ReceitaIndicesParse;
 import teste.TemplateTeste;
 
 public class ReceitaParseControleTeste extends TemplateTeste {

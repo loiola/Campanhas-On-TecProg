@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.DespesaParseControle;
-import parse.indices.DespesaIndicesParse;
+import parse.index.DespesaIndicesParse;
 import teste.TemplateTeste;
 
 public class DespesaParseControleTeste extends TemplateTeste {

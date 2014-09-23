@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Expense;
 import model.dao.ExpenseDAO;
-import parse.indices.IndicesParse;
+import parse.index.IndicesParse;
 
 public class DespesaParseControle extends ParseControle<Expense> {
 	

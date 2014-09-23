@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.DoadorParseControle;
-import parse.indices.DoadorIndicesParse;
+import parse.index.DoadorIndicesParse;
 import teste.TemplateTeste;
 
 public class DoadorParseControleTeste extends TemplateTeste {

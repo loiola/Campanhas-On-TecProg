@@ -4,8 +4,8 @@ import model.beans.Position;
 import parse.ParseException;
 import parse.control.CargoParseControle;
 import parse.control.ParseControle;
-import parse.indices.CargoIndicesParse;
-import parse.indices.IndicesParse;
+import parse.index.CargoIndicesParse;
+import parse.index.IndicesParse;
 import parse.register.CadastroParse;
 
 public class CadastroCargoParse extends CadastroParse<Position> {
@@ -30,7 +30,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.indices.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
 	 * This method generate a ParsePositionControl to be used by constructor
 	 * @return a ParsePositionControl
 	 */
