@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Campaign;
 import model.beans.Party;
-import controle.CampanhaControle;
-import controle.PartidoControle;
+import control.CampanhaControle;
+import control.PartidoControle;
 
 public class VisualizarCandidatosPartido implements Logica {
 	

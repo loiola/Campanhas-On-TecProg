@@ -14,7 +14,7 @@ import model.dao.CandidateDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import controle.CampanhaControle;
+import control.CampanhaControle;
 
 public class CampanhaControleTeste extends TemplateTeste {
 	

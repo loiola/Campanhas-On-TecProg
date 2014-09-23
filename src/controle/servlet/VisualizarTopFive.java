@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Campaign;
-import controle.CampanhaControle;
+import control.CampanhaControle;
 
 @WebServlet("/VisualizarTopFive")
 public class VisualizarTopFive implements Logica {

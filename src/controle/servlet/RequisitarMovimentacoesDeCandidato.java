@@ -13,8 +13,8 @@ import model.beans.Campaign;
 import model.beans.Expense;
 import model.beans.Position;
 import model.beans.Revenue;
-import controle.CampanhaControle;
-import controle.MovimentacaoControle;
+import control.CampanhaControle;
+import control.MovimentacaoControle;
 
 public class RequisitarMovimentacoesDeCandidato implements Logica {
 	

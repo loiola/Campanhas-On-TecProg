@@ -10,7 +10,7 @@ import model.dao.CandidateDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import controle.CandidatoControle;
+import control.CandidatoControle;
 
 public class CandidatoControleTeste extends TemplateTeste {
 
