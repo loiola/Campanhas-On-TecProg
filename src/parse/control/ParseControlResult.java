@@ -4,14 +4,14 @@ import model.beans.Result;
 import model.dao.ResultDAO;
 import parse.index.IndicesParse;
 
-public class ResultadoParseControle extends ParseControl<Result> {
+public class ParseControlResult extends ParseControl<Result> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Result
 	 */
 
 	// Constructors
-	public ResultadoParseControle(IndicesParse<Result> indicesParse) {
+	public ParseControlResult(IndicesParse<Result> indicesParse) {
 		super(indicesParse, new ResultDAO());
 	}
 

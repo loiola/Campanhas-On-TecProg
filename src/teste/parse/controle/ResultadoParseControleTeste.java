@@ -6,7 +6,7 @@ import model.dao.ResultDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.ResultadoParseControle;
+import parse.control.ParseControlResult;
 import parse.index.ResultadoIndicesParse;
 import teste.TemplateTeste;
 
@@ -18,14 +18,14 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private ResultDAO resultDAO;
 	private ResultadoIndicesParse resultadoIndicesParse;
-	private ResultadoParseControle resultadoParseControle;
+	private ParseControlResult parseControlResult;
 
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[2];
 		this.resultDAO = new ResultDAO();
 		this.resultadoIndicesParse = new ResultadoIndicesParse();
-		this.resultadoParseControle = new ResultadoParseControle(this.resultadoIndicesParse);
+		this.parseControlResult = new ParseControlResult(this.resultadoIndicesParse);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -39,9 +39,9 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarResultado() throws Exception {
 		
-		this.resultadoParseControle.addInstance(campo);
-		this.resultadoParseControle.registeringInstances();
-		this.resultadoParseControle.clear();
+		this.parseControlResult.addInstance(campo);
+		this.parseControlResult.registeringInstances();
+		this.parseControlResult.clear();
 		
 		Result resultadoCadastrado = this.resultDAO.getObjectArrayListFromDatabase().get(0);
 				
