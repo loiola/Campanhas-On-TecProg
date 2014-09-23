@@ -11,8 +11,8 @@ public class ParseControlResult extends ParseControl<Result> {
 	 */
 
 	// Constructors
-	public ParseControlResult(IndicesParse<Result> indicesParse) {
-		super(indicesParse, new ResultDAO());
+	public ParseControlResult(IndicesParse<Result> indexParse) {
+		super(indexParse, new ResultDAO());
 	}
 
 	/*
@@ -31,8 +31,8 @@ public class ParseControlResult extends ParseControl<Result> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean equalObjects(Result objetoUm, Result objetoDois) {
-		return objetoUm.equals(objetoDois);
+	public boolean equalObjects(Result objectOne, Result objectTwo) {
+		return objectOne.equals(objectTwo);
 	}
 
 }
