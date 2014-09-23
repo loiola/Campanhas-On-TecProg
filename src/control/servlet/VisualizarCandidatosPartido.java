@@ -12,7 +12,7 @@ import model.beans.Party;
 import control.CampaignControl;
 import control.PartyControl;
 
-public class VisualizarCandidatosPartido implements Logica {
+public class VisualizarCandidatosPartido implements Logic {
 	
 	/*
 	 * Servlet request to control display political candidate
@@ -45,7 +45,7 @@ public class VisualizarCandidatosPartido implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
 		this.req = req;

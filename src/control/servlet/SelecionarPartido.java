@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.beans.Party;
 import control.PartyControl;
 
-public class SelecionarPartido implements Logica {
+public class SelecionarPartido implements Logic {
 	
 	/*
 	 * Servlet requests to control the selection of political parties
@@ -29,7 +29,7 @@ public class SelecionarPartido implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
 		this.party = new Party();

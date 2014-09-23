@@ -16,7 +16,7 @@ import model.beans.Revenue;
 import control.CampaignControl;
 import control.TransactionControl;
 
-public class RequisitarMovimentacoesDeCandidato implements Logica {
+public class RequisitarMovimentacoesDeCandidato implements Logic {
 	
 	/*
 	 * Servlet requests to control display search result list of financial transactions a candidate
@@ -63,7 +63,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
 		this.req = req;

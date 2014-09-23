@@ -21,7 +21,7 @@ public class SelecionarPartidoTeste extends TemplateTeste {
 	public void simulaServletComSiglaDiferenteDeZero() throws Exception {
 		when(req.getParameter("sigla")).thenReturn("SD");
 
-		this.selecionarPartido.executa(req, res);
+		this.selecionarPartido.execute(req, res);
 	}
 
 	@Override

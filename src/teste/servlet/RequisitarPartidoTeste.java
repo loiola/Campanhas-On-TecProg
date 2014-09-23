@@ -23,7 +23,7 @@ public class RequisitarPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("10");
 		when(req.getParameter("verTodos")).thenReturn("false");
 		
-		this.requisitarPartido.executa(req, res);
+		this.requisitarPartido.execute(req, res);
 	}
 	
 	@Test
@@ -32,7 +32,7 @@ public class RequisitarPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("0");
 		when(req.getParameter("verTodos")).thenReturn("true");
 		
-		this.requisitarPartido.executa(req, res);
+		this.requisitarPartido.execute(req, res);
 	}
 
 	@Override

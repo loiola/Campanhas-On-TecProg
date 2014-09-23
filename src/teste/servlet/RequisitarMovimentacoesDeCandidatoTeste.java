@@ -34,7 +34,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("false");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.executa(req, res);
+		this.requisitarMovimentacoesDeCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.executa(req, res);
+		this.requisitarMovimentacoesDeCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.executa(req, res);
+		this.requisitarMovimentacoesDeCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -94,7 +94,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("1");
 		
-		this.requisitarMovimentacoesDeCandidato.executa(req, res);
+		this.requisitarMovimentacoesDeCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -114,7 +114,7 @@ public class RequisitarMovimentacoesDeCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodosD")).thenReturn("true");
 		when(req.getParameter("centroD")).thenReturn("695");
 		
-		this.requisitarMovimentacoesDeCandidato.executa(req, res);
+		this.requisitarMovimentacoesDeCandidato.execute(req, res);
 	}
 	
 	

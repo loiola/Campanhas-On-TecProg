@@ -25,7 +25,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("false");
 		when(req.getParameter("centro")).thenReturn("1");
 		
-		this.visualizarResultadoListaBuscaCandidato.executa(req, res);
+		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("true");
 		when(req.getParameter("centro")).thenReturn("1");
 		
-		this.visualizarResultadoListaBuscaCandidato.executa(req, res);
+		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("true");
 		when(req.getParameter("centro")).thenReturn("1");
 		
-		this.visualizarResultadoListaBuscaCandidato.executa(req, res);
+		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
 		when(req.getParameter("verTodos")).thenReturn("true");
 		when(req.getParameter("centro")).thenReturn("20");
 		
-		this.visualizarResultadoListaBuscaCandidato.executa(req, res);
+		this.visualizarResultadoListaBuscaCandidato.execute(req, res);
 	}
 
 	@Override

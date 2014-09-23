@@ -13,7 +13,7 @@ import control.CampaignControl;
 import control.CandidateControl;
 import control.TransactionControl;
 
-public class SelecionarCandidato implements Logica {
+public class SelecionarCandidato implements Logic {
 	
 	/*
 	 * Servlet requests to control the selection of political candidates
@@ -53,7 +53,7 @@ public class SelecionarCandidato implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 		
 		this.despesaMax2002 = 0;

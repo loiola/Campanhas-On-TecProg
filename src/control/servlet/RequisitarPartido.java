@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.beans.Party;
 import control.PartyControl;
 
-public class RequisitarPartido implements Logica {
+public class RequisitarPartido implements Logic {
 	
 	/*
 	 * Servlet to request control of political parties
@@ -36,7 +36,7 @@ public class RequisitarPartido implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
 		this.req = req;

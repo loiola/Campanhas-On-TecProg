@@ -11,7 +11,7 @@ import model.beans.Campaign;
 import control.CampaignControl;
 
 @WebServlet("/VisualizarTopFive")
-public class VisualizarTopFive implements Logica {
+public class VisualizarTopFive implements Logic {
 	
 	/*
 	 * Servlet requests to control display TOP Five
@@ -34,7 +34,7 @@ public class VisualizarTopFive implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 		
 		this.req = req;

@@ -25,7 +25,7 @@ public class VisualizarCandidatosPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("10");
 		when(req.getParameter("verTodos")).thenReturn("false");
 		
-		this.visualizarCandidatosPartido.executa(req, res);
+		this.visualizarCandidatosPartido.execute(req, res);
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class VisualizarCandidatosPartidoTeste extends TemplateTeste {
 		when(req.getParameter("qtdPorPagina")).thenReturn("0");
 		when(req.getParameter("verTodos")).thenReturn("true");
 		
-		this.visualizarCandidatosPartido.executa(req, res);
+		this.visualizarCandidatosPartido.execute(req, res);
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class VisualizarTopFiveTeste extends TemplateTeste {
 		when(req.getParameter("cargo")).thenReturn("presidente");
 		when(req.getParameter("ano")).thenReturn("2002");
 
-		this.visualizarTopFive.executa(req, res);
+		this.visualizarTopFive.execute(req, res);
 	}
 
 	@Override

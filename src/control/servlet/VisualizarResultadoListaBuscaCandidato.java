@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.beans.Candidate;
 import control.CandidateControl;
 
-public class VisualizarResultadoListaBuscaCandidato implements Logica {
+public class VisualizarResultadoListaBuscaCandidato implements Logic {
 	
 	/*
 	 * Servlet requests to control display search result list of candidates
@@ -41,7 +41,7 @@ public class VisualizarResultadoListaBuscaCandidato implements Logica {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
 		this.req = req;
