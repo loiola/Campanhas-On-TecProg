@@ -4,7 +4,7 @@ import model.beans.Position;
 import parse.ParseException;
 import parse.control.ParseControlPosition;
 import parse.control.ParseControl;
-import parse.index.CargoIndicesParse;
+import parse.index.PositionParseIndex;
 import parse.index.IndicesParse;
 import parse.register.CadastroParse;
 
@@ -50,13 +50,13 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	protected IndicesParse<Position> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
-		CargoIndicesParse cargoIndicesParse;
-		cargoIndicesParse = new CargoIndicesParse();
+		PositionParseIndex positionParseIndex;
+		positionParseIndex = new PositionParseIndex();
 		
-		cargoIndicesParse.setIndiceCodigo(8);
-		cargoIndicesParse.setIndiceDescricao(9);
+		positionParseIndex.setIndiceCodigo(8);
+		positionParseIndex.setIndiceDescricao(9);
 		
-		return cargoIndicesParse;
+		return positionParseIndex;
 	}
 
 }

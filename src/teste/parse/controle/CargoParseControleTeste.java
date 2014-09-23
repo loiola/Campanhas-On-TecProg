@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlPosition;
-import parse.index.CargoIndicesParse;
+import parse.index.PositionParseIndex;
 import teste.TemplateTeste;
 
 public class CargoParseControleTeste extends TemplateTeste {
@@ -17,15 +17,15 @@ public class CargoParseControleTeste extends TemplateTeste {
 	
 	private String campo[];
 	private PositionDAO positionDAO;
-	private CargoIndicesParse cargoIndicesParse;
+	private PositionParseIndex positionParseIndex;
 	private ParseControlPosition parseControlPosition;
 
 	@Override
 	public void beforeTest() throws Exception {
 		this.campo = new String[2];
 		this.positionDAO = new PositionDAO();
-		this.cargoIndicesParse = new CargoIndicesParse();
-		this.parseControlPosition = new ParseControlPosition(this.cargoIndicesParse);
+		this.positionParseIndex = new PositionParseIndex();
+		this.parseControlPosition = new ParseControlPosition(this.positionParseIndex);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -64,8 +64,8 @@ public class CargoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.cargoIndicesParse.setIndiceCodigo(CODIGO);
-		this.cargoIndicesParse.setIndiceDescricao(DESCRICAO);
+		this.positionParseIndex.setIndiceCodigo(CODIGO);
+		this.positionParseIndex.setIndiceDescricao(DESCRICAO);
 	}
 	
 	private void iniciarCampos() {

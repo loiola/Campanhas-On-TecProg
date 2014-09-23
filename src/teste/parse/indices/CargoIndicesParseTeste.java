@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.CargoIndicesParse;
+import parse.index.PositionParseIndex;
 
 public class CargoIndicesParseTeste {
 	
 	public String campo[];
-	public CargoIndicesParse cargoIndicesParse;
+	public PositionParseIndex positionParseIndex;
 	
 	@Before
 	public void setUp() throws Exception {
 		
-		this.cargoIndicesParse = new CargoIndicesParse();
+		this.positionParseIndex = new PositionParseIndex();
 		this.campo = new String[2];
 		
 		iniciarCampos();
@@ -27,7 +27,7 @@ public class CargoIndicesParseTeste {
 	public void iniciarUmCargoComIndicesValidos() throws Exception {
 		
 		Position position = new Position();
-		this.cargoIndicesParse.startInstance(position, campo);
+		this.positionParseIndex.startInstance(position, campo);
 		Assert.assertEquals(this.campo[0], position.getPositionCode().toString());
 		Assert.assertEquals(this.campo[1], position.getPositionDescription());
 	}
@@ -35,17 +35,17 @@ public class CargoIndicesParseTeste {
 	@Test
 	public void iniciarUmCargoComIndicesInvalidos() throws Exception {
 		
-		this.cargoIndicesParse = new CargoIndicesParse();
+		this.positionParseIndex = new PositionParseIndex();
 		Position position = new Position();
-		this.cargoIndicesParse.startInstance(position, campo);
+		this.positionParseIndex.startInstance(position, campo);
 		Assert.assertNotEquals(this.campo[0], position.getPositionCode().toString());
 		Assert.assertNotEquals(this.campo[1], position.getPositionDescription());
 	}
 	
 	private void iniciarIndices() {
 		
-		this.cargoIndicesParse.setIndiceCodigo(0);
-		this.cargoIndicesParse.setIndiceDescricao(1);
+		this.positionParseIndex.setIndiceCodigo(0);
+		this.positionParseIndex.setIndiceDescricao(1);
 	}
 	
 	private void iniciarCampos() {

@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Position;
 
-public class CargoIndicesParse extends IndicesParse<Position> {
+public class PositionParseIndex extends IndicesParse<Position> {
 	
 	/*
 	 * Class to control the contents of information inherent to the positions
@@ -13,7 +13,7 @@ public class CargoIndicesParse extends IndicesParse<Position> {
 	private int indiceDescricao;
 
 	// Constructors
-	public CargoIndicesParse() {
+	public PositionParseIndex() {
 		super();
 		this.indiceCodigo = INVALID_INDEX;
 		this.indiceDescricao = INVALID_INDEX;
