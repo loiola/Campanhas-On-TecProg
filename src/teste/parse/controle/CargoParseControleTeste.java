@@ -64,8 +64,8 @@ public class CargoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.positionParseIndex.setIndiceCodigo(CODIGO);
-		this.positionParseIndex.setIndiceDescricao(DESCRICAO);
+		this.positionParseIndex.setIndexCode(CODIGO);
+		this.positionParseIndex.setIndexDescription(DESCRICAO);
 	}
 	
 	private void iniciarCampos() {

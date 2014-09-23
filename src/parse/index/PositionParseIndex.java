@@ -9,14 +9,14 @@ public class PositionParseIndex extends IndicesParse<Position> {
 	 */
 	
 	// Attributes
-	private int indiceCodigo;
-	private int indiceDescricao;
+	private int indexCode;
+	private int indexDescription;
 
 	// Constructors
 	public PositionParseIndex() {
 		super();
-		this.indiceCodigo = INVALID_INDEX;
-		this.indiceDescricao = INVALID_INDEX;
+		this.indexCode = INVALID_INDEX;
+		this.indexDescription = INVALID_INDEX;
 	}
 	
 	/*
@@ -25,12 +25,12 @@ public class PositionParseIndex extends IndicesParse<Position> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Position position, String campo[]) {
-		if(validIndex(this.indiceCodigo)) {
-			position.setPositionCode(Integer.parseInt(campo[this.indiceCodigo]));
+	protected void setValidIndex(Position position, String field[]) {
+		if(validIndex(this.indexCode)) {
+			position.setPositionCode(Integer.parseInt(field[this.indexCode]));
 		}
-		if(validIndex(this.indiceDescricao)) {
-			position.setPositionDescription(campo[this.indiceDescricao]);
+		if(validIndex(this.indexDescription)) {
+			position.setPositionDescription(field[this.indexDescription]);
 		}
 	}
 
@@ -45,12 +45,12 @@ public class PositionParseIndex extends IndicesParse<Position> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceCodigo(int indiceCodigo) {
-		this.indiceCodigo = indiceCodigo;
+	public void setIndexCode(int indexCode) {
+		this.indexCode = indexCode;
 	}
 
-	public void setIndiceDescricao(int indiceDescricao) {
-		this.indiceDescricao = indiceDescricao;
+	public void setIndexDescription(int indexDescription) {
+		this.indexDescription = indexDescription;
 	}
 
 }

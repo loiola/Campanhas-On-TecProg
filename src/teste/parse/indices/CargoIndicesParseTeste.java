@@ -44,8 +44,8 @@ public class CargoIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.positionParseIndex.setIndiceCodigo(0);
-		this.positionParseIndex.setIndiceDescricao(1);
+		this.positionParseIndex.setIndexCode(0);
+		this.positionParseIndex.setIndexDescription(1);
 	}
 	
 	private void iniciarCampos() {

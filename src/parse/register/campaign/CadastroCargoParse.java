@@ -53,8 +53,8 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 		PositionParseIndex positionParseIndex;
 		positionParseIndex = new PositionParseIndex();
 		
-		positionParseIndex.setIndiceCodigo(8);
-		positionParseIndex.setIndiceDescricao(9);
+		positionParseIndex.setIndexCode(8);
+		positionParseIndex.setIndexDescription(9);
 		
 		return positionParseIndex;
 	}
