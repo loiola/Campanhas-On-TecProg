@@ -1,4 +1,4 @@
-package controle.validacao;
+package control.validation;
 
 import control.exception.PartidoExcecao;
 import model.beans.Party;
