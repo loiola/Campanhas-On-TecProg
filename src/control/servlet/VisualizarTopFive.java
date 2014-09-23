@@ -62,7 +62,7 @@ public class VisualizarTopFive implements Logica {
 	private void estabeleceParametros() throws SQLException {
 		this.campaignControl = new CampaignControl();
 		this.listaCampanha = new ArrayList<>();
-		this.listaCampanha = this.campaignControl.topFivePorCargoEAno(this.cargo, this.ano);
+		this.listaCampanha = this.campaignControl.topFiveByPositionAndYear(this.cargo, this.ano);
 	}
 	
 	/*

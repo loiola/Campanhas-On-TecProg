@@ -109,7 +109,7 @@ public class RequisitarMovimentacoesDeCandidato implements Logica {
 		this.centroD = Integer.parseInt(this.req.getParameter("centroD"));
 		this.campaignControl = new CampaignControl();
 		this.campaign = this.campaignControl
-				.getPeloAnoNumeroCodCargoEUf(this.campanhaBusca);
+				.getByYearNumberCodePositionAndUF(this.campanhaBusca);
 		this.movimentacaoControle = new MovimentacaoControle();
 	}
 

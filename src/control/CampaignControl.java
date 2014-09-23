@@ -26,7 +26,7 @@ public class CampaignControl {
 	 * @param a candidate
 	 * @return an ArrayList of candidates for voter registration
 	 */
-	public ArrayList<Campaign> getListaCampanhas(Candidate candidate) throws SQLException {
+	public ArrayList<Campaign> getListCampaign(Candidate candidate) throws SQLException {
 		return this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate);
 	}
 	
@@ -35,8 +35,8 @@ public class CampaignControl {
 	 * @param the abbreviation of the party and year
 	 * @return an ArrayLista the political party with the abbreviation of the party and year informed
 	 */
-	public ArrayList<Campaign> getListaCampanhasPorSiglaPartidoEAno(String sigla, String ano) throws SQLException{
-		return this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(sigla,ano);
+	public ArrayList<Campaign> getListCampaignBySiglaPartyAndYear(String sigla, String year) throws SQLException{
+		return this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(sigla,year);
 	}
 	
 	/*
@@ -44,8 +44,8 @@ public class CampaignControl {
 	 * @param the political cargo and year
 	 * @return an ArrayLista with the highest values ​​for the position and informed year
 	 */
-	public ArrayList<Campaign> topFivePorCargoEAno(String cargo, Integer ano) throws SQLException{
-		return this.campaignDAO.generateTopFiveCampaignListAboutMaximumExpenseDeclared(cargo, ano);
+	public ArrayList<Campaign> topFiveByPositionAndYear(String position, Integer year) throws SQLException{
+		return this.campaignDAO.generateTopFiveCampaignListAboutMaximumExpenseDeclared(position, year);
 	}
 
 	/*
@@ -53,7 +53,7 @@ public class CampaignControl {
 	 * @param the campaign of the desired candidate
 	 * @return a campaign
 	 */
-	public Campaign getPeloAnoNumeroCodCargoEUf(Campaign campaign) throws SQLException {
+	public Campaign getByYearNumberCodePositionAndUF(Campaign campaign) throws SQLException {
 		return this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campaign);
 	}
 }

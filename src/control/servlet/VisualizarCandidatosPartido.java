@@ -78,7 +78,7 @@ public class VisualizarCandidatosPartido implements Logica {
 		this.party = this.partidoControle.getPelaSigla(this.sigla);
 		this.listaCampanhas = new ArrayList<>();
 		this.listaCampanhas = this.campaignControl
-				.getListaCampanhasPorSiglaPartidoEAno(this.sigla,this.ano);
+				.getListCampaignBySiglaPartyAndYear(this.sigla,this.ano);
 		this.indice = geraIndiceDaLista(this.listaCampanhas,this.qtdPorPagina);
 		this.qtdDePP = geraIndiceDePaginacao(this.listaCampanhas);
 		
