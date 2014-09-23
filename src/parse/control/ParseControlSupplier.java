@@ -31,8 +31,8 @@ public class ParseControlSupplier extends ParseControle<Supplier> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean equalObjects(Supplier objetoUm, Supplier objetoDois) {
-		return objetoUm.equals(objetoDois);
+	public boolean equalObjects(Supplier objectOne, Supplier objectTwo) {
+		return objectOne.equals(objectTwo);
 	}	
 	
 }
