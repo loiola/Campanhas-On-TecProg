@@ -27,7 +27,7 @@ Sugestão: String division = ";";
 
 public class CarregarParseMovimentacoes extends HttpServlet
 Comentário: Servlet to control the loading parse financial transactions
-Sugestão: LoadTransactionsParse
+Sugestão: LoadTransactionParse
 
 PrintWriter saida = response.getWriter();
 Sugestão: PrintWriter output = response.getWriter();
@@ -53,7 +53,7 @@ Sugestão: int initialLine = 1;
 
 public class CarregarParsePartido extends HttpServlet
 Comentário: Servlet to control the loading parse political parties
-Sugestão: LoadPoliticalPartiesParse
+Sugestão: LoadPoliticalPartyParse
 
 PrintWriter saida = response.getWriter();
 Sugestão: PrintWriter output = response.getWriter();

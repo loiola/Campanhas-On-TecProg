@@ -21,7 +21,7 @@ import parse.register.revenue_expense.CadastroDoadorParse;
 import parse.register.revenue_expense.CadastroFornecedorParse;
 
 @WebServlet("/carregarParseMovimentacoes")
-public class LoadTransactionsParse extends HttpServlet {
+public class LoadTransactionParse extends HttpServlet {
 	
 	/*
 	 * Servlet to control the loading parse financial transactions

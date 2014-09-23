@@ -21,7 +21,7 @@ import parse.Parse;
 import parse.ParsePartido;
 
 @WebServlet("/carregarParsePartido")
-public class CarregarParsePartido extends HttpServlet {
+public class LoadPoliticalPartyParse extends HttpServlet {
 	
 	/*
 	 * Servlet to control the loading parse political parties
