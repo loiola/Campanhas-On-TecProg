@@ -31,8 +31,8 @@ public class ParseControlDonor extends ParseControle<Donor> {
 	 * @return a boolean value
 	 */
 	@Override
-	public boolean equalObjects(Donor objetoUm, Donor objetoDois) {
-		return objetoUm.equals(objetoDois);
+	public boolean equalObjects(Donor objectOne, Donor objectTwo) {
+		return objectOne.equals(objectTwo);
 	}	
 	
 }
