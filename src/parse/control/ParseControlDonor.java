@@ -4,14 +4,14 @@ import model.beans.Donor;
 import model.dao.DonorDAO;
 import parse.index.IndicesParse;
 
-public class DoadorParseControle extends ParseControle<Donor> {
+public class ParseControlDonor extends ParseControle<Donor> {
 	
 	/*
 	 * Class used to control comparison and registration of instances of Class Donor
 	 */
 
 	// Constructors
-	public DoadorParseControle(IndicesParse<Donor> indicesParse) {
+	public ParseControlDonor(IndicesParse<Donor> indicesParse) {
 		super(indicesParse, new DonorDAO());
 	}
 

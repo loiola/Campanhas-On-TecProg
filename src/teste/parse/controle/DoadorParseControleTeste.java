@@ -6,7 +6,7 @@ import model.dao.DonorDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import parse.control.DoadorParseControle;
+import parse.control.ParseControlDonor;
 import parse.index.DoadorIndicesParse;
 import teste.TemplateTeste;
 
@@ -20,7 +20,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	private String campo[];
 	private DonorDAO donorDAO;
 	private DoadorIndicesParse doadorIndicesParse;
-	private DoadorParseControle doadorParseControle;
+	private ParseControlDonor parseControlDonor;
 
 	@Override
 	public void beforeTest() throws Exception {
@@ -28,7 +28,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		this.campo = new String[4];
 		this.donorDAO = new DonorDAO();
 		this.doadorIndicesParse = new DoadorIndicesParse();
-		this.doadorParseControle = new DoadorParseControle(this.doadorIndicesParse);
+		this.parseControlDonor = new ParseControlDonor(this.doadorIndicesParse);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -42,9 +42,9 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	@Test
 	public void cadastrarDoadores() throws Exception {
 		
-		this.doadorParseControle.addInstancia(campo);
-		this.doadorParseControle.registeringInstances();
-		this.doadorParseControle.resetar();
+		this.parseControlDonor.addInstancia(campo);
+		this.parseControlDonor.registeringInstances();
+		this.parseControlDonor.resetar();
 		
 		Donor doadorCadastrado = this.donorDAO.getObjectArrayListFromDatabase().get(0);
 				
@@ -57,10 +57,10 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	@Test
 	public void naoDeveCadastrarDoisDoadoresIguais() throws Exception {
 		
-		this.doadorParseControle.addInstancia(campo);
-		this.doadorParseControle.addInstancia(campo);
-		this.doadorParseControle.registeringInstances();
-		this.doadorParseControle.resetar();
+		this.parseControlDonor.addInstancia(campo);
+		this.parseControlDonor.addInstancia(campo);
+		this.parseControlDonor.registeringInstances();
+		this.parseControlDonor.resetar();
 		
 		int numeroDoadoresCadastrados = this.donorDAO.getObjectArrayListFromDatabase().size();
 		
