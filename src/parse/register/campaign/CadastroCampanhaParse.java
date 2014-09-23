@@ -4,7 +4,7 @@ import model.beans.Campaign;
 import parse.ParseException;
 import parse.control.ParseControlCampaign;
 import parse.control.ParseControl;
-import parse.index.CampanhaIndicesParse;
+import parse.index.CampaignParseIndex;
 import parse.index.IndicesParse;
 import parse.register.CadastroParse;
 
@@ -52,20 +52,20 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	protected IndicesParse<Campaign> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
-		CampanhaIndicesParse campanhaIndicesParse;
-		campanhaIndicesParse = new CampanhaIndicesParse();
+		CampaignParseIndex campaignParseIndex;
+		campaignParseIndex = new CampaignParseIndex();
 		
-		campanhaIndicesParse.setIndiceAno(2);
-		campanhaIndicesParse.setIndiceNumeroCandidato(12);
-		campanhaIndicesParse.setIndiceNomeDeUrna(13);
-		campanhaIndicesParse.setIndiceUf(5);
-		campanhaIndicesParse.setIndiceCargoCod(8);
-		campanhaIndicesParse.setIndiceCandidatoTitulo(26);
-		campanhaIndicesParse.setIndicePartidoNumero(16);
-		campanhaIndicesParse.setIndiceResultadoCod(40);
-		campanhaIndicesParse.setIndiceDespesaMaxDeclarada(39);
+		campaignParseIndex.setIndiceAno(2);
+		campaignParseIndex.setIndiceNumeroCandidato(12);
+		campaignParseIndex.setIndiceNomeDeUrna(13);
+		campaignParseIndex.setIndiceUf(5);
+		campaignParseIndex.setIndiceCargoCod(8);
+		campaignParseIndex.setIndiceCandidatoTitulo(26);
+		campaignParseIndex.setIndicePartidoNumero(16);
+		campaignParseIndex.setIndiceResultadoCod(40);
+		campaignParseIndex.setIndiceDespesaMaxDeclarada(39);
 	
-		return campanhaIndicesParse;
+		return campaignParseIndex;
 	}
 	
 	/*
