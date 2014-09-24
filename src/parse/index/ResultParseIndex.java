@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Result;
 
-public class ResultadoIndicesParse extends ParseIndex<Result> {
+public class ResultParseIndex extends ParseIndex<Result> {
 	
 	/*
 	 * Class to control the contents of information inherent to the results
@@ -13,7 +13,7 @@ public class ResultadoIndicesParse extends ParseIndex<Result> {
 	private int indiceDescricao;
 	
 	// Constructors
-	public ResultadoIndicesParse() {
+	public ResultParseIndex() {
 		this.indiceCodigo = INVALID_INDEX;
 		this.indiceDescricao = INVALID_INDEX;
 	}

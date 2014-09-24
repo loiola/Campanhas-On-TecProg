@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlResult;
-import parse.index.ResultadoIndicesParse;
+import parse.index.ResultParseIndex;
 import teste.TemplateTeste;
 
 public class ResultadoParseControleTeste extends TemplateTeste {
@@ -17,15 +17,15 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	
 	private String campo[];
 	private ResultDAO resultDAO;
-	private ResultadoIndicesParse resultadoIndicesParse;
+	private ResultParseIndex resultParseIndex;
 	private ParseControlResult parseControlResult;
 
 	public void beforeTest() throws Exception {
 		
 		this.campo = new String[2];
 		this.resultDAO = new ResultDAO();
-		this.resultadoIndicesParse = new ResultadoIndicesParse();
-		this.parseControlResult = new ParseControlResult(this.resultadoIndicesParse);
+		this.resultParseIndex = new ResultParseIndex();
+		this.parseControlResult = new ParseControlResult(this.resultParseIndex);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -51,8 +51,8 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.resultadoIndicesParse.setIndiceCodigo(CODIGO);
-		this.resultadoIndicesParse.setIndiceDescricao(DESCRICAO);
+		this.resultParseIndex.setIndiceCodigo(CODIGO);
+		this.resultParseIndex.setIndiceDescricao(DESCRICAO);
 	}
 	
 	private void iniciarCampos() {

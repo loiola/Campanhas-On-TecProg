@@ -5,7 +5,7 @@ import parse.ParseException;
 import parse.control.ParseControl;
 import parse.control.ParseControlResult;
 import parse.index.ParseIndex;
-import parse.index.ResultadoIndicesParse;
+import parse.index.ResultParseIndex;
 import parse.register.CadastroParse;
 
 public class CadastroResultadoParse extends CadastroParse<Result>{
@@ -50,13 +50,13 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	protected ParseIndex<Result> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
-		ResultadoIndicesParse resultadoIndicesParse;
-		resultadoIndicesParse = new ResultadoIndicesParse();
+		ResultParseIndex resultParseIndex;
+		resultParseIndex = new ResultParseIndex();
 		
-		resultadoIndicesParse.setIndiceCodigo(40);
-		resultadoIndicesParse.setIndiceDescricao(41);
+		resultParseIndex.setIndiceCodigo(40);
+		resultParseIndex.setIndiceDescricao(41);
 		
-		return resultadoIndicesParse;
+		return resultParseIndex;
 	}
 
 }

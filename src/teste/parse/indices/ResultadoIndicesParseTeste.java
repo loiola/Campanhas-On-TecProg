@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.ResultadoIndicesParse;
+import parse.index.ResultParseIndex;
 
 public class ResultadoIndicesParseTeste {
 
 	public String campo[];
-	public ResultadoIndicesParse resultadoIndicesParse;
+	public ResultParseIndex resultParseIndex;
 	
 	@Before
 	public void setUp() throws Exception {
 		
-		this.resultadoIndicesParse = new ResultadoIndicesParse();
+		this.resultParseIndex = new ResultParseIndex();
 		this.campo = new String[2];
 		
 		iniciarCampos();
@@ -27,7 +27,7 @@ public class ResultadoIndicesParseTeste {
 	public void iniciarUmResultadoComIndicesValidos() throws Exception {
 		
 		Result result = new Result();
-		this.resultadoIndicesParse.startInstance(result, campo);
+		this.resultParseIndex.startInstance(result, campo);
 		Assert.assertEquals(this.campo[0], result.getResultType().toString());
 		Assert.assertEquals(this.campo[1], result.getResultDescription());
 	}
@@ -35,17 +35,17 @@ public class ResultadoIndicesParseTeste {
 	@Test
 	public void iniciarUmResultadoComIndicesInvalidos() throws Exception {
 		
-		this.resultadoIndicesParse = new ResultadoIndicesParse();
+		this.resultParseIndex = new ResultParseIndex();
 		Result result = new Result();
-		this.resultadoIndicesParse.startInstance(result, campo);
+		this.resultParseIndex.startInstance(result, campo);
 		Assert.assertNotEquals(this.campo[0], result.getResultType().toString());
 		Assert.assertNotEquals(this.campo[1], result.getResultDescription());
 	}
 	
 	private void iniciarIndices() {
 		
-		this.resultadoIndicesParse.setIndiceCodigo(0);
-		this.resultadoIndicesParse.setIndiceDescricao(1);
+		this.resultParseIndex.setIndiceCodigo(0);
+		this.resultParseIndex.setIndiceDescricao(1);
 	}
 	
 	private void iniciarCampos() {
