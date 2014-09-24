@@ -48,10 +48,10 @@ public class PartidoIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.partyParseIndex.setIndiceSigla(0);
-		this.partyParseIndex.setIndiceNumero(1);
-		this.partyParseIndex.setIndiceDeferimento(2);
-		this.partyParseIndex.setIndiceNome(3);
+		this.partyParseIndex.setIndexAcronym(0);
+		this.partyParseIndex.setIndexNumberParty(1);
+		this.partyParseIndex.setIndexDeferral(2);
+		this.partyParseIndex.setIndexPartyName(3);
 	}
 	
 	private void iniciarCampos() {

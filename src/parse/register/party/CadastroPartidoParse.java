@@ -47,15 +47,15 @@ public class CadastroPartidoParse extends CadastroParse<Party> {
 		partyParseIndex = new PartyParseIndex();
 		if(tipoArquivo.equals("partido"))
 		{
-			partyParseIndex.setIndiceNome(2);
-			partyParseIndex.setIndiceSigla(1);
-			partyParseIndex.setIndiceNumero(5);
-			partyParseIndex.setIndiceDeferimento(3);
+			partyParseIndex.setIndexPartyName(2);
+			partyParseIndex.setIndexAcronym(1);
+			partyParseIndex.setIndexNumberParty(5);
+			partyParseIndex.setIndexDeferral(3);
 		}else if(tipoArquivo.equals("campanha"))
 		{
-			partyParseIndex.setIndiceNome(18);
-			partyParseIndex.setIndiceSigla(17);
-			partyParseIndex.setIndiceNumero(16);
+			partyParseIndex.setIndexPartyName(18);
+			partyParseIndex.setIndexAcronym(17);
+			partyParseIndex.setIndexNumberParty(16);
 		}
 		return partyParseIndex;
 	}

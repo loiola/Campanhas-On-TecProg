@@ -69,10 +69,10 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.partyParseIndex.setIndiceSigla(SIGLA);
-		this.partyParseIndex.setIndiceNumero(NUMERO);
-		this.partyParseIndex.setIndiceDeferimento(DEFERIMENTO);
-		this.partyParseIndex.setIndiceNome(NOME);
+		this.partyParseIndex.setIndexAcronym(SIGLA);
+		this.partyParseIndex.setIndexNumberParty(NUMERO);
+		this.partyParseIndex.setIndexDeferral(DEFERIMENTO);
+		this.partyParseIndex.setIndexPartyName(NOME);
 	}
 	
 	private void iniciarCampos() {

@@ -9,18 +9,18 @@ public class PartyParseIndex extends ParseIndex<Party> {
 	 */
 
 	// Attributes
-	private int indiceSigla;
-	private int indiceNumero;
-	private int indiceDeferimento;
-	private int indiceNome;
+	private int indexAcronym;
+	private int indexNumberParty;
+	private int indexDeferral;
+	private int indexPartyName;
 	
 	// Constructors
 	public PartyParseIndex() {
 		super();
-		this.indiceSigla = INVALID_INDEX;
-		this.indiceNumero = INVALID_INDEX;
-		this.indiceDeferimento = INVALID_INDEX;
-		this.indiceNome = INVALID_INDEX;
+		this.indexAcronym = INVALID_INDEX;
+		this.indexNumberParty = INVALID_INDEX;
+		this.indexDeferral = INVALID_INDEX;
+		this.indexPartyName = INVALID_INDEX;
 	}
 	
 	/*
@@ -29,18 +29,18 @@ public class PartyParseIndex extends ParseIndex<Party> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Party party, String campo[]) {
-		if(validIndex(this.indiceSigla)) {
-			party.setPartyAcronym(campo[this.indiceSigla]);
+	protected void setValidIndex(Party party, String field[]) {
+		if(validIndex(this.indexAcronym)) {
+			party.setPartyAcronym(field[this.indexAcronym]);
 		}
-		if(validIndex(this.indiceNumero)) {
-			party.setPartyNumber(Integer.parseInt(campo[this.indiceNumero]));
+		if(validIndex(this.indexNumberParty)) {
+			party.setPartyNumber(Integer.parseInt(field[this.indexNumberParty]));
 		}
-		if(validIndex(this.indiceDeferimento)){
-			party.setPartyConcession(campo[this.indiceDeferimento]);
+		if(validIndex(this.indexDeferral)){
+			party.setPartyConcession(field[this.indexDeferral]);
 		}
-		if(validIndex(this.indiceNome)){
-			party.setPartyName(campo[this.indiceNome]);
+		if(validIndex(this.indexPartyName)){
+			party.setPartyName(field[this.indexPartyName]);
 		}
 	}
 
@@ -57,20 +57,20 @@ public class PartyParseIndex extends ParseIndex<Party> {
 	}
 	
 	// Mutators for indexes of the array of fields
-	public void setIndiceSigla(int indiceSigla) {
-		this.indiceSigla = indiceSigla;
+	public void setIndexAcronym(int indexAcronym) {
+		this.indexAcronym = indexAcronym;
 	}
 
-	public void setIndiceNumero(int indiceNumero) {
-		this.indiceNumero = indiceNumero;
+	public void setIndexNumberParty(int indexNumberParty) {
+		this.indexNumberParty = indexNumberParty;
 	}
 
-	public void setIndiceDeferimento(int indiceDeferimento) {
-		this.indiceDeferimento = indiceDeferimento;
+	public void setIndexDeferral(int indexDeferral) {
+		this.indexDeferral = indexDeferral;
 	}
 
-	public void setIndiceNome(int indiceNome) {
-		this.indiceNome = indiceNome;
+	public void setIndexPartyName(int indexPartyName) {
+		this.indexPartyName = indexPartyName;
 	}
 
 }
