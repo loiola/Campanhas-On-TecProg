@@ -9,20 +9,20 @@ public class SupplierParseIndex extends IndicesParse<Supplier> {
 	 */
 
 	// Constants
-	public static final int INDICE_INVALIDO = -1;
+	public static final int INVALID_INDEX = -1;
 
 	// Attributes
-	private int indiceCpf_Cnpj;
-	private int indiceNome;
-	private int indiceUf;
-	private int indiceSituacaoCadastral;
+	private int indexSupplierCpfCnpj;
+	private int indexName;
+	private int indexUnitFederation;
+	private int indexRegistrationStatus;
 	
 	// Constructors
 	public SupplierParseIndex() {
-		this.indiceCpf_Cnpj = INDICE_INVALIDO;
-		this.indiceNome = INDICE_INVALIDO;
-		this.indiceUf = INDICE_INVALIDO;
-		this.indiceSituacaoCadastral = INDICE_INVALIDO;
+		this.indexSupplierCpfCnpj = INVALID_INDEX;
+		this.indexName = INVALID_INDEX;
+		this.indexUnitFederation = INVALID_INDEX;
+		this.indexRegistrationStatus = INVALID_INDEX;
 	}
 	
 	/*
@@ -31,18 +31,18 @@ public class SupplierParseIndex extends IndicesParse<Supplier> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Supplier supplier, String[] campo) {
-		if(validIndex(this.indiceCpf_Cnpj)) {
-			supplier.setSupplierPersonRegister(campo[this.indiceCpf_Cnpj]);
+	protected void setValidIndex(Supplier supplier, String[] field) {
+		if(validIndex(this.indexSupplierCpfCnpj)) {
+			supplier.setSupplierPersonRegister(field[this.indexSupplierCpfCnpj]);
 		}
-		if(validIndex(this.indiceNome)) {
-			supplier.setSupplierName(campo[this.indiceNome]);
+		if(validIndex(this.indexName)) {
+			supplier.setSupplierName(field[this.indexName]);
 		}
-		if(validIndex(this.indiceUf)) {
-			supplier.setSupplierCountryState(campo[this.indiceUf]);
+		if(validIndex(this.indexUnitFederation)) {
+			supplier.setSupplierCountryState(field[this.indexUnitFederation]);
 		}
-		if(validIndex(this.indiceSituacaoCadastral)) {
-			supplier.setSupplierRegisterSituation(campo[this.indiceSituacaoCadastral]);
+		if(validIndex(this.indexRegistrationStatus)) {
+			supplier.setSupplierRegisterSituation(field[this.indexRegistrationStatus]);
 		}
 	}
 
@@ -59,20 +59,20 @@ public class SupplierParseIndex extends IndicesParse<Supplier> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceCpf_Cnpj(int indiceCpf_Cnpj) {
-		this.indiceCpf_Cnpj = indiceCpf_Cnpj;
+	public void setIndexSupplierCpfCnpj(int indexSupplierCpfCnpj) {
+		this.indexSupplierCpfCnpj = indexSupplierCpfCnpj;
 	}
 
-	public void setIndiceNome(int indiceNome) {
-		this.indiceNome = indiceNome;
+	public void setIndexName(int indexName) {
+		this.indexName = indexName;
 	}
 
-	public void setIndiceUf(int indiceUf) {
-		this.indiceUf = indiceUf;
+	public void setIndexUnitFederation(int indexUnitFederation) {
+		this.indexUnitFederation = indexUnitFederation;
 	}
 
-	public void setIndiceSituacaoCadastral(int indiceSituacaoCadastral) {
-		this.indiceSituacaoCadastral = indiceSituacaoCadastral;
+	public void setIndexRegistrationStatus(int indexRegistrationStatus) {
+		this.indexRegistrationStatus = indexRegistrationStatus;
 	}
 	
 }

@@ -48,10 +48,10 @@ public class FornecedorIndicesParseTestes {
 	
 	private void iniciarIndices() {
 		
-		this.supplierParseIndex.setIndiceCpf_Cnpj(0);
-		this.supplierParseIndex.setIndiceNome(1);
-		this.supplierParseIndex.setIndiceUf(2);
-		this.supplierParseIndex.setIndiceSituacaoCadastral(3);
+		this.supplierParseIndex.setIndexSupplierCpfCnpj(0);
+		this.supplierParseIndex.setIndexName(1);
+		this.supplierParseIndex.setIndexUnitFederation(2);
+		this.supplierParseIndex.setIndexRegistrationStatus(3);
 	}
 	
 	private void iniciarCampos() {

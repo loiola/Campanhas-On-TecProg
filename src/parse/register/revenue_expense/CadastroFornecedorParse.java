@@ -23,27 +23,27 @@ public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Suppl
 	
 	public SupplierParseIndex getIndicesParseDespesa2002() {
 		SupplierParseIndex supplierParseIndex = new SupplierParseIndex();
-		supplierParseIndex.setIndiceCpf_Cnpj(6);
-		supplierParseIndex.setIndiceNome(8);
-		supplierParseIndex.setIndiceUf(7);
+		supplierParseIndex.setIndexSupplierCpfCnpj(6);
+		supplierParseIndex.setIndexName(8);
+		supplierParseIndex.setIndexUnitFederation(7);
 		
 		return supplierParseIndex;
 	}
 	
 	public SupplierParseIndex getIndicesParseDespesa2006() {
 		SupplierParseIndex supplierParseIndex = new SupplierParseIndex();
-		supplierParseIndex.setIndiceCpf_Cnpj(19);
-		supplierParseIndex.setIndiceNome(18);
-		supplierParseIndex.setIndiceUf(20);
-		supplierParseIndex.setIndiceSituacaoCadastral(21);
+		supplierParseIndex.setIndexSupplierCpfCnpj(19);
+		supplierParseIndex.setIndexName(18);
+		supplierParseIndex.setIndexUnitFederation(20);
+		supplierParseIndex.setIndexRegistrationStatus(21);
 		
 		return supplierParseIndex;
 	}
 	
 	public SupplierParseIndex getIndicesParseDespesa2010() {
 		SupplierParseIndex supplierParseIndex = new SupplierParseIndex();
-		supplierParseIndex.setIndiceCpf_Cnpj(10);
-		supplierParseIndex.setIndiceNome(11);
+		supplierParseIndex.setIndexSupplierCpfCnpj(10);
+		supplierParseIndex.setIndexName(11);
 		
 		return supplierParseIndex;
 	}

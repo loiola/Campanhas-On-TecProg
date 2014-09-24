@@ -67,8 +67,8 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 
 	private void iniciarIndices() {
 
-		this.supplierParseIndex.setIndiceCpf_Cnpj(CPF_CNPJ);
-		this.supplierParseIndex.setIndiceNome(NOME);
+		this.supplierParseIndex.setIndexSupplierCpfCnpj(CPF_CNPJ);
+		this.supplierParseIndex.setIndexName(NOME);
 
 	}
 
