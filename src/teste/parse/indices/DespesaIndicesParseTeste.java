@@ -48,7 +48,7 @@ public class DespesaIndicesParseTeste {
 	@Test
 	public void deveRetornarOhAnoCadastrado() {
 		
-		expenseParseIndex.setAno(2010);
+		expenseParseIndex.setYear(2010);
 	}
 	
 	private void iniciarIndices() {

@@ -78,14 +78,14 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseReceita2002() {
 		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2002);
-		receitaIndicesParse.setIndiceCampanhaUf(0);
-		receitaIndicesParse.setIndiceCampanhaNumero(4);
-		receitaIndicesParse.setIndiceCampanhaCargo(2);
-		receitaIndicesParse.setIndiceFormaPagamento(10);
-		receitaIndicesParse.setIndiceData(5);
+		receitaIndicesParse.setIndexUnitFederationCampaign(0);
+		receitaIndicesParse.setIndexNumberCampaign(4);
+		receitaIndicesParse.setIndexPositionCampaign(2);
+		receitaIndicesParse.setIndexFormOfPayment(10);
+		receitaIndicesParse.setIndexDate(5);
 		receitaIndicesParse.setIndiceDoadorCpfCnpj(6);
 		receitaIndicesParse.setIndiceDoadorNome(8);
-		receitaIndicesParse.setIndiceValor(9);
+		receitaIndicesParse.setIndexValue(9);
 		
 		return receitaIndicesParse;
 	}
@@ -99,15 +99,15 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseReceita2006() {
 		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2006);
-		receitaIndicesParse.setIndiceCampanhaUf(4);
-		receitaIndicesParse.setIndiceCampanhaNumero(3);
-		receitaIndicesParse.setIndiceCampanhaCargo(1);
-		receitaIndicesParse.setIndiceTipoMovimentacao(11);
-		receitaIndicesParse.setIndiceFormaPagamento(13);
-		receitaIndicesParse.setIndiceData(10);
+		receitaIndicesParse.setIndexUnitFederationCampaign(4);
+		receitaIndicesParse.setIndexNumberCampaign(3);
+		receitaIndicesParse.setIndexPositionCampaign(1);
+		receitaIndicesParse.setIndexTypeOfFinancialTransaction(11);
+		receitaIndicesParse.setIndexFormOfPayment(13);
+		receitaIndicesParse.setIndexDate(10);
 		receitaIndicesParse.setIndiceDoadorCpfCnpj(16);
 		receitaIndicesParse.setIndiceDoadorNome(15);
-		receitaIndicesParse.setIndiceValor(9);
+		receitaIndicesParse.setIndexValue(9);
 		
 		return receitaIndicesParse;
 	}
@@ -121,18 +121,18 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseReceita2010() {
 		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2010);
-		receitaIndicesParse.setIndiceCampanhaUf(1);
-		receitaIndicesParse.setIndiceCampanhaNumero(3);
-		receitaIndicesParse.setIndiceCampanhaCargo(4);
-		receitaIndicesParse.setIndiceTipoMovimentacao(14);
-		receitaIndicesParse.setIndiceFormaPagamento(16);
+		receitaIndicesParse.setIndexUnitFederationCampaign(1);
+		receitaIndicesParse.setIndexNumberCampaign(3);
+		receitaIndicesParse.setIndexPositionCampaign(4);
+		receitaIndicesParse.setIndexTypeOfFinancialTransaction(14);
+		receitaIndicesParse.setIndexFormOfPayment(16);
 		receitaIndicesParse.setIndiceReciboEleitoral(8);
-		receitaIndicesParse.setIndiceNumeroDocumento(9);
-		receitaIndicesParse.setIndiceData(12);
+		receitaIndicesParse.setIndexDocumentNumber(9);
+		receitaIndicesParse.setIndexDate(12);
 		receitaIndicesParse.setIndiceDoadorCpfCnpj(10);
 		receitaIndicesParse.setIndiceDoadorNome(11);
-		receitaIndicesParse.setIndiceValor(13);
-		receitaIndicesParse.setIndiceDescricao(17);
+		receitaIndicesParse.setIndexValue(13);
+		receitaIndicesParse.setIndexDescription(17);
 		
 		return receitaIndicesParse;
 	}

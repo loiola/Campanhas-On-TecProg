@@ -60,15 +60,15 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.financialTransactionParseIndex.setIndiceCampanhaAno(0);
-		this.financialTransactionParseIndex.setIndiceCampanhaNumero(1);
-		this.financialTransactionParseIndex.setIndiceCampanhaCargo(2);
-		this.financialTransactionParseIndex.setIndiceNumeroDocumento(3);
-		this.financialTransactionParseIndex.setIndiceData(4);
-		this.financialTransactionParseIndex.setIndiceValor(5);
-		this.financialTransactionParseIndex.setIndiceTipoMovimentacao(6);
-		this.financialTransactionParseIndex.setIndiceFormaPagamento(7);
-		this.financialTransactionParseIndex.setIndiceDescricao(8);
+		this.financialTransactionParseIndex.setIndexCampaignYear(0);
+		this.financialTransactionParseIndex.setIndexNumberCampaign(1);
+		this.financialTransactionParseIndex.setIndexPositionCampaign(2);
+		this.financialTransactionParseIndex.setIndexDocumentNumber(3);
+		this.financialTransactionParseIndex.setIndexDate(4);
+		this.financialTransactionParseIndex.setIndexValue(5);
+		this.financialTransactionParseIndex.setIndexTypeOfFinancialTransaction(6);
+		this.financialTransactionParseIndex.setIndexFormOfPayment(7);
+		this.financialTransactionParseIndex.setIndexDescription(8);
 	}
 	
 	private void iniciarCampos() {

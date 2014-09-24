@@ -48,14 +48,14 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	@Override
 	protected ParseIndex<Expense> getIndicesParseDespesa2002() {
 		ExpenseParseIndex expenseParseIndex = new ExpenseParseIndex(YEAR_2002);
-		expenseParseIndex.setIndiceCampanhaUf(0);
-		expenseParseIndex.setIndiceCampanhaNumero(4);
-		expenseParseIndex.setIndiceCampanhaCargo(2);
-		expenseParseIndex.setIndiceTipoMovimentacao(10);
-		expenseParseIndex.setIndiceData(5);
+		expenseParseIndex.setIndexUnitFederationCampaign(0);
+		expenseParseIndex.setIndexNumberCampaign(4);
+		expenseParseIndex.setIndexPositionCampaign(2);
+		expenseParseIndex.setIndexTypeOfFinancialTransaction(10);
+		expenseParseIndex.setIndexDate(5);
 		expenseParseIndex.setIndexCpfCnpjSupplier(6);
 		expenseParseIndex.setIndexNameSupplier(8);
-		expenseParseIndex.setIndiceValor(9);	
+		expenseParseIndex.setIndexValue(9);	
 		return expenseParseIndex;
 	}
 
@@ -68,17 +68,17 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	@Override
 	protected ParseIndex<Expense> getIndicesParseDespesa2006() {
 		ExpenseParseIndex expenseParseIndex = new ExpenseParseIndex(YEAR_2006);
-		expenseParseIndex.setIndiceCampanhaUf(4);
-		expenseParseIndex.setIndiceCampanhaNumero(3);
-		expenseParseIndex.setIndiceCampanhaCargo(1);
-		expenseParseIndex.setIndiceTipoMovimentacao(11);
+		expenseParseIndex.setIndexUnitFederationCampaign(4);
+		expenseParseIndex.setIndexNumberCampaign(3);
+		expenseParseIndex.setIndexPositionCampaign(1);
+		expenseParseIndex.setIndexTypeOfFinancialTransaction(11);
 		expenseParseIndex.setIndexDocumentType(16);
-		expenseParseIndex.setIndiceFormaPagamento(13);
-		expenseParseIndex.setIndiceNumeroDocumento(15);
-		expenseParseIndex.setIndiceData(10);
+		expenseParseIndex.setIndexFormOfPayment(13);
+		expenseParseIndex.setIndexDocumentNumber(15);
+		expenseParseIndex.setIndexDate(10);
 		expenseParseIndex.setIndexCpfCnpjSupplier(19);
 		expenseParseIndex.setIndexCpfCnpjSupplier(18);
-		expenseParseIndex.setIndiceValor(9);	
+		expenseParseIndex.setIndexValue(9);	
 		return expenseParseIndex;
 
 	}
@@ -92,18 +92,18 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	@Override
 	protected ParseIndex<Expense> getIndicesParseDespesa2010() {
 		ExpenseParseIndex expenseParseIndex = new ExpenseParseIndex(YEAR_2010);
-		expenseParseIndex.setIndiceCampanhaUf(1);
-		expenseParseIndex.setIndiceCampanhaNumero(3);
-		expenseParseIndex.setIndiceCampanhaCargo(4);
-		expenseParseIndex.setIndiceTipoMovimentacao(14);
+		expenseParseIndex.setIndexUnitFederationCampaign(1);
+		expenseParseIndex.setIndexNumberCampaign(3);
+		expenseParseIndex.setIndexPositionCampaign(4);
+		expenseParseIndex.setIndexTypeOfFinancialTransaction(14);
 		expenseParseIndex.setIndexDocumentType(8);
-		expenseParseIndex.setIndiceFormaPagamento(16);
-		expenseParseIndex.setIndiceNumeroDocumento(9);
-		expenseParseIndex.setIndiceData(12);
+		expenseParseIndex.setIndexFormOfPayment(16);
+		expenseParseIndex.setIndexDocumentNumber(9);
+		expenseParseIndex.setIndexDate(12);
 		expenseParseIndex.setIndexCpfCnpjSupplier(10);
 		expenseParseIndex.setIndexNameSupplier(11);
-		expenseParseIndex.setIndiceValor(13);	
-		expenseParseIndex.setIndiceDescricao(17);
+		expenseParseIndex.setIndexValue(13);	
+		expenseParseIndex.setIndexDescription(17);
 		return expenseParseIndex;
 	}
 

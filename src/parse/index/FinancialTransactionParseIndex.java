@@ -14,31 +14,31 @@ public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 	public static final int INVALID_INDEX = -1;
 
 	// Attributes
-	private Integer ano;
-	private int indiceCampanhaAno;
-	private int indiceCampanhaNumero;
-	private int indiceCampanhaCargo;
-	private int indiceCampanhaUf;
-	private int indiceNumeroDocumento;
-	private int indiceData;
-	private int indiceValor;
-	private int indiceTipoMovimentacao;
-	private int indiceFormaPagamento;
-	private int indiceDescricao;
+	private Integer year;
+	private int indexCampaignYear;
+	private int indexNumberCampaign;
+	private int indexPositionCampaign;
+	private int indexUnitFederationCampaign;
+	private int indexDocumentNumber;
+	private int indexDate;
+	private int indexValue;
+	private int indexTypeOfFinancialTransaction;
+	private int indexFormOfPayment;
+	private int indexDescription;
 
 	// Constructors
-	public FinancialTransactionParseIndex(String ano) {
-		this.ano = Integer.valueOf(ano);
-		this.indiceCampanhaAno = INVALID_INDEX;
-		this.indiceCampanhaNumero = INVALID_INDEX;
-		this.indiceCampanhaCargo = INVALID_INDEX;
-		this.indiceCampanhaUf = INVALID_INDEX;
-		this.indiceNumeroDocumento = INVALID_INDEX;
-		this.indiceData = INVALID_INDEX;
-		this.indiceValor = INVALID_INDEX;
-		this.indiceTipoMovimentacao = INVALID_INDEX;
-		this.indiceFormaPagamento = INVALID_INDEX;
-		this.indiceDescricao = INVALID_INDEX;
+	public FinancialTransactionParseIndex(String year) {
+		this.year = Integer.valueOf(year);
+		this.indexCampaignYear = INVALID_INDEX;
+		this.indexNumberCampaign = INVALID_INDEX;
+		this.indexPositionCampaign = INVALID_INDEX;
+		this.indexUnitFederationCampaign = INVALID_INDEX;
+		this.indexDocumentNumber = INVALID_INDEX;
+		this.indexDate = INVALID_INDEX;
+		this.indexValue = INVALID_INDEX;
+		this.indexTypeOfFinancialTransaction = INVALID_INDEX;
+		this.indexFormOfPayment = INVALID_INDEX;
+		this.indexDescription = INVALID_INDEX;
 	}
 	
 	/*
@@ -47,44 +47,44 @@ public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(O objeto, String[] campo) {
-		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
+	protected void setValidIndex(O object, String[] field) {
+		FinancialTransaction financialTransaction = (FinancialTransaction) object;
 		
 		Campaign campaign = new Campaign();
-		campaign.setCampaignYear(ano);
+		campaign.setCampaignYear(year);
 		
-		if(validIndex(this.indiceCampanhaAno)) {
-			campaign.setCampaignYear(Integer.parseInt(campo[this.indiceCampanhaAno]));
+		if(validIndex(this.indexCampaignYear)) {
+			campaign.setCampaignYear(Integer.parseInt(field[this.indexCampaignYear]));
 		}
-		if(validIndex(this.indiceCampanhaNumero)) {
-			campaign.setCampaignCandidateNumber(Integer.parseInt(campo[this.indiceCampanhaNumero]));
+		if(validIndex(this.indexNumberCampaign)) {
+			campaign.setCampaignCandidateNumber(Integer.parseInt(field[this.indexNumberCampaign]));
 		}
-		if(validIndex(this.indiceCampanhaCargo)) {
+		if(validIndex(this.indexPositionCampaign)) {
 			Position position = new Position();
-			position.setPositionDescription(campo[this.indiceCampanhaCargo]);
+			position.setPositionDescription(field[this.indexPositionCampaign]);
 			campaign.setCampaignPosition(position);
 		}
-		if(validIndex(this.indiceCampanhaUf)) {
-			campaign.setCampaignCountryState(campo[this.indiceCampanhaUf]);
+		if(validIndex(this.indexUnitFederationCampaign)) {
+			campaign.setCampaignCountryState(field[this.indexUnitFederationCampaign]);
 		}
-		if(validIndex(this.indiceNumeroDocumento)) {
-			financialTransaction.setFinancialTransactionDocumentNumber(campo[this.indiceNumeroDocumento]);
+		if(validIndex(this.indexDocumentNumber)) {
+			financialTransaction.setFinancialTransactionDocumentNumber(field[this.indexDocumentNumber]);
 		}
-		if(validIndex(this.indiceData)) {
-			financialTransaction.setFinancialTransactionDate(campo[this.indiceData]);
+		if(validIndex(this.indexDate)) {
+			financialTransaction.setFinancialTransactionDate(field[this.indexDate]);
 		}
-		if(validIndex(this.indiceValor)) {
-			float valor = Float.parseFloat(campo[this.indiceValor].replace(',', '.'));
+		if(validIndex(this.indexValue)) {
+			float valor = Float.parseFloat(field[this.indexValue].replace(',', '.'));
 			financialTransaction.setFinancialTransactionPrice(valor);
 		}
-		if(validIndex(this.indiceTipoMovimentacao)) {
-			financialTransaction.setFinancialTransactionType(campo[this.indiceTipoMovimentacao]);
+		if(validIndex(this.indexTypeOfFinancialTransaction)) {
+			financialTransaction.setFinancialTransactionType(field[this.indexTypeOfFinancialTransaction]);
 		}
-		if(validIndex(this.indiceFormaPagamento)) {
-			financialTransaction.setFinancialTransactionPaymentType(campo[this.indiceFormaPagamento]);
+		if(validIndex(this.indexFormOfPayment)) {
+			financialTransaction.setFinancialTransactionPaymentType(field[this.indexFormOfPayment]);
 		}
-		if(validIndex(this.indiceDescricao)) {
-			financialTransaction.setFinancialTransactionDescription(campo[this.indiceDescricao]);
+		if(validIndex(this.indexDescription)) {
+			financialTransaction.setFinancialTransactionDescription(field[this.indexDescription]);
 		}
 		financialTransaction.setFinancialTransactionCampaign(campaign);
 
@@ -95,8 +95,8 @@ public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 	 * @param an instance of any class
 	 */
 	@Override
-	protected void setEmptyInAllSetters(O objeto) {
-		FinancialTransaction financialTransaction = (FinancialTransaction) objeto;
+	protected void setEmptyInAllSetters(O object) {
+		FinancialTransaction financialTransaction = (FinancialTransaction) object;
 		financialTransaction.setFinancialTransactionIdentifier(FinancialTransaction.EMPTY_TYPE_INTEGER);
 		financialTransaction.setFinancialTransactionCampaign((Campaign)FinancialTransaction.EMPTY_OBJECT);
 		financialTransaction.setFinancialTransactionDocumentNumber(FinancialTransaction.EMPTY_TYPE_STRING);
@@ -112,51 +112,51 @@ public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 	 * @param an integer value
 	 * @return a Boolean value
 	 */
-	protected boolean validIndex(int indice) {
-		return indice > INVALID_INDEX;
+	protected boolean validIndex(int index) {
+		return index > INVALID_INDEX;
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setAno(Integer ano) {
-		this.ano = ano;
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 
-	public void setIndiceCampanhaAno(int indiceCampanhaAno) {
-		this.indiceCampanhaAno = indiceCampanhaAno;
+	public void setIndexCampaignYear(int indexCampaignYear) {
+		this.indexCampaignYear = indexCampaignYear;
 	}
 	
-	public void setIndiceCampanhaNumero(int indiceCampanhaNumero) {
-		this.indiceCampanhaNumero = indiceCampanhaNumero;
+	public void setIndexNumberCampaign(int indexNumberCampaign) {
+		this.indexNumberCampaign = indexNumberCampaign;
 	}
 	
-	public void setIndiceCampanhaCargo(int indiceCampanhaCargo) {
-		this.indiceCampanhaCargo = indiceCampanhaCargo;
+	public void setIndexPositionCampaign(int indexPositionCampaign) {
+		this.indexPositionCampaign = indexPositionCampaign;
 	}
-	public void setIndiceCampanhaUf(int indiceCampanhaUf) {
-		this.indiceCampanhaUf = indiceCampanhaUf;
+	public void setIndexUnitFederationCampaign(int indexUnitFederationCampaign) {
+		this.indexUnitFederationCampaign = indexUnitFederationCampaign;
 	}
-	public void setIndiceNumeroDocumento(int indiceNumeroDocumento) {
-		this.indiceNumeroDocumento = indiceNumeroDocumento;
-	}
-
-	public void setIndiceData(int indiceData) {
-		this.indiceData = indiceData;
+	public void setIndexDocumentNumber(int indexDocumentNumber) {
+		this.indexDocumentNumber = indexDocumentNumber;
 	}
 
-	public void setIndiceValor(int indiceValor) {
-		this.indiceValor = indiceValor;
+	public void setIndexDate(int indexDate) {
+		this.indexDate = indexDate;
 	}
 
-	public void setIndiceTipoMovimentacao(int indiceTipoMovimentacao) {
-		this.indiceTipoMovimentacao = indiceTipoMovimentacao;
+	public void setIndexValue(int indexValue) {
+		this.indexValue = indexValue;
 	}
 
-	public void setIndiceFormaPagamento(int indiceFormaPagamento) {
-		this.indiceFormaPagamento = indiceFormaPagamento;
+	public void setIndexTypeOfFinancialTransaction(int indexTypeOfFinancialTransaction) {
+		this.indexTypeOfFinancialTransaction = indexTypeOfFinancialTransaction;
 	}
 
-	public void setIndiceDescricao(int indiceDescricao) {
-		this.indiceDescricao = indiceDescricao;
+	public void setIndexFormOfPayment(int indexFormOfPayment) {
+		this.indexFormOfPayment = indexFormOfPayment;
+	}
+
+	public void setIndexDescription(int indexDescription) {
+		this.indexDescription = indexDescription;
 	}
 	
 }
