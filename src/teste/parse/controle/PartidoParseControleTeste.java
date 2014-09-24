@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlParty;
-import parse.index.PartidoIndicesParse;
+import parse.index.PartyParseIndex;
 import teste.TemplateTeste;
 
 public class PartidoParseControleTeste extends TemplateTeste {
@@ -19,7 +19,7 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	
 	private String campo[];
 	private PartyDAO partyDAO;
-	private PartidoIndicesParse partidoIndicesParse;
+	private PartyParseIndex partyParseIndex;
 	private ParseControlParty parseControlParty;
 
 	@Override
@@ -27,8 +27,8 @@ public class PartidoParseControleTeste extends TemplateTeste {
 		
 		this.campo = new String[4];
 		this.partyDAO = new PartyDAO();
-		this.partidoIndicesParse = new PartidoIndicesParse();
-		this.parseControlParty = new ParseControlParty(this.partidoIndicesParse);
+		this.partyParseIndex = new PartyParseIndex();
+		this.parseControlParty = new ParseControlParty(this.partyParseIndex);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -69,10 +69,10 @@ public class PartidoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.partidoIndicesParse.setIndiceSigla(SIGLA);
-		this.partidoIndicesParse.setIndiceNumero(NUMERO);
-		this.partidoIndicesParse.setIndiceDeferimento(DEFERIMENTO);
-		this.partidoIndicesParse.setIndiceNome(NOME);
+		this.partyParseIndex.setIndiceSigla(SIGLA);
+		this.partyParseIndex.setIndiceNumero(NUMERO);
+		this.partyParseIndex.setIndiceDeferimento(DEFERIMENTO);
+		this.partyParseIndex.setIndiceNome(NOME);
 	}
 	
 	private void iniciarCampos() {

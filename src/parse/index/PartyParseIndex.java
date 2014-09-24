@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Party;
 
-public class PartidoIndicesParse extends ParseIndex<Party> {
+public class PartyParseIndex extends ParseIndex<Party> {
 	
 	/*
 	 * Class to control the contents of information inherent to the political parties
@@ -15,7 +15,7 @@ public class PartidoIndicesParse extends ParseIndex<Party> {
 	private int indiceNome;
 	
 	// Constructors
-	public PartidoIndicesParse() {
+	public PartyParseIndex() {
 		super();
 		this.indiceSigla = INVALID_INDEX;
 		this.indiceNumero = INVALID_INDEX;

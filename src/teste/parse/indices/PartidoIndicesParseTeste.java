@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.PartidoIndicesParse;
+import parse.index.PartyParseIndex;
 
 public class PartidoIndicesParseTeste {
 		
 	private String campo[];
-	private PartidoIndicesParse partidoIndicesParse;
+	private PartyParseIndex partyParseIndex;
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.partidoIndicesParse = new PartidoIndicesParse();
+		this.partyParseIndex = new PartyParseIndex();
 		this.campo = new String[4];
 		
 		iniciarCampos();
@@ -27,7 +27,7 @@ public class PartidoIndicesParseTeste {
 	public void iniciarUmPartidoComIndicesValidos() throws Exception {
 		
 		Party party = new Party();
-		this.partidoIndicesParse.startInstance(party, campo);
+		this.partyParseIndex.startInstance(party, campo);
 		Assert.assertEquals(this.campo[0], party.getPartyAcronym());
 		Assert.assertEquals(this.campo[1], party.getPartyNumber().toString());
 		Assert.assertEquals(this.campo[2], party.getPartyConcession());
@@ -37,9 +37,9 @@ public class PartidoIndicesParseTeste {
 	@Test
 	public void iniciarUmPartidoComIndicesInvalidos() throws Exception {
 		
-		this.partidoIndicesParse = new PartidoIndicesParse();
+		this.partyParseIndex = new PartyParseIndex();
 		Party party = new Party();
-		this.partidoIndicesParse.startInstance(party, campo);
+		this.partyParseIndex.startInstance(party, campo);
 		Assert.assertNotEquals(this.campo[0], party.getPartyAcronym());
 		Assert.assertNotEquals(this.campo[1], party.getPartyNumber().toString());
 		Assert.assertNotEquals(this.campo[2], party.getPartyConcession());
@@ -48,10 +48,10 @@ public class PartidoIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.partidoIndicesParse.setIndiceSigla(0);
-		this.partidoIndicesParse.setIndiceNumero(1);
-		this.partidoIndicesParse.setIndiceDeferimento(2);
-		this.partidoIndicesParse.setIndiceNome(3);
+		this.partyParseIndex.setIndiceSigla(0);
+		this.partyParseIndex.setIndiceNumero(1);
+		this.partyParseIndex.setIndiceDeferimento(2);
+		this.partyParseIndex.setIndiceNome(3);
 	}
 	
 	private void iniciarCampos() {

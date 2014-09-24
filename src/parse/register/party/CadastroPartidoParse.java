@@ -4,7 +4,7 @@ import parse.ParseException;
 import parse.control.ParseControl;
 import parse.control.ParseControlParty;
 import parse.index.ParseIndex;
-import parse.index.PartidoIndicesParse;
+import parse.index.PartyParseIndex;
 import parse.register.CadastroParse;
 import model.beans.Party;
 
@@ -43,21 +43,21 @@ public class CadastroPartidoParse extends CadastroParse<Party> {
 	@Override
 	protected ParseIndex<Party> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
-		PartidoIndicesParse partidoIndicesParse;
-		partidoIndicesParse = new PartidoIndicesParse();
+		PartyParseIndex partyParseIndex;
+		partyParseIndex = new PartyParseIndex();
 		if(tipoArquivo.equals("partido"))
 		{
-			partidoIndicesParse.setIndiceNome(2);
-			partidoIndicesParse.setIndiceSigla(1);
-			partidoIndicesParse.setIndiceNumero(5);
-			partidoIndicesParse.setIndiceDeferimento(3);
+			partyParseIndex.setIndiceNome(2);
+			partyParseIndex.setIndiceSigla(1);
+			partyParseIndex.setIndiceNumero(5);
+			partyParseIndex.setIndiceDeferimento(3);
 		}else if(tipoArquivo.equals("campanha"))
 		{
-			partidoIndicesParse.setIndiceNome(18);
-			partidoIndicesParse.setIndiceSigla(17);
-			partidoIndicesParse.setIndiceNumero(16);
+			partyParseIndex.setIndiceNome(18);
+			partyParseIndex.setIndiceSigla(17);
+			partyParseIndex.setIndiceNumero(16);
 		}
-		return partidoIndicesParse;
+		return partyParseIndex;
 	}
 
 }
