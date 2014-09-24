@@ -6,18 +6,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.DespesaIndicesParse;
+import parse.index.ExpenseParseIndex;
 
 public class DespesaIndicesParseTeste {
 
 	private String campo[];
-	private DespesaIndicesParse despesaIndicesParse;
+	private ExpenseParseIndex expenseParseIndex;
 	private String ano = "2006";
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.despesaIndicesParse = new DespesaIndicesParse(ano);
+		this.expenseParseIndex = new ExpenseParseIndex(ano);
 		this.campo = new String[3];
 		
 		iniciarCampos();
@@ -28,7 +28,7 @@ public class DespesaIndicesParseTeste {
 	public void iniciarUmaDespesaComIndicesValidos() throws Exception {
 		
 		Expense expense = new Expense();
-		this.despesaIndicesParse.startInstance(expense, campo);
+		this.expenseParseIndex.startInstance(expense, campo);
 		Assert.assertEquals(this.campo[0], expense.getExpenseSupplier().getSupplierName());
 		Assert.assertEquals(this.campo[1], expense.getExpenseSupplier().getSupplierPersonRegister());
 		Assert.assertEquals(this.campo[2], expense.getExpenseDocumentType());
@@ -37,9 +37,9 @@ public class DespesaIndicesParseTeste {
 	@Test
 	public void iniciarUmaDespesaComIndicesInvalidos() {
 		
-		this.despesaIndicesParse = new DespesaIndicesParse(ano);
+		this.expenseParseIndex = new ExpenseParseIndex(ano);
 		Expense expense = new Expense();
-		this.despesaIndicesParse.startInstance(expense, campo);
+		this.expenseParseIndex.startInstance(expense, campo);
 		Assert.assertNotEquals(this.campo[0], expense.getExpenseSupplier().getSupplierName());
 		Assert.assertNotEquals(this.campo[1], expense.getExpenseSupplier().getSupplierPersonRegister());
 		Assert.assertNotEquals(this.campo[2], expense.getExpenseDocumentType());
@@ -48,14 +48,14 @@ public class DespesaIndicesParseTeste {
 	@Test
 	public void deveRetornarOhAnoCadastrado() {
 		
-		despesaIndicesParse.setAno(2010);
+		expenseParseIndex.setAno(2010);
 	}
 	
 	private void iniciarIndices() {
 		
-		this.despesaIndicesParse.setIndiceFornecedorNome(0);
-		this.despesaIndicesParse.setIndiceFornecedorCpfCnpj(1);
-		this.despesaIndicesParse.setIndiceTipoDocumento(2);
+		this.expenseParseIndex.setIndiceFornecedorNome(0);
+		this.expenseParseIndex.setIndiceFornecedorCpfCnpj(1);
+		this.expenseParseIndex.setIndiceTipoDocumento(2);
 	}
 	
 	private void iniciarCampos() {

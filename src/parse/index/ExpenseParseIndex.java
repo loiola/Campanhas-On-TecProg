@@ -3,7 +3,7 @@ package parse.index;
 import model.beans.Expense;
 import model.beans.Supplier;
 
-public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expense> {
+public class ExpenseParseIndex extends MovimentacaoFinanceiraIndicesParse<Expense> {
 	
 	/*
 	 * Class to control the contents of information inherent to the expenses
@@ -15,7 +15,7 @@ public class DespesaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Expe
 	private int indiceTipoDocumento;
 	
 	// Constructors
-	public DespesaIndicesParse(String ano) {
+	public ExpenseParseIndex(String ano) {
 		super(ano);
 		this.indiceFornecedorNome = INDICE_INVALIDO;
 		this.indiceFornecedorCpfCnpj = INDICE_INVALIDO;

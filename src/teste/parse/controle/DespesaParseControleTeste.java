@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlExpense;
-import parse.index.DespesaIndicesParse;
+import parse.index.ExpenseParseIndex;
 import teste.TemplateTeste;
 
 public class DespesaParseControleTeste extends TemplateTeste {
@@ -20,15 +20,15 @@ public class DespesaParseControleTeste extends TemplateTeste {
 
 	private String campo[];
 	private ExpenseDAO expenseDAO;
-	private DespesaIndicesParse despesaIndicesParse;
+	private ExpenseParseIndex expenseParseIndex;
 	private ParseControlExpense parseControlExpense;
 
 	@Override
 	public void beforeTest() throws Exception {
 		this.campo = new String[3];
 		this.expenseDAO = new ExpenseDAO();
-		this.despesaIndicesParse = new DespesaIndicesParse(ANO);
-		this.parseControlExpense = new ParseControlExpense(this.despesaIndicesParse);
+		this.expenseParseIndex = new ExpenseParseIndex(ANO);
+		this.parseControlExpense = new ParseControlExpense(this.expenseParseIndex);
 
 		iniciarCampos();
 		iniciarIndices();
@@ -57,9 +57,9 @@ public class DespesaParseControleTeste extends TemplateTeste {
 
 	private void iniciarIndices() {
 
-		this.despesaIndicesParse.setIndiceFornecedorNome(NOME);
-		this.despesaIndicesParse.setIndiceFornecedorCpfCnpj(CPF_CNPJ);
-		this.despesaIndicesParse.setIndiceTipoDocumento(TIPODOCUMENTO);
+		this.expenseParseIndex.setIndiceFornecedorNome(NOME);
+		this.expenseParseIndex.setIndiceFornecedorCpfCnpj(CPF_CNPJ);
+		this.expenseParseIndex.setIndiceTipoDocumento(TIPODOCUMENTO);
 	}
 
 	private void iniciarCampos() {
