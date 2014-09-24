@@ -5,7 +5,7 @@ import parse.ParseException;
 import parse.control.ParseControl;
 import parse.control.ParseControlRevenue;
 import parse.index.ParseIndex;
-import parse.index.ReceitaIndicesParse;
+import parse.index.RevenueParseIndex;
 
 public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue> {
 	
@@ -46,7 +46,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseDespesa2002() {
-		return new ReceitaIndicesParse(YEAR_2002);
+		return new RevenueParseIndex(YEAR_2002);
 	}
 
 	/*
@@ -56,7 +56,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseDespesa2006() {
-		return new ReceitaIndicesParse(YEAR_2006);
+		return new RevenueParseIndex(YEAR_2006);
 	}
 
 	/*
@@ -66,7 +66,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseDespesa2010() {
-		return new ReceitaIndicesParse(YEAR_2010);
+		return new RevenueParseIndex(YEAR_2010);
 	}
 
 	/*
@@ -77,17 +77,17 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseReceita2002() {
-		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2002);
-		receitaIndicesParse.setIndexUnitFederationCampaign(0);
-		receitaIndicesParse.setIndexNumberCampaign(4);
-		receitaIndicesParse.setIndexPositionCampaign(2);
-		receitaIndicesParse.setIndexFormOfPayment(10);
-		receitaIndicesParse.setIndexDate(5);
-		receitaIndicesParse.setIndiceDoadorCpfCnpj(6);
-		receitaIndicesParse.setIndiceDoadorNome(8);
-		receitaIndicesParse.setIndexValue(9);
+		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2002);
+		revenueParseIndex.setIndexUnitFederationCampaign(0);
+		revenueParseIndex.setIndexNumberCampaign(4);
+		revenueParseIndex.setIndexPositionCampaign(2);
+		revenueParseIndex.setIndexFormOfPayment(10);
+		revenueParseIndex.setIndexDate(5);
+		revenueParseIndex.setIndiceDoadorCpfCnpj(6);
+		revenueParseIndex.setIndiceDoadorNome(8);
+		revenueParseIndex.setIndexValue(9);
 		
-		return receitaIndicesParse;
+		return revenueParseIndex;
 	}
 
 	/*
@@ -98,18 +98,18 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseReceita2006() {
-		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2006);
-		receitaIndicesParse.setIndexUnitFederationCampaign(4);
-		receitaIndicesParse.setIndexNumberCampaign(3);
-		receitaIndicesParse.setIndexPositionCampaign(1);
-		receitaIndicesParse.setIndexTypeOfFinancialTransaction(11);
-		receitaIndicesParse.setIndexFormOfPayment(13);
-		receitaIndicesParse.setIndexDate(10);
-		receitaIndicesParse.setIndiceDoadorCpfCnpj(16);
-		receitaIndicesParse.setIndiceDoadorNome(15);
-		receitaIndicesParse.setIndexValue(9);
+		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2006);
+		revenueParseIndex.setIndexUnitFederationCampaign(4);
+		revenueParseIndex.setIndexNumberCampaign(3);
+		revenueParseIndex.setIndexPositionCampaign(1);
+		revenueParseIndex.setIndexTypeOfFinancialTransaction(11);
+		revenueParseIndex.setIndexFormOfPayment(13);
+		revenueParseIndex.setIndexDate(10);
+		revenueParseIndex.setIndiceDoadorCpfCnpj(16);
+		revenueParseIndex.setIndiceDoadorNome(15);
+		revenueParseIndex.setIndexValue(9);
 		
-		return receitaIndicesParse;
+		return revenueParseIndex;
 	}
 
 	/*
@@ -120,21 +120,21 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 */
 	@Override
 	protected ParseIndex<Revenue> getIndicesParseReceita2010() {
-		ReceitaIndicesParse receitaIndicesParse = new ReceitaIndicesParse(YEAR_2010);
-		receitaIndicesParse.setIndexUnitFederationCampaign(1);
-		receitaIndicesParse.setIndexNumberCampaign(3);
-		receitaIndicesParse.setIndexPositionCampaign(4);
-		receitaIndicesParse.setIndexTypeOfFinancialTransaction(14);
-		receitaIndicesParse.setIndexFormOfPayment(16);
-		receitaIndicesParse.setIndiceReciboEleitoral(8);
-		receitaIndicesParse.setIndexDocumentNumber(9);
-		receitaIndicesParse.setIndexDate(12);
-		receitaIndicesParse.setIndiceDoadorCpfCnpj(10);
-		receitaIndicesParse.setIndiceDoadorNome(11);
-		receitaIndicesParse.setIndexValue(13);
-		receitaIndicesParse.setIndexDescription(17);
+		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2010);
+		revenueParseIndex.setIndexUnitFederationCampaign(1);
+		revenueParseIndex.setIndexNumberCampaign(3);
+		revenueParseIndex.setIndexPositionCampaign(4);
+		revenueParseIndex.setIndexTypeOfFinancialTransaction(14);
+		revenueParseIndex.setIndexFormOfPayment(16);
+		revenueParseIndex.setIndiceReciboEleitoral(8);
+		revenueParseIndex.setIndexDocumentNumber(9);
+		revenueParseIndex.setIndexDate(12);
+		revenueParseIndex.setIndiceDoadorCpfCnpj(10);
+		revenueParseIndex.setIndiceDoadorNome(11);
+		revenueParseIndex.setIndexValue(13);
+		revenueParseIndex.setIndexDescription(17);
 		
-		return receitaIndicesParse;
+		return revenueParseIndex;
 	}
 
 }

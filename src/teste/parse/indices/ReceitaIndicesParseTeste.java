@@ -6,18 +6,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.ReceitaIndicesParse;
+import parse.index.RevenueParseIndex;
 
 public class ReceitaIndicesParseTeste {
 
 	private String campo[];
-	private ReceitaIndicesParse receitaIndicesParse;
+	private RevenueParseIndex revenueParseIndex;
 	private String ano = "2006";
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.receitaIndicesParse = new ReceitaIndicesParse(ano);
+		this.revenueParseIndex = new RevenueParseIndex(ano);
 		this.campo = new String[3];
 		
 		iniciarCampos();
@@ -28,7 +28,7 @@ public class ReceitaIndicesParseTeste {
 	public void iniciarUmaReceitaComIndicesValidos() throws Exception {
 		
 		Revenue revenue = new Revenue();
-		this.receitaIndicesParse.startInstance(revenue, campo);
+		this.revenueParseIndex.startInstance(revenue, campo);
 		Assert.assertEquals(this.campo[0], revenue.getRevenueElectoralReceipt());
 		Assert.assertEquals(this.campo[1], revenue.getRevenueDonor().getDonorName());
 		Assert.assertEquals(this.campo[2], revenue.getRevenueDonor().getDonorPersonRegister());
@@ -37,9 +37,9 @@ public class ReceitaIndicesParseTeste {
 	@Test
 	public void iniciarUmaReceitaComIndicesInvalidos() {
 		
-		this.receitaIndicesParse = new ReceitaIndicesParse(ano);
+		this.revenueParseIndex = new RevenueParseIndex(ano);
 		Revenue revenue = new Revenue();
-		this.receitaIndicesParse.startInstance(revenue, campo);
+		this.revenueParseIndex.startInstance(revenue, campo);
 		Assert.assertNotEquals(this.campo[0], revenue.getRevenueElectoralReceipt());
 		Assert.assertNotEquals(this.campo[1], revenue.getRevenueDonor().getDonorName());
 		Assert.assertNotEquals(this.campo[2], revenue.getRevenueDonor().getDonorPersonRegister());
@@ -47,9 +47,9 @@ public class ReceitaIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.receitaIndicesParse.setIndiceReciboEleitoral(0);
-		this.receitaIndicesParse.setIndiceDoadorNome(1);
-		this.receitaIndicesParse.setIndiceDoadorCpfCnpj(2);
+		this.revenueParseIndex.setIndiceReciboEleitoral(0);
+		this.revenueParseIndex.setIndiceDoadorNome(1);
+		this.revenueParseIndex.setIndiceDoadorCpfCnpj(2);
 	}
 	
 	private void iniciarCampos() {

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlRevenue;
-import parse.index.ReceitaIndicesParse;
+import parse.index.RevenueParseIndex;
 import teste.TemplateTeste;
 
 public class ReceitaParseControleTeste extends TemplateTeste {
@@ -19,7 +19,7 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 
 	private String campo[];
 	private RevenueDAO revenueDAO;
-	private ReceitaIndicesParse receitaIndicesParse;
+	private RevenueParseIndex revenueParseIndex;
 	private ParseControlRevenue parseControlRevenue;
 
 	@Override
@@ -27,8 +27,8 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 		
 		this.campo = new String[3];
 		this.revenueDAO = new RevenueDAO();
-		this.receitaIndicesParse = new ReceitaIndicesParse(ANO);
-		this.parseControlRevenue = new ParseControlRevenue(this.receitaIndicesParse);
+		this.revenueParseIndex = new RevenueParseIndex(ANO);
+		this.parseControlRevenue = new ParseControlRevenue(this.revenueParseIndex);
 
 		iniciarCampos();
 		iniciarIndices();
@@ -58,9 +58,9 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 
 	private void iniciarIndices() {
 
-		this.receitaIndicesParse.setIndiceReciboEleitoral(RECIBO);
-		this.receitaIndicesParse.setIndiceDoadorNome(NOME);
-		this.receitaIndicesParse.setIndiceDoadorCpfCnpj(CPF_CNPJ);
+		this.revenueParseIndex.setIndiceReciboEleitoral(RECIBO);
+		this.revenueParseIndex.setIndiceDoadorNome(NOME);
+		this.revenueParseIndex.setIndiceDoadorCpfCnpj(CPF_CNPJ);
 	}
 
 	private void iniciarCampos() {

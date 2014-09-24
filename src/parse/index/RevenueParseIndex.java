@@ -3,7 +3,7 @@ package parse.index;
 import model.beans.Donor;
 import model.beans.Revenue;
 
-public class ReceitaIndicesParse extends FinancialTransactionParseIndex<Revenue> {
+public class RevenueParseIndex extends FinancialTransactionParseIndex<Revenue> {
 	
 	/*
 	 * Class to control the contents of information inherent to the revenue
@@ -15,7 +15,7 @@ public class ReceitaIndicesParse extends FinancialTransactionParseIndex<Revenue>
 	private int indiceDoadorCpfCnpj;
 	
 	// Constructors
-	public ReceitaIndicesParse(String ano) {
+	public RevenueParseIndex(String ano) {
 		super(ano);
 		this.indiceReciboEleitoral = INVALID_INDEX;
 		this.indiceDoadorNome = INVALID_INDEX;
