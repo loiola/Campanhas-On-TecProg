@@ -29,7 +29,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
+	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseExpenseControl to be used by constructor
 	 * @return a ParseExpenseControl
 	 */

@@ -2,7 +2,7 @@ package parse;
 
 import java.util.ArrayList;
 
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 import parse.register.campaign.CadastroCampanhaParse;
 import parse.register.campaign.CadastroCandidatoParse;
 import parse.register.campaign.CadastroCargoParse;
@@ -17,7 +17,7 @@ public class ParseCampanha extends Parse {
 
 	@Override
 	protected void adicionarCadastrosParseNaLista(
-			ArrayList<CadastroParse<?>> listaCadastrosParse,
+			ArrayList<RegisterParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 
 		listaCadastrosParse.add(new CadastroCandidatoParse(tipoArquivo, ano));

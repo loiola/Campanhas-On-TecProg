@@ -6,9 +6,9 @@ import parse.control.ParseControlPosition;
 import parse.control.ParseControl;
 import parse.index.PositionParseIndex;
 import parse.index.ParseIndex;
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 
-public class CadastroCargoParse extends CadastroParse<Position> {
+public class CadastroCargoParse extends RegisterParse<Position> {
 	
 	/* 
 	 * Class used to extract Position attributes and forward the register to the Database
@@ -30,7 +30,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
+	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParsePositionControl to be used by constructor
 	 * @return a ParsePositionControl
 	 */
@@ -42,7 +42,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	}
 
 	/*
-	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.RegisterParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParsePositionIndex, setting the index number for each attribute
 	 * @return a ParsePositionIndex
 	 */

@@ -2,7 +2,7 @@ package parse;
 
 import java.util.ArrayList;
 
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 import parse.register.revenue_expense.CadastroDespesaParse;
 import parse.register.revenue_expense.CadastroDoadorParse;
 import parse.register.revenue_expense.CadastroFornecedorParse;
@@ -29,7 +29,7 @@ public class ParseMovimentacoes extends Parse {
 	 */
 	@Override
 	protected void adicionarCadastrosParseNaLista(
-			ArrayList<CadastroParse<?>> listaCadastrosParse,
+			ArrayList<RegisterParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 		
 		if(tipoArquivo.equals(CadastroParseReceitasDespesas.EXPENSE))

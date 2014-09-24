@@ -4,7 +4,7 @@ import parse.ParseException;
 import parse.control.ParseControl;
 import parse.index.ParseIndex;
 
-public abstract class CadastroParse<O> {
+public abstract class RegisterParse<O> {
 	
 	/* 
 	 * Class used to be inherited from the others ParseRegisters classes to be used by their
@@ -27,7 +27,7 @@ public abstract class CadastroParse<O> {
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public CadastroParse(String tipoArquivo, String ano) throws ParseException {
+	public RegisterParse(String tipoArquivo, String ano) throws ParseException {
 		this.linhasLidas = 0;
 		this.linhasParaFazerCadastro = 1500;
 		

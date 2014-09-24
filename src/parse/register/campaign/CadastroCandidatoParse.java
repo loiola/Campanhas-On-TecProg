@@ -6,9 +6,9 @@ import parse.control.ParseControlCandidate;
 import parse.control.ParseControl;
 import parse.index.CandidateParseIndex;
 import parse.index.ParseIndex;
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 
-public class CadastroCandidatoParse extends CadastroParse<Candidate> {
+public class CadastroCandidatoParse extends RegisterParse<Candidate> {
 	
 	/* 
 	 * Class used to extract Candidate attributes and forward the register to the Database
@@ -30,7 +30,7 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
+	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseCandidateControl to be used by constructor
 	 * @return a ParseCandidateControl
 	 */
@@ -42,7 +42,7 @@ public class CadastroCandidatoParse extends CadastroParse<Candidate> {
 	}
 
 	/*
-	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.RegisterParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParseCandidateIndex, setting the index number for each attribute
 	 * @return a ParseCandidateIndex
 	 */

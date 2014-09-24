@@ -6,9 +6,9 @@ import parse.control.ParseControl;
 import parse.control.ParseControlResult;
 import parse.index.ParseIndex;
 import parse.index.ResultParseIndex;
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 
-public class CadastroResultadoParse extends CadastroParse<Result>{
+public class CadastroResultadoParse extends RegisterParse<Result>{
 	
 	/* 
 	 * Class used to extract Result attributes and forward the register to the Database
@@ -30,7 +30,7 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
+	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseResultControl to be used by constructor
 	 * @return a ParseResultControl
 	 */
@@ -42,7 +42,7 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	}
 
 	/*
-	 * @see parse.register.CadastroParse#getIndicesParse(java.lang.String, java.lang.String)
+	 * @see parse.register.RegisterParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParseResultIndex, setting the index number for each attribute
 	 * @return a ParseResultIndex
 	 */

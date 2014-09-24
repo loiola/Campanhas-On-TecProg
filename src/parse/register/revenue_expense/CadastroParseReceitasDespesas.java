@@ -2,9 +2,9 @@ package parse.register.revenue_expense;
 
 import parse.ParseException;
 import parse.index.ParseIndex;
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 
-public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> {
+public abstract class CadastroParseReceitasDespesas<O> extends RegisterParse<O> {
 
 	public static final String EXPENSE = "expense";
 	public static final String REVENUE = "revenue";

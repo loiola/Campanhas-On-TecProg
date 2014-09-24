@@ -5,10 +5,10 @@ import parse.control.ParseControl;
 import parse.control.ParseControlParty;
 import parse.index.ParseIndex;
 import parse.index.PartyParseIndex;
-import parse.register.CadastroParse;
+import parse.register.RegisterParse;
 import model.beans.Party;
 
-public class CadastroPartidoParse extends CadastroParse<Party> {
+public class CadastroPartidoParse extends RegisterParse<Party> {
 	
 	/*
 	 * Class responsible for identifying the contents of the file to read and get information
