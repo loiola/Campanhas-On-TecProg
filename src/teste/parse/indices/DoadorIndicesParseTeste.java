@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.DoadorIndicesParse;
+import parse.index.DonorParseIndex;
 
 public class DoadorIndicesParseTeste {
 
 	private String campo[];
-	private DoadorIndicesParse doadorIndicesParse;
+	private DonorParseIndex donorParseIndex;
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.doadorIndicesParse = new DoadorIndicesParse();
+		this.donorParseIndex = new DonorParseIndex();
 		this.campo = new String[4];
 		
 		iniciarCampos();
@@ -27,7 +27,7 @@ public class DoadorIndicesParseTeste {
 	public void iniciarUmDoadorComIndicesValidos() throws Exception {
 		
 		Donor donor = new Donor();
-		this.doadorIndicesParse.startInstance(donor, campo);
+		this.donorParseIndex.startInstance(donor, campo);
 		Assert.assertEquals(this.campo[0], donor.getDonorPersonRegister().toString());
 		Assert.assertEquals(this.campo[1], donor.getDonorName());
 		Assert.assertEquals(this.campo[2], donor.getDonorCountryState());
@@ -37,9 +37,9 @@ public class DoadorIndicesParseTeste {
 	@Test
 	public void iniciarUmDoadorComIndicesInvalidos() {
 		
-		this.doadorIndicesParse = new DoadorIndicesParse();
+		this.donorParseIndex = new DonorParseIndex();
 		Donor donor = new Donor();
-		this.doadorIndicesParse.startInstance(donor, campo);
+		this.donorParseIndex.startInstance(donor, campo);
 		Assert.assertNotEquals(this.campo[0], donor.getDonorPersonRegister().toString());
 		Assert.assertNotEquals(this.campo[1], donor.getDonorName());
 		Assert.assertNotEquals(this.campo[2], donor.getDonorCountryState());
@@ -48,10 +48,10 @@ public class DoadorIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.doadorIndicesParse.setIndiceCpf_Cnpj(0);
-		this.doadorIndicesParse.setIndiceNome(1);
-		this.doadorIndicesParse.setIndiceUf(2);
-		this.doadorIndicesParse.setIndiceSituacaoCadastral(3);
+		this.donorParseIndex.setIndiceCpf_Cnpj(0);
+		this.donorParseIndex.setIndiceNome(1);
+		this.donorParseIndex.setIndiceUf(2);
+		this.donorParseIndex.setIndiceSituacaoCadastral(3);
 	}
 	
 	private void iniciarCampos() {

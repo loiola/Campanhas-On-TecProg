@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlDonor;
-import parse.index.DoadorIndicesParse;
+import parse.index.DonorParseIndex;
 import teste.TemplateTeste;
 
 public class DoadorParseControleTeste extends TemplateTeste {
@@ -19,7 +19,7 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	
 	private String campo[];
 	private DonorDAO donorDAO;
-	private DoadorIndicesParse doadorIndicesParse;
+	private DonorParseIndex donorParseIndex;
 	private ParseControlDonor parseControlDonor;
 
 	@Override
@@ -27,8 +27,8 @@ public class DoadorParseControleTeste extends TemplateTeste {
 		
 		this.campo = new String[4];
 		this.donorDAO = new DonorDAO();
-		this.doadorIndicesParse = new DoadorIndicesParse();
-		this.parseControlDonor = new ParseControlDonor(this.doadorIndicesParse);
+		this.donorParseIndex = new DonorParseIndex();
+		this.parseControlDonor = new ParseControlDonor(this.donorParseIndex);
 		
 		iniciarCampos();
 		iniciarIndices();
@@ -69,10 +69,10 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.doadorIndicesParse.setIndiceCpf_Cnpj(CPF_CNPJ);
-		this.doadorIndicesParse.setIndiceNome(NOME);
-		this.doadorIndicesParse.setIndiceUf(UF);
-		this.doadorIndicesParse.setIndiceSituacaoCadastral(SITUACAO_CADASTRAL);
+		this.donorParseIndex.setIndiceCpf_Cnpj(CPF_CNPJ);
+		this.donorParseIndex.setIndiceNome(NOME);
+		this.donorParseIndex.setIndiceUf(UF);
+		this.donorParseIndex.setIndiceSituacaoCadastral(SITUACAO_CADASTRAL);
 	}
 	
 	private void iniciarCampos() {

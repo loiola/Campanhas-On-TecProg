@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Donor;
 
-public class DoadorIndicesParse extends IndicesParse<Donor> {
+public class DonorParseIndex extends IndicesParse<Donor> {
 	
 	/*
 	 * Class to control the contents of information inherent to the donors
@@ -18,7 +18,7 @@ public class DoadorIndicesParse extends IndicesParse<Donor> {
 	private int indiceSituacaoCadastral;
 	
 	// Constructors
-	public DoadorIndicesParse() {
+	public DonorParseIndex() {
 		super();
 		this.indiceCpf_Cnpj = INDICE_INVALIDO;
 		this.indiceNome = INDICE_INVALIDO;
