@@ -10,16 +10,16 @@ public class RevenueParseIndex extends FinancialTransactionParseIndex<Revenue> {
 	 */
 
 	// Attributes
-	private int indiceReciboEleitoral;
-	private int indiceDoadorNome;
-	private int indiceDoadorCpfCnpj;
+	private int indexElectoralReceipt;
+	private int indexNameDonor;
+	private int indexCpfCnpjDonor;
 	
 	// Constructors
-	public RevenueParseIndex(String ano) {
-		super(ano);
-		this.indiceReciboEleitoral = INVALID_INDEX;
-		this.indiceDoadorNome = INVALID_INDEX;
-		this.indiceDoadorCpfCnpj = INVALID_INDEX; 
+	public RevenueParseIndex(String year) {
+		super(year);
+		this.indexElectoralReceipt = INVALID_INDEX;
+		this.indexNameDonor = INVALID_INDEX;
+		this.indexCpfCnpjDonor = INVALID_INDEX; 
 
 	}
 	
@@ -29,18 +29,18 @@ public class RevenueParseIndex extends FinancialTransactionParseIndex<Revenue> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Revenue revenue, String[] campo) {
-		super.setValidIndex(revenue, campo);
+	protected void setValidIndex(Revenue revenue, String[] field) {
+		super.setValidIndex(revenue, field);
 		
 		Donor donor = new Donor();
-		if(validIndex(this.indiceReciboEleitoral)) {
-			revenue.setRevenueElectoralReceipt(campo[this.indiceReciboEleitoral]);
+		if(validIndex(this.indexElectoralReceipt)) {
+			revenue.setRevenueElectoralReceipt(field[this.indexElectoralReceipt]);
 		}
-		if(validIndex(this.indiceDoadorNome)) {
-			donor.setDonorName(campo[this.indiceDoadorNome]);
+		if(validIndex(this.indexNameDonor)) {
+			donor.setDonorName(field[this.indexNameDonor]);
 		}
-		if(validIndex(this.indiceDoadorCpfCnpj)) {
-			donor.setDonorPersonRegister(campo[this.indiceDoadorCpfCnpj]);
+		if(validIndex(this.indexCpfCnpjDonor)) {
+			donor.setDonorPersonRegister(field[this.indexCpfCnpjDonor]);
 		}
 		revenue.setRevenueDonor(donor);
 
@@ -60,16 +60,16 @@ public class RevenueParseIndex extends FinancialTransactionParseIndex<Revenue> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceReciboEleitoral(int indiceReciboEleitoral) {
-		this.indiceReciboEleitoral = indiceReciboEleitoral;
+	public void setIndexElectoralReceipt(int indexElectoralReceipt) {
+		this.indexElectoralReceipt = indexElectoralReceipt;
 	}
 
-	public void setIndiceDoadorNome(int indiceDoadorNome) {
-		this.indiceDoadorNome = indiceDoadorNome;
+	public void setIndexNameDonor(int indexNameDonor) {
+		this.indexNameDonor = indexNameDonor;
 	}
 	
-	public void setIndiceDoadorCpfCnpj(int indiceDoadorCpfCnpj) {
-		this.indiceDoadorCpfCnpj = indiceDoadorCpfCnpj;
+	public void setIndexCpfCnpjDonor(int indexCpfCnpjDonor) {
+		this.indexCpfCnpjDonor = indexCpfCnpjDonor;
 	}
 	
 }

@@ -58,9 +58,9 @@ public class ReceitaParseControleTeste extends TemplateTeste {
 
 	private void iniciarIndices() {
 
-		this.revenueParseIndex.setIndiceReciboEleitoral(RECIBO);
-		this.revenueParseIndex.setIndiceDoadorNome(NOME);
-		this.revenueParseIndex.setIndiceDoadorCpfCnpj(CPF_CNPJ);
+		this.revenueParseIndex.setIndexElectoralReceipt(RECIBO);
+		this.revenueParseIndex.setIndexNameDonor(NOME);
+		this.revenueParseIndex.setIndexCpfCnpjDonor(CPF_CNPJ);
 	}
 
 	private void iniciarCampos() {

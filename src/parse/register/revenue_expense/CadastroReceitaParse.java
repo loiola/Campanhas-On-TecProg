@@ -83,8 +83,8 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 		revenueParseIndex.setIndexPositionCampaign(2);
 		revenueParseIndex.setIndexFormOfPayment(10);
 		revenueParseIndex.setIndexDate(5);
-		revenueParseIndex.setIndiceDoadorCpfCnpj(6);
-		revenueParseIndex.setIndiceDoadorNome(8);
+		revenueParseIndex.setIndexCpfCnpjDonor(6);
+		revenueParseIndex.setIndexNameDonor(8);
 		revenueParseIndex.setIndexValue(9);
 		
 		return revenueParseIndex;
@@ -105,8 +105,8 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 		revenueParseIndex.setIndexTypeOfFinancialTransaction(11);
 		revenueParseIndex.setIndexFormOfPayment(13);
 		revenueParseIndex.setIndexDate(10);
-		revenueParseIndex.setIndiceDoadorCpfCnpj(16);
-		revenueParseIndex.setIndiceDoadorNome(15);
+		revenueParseIndex.setIndexCpfCnpjDonor(16);
+		revenueParseIndex.setIndexNameDonor(15);
 		revenueParseIndex.setIndexValue(9);
 		
 		return revenueParseIndex;
@@ -126,11 +126,11 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 		revenueParseIndex.setIndexPositionCampaign(4);
 		revenueParseIndex.setIndexTypeOfFinancialTransaction(14);
 		revenueParseIndex.setIndexFormOfPayment(16);
-		revenueParseIndex.setIndiceReciboEleitoral(8);
+		revenueParseIndex.setIndexElectoralReceipt(8);
 		revenueParseIndex.setIndexDocumentNumber(9);
 		revenueParseIndex.setIndexDate(12);
-		revenueParseIndex.setIndiceDoadorCpfCnpj(10);
-		revenueParseIndex.setIndiceDoadorNome(11);
+		revenueParseIndex.setIndexCpfCnpjDonor(10);
+		revenueParseIndex.setIndexNameDonor(11);
 		revenueParseIndex.setIndexValue(13);
 		revenueParseIndex.setIndexDescription(17);
 		

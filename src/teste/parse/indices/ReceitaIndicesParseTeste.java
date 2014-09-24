@@ -47,9 +47,9 @@ public class ReceitaIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.revenueParseIndex.setIndiceReciboEleitoral(0);
-		this.revenueParseIndex.setIndiceDoadorNome(1);
-		this.revenueParseIndex.setIndiceDoadorCpfCnpj(2);
+		this.revenueParseIndex.setIndexElectoralReceipt(0);
+		this.revenueParseIndex.setIndexNameDonor(1);
+		this.revenueParseIndex.setIndexCpfCnpjDonor(2);
 	}
 	
 	private void iniciarCampos() {
