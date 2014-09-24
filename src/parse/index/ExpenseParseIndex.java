@@ -3,7 +3,7 @@ package parse.index;
 import model.beans.Expense;
 import model.beans.Supplier;
 
-public class ExpenseParseIndex extends MovimentacaoFinanceiraIndicesParse<Expense> {
+public class ExpenseParseIndex extends FinancialTransactionParseIndex<Expense> {
 	
 	/*
 	 * Class to control the contents of information inherent to the expenses

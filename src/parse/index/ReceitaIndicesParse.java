@@ -3,7 +3,7 @@ package parse.index;
 import model.beans.Donor;
 import model.beans.Revenue;
 
-public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Revenue> {
+public class ReceitaIndicesParse extends FinancialTransactionParseIndex<Revenue> {
 	
 	/*
 	 * Class to control the contents of information inherent to the revenue

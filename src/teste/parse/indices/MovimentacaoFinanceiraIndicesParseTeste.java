@@ -6,19 +6,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.MovimentacaoFinanceiraIndicesParse;
+import parse.index.FinancialTransactionParseIndex;
 
 public class MovimentacaoFinanceiraIndicesParseTeste {
 
 	private String campo[];
-	private MovimentacaoFinanceiraIndicesParse movimentacaoFinanceiraIndicesParse;
+	private FinancialTransactionParseIndex financialTransactionParseIndex;
 	private String ano = "2006";
 	private String anoTeste = "2010";
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.movimentacaoFinanceiraIndicesParse = new MovimentacaoFinanceiraIndicesParse<>(ano);
+		this.financialTransactionParseIndex = new FinancialTransactionParseIndex<>(ano);
 		this.campo = new String[9];
 		
 		iniciarCampos();
@@ -29,7 +29,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 	public void iniciarUmaMovimentacaoFinanceiraComIndicesValidos() throws Exception {
 		
 		FinancialTransaction financialTransaction = new FinancialTransaction();
-		this.movimentacaoFinanceiraIndicesParse.startInstance(financialTransaction, campo);
+		this.financialTransactionParseIndex.startInstance(financialTransaction, campo);
 		Assert.assertEquals(this.campo[0], financialTransaction.getFinancialTransactionCampaign().getCampaignYear().toString());
 		Assert.assertEquals(this.campo[1], financialTransaction.getFinancialTransactionCampaign().getCampaignCandidateNumber().toString());
 		Assert.assertEquals(this.campo[2], financialTransaction.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
@@ -44,9 +44,9 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 	@Test
 	public void iniciarUmaMovimentacaoFinanceiraComIndicesInvalidos() throws Exception {
 		
-		this.movimentacaoFinanceiraIndicesParse = new MovimentacaoFinanceiraIndicesParse<>(anoTeste);
+		this.financialTransactionParseIndex = new FinancialTransactionParseIndex<>(anoTeste);
 		FinancialTransaction financialTransaction = new FinancialTransaction();
-		this.movimentacaoFinanceiraIndicesParse.startInstance(financialTransaction, campo);
+		this.financialTransactionParseIndex.startInstance(financialTransaction, campo);
 		Assert.assertNotEquals(this.campo[0], financialTransaction.getFinancialTransactionCampaign().getCampaignYear().toString());
 		Assert.assertNotEquals(this.campo[1], financialTransaction.getFinancialTransactionCampaign().getCampaignCandidateNumber().toString());
 		Assert.assertNotEquals(this.campo[2], financialTransaction.getFinancialTransactionCampaign().getCampaignPosition().getPositionDescription());
@@ -60,15 +60,15 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.movimentacaoFinanceiraIndicesParse.setIndiceCampanhaAno(0);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceCampanhaNumero(1);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceCampanhaCargo(2);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceNumeroDocumento(3);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceData(4);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceValor(5);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceTipoMovimentacao(6);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceFormaPagamento(7);
-		this.movimentacaoFinanceiraIndicesParse.setIndiceDescricao(8);
+		this.financialTransactionParseIndex.setIndiceCampanhaAno(0);
+		this.financialTransactionParseIndex.setIndiceCampanhaNumero(1);
+		this.financialTransactionParseIndex.setIndiceCampanhaCargo(2);
+		this.financialTransactionParseIndex.setIndiceNumeroDocumento(3);
+		this.financialTransactionParseIndex.setIndiceData(4);
+		this.financialTransactionParseIndex.setIndiceValor(5);
+		this.financialTransactionParseIndex.setIndiceTipoMovimentacao(6);
+		this.financialTransactionParseIndex.setIndiceFormaPagamento(7);
+		this.financialTransactionParseIndex.setIndiceDescricao(8);
 	}
 	
 	private void iniciarCampos() {

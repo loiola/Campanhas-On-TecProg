@@ -4,7 +4,7 @@ import model.beans.Campaign;
 import model.beans.FinancialTransaction;
 import model.beans.Position;
 
-public class MovimentacaoFinanceiraIndicesParse<O> extends ParseIndex<O> {
+public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 	
 	/*
 	 * Class to control the contents of information inherent to the financial transactions
@@ -27,7 +27,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends ParseIndex<O> {
 	private int indiceDescricao;
 
 	// Constructors
-	public MovimentacaoFinanceiraIndicesParse(String ano) {
+	public FinancialTransactionParseIndex(String ano) {
 		this.ano = Integer.valueOf(ano);
 		this.indiceCampanhaAno = INVALID_INDEX;
 		this.indiceCampanhaNumero = INVALID_INDEX;
