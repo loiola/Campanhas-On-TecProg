@@ -23,27 +23,27 @@ public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Donor> {
 	
 	public DonorParseIndex getIndicesParseReceita2002() {
 		DonorParseIndex donorParseIndex = new DonorParseIndex();
-		donorParseIndex.setIndiceCpf_Cnpj(6);
-		donorParseIndex.setIndiceNome(8);
-		donorParseIndex.setIndiceUf(7);
+		donorParseIndex.setIndexDonorCpfCnpj(6);
+		donorParseIndex.setIndexName(8);
+		donorParseIndex.setIndexUnitFederation(7);
 		
 		return donorParseIndex;
 	}
 	
 	public DonorParseIndex getIndicesParseReceita2006() {
 		DonorParseIndex donorParseIndex = new DonorParseIndex();
-		donorParseIndex.setIndiceCpf_Cnpj(16);
-		donorParseIndex.setIndiceNome(15);
-		donorParseIndex.setIndiceUf(17);
-		donorParseIndex.setIndiceSituacaoCadastral(18);
+		donorParseIndex.setIndexDonorCpfCnpj(16);
+		donorParseIndex.setIndexName(15);
+		donorParseIndex.setIndexUnitFederation(17);
+		donorParseIndex.setIndexRegistrationStatus(18);
 		
 		return donorParseIndex;
 	}
 	
 	public DonorParseIndex getIndicesParseReceita2010() {
 		DonorParseIndex donorParseIndex = new DonorParseIndex();
-		donorParseIndex.setIndiceCpf_Cnpj(10);
-		donorParseIndex.setIndiceNome(11);
+		donorParseIndex.setIndexDonorCpfCnpj(10);
+		donorParseIndex.setIndexName(11);
 		
 		return donorParseIndex;
 	}

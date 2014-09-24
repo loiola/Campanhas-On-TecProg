@@ -48,10 +48,10 @@ public class DoadorIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.donorParseIndex.setIndiceCpf_Cnpj(0);
-		this.donorParseIndex.setIndiceNome(1);
-		this.donorParseIndex.setIndiceUf(2);
-		this.donorParseIndex.setIndiceSituacaoCadastral(3);
+		this.donorParseIndex.setIndexDonorCpfCnpj(0);
+		this.donorParseIndex.setIndexName(1);
+		this.donorParseIndex.setIndexUnitFederation(2);
+		this.donorParseIndex.setIndexRegistrationStatus(3);
 	}
 	
 	private void iniciarCampos() {

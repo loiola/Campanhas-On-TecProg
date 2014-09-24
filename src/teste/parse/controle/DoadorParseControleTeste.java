@@ -69,10 +69,10 @@ public class DoadorParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.donorParseIndex.setIndiceCpf_Cnpj(CPF_CNPJ);
-		this.donorParseIndex.setIndiceNome(NOME);
-		this.donorParseIndex.setIndiceUf(UF);
-		this.donorParseIndex.setIndiceSituacaoCadastral(SITUACAO_CADASTRAL);
+		this.donorParseIndex.setIndexDonorCpfCnpj(CPF_CNPJ);
+		this.donorParseIndex.setIndexName(NOME);
+		this.donorParseIndex.setIndexUnitFederation(UF);
+		this.donorParseIndex.setIndexRegistrationStatus(SITUACAO_CADASTRAL);
 	}
 	
 	private void iniciarCampos() {

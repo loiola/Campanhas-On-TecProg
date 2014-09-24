@@ -9,21 +9,21 @@ public class DonorParseIndex extends IndicesParse<Donor> {
 	 */
 
 	// Constants
-	public static final int INDICE_INVALIDO = -1;
+	public static final int INVALID_INDEX = -1;
 	
 	// Attributes
-	private int indiceCpf_Cnpj;
-	private int indiceNome;
-	private int indiceUf;
-	private int indiceSituacaoCadastral;
+	private int indexDonorCpfCnpj;
+	private int indexName;
+	private int indexUnitFederation;
+	private int indexRegistrationStatus;
 	
 	// Constructors
 	public DonorParseIndex() {
 		super();
-		this.indiceCpf_Cnpj = INDICE_INVALIDO;
-		this.indiceNome = INDICE_INVALIDO;
-		this.indiceUf = INDICE_INVALIDO;
-		this.indiceSituacaoCadastral = INDICE_INVALIDO;
+		this.indexDonorCpfCnpj = INVALID_INDEX;
+		this.indexName = INVALID_INDEX;
+		this.indexUnitFederation = INVALID_INDEX;
+		this.indexRegistrationStatus = INVALID_INDEX;
 	}
 	
 	/*
@@ -32,18 +32,18 @@ public class DonorParseIndex extends IndicesParse<Donor> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Donor donor, String[] campo) {
-		if(validIndex(this.indiceCpf_Cnpj)) {
-			donor.setDonorPersonRegister(campo[this.indiceCpf_Cnpj]);
+	protected void setValidIndex(Donor donor, String[] field) {
+		if(validIndex(this.indexDonorCpfCnpj)) {
+			donor.setDonorPersonRegister(field[this.indexDonorCpfCnpj]);
 		}
-		if(validIndex(this.indiceNome)) {
-			donor.setDonorName(campo[this.indiceNome]);
+		if(validIndex(this.indexName)) {
+			donor.setDonorName(field[this.indexName]);
 		}
-		if(validIndex(this.indiceUf)) {
-			donor.setDonorCountryState(campo[this.indiceUf]);
+		if(validIndex(this.indexUnitFederation)) {
+			donor.setDonorCountryState(field[this.indexUnitFederation]);
 		}
-		if(validIndex(this.indiceSituacaoCadastral)) {
-			donor.setDonorRegisterSituation(campo[this.indiceSituacaoCadastral]);
+		if(validIndex(this.indexRegistrationStatus)) {
+			donor.setDonorRegisterSituation(field[this.indexRegistrationStatus]);
 		}
 	}
 
@@ -60,20 +60,20 @@ public class DonorParseIndex extends IndicesParse<Donor> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceCpf_Cnpj(int indiceCpf_Cnpj) {
-		this.indiceCpf_Cnpj = indiceCpf_Cnpj;
+	public void setIndexDonorCpfCnpj(int indexDonorCpfCnpj) {
+		this.indexDonorCpfCnpj = indexDonorCpfCnpj;
 	}
 
-	public void setIndiceNome(int indiceNome) {
-		this.indiceNome = indiceNome;
+	public void setIndexName(int indexName) {
+		this.indexName = indexName;
 	}
 
-	public void setIndiceUf(int indiceUf) {
-		this.indiceUf = indiceUf;
+	public void setIndexUnitFederation(int indexUnitFederation) {
+		this.indexUnitFederation = indexUnitFederation;
 	}
 
-	public void setIndiceSituacaoCadastral(int indiceSituacaoCadastral) {
-		this.indiceSituacaoCadastral = indiceSituacaoCadastral;
+	public void setIndexRegistrationStatus(int indexRegistrationStatus) {
+		this.indexRegistrationStatus = indexRegistrationStatus;
 	}
 	
 }
