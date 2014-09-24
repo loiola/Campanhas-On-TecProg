@@ -53,8 +53,8 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 		ResultParseIndex resultParseIndex;
 		resultParseIndex = new ResultParseIndex();
 		
-		resultParseIndex.setIndiceCodigo(40);
-		resultParseIndex.setIndiceDescricao(41);
+		resultParseIndex.setIndexCodeResult(40);
+		resultParseIndex.setIndexDescriptionResult(41);
 		
 		return resultParseIndex;
 	}

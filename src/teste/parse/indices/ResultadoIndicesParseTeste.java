@@ -44,8 +44,8 @@ public class ResultadoIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.resultParseIndex.setIndiceCodigo(0);
-		this.resultParseIndex.setIndiceDescricao(1);
+		this.resultParseIndex.setIndexCodeResult(0);
+		this.resultParseIndex.setIndexDescriptionResult(1);
 	}
 	
 	private void iniciarCampos() {

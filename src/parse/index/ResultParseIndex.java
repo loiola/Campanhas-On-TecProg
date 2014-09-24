@@ -9,13 +9,13 @@ public class ResultParseIndex extends ParseIndex<Result> {
 	 */
 
 	// Attributes
-	private int indiceCodigo;
-	private int indiceDescricao;
+	private int indexCodeResult;
+	private int indexDescriptionResult;
 	
 	// Constructors
 	public ResultParseIndex() {
-		this.indiceCodigo = INVALID_INDEX;
-		this.indiceDescricao = INVALID_INDEX;
+		this.indexCodeResult = INVALID_INDEX;
+		this.indexDescriptionResult = INVALID_INDEX;
 	}
 	
 	/*
@@ -24,12 +24,12 @@ public class ResultParseIndex extends ParseIndex<Result> {
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Result result, String[] campo) {
-		if (validIndex(this.indiceCodigo)) {
-			result.setResultType(Integer.parseInt(campo[this.indiceCodigo]));
+	protected void setValidIndex(Result result, String[] field) {
+		if (validIndex(this.indexCodeResult)) {
+			result.setResultType(Integer.parseInt(field[this.indexCodeResult]));
 		}
-		if (validIndex(this.indiceDescricao)) {
-			result.setResultDescription(campo[this.indiceDescricao]);
+		if (validIndex(this.indexDescriptionResult)) {
+			result.setResultDescription(field[this.indexDescriptionResult]);
 		}	
 	}
 
@@ -44,12 +44,12 @@ public class ResultParseIndex extends ParseIndex<Result> {
 	}
 
 	// Mutators for indexes of the array of fields
-	public void setIndiceCodigo(int indiceCodigo) {
-		this.indiceCodigo = indiceCodigo;
+	public void setIndexCodeResult(int indexCodeResult) {
+		this.indexCodeResult = indexCodeResult;
 	}
 
-	public void setIndiceDescricao(int indiceDescricao) {
-		this.indiceDescricao = indiceDescricao;
+	public void setIndexDescriptionResult(int indexDescriptionResult) {
+		this.indexDescriptionResult = indexDescriptionResult;
 	}
 	
 }

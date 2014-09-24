@@ -51,8 +51,8 @@ public class ResultadoParseControleTeste extends TemplateTeste {
 	
 	private void iniciarIndices() {
 		
-		this.resultParseIndex.setIndiceCodigo(CODIGO);
-		this.resultParseIndex.setIndiceDescricao(DESCRICAO);
+		this.resultParseIndex.setIndexCodeResult(CODIGO);
+		this.resultParseIndex.setIndexDescriptionResult(DESCRICAO);
 	}
 	
 	private void iniciarCampos() {
