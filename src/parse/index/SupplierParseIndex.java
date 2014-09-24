@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Supplier;
 
-public class FornecedorIndicesParse extends IndicesParse<Supplier> {
+public class SupplierParseIndex extends IndicesParse<Supplier> {
 	
 	/*
 	 * Class to control the contents of information inherent to the suppliers
@@ -18,7 +18,7 @@ public class FornecedorIndicesParse extends IndicesParse<Supplier> {
 	private int indiceSituacaoCadastral;
 	
 	// Constructors
-	public FornecedorIndicesParse() {
+	public SupplierParseIndex() {
 		this.indiceCpf_Cnpj = INDICE_INVALIDO;
 		this.indiceNome = INDICE_INVALIDO;
 		this.indiceUf = INDICE_INVALIDO;

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import parse.control.ParseControlSupplier;
-import parse.index.FornecedorIndicesParse;
+import parse.index.SupplierParseIndex;
 import teste.TemplateTeste;
 
 public class FornecedorParseControleTeste extends TemplateTeste {
@@ -17,7 +17,7 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 
 	private String campo[];
 	private SupplierDAO supplierDAO;
-	private FornecedorIndicesParse fornecedorIndicesParse;
+	private SupplierParseIndex supplierParseIndex;
 	private ParseControlSupplier parseControlSupplier;
 
 	@Override
@@ -25,8 +25,8 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 		
 		this.campo = new String[2];
 		this.supplierDAO = new SupplierDAO();
-		this.fornecedorIndicesParse = new FornecedorIndicesParse();
-		this.parseControlSupplier = new ParseControlSupplier(this.fornecedorIndicesParse);
+		this.supplierParseIndex = new SupplierParseIndex();
+		this.parseControlSupplier = new ParseControlSupplier(this.supplierParseIndex);
 
 		iniciarCampos();
 		iniciarIndices();
@@ -67,8 +67,8 @@ public class FornecedorParseControleTeste extends TemplateTeste {
 
 	private void iniciarIndices() {
 
-		this.fornecedorIndicesParse.setIndiceCpf_Cnpj(CPF_CNPJ);
-		this.fornecedorIndicesParse.setIndiceNome(NOME);
+		this.supplierParseIndex.setIndiceCpf_Cnpj(CPF_CNPJ);
+		this.supplierParseIndex.setIndiceNome(NOME);
 
 	}
 

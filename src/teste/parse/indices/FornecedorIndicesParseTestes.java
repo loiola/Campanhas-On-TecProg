@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.index.FornecedorIndicesParse;
+import parse.index.SupplierParseIndex;
 
 public class FornecedorIndicesParseTestes {
 	
 	private String campo[];
-	private FornecedorIndicesParse fornecedorIndicesParse;
+	private SupplierParseIndex supplierParseIndex;
 
 	@Before
 	public void setUp() throws Exception {
 		
-		this.fornecedorIndicesParse = new FornecedorIndicesParse();
+		this.supplierParseIndex = new SupplierParseIndex();
 		this.campo = new String[4];
 		
 		iniciarCampos();
@@ -27,7 +27,7 @@ public class FornecedorIndicesParseTestes {
 	public void iniciarUmFornecedorComIndicesValidos() throws Exception {
 		
 		Supplier supplier = new Supplier();
-		this.fornecedorIndicesParse.startInstance(supplier, campo);
+		this.supplierParseIndex.startInstance(supplier, campo);
 		Assert.assertEquals(this.campo[0], supplier.getSupplierPersonRegister().toString());
 		Assert.assertEquals(this.campo[1], supplier.getSupplierName());
 		Assert.assertEquals(this.campo[2], supplier.getSupplierCountryState());
@@ -37,9 +37,9 @@ public class FornecedorIndicesParseTestes {
 	@Test
 	public void iniciarUmFornecedorComIndicesInvalidos() {
 		
-		this.fornecedorIndicesParse = new FornecedorIndicesParse();
+		this.supplierParseIndex = new SupplierParseIndex();
 		Supplier supplier = new Supplier();
-		this.fornecedorIndicesParse.startInstance(supplier, campo);
+		this.supplierParseIndex.startInstance(supplier, campo);
 		Assert.assertNotEquals(this.campo[0], supplier.getSupplierPersonRegister().toString());
 		Assert.assertNotEquals(this.campo[1], supplier.getSupplierName());
 		Assert.assertNotEquals(this.campo[2], supplier.getSupplierCountryState());
@@ -48,10 +48,10 @@ public class FornecedorIndicesParseTestes {
 	
 	private void iniciarIndices() {
 		
-		this.fornecedorIndicesParse.setIndiceCpf_Cnpj(0);
-		this.fornecedorIndicesParse.setIndiceNome(1);
-		this.fornecedorIndicesParse.setIndiceUf(2);
-		this.fornecedorIndicesParse.setIndiceSituacaoCadastral(3);
+		this.supplierParseIndex.setIndiceCpf_Cnpj(0);
+		this.supplierParseIndex.setIndiceNome(1);
+		this.supplierParseIndex.setIndiceUf(2);
+		this.supplierParseIndex.setIndiceSituacaoCadastral(3);
 	}
 	
 	private void iniciarCampos() {
