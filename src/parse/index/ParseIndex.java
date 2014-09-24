@@ -1,6 +1,6 @@
 package parse.index;
 
-public abstract class IndicesParse<O> {
+public abstract class ParseIndex<O> {
 
 	/*
 	 * Abstract class for inserting a template for subclasses of indexes parse
@@ -10,7 +10,7 @@ public abstract class IndicesParse<O> {
 	public static final int INVALID_INDEX = -1;
 	
 	// Constructors
-	public IndicesParse() {
+	public ParseIndex() {
 		
 	}
 	

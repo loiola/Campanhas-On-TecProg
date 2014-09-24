@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Party;
 
-public class PartidoIndicesParse extends IndicesParse<Party> {
+public class PartidoIndicesParse extends ParseIndex<Party> {
 	
 	/*
 	 * Class to control the contents of information inherent to the political parties

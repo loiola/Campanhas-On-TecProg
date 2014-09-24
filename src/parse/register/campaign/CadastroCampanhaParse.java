@@ -5,7 +5,7 @@ import parse.ParseException;
 import parse.control.ParseControlCampaign;
 import parse.control.ParseControl;
 import parse.index.CampaignParseIndex;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 import parse.register.CadastroParse;
 
 public class CadastroCampanhaParse extends CadastroParse<Campaign> {
@@ -32,13 +32,13 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseCampaignControl to be used by constructor
 	 * @return a ParseCampaignControl
 	 */
 	@Override
 	public ParseControl<Campaign> novaInstancia(
-			IndicesParse<Campaign> indicesParse) {
+			ParseIndex<Campaign> indicesParse) {
 		ParseControlCampaign parseControlCampaign = new ParseControlCampaign(indicesParse);	
 		return parseControlCampaign;
 	}
@@ -49,7 +49,7 @@ public class CadastroCampanhaParse extends CadastroParse<Campaign> {
 	 * @return a ParseCampaignIndex
 	 */
 	@Override
-	protected IndicesParse<Campaign> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Campaign> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		CampaignParseIndex campaignParseIndex;

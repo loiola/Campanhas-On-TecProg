@@ -5,7 +5,7 @@ import parse.ParseException;
 import parse.control.ParseControlPosition;
 import parse.control.ParseControl;
 import parse.index.PositionParseIndex;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 import parse.register.CadastroParse;
 
 public class CadastroCargoParse extends CadastroParse<Position> {
@@ -30,13 +30,13 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParsePositionControl to be used by constructor
 	 * @return a ParsePositionControl
 	 */
 	@Override
 	public ParseControl<Position> novaInstancia(
-			IndicesParse<Position> indicesParse) {
+			ParseIndex<Position> indicesParse) {
 		ParseControlPosition parseControlPosition = new ParseControlPosition(indicesParse);
 		return parseControlPosition;
 	}
@@ -47,7 +47,7 @@ public class CadastroCargoParse extends CadastroParse<Position> {
 	 * @return a ParsePositionIndex
 	 */
 	@Override
-	protected IndicesParse<Position> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Position> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		PositionParseIndex positionParseIndex;

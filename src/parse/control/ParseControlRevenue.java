@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Revenue;
 import model.dao.RevenueDAO;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public class ParseControlRevenue extends ParseControl<Revenue> {
 	
@@ -11,7 +11,7 @@ public class ParseControlRevenue extends ParseControl<Revenue> {
 	 */
 
 	// Constructors
-	public ParseControlRevenue(IndicesParse<Revenue> indexParse) {
+	public ParseControlRevenue(ParseIndex<Revenue> indexParse) {
 		super(indexParse, new RevenueDAO());
 	}
 

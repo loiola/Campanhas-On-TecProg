@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Donor;
 
-public class DonorParseIndex extends IndicesParse<Donor> {
+public class DonorParseIndex extends ParseIndex<Donor> {
 	
 	/*
 	 * Class to control the contents of information inherent to the donors

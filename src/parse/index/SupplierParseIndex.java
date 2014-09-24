@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Supplier;
 
-public class SupplierParseIndex extends IndicesParse<Supplier> {
+public class SupplierParseIndex extends ParseIndex<Supplier> {
 	
 	/*
 	 * Class to control the contents of information inherent to the suppliers

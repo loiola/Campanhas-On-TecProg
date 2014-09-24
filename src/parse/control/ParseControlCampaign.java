@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.beans.Campaign;
 import model.dao.CampaignDAO;
 import parse.ParseException;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public class ParseControlCampaign extends ParseControl<Campaign> {
 	
@@ -14,7 +14,7 @@ public class ParseControlCampaign extends ParseControl<Campaign> {
 	 */
 
 	// Constructors
-	public ParseControlCampaign(IndicesParse<Campaign> indicesParse) {
+	public ParseControlCampaign(ParseIndex<Campaign> indicesParse) {
 		super(indicesParse, new CampaignDAO());
 	}
 

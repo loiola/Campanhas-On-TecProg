@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Position;
 
-public class PositionParseIndex extends IndicesParse<Position> {
+public class PositionParseIndex extends ParseIndex<Position> {
 	
 	/*
 	 * Class to control the contents of information inherent to the positions

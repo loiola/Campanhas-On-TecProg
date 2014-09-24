@@ -5,7 +5,7 @@ import parse.ParseException;
 import parse.control.ParseControlSupplier;
 import parse.control.ParseControl;
 import parse.index.SupplierParseIndex;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Supplier> {
 
@@ -16,7 +16,7 @@ public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Suppl
 	}
 
 	@Override
-	public ParseControl<Supplier> novaInstancia(IndicesParse<Supplier> indicesParse) {
+	public ParseControl<Supplier> novaInstancia(ParseIndex<Supplier> indicesParse) {
 		ParseControlSupplier parseControlSupplier = new ParseControlSupplier(indicesParse);
 		return parseControlSupplier;
 	}
@@ -49,17 +49,17 @@ public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Suppl
 	}
 
 	@Override
-	protected IndicesParse<Supplier> getIndicesParseReceita2002() {
+	protected ParseIndex<Supplier> getIndicesParseReceita2002() {
 		return new SupplierParseIndex();
 	}
 
 	@Override
-	protected IndicesParse<Supplier> getIndicesParseReceita2006() {
+	protected ParseIndex<Supplier> getIndicesParseReceita2006() {
 		return new SupplierParseIndex();
 	}
 
 	@Override
-	protected IndicesParse<Supplier> getIndicesParseReceita2010() {
+	protected ParseIndex<Supplier> getIndicesParseReceita2010() {
 		return new SupplierParseIndex();
 
 	}

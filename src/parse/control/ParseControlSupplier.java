@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Supplier;
 import model.dao.SupplierDAO;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public class ParseControlSupplier extends ParseControl<Supplier> {
 	
@@ -11,7 +11,7 @@ public class ParseControlSupplier extends ParseControl<Supplier> {
 	 */
 
 	// Constructors
-	public ParseControlSupplier(IndicesParse<Supplier> indicesParse) {
+	public ParseControlSupplier(ParseIndex<Supplier> indicesParse) {
 		super(indicesParse, new SupplierDAO());
 	}
 

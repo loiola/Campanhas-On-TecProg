@@ -4,7 +4,7 @@ import model.beans.Result;
 import parse.ParseException;
 import parse.control.ParseControl;
 import parse.control.ParseControlResult;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 import parse.index.ResultadoIndicesParse;
 import parse.register.CadastroParse;
 
@@ -30,13 +30,13 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	// Methods
 	
 	/*
-	 * @see parse.register.CadastroParse#novaInstancia(parse.index.IndicesParse)
+	 * @see parse.register.CadastroParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseResultControl to be used by constructor
 	 * @return a ParseResultControl
 	 */
 	@Override
 	public ParseControl<Result> novaInstancia(
-			IndicesParse<Result> indicesParse) {
+			ParseIndex<Result> indicesParse) {
 		ParseControlResult parseControlResult = new ParseControlResult(indicesParse);
 		return parseControlResult;
 	}
@@ -47,7 +47,7 @@ public class CadastroResultadoParse extends CadastroParse<Result>{
 	 * @return a ParseResultIndex
 	 */
 	@Override
-	protected IndicesParse<Result> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Result> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		ResultadoIndicesParse resultadoIndicesParse;

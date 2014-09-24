@@ -6,7 +6,7 @@ import model.beans.Party;
 import model.beans.Position;
 import model.beans.Result;
 
-public class CampaignParseIndex extends IndicesParse<Campaign> {
+public class CampaignParseIndex extends ParseIndex<Campaign> {
 
 	/*
 	 * Class to control the indices of the information inherent in electoral campaigns

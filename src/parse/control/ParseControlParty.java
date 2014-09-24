@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Party;
 import model.dao.PartyDAO;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public class ParseControlParty extends ParseControl<Party> {
 	
@@ -11,7 +11,7 @@ public class ParseControlParty extends ParseControl<Party> {
 	 */
 
 	// Constructors
-	public ParseControlParty(IndicesParse<Party> indexParse) {
+	public ParseControlParty(ParseIndex<Party> indexParse) {
 		super(indexParse, new PartyDAO());
 	}
 

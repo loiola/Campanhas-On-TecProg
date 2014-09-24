@@ -2,7 +2,7 @@ package parse.register;
 
 import parse.ParseException;
 import parse.control.ParseControl;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public abstract class CadastroParse<O> {
 	
@@ -15,7 +15,7 @@ public abstract class CadastroParse<O> {
 	// Attributes
 	protected int linhasLidas;
 	protected int linhasParaFazerCadastro;
-	protected IndicesParse<O> indicesParse;
+	protected ParseIndex<O> parseIndex;
 	protected ParseControl<O> parseControl;
 	
 	// Constructor
@@ -31,8 +31,8 @@ public abstract class CadastroParse<O> {
 		this.linhasLidas = 0;
 		this.linhasParaFazerCadastro = 1500;
 		
-		this.indicesParse = getIndicesParse(tipoArquivo, ano);
-		this.parseControl = novaInstancia(this.indicesParse);
+		this.parseIndex = getIndicesParse(tipoArquivo, ano);
+		this.parseControl = novaInstancia(this.parseIndex);
 	}
 	
 	// Methods
@@ -64,7 +64,7 @@ public abstract class CadastroParse<O> {
 	 * @param a ParseIndex who'll be used by the ParseControl constructor
 	 * @return a ParseControl object
 	 */
-	public abstract ParseControl<O> novaInstancia(IndicesParse<O> indicesParse);
+	public abstract ParseControl<O> novaInstancia(ParseIndex<O> indicesParse);
 	
 	/*
 	 * Abstract method who'll be used by children classes to return a ParseIndex
@@ -73,7 +73,7 @@ public abstract class CadastroParse<O> {
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 * @return a ParseIndex object
 	 */
-	protected abstract IndicesParse<O> getIndicesParse(String tipoArquivo, String ano) throws ParseException;
+	protected abstract ParseIndex<O> getIndicesParse(String tipoArquivo, String ano) throws ParseException;
 
 	/*
 	 * This method return the limit of lines to register

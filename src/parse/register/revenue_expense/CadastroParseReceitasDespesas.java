@@ -1,7 +1,7 @@
 package parse.register.revenue_expense;
 
 import parse.ParseException;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 import parse.register.CadastroParse;
 
 public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> {
@@ -19,7 +19,7 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 	}
 
 	@Override
-	protected IndicesParse<O> getIndicesParse(String tipoArquivo, String ano)
+	protected ParseIndex<O> getIndicesParse(String tipoArquivo, String ano)
 			throws ParseException {
 		if(tipoArquivo.equals(EXPENSE)) {
 			return getIndicesParseDespesa(ano);
@@ -30,15 +30,15 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 		throw new ParseException("Tipo do Arquivo está invalido!");
 	}
 	
-	protected abstract IndicesParse<O> getIndicesParseDespesa2002();
-	protected abstract IndicesParse<O> getIndicesParseDespesa2006();
-	protected abstract IndicesParse<O> getIndicesParseDespesa2010();
+	protected abstract ParseIndex<O> getIndicesParseDespesa2002();
+	protected abstract ParseIndex<O> getIndicesParseDespesa2006();
+	protected abstract ParseIndex<O> getIndicesParseDespesa2010();
 
-	protected abstract IndicesParse<O> getIndicesParseReceita2002();
-	protected abstract IndicesParse<O> getIndicesParseReceita2006();
-	protected abstract IndicesParse<O> getIndicesParseReceita2010();
+	protected abstract ParseIndex<O> getIndicesParseReceita2002();
+	protected abstract ParseIndex<O> getIndicesParseReceita2006();
+	protected abstract ParseIndex<O> getIndicesParseReceita2010();
 
-	private IndicesParse<O> getIndicesParseDespesa(String ano) throws ParseException {
+	private ParseIndex<O> getIndicesParseDespesa(String ano) throws ParseException {
 		switch (ano) {
 		case YEAR_2002:
 			return getIndicesParseDespesa2002();
@@ -50,7 +50,7 @@ public abstract class CadastroParseReceitasDespesas<O> extends CadastroParse<O> 
 		throw new ParseException("Ano do arquivo está invalido!");
 	}
 	
-	private IndicesParse<O> getIndicesParseReceita(String ano) throws ParseException {
+	private ParseIndex<O> getIndicesParseReceita(String ano) throws ParseException {
 		switch (ano) {
 		case YEAR_2002:
 			return getIndicesParseReceita2002();

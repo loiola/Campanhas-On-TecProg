@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Candidate;
 
-public class CandidateParseIndex extends IndicesParse<Candidate> {
+public class CandidateParseIndex extends ParseIndex<Candidate> {
 	
 	/*
 	 * Class to control the contents of information inherent to the candidates

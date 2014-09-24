@@ -4,7 +4,7 @@ import model.beans.Campaign;
 import model.beans.FinancialTransaction;
 import model.beans.Position;
 
-public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
+public class MovimentacaoFinanceiraIndicesParse<O> extends ParseIndex<O> {
 	
 	/*
 	 * Class to control the contents of information inherent to the financial transactions

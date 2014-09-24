@@ -2,7 +2,7 @@ package parse.index;
 
 import model.beans.Result;
 
-public class ResultadoIndicesParse extends IndicesParse<Result> {
+public class ResultadoIndicesParse extends ParseIndex<Result> {
 	
 	/*
 	 * Class to control the contents of information inherent to the results

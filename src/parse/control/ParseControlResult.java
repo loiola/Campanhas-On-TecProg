@@ -2,7 +2,7 @@ package parse.control;
 
 import model.beans.Result;
 import model.dao.ResultDAO;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public class ParseControlResult extends ParseControl<Result> {
 	
@@ -11,7 +11,7 @@ public class ParseControlResult extends ParseControl<Result> {
 	 */
 
 	// Constructors
-	public ParseControlResult(IndicesParse<Result> indexParse) {
+	public ParseControlResult(ParseIndex<Result> indexParse) {
 		super(indexParse, new ResultDAO());
 	}
 

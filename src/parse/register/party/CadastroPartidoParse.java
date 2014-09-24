@@ -3,7 +3,7 @@ package parse.register.party;
 import parse.ParseException;
 import parse.control.ParseControl;
 import parse.control.ParseControlParty;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 import parse.index.PartidoIndicesParse;
 import parse.register.CadastroParse;
 import model.beans.Party;
@@ -22,12 +22,12 @@ public class CadastroPartidoParse extends CadastroParse<Party> {
 
 	/*
 	 * This method formalizes the instance index to be used
-	 * @param an instance of class IndicesParse<Party>
+	 * @param an instance of class ParseIndex<Party>
 	 * @return an instance of class PartyParseControl
 	 */
 	@Override
 	public ParseControl<Party> novaInstancia(
-			IndicesParse<Party> indicesParse) {
+			ParseIndex<Party> indicesParse) {
 		ParseControlParty parseControlParty;
 		parseControlParty = new ParseControlParty(indicesParse);
 		return parseControlParty;
@@ -41,7 +41,7 @@ public class CadastroPartidoParse extends CadastroParse<Party> {
 	 * @return an instance of class PartyIndicesParse
 	 */
 	@Override
-	protected IndicesParse<Party> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Party> getIndicesParse(String tipoArquivo,
 			String ano) throws ParseException {
 		PartidoIndicesParse partidoIndicesParse;
 		partidoIndicesParse = new PartidoIndicesParse();

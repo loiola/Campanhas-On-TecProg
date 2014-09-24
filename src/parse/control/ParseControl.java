@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import parse.ParseDAO;
 import parse.ParseException;
-import parse.index.IndicesParse;
+import parse.index.ParseIndex;
 
 public abstract class ParseControl<O> {
 	
@@ -15,11 +15,11 @@ public abstract class ParseControl<O> {
 	// Attributes
 	private O emptyObject;
 	private ParseDAO<O> basicDAO;
-	private IndicesParse<O> indexParse;
+	private ParseIndex<O> indexParse;
 	protected ArrayList<O> listInstance;
 	
 	// Constructors
-	public ParseControl(IndicesParse<O> indexParse, ParseDAO<O> basicDAO) {
+	public ParseControl(ParseIndex<O> indexParse, ParseDAO<O> basicDAO) {
 		this.listInstance = new ArrayList<>();
 
 		this.basicDAO = basicDAO;
