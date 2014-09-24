@@ -57,9 +57,9 @@ public class DespesaParseControleTeste extends TemplateTeste {
 
 	private void iniciarIndices() {
 
-		this.expenseParseIndex.setIndiceFornecedorNome(NOME);
-		this.expenseParseIndex.setIndiceFornecedorCpfCnpj(CPF_CNPJ);
-		this.expenseParseIndex.setIndiceTipoDocumento(TIPODOCUMENTO);
+		this.expenseParseIndex.setIndexNameSupplier(NOME);
+		this.expenseParseIndex.setIndexCpfCnpjSupplier(CPF_CNPJ);
+		this.expenseParseIndex.setIndexDocumentType(TIPODOCUMENTO);
 	}
 
 	private void iniciarCampos() {

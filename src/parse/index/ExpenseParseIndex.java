@@ -10,16 +10,16 @@ public class ExpenseParseIndex extends MovimentacaoFinanceiraIndicesParse<Expens
 	 */
 
 	// Attributes
-	private int indiceFornecedorNome;
-	private int indiceFornecedorCpfCnpj;
-	private int indiceTipoDocumento;
+	private int indexNameSupplier;
+	private int indexCpfCnpjSupplier;
+	private int indexDocumentType;
 	
 	// Constructors
-	public ExpenseParseIndex(String ano) {
-		super(ano);
-		this.indiceFornecedorNome = INDICE_INVALIDO;
-		this.indiceFornecedorCpfCnpj = INDICE_INVALIDO;
-		this.indiceTipoDocumento = INDICE_INVALIDO;
+	public ExpenseParseIndex(String year) {
+		super(year);
+		this.indexNameSupplier = INVALID_INDEX;
+		this.indexCpfCnpjSupplier = INVALID_INDEX;
+		this.indexDocumentType = INVALID_INDEX;
 	}
 	
 	/*
@@ -28,18 +28,18 @@ public class ExpenseParseIndex extends MovimentacaoFinanceiraIndicesParse<Expens
 	 * @param an array of strings
 	 */
 	@Override
-	protected void setValidIndex(Expense expense, String[] campo) {
-		super.setValidIndex(expense, campo);
+	protected void setValidIndex(Expense expense, String[] field) {
+		super.setValidIndex(expense, field);
 		Supplier supplier = new Supplier();
 
-		if(validIndex(this.indiceFornecedorNome)) {
-			supplier.setSupplierName(campo[this.indiceFornecedorNome]);
+		if(validIndex(this.indexNameSupplier)) {
+			supplier.setSupplierName(field[this.indexNameSupplier]);
 		}
-		if(validIndex(this.indiceFornecedorCpfCnpj)) {
-			supplier.setSupplierPersonRegister(campo[this.indiceFornecedorCpfCnpj]);
+		if(validIndex(this.indexCpfCnpjSupplier)) {
+			supplier.setSupplierPersonRegister(field[this.indexCpfCnpjSupplier]);
 		}
-		if(validIndex(this.indiceTipoDocumento)) {
-			expense.setExpenseDocumentType(campo[this.indiceTipoDocumento]);
+		if(validIndex(this.indexDocumentType)) {
+			expense.setExpenseDocumentType(field[this.indexDocumentType]);
 		}
 		expense.setExpenseSupplier(supplier);
 
@@ -57,16 +57,16 @@ public class ExpenseParseIndex extends MovimentacaoFinanceiraIndicesParse<Expens
 	}
 	
 	// Mutators for indexes of the array of fields
-	public void setIndiceFornecedorNome(int indiceFornecedorNome) {
-		this.indiceFornecedorNome = indiceFornecedorNome;
+	public void setIndexNameSupplier(int indexNameSupplier) {
+		this.indexNameSupplier = indexNameSupplier;
 	}
 	
-	public void setIndiceFornecedorCpfCnpj(int indiceFornecedorCpfCnpj) {
-		this.indiceFornecedorCpfCnpj = indiceFornecedorCpfCnpj;
+	public void setIndexCpfCnpjSupplier(int indexCpfCnpjSupplier) {
+		this.indexCpfCnpjSupplier = indexCpfCnpjSupplier;
 	}
 
-	public void setIndiceTipoDocumento(int indiceTipoDocumento) {
-		this.indiceTipoDocumento = indiceTipoDocumento;
+	public void setIndexDocumentType(int indexDocumentType) {
+		this.indexDocumentType = indexDocumentType;
 	}
 	
 }

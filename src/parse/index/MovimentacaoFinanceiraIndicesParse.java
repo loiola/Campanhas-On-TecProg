@@ -11,7 +11,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 */
 
 	// Constants
-	public static final int INDICE_INVALIDO = -1;
+	public static final int INVALID_INDEX = -1;
 
 	// Attributes
 	private Integer ano;
@@ -29,16 +29,16 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	// Constructors
 	public MovimentacaoFinanceiraIndicesParse(String ano) {
 		this.ano = Integer.valueOf(ano);
-		this.indiceCampanhaAno = INDICE_INVALIDO;
-		this.indiceCampanhaNumero = INDICE_INVALIDO;
-		this.indiceCampanhaCargo = INDICE_INVALIDO;
-		this.indiceCampanhaUf = INDICE_INVALIDO;
-		this.indiceNumeroDocumento = INDICE_INVALIDO;
-		this.indiceData = INDICE_INVALIDO;
-		this.indiceValor = INDICE_INVALIDO;
-		this.indiceTipoMovimentacao = INDICE_INVALIDO;
-		this.indiceFormaPagamento = INDICE_INVALIDO;
-		this.indiceDescricao = INDICE_INVALIDO;
+		this.indiceCampanhaAno = INVALID_INDEX;
+		this.indiceCampanhaNumero = INVALID_INDEX;
+		this.indiceCampanhaCargo = INVALID_INDEX;
+		this.indiceCampanhaUf = INVALID_INDEX;
+		this.indiceNumeroDocumento = INVALID_INDEX;
+		this.indiceData = INVALID_INDEX;
+		this.indiceValor = INVALID_INDEX;
+		this.indiceTipoMovimentacao = INVALID_INDEX;
+		this.indiceFormaPagamento = INVALID_INDEX;
+		this.indiceDescricao = INVALID_INDEX;
 	}
 	
 	/*
@@ -113,7 +113,7 @@ public class MovimentacaoFinanceiraIndicesParse<O> extends IndicesParse<O> {
 	 * @return a Boolean value
 	 */
 	protected boolean validIndex(int indice) {
-		return indice > INDICE_INVALIDO;
+		return indice > INVALID_INDEX;
 	}
 
 	// Mutators for indexes of the array of fields

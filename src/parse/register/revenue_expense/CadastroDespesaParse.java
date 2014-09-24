@@ -53,8 +53,8 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 		expenseParseIndex.setIndiceCampanhaCargo(2);
 		expenseParseIndex.setIndiceTipoMovimentacao(10);
 		expenseParseIndex.setIndiceData(5);
-		expenseParseIndex.setIndiceFornecedorCpfCnpj(6);
-		expenseParseIndex.setIndiceFornecedorNome(8);
+		expenseParseIndex.setIndexCpfCnpjSupplier(6);
+		expenseParseIndex.setIndexNameSupplier(8);
 		expenseParseIndex.setIndiceValor(9);	
 		return expenseParseIndex;
 	}
@@ -72,12 +72,12 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 		expenseParseIndex.setIndiceCampanhaNumero(3);
 		expenseParseIndex.setIndiceCampanhaCargo(1);
 		expenseParseIndex.setIndiceTipoMovimentacao(11);
-		expenseParseIndex.setIndiceTipoDocumento(16);
+		expenseParseIndex.setIndexDocumentType(16);
 		expenseParseIndex.setIndiceFormaPagamento(13);
 		expenseParseIndex.setIndiceNumeroDocumento(15);
 		expenseParseIndex.setIndiceData(10);
-		expenseParseIndex.setIndiceFornecedorCpfCnpj(19);
-		expenseParseIndex.setIndiceFornecedorCpfCnpj(18);
+		expenseParseIndex.setIndexCpfCnpjSupplier(19);
+		expenseParseIndex.setIndexCpfCnpjSupplier(18);
 		expenseParseIndex.setIndiceValor(9);	
 		return expenseParseIndex;
 
@@ -96,12 +96,12 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 		expenseParseIndex.setIndiceCampanhaNumero(3);
 		expenseParseIndex.setIndiceCampanhaCargo(4);
 		expenseParseIndex.setIndiceTipoMovimentacao(14);
-		expenseParseIndex.setIndiceTipoDocumento(8);
+		expenseParseIndex.setIndexDocumentType(8);
 		expenseParseIndex.setIndiceFormaPagamento(16);
 		expenseParseIndex.setIndiceNumeroDocumento(9);
 		expenseParseIndex.setIndiceData(12);
-		expenseParseIndex.setIndiceFornecedorCpfCnpj(10);
-		expenseParseIndex.setIndiceFornecedorNome(11);
+		expenseParseIndex.setIndexCpfCnpjSupplier(10);
+		expenseParseIndex.setIndexNameSupplier(11);
 		expenseParseIndex.setIndiceValor(13);	
 		expenseParseIndex.setIndiceDescricao(17);
 		return expenseParseIndex;

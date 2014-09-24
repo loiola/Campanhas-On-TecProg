@@ -53,9 +53,9 @@ public class DespesaIndicesParseTeste {
 	
 	private void iniciarIndices() {
 		
-		this.expenseParseIndex.setIndiceFornecedorNome(0);
-		this.expenseParseIndex.setIndiceFornecedorCpfCnpj(1);
-		this.expenseParseIndex.setIndiceTipoDocumento(2);
+		this.expenseParseIndex.setIndexNameSupplier(0);
+		this.expenseParseIndex.setIndexCpfCnpjSupplier(1);
+		this.expenseParseIndex.setIndexDocumentType(2);
 	}
 	
 	private void iniciarCampos() {

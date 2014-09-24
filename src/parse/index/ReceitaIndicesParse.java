@@ -17,9 +17,9 @@ public class ReceitaIndicesParse extends MovimentacaoFinanceiraIndicesParse<Reve
 	// Constructors
 	public ReceitaIndicesParse(String ano) {
 		super(ano);
-		this.indiceReciboEleitoral = INDICE_INVALIDO;
-		this.indiceDoadorNome = INDICE_INVALIDO;
-		this.indiceDoadorCpfCnpj = INDICE_INVALIDO; 
+		this.indiceReciboEleitoral = INVALID_INDEX;
+		this.indiceDoadorNome = INVALID_INDEX;
+		this.indiceDoadorCpfCnpj = INVALID_INDEX; 
 
 	}
 	
