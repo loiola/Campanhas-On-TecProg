@@ -34,7 +34,7 @@ public class CadastroReceitaParse extends CadastroParseReceitasDespesas<Revenue>
 	 * @return a ParseRevenueControl
 	 */
 	@Override
-	public ParseControl<Revenue> novaInstancia(
+	public ParseControl<Revenue> newIntance(
 			ParseIndex<Revenue> indicesParse) {
 		return new ParseControlRevenue(indicesParse);
 	}

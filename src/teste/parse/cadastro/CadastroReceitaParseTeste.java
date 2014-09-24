@@ -54,8 +54,8 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		campo[6] = "1234";
 		campo[8] = "NomeDoador";
 		campo[9] = "12345";
-		cadastro1.executarLinhaDoArquivo(campo);
-		cadastro1.cadastrarInstancias();
+		cadastro1.runFileLine(campo);
+		cadastro1.registerInstances();
 		
 		ArrayList<Revenue> listaReceita = revenueDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "1234");	
@@ -74,8 +74,8 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		campo[16] = "1234";
 		campo[15] = "NomeDoador";
 		campo[9] = "12345";
-		cadastro2.executarLinhaDoArquivo(campo);
-		cadastro2.cadastrarInstancias();
+		cadastro2.runFileLine(campo);
+		cadastro2.registerInstances();
 		
 		ArrayList<Revenue> listaReceita = revenueDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "1234");
@@ -97,8 +97,8 @@ public class CadastroReceitaParseTeste extends TemplateTeste {
 		campo[11] = "NomeDoador";
 		campo[13] = "12345";
 		campo[17] = "DescricaoDoa";
-		cadastro3.executarLinhaDoArquivo(campo);
-		cadastro3.cadastrarInstancias();
+		cadastro3.runFileLine(campo);
+		cadastro3.registerInstances();
 		
 		ArrayList<Revenue> listaReceita = revenueDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaReceita.get(0).getRevenueDonor().getDonorPersonRegister(), "12345");

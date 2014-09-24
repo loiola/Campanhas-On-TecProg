@@ -47,8 +47,8 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		campo[15] = "NOME";
 		campo[17] = "UF";
 		campo[18] = "SITUACAO";		
-		cadastro1.executarLinhaDoArquivo(campo);
-		cadastro1.cadastrarInstancias();
+		cadastro1.runFileLine(campo);
+		cadastro1.registerInstances();
 		
 		ArrayList<Donor> listaDoadores = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "123");
@@ -61,8 +61,8 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		campo[6] = "12345";
 		campo[8] = "NOME NOME";
 		campo[7] = "UF UF";	
-		cadastro2.executarLinhaDoArquivo(campo);
-		cadastro2.cadastrarInstancias();
+		cadastro2.runFileLine(campo);
+		cadastro2.registerInstances();
 		
 		ArrayList<Donor> listaDoadores = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");
@@ -74,8 +74,8 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[10] = "12345";
 		campo[11] = "NOME NOME";
-		cadastro3.executarLinhaDoArquivo(campo);
-		cadastro3.cadastrarInstancias();
+		cadastro3.runFileLine(campo);
+		cadastro3.registerInstances();
 		
 		ArrayList<Donor> listaDoadores = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDoadores.get(0).getDonorPersonRegister(), "12345");

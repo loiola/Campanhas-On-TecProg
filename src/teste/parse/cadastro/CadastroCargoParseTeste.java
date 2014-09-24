@@ -38,8 +38,8 @@ public class CadastroCargoParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[8] = "1";
 		campo[9] = "CARGO TESTE";
-		cadastro.executarLinhaDoArquivo(campo);
-		cadastro.cadastrarInstancias();
+		cadastro.runFileLine(campo);
+		cadastro.registerInstances();
 		
 		Position position = this.positionDAO.getPositionByCode(1);
 		assertEquals(position.getPositionCode().toString(), "1");

@@ -38,8 +38,8 @@ public class CadastroCandidatoParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[10] = "CANDIDATO TESTE";
 		campo[26] = "55325424149";
-		cadastro.executarLinhaDoArquivo(campo);
-		cadastro.cadastrarInstancias();
+		cadastro.runFileLine(campo);
+		cadastro.registerInstances();
 		
 		Candidate candidate = this.candidateDAO.getCandidateByElectoralTitle("55325424149");
 		assertEquals(candidate.getCandidateElectoralTitle(), "55325424149");

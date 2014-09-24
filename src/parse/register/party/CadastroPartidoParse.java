@@ -26,7 +26,7 @@ public class CadastroPartidoParse extends RegisterParse<Party> {
 	 * @return an instance of class PartyParseControl
 	 */
 	@Override
-	public ParseControl<Party> novaInstancia(
+	public ParseControl<Party> newIntance(
 			ParseIndex<Party> indicesParse) {
 		ParseControlParty parseControlParty;
 		parseControlParty = new ParseControlParty(indicesParse);
@@ -41,7 +41,7 @@ public class CadastroPartidoParse extends RegisterParse<Party> {
 	 * @return an instance of class PartyIndicesParse
 	 */
 	@Override
-	protected ParseIndex<Party> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Party> getParseIndex(String tipoArquivo,
 			String ano) throws ParseException {
 		PartyParseIndex partyParseIndex;
 		partyParseIndex = new PartyParseIndex();

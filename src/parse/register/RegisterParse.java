@@ -13,8 +13,8 @@ public abstract class RegisterParse<O> {
 	 */
 
 	// Attributes
-	protected int linhasLidas;
-	protected int linhasParaFazerCadastro;
+	protected int linesRead;
+	protected int linesToRegister;
 	protected ParseIndex<O> parseIndex;
 	protected ParseControl<O> parseControl;
 	
@@ -27,12 +27,12 @@ public abstract class RegisterParse<O> {
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterParse(String tipoArquivo, String ano) throws ParseException {
-		this.linhasLidas = 0;
-		this.linhasParaFazerCadastro = 1500;
+	public RegisterParse(String fileType, String yearOfCampaign) throws ParseException {
+		this.linesRead = 0;
+		this.linesToRegister = 1500;
 		
-		this.parseIndex = getIndicesParse(tipoArquivo, ano);
-		this.parseControl = novaInstancia(this.parseIndex);
+		this.parseIndex = getParseIndex(fileType, yearOfCampaign);
+		this.parseControl = newIntance(this.parseIndex);
 	}
 	
 	// Methods
@@ -41,21 +41,21 @@ public abstract class RegisterParse<O> {
 	 * This method read a line of the file based on fields
 	 * @param vector of Strings
 	 */
-	public void executarLinhaDoArquivo(String campo[]) throws ParseException {
-		this.parseControl.addInstance(campo);
-		this.linhasLidas++;
-		if(this.linhasLidas >= this.linhasParaFazerCadastro) {
-			cadastrarInstancias();
+	public void runFileLine(String field[]) throws ParseException {
+		this.parseControl.addInstance(field);
+		this.linesRead++;
+		if(this.linesRead >= this.linesToRegister) {
+			registerInstances();
 		}
 	}
 	
 	/*
 	 * This method register instances stored in an Array List on ParseControl attribute
 	 */
-	public void cadastrarInstancias() throws ParseException {
+	public void registerInstances() throws ParseException {
 		this.parseControl.registeringInstances();
 		this.parseControl.clear();
-		this.linhasLidas = 0;
+		this.linesRead = 0;
 	}
 	
 	/*
@@ -64,7 +64,7 @@ public abstract class RegisterParse<O> {
 	 * @param a ParseIndex who'll be used by the ParseControl constructor
 	 * @return a ParseControl object
 	 */
-	public abstract ParseControl<O> novaInstancia(ParseIndex<O> indicesParse);
+	public abstract ParseControl<O> newIntance(ParseIndex<O> parseIndex);
 	
 	/*
 	 * Abstract method who'll be used by children classes to return a ParseIndex
@@ -73,22 +73,22 @@ public abstract class RegisterParse<O> {
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 * @return a ParseIndex object
 	 */
-	protected abstract ParseIndex<O> getIndicesParse(String tipoArquivo, String ano) throws ParseException;
+	protected abstract ParseIndex<O> getParseIndex(String fileType, String yearOfCampaign) throws ParseException;
 
 	/*
 	 * This method return the limit of lines to register
 	 * @return an Integer object value
 	 */
-	public int getLinhasParaFazerCadastro() {
-		return linhasParaFazerCadastro;
+	public int getlinesToRegister() {
+		return linesToRegister;
 	}
 
 	/*
 	 * This method set a new limit of lines to register
 	 * @param an Integer object value
 	 */
-	public void setLinhasParaFazerCadastro(int linhasParaFazerCadastro) {
-		this.linhasParaFazerCadastro = linhasParaFazerCadastro;
+	public void setlinesToRegister(int linesToRegister) {
+		this.linesToRegister = linesToRegister;
 	}
 	
 }

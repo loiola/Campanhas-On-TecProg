@@ -16,7 +16,7 @@ public class CadastroDoadorParse extends CadastroParseReceitasDespesas<Donor> {
 	}
 
 	@Override
-	public ParseControl<Donor> novaInstancia(ParseIndex<Donor> indicesParse) {
+	public ParseControl<Donor> newIntance(ParseIndex<Donor> indicesParse) {
 		ParseControlDonor parseControlDonor = new ParseControlDonor(indicesParse);
 		return parseControlDonor;
 	}

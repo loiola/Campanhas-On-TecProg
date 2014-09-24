@@ -16,7 +16,7 @@ public class CadastroFornecedorParse extends CadastroParseReceitasDespesas<Suppl
 	}
 
 	@Override
-	public ParseControl<Supplier> novaInstancia(ParseIndex<Supplier> indicesParse) {
+	public ParseControl<Supplier> newIntance(ParseIndex<Supplier> indicesParse) {
 		ParseControlSupplier parseControlSupplier = new ParseControlSupplier(indicesParse);
 		return parseControlSupplier;
 	}

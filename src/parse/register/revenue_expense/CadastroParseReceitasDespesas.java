@@ -19,7 +19,7 @@ public abstract class CadastroParseReceitasDespesas<O> extends RegisterParse<O> 
 	}
 
 	@Override
-	protected ParseIndex<O> getIndicesParse(String tipoArquivo, String ano)
+	protected ParseIndex<O> getParseIndex(String tipoArquivo, String ano)
 			throws ParseException {
 		if(tipoArquivo.equals(EXPENSE)) {
 			return getIndicesParseDespesa(ano);

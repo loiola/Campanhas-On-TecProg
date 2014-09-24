@@ -56,8 +56,8 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		campo[19] = "12345";
 		campo[18] = "123456";
 		campo[9] = "1234567";
-		cadastro1.executarLinhaDoArquivo(campo);
-		cadastro1.cadastrarInstancias();
+		cadastro1.runFileLine(campo);
+		cadastro1.registerInstances();
 		
 		ArrayList<Expense> listaDespesa = expenseDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
@@ -75,8 +75,8 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		campo[6] = "1234";
 		campo[8] = "FornecedorNome";
 		campo[9] = "12345";
-		cadastro2.executarLinhaDoArquivo(campo);
-		cadastro2.cadastrarInstancias();
+		cadastro2.runFileLine(campo);
+		cadastro2.registerInstances();
 		
 		ArrayList<Expense> listaDespesa = expenseDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");
@@ -99,8 +99,8 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 		campo[13] = "123456";
 		campo[17] = "Descricao";
 		
-		cadastro3.executarLinhaDoArquivo(campo);
-		cadastro3.cadastrarInstancias();
+		cadastro3.runFileLine(campo);
+		cadastro3.registerInstances();
 		
 		ArrayList<Expense> listaDespesa = expenseDAO.getObjectArrayListFromDatabase();
 		assertEquals(listaDespesa.get(0).getFinancialTransactionType(), "TipoMov");

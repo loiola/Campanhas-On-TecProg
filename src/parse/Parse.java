@@ -34,7 +34,7 @@ public abstract class Parse implements ExecutorLeitorCSVObservador {
 	public void executarMetodoPorLinhaDoArquivo(String[] campo) {
 		try {
 			for(RegisterParse<?> cadastroParse : this.listaCadastrosParse) {
-				cadastroParse.executarLinhaDoArquivo(campo);
+				cadastroParse.runFileLine(campo);
 			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -43,7 +43,7 @@ public abstract class Parse implements ExecutorLeitorCSVObservador {
 	
 	private void finalizarCadastros() throws ParseException {
 		for(RegisterParse<?> cadastroParse : this.listaCadastrosParse) {
-			cadastroParse.cadastrarInstancias();
+			cadastroParse.registerInstances();
 		}
 	}
 

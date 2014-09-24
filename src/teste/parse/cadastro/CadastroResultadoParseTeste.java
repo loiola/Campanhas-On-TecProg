@@ -38,8 +38,8 @@ public class CadastroResultadoParseTeste extends TemplateTeste {
 		String campo[] = new String[50];
 		campo[40] = "25";
 		campo[41] = "Result 25";
-		cadastro.executarLinhaDoArquivo(campo);
-		cadastro.cadastrarInstancias();
+		cadastro.runFileLine(campo);
+		cadastro.registerInstances();
 		
 		Result result = dao.getResultByCode(25);
 		assertEquals(result.getResultDescription(), "Result 25");

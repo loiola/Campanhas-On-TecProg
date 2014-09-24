@@ -38,8 +38,8 @@ public class CadastroCampanhaParseTeste extends TemplateTeste {
 		campo[16] = "45";
 		campo[40] = "2";
 		campo[39] = "450000.0";
-		cadastro.executarLinhaDoArquivo(campo);
-		cadastro.cadastrarInstancias();
+		cadastro.runFileLine(campo);
+		cadastro.registerInstances();
 	}
 
 }

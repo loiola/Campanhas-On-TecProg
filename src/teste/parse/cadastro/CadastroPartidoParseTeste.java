@@ -48,8 +48,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		campo[1] = "Sigla";
 		campo[5] = "123";
 		campo[3] = "1234";
-		cadastro1.executarLinhaDoArquivo(campo);
-		cadastro1.cadastrarInstancias();
+		cadastro1.runFileLine(campo);
+		cadastro1.registerInstances();
 		
 		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
@@ -65,8 +65,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		campo[18] = "Nome";
 		campo[17] = "Sigla";
 		campo[16] = "123";
-		cadastro2.executarLinhaDoArquivo(campo);
-		cadastro2.cadastrarInstancias();
+		cadastro2.runFileLine(campo);
+		cadastro2.registerInstances();
 		
 		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
@@ -82,8 +82,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		campo[1] = "Sigla";
 		campo[5] = "123";
 		campo[3] = "1234";
-		cadastro1.executarLinhaDoArquivo(campo);
-		cadastro1.cadastrarInstancias();
+		cadastro1.runFileLine(campo);
+		cadastro1.registerInstances();
 		
 		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
@@ -98,8 +98,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		campo[18] = "Nome";
 		campo[17] = "Sigla";
 		campo[16] = "123";
-		cadastro2.executarLinhaDoArquivo(campo);
-		cadastro2.cadastrarInstancias();
+		cadastro2.runFileLine(campo);
+		cadastro2.registerInstances();
 		
 		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
@@ -115,8 +115,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		campo[1] = "Sigla";
 		campo[5] = "123";
 		campo[3] = "1234";
-		cadastro1.executarLinhaDoArquivo(campo);
-		cadastro1.cadastrarInstancias();
+		cadastro1.runFileLine(campo);
+		cadastro1.registerInstances();
 		
 		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
@@ -131,8 +131,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 		campo[18] = "Nome";
 		campo[17] = "Sigla";
 		campo[16] = "123";
-		cadastro2.executarLinhaDoArquivo(campo);
-		cadastro2.cadastrarInstancias();
+		cadastro2.runFileLine(campo);
+		cadastro2.registerInstances();
 		
 		Party party = this.partyDAO.getPartyByNumber("123");
 		assertEquals(party.getPartyNumber().toString(), "123");
@@ -142,8 +142,8 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	public void deveRetornarUmPartidoIndicesParseVazioQuandoPassadoUmArquivoComNomeInvalido() throws ParseException, SQLException {
 		
 		String campo[] = new String[50];
-		cadastro3.executarLinhaDoArquivo(campo);
-		cadastro3.cadastrarInstancias();
+		cadastro3.runFileLine(campo);
+		cadastro3.registerInstances();
 	}
 
 }

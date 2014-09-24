@@ -26,7 +26,7 @@ public class CadastroCampanhaParse extends RegisterParse<Campaign> {
 			throws ParseException {
 		super(tipoArquivo, ano);
 		
-		setLinhasParaFazerCadastro(100000);
+		setlinesToRegister(100000);
 	}
 
 	// Methods
@@ -37,7 +37,7 @@ public class CadastroCampanhaParse extends RegisterParse<Campaign> {
 	 * @return a ParseCampaignControl
 	 */
 	@Override
-	public ParseControl<Campaign> novaInstancia(
+	public ParseControl<Campaign> newIntance(
 			ParseIndex<Campaign> indicesParse) {
 		ParseControlCampaign parseControlCampaign = new ParseControlCampaign(indicesParse);	
 		return parseControlCampaign;
@@ -49,7 +49,7 @@ public class CadastroCampanhaParse extends RegisterParse<Campaign> {
 	 * @return a ParseCampaignIndex
 	 */
 	@Override
-	protected ParseIndex<Campaign> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Campaign> getParseIndex(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		CampaignParseIndex campaignParseIndex;
@@ -72,11 +72,11 @@ public class CadastroCampanhaParse extends RegisterParse<Campaign> {
 	 * @see parse.register.RegisterParse#executarLinhaDoArquivo(java.lang.String[])
 	 */
 	@Override
-	public void executarLinhaDoArquivo(String[] campo) throws ParseException {
+	public void runFileLine(String[] campo) throws ParseException {
 		this.parseControl.addEqualInstance(campo);
-		this.linhasLidas++;
-		if(this.linhasLidas >= this.linhasParaFazerCadastro) {
-			cadastrarInstancias();
+		this.linesRead++;
+		if(this.linesRead >= this.linesToRegister) {
+			registerInstances();
 		}
 	}
 

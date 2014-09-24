@@ -35,7 +35,7 @@ public class CadastroCargoParse extends RegisterParse<Position> {
 	 * @return a ParsePositionControl
 	 */
 	@Override
-	public ParseControl<Position> novaInstancia(
+	public ParseControl<Position> newIntance(
 			ParseIndex<Position> indicesParse) {
 		ParseControlPosition parseControlPosition = new ParseControlPosition(indicesParse);
 		return parseControlPosition;
@@ -47,7 +47,7 @@ public class CadastroCargoParse extends RegisterParse<Position> {
 	 * @return a ParsePositionIndex
 	 */
 	@Override
-	protected ParseIndex<Position> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Position> getParseIndex(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		PositionParseIndex positionParseIndex;

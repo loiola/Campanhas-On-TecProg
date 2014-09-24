@@ -35,7 +35,7 @@ public class CadastroResultadoParse extends RegisterParse<Result>{
 	 * @return a ParseResultControl
 	 */
 	@Override
-	public ParseControl<Result> novaInstancia(
+	public ParseControl<Result> newIntance(
 			ParseIndex<Result> indicesParse) {
 		ParseControlResult parseControlResult = new ParseControlResult(indicesParse);
 		return parseControlResult;
@@ -47,7 +47,7 @@ public class CadastroResultadoParse extends RegisterParse<Result>{
 	 * @return a ParseResultIndex
 	 */
 	@Override
-	protected ParseIndex<Result> getIndicesParse(String tipoArquivo,
+	protected ParseIndex<Result> getParseIndex(String tipoArquivo,
 			String ano) throws ParseException {
 		
 		ResultParseIndex resultParseIndex;
