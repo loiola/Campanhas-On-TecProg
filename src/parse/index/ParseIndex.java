@@ -19,30 +19,30 @@ public abstract class ParseIndex<O> {
 	 * @param an instance of any class
 	 * @param an array of strings
 	 */
-	public void startInstance(O objeto, String campo[]) {
-		reiniciarInstancia(objeto);
-		setValidIndex(objeto, campo);
+	public void startInstance(O object, String field[]) {
+		restartInstance(object);
+		setValidIndex(object, field);
 	}
 	
 	/*
 	 * This method ensures the boot empty content for attributes
 	 * @param an instance of any class
 	 */
-	private void reiniciarInstancia(O objeto) {
-		setEmptyInAllSetters(objeto);
+	private void restartInstance(O object) {
+		setEmptyInAllSetters(object);
 	}	
 	
 	// Signature of abstract methods
-	protected abstract void setValidIndex(O objeto, String campo[]);
-	protected abstract void setEmptyInAllSetters(O objeto);
+	protected abstract void setValidIndex(O object, String field[]);
+	protected abstract void setEmptyInAllSetters(O object);
 	
 	/*
 	 * This method validates an index
 	 * @param an integer value
 	 * @return a Boolean value
 	 */
-	protected boolean validIndex(int indice) {
-		return indice > INVALID_INDEX;
+	protected boolean validIndex(int index) {
+		return index > INVALID_INDEX;
 	}
 	
 }
