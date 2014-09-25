@@ -15,8 +15,8 @@ import org.apache.commons.fileupload.FileItemHeaders;
 import org.junit.Before;
 import org.junit.Test;
 
-import parse.LeitorCSV;
-import parse.LeitorCSV.ExecutorLeitorCSVObservador;
+import parse.CSVReader;
+import parse.CSVReader.ExecutorLeitorCSVObservador;
 
 public class LeitorCSVTest {
 
@@ -25,7 +25,7 @@ public class LeitorCSVTest {
 	
 	private FileItem fileItem;
 	
-	private LeitorCSV leitorCSV;
+	private CSVReader cSVReader;
 	private ExecutorLeitorCSVObservador executorLeitorCSV;
 	
 	@Before
@@ -39,27 +39,27 @@ public class LeitorCSVTest {
 				
 			}
 		};
-		this.leitorCSV = new LeitorCSV();
-		this.leitorCSV.setExecutorLeitorCSVObservador(this.executorLeitorCSV);
+		this.cSVReader = new CSVReader();
+		this.cSVReader.setExecutorLeitorCSVObservador(this.executorLeitorCSV);
 	}
 	
 	@Test
 	public void numeroDeLinhasDeveSerIgualAoNumeroDeLinhasDoArquivo() throws Exception {
 		
-		int numeroLinhas = this.leitorCSV.getNumeroLinhas(this.fileItem);
+		int numeroLinhas = this.cSVReader.getNumeroLinhas(this.fileItem);
 		Assert.assertEquals(NUMERO_LINHAS_ARQUIVO, numeroLinhas);
 	}
 
 	@Test
 	public void deveExecutarMetodoPorLinhaLidaSemLancarExcecao() throws Exception {
 		
-		this.leitorCSV.executarMetodoPorLinhaLida(this.fileItem, ";", 1);
+		this.cSVReader.executarMetodoPorLinhaLida(this.fileItem, ";", 1);
 	}
 	
 	@Test
 	public void deveExecutarMetodoPorLinhaLidaApartirDaLinha10000SemLancarExcecao() throws Exception {
 		
-		this.leitorCSV.executarMetodoPorLinhaLida(this.fileItem, ";", 10000);
+		this.cSVReader.executarMetodoPorLinhaLida(this.fileItem, ";", 10000);
 	}
 	
 	

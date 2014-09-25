@@ -9,7 +9,7 @@ import java.io.LineNumberReader;
 
 import org.apache.commons.fileupload.FileItem;
 
-public class LeitorCSV {
+public class CSVReader {
 	
 	public interface ExecutorLeitorCSVObservador {
 		public void executarMetodoPorLinhaDoArquivo(String campo[]);
@@ -17,7 +17,7 @@ public class LeitorCSV {
 	
 	private ExecutorLeitorCSVObservador executorLeitorCSVObservador;
 	
-	public LeitorCSV() {
+	public CSVReader() {
 		this.executorLeitorCSVObservador = null;
 	}
 	
