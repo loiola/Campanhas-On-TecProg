@@ -8,14 +8,14 @@ import parse.index.PartyParseIndex;
 import parse.register.RegisterParse;
 import model.beans.Party;
 
-public class CadastroPartidoParse extends RegisterParse<Party> {
+public class RegisterToParseParty extends RegisterParse<Party> {
 	
 	/*
 	 * Class responsible for identifying the contents of the file to read and get information
 	 */
 
 	// Constructors
-	public CadastroPartidoParse(String tipoArquivo, String ano)
+	public RegisterToParseParty(String tipoArquivo, String ano)
 			throws ParseException {
 		super(tipoArquivo, ano);
 	}

@@ -10,7 +10,7 @@ import model.dao.PartyDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.register.party.CadastroPartidoParse;
+import parse.register.party.RegisterToParseParty;
 import teste.TemplateTeste;
 
 public class CadastroPartidoParseTeste extends TemplateTeste {
@@ -22,14 +22,14 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	String  ano2         = "2006";
 	String  ano3         = "2010";
 	PartyDAO partyDAO;
-	private CadastroPartidoParse cadastro1;
-	private CadastroPartidoParse cadastro2;
-	private CadastroPartidoParse cadastro3;
+	private RegisterToParseParty cadastro1;
+	private RegisterToParseParty cadastro2;
+	private RegisterToParseParty cadastro3;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro3 = new CadastroPartidoParse(this.tipoArquivoC, this.ano1);
+		this.cadastro3 = new RegisterToParseParty(this.tipoArquivoC, this.ano1);
 		this.partyDAO = new PartyDAO();
 	}
 
@@ -41,7 +41,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmPartidoCadastradoPara2002PorPartido() throws ParseException, SQLException {
 		
-		this.cadastro1 = new CadastroPartidoParse(this.tipoArquivoA, this.ano1);
+		this.cadastro1 = new RegisterToParseParty(this.tipoArquivoA, this.ano1);
 		
 		String campo[] = new String[50];
 		campo[2] = "Nome";
@@ -59,7 +59,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmPartidoCadastradoPara2002PorCampanha() throws ParseException, SQLException {
 		
-		this.cadastro2 = new CadastroPartidoParse(this.tipoArquivoB, this.ano1);
+		this.cadastro2 = new RegisterToParseParty(this.tipoArquivoB, this.ano1);
 		
 		String campo[] = new String[50];
 		campo[18] = "Nome";
@@ -75,7 +75,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmPartidoCadastradoPara2006PorPartido() throws ParseException, SQLException {
 		
-		this.cadastro1 = new CadastroPartidoParse(this.tipoArquivoA, this.ano2);
+		this.cadastro1 = new RegisterToParseParty(this.tipoArquivoA, this.ano2);
 		
 		String campo[] = new String[50];
 		campo[2] = "Nome";
@@ -92,7 +92,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmPartidoCadastradoPara2006PorCampanha() throws ParseException, SQLException {
 		
-		this.cadastro2 = new CadastroPartidoParse(this.tipoArquivoB, this.ano2);
+		this.cadastro2 = new RegisterToParseParty(this.tipoArquivoB, this.ano2);
 		
 		String campo[] = new String[50];
 		campo[18] = "Nome";
@@ -108,7 +108,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmPartidoCadastradoPara2010PorPartido() throws ParseException, SQLException {
 		
-		this.cadastro1 = new CadastroPartidoParse(this.tipoArquivoA, this.ano3);
+		this.cadastro1 = new RegisterToParseParty(this.tipoArquivoA, this.ano3);
 		
 		String campo[] = new String[50];
 		campo[2] = "Nome";
@@ -125,7 +125,7 @@ public class CadastroPartidoParseTeste extends TemplateTeste {
 	@Test
 	public void deveRetornarUmPartidoCadastradoPara2010PorCampanha() throws ParseException, SQLException {
 		
-		this.cadastro2 = new CadastroPartidoParse(this.tipoArquivoB, this.ano3);
+		this.cadastro2 = new RegisterToParseParty(this.tipoArquivoB, this.ano3);
 		
 		String campo[] = new String[50];
 		campo[18] = "Nome";

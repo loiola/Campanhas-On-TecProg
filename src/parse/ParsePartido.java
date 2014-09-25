@@ -3,7 +3,7 @@ package parse;
 import java.util.ArrayList;
 
 import parse.register.RegisterParse;
-import parse.register.party.CadastroPartidoParse;
+import parse.register.party.RegisterToParseParty;
 
 public class ParsePartido extends Parse {
 	
@@ -28,7 +28,7 @@ public class ParsePartido extends Parse {
 			ArrayList<RegisterParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 
-		listaCadastrosParse.add(new CadastroPartidoParse(tipoArquivo, ano));
+		listaCadastrosParse.add(new RegisterToParseParty(tipoArquivo, ano));
 	}
 
 }
