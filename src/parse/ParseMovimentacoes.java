@@ -6,7 +6,7 @@ import parse.register.RegisterParse;
 import parse.register.revenue_expense.RegisterToParseExpense;
 import parse.register.revenue_expense.RegisterToParseDonor;
 import parse.register.revenue_expense.RegisterToParseSupplier;
-import parse.register.revenue_expense.CadastroParseReceitasDespesas;
+import parse.register.revenue_expense.RegisterToParseRevenueAndExpenses;
 import parse.register.revenue_expense.CadastroReceitaParse;
 
 public class ParseMovimentacoes extends Parse {
@@ -32,7 +32,7 @@ public class ParseMovimentacoes extends Parse {
 			ArrayList<RegisterParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 		
-		if(tipoArquivo.equals(CadastroParseReceitasDespesas.EXPENSE))
+		if(tipoArquivo.equals(RegisterToParseRevenueAndExpenses.EXPENSE))
 		{
 			listaCadastrosParse.add(new RegisterToParseSupplier(tipoArquivo, ano));
 			listaCadastrosParse.add(new RegisterToParseExpense(tipoArquivo, ano));

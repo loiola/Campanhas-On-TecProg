@@ -7,7 +7,7 @@ import parse.control.ParseControl;
 import parse.index.SupplierParseIndex;
 import parse.index.ParseIndex;
 
-public class RegisterToParseSupplier extends CadastroParseReceitasDespesas<Supplier> {
+public class RegisterToParseSupplier extends RegisterToParseRevenueAndExpenses<Supplier> {
 
 	public RegisterToParseSupplier(String tipoArquivo, String ano)
 			throws ParseException {

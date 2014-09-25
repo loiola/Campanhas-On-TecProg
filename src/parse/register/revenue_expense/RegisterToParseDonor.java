@@ -7,7 +7,7 @@ import parse.control.ParseControl;
 import parse.index.DonorParseIndex;
 import parse.index.ParseIndex;
 
-public class RegisterToParseDonor extends CadastroParseReceitasDespesas<Donor> {
+public class RegisterToParseDonor extends RegisterToParseRevenueAndExpenses<Donor> {
 
 	public RegisterToParseDonor(String tipoArquivo, String ano)
 			throws ParseException {

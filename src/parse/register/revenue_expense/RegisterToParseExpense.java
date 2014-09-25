@@ -7,7 +7,7 @@ import parse.control.ParseControl;
 import parse.index.ExpenseParseIndex;
 import parse.index.ParseIndex;
 
-public class RegisterToParseExpense extends CadastroParseReceitasDespesas<Expense> {
+public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Expense> {
 	
 	/* 
 	 * Class used to extract Expense attributes and forward the register to the Database

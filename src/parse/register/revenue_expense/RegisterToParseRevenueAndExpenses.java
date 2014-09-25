@@ -4,7 +4,7 @@ import parse.ParseException;
 import parse.index.ParseIndex;
 import parse.register.RegisterParse;
 
-public abstract class CadastroParseReceitasDespesas<O> extends RegisterParse<O> {
+public abstract class RegisterToParseRevenueAndExpenses<O> extends RegisterParse<O> {
 
 	public static final String EXPENSE = "expense";
 	public static final String REVENUE = "revenue";
@@ -13,7 +13,7 @@ public abstract class CadastroParseReceitasDespesas<O> extends RegisterParse<O> 
 	public static final String YEAR_2006 = "2006";
 	public static final String YEAR_2010 = "2010";
 	
-	public CadastroParseReceitasDespesas(String tipoArquivo, String ano)
+	public RegisterToParseRevenueAndExpenses(String tipoArquivo, String ano)
 			throws ParseException {
 		super(tipoArquivo, ano);
 	}
