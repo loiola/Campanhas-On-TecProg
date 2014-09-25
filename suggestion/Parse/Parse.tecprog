@@ -812,7 +812,7 @@
  
  ---------------------------------------------------------------------------------------------------
  
- parse.cadastro / campanha / CadastroCargoParse.java
+ parse.cadastro / campanha / CadastroResultadoParse.java
  
  public class CadastroResultadoParse
  Comentário: Class used to extract Result attributes and forward the register to the Database
