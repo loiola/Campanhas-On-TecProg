@@ -9,14 +9,14 @@ import parse.register.revenue_expense.RegisterToParseSupplier;
 import parse.register.revenue_expense.RegisterToParseRevenueAndExpenses;
 import parse.register.revenue_expense.RegisterToParseRevenue;
 
-public class ParseMovimentacoes extends Parse {
+public class ParseFinancialTransactions extends Parse {
 	
 	/*
 	 * Class responsible for performing the parse of transactions
 	 */
 	 
 	// Constructors
-	public ParseMovimentacoes(String tipoArquivo, String ano) throws ParseException {
+	public ParseFinancialTransactions(String tipoArquivo, String ano) throws ParseException {
 		super(tipoArquivo, ano);
 
 	}

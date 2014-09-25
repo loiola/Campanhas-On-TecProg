@@ -16,7 +16,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
-import parse.ParseMovimentacoes;
+import parse.ParseFinancialTransactions;
 import parse.register.revenue_expense.RegisterToParseDonor;
 import parse.register.revenue_expense.RegisterToParseSupplier;
 
@@ -96,7 +96,7 @@ public class LoadTransactionParse extends HttpServlet {
 					}
 				}
 
-				Parse parse = new ParseMovimentacoes(fileType, electionYear);
+				Parse parse = new ParseFinancialTransactions(fileType, electionYear);
 				parse.executarParse(file, division, initialLine);
 				output.println("Parse Completed!");
 			}
