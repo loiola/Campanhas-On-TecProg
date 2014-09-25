@@ -18,7 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import parse.Parse;
 import parse.ParseMovimentacoes;
 import parse.register.revenue_expense.RegisterToParseDonor;
-import parse.register.revenue_expense.CadastroFornecedorParse;
+import parse.register.revenue_expense.RegisterToParseSupplier;
 
 @WebServlet("/carregarParseMovimentacoes")
 public class LoadTransactionParse extends HttpServlet {
@@ -69,7 +69,7 @@ public class LoadTransactionParse extends HttpServlet {
 							
 							// Checks the file type, whether income or expense
 							if(fileItem.getString().equals("expense")) {
-								fileType = CadastroFornecedorParse.EXPENSE;
+								fileType = RegisterToParseSupplier.EXPENSE;
 							} else {
 								fileType = RegisterToParseDonor.REVENUE;
 							}

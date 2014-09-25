@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import parse.register.RegisterParse;
 import parse.register.revenue_expense.RegisterToParseExpense;
 import parse.register.revenue_expense.RegisterToParseDonor;
-import parse.register.revenue_expense.CadastroFornecedorParse;
+import parse.register.revenue_expense.RegisterToParseSupplier;
 import parse.register.revenue_expense.CadastroParseReceitasDespesas;
 import parse.register.revenue_expense.CadastroReceitaParse;
 
@@ -34,7 +34,7 @@ public class ParseMovimentacoes extends Parse {
 		
 		if(tipoArquivo.equals(CadastroParseReceitasDespesas.EXPENSE))
 		{
-			listaCadastrosParse.add(new CadastroFornecedorParse(tipoArquivo, ano));
+			listaCadastrosParse.add(new RegisterToParseSupplier(tipoArquivo, ano));
 			listaCadastrosParse.add(new RegisterToParseExpense(tipoArquivo, ano));
 		}
 		else

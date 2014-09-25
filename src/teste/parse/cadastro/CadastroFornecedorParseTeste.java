@@ -11,14 +11,14 @@ import model.dao.SupplierDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.register.revenue_expense.CadastroFornecedorParse;
+import parse.register.revenue_expense.RegisterToParseSupplier;
 import teste.TemplateTeste;
 
 public class CadastroFornecedorParseTeste extends TemplateTeste {
 
-	private CadastroFornecedorParse cadastro1;
-	private CadastroFornecedorParse cadastro2;
-	private CadastroFornecedorParse cadastro3;
+	private RegisterToParseSupplier cadastro1;
+	private RegisterToParseSupplier cadastro2;
+	private RegisterToParseSupplier cadastro3;
 	private SupplierDAO supplierDAO;
 	String  tipoArquivo = "expense";
 	String  ano1         = "2006";
@@ -28,9 +28,9 @@ public class CadastroFornecedorParseTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro1 = new CadastroFornecedorParse(this.tipoArquivo, this.ano1);
-		this.cadastro2 = new CadastroFornecedorParse(this.tipoArquivo, this.ano2);
-		this.cadastro3 = new CadastroFornecedorParse(this.tipoArquivo, this.ano3);
+		this.cadastro1 = new RegisterToParseSupplier(this.tipoArquivo, this.ano1);
+		this.cadastro2 = new RegisterToParseSupplier(this.tipoArquivo, this.ano2);
+		this.cadastro3 = new RegisterToParseSupplier(this.tipoArquivo, this.ano3);
 		this.supplierDAO = new SupplierDAO();
 	}
 
