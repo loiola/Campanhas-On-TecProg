@@ -7,7 +7,7 @@ import parse.register.revenue_expense.RegisterToParseExpense;
 import parse.register.revenue_expense.RegisterToParseDonor;
 import parse.register.revenue_expense.RegisterToParseSupplier;
 import parse.register.revenue_expense.RegisterToParseRevenueAndExpenses;
-import parse.register.revenue_expense.CadastroReceitaParse;
+import parse.register.revenue_expense.RegisterToParseRevenue;
 
 public class ParseMovimentacoes extends Parse {
 	
@@ -40,7 +40,7 @@ public class ParseMovimentacoes extends Parse {
 		else
 		{
 			listaCadastrosParse.add(new RegisterToParseDonor(tipoArquivo, ano));
-			listaCadastrosParse.add(new CadastroReceitaParse(tipoArquivo, ano));
+			listaCadastrosParse.add(new RegisterToParseRevenue(tipoArquivo, ano));
 		}
 	}
 
