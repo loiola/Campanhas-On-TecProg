@@ -10,12 +10,12 @@ import model.dao.ResultDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.register.campaign.CadastroResultadoParse;
+import parse.register.campaign.RegisterToParseResult;
 import teste.TemplateTeste;
 
 public class CadastroResultadoParseTeste extends TemplateTeste {
 	
-	private CadastroResultadoParse cadastro;
+	private RegisterToParseResult cadastro;
 	private ResultDAO dao;
 	String  tipoArquivo = "campanha";
 	String  ano         = "2006";
@@ -23,7 +23,7 @@ public class CadastroResultadoParseTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro = new CadastroResultadoParse(this.tipoArquivo, this.ano);	
+		this.cadastro = new RegisterToParseResult(this.tipoArquivo, this.ano);	
 		this.dao = new ResultDAO();
 	}
 
