@@ -11,14 +11,14 @@ import model.dao.ExpenseDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.register.revenue_expense.CadastroDespesaParse;
+import parse.register.revenue_expense.RegisterToParseExpense;
 import teste.TemplateTeste;
 
 public class CadastroDespesaParseTeste extends TemplateTeste {
 
-	private CadastroDespesaParse cadastro1;
-	private CadastroDespesaParse cadastro2;
-	private CadastroDespesaParse cadastro3;
+	private RegisterToParseExpense cadastro1;
+	private RegisterToParseExpense cadastro2;
+	private RegisterToParseExpense cadastro3;
 	private ExpenseDAO expenseDAO;
 	String  tipoArquivo = "expense";
 	String  ano1         = "2006";
@@ -30,9 +30,9 @@ public class CadastroDespesaParseTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro1 = new CadastroDespesaParse(this.tipoArquivo, this.ano1);
-		this.cadastro2 = new CadastroDespesaParse(this.tipoArquivo, this.ano2);
-		this.cadastro3 = new CadastroDespesaParse(this.tipoArquivo, this.ano3);
+		this.cadastro1 = new RegisterToParseExpense(this.tipoArquivo, this.ano1);
+		this.cadastro2 = new RegisterToParseExpense(this.tipoArquivo, this.ano2);
+		this.cadastro3 = new RegisterToParseExpense(this.tipoArquivo, this.ano3);
 		this.expenseDAO = new ExpenseDAO();
 	}
 

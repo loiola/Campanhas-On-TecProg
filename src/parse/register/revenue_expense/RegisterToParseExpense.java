@@ -7,7 +7,7 @@ import parse.control.ParseControl;
 import parse.index.ExpenseParseIndex;
 import parse.index.ParseIndex;
 
-public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense> {
+public class RegisterToParseExpense extends CadastroParseReceitasDespesas<Expense> {
 	
 	/* 
 	 * Class used to extract Expense attributes and forward the register to the Database
@@ -21,7 +21,7 @@ public class CadastroDespesaParse extends CadastroParseReceitasDespesas<Expense>
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public CadastroDespesaParse(String tipoArquivo, String ano)
+	public RegisterToParseExpense(String tipoArquivo, String ano)
 			throws ParseException {
 		super(tipoArquivo, ano);
 	}
