@@ -18,7 +18,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
-import parse.ParsePartido;
+import parse.ParseParty;
 
 @WebServlet("/carregarParsePartido")
 public class LoadPoliticalPartyParse extends HttpServlet {
@@ -71,7 +71,7 @@ public class LoadPoliticalPartyParse extends HttpServlet {
 				}
 
 				String division = ";";
-				Parse parse = new ParsePartido(fileType, "");
+				Parse parse = new ParseParty(fileType, "");
 				parse.executarParse(file, division, initialLine);
 				output.println("Parse Completed!");
 			}

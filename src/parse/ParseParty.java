@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import parse.register.RegisterParse;
 import parse.register.party.RegisterToParseParty;
 
-public class ParsePartido extends Parse {
+public class ParseParty extends Parse {
 	
 	/*
 	 * Class responsible for performing the parse of political parties
 	 */
 
 	// Constructors
-	public ParsePartido(String tipoArquivo, String ano) throws ParseException {
+	public ParseParty(String tipoArquivo, String ano) throws ParseException {
 		super(tipoArquivo, ano);
 
 	}
