@@ -18,7 +18,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
-import parse.ParseCampanha;
+import parse.ParseCampaign;
 
 @WebServlet("/carregarParseCampanha")
 public class LoadCampaignParse extends HttpServlet {
@@ -71,7 +71,7 @@ public class LoadCampaignParse extends HttpServlet {
 				}
 
 				String division = ";";
-				Parse parse = new ParseCampanha(fileType, "");
+				Parse parse = new ParseCampaign(fileType, "");
 				parse.executarParse(file, division, initialLine);
 
 				output.println("Parse Completed!");

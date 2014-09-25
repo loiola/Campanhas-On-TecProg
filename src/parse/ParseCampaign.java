@@ -9,9 +9,9 @@ import parse.register.campaign.RegisterToParsePosition;
 import parse.register.campaign.RegisterToParseResult;
 import parse.register.party.RegisterToParseParty;
 
-public class ParseCampanha extends Parse {
+public class ParseCampaign extends Parse {
 
-	public ParseCampanha(String tipoArquivo, String ano) throws ParseException {
+	public ParseCampaign(String tipoArquivo, String ano) throws ParseException {
 		super(tipoArquivo, ano);
 	}
 
