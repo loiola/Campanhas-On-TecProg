@@ -3,7 +3,7 @@ package parse;
 import java.util.ArrayList;
 
 import parse.register.RegisterParse;
-import parse.register.campaign.CadastroCampanhaParse;
+import parse.register.campaign.RegisterToParseCampaign;
 import parse.register.campaign.CadastroCandidatoParse;
 import parse.register.campaign.CadastroCargoParse;
 import parse.register.campaign.CadastroResultadoParse;
@@ -24,7 +24,7 @@ public class ParseCampanha extends Parse {
 		listaCadastrosParse.add(new CadastroResultadoParse(tipoArquivo, ano));
 		listaCadastrosParse.add(new CadastroCargoParse(tipoArquivo, ano));
 		listaCadastrosParse.add(new CadastroPartidoParse(tipoArquivo, ano));
-		listaCadastrosParse.add(new CadastroCampanhaParse(tipoArquivo, ano));
+		listaCadastrosParse.add(new RegisterToParseCampaign(tipoArquivo, ano));
 	}
 	
 }

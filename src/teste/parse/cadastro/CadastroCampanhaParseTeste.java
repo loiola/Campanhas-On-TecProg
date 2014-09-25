@@ -5,19 +5,19 @@ import java.sql.SQLException;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.register.campaign.CadastroCampanhaParse;
+import parse.register.campaign.RegisterToParseCampaign;
 import teste.TemplateTeste;
 
 public class CadastroCampanhaParseTeste extends TemplateTeste {
 
-	private CadastroCampanhaParse cadastro;
+	private RegisterToParseCampaign cadastro;
 	String  tipoArquivo = "campanha";
 	String  ano         = "2006";
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro = new CadastroCampanhaParse(this.tipoArquivo, this.ano);	
+		this.cadastro = new RegisterToParseCampaign(this.tipoArquivo, this.ano);	
 	}
 
 	@Override
