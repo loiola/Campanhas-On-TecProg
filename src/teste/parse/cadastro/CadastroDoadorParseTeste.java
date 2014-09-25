@@ -11,14 +11,14 @@ import model.dao.DonorDAO;
 import org.junit.Test;
 
 import parse.ParseException;
-import parse.register.revenue_expense.CadastroDoadorParse;
+import parse.register.revenue_expense.RegisterToParseDonor;
 import teste.TemplateTeste;
 
 public class CadastroDoadorParseTeste extends TemplateTeste {
 
-	private CadastroDoadorParse cadastro1;
-	private CadastroDoadorParse cadastro2;
-	private CadastroDoadorParse cadastro3;
+	private RegisterToParseDonor cadastro1;
+	private RegisterToParseDonor cadastro2;
+	private RegisterToParseDonor cadastro3;
 	private DonorDAO donorDAO;
 	String  tipoArquivo = "revenue";
 	String  ano1         = "2006";
@@ -28,9 +28,9 @@ public class CadastroDoadorParseTeste extends TemplateTeste {
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro1 = new CadastroDoadorParse(this.tipoArquivo, this.ano1);
-		this.cadastro2 = new CadastroDoadorParse(this.tipoArquivo, this.ano2);
-		this.cadastro3 = new CadastroDoadorParse(this.tipoArquivo, this.ano3);
+		this.cadastro1 = new RegisterToParseDonor(this.tipoArquivo, this.ano1);
+		this.cadastro2 = new RegisterToParseDonor(this.tipoArquivo, this.ano2);
+		this.cadastro3 = new RegisterToParseDonor(this.tipoArquivo, this.ano3);
 		this.donorDAO = new DonorDAO();
 	}
 

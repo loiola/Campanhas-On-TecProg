@@ -17,7 +17,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
 import parse.ParseMovimentacoes;
-import parse.register.revenue_expense.CadastroDoadorParse;
+import parse.register.revenue_expense.RegisterToParseDonor;
 import parse.register.revenue_expense.CadastroFornecedorParse;
 
 @WebServlet("/carregarParseMovimentacoes")
@@ -71,22 +71,22 @@ public class LoadTransactionParse extends HttpServlet {
 							if(fileItem.getString().equals("expense")) {
 								fileType = CadastroFornecedorParse.EXPENSE;
 							} else {
-								fileType = CadastroDoadorParse.REVENUE;
+								fileType = RegisterToParseDonor.REVENUE;
 							}
 						} else if(fileItem.getFieldName().equals("file_year")) {
 							
 							// Checks joined donor according to selected year
 							switch (fileItem.getString()) {
 							case "2002":
-								electionYear = CadastroDoadorParse.YEAR_2002;
+								electionYear = RegisterToParseDonor.YEAR_2002;
 								break;
 
 							case "2006":
-								electionYear = CadastroDoadorParse.YEAR_2006;
+								electionYear = RegisterToParseDonor.YEAR_2006;
 								break;
 
 							case "2010":
-								electionYear = CadastroDoadorParse.YEAR_2010;
+								electionYear = RegisterToParseDonor.YEAR_2010;
 								break;
 
 							default:
