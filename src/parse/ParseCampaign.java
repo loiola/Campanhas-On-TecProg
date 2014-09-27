@@ -11,20 +11,20 @@ import parse.register.party.RegisterToParseParty;
 
 public class ParseCampaign extends Parse {
 
-	public ParseCampaign(String tipoArquivo, String ano) throws ParseException {
-		super(tipoArquivo, ano);
+	public ParseCampaign(String fileType, String year) throws ParseException {
+		super(fileType, year);
 	}
 
 	@Override
 	protected void addRegisterParseOnList(
-			ArrayList<RegisterParse<?>> listaCadastrosParse,
-			String tipoArquivo, String ano) throws ParseException {
+			ArrayList<RegisterParse<?>> listRegisterParse,
+			String fileType, String year) throws ParseException {
 
-		listaCadastrosParse.add(new RegisterToParseCandidate(tipoArquivo, ano));
-		listaCadastrosParse.add(new RegisterToParseResult(tipoArquivo, ano));
-		listaCadastrosParse.add(new RegisterToParsePosition(tipoArquivo, ano));
-		listaCadastrosParse.add(new RegisterToParseParty(tipoArquivo, ano));
-		listaCadastrosParse.add(new RegisterToParseCampaign(tipoArquivo, ano));
+		listRegisterParse.add(new RegisterToParseCandidate(fileType, year));
+		listRegisterParse.add(new RegisterToParseResult(fileType, year));
+		listRegisterParse.add(new RegisterToParsePosition(fileType, year));
+		listRegisterParse.add(new RegisterToParseParty(fileType, year));
+		listRegisterParse.add(new RegisterToParseCampaign(fileType, year));
 	}
 	
 }
