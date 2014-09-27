@@ -72,7 +72,7 @@ public class LoadCampaignParse extends HttpServlet {
 
 				String division = ";";
 				Parse parse = new ParseCampaign(fileType, "");
-				parse.executarParse(file, division, initialLine);
+				parse.runParse(file, division, initialLine);
 
 				output.println("Parse Completed!");
 			}

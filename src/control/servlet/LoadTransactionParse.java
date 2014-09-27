@@ -97,7 +97,7 @@ public class LoadTransactionParse extends HttpServlet {
 				}
 
 				Parse parse = new ParseFinancialTransactions(fileType, electionYear);
-				parse.executarParse(file, division, initialLine);
+				parse.runParse(file, division, initialLine);
 				output.println("Parse Completed!");
 			}
 

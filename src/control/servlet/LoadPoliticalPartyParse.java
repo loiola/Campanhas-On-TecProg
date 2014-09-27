@@ -72,7 +72,7 @@ public class LoadPoliticalPartyParse extends HttpServlet {
 
 				String division = ";";
 				Parse parse = new ParseParty(fileType, "");
-				parse.executarParse(file, division, initialLine);
+				parse.runParse(file, division, initialLine);
 				output.println("Parse Completed!");
 			}
 

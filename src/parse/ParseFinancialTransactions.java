@@ -28,7 +28,7 @@ public class ParseFinancialTransactions extends Parse {
 	 * @param an String ano
 	 */
 	@Override
-	protected void adicionarCadastrosParseNaLista(
+	protected void addRegisterParseOnList(
 			ArrayList<RegisterParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 		

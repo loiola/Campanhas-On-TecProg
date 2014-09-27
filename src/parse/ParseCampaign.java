@@ -16,7 +16,7 @@ public class ParseCampaign extends Parse {
 	}
 
 	@Override
-	protected void adicionarCadastrosParseNaLista(
+	protected void addRegisterParseOnList(
 			ArrayList<RegisterParse<?>> listaCadastrosParse,
 			String tipoArquivo, String ano) throws ParseException {
 

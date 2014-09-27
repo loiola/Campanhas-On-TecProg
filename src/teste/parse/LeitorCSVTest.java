@@ -53,13 +53,13 @@ public class LeitorCSVTest {
 	@Test
 	public void deveExecutarMetodoPorLinhaLidaSemLancarExcecao() throws Exception {
 		
-		this.cSVReader.executarMetodoPorLinhaLida(this.fileItem, ";", 1);
+		this.cSVReader.runMethodForReadLine(this.fileItem, ";", 1);
 	}
 	
 	@Test
 	public void deveExecutarMetodoPorLinhaLidaApartirDaLinha10000SemLancarExcecao() throws Exception {
 		
-		this.cSVReader.executarMetodoPorLinhaLida(this.fileItem, ";", 10000);
+		this.cSVReader.runMethodForReadLine(this.fileItem, ";", 10000);
 	}
 	
 	

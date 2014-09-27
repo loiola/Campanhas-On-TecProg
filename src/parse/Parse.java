@@ -12,38 +12,38 @@ public abstract class Parse implements ExecutorLeitorCSVObservador {
 
 	
 	private CSVReader cSVReader;
-	private ArrayList<RegisterParse<?>> listaCadastrosParse;
+	private ArrayList<RegisterParse<?>> listRegisterParse;
 	
-	public Parse(String tipoArquivo, String ano) throws ParseException {
+	public Parse(String fileType, String year) throws ParseException {
 		this.cSVReader = new CSVReader();
 		this.cSVReader.setExecutorLeitorCSVObservador(this);
 
-		this.listaCadastrosParse = new ArrayList<>();
-		adicionarCadastrosParseNaLista(listaCadastrosParse, tipoArquivo, ano);
+		this.listRegisterParse = new ArrayList<>();
+		addRegisterParseOnList(listRegisterParse, fileType, year);
 	}
 	
-	protected abstract void adicionarCadastrosParseNaLista(ArrayList<RegisterParse<?>> listaCadastrosParse,
-			String tipoArquivo, String ano) throws ParseException;
+	protected abstract void addRegisterParseOnList(ArrayList<RegisterParse<?>> listRegisterParse,
+			String fileType, String year) throws ParseException;
 	
-	public void executarParse(FileItem arquivo, String divisao, int linhaInicial) throws IOException, ParseException {
-		this.cSVReader.executarMetodoPorLinhaLida(arquivo, divisao, linhaInicial);
-		finalizarCadastros();
+	public void runParse(FileItem file, String division, int initialLine) throws IOException, ParseException {
+		this.cSVReader.runMethodForReadLine(file, division, initialLine);
+		finalizeRegister();
 	}
 	
 	@Override
-	public void executarMetodoPorLinhaDoArquivo(String[] campo) {
+	public void executarMetodoPorLinhaDoArquivo(String[] field) {
 		try {
-			for(RegisterParse<?> cadastroParse : this.listaCadastrosParse) {
-				cadastroParse.runFileLine(campo);
+			for(RegisterParse<?> registerParse : this.listRegisterParse) {
+				registerParse.runFileLine(field);
 			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
-	private void finalizarCadastros() throws ParseException {
-		for(RegisterParse<?> cadastroParse : this.listaCadastrosParse) {
-			cadastroParse.registerInstances();
+	private void finalizeRegister() throws ParseException {
+		for(RegisterParse<?> registerParse : this.listRegisterParse) {
+			registerParse.registerInstances();
 		}
 	}
 

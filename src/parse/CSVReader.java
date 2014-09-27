@@ -21,7 +21,7 @@ public class CSVReader {
 		this.executorLeitorCSVObservador = null;
 	}
 	
-	public void executarMetodoPorLinhaLida(FileItem arquivo, String divisao, int linhaInicial) throws IOException {
+	public void runMethodForReadLine(FileItem arquivo, String divisao, int linhaInicial) throws IOException {
 		String campo[];
 		String linha;
 		int totalLinhas = getNumeroLinhas(arquivo);
