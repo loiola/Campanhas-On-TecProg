@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import parse.CSVReader;
-import parse.CSVReader.ExecutorLeitorCSVObservador;
+import parse.CSVReader.ExecutorReaderCSVObserver;
 
 public class LeitorCSVTest {
 
@@ -26,16 +26,16 @@ public class LeitorCSVTest {
 	private FileItem fileItem;
 	
 	private CSVReader cSVReader;
-	private ExecutorLeitorCSVObservador executorLeitorCSV;
+	private ExecutorReaderCSVObserver executorLeitorCSV;
 	
 	@Before
 	public void setUp() throws IOException {
 		
 		initFileItem();
 		
-		this.executorLeitorCSV = new ExecutorLeitorCSVObservador() {
+		this.executorLeitorCSV = new ExecutorReaderCSVObserver() {
 			@Override
-			public void executarMetodoPorLinhaDoArquivo(String[] campo) {
+			public void runMethodForFileLine(String[] campo) {
 				
 			}
 		};
@@ -46,7 +46,7 @@ public class LeitorCSVTest {
 	@Test
 	public void numeroDeLinhasDeveSerIgualAoNumeroDeLinhasDoArquivo() throws Exception {
 		
-		int numeroLinhas = this.cSVReader.getNumeroLinhas(this.fileItem);
+		int numeroLinhas = this.cSVReader.getNumberOfLines(this.fileItem);
 		Assert.assertEquals(NUMERO_LINHAS_ARQUIVO, numeroLinhas);
 	}
 

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import org.apache.commons.fileupload.FileItem;
 
-import parse.CSVReader.ExecutorLeitorCSVObservador;
+import parse.CSVReader.ExecutorReaderCSVObserver;
 import parse.register.RegisterParse;
 
-public abstract class Parse implements ExecutorLeitorCSVObservador {
+public abstract class Parse implements ExecutorReaderCSVObserver {
 
 	
 	private CSVReader cSVReader;
@@ -31,7 +31,7 @@ public abstract class Parse implements ExecutorLeitorCSVObservador {
 	}
 	
 	@Override
-	public void executarMetodoPorLinhaDoArquivo(String[] field) {
+	public void runMethodForFileLine(String[] field) {
 		try {
 			for(RegisterParse<?> registerParse : this.listRegisterParse) {
 				registerParse.runFileLine(field);

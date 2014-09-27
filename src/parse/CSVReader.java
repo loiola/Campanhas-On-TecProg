@@ -11,91 +11,91 @@ import org.apache.commons.fileupload.FileItem;
 
 public class CSVReader {
 	
-	public interface ExecutorLeitorCSVObservador {
-		public void executarMetodoPorLinhaDoArquivo(String campo[]);
+	public interface ExecutorReaderCSVObserver {
+		public void runMethodForFileLine(String field[]);
 	}
 	
-	private ExecutorLeitorCSVObservador executorLeitorCSVObservador;
+	private ExecutorReaderCSVObserver executorReaderCSVObserver;
 	
 	public CSVReader() {
-		this.executorLeitorCSVObservador = null;
+		this.executorReaderCSVObserver = null;
 	}
 	
-	public void runMethodForReadLine(FileItem arquivo, String divisao, int linhaInicial) throws IOException {
-		String campo[];
-		String linha;
-		int totalLinhas = getNumeroLinhas(arquivo);
+	public void runMethodForReadLine(FileItem file, String division, int initialLine) throws IOException {
+		String field[];
+		String line;
+		int totalLines = getNumberOfLines(file);
 		System.out.println("lendo linha: Iniciou");
-		BufferedReader leitorArquivo = new BufferedReader(new InputStreamReader(arquivo.getInputStream()));
+		BufferedReader fileReader = new BufferedReader(new InputStreamReader(file.getInputStream()));
 		
-		ignorarLinhas(leitorArquivo, linhaInicial);
-		for(int i = linhaInicial; ((linha = leitorArquivo.readLine()) != null) ; i++ ) {
+		ignoreLines(fileReader, initialLine);
+		for(int i = initialLine; ((line = fileReader.readLine()) != null) ; i++ ) {
 			if(i % 10000 == 0) {
-				System.out.println("lendo linha: " + i + " / " + totalLinhas);
+				System.out.println("lendo linha: " + i + " / " + totalLines);
 			}
 			
-			linha = transformarPontoVirgulasDoCampoEmVirgula(linha);
-			campo = linha.split(divisao);
+			line = transformFieldSemicolonInComma(line);
+			field = line.split(division);
 
-			removerAspas(campo);
-			notificarObservador(campo);
+			removeQuotationMarks(field);
+			notifyObserver(field);
 		}
 		System.out.println("lendo linha: Terminou");
 		
-		leitorArquivo.close();
+		fileReader.close();
 	}
 	
-	public int getNumeroLinhas(FileItem arquivo) throws IOException {
-		int numeroLinhas;
+	public int getNumberOfLines(FileItem file) throws IOException {
+		int numberOfLines;
 		
-		long tamanhoArquivo = arquivo.getSize();
-		InputStream inputStream = arquivo.getInputStream();
+		long fileSize = file.getSize();
+		InputStream inputStream = file.getInputStream();
 		DataInputStream dataInputStream = new DataInputStream(inputStream);
 		
 		LineNumberReader lineRead = new LineNumberReader(new InputStreamReader(dataInputStream));
-		lineRead.skip(tamanhoArquivo);
+		lineRead.skip(fileSize);
 		
-		numeroLinhas = lineRead.getLineNumber() + 1;
+		numberOfLines = lineRead.getLineNumber() + 1;
 		
-		return numeroLinhas;
+		return numberOfLines;
 	}
 	
-	private void ignorarLinhas(BufferedReader leitorArquivo, int numeroLinhas) throws IOException {
-		for(int i = 1; (i < numeroLinhas) && (leitorArquivo.readLine() != null); i++);
+	private void ignoreLines(BufferedReader fileReader, int numberOfLines) throws IOException {
+		for(int i = 1; (i < numberOfLines) && (fileReader.readLine() != null); i++);
 	}
 	
-	private void removerAspas(String palavra[]) {
-		for(int i = 0; i < palavra.length; i++) {
-			if(palavra[i].length() > 0 && palavra[i].charAt(0) == '"') {
-				palavra[i] = palavra[i].substring(1, palavra[i].length());
+	private void removeQuotationMarks(String word[]) {
+		for(int i = 0; i < word.length; i++) {
+			if(word[i].length() > 0 && word[i].charAt(0) == '"') {
+				word[i] = word[i].substring(1, word[i].length());
 			}
-			if(palavra[i].length() > 0 && palavra[i].charAt(palavra[i].length()-1) == '"') {
-				palavra[i] = palavra[i].substring(0, palavra[i].length()-1);
-			}
-		}
-	}
-	
-	private String transformarPontoVirgulasDoCampoEmVirgula(String palavra) {
-		String novaPalavra;
-		char caracteres[] = palavra.toCharArray();
-		for(int i = 1; i < caracteres.length-1; i++) {
-			if( caracteres[i] == ';' && (caracteres[i-1] != '"' || caracteres[i+1] != '"') ){
-				caracteres[i] = ',';
+			if(word[i].length() > 0 && word[i].charAt(word[i].length()-1) == '"') {
+				word[i] = word[i].substring(0, word[i].length()-1);
 			}
 		}
+	}
+	
+	private String transformFieldSemicolonInComma(String word) {
+		String newWord;
+		char characters[] = word.toCharArray();
+		for(int i = 1; i < characters.length-1; i++) {
+			if( characters[i] == ';' && (characters[i-1] != '"' || characters[i+1] != '"') ){
+				characters[i] = ',';
+			}
+		}
 		
-		novaPalavra = String.copyValueOf(caracteres);
-		return novaPalavra;
+		newWord = String.copyValueOf(characters);
+		return newWord;
 	}
 
 	public void setExecutorLeitorCSVObservador(
-			ExecutorLeitorCSVObservador executorLeitorCSVObservador) {
-		this.executorLeitorCSVObservador = executorLeitorCSVObservador;
+			ExecutorReaderCSVObserver executorReaderCSVObserver) {
+		this.executorReaderCSVObserver = executorReaderCSVObserver;
 	}
 	
-	private void notificarObservador(String campo[]) {
-		if(this.executorLeitorCSVObservador != null) {
-			this.executorLeitorCSVObservador.executarMetodoPorLinhaDoArquivo(campo);
+	private void notifyObserver(String field[]) {
+		if(this.executorReaderCSVObserver != null) {
+			this.executorReaderCSVObserver.runMethodForFileLine(field);
 		}
 	}
 	
