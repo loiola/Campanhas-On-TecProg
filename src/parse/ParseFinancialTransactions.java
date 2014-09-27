@@ -16,31 +16,31 @@ public class ParseFinancialTransactions extends Parse {
 	 */
 	 
 	// Constructors
-	public ParseFinancialTransactions(String tipoArquivo, String ano) throws ParseException {
-		super(tipoArquivo, ano);
+	public ParseFinancialTransactions(String fileType, String year) throws ParseException {
+		super(fileType, year);
 
 	}
 
 	/*
 	 * This method adds instances of classes related to financial transactions to register
 	 * @param an ArrayList<RegisterParse<?>>
-	 * @param an String tipoArquivo
-	 * @param an String ano
+	 * @param an String fileType
+	 * @param an String year
 	 */
 	@Override
 	protected void addRegisterParseOnList(
-			ArrayList<RegisterParse<?>> listaCadastrosParse,
-			String tipoArquivo, String ano) throws ParseException {
+			ArrayList<RegisterParse<?>> listRegisterParse,
+			String fileType, String year) throws ParseException {
 		
-		if(tipoArquivo.equals(RegisterToParseRevenueAndExpenses.EXPENSE))
+		if(fileType.equals(RegisterToParseRevenueAndExpenses.EXPENSE))
 		{
-			listaCadastrosParse.add(new RegisterToParseSupplier(tipoArquivo, ano));
-			listaCadastrosParse.add(new RegisterToParseExpense(tipoArquivo, ano));
+			listRegisterParse.add(new RegisterToParseSupplier(fileType, year));
+			listRegisterParse.add(new RegisterToParseExpense(fileType, year));
 		}
 		else
 		{
-			listaCadastrosParse.add(new RegisterToParseDonor(tipoArquivo, ano));
-			listaCadastrosParse.add(new RegisterToParseRevenue(tipoArquivo, ano));
+			listRegisterParse.add(new RegisterToParseDonor(fileType, year));
+			listRegisterParse.add(new RegisterToParseRevenue(fileType, year));
 		}
 	}
 
