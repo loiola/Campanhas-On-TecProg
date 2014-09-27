@@ -12,23 +12,23 @@ public class ParseParty extends Parse {
 	 */
 
 	// Constructors
-	public ParseParty(String tipoArquivo, String ano) throws ParseException {
-		super(tipoArquivo, ano);
+	public ParseParty(String fileType, String year) throws ParseException {
+		super(fileType, year);
 
 	}
 
 	/*
 	 * This method adds an instance of class PartyRegisterParse to parse the list of registration
 	 * @param an ArrayList<RegisterParse<?>>
-	 * @param an String tipoArquivo
-	 * @param an String ano
+	 * @param an String fileType
+	 * @param an String year
 	 */
 	@Override
 	protected void addRegisterParseOnList(
-			ArrayList<RegisterParse<?>> listaCadastrosParse,
-			String tipoArquivo, String ano) throws ParseException {
+			ArrayList<RegisterParse<?>> listRegisterParse,
+			String fileType, String year) throws ParseException {
 
-		listaCadastrosParse.add(new RegisterToParseParty(tipoArquivo, ano));
+		listRegisterParse.add(new RegisterToParseParty(fileType, year));
 	}
 
 }
