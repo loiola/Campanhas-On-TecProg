@@ -154,9 +154,9 @@
 													<c:param name="receitaTC" value="${totalRevenueCalculatedValue}" />
 													<c:param name="numero_cand"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="ano" value="${campaign.ano}" />
-													<c:param name="cargo_cod" value="${campaign.cargo.codigo}" />
-													<c:param name="uf" value="${campaign.uf}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioR" value="${0}" />
 													<c:param name="qtdPorPaginaR" value="${qtdPorPaginaR}" />
 													<c:param name="verTodosR" value="${false}" />
@@ -169,15 +169,15 @@
 												<a href="${url_pagInicialR}"><c:out value="primeira... " /></a>
 												<c:forEach var="i" begin="${minRaioR}" end="${maxRaioR}">
 													<c:url var="url_pagR" value="/mvc">
-														<c:param name="logica"
-															value="RequisitarMovimentacoesDeCandidato" />
+														<c:param name="logic"
+															value="RequestFinancialTransactionOfCandidate" />
 														<c:param name="despesaTC" value="${totalExpenseCalculatedValue}" />
 														<c:param name="receitaTC" value="${totalRevenueCalculatedValue}" />
 														<c:param name="numero_cand"
-															value="${campaign.numeroCandidato}" />
-														<c:param name="ano" value="${campaign.ano}" />
-														<c:param name="cargo_cod" value="${campaign.cargo.codigo}" />
-														<c:param name="uf" value="${campaign.uf}" />
+															value="${campaign.campaignCandidateNumber}" />
+														<c:param name="ano" value="${campaign.campaignYear}" />
+														<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="uf" value="${campaign.campaignCountryState}" />
 														<c:param name="inicioR" value="${(i-1)*qtdPorPaginaR}" />
 														<c:param name="qtdPorPaginaR" value="${qtdPorPaginaR}" />
 														<c:param name="verTodosR" value="${false}" />
@@ -195,15 +195,15 @@
 													</c:choose>
 												</c:forEach>
 												<c:url var="url_pagFinalR" value="/mvc">
-													<c:param name="logica"
-														value="RequisitarMovimentacoesDeCandidato" />
+													<c:param name="logic"
+														value="RequestFinancialTransactionOfCandidate" />
 													<c:param name="despesaTC" value="${totalExpenseCalculatedValue}" />
 													<c:param name="receitaTC" value="${totalRevenueCalculatedValue}" />
 													<c:param name="numero_cand"
-														value="${campaign.numeroCandidato}" />
-													<c:param name="ano" value="${campaign.ano}" />
-													<c:param name="cargo_cod" value="${campaign.cargo.codigo}" />
-													<c:param name="uf" value="${campaign.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioR"
 														value="${(indiceR-1)*qtdPorPaginaR}" />
 													<c:param name="qtdPorPaginaR" value="${qtdPorPaginaR}" />
@@ -217,15 +217,15 @@
 												<a href="${url_pagFinalR}"><c:out value=" ...última" /></a>
 												<br> Receitas por Página:
 												<c:url var="url_tamanhoOriginalR" value="/mvc">
-													<c:param name="logica"
-														value="RequisitarMovimentacoesDeCandidato" />
+													<c:param name="logic"
+														value="RequestFinancialTransactionOfCandidate" />
 													<c:param name="despesaTC" value="${totalExpenseCalculatedValue}" />
 													<c:param name="receitaTC" value="${totalRevenueCalculatedValue}" />
 													<c:param name="numero_cand"
-														value="${campaign.numeroCandidato}" />
-													<c:param name="ano" value="${campaign.ano}" />
-													<c:param name="cargo_cod" value="${campaign.cargo.codigo}" />
-													<c:param name="uf" value="${campaign.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioR" value="${0}" />
 													<c:param name="qtdPorPaginaR" value="${10}" />
 													<c:param name="verTodosR" value="${false}" />
@@ -238,15 +238,15 @@
 												<a href="${url_tamanhoOriginalR}"> ${10}</a>
 												<c:forEach var="i" begin="1" end="${qtdDePPR}">
 													<c:url var="url_tamanhosR" value="/mvc">
-														<c:param name="logica"
-															value="RequisitarMovimentacoesDeCandidato" />
+														<c:param name="logic"
+															value="RequestFinancialTransactionOfCandidate" />
 														<c:param name="despesaTC" value="${totalExpenseCalculatedValue}" />
 														<c:param name="receitaTC" value="${totalRevenueCalculatedValue}" />
 														<c:param name="numero_cand"
-															value="${campaign.numeroCandidato}" />
-														<c:param name="ano" value="${campaign.ano}" />
-														<c:param name="cargo_cod" value="${campaign.cargo.codigo}" />
-														<c:param name="uf" value="${campaign.uf}" />
+															value="${campaign.campaignCandidateNumber}" />
+														<c:param name="ano" value="${campaign.campaignYear}" />
+														<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="uf" value="${campaign.campaignCountryState}" />
 														<c:param name="inicioR" value="${0}" />
 														<c:choose>
 															<c:when test="${i == 5}">
@@ -296,10 +296,10 @@
 													<c:param name="despesaTC" value="${totalExpenseCalculatedValue}" />
 													<c:param name="receitaTC" value="${totalRevenueCalculatedValue}" />
 													<c:param name="numero_cand"
-														value="${campaign.numeroCandidato}" />
-													<c:param name="ano" value="${campaign.ano}" />
-													<c:param name="cargo_cod" value="${campaign.cargo.codigo}" />
-													<c:param name="uf" value="${campaign.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioR" value="${0}" />
 													<c:param name="qtdPorPaginaR" value="${0}" />
 													<c:param name="verTodosR" value="${true}" />
@@ -397,15 +397,15 @@
 										<td colspan="4"><center>
 												Páginas:
 												<c:url var="url_pagInicialD" value="/mvc">
-													<c:param name="logica"
-														value="RequisitarMovimentacoesDeCandidato" />
+													<c:param name="logic"
+														value="RequestFinancialTransactionOfCandidate" />
 													<c:param name="despesaTC" value="${despesaTC}" />
 													<c:param name="receitaTC" value="${receitaTC}" />
 													<c:param name="numero_cand"
-														value="${campanha.numeroCandidato}" />
-													<c:param name="ano" value="${campanha.ano}" />
-													<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-													<c:param name="uf" value="${campanha.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioD" value="${0}" />
 													<c:param name="qtdPorPaginaD" value="${qtdPorPaginaD}" />
 													<c:param name="verTodosD" value="${false}" />
@@ -418,15 +418,15 @@
 												<a href="${url_pagInicialD}"><c:out value="primeira... " /></a>
 												<c:forEach var="i" begin="${minRaioD}" end="${maxRaioD}">
 													<c:url var="url_pagD" value="/mvc">
-														<c:param name="logica"
-															value="RequisitarMovimentacoesDeCandidato" />
+														<c:param name="logic"
+															value="RequestFinancialTransactionOfCandidate" />
 														<c:param name="despesaTC" value="${despesaTC}" />
 														<c:param name="receitaTC" value="${receitaTC}" />
 														<c:param name="numero_cand"
-															value="${campanha.numeroCandidato}" />
-														<c:param name="ano" value="${campanha.ano}" />
-														<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-														<c:param name="uf" value="${campanha.uf}" />
+															value="${campaign.campaignCandidateNumber}" />
+														<c:param name="ano" value="${campaign.campaignYear}" />
+														<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="uf" value="${campaign.campaignCountryState}" />
 														<c:param name="inicioD" value="${(i-1)*qtdPorPaginaD}" />
 														<c:param name="qtdPorPaginaD" value="${qtdPorPaginaD}" />
 														<c:param name="verTodosD" value="${false}" />
@@ -444,15 +444,15 @@
 													</c:choose>
 												</c:forEach>
 												<c:url var="url_pagFinalD" value="/mvc">
-													<c:param name="logica"
-														value="RequisitarMovimentacoesDeCandidato" />
+													<c:param name="logic"
+														value="RequestFinancialTransactionsOfCandidate" />
 													<c:param name="despesaTC" value="${despesaTC}" />
 													<c:param name="receitaTC" value="${receitaTC}" />
 													<c:param name="numero_cand"
-														value="${campanha.numeroCandidato}" />
-													<c:param name="ano" value="${campanha.ano}" />
-													<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-													<c:param name="uf" value="${campanha.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioD"
 														value="${(indiceD-1)*qtdPorPaginaD}" />
 													<c:param name="qtdPorPaginaD" value="${qtdPorPaginaD}" />
@@ -466,17 +466,17 @@
 												<a href="${url_pagFinalD}"><c:out value=" ...última" /></a>
 												<br> Despesas por Página:
 												<c:url var="url_tamanhoOriginalD" value="/mvc">
-													<c:param name="logica"
-														value="RequisitarMovimentacoesDeCandidato" />
+													<c:param name="logic"
+														value="RequestFinancialTransactionOfCandidate" />
 													<c:param name="despesaTC"
-														value="${campanha.despesaTotalCalculada}" />
+														value="${campaign.totalExpenseCalculatedValue}" />
 													<c:param name="receitaTC"
-														value="${campanha.receitaTotalCalculada}" />
+														value="${campaign.totalRevenueCalculatedValue}" />
 													<c:param name="numero_cand"
-														value="${campanha.numeroCandidato}" />
-													<c:param name="ano" value="${campanha.ano}" />
-													<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-													<c:param name="uf" value="${campanha.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioD" value="${0}" />
 													<c:param name="qtdPorPaginaD" value="${10}" />
 													<c:param name="verTodosD" value="${false}" />
@@ -489,17 +489,17 @@
 												<a href="${url_tamanhoOriginalD}"> ${10}</a>
 												<c:forEach var="i" begin="1" end="${qtdDePPD}">
 													<c:url var="url_tamanhosD" value="/mvc">
-														<c:param name="logica"
-															value="RequisitarMovimentacoesDeCandidato" />
-														<c:param name="logica"
-															value="RequisitarMovimentacoesDeCandidato" />
+														<c:param name="logic"
+															value="RequestFinancialTransactionOfCandidate" />
+														<c:param name="logic"
+															value="RequestFinancialTransactionOfCandidate" />
 														<c:param name="despesaTC" value="${despesaTC}" />
 														<c:param name="receitaTC" value="${receitaTC}" />
 														<c:param name="numero_cand"
-															value="${campanha.numeroCandidato}" />
-														<c:param name="ano" value="${campanha.ano}" />
-														<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-														<c:param name="uf" value="${campanha.uf}" />
+															value="${campaign.campaignCandidateNumber}" />
+														<c:param name="ano" value="${campaign.campaignYear}" />
+														<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="uf" value="${campaign.campaignCountryState}" />
 														<c:param name="inicioD" value="${0}" />
 														<c:choose>
 															<c:when test="${i == 5}">
@@ -544,15 +544,15 @@
 														</c:choose></a>
 												</c:forEach>
 												<c:url var="url_todosD" value="/mvc">
-													<c:param name="logica"
-														value="RequisitarMovimentacoesDeCandidato" />
+													<c:param name="logic"
+														value="RequestFinancialTransactionOfCandidate" />
 													<c:param name="despesaTC" value="${despesaTC}" />
 													<c:param name="receitaTC" value="${receitaTC}" />
 													<c:param name="numero_cand"
-														value="${campanha.numeroCandidato}" />
-													<c:param name="ano" value="${campanha.ano}" />
-													<c:param name="cargo_cod" value="${campanha.cargo.codigo}" />
-													<c:param name="uf" value="${campanha.uf}" />
+														value="${campaign.campaignCandidateNumber}" />
+													<c:param name="ano" value="${campaign.campaignYear}" />
+													<c:param name="cargo_cod" value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="uf" value="${campaign.campaignCountryState}" />
 													<c:param name="inicioD" value="${0}" />
 													<c:param name="qtdPorPaginaD" value="${0}" />
 													<c:param name="verTodosD" value="${true}" />
