@@ -11,9 +11,9 @@ import org.junit.Test;
 
 import parse.ParseException;
 import parse.register.campaign.RegisterToParseResult;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CadastroResultadoParseTeste extends TemplateTeste {
+public class CadastroResultadoParseTeste extends TemplateTest {
 	
 	private RegisterToParseResult cadastro;
 	private ResultDAO dao;

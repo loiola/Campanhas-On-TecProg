@@ -16,7 +16,7 @@ import org.junit.Test;
 
 import control.CampaignControl;
 
-public class CampanhaControleTeste extends TemplateTeste {
+public class CampaignControlTest extends TemplateTest {
 	
 	private CampaignDAO campaignDAO;
 	private CandidateDAO candidateDAO;
@@ -54,15 +54,15 @@ public class CampanhaControleTeste extends TemplateTeste {
 	}
 	
 	@Test
-	public void deveRetornarUmaListaDeCampanhasDeUmDeterminadoCandidato() throws SQLException {
+	public void shouldReturnAListOfCampaignsOfACandidate() throws SQLException {
 		
-		ArrayList<Campaign> listaCampanhas = new ArrayList<>();
-		ArrayList<Candidate> listaCandidato = new ArrayList<>();
+		ArrayList<Campaign> campaignsList = new ArrayList<>();
+		ArrayList<Candidate> candidateList = new ArrayList<>();
 
 		
 		this.candidate.setCandidateName("CANDIDATO");
 		this.candidate.setCandidateElectoralTitle("5532424149");
-		listaCandidato.add(candidate);
+		candidateList.add(candidate);
 		
 		this.resultado1.setResultType(1);
 		this.resultado1.setResultDescription("NAO ELEITO");
@@ -82,7 +82,7 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha1.setCampaignMaximumExpenseDeclared((float) 450000.0);
 		this.campanha1.setCampaignTotalExpenseCalculated((float) 450000.0);
 		this.campanha1.setCampaignTotalRevenueCalculated((float) 450000.0);
-		listaCampanhas.add(campanha1);
+		campaignsList.add(campanha1);
 		
 		this.resultado2.setResultType(2);
 		this.resultado2.setResultDescription("ELEITO");
@@ -102,10 +102,10 @@ public class CampanhaControleTeste extends TemplateTeste {
 		this.campanha2.setCampaignMaximumExpenseDeclared((float) 450000.0);
 		this.campanha2.setCampaignTotalExpenseCalculated((float) 450000.0);
 		this.campanha2.setCampaignTotalRevenueCalculated((float) 450000.0);
-		listaCampanhas.add(campanha2);
+		campaignsList.add(campanha2);
 		
-		this.campaignDAO.registerUnregisteredObjectArrayListOnDatabase(listaCampanhas);
-		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(listaCandidato);
+		this.campaignDAO.registerUnregisteredObjectArrayListOnDatabase(campaignsList);
+		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(candidateList);
 		
 		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate), this.campaignControl.getListCampaign(candidate));
 		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear("SGLL", "2006"), this.campaignControl.getListCampaignBySiglaPartyAndYear("SGLL", "2006"));

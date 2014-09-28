@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 import control.servlet.VisualizeTopFive;
 
-public class VisualizarTopFiveTeste extends TemplateTeste {
+public class VisualizarTopFiveTeste extends TemplateTest {
 
 	VisualizeTopFive visualizeTopFive;
 	HttpServletRequest req;

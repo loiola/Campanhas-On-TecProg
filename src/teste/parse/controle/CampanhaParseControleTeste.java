@@ -8,9 +8,9 @@ import org.junit.Test;
 
 import parse.control.ParseControlCampaign;
 import parse.index.CampaignParseIndex;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CampanhaParseControleTeste extends TemplateTeste {
+public class CampanhaParseControleTeste extends TemplateTest {
 
 	public static final int RESULTADO = 0;
 	public static final int CARGO = 1;

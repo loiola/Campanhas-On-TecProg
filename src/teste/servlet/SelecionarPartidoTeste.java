@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 import control.servlet.SelectPoliticalParty;
 
-public class SelecionarPartidoTeste extends TemplateTeste {
+public class SelecionarPartidoTeste extends TemplateTest {
 
 	SelectPoliticalParty selectPoliticalParty;
 	HttpServletRequest req;

@@ -11,9 +11,9 @@ import org.junit.Test;
 
 import parse.ParseException;
 import parse.register.campaign.RegisterToParsePosition;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CadastroCargoParseTeste extends TemplateTeste {
+public class CadastroCargoParseTeste extends TemplateTest {
 
 	private RegisterToParsePosition cadastro;
 	private PositionDAO positionDAO;

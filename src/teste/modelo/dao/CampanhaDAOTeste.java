@@ -14,9 +14,9 @@ import model.dao.CandidateDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CampanhaDAOTeste extends TemplateTeste {
+public class CampanhaDAOTeste extends TemplateTest {
 	
 	private CampaignDAO campaignDAO;
 	private CandidateDAO candidateDAO;

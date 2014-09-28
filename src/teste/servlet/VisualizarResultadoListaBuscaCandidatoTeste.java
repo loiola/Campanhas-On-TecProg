@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 import control.servlet.VisualizeResultOfSearchCandidateList;
 
-public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTeste {
+public class VisualizarResultadoListaBuscaCandidatoTeste extends TemplateTest {
 	
 	VisualizeResultOfSearchCandidateList visualizeResultOfSearchCandidateList;
 	HttpServletRequest req;

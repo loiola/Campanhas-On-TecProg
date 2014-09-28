@@ -11,9 +11,9 @@ import model.dao.RevenueDAO;
 
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class ReceitaDAOTeste extends TemplateTeste {
+public class ReceitaDAOTeste extends TemplateTest {
 	
 	private RevenueDAO revenueDAO;
 	private Revenue receita1;

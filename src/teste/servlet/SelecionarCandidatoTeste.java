@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 import control.servlet.SelectCandidate;
 
-public class SelecionarCandidatoTeste extends TemplateTeste {
+public class SelecionarCandidatoTeste extends TemplateTest {
 
 	SelectCandidate selectCandidate;
 	HttpServletRequest req;

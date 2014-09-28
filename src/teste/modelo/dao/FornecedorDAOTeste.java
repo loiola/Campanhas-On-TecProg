@@ -8,9 +8,9 @@ import model.dao.SupplierDAO;
 import org.junit.Assert;
 import org.junit.Test;
 
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class FornecedorDAOTeste extends TemplateTeste {
+public class FornecedorDAOTeste extends TemplateTest {
 
 	private SupplierDAO supplierDAO;
 	

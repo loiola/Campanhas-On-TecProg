@@ -7,7 +7,7 @@ import model.dao.DatabaseConnection;
 import org.junit.After;
 import org.junit.Before;
 
-public abstract class TemplateTeste {
+public abstract class TemplateTest {
 	
 	public static final String NOME_BANCO_OFICIAL = "c_on";
 	public static final String LOCAL_BANCO_OFICIAL = "jdbc:mysql://";

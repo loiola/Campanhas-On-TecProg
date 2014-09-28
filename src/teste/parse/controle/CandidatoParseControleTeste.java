@@ -8,9 +8,9 @@ import org.junit.Test;
 
 import parse.control.ParseControlCandidate;
 import parse.index.CandidateParseIndex;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CandidatoParseControleTeste extends TemplateTeste {
+public class CandidatoParseControleTeste extends TemplateTest {
 
 	public static final int NOME = 0;
 	public static final int TITULO_ELEITORAL = 1;

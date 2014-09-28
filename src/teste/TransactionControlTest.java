@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import control.TransactionControl;
 
-public class MovimentacaoControleTeste extends TemplateTeste {
+public class TransactionControlTest extends TemplateTest {
 
 	private ExpenseDAO expenseDAO;
 	private RevenueDAO revenueDAO;
@@ -50,8 +50,8 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		this.position = new Position();
 		this.numeroCandidato = 1234;
 		
-		ArrayList<Expense> listaDespesa = new ArrayList<>();
-		ArrayList<Revenue> listaReceita = new ArrayList<>();
+		ArrayList<Expense> expenseList = new ArrayList<>();
+		ArrayList<Revenue> revenueList = new ArrayList<>();
 
 		candidate.setCandidateName("FULANO");
 		candidate.setCandidateElectoralTitle("12345");
@@ -71,16 +71,16 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 		revenue.setFinancialTransactionCampaign(campaign);
 		revenue.setFinancialTransactionIdentifier(3);
 		revenue.setRevenueDonor(donor);
-		listaReceita.add(revenue);
+		revenueList.add(revenue);
 		
 		expense.setFinancialTransactionPrice((float) 90.0);
 		expense.setFinancialTransactionCampaign(campaign);
 		expense.setFinancialTransactionIdentifier(5);
 		expense.setExpenseSupplier(supplier);
-		listaDespesa.add(expense);
+		expenseList.add(expense);
 		
-		this.expenseDAO.registerUnregisteredObjectArrayListOnDatabase(listaDespesa);
-		this.revenueDAO.registerUnregisteredObjectArrayListOnDatabase(listaReceita);
+		this.expenseDAO.registerUnregisteredObjectArrayListOnDatabase(expenseList);
+		this.revenueDAO.registerUnregisteredObjectArrayListOnDatabase(revenueList);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	}
 	
 	@Test
-	public void deveRetornarUmaMovimentacaoPeloId() throws Exception {
+	public void shouldReturnATransactionByIdentifier() throws Exception {
 		
 		Assert.assertEquals(this.revenueDAO.getRevenueByIdentifier(3).getFinancialTransactionPrice(), this.transactionControl.getRevenueById(3).getFinancialTransactionPrice());
 		Assert.assertEquals(this.expenseDAO.getExpenseByIdentifier(5).getFinancialTransactionPrice(), this.transactionControl.getExpenseById(5).getFinancialTransactionPrice());
@@ -97,27 +97,27 @@ public class MovimentacaoControleTeste extends TemplateTeste {
 	
 	
 	@Test
-	public void deveRecuperarMovimentacoesDeUmaCampanha() throws Exception {
+	public void mustRetrieveTransactionsOfCampaign() throws Exception {
 		
-		Campaign campanhaTeste = new Campaign();
-		Assert.assertNull(this.transactionControl.getListExpense(campanhaTeste));
-		Assert.assertNull(this.transactionControl.getListRevenue(campanhaTeste));
+		Campaign campaignTest = new Campaign();
+		Assert.assertNull(this.transactionControl.getListExpense(campaignTest));
+		Assert.assertNull(this.transactionControl.getListRevenue(campaignTest));
 
-		campanhaTeste.setCampaignPosition(this.position);
-		Assert.assertNull(this.transactionControl.getListExpense(campanhaTeste));
-		Assert.assertNull(this.transactionControl.getListRevenue(campanhaTeste));
+		campaignTest.setCampaignPosition(this.position);
+		Assert.assertNull(this.transactionControl.getListExpense(campaignTest));
+		Assert.assertNull(this.transactionControl.getListRevenue(campaignTest));
 		
-		campanhaTeste.setCampaignYear(this.ano);
-		Assert.assertNull(this.transactionControl.getListExpense(campanhaTeste));
-		Assert.assertNull(this.transactionControl.getListRevenue(campanhaTeste));
+		campaignTest.setCampaignYear(this.ano);
+		Assert.assertNull(this.transactionControl.getListExpense(campaignTest));
+		Assert.assertNull(this.transactionControl.getListRevenue(campaignTest));
 	
-		campanhaTeste.setCampaignCandidateNumber(this.numeroCandidato);
-		Assert.assertNull(this.transactionControl.getListExpense(campanhaTeste));
-		Assert.assertNull(this.transactionControl.getListRevenue(campanhaTeste));
+		campaignTest.setCampaignCandidateNumber(this.numeroCandidato);
+		Assert.assertNull(this.transactionControl.getListExpense(campaignTest));
+		Assert.assertNull(this.transactionControl.getListRevenue(campaignTest));
 		
-		campanhaTeste.setCampaignCountryState(this.uf);
-		Assert.assertEquals(this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campanhaTeste).size(),this.transactionControl.getListExpense(campanhaTeste).size());
-		Assert.assertEquals(this.revenueDAO.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campanhaTeste).size(),this.transactionControl.getListRevenue(campanhaTeste).size());
+		campaignTest.setCampaignCountryState(this.uf);
+		Assert.assertEquals(this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaignTest).size(),this.transactionControl.getListExpense(campaignTest).size());
+		Assert.assertEquals(this.revenueDAO.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campaignTest).size(),this.transactionControl.getListRevenue(campaignTest).size());
 	}
 
 }

@@ -6,9 +6,9 @@ import org.junit.Test;
 
 import parse.ParseException;
 import parse.register.campaign.RegisterToParseCampaign;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CadastroCampanhaParseTeste extends TemplateTeste {
+public class CadastroCampanhaParseTeste extends TemplateTest {
 
 	private RegisterToParseCampaign cadastro;
 	String  tipoArquivo = "campanha";

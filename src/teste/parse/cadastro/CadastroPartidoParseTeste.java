@@ -11,9 +11,9 @@ import org.junit.Test;
 
 import parse.ParseException;
 import parse.register.party.RegisterToParseParty;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class CadastroPartidoParseTeste extends TemplateTeste {
+public class CadastroPartidoParseTeste extends TemplateTest {
 
 	String  tipoArquivoA = "partido";
 	String  tipoArquivoB = "campanha";

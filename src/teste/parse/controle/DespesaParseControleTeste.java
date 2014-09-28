@@ -8,9 +8,9 @@ import org.junit.Test;
 
 import parse.control.ParseControlExpense;
 import parse.index.ExpenseParseIndex;
-import teste.TemplateTeste;
+import teste.TemplateTest;
 
-public class DespesaParseControleTeste extends TemplateTeste {
+public class DespesaParseControleTeste extends TemplateTest {
 	
 	public static final int NOME = 0;
 	public static final int CPF_CNPJ = 1;
