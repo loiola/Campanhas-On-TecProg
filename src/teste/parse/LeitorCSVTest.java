@@ -35,7 +35,7 @@ public class LeitorCSVTest {
 		
 		this.executorLeitorCSV = new ExecutorReaderCSVObserver() {
 			@Override
-			public void runMethodForFileLine(String[] campo) {
+			public void runMethodForEachRead(String[] campo) {
 				
 			}
 		};

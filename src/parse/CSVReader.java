@@ -12,7 +12,7 @@ import org.apache.commons.fileupload.FileItem;
 public class CSVReader {
 	
 	public interface ExecutorReaderCSVObserver {
-		public void runMethodForFileLine(String field[]);
+		public void runMethodForEachRead(String field[]);
 	}
 	
 	private ExecutorReaderCSVObserver executorReaderCSVObserver;
@@ -95,7 +95,7 @@ public class CSVReader {
 	
 	private void notifyObserver(String field[]) {
 		if(this.executorReaderCSVObserver != null) {
-			this.executorReaderCSVObserver.runMethodForFileLine(field);
+			this.executorReaderCSVObserver.runMethodForEachRead(field);
 		}
 	}
 	

@@ -31,7 +31,7 @@ public abstract class Parse implements ExecutorReaderCSVObserver {
 	}
 	
 	@Override
-	public void runMethodForFileLine(String[] field) {
+	public void runMethodForEachRead(String[] field) {
 		try {
 			for(RegisterParse<?> registerParse : this.listRegisterParse) {
 				registerParse.runFileLine(field);
