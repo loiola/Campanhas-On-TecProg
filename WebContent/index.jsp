@@ -89,7 +89,7 @@
 									</p>
 								</div>
 								<div class="eleicoes_banner">
-									<a href="informacoes.jsp"><img src="img/banner.png"
+									<a href="about.jsp"><img src="img/banner.png"
 										width="220" height="171" alt="banner" title="Eleições Limpas"></a>
 								</div>
 							</div>
@@ -122,7 +122,7 @@
 						</div>
 						<br>
 						<div id="saiba_mais_box">
-							<a href="informacoes.jsp">Clique aqui para saber mais (+)</a>
+							<a href="about.jsp">Clique aqui para saber mais (+)</a>
 						</div>
 					</div>
 				</div>
@@ -139,7 +139,7 @@
 							</div>
 						<br>
 						<div id="saiba_mais_box">
-							<a href="informacoes.jsp">Clique aqui para saber mais (+)</a>
+							<a href="about.jsp">Clique aqui para saber mais (+)</a>
 						</div>
 					</div>
 				</div>
@@ -158,7 +158,7 @@
 							</div>
 						<br>
 						<div id="saiba_mais_box">
-							<a href="informacoes.jsp">Clique aqui para saber mais (+)</a>
+							<a href="about.jsp">Clique aqui para saber mais (+)</a>
 						</div>
 					</div>
 				</div>
