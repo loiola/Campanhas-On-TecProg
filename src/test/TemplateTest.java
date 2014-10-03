@@ -9,11 +9,11 @@ import org.junit.Before;
 
 public abstract class TemplateTest {
 	
-	public static final String NOME_BANCO_OFICIAL = "c_on";
-	public static final String LOCAL_BANCO_OFICIAL = "jdbc:mysql://";
+	public static final String OFICIAL_DATABASE_NAME = "c_on";
+	public static final String OFICIAL_DATABASE_PATH = "jdbc:mysql://";
 	
-	public static final String NOME_BANCO_TESTES = "banco_de_testes";
-	public static final String LOCAL_BANCO_ERROR = "Erro na Conexao";
+	public static final String TEST_DATABASE_NAME = "banco_de_testes";
+	public static final String ERROR_CONNECTION_DATABASE = "Erro na Conexao";
 	
 	protected DatabaseConnection databaseConnection;
 	
@@ -24,10 +24,10 @@ public abstract class TemplateTest {
 		String arquivoSQL1 = diretorioSQL + "/mer_campanha.sql";	
 		String arquivoSQL2 = diretorioSQL + "/mer_movimentacoes.sql";		
 		this.databaseConnection = new DatabaseConnection();
-		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_OFICIAL);
-		this.databaseConnection.setDatabasePath(LOCAL_BANCO_OFICIAL);
-		this.databaseConnection.createDatabaseSchema(NOME_BANCO_TESTES);
-		this.databaseConnection.adjustDatabaseSchemaName(NOME_BANCO_TESTES);
+		this.databaseConnection.adjustDatabaseSchemaName(OFICIAL_DATABASE_NAME);
+		this.databaseConnection.setDatabasePath(OFICIAL_DATABASE_PATH);
+		this.databaseConnection.createDatabaseSchema(TEST_DATABASE_NAME);
+		this.databaseConnection.adjustDatabaseSchemaName(TEST_DATABASE_NAME);
 		this.databaseConnection.readSQLCommandFromFile(arquivoSQL1);
 		this.databaseConnection.readSQLCommandFromFile(arquivoSQL2);
 
@@ -38,7 +38,7 @@ public abstract class TemplateTest {
 	public void tearDown() throws Exception {
 		afterTest();
 		
-		if(!this.databaseConnection.getDatabasePath().equals(LOCAL_BANCO_ERROR)) {
+		if(!this.databaseConnection.getDatabasePath().equals(ERROR_CONNECTION_DATABASE)) {
 			this.databaseConnection.dropDatabaseName();
 		}	
 	}

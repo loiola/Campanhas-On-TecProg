@@ -36,7 +36,7 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	private List<Revenue> revenueList;
 	private List<Expense> expenseList;
 
-	private HttpServletRequest req;
+	private HttpServletRequest requestServlet;
 
 	//Variables for paging in HTML
 	private int firstRevenue;
@@ -64,10 +64,11 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String execute(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest requestServlet, HttpServletResponse responseServlet)
 			throws Exception {
 
-		this.req = req;
+		this.requestServlet = requestServlet;
+		
 		
 		// Call refactored methods
 		receiveParameters();
@@ -94,21 +95,21 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 * Rebecer methods for the parameters of the request
 	 */
 	private void receiveParameters() throws SQLException {
-		this.searchCampaign = buildCampaign(this.req);
-		this.totalRevenueCalculatedValue = Float.parseFloat(this.req.getParameter("totalRevenueCalculatedValue"));
-		this.totalExpenseCalculatedValue = Float.parseFloat(this.req.getParameter("totalExpenseCalculatedValue"));
-		this.firstRevenue = Integer.parseInt(this.req.getParameter("firstRevenue"));
-		this.quantityRevenuePerPage = Integer.parseInt(this.req
+		this.searchCampaign = buildCampaign(this.requestServlet);
+		this.totalRevenueCalculatedValue = Float.parseFloat(this.requestServlet.getParameter("totalRevenueCalculatedValue"));
+		this.totalExpenseCalculatedValue = Float.parseFloat(this.requestServlet.getParameter("totalExpenseCalculatedValue"));
+		this.firstRevenue = Integer.parseInt(this.requestServlet.getParameter("firstRevenue"));
+		this.quantityRevenuePerPage = Integer.parseInt(this.requestServlet
 				.getParameter("quantityRevenuePerPage"));
-		this.seeAllRevenues = Boolean.parseBoolean(this.req
+		this.seeAllRevenues = Boolean.parseBoolean(this.requestServlet
 				.getParameter("seeAllRevenues"));
-		this.centerOfRevenue = Integer.parseInt(this.req.getParameter("centerOfRevenue"));
-		this.firstExpense = Integer.parseInt(this.req.getParameter("firstExpense"));
-		this.quantityExpensePerPage = Integer.parseInt(this.req
+		this.centerOfRevenue = Integer.parseInt(this.requestServlet.getParameter("centerOfRevenue"));
+		this.firstExpense = Integer.parseInt(this.requestServlet.getParameter("firstExpense"));
+		this.quantityExpensePerPage = Integer.parseInt(this.requestServlet
 				.getParameter("quantityExpensePerPage"));
-		this.seeAllExpenses = Boolean.parseBoolean(this.req
+		this.seeAllExpenses = Boolean.parseBoolean(this.requestServlet
 				.getParameter("seeAllExpenses"));
-		this.centerOfExpense = Integer.parseInt(this.req.getParameter("centerOfExpense"));
+		this.centerOfExpense = Integer.parseInt(this.requestServlet.getParameter("centerOfExpense"));
 		this.campaignControl = new CampaignControl();
 		this.campaign = this.campaignControl
 				.getByYearNumberCodePositionAndUF(this.searchCampaign);
@@ -134,36 +135,36 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 * Prepare responses of forwarded requests
 	 */
 	private void prepareParametersTransmission() {
-		this.req.setAttribute("revenueList", this.revenueList);
-		this.req.setAttribute("expenseList", this.expenseList);
-		this.req.setAttribute("campaign", this.campaign);
-		this.req.setAttribute("totalExpense", this.totalExpense);
-		this.req.setAttribute("totalExpenseCalculatedValue", totalExpenseCalculatedValue);
-		this.req.setAttribute("totalRevenueCalculatedValue", totalRevenueCalculatedValue);
-		this.req.setAttribute("firstRevenue", this.firstRevenue);
+		this.requestServlet.setAttribute("revenueList", this.revenueList);
+		this.requestServlet.setAttribute("expenseList", this.expenseList);
+		this.requestServlet.setAttribute("campaign", this.campaign);
+		this.requestServlet.setAttribute("totalExpense", this.totalExpense);
+		this.requestServlet.setAttribute("totalExpenseCalculatedValue", totalExpenseCalculatedValue);
+		this.requestServlet.setAttribute("totalRevenueCalculatedValue", totalRevenueCalculatedValue);
+		this.requestServlet.setAttribute("firstRevenue", this.firstRevenue);
 		
 		// Defines the number of pages is equal to the size of the candidate list
 		if (this.seeAllRevenues) {
 			this.quantityRevenuePerPage = this.revenueList.size();
 		}
-		this.req.setAttribute("quantityRevenuePerPage", this.quantityRevenuePerPage);
-		this.req.setAttribute("revenueIndex", this.revenueIndex);
-		this.req.setAttribute("quantityOfPPR", this.quantityOfPPR);
-		this.req.setAttribute("firstExpense", this.firstExpense);
+		this.requestServlet.setAttribute("quantityRevenuePerPage", this.quantityRevenuePerPage);
+		this.requestServlet.setAttribute("revenueIndex", this.revenueIndex);
+		this.requestServlet.setAttribute("quantityOfPPR", this.quantityOfPPR);
+		this.requestServlet.setAttribute("firstExpense", this.firstExpense);
 		
 		// Defines the number of pages is equal to the size of the candidate list
 		if (this.seeAllExpenses) {
 			this.quantityExpensePerPage = this.expenseList.size();
 		}
-		this.req.setAttribute("quantityExpensePerPage", this.quantityExpensePerPage);
-		this.req.setAttribute("expenseIndex", this.expenseIndex);
-		this.req.setAttribute("quantityOfPPD", this.quantityOfPPD);
-		this.req.setAttribute("centerOfRevenue", this.centerOfRevenue);
-		this.req.setAttribute("minimumRadiusRevenue", this.minimumRadiusRevenue);
-		this.req.setAttribute("maximumRadiusRevenue", this.maximumRadiusRevenue);
-		this.req.setAttribute("centerOfExpense", this.centerOfExpense);
-		this.req.setAttribute("minimumRadiusExpense", this.minimumRadiusExpense);
-		this.req.setAttribute("maximumRadiusExpense", this.maximumRadiusExpense);
+		this.requestServlet.setAttribute("quantityExpensePerPage", this.quantityExpensePerPage);
+		this.requestServlet.setAttribute("expenseIndex", this.expenseIndex);
+		this.requestServlet.setAttribute("quantityOfPPD", this.quantityOfPPD);
+		this.requestServlet.setAttribute("centerOfRevenue", this.centerOfRevenue);
+		this.requestServlet.setAttribute("minimumRadiusRevenue", this.minimumRadiusRevenue);
+		this.requestServlet.setAttribute("maximumRadiusRevenue", this.maximumRadiusRevenue);
+		this.requestServlet.setAttribute("centerOfExpense", this.centerOfExpense);
+		this.requestServlet.setAttribute("minimumRadiusExpense", this.minimumRadiusExpense);
+		this.requestServlet.setAttribute("maximumRadiusExpense", this.maximumRadiusExpense);
 	}
 	
 	/*
@@ -324,21 +325,21 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 * @param  an HTTP request
 	 * @return a political campaign
 	 */
-	private Campaign buildCampaign(HttpServletRequest req) {
+	private Campaign buildCampaign(HttpServletRequest requestServlet) {
 
-		int year = Integer.parseInt(req.getParameter("year"));
-		int candidateNumber = Integer.parseInt(req.getParameter("candidateNumber"));
-		int codeOfPosition = Integer.parseInt(req.getParameter("codeOfPosition"));
-		String uf = req.getParameter("uf");
+		int electionYear = Integer.parseInt(requestServlet.getParameter("electionYear"));
+		int candidateNumber = Integer.parseInt(requestServlet.getParameter("candidateNumber"));
+		int codeOfPosition = Integer.parseInt(requestServlet.getParameter("codeOfPosition"));
+		String countryState = requestServlet.getParameter("countryState");
 
 		Position position = new Position();
 		position.setPositionCode(codeOfPosition);
 
 		Campaign campaign = new Campaign();
 		campaign.setCampaignCandidateNumber(candidateNumber);
-		campaign.setCampaignYear(year);
+		campaign.setCampaignYear(electionYear);
 		campaign.setCampaignPosition(position);
-		campaign.setCampaignCountryState(uf);
+		campaign.setCampaignCountryState(countryState);
 
 		return campaign;
 	}

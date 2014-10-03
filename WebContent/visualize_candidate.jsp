@@ -100,9 +100,9 @@
 															value="${campaign.campaignTotalRevenueCalculated}" />
 														<c:param name="candidateNumber"
 															value="${campaign.campaignCandidateNumber}" />
-														<c:param name="year" value="${campaign.campaignYear}" />
+														<c:param name="electionYear" value="${campaign.campaignYear}" />
 														<c:param name="codeOfPosition" value="${campaign.campaignPosition.positionCode}" />
-														<c:param name="uf" value="${campaign.campaignCountryState}" />
+														<c:param name="countryState" value="${campaign.campaignCountryState}" />
 														<c:param name="firstRevenue" value="${0}" />
 														<c:param name="quantityRevenuePerPage" value="${10}" />
 														<c:param name="seeAllRevenues" value="${false}" />
