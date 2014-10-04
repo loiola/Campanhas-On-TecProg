@@ -37,7 +37,7 @@ public class CadastroCargoParseTeste extends TemplateTest {
 		
 		String campo[] = new String[50];
 		campo[8] = "1";
-		campo[9] = "CARGO TESTE";
+		campo[9] = "POSITION TESTE";
 		cadastro.runFileLine(campo);
 		cadastro.registerInstances();
 		

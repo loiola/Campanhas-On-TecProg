@@ -18,46 +18,46 @@ import org.junit.Test;
 import parse.CSVReader;
 import parse.CSVReader.ExecutorReaderCSVObserver;
 
-public class LeitorCSVTest {
+public class ReaderCSVTest {
 
-	public static final String NOME_ARQUIVO = "/src/test/parse/csv_testes.csv";
-	public static final int NUMERO_LINHAS_ARQUIVO = 8232;
+	public static final String FILE_NAME = "/src/test/parse/csv_testes.csv";
+	public static final int NUMBER_LINES_FILE = 8232;
 	
 	private FileItem fileItem;
 	
 	private CSVReader cSVReader;
-	private ExecutorReaderCSVObserver executorLeitorCSV;
+	private ExecutorReaderCSVObserver executorReaderCSV;
 	
 	@Before
 	public void setUp() throws IOException {
 		
 		initFileItem();
 		
-		this.executorLeitorCSV = new ExecutorReaderCSVObserver() {
+		this.executorReaderCSV = new ExecutorReaderCSVObserver() {
 			@Override
 			public void runMethodForEachRead(String[] campo) {
 				
 			}
 		};
 		this.cSVReader = new CSVReader();
-		this.cSVReader.setExecutorLeitorCSVObservador(this.executorLeitorCSV);
+		this.cSVReader.setExecutorLeitorCSVObservador(this.executorReaderCSV);
 	}
 	
 	@Test
-	public void numeroDeLinhasDeveSerIgualAoNumeroDeLinhasDoArquivo() throws Exception {
+	public void numberOfRowsMustEqualTheNumberOfLinesOfFile() throws Exception {
 		
-		int numeroLinhas = this.cSVReader.getNumberOfLines(this.fileItem);
-		Assert.assertEquals(NUMERO_LINHAS_ARQUIVO, numeroLinhas);
+		int numberLines = this.cSVReader.getNumberOfLines(this.fileItem);
+		Assert.assertEquals(NUMBER_LINES_FILE, numberLines);
 	}
 
 	@Test
-	public void deveExecutarMetodoPorLinhaLidaSemLancarExcecao() throws Exception {
+	public void runToReadNoLineMethodForNoExceptionThrow() throws Exception {
 		
 		this.cSVReader.runMethodForReadLine(this.fileItem, ";", 1);
 	}
 	
 	@Test
-	public void deveExecutarMetodoPorLinhaLidaApartirDaLinha10000SemLancarExcecao() throws Exception {
+	public void mustShouldRunLineMethodReadFromTheLine10000NoExceptionThrow() throws Exception {
 		
 		this.cSVReader.runMethodForReadLine(this.fileItem, ";", 10000);
 	}
@@ -65,9 +65,9 @@ public class LeitorCSVTest {
 	
 	private InputStream getNewInputStream() throws FileNotFoundException {
 		
-		String diretorio = new File("").getAbsolutePath();
-		String caminhoArquivo = diretorio + NOME_ARQUIVO;
-		return new FileInputStream(new File(caminhoArquivo));
+		String directory = new File("").getAbsolutePath();
+		String archivePath = directory + FILE_NAME;
+		return new FileInputStream(new File(archivePath));
 	}
 	
 	private void initFileItem() {

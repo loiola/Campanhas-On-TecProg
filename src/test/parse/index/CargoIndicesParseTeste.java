@@ -51,7 +51,7 @@ public class CargoIndicesParseTeste {
 	private void iniciarCampos() {
 		
 		this.campo[0] = "123";
-		this.campo[1] = "CARGO INEXISTENTE";
+		this.campo[1] = "POSITION INEXISTENTE";
 	}
 	
 }

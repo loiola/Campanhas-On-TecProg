@@ -49,7 +49,7 @@ public class ReceitaDAOTeste extends TemplateTest {
 		
 		ArrayList<Revenue> listaReceitas = new ArrayList<>();
 		
-		this.cargo1.setPositionDescription("CARGO UM");
+		this.cargo1.setPositionDescription("POSITION UM");
 		this.campanha1.setCampaignIdentifier(1);
 		this.campanha1.setCampaignYear(2006);
 		this.campanha1.setCampaignCandidateNumber(45555);
@@ -67,7 +67,7 @@ public class ReceitaDAOTeste extends TemplateTest {
 		receita1.setRevenueDonor(doador1);
 		listaReceitas.add(receita1);
 		
-		this.cargo2.setPositionDescription("CARGO DOIS");
+		this.cargo2.setPositionDescription("POSITION DOIS");
 		this.campanha2.setCampaignIdentifier(2);
 		this.campanha2.setCampaignYear(2006);
 		this.campanha2.setCampaignCandidateNumber(131222);

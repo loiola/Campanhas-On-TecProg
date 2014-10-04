@@ -34,12 +34,12 @@ public class CargoDAOTeste extends TemplateTest {
 
 		Position c1 = new Position();
 		c1.setPositionCode(1);
-		c1.setPositionDescription("CARGO UM");
+		c1.setPositionDescription("POSITION UM");
 		listaCargos.add(c1);
 
 		Position c2 = new Position();
 		c2.setPositionCode(2);
-		c2.setPositionDescription("CARGO DOIS");
+		c2.setPositionDescription("POSITION DOIS");
 		listaCargos.add(c2);
 
 		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
@@ -56,17 +56,17 @@ public class CargoDAOTeste extends TemplateTest {
 
 		Position c1 = new Position();
 		c1.setPositionCode(1);
-		c1.setPositionDescription("CARGO UM");
+		c1.setPositionDescription("POSITION UM");
 		listaCargos.add(c1);
 
 		Position c2 = new Position();
 		c2.setPositionCode(2);
-		c2.setPositionDescription("CARGO DOIS");
+		c2.setPositionDescription("POSITION DOIS");
 		listaCargos.add(c2);
 
 		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);
 
-		cargoRecuperado = this.positionDAO.getPositionByDescription("CARGO UM");
+		cargoRecuperado = this.positionDAO.getPositionByDescription("POSITION UM");
 		Assert.assertEquals(c1, cargoRecuperado);
 	}
 	
@@ -78,17 +78,17 @@ public class CargoDAOTeste extends TemplateTest {
 		
 		Position c1 = new Position();
 		c1.setPositionCode(1);
-		c1.setPositionDescription("CARGO UM");
+		c1.setPositionDescription("POSITION UM");
 		listaCargos.add(c1);
 
 		Position c2 = new Position();
 		c2.setPositionCode(2);
-		c2.setPositionDescription("CARGO DOIS");
+		c2.setPositionDescription("POSITION DOIS");
 		listaCargos.add(c2);
 		
 		Position c3 = new Position();
 		c3.setPositionCode(3);
-		c3.setPositionDescription("CARGO TR�S");
+		c3.setPositionDescription("POSITION TR�S");
 		listaCargos.add(c3);
 		
 		this.positionDAO.registerUnregisteredObjectArrayListOnDatabase(listaCargos);

@@ -71,7 +71,7 @@ public class CargoParseControleTeste extends TemplateTest {
 	private void iniciarCampos() {
 		
 		this.campo[CODIGO] = "125";
-		this.campo[DESCRICAO] = "CARGO INEXISTENTE";
+		this.campo[DESCRICAO] = "POSITION INEXISTENTE";
 	}
 
 }

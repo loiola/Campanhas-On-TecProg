@@ -12,8 +12,8 @@ import test.TemplateTest;
 
 public class CampanhaParseControleTeste extends TemplateTest {
 
-	public static final int RESULTADO = 0;
-	public static final int CARGO = 1;
+	public static final int RESULT = 0;
+	public static final int POSITION = 1;
 	public static final int PARTIDO = 2;
 	public static final int CANDIDATO_TITULO = 3;
 	public static final int ANO = 4;
@@ -53,8 +53,8 @@ public class CampanhaParseControleTeste extends TemplateTest {
 		
 		Campaign campanhaCadastrada = this.campaignDAO.getObjectArrayListFromDatabase().get(0);
 				
-		Assert.assertEquals(this.campo[RESULTADO], campanhaCadastrada.getCampaignResult().getResultType().toString());
-		Assert.assertEquals(this.campo[CARGO], campanhaCadastrada.getCampaignPosition().getPositionCode().toString());
+		Assert.assertEquals(this.campo[RESULT], campanhaCadastrada.getCampaignResult().getResultType().toString());
+		Assert.assertEquals(this.campo[POSITION], campanhaCadastrada.getCampaignPosition().getPositionCode().toString());
 		Assert.assertEquals(this.campo[PARTIDO], campanhaCadastrada.getCampaignParty().getPartyNumber().toString());
 		Assert.assertEquals(this.campo[CANDIDATO_TITULO], campanhaCadastrada.getCampaignCandidate().getCandidateElectoralTitle());
 		Assert.assertEquals(this.campo[ANO], campanhaCadastrada.getCampaignYear().toString());
@@ -79,8 +79,8 @@ public class CampanhaParseControleTeste extends TemplateTest {
 	
 	private void iniciarIndices() {
 		
-		this.campaignParseIndex.setIndexCodeResult(RESULTADO);
-		this.campaignParseIndex.setIndexCodePosition(CARGO);
+		this.campaignParseIndex.setIndexCodeResult(RESULT);
+		this.campaignParseIndex.setIndexCodePosition(POSITION);
 		this.campaignParseIndex.setIndexNumberParty(PARTIDO);
 		this.campaignParseIndex.setIndexTitleCandidate(CANDIDATO_TITULO);
 		this.campaignParseIndex.setIndexYear(ANO);
@@ -92,8 +92,8 @@ public class CampanhaParseControleTeste extends TemplateTest {
 	
 	private void iniciarCampos() {
 		
-		this.campo[RESULTADO] = "1";
-		this.campo[CARGO] = "6";
+		this.campo[RESULT] = "1";
+		this.campo[POSITION] = "6";
 		this.campo[PARTIDO] = "13";
 		this.campo[CANDIDATO_TITULO] = "55896321447";
 		this.campo[ANO] = "2010";

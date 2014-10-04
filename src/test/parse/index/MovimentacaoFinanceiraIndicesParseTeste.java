@@ -75,7 +75,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		
 		this.campo[0] = "2006";
 		this.campo[1] = "45555";
-		this.campo[2] = "CARGO";
+		this.campo[2] = "POSITION";
 		this.campo[3] = "55896321447";
 		this.campo[4] = "12/10/2006";
 		this.campo[5] = "450.0";

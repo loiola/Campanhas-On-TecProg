@@ -58,7 +58,7 @@ public class ResultadoParseControleTeste extends TemplateTest {
 	private void iniciarCampos() {
 		
 		this.campo[CODIGO] = "125";
-		this.campo[DESCRICAO] = "RESULTADO INEXISTENTE";
+		this.campo[DESCRICAO] = "RESULT INEXISTENTE";
 	}
 
 }

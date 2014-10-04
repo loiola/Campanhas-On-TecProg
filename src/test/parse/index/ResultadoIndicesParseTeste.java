@@ -51,7 +51,7 @@ public class ResultadoIndicesParseTeste {
 	private void iniciarCampos() {
 		
 		this.campo[0] = "123";
-		this.campo[1] = "RESULTADO INEXISTENTE";
+		this.campo[1] = "RESULT INEXISTENTE";
 	}
 
 }
