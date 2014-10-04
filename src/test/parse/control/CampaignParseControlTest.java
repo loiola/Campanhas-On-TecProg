@@ -51,17 +51,17 @@ public class CampaignParseControlTest extends TemplateTest {
 		this.parseControlCampaign.registeringInstances();
 		this.parseControlCampaign.clear();
 		
-		Campaign campanhaCadastrada = this.campaignDAO.getObjectArrayListFromDatabase().get(0);
+		Campaign campaignRegistered = this.campaignDAO.getObjectArrayListFromDatabase().get(0);
 				
-		Assert.assertEquals(this.field[RESULT], campanhaCadastrada.getCampaignResult().getResultType().toString());
-		Assert.assertEquals(this.field[POSITION], campanhaCadastrada.getCampaignPosition().getPositionCode().toString());
-		Assert.assertEquals(this.field[PARTY], campanhaCadastrada.getCampaignParty().getPartyNumber().toString());
-		Assert.assertEquals(this.field[CANDIDATE_TITLE], campanhaCadastrada.getCampaignCandidate().getCandidateElectoralTitle());
-		Assert.assertEquals(this.field[YEAR], campanhaCadastrada.getCampaignYear().toString());
-		Assert.assertEquals(this.field[CANDIDATE_NUMBER], campanhaCadastrada.getCampaignCandidateNumber().toString());
-		Assert.assertEquals(this.field[NAME_URN], campanhaCadastrada.getCampaignNameOfUrn());
-		Assert.assertEquals(this.field[UF], campanhaCadastrada.getCampaignCountryState());
-		Assert.assertEquals(this.field[MAXIMUM_EXPENSE], campanhaCadastrada.getCampaignMaximumExpenseDeclared().toString());
+		Assert.assertEquals(this.field[RESULT], campaignRegistered.getCampaignResult().getResultType().toString());
+		Assert.assertEquals(this.field[POSITION], campaignRegistered.getCampaignPosition().getPositionCode().toString());
+		Assert.assertEquals(this.field[PARTY], campaignRegistered.getCampaignParty().getPartyNumber().toString());
+		Assert.assertEquals(this.field[CANDIDATE_TITLE], campaignRegistered.getCampaignCandidate().getCandidateElectoralTitle());
+		Assert.assertEquals(this.field[YEAR], campaignRegistered.getCampaignYear().toString());
+		Assert.assertEquals(this.field[CANDIDATE_NUMBER], campaignRegistered.getCampaignCandidateNumber().toString());
+		Assert.assertEquals(this.field[NAME_URN], campaignRegistered.getCampaignNameOfUrn());
+		Assert.assertEquals(this.field[UF], campaignRegistered.getCampaignCountryState());
+		Assert.assertEquals(this.field[MAXIMUM_EXPENSE], campaignRegistered.getCampaignMaximumExpenseDeclared().toString());
 	}
 	
 	@Test

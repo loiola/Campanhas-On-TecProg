@@ -63,7 +63,7 @@ public class ReceitaDAOTeste extends TemplateTest {
 		receita1.setFinancialTransactionDate("12/10/2006");
 		receita1.setFinancialTransactionType("TIPO MOVIMENTACAO UM");
 		receita1.setRevenueElectoralReceipt("RECIBO ELEITORAL UM");
-		receita1.setFinancialTransactionDocumentNumber("NUMERO DOCUMENTO UM");
+		receita1.setFinancialTransactionDocumentNumber("NUMBER DOCUMENTO UM");
 		receita1.setRevenueDonor(doador1);
 		listaReceitas.add(receita1);
 		
@@ -81,7 +81,7 @@ public class ReceitaDAOTeste extends TemplateTest {
 		receita2.setFinancialTransactionDate("12/10/2006");
 		receita2.setFinancialTransactionType("TIPO MOVIMENTACAO DOIS");
 		receita2.setRevenueElectoralReceipt("RECIBO ELEITORAL DOIS");
-		receita2.setFinancialTransactionDocumentNumber("NUMERO DOCUMENTO DOIS");
+		receita2.setFinancialTransactionDocumentNumber("NUMBER DOCUMENTO DOIS");
 		receita2.setRevenueDonor(doador2);
 		listaReceitas.add(receita2);
 		
