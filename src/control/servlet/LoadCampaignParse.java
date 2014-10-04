@@ -20,41 +20,53 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import parse.Parse;
 import parse.ParseCampaign;
 
-@WebServlet("/carregarParseCampanha")
+@WebServlet("/loadCampaignParse")
 public class LoadCampaignParse extends HttpServlet {
-	
+
 	/*
-	 * Servlet to control the loading parse campaign
+	 * Servlet asked by parseView.jsp to extract a Data File of Campaigns and
+	 * Send to Campaign Parse Control Classes to populate the information
+	 * extracted in the database
 	 */
 
-	// Attributes
+	// Attribute
 	private static final long serialVersionUID = 5625867877274809499L;
 
-	// Empty Constructor
+	// Constructor execute init() method from Super (HttpServlet)
 	@Override
 	public void init() throws ServletException {
 		super.init();
 	}
 
-	// Other methods
-	/*
+	// Other method
+	
+	/**
+	 * 
 	 * Method that makes the call load and parse controls its execution
-	 * @param an HTTP request and HTTP response
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * @throws ServletException
 	 */
+	
+	// See LoadPoliticalPartyParse to see Refactoring Suggestion
 	@Override
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		
+		// New General Method Suggested: 
 		PrintWriter output = response.getWriter();
 
 		Part part = request.getPart("file_line_initial");
-		if(part != null) {
+		if (part != null) {
 			Scanner scanner = new Scanner(part.getInputStream());
 			output.println("initial line: " + scanner.nextLine());
 			scanner.close();
-		} try {
-			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
-			if(isMultpart) {
+		}
+		try {
+			boolean isMultpart = ServletFileUpload.isMultipartContent(request);
+			if (isMultpart) {
 				FileItemFactory factory = new DiskFileItemFactory();
 				ServletFileUpload upload = new ServletFileUpload(factory);
 
@@ -64,9 +76,8 @@ public class LoadCampaignParse extends HttpServlet {
 				int initialLine = 1;
 				String fileType = "campaign";
 
-
-				for(FileItem fileItem : fields) {
-					if(!fileItem.isFormField()) 
+				for (FileItem fileItem : fields) {
+					if (!fileItem.isFormField())
 						file = fileItem;
 				}
 
@@ -77,7 +88,7 @@ public class LoadCampaignParse extends HttpServlet {
 				output.println("Parse Completed!");
 			}
 
-		} catch(Exception e) {
+		} catch (Exception e) {
 			output.println("ERROR test upload: " + e.getMessage());
 		}
 	}

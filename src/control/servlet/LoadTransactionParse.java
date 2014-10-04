@@ -22,25 +22,35 @@ import parse.register.revenue_expense.RegisterToParseSupplier;
 
 @WebServlet("/carregarParseMovimentacoes")
 public class LoadTransactionParse extends HttpServlet {
-	
+
 	/*
-	 * Servlet to control the loading parse financial transactions
+	 * Servlet asked by parseView.jsp to extract a Data File of Expense or
+	 * Revenues and Send to Expense or Revenue Parse Control Classes to populate
+	 * the information extracted in the database
 	 */
 
-	// Attributes
+	// Attribute
 	private static final long serialVersionUID = 5625867877274809499L;
 
-	// Empty Constructor
+	// Constructor execute init() method from Super (HttpServlet)
 	@Override
 	public void init() throws ServletException {
 		super.init();
 	}
 
-	// Other methods
-	/*
+	// Other method
+
+	/**
+	 * 
 	 * Method that makes the call load and parse controls its execution
-	 * @param an HTTP request and HTTP response
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 * @throws ServletException
 	 */
+
+	// See LoadPoliticalPartyParse to see Refactoring Suggestion
 	@Override
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -48,8 +58,8 @@ public class LoadTransactionParse extends HttpServlet {
 		PrintWriter output = response.getWriter();
 
 		try {
-			boolean isMultpart = ServletFileUpload.isMultipartContent(request);			
-			if(isMultpart) {
+			boolean isMultpart = ServletFileUpload.isMultipartContent(request);
+			if (isMultpart) {
 				FileItemFactory factory = new DiskFileItemFactory();
 				ServletFileUpload upload = new ServletFileUpload(factory);
 
@@ -61,20 +71,20 @@ public class LoadTransactionParse extends HttpServlet {
 				String division = ";";
 				int initialLine = 1;
 
-				for(FileItem fileItem : fields) {
-					if(!fileItem.isFormField()) {
+				for (FileItem fileItem : fields) {
+					if (!fileItem.isFormField()) {
 						file = fileItem;
 					} else {
-						if(fileItem.getFieldName().equals("file_type")) {
-							
+						if (fileItem.getFieldName().equals("file_type")) {
+
 							// Checks the file type, whether income or expense
-							if(fileItem.getString().equals("expense")) {
+							if (fileItem.getString().equals("expense")) {
 								fileType = RegisterToParseSupplier.EXPENSE;
 							} else {
 								fileType = RegisterToParseDonor.REVENUE;
 							}
-						} else if(fileItem.getFieldName().equals("file_year")) {
-							
+						} else if (fileItem.getFieldName().equals("file_year")) {
+
 							// Checks joined donor according to selected year
 							switch (fileItem.getString()) {
 							case "2002":
@@ -96,12 +106,13 @@ public class LoadTransactionParse extends HttpServlet {
 					}
 				}
 
-				Parse parse = new ParseFinancialTransactions(fileType, electionYear);
+				Parse parse = new ParseFinancialTransactions(fileType,
+						electionYear);
 				parse.runParse(file, division, initialLine);
 				output.println("Parse Completed!");
 			}
 
-		} catch(Exception e) {
+		} catch (Exception e) {
 			output.println("ERROR test upload: " + e.getMessage());
 		}
 	}

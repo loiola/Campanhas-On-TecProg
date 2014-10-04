@@ -18,7 +18,7 @@ public class RequestFinancialTransactionOfCandidateTest extends TemplateTest {
 	HttpServletResponse responseServlet;
 
 	@Test
-	public void mockServletWithSeeAllTransactionsEnabledAndQuantityOfTransactionDifferentOfZero()
+	public void mockServletWithSeeAllTransactionsEnabledAndQuantityOfTransactionsPerPageDifferentOfZero()
 			throws Exception {
 		when(requestServlet.getParameter("totalExpenseCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("totalRevenueCalculatedValue")).thenReturn("10000");
@@ -39,7 +39,7 @@ public class RequestFinancialTransactionOfCandidateTest extends TemplateTest {
 	}
 
 	@Test
-	public void simulaServletComVerTodosVerdadeiroEQtdPorPaginaIgualAZero()
+	public void mockServletWithSeeAllTransactionsEnabledAndQuantityOfTransactionsPerPageEqualsToZero()
 			throws Exception {
 		when(requestServlet.getParameter("totalExpenseCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("totalRevenueCalculatedValue")).thenReturn("10000");
@@ -60,7 +60,7 @@ public class RequestFinancialTransactionOfCandidateTest extends TemplateTest {
 	}
 
 	@Test
-	public void simulaServletComCandidatoInexistente() throws Exception {
+	public void mockServletWithInexistentCandidate() throws Exception {
 		when(requestServlet.getParameter("totalExpenseCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("totalRevenueCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("electionYear")).thenReturn("2006");
@@ -80,7 +80,7 @@ public class RequestFinancialTransactionOfCandidateTest extends TemplateTest {
 	}
 
 	@Test
-	public void simulaServletComIndiceAltoDePaginacao() throws Exception {
+	public void mockServletWithHighIndexOfPagination() throws Exception {
 		when(requestServlet.getParameter("totalExpenseCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("totalRevenueCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("electionYear")).thenReturn("2010");
@@ -100,7 +100,7 @@ public class RequestFinancialTransactionOfCandidateTest extends TemplateTest {
 	}
 
 	@Test
-	public void simulaServletComIndiceAltoDePaginacaoDois() throws Exception {
+	public void mockAnotherServletWithHighIndexOfPagination() throws Exception {
 		when(requestServlet.getParameter("totalExpenseCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("totalRevenueCalculatedValue")).thenReturn("10000");
 		when(requestServlet.getParameter("electionYear")).thenReturn("2010");

@@ -28,7 +28,7 @@
 				<h1>Parse dos Partidos</h1>
 				<p>Usar arquivo: utf_partidos_politicos_registrados_tse.txt</p>
 				
-				<form action="carregarParsePartido" method="POST"
+				<form action="loadPoliticalPartyParse" method="POST"
 					enctype="multipart/form-data">
 					<table>
 						<tr>
@@ -49,10 +49,10 @@
 				
 				<!-- PARSE DAS CAMPANHAS -->
 				<h1>Parse das Campanhas</h1>
-				<p>Usar arquivos: utf_consulta_cand_&ltano&gt_&ltuf&gt.txt </p>
+				<p>Usar arquivos: A10, A11, A20, A21, A30, A31 </p>
 				
 
-				<form action="carregarParseCampanha" method="POST"
+				<form action="loadCampaignParse" method="POST"
 					enctype="multipart/form-data">
 					<table>
 						<tr>
@@ -73,7 +73,7 @@
 				
 				<!-- PARSE DAS MOVIMENTACOES FINANCEIRAS -->
 				<h1>Parse das Movimentações Financeiras</h1>
-				<p>Usar arquivos: utf_&ltReceita/Despesa&gtCandidatos_&ltano&gt.csv </p>
+				<p>Usar arquivos: B10, B11, B20, B21, B30, B31, C10, C11, C20, C21, C30, C31  </p>
 				
 				<form action="carregarParseMovimentacoes" method="POST"
 					enctype="multipart/form-data">
