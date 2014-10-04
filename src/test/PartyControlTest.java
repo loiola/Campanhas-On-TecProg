@@ -37,14 +37,14 @@ public class PartyControlTest extends TemplateTest {
 		ArrayList<Party> listPartiesRecovered = new ArrayList<>();
 		
 		Party partyOne = new Party();
-		partyOne.setPartyName("PARTIDO EXISTENTE 1");
+		partyOne.setPartyName("PARTY EXISTENTE 1");
 		partyOne.setPartyAcronym("PE1");
 		partyOne.setPartyNumber(46);
 		partyOne.setPartyConcession("15.8.1996");
 		listPartiesToRegister.add(partyOne);
 		
 		Party partyTwo = new Party();
-		partyTwo.setPartyName("PARTIDO EXISTENTE 2");
+		partyTwo.setPartyName("PARTY EXISTENTE 2");
 		partyTwo.setPartyAcronym("PE2");
 		partyOne.setPartyNumber(78);
 		partyOne.setPartyConcession("15.4.1995");
@@ -63,14 +63,14 @@ public class PartyControlTest extends TemplateTest {
 		Party partidoRecuperado = new Party();
 		
 		Party partyOne = new Party();
-		partyOne.setPartyName("PARTIDO EXISTENTE 1");
+		partyOne.setPartyName("PARTY EXISTENTE 1");
 		partyOne.setPartyAcronym("PE1");
 		partyOne.setPartyNumber(46);
 		partyOne.setPartyConcession("15.8.1996");
 		partyList.add(partyOne);
 		
 		Party partyTwo = new Party();
-		partyTwo.setPartyName("PARTIDO EXISTENTE 2");
+		partyTwo.setPartyName("PARTY EXISTENTE 2");
 		partyTwo.setPartyAcronym("PE2");
 		partyOne.setPartyNumber(78);
 		partyOne.setPartyConcession("15.4.1995");
@@ -89,14 +89,14 @@ public class PartyControlTest extends TemplateTest {
 		Party partyRecovered = new Party();
 		
 		Party partyOne = new Party();
-		partyOne.setPartyName("PARTIDO EXISTENTE 3");
+		partyOne.setPartyName("PARTY EXISTENTE 3");
 		partyOne.setPartyAcronym("PE3");
 		partyOne.setPartyNumber(47);
 		partyOne.setPartyConcession("15.8.1985");
 		partyList.add(partyOne);
 		
 		Party partyTwo = new Party();
-		partyTwo.setPartyName("PARTIDO EXISTENTE 4");
+		partyTwo.setPartyName("PARTY EXISTENTE 4");
 		partyTwo.setPartyAcronym("PE4");
 		partyOne.setPartyNumber(78);
 		partyOne.setPartyConcession("15.5.1996");

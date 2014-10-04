@@ -85,14 +85,14 @@ public class PartidoDAOTeste extends TemplateTest {
 		Party p1 = new Party();
 		p1.setPartyNumber(45);
 		p1.setPartyAcronym("PI1");
-		p1.setPartyName("PARTIDO INEXISTENTE 1");
+		p1.setPartyName("PARTY INEXISTENTE 1");
 		p1.setPartyConcession("11.8.1996");
 		listaPartidos.add(p1);
 		
 		Party p2 = new Party();
 		p2.setPartyNumber(23);
 		p2.setPartyAcronym("PI2");
-		p2.setPartyName("PARTIDO INEXISTENTE 2");
+		p2.setPartyName("PARTY INEXISTENTE 2");
 		p2.setPartyConcession("11.8.1994");
 		listaPartidos.add(p2);
 		
