@@ -75,7 +75,7 @@ public class FornecedorParseControleTeste extends TemplateTest {
 	private void iniciarCampos() {
 
 		this.campo[CPF_CNPJ] = "125";
-		this.campo[NOME] = "NOME TESTE";
+		this.campo[NOME] = "NAME TESTE";
 	}
 
 }

@@ -66,7 +66,7 @@ public class ReceitaParseControleTeste extends TemplateTest {
 	private void iniciarCampos() {
 
 		this.campo[RECIBO] = "RECIBOELEITORAL";
-		this.campo[NOME] = "NOME";
+		this.campo[NOME] = "NAME";
 		this.campo[CPF_CNPJ] = "123";
 	}
 

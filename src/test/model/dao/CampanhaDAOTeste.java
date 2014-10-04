@@ -67,7 +67,7 @@ public class CampanhaDAOTeste extends TemplateTest {
 		camp1.setCampaignPosition(position);
 		camp1.setCampaignParty(partido1);
 		camp1.setCampaignCandidate(candidato1);
-		camp1.setCampaignNameOfUrn("NOME DE URNA UM");
+		camp1.setCampaignNameOfUrn("NAME DE URNA UM");
 		camp1.setCampaignCountryState("DF");
 		camp1.setCampaignMaximumExpenseDeclared((float) 450000.);
 		camp1.setCampaignTotalExpenseCalculated((float) 450000.0);
@@ -86,7 +86,7 @@ public class CampanhaDAOTeste extends TemplateTest {
 		camp2.setCampaignPosition(position);
 		camp2.setCampaignParty(partido2);
 		camp2.setCampaignCandidate(candidato2);
-		camp2.setCampaignNameOfUrn("NOME DE URNA DOIS");
+		camp2.setCampaignNameOfUrn("NAME DE URNA DOIS");
 		camp2.setCampaignCountryState("DF");
 		camp2.setCampaignMaximumExpenseDeclared((float) 500000.);
 		camp2.setCampaignTotalExpenseCalculated((float) 500000.0);

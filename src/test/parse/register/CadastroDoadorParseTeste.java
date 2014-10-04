@@ -44,7 +44,7 @@ public class CadastroDoadorParseTeste extends TemplateTest {
 		
 		String campo[] = new String[50];
 		campo[16] = "123";
-		campo[15] = "NOME";
+		campo[15] = "NAME";
 		campo[17] = "UF";
 		campo[18] = "SITUACAO";		
 		cadastro1.runFileLine(campo);
@@ -59,7 +59,7 @@ public class CadastroDoadorParseTeste extends TemplateTest {
 		
 		String campo[] = new String[50];
 		campo[6] = "12345";
-		campo[8] = "NOME NOME";
+		campo[8] = "NAME NAME";
 		campo[7] = "UF UF";	
 		cadastro2.runFileLine(campo);
 		cadastro2.registerInstances();
@@ -73,7 +73,7 @@ public class CadastroDoadorParseTeste extends TemplateTest {
 		
 		String campo[] = new String[50];
 		campo[10] = "12345";
-		campo[11] = "NOME NOME";
+		campo[11] = "NAME NAME";
 		cadastro3.runFileLine(campo);
 		cadastro3.registerInstances();
 		

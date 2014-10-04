@@ -64,7 +64,7 @@ public class DespesaParseControleTeste extends TemplateTest {
 
 	private void iniciarCampos() {
 
-		this.campo[NOME] = "NOME TESTE";
+		this.campo[NOME] = "NAME TESTE";
 		this.campo[CPF_CNPJ] = "123456";
 		this.campo[TIPODOCUMENTO] = "BOLETO";
 	}

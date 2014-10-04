@@ -31,7 +31,7 @@ public class CadastroCampanhaParseTeste extends TemplateTest {
 		String campo[] = new String[50];
 		campo[2] = "2006";
 		campo[12] = "45555";
-		campo[13] = "NOME URNA";
+		campo[13] = "NAME URNA";
 		campo[5] = "DF";
 		campo[8] = "1";
 		campo[26] = "55325424149";
