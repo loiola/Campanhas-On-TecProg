@@ -84,28 +84,28 @@
 						</tr>
 						<tr>
 							<td>Tipo do Arquivo:</td>
-							<td><input type="radio" name="arquivo_tipo" value="despesa"
+							<td><input type="radio" name="file_type" value="expense"
 								checked /> Despesa</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="radio" name="arquivo_tipo" value="receita" />
+							<td><input type="radio" name="file_type" value="revenue" />
 								Receita</td>
 						</tr>
 
 						<tr>
 							<td>Ano:</td>
-							<td><input type="radio" name="arquivo_ano" value="2002"
+							<td><input type="radio" name="file_year" value="2002"
 								checked /> 2002</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="radio" name="arquivo_ano" value="2006" />
+							<td><input type="radio" name="file_year" value="2006" />
 								2006</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="radio" name="arquivo_ano" value="2010" />
+							<td><input type="radio" name="file_year" value="2010" />
 								2010</td>
 						</tr>
 
