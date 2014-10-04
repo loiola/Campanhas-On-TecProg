@@ -81,7 +81,7 @@ public class MovimentacaoFinanceiraIndicesParseTeste {
 		this.campo[5] = "450.0";
 		this.campo[6] = "TIPO MOVIMENTACAO";
 		this.campo[7] = "FORMA PAGAMENTO";
-		this.campo[8] = "DESCRICAO";
+		this.campo[8] = "DESCRIPTION";
 	}
 
 }

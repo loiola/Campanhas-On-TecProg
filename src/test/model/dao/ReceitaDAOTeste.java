@@ -59,7 +59,7 @@ public class ReceitaDAOTeste extends TemplateTest {
 		receita1.setFinancialTransactionCampaign(campanha1);
 		receita1.setFinancialTransactionPrice((float) 450000.0);
 		receita1.setFinancialTransactionPaymentType("FORMA PAGAMENTO UM");
-		receita1.setFinancialTransactionDescription("DESCRICAO UM");
+		receita1.setFinancialTransactionDescription("DESCRIPTION UM");
 		receita1.setFinancialTransactionDate("12/10/2006");
 		receita1.setFinancialTransactionType("TIPO MOVIMENTACAO UM");
 		receita1.setRevenueElectoralReceipt("RECIBO ELEITORAL UM");
@@ -77,7 +77,7 @@ public class ReceitaDAOTeste extends TemplateTest {
 		receita2.setFinancialTransactionCampaign(campanha2);
 		receita2.setFinancialTransactionPrice((float) 500000.0);
 		receita2.setFinancialTransactionPaymentType("FORMA PAGAMENTO DOIS");
-		receita2.setFinancialTransactionDescription("DESCRICAO DOIS");
+		receita2.setFinancialTransactionDescription("DESCRIPTION DOIS");
 		receita2.setFinancialTransactionDate("12/10/2006");
 		receita2.setFinancialTransactionType("TIPO MOVIMENTACAO DOIS");
 		receita2.setRevenueElectoralReceipt("RECIBO ELEITORAL DOIS");
