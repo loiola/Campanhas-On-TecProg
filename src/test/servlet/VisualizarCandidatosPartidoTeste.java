@@ -20,7 +20,7 @@ public class VisualizarCandidatosPartidoTeste extends TemplateTest {
 	@Test
 	public void simulaServletComVerTodosFalsoEQtdPorPaginaDiferenteDeZero() throws Exception {
 		when(req.getParameter("sigla")).thenReturn("SD");
-		when(req.getParameter("ano")).thenReturn("2006");
+		when(req.getParameter("year")).thenReturn("2006");
 		when(req.getParameter("inicio")).thenReturn("0");
 		when(req.getParameter("qtdPorPagina")).thenReturn("10");
 		when(req.getParameter("verTodos")).thenReturn("false");
@@ -31,7 +31,7 @@ public class VisualizarCandidatosPartidoTeste extends TemplateTest {
 	@Test
 	public void simulaServletComVerTodosVerdadeiroEQtdPorPaginaIgualAZero() throws Exception {
 		when(req.getParameter("sigla")).thenReturn("SD");
-		when(req.getParameter("ano")).thenReturn("2006");
+		when(req.getParameter("year")).thenReturn("2006");
 		when(req.getParameter("inicio")).thenReturn("0");
 		when(req.getParameter("qtdPorPagina")).thenReturn("0");
 		when(req.getParameter("verTodos")).thenReturn("true");

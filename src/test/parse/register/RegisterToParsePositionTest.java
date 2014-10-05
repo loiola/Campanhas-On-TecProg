@@ -13,17 +13,17 @@ import parse.ParseException;
 import parse.register.campaign.RegisterToParsePosition;
 import test.TemplateTest;
 
-public class CadastroCargoParseTeste extends TemplateTest {
+public class RegisterToParsePositionTest extends TemplateTest {
 
-	private RegisterToParsePosition cadastro;
+	private RegisterToParsePosition register;
 	private PositionDAO positionDAO;
-	String  tipoArquivo = "campanha";
-	String  ano         = "2006";
+	String  fileType = "campaign";
+	String  year         = "2006";
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro = new RegisterToParsePosition(this.tipoArquivo, this.ano);	
+		this.register = new RegisterToParsePosition(this.fileType, this.year);	
 		this.positionDAO = new PositionDAO();
 	}
 
@@ -33,13 +33,13 @@ public class CadastroCargoParseTeste extends TemplateTest {
 	}
 
 	@Test
-	public void deveRetornarUmCandidatoCadastrado() throws ParseException, SQLException {
+	public void shouldReturnCandidateRegistered() throws ParseException, SQLException {
 		
-		String campo[] = new String[50];
-		campo[8] = "1";
-		campo[9] = "POSITION TESTE";
-		cadastro.runFileLine(campo);
-		cadastro.registerInstances();
+		String field[] = new String[50];
+		field[8] = "1";
+		field[9] = "POSITION TESTE";
+		register.runFileLine(field);
+		register.registerInstances();
 		
 		Position position = this.positionDAO.getPositionByCode(1);
 		assertEquals(position.getPositionCode().toString(), "1");

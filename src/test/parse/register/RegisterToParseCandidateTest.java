@@ -13,17 +13,17 @@ import parse.ParseException;
 import parse.register.campaign.RegisterToParseCandidate;
 import test.TemplateTest;
 
-public class CadastroCandidatoParseTeste extends TemplateTest {
+public class RegisterToParseCandidateTest extends TemplateTest {
 
-	private RegisterToParseCandidate cadastro;
+	private RegisterToParseCandidate register;
 	private CandidateDAO candidateDAO;
-	String  tipoArquivo = "campanha";
-	String  ano         = "2006";
+	String  fileType = "campaign";
+	String  year         = "2006";
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro = new RegisterToParseCandidate(this.tipoArquivo, this.ano);	
+		this.register = new RegisterToParseCandidate(this.fileType, this.year);	
 		this.candidateDAO = new CandidateDAO();
 	}
 
@@ -33,13 +33,13 @@ public class CadastroCandidatoParseTeste extends TemplateTest {
 	}
 
 	@Test
-	public void deveRetornarUmCandidatoCadastrado() throws ParseException, SQLException {
+	public void shouldReturnCandidateRegistered() throws ParseException, SQLException {
 		
-		String campo[] = new String[50];
-		campo[10] = "CANDIDATO TESTE";
-		campo[26] = "55325424149";
-		cadastro.runFileLine(campo);
-		cadastro.registerInstances();
+		String field[] = new String[50];
+		field[10] = "CANDIDATO TESTE";
+		field[26] = "55325424149";
+		register.runFileLine(field);
+		register.registerInstances();
 		
 		Candidate candidate = this.candidateDAO.getCandidateByElectoralTitle("55325424149");
 		assertEquals(candidate.getCandidateElectoralTitle(), "55325424149");

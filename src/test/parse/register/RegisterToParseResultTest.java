@@ -13,17 +13,17 @@ import parse.ParseException;
 import parse.register.campaign.RegisterToParseResult;
 import test.TemplateTest;
 
-public class CadastroResultadoParseTeste extends TemplateTest {
+public class RegisterToParseResultTest extends TemplateTest {
 	
-	private RegisterToParseResult cadastro;
+	private RegisterToParseResult register;
 	private ResultDAO dao;
-	String  tipoArquivo = "campanha";
-	String  ano         = "2006";
+	String  fileType = "campaign";
+	String  year         = "2006";
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.cadastro = new RegisterToParseResult(this.tipoArquivo, this.ano);	
+		this.register = new RegisterToParseResult(this.fileType, this.year);	
 		this.dao = new ResultDAO();
 	}
 
@@ -33,13 +33,13 @@ public class CadastroResultadoParseTeste extends TemplateTest {
 	}
 
 	@Test
-	public void deveRetornarUmResultadoCadastrado() throws ParseException, SQLException {
+	public void shouldReturnResultRegistered() throws ParseException, SQLException {
 		
-		String campo[] = new String[50];
-		campo[40] = "25";
-		campo[41] = "Result 25";
-		cadastro.runFileLine(campo);
-		cadastro.registerInstances();
+		String field[] = new String[50];
+		field[40] = "25";
+		field[41] = "Result 25";
+		register.runFileLine(field);
+		register.registerInstances();
 		
 		Result result = dao.getResultByCode(25);
 		assertEquals(result.getResultDescription(), "Result 25");

@@ -36,8 +36,8 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	/*
 	 * This method checks the file type to correctly identify the indexes that have the information
 	 * to be read and stored
-	 * @param an String tipoArquivo
-	 * @param an String ano
+	 * @param an String fileType
+	 * @param an String year
 	 * @return an instance of class PartyIndicesParse
 	 */
 	@Override
