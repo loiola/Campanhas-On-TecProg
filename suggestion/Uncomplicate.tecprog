@@ -1,3 +1,5 @@
+
+---- Model ----
 Campaign = metodo equals, descomplicar o retorno do metodo (criar variavel auxiliar para retorno do metodo);
 
 FinancialTransaction = metodo equals, verificar retorno FALSE do metodo;
@@ -6,6 +8,7 @@ Position = metodo Equals, verificar por não há ELSE;
 
 CandidateDAO = metodo compareTwoCandidateElectoralTitle, simplificar retorno do metodo;
 
+---- Control ----
 CampaignControl = todos os metodos da classe, criar uma variavel auxiliar para retorno do metodo;
 
 TransactionControl = metodo getListRevenue, criar variavel auxiliar para condição do IF;  
@@ -20,6 +23,7 @@ RequestPoliticalParty = metodo prepareParametersTransmission, criar variavel aux
 
 VisualizeCandidateOfPoliticalParty = metodo prepareParametersTransmission, criar variavel auxiliar para condições dos IF's;
 
+---- Parse ----
 CSVReader = metodo runMethodForReadLine, criar variavel auxiliar para laço FOR; metodo ignoreLines, criar variaveis auxiliares para as condições do laço FOR; metodo removeQuotationMarks; metodo transformFieldSemicolonInComma; 
 
 ParseControl = metodo addInstance, criar variavel auxiliar para condicao IF;
