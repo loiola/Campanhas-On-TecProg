@@ -1,21 +1,21 @@
 package model.beans;
 
 public class Donor {
-	
+
 	/*
-	 * Model Class Donor.java
-	 * This class is responsable for getting the Donor's informations
+	 * Model Class Donor.java This class is responsable for getting the Donor's
+	 * informations
 	 */
-	 
+
 	// Constants
 	public static final String EMPTY_TYPE_STRING = "";
-	
+
 	// Attributes
 	private String donorPersonRegister;
 	private String donorName;
 	private String donorCountryState;
 	private String donorRegisterSituation;
-	
+
 	// Empty Constructor
 	public Donor() {
 		this.donorPersonRegister = EMPTY_TYPE_STRING;
@@ -23,7 +23,7 @@ public class Donor {
 		this.donorCountryState = EMPTY_TYPE_STRING;
 		this.donorRegisterSituation = EMPTY_TYPE_STRING;
 	}
-	
+
 	// Getters and Setters
 	public String getDonorPersonRegister() {
 		return donorPersonRegister;
@@ -56,18 +56,23 @@ public class Donor {
 	public void setDonorRegisterSituation(String donorRegisterSituation) {
 		this.donorRegisterSituation = donorRegisterSituation;
 	}
-	
+
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Donor))
+		if(!(object instanceof Donor)) {
 			return false;
-		
-		Donor otherDonor = (Donor) object;
-		
-		//Variable that stores the logic state of the comparison between two donors
-		boolean auxiliaryReturn = this.getDonorName().equalsIgnoreCase(otherDonor.getDonorName()) &&
-				   this.getDonorPersonRegister().equalsIgnoreCase(otherDonor.getDonorPersonRegister());
-		
-		return auxiliaryReturn;
+		} else {
+
+			Donor otherDonor = (Donor) object;
+
+			// Variable that stores the logic state of the comparison between
+			// two donors
+			boolean auxiliaryReturn = this.getDonorName().equalsIgnoreCase(
+					otherDonor.getDonorName())
+					&& this.getDonorPersonRegister().equalsIgnoreCase(
+							otherDonor.getDonorPersonRegister());
+
+			return auxiliaryReturn;
+		}
 	}
 }

@@ -1,21 +1,21 @@
 package model.beans;
 
 public class Campaign {
-	
+
 	/*
-	 * Class Campaign.java
-	 * This class is responsable for getting the Campaign's informations
- 	 */
-	
+	 * Class Campaign.java This class is responsable for getting the Campaign's
+	 * informations
+	 */
+
 	// Constants
 	public static final String EMPTY_TYPE_STRING = "";
 	public static final Integer EMPTY_TYPE_INTEGER = 0;
 	public static final Result EMPTY_CLASS_RESULT = new Result();
 	public static final Party EMPTY_CLASS_PARTY = new Party();
 	public static final Position EMPTY_CLASS_POSITION = new Position();
-	public static final Candidate EMPTY_CLASS_CANDIDATE = new Candidate(); 
+	public static final Candidate EMPTY_CLASS_CANDIDATE = new Candidate();
 	public static final float EMPTY_TYPE_FLOAT = (float) 0.0;
-	
+
 	// Attributes
 	private Integer campaignIdentifier;
 	private Result campaignResult;
@@ -29,7 +29,7 @@ public class Campaign {
 	private Float campaignMaximumExpenseDeclared;
 	private Float campaignTotalExpenseCalculated;
 	private Float campaignTotalRevenueCalculated;
-	
+
 	// Empty constructor
 	public Campaign() {
 		this.campaignIdentifier = EMPTY_TYPE_INTEGER;
@@ -45,7 +45,7 @@ public class Campaign {
 		this.campaignTotalExpenseCalculated = EMPTY_TYPE_FLOAT;
 		this.campaignTotalRevenueCalculated = EMPTY_TYPE_FLOAT;
 	}
-	
+
 	// Getters and Setters
 	public Integer getCampaignIdentifier() {
 		return campaignIdentifier;
@@ -123,7 +123,8 @@ public class Campaign {
 		return campaignMaximumExpenseDeclared;
 	}
 
-	public void setCampaignMaximumExpenseDeclared(Float campaignMaximumExpenseDeclared) {
+	public void setCampaignMaximumExpenseDeclared(
+			Float campaignMaximumExpenseDeclared) {
 		this.campaignMaximumExpenseDeclared = campaignMaximumExpenseDeclared;
 	}
 
@@ -131,7 +132,8 @@ public class Campaign {
 		return campaignTotalExpenseCalculated;
 	}
 
-	public void setCampaignTotalExpenseCalculated(Float campaignTotalExpenseCalculated) {
+	public void setCampaignTotalExpenseCalculated(
+			Float campaignTotalExpenseCalculated) {
 		this.campaignTotalExpenseCalculated = campaignTotalExpenseCalculated;
 	}
 
@@ -139,26 +141,31 @@ public class Campaign {
 		return campaignTotalRevenueCalculated;
 	}
 
-	public void setCampaignTotalRevenueCalculated(Float campaignTotalRevenueCalculated) {
+	public void setCampaignTotalRevenueCalculated(
+			Float campaignTotalRevenueCalculated) {
 		this.campaignTotalRevenueCalculated = campaignTotalRevenueCalculated;
 	}
-	
+
 	@Override
 	public boolean equals(Object object) {
-		if( !(object instanceof Campaign))
+		if(!(object instanceof Campaign)) {
 			return false;
-		else
-		{
+		} else {
+
 			Campaign otherCampaign = (Campaign) object;
-			
-			//Variable that stores the logic state of the comparison between two campaigns
-			boolean auxiliaryReturn = this.campaignYear.equals(otherCampaign.getCampaignYear()) &&
-					   this.campaignCandidateNumber.equals(otherCampaign.getCampaignCandidateNumber()) &&
-					   this.campaignPosition.equals(otherCampaign.getCampaignPosition()) &&
-					   this.campaignNameOfUrn.equals(otherCampaign.getCampaignNameOfUrn());
-			
+
+			// Variable that stores the logic state of the comparison between
+			// two campaigns
+			boolean auxiliaryReturn = this.campaignYear.equals(otherCampaign
+					.getCampaignYear())
+					&& this.campaignCandidateNumber.equals(otherCampaign
+							.getCampaignCandidateNumber())
+					&& this.campaignPosition.equals(otherCampaign
+							.getCampaignPosition())
+					&& this.campaignNameOfUrn.equals(otherCampaign
+							.getCampaignNameOfUrn());
+
 			return auxiliaryReturn;
 		}
-
 	}
 }
