@@ -41,6 +41,11 @@ public class Result {
 			return false;
 		
 		Result otherResult = (Result) object;
-		return this.resultDescription.equalsIgnoreCase(otherResult.getResultDescription());
+		
+		//Variable that stores the logic state of the comparison between two results
+		boolean auxiliaryReturn = this.resultDescription.equalsIgnoreCase(
+				otherResult.getResultDescription());
+		
+		return auxiliaryReturn;
 	}
 }

@@ -63,7 +63,11 @@ public class Donor {
 			return false;
 		
 		Donor otherDonor = (Donor) object;
-		return this.getDonorName().equalsIgnoreCase(otherDonor.getDonorName()) &&
-			   this.getDonorPersonRegister().equalsIgnoreCase(otherDonor.getDonorPersonRegister());
+		
+		//Variable that stores the logic state of the comparison between two donors
+		boolean auxiliaryReturn = this.getDonorName().equalsIgnoreCase(otherDonor.getDonorName()) &&
+				   this.getDonorPersonRegister().equalsIgnoreCase(otherDonor.getDonorPersonRegister());
+		
+		return auxiliaryReturn;
 	}
 }

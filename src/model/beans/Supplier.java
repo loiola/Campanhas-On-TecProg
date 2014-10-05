@@ -63,7 +63,11 @@ public class Supplier {
 			return false;
 		
 		Supplier otherSupplier = (Supplier) object;
-		return this.getSupplierName().equalsIgnoreCase(otherSupplier.getSupplierName()) &&
-			   this.getSupplierPersonRegister().equalsIgnoreCase(otherSupplier.getSupplierPersonRegister()) ;
+		
+		//Variable that stores the logic state of the comparison between two suppliers
+		boolean auxiliaryReturn = this.getSupplierName().equalsIgnoreCase(otherSupplier.getSupplierName()) &&
+				   this.getSupplierPersonRegister().equalsIgnoreCase(otherSupplier.getSupplierPersonRegister());
+		
+		return auxiliaryReturn;
 	}
 }

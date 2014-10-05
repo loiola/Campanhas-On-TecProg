@@ -64,6 +64,10 @@ public class Party {
 			return false;
 		
 		Party otherParty = (Party) object;
-		return this.partyAcronym.equals(otherParty.getPartyAcronym());
+		
+		//Variable that stores the logic state of the comparison between two parties
+		boolean auxiliaryReturn = this.partyAcronym.equals(otherParty.getPartyAcronym());
+		
+		return auxiliaryReturn;
 	}
 }

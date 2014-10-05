@@ -101,6 +101,7 @@ public class FinancialTransaction {
 		this.financialTransactionPaymentType = financialTransactionPaymentType;
 	}
 	
+	//verify the relevance of method
 	@Override
 	public boolean equals(Object object) {
 		return false;

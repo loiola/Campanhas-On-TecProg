@@ -150,10 +150,14 @@ public class Campaign {
 		else
 		{
 			Campaign otherCampaign = (Campaign) object;
-			return this.campaignYear.equals(otherCampaign.getCampaignYear()) &&
-				   this.campaignCandidateNumber.equals(otherCampaign.getCampaignCandidateNumber()) &&
-				   this.campaignPosition.equals(otherCampaign.getCampaignPosition()) &&
-				   this.campaignNameOfUrn.equals(otherCampaign.getCampaignNameOfUrn());
+			
+			//Variable that stores the logic state of the comparison between two campaigns
+			boolean auxiliaryReturn = this.campaignYear.equals(otherCampaign.getCampaignYear()) &&
+					   this.campaignCandidateNumber.equals(otherCampaign.getCampaignCandidateNumber()) &&
+					   this.campaignPosition.equals(otherCampaign.getCampaignPosition()) &&
+					   this.campaignNameOfUrn.equals(otherCampaign.getCampaignNameOfUrn());
+			
+			return auxiliaryReturn;
 		}
 
 	}

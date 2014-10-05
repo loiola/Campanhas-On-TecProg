@@ -42,6 +42,11 @@ public class Position {
 			return false;
 		
 		Position otherPosition = (Position) object;
-		return this.positionDescription.equalsIgnoreCase(otherPosition.getPositionDescription());
+		
+		//Variable that stores the logic state of the comparison between two positions
+		boolean auxiliaryReturn = this.positionDescription.equalsIgnoreCase(
+				otherPosition.getPositionDescription());
+		
+		return auxiliaryReturn;
 	}
 }

@@ -44,7 +44,11 @@ public class Candidate {
 			return false;
 
 		Candidate otherCandidate = (Candidate) object;
+		
+		//Variable that stores the logic state of the comparison between two candidates
+		boolean auxiliaryReturn = this.candidateElectoralTitle.equals(
+				otherCandidate.getCandidateElectoralTitle());
 
-		return this.candidateElectoralTitle.equals(otherCandidate.getCandidateElectoralTitle());
+		return auxiliaryReturn;
 	}
 }
