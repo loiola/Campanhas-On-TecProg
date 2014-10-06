@@ -15,16 +15,17 @@ public abstract class BasicAcceptanceTest {
 	// Firefox Version need to be 28 or less
 	protected WebDriver driver = new FirefoxDriver();
 
-	protected static final String PROJECT_URL = "http://localhost:8080/prestacao_de_contas_das_campanhas_eleitorais/";
-	protected static final String INDEX_URL = "index.jsp";
+	protected final String PROJECT_URL = "http://localhost:8080/prestacao_de_contas_das_campanhas_eleitorais/";
+	protected final String INDEX_URL = "index.jsp";
 
-	protected static final long WAITING_TIME_FOR_TEST_RESPONSE = 7;
-	protected static final long WAITING_NORMAL_TIME_FOR_VIEW = 1000;
-	protected static final long WAITING_EXTENDED_TIME_FOR_VIEW = 2000;
-	protected static final long WAITING_SHORT_TIME_FOR_VIEW = 500;
+	protected final long WAITING_TIME_FOR_TEST_RESPONSE = 7;
+	protected final long WAITING_NORMAL_TIME_FOR_VIEW = 1000;
+	protected final long WAITING_EXTENDED_TIME_FOR_VIEW = 2000;
+	protected final long WAITING_SHORT_TIME_FOR_VIEW = 500;
 
-	protected static final String CANDIDATE_HEADER_CLASS_NAME = "candidatos";
-	protected static final String SEE_ALL_LIST_LINKTEXT = "Ver Todos";
+	protected final String CANDIDATE_HEADER_CLASS_NAME = "candidatos";
+	protected final String POLITICAL_PARTY_HEADER_CLASS_NAME = "partidos";
+	protected final String SEE_ALL_LIST_LINKTEXT = "Ver Todos";
 	
 	@Before
 	public void setUp() throws Exception {
@@ -83,6 +84,33 @@ public abstract class BasicAcceptanceTest {
 		WebElement candidateHeaderElement = getWebElementByClassName(CANDIDATE_HEADER_CLASS_NAME);
 		Thread.sleep(waitingTime);
 		candidateHeaderElement.click();
+	}
+	
+	protected void goToPoliticalPartyListPage(long waitingTime)
+			throws Exception {	
+		driver.get(PROJECT_URL + INDEX_URL);
+		
+		WebElement politicalPartyHeaderElement = getWebElementByClassName(POLITICAL_PARTY_HEADER_CLASS_NAME);
+		Thread.sleep(waitingTime);
+		politicalPartyHeaderElement.click();
+	}
+	
+	protected void goToPoliticalPartyPageInPoliticalPartyListPage(String politicalPartyLinkText, long waitingTime) throws Exception {
+		WebElement democratasPoliticalPartyElement = getWebElementByLinkText(politicalPartyLinkText);
+		democratasPoliticalPartyElement.click();
+		Thread.sleep(waitingTime);
+	}
+	
+	protected void goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(String campaignYearLinkText, long waitingTime) throws Exception {
+		WebElement campaignYear2010Element = getWebElementByLinkText(campaignYearLinkText);
+		campaignYear2010Element.click();
+		Thread.sleep(waitingTime);
+	}
+	
+	protected void goToPoliticalCandidatesListPage(String politicalPartyLinkText, String campaignYearLinkText, long waitingTime) throws Exception {
+		goToPoliticalPartyListPage(waitingTime);
+		goToPoliticalPartyPageInPoliticalPartyListPage(politicalPartyLinkText, waitingTime);
+		goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(campaignYearLinkText, waitingTime);
 	}
 	
 	protected void clickInSeeAllList(long waitingTime) throws Exception {
