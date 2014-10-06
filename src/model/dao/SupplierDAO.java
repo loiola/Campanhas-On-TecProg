@@ -29,7 +29,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	
 	// Constructors
 	public SupplierDAO() {
-		super(DATABASE_SUPPLIER_TABLE_NAME, CompareTwoSuppliersName.NOME);
+		super(DATABASE_SUPPLIER_TABLE_NAME, CompareTwoSuppliersName.NAME);
 	}
 	
 	// Other methods
@@ -37,9 +37,14 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * Comparator to check if two instances are equal supplier through name
 	 */
 	public enum CompareTwoSuppliersName implements Comparator<Supplier> {
-		NOME {
+		NAME {
 			public int compare(Supplier f1, Supplier f2) {
-				return f1.getSupplierName().compareToIgnoreCase(f2.getSupplierName());
+				
+				// Variable that stores the logic state of the comparison between
+				// two suppliers by Name
+				int auxiliaryReturn = f1.getSupplierName().compareToIgnoreCase(f2.getSupplierName());
+				
+				return auxiliaryReturn;
 			}
 		}	
 	}

@@ -26,7 +26,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 
 	// Constructors
 	public PositionDAO() {
-		super(DATABASE_POSITION_TABLE_NAME, CompareTwoPositionsCode.CODIGO);
+		super(DATABASE_POSITION_TABLE_NAME, CompareTwoPositionsCode.POSITION_CODE);
 	}
 
 	// Other methods
@@ -34,10 +34,15 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * Comparator to check if two instances are equal positions through code
 	 */
 	public enum CompareTwoPositionsCode implements Comparator<Position> {
-		CODIGO {
+		POSITION_CODE {
 			@Override
 			public int compare(Position c1, Position c2) {
-				return c1.getPositionCode().compareTo(c2.getPositionCode());
+				
+				// Variable that stores the logic state of the comparison between
+				// two positions by Code
+				int auxiliaryReturn = c1.getPositionCode().compareTo(c2.getPositionCode());
+				
+				return auxiliaryReturn; 
 			}
 		};
 	}

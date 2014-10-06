@@ -79,7 +79,7 @@ public class ResultadoDAOTeste extends TemplateTest {
 		r2.setResultType(2);
 		int resultado;
 
-		resultado = ResultDAO.CompareTwoResultsType.CODIGO.compare(r1, r2);
+		resultado = ResultDAO.CompareTwoResultsType.RESULT_TYPE.compare(r1, r2);
 		
 		Assert.assertNotEquals(0,resultado);
 	}

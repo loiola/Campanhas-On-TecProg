@@ -34,7 +34,7 @@ public class FornecedorDAOTeste extends TemplateTest {
 		F2.setSupplierName("FORNECEDOR UM");
 		int resultado;
 
-		resultado = SupplierDAO.CompareTwoSuppliersName.NOME.compare(F1, F2);
+		resultado = SupplierDAO.CompareTwoSuppliersName.NAME.compare(F1, F2);
 		
 		Assert.assertEquals(0,resultado);
 	}

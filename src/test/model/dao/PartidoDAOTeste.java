@@ -35,7 +35,7 @@ public class PartidoDAOTeste extends TemplateTest {
 		P2.setPartyAcronym("AEIOU");
 		int resultado;
 
-		resultado = PartyDAO.CompareTwoPartiesAcronym.SIGLA.compare(P1, P2);
+		resultado = PartyDAO.CompareTwoPartiesAcronym.ACRONYM.compare(P1, P2);
 
 		Assert.assertEquals(0, resultado);
 	}

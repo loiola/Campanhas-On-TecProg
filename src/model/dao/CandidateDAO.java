@@ -30,7 +30,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 
 	// Constructors
 	public CandidateDAO() {
-		super(DATABASE_CANDIDATE_TABLE_NAME, CompareTwoCandidatesElectoralTitle.TITULO_ELEITORAL);
+		super(DATABASE_CANDIDATE_TABLE_NAME, CompareTwoCandidatesElectoralTitle.ELECTORAL_TITLE);
 	}
 
 	// Other methods
@@ -38,11 +38,16 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * Comparator to check if two instances are equal candidates through Title Voter
 	 */
 	public enum CompareTwoCandidatesElectoralTitle implements Comparator<Candidate> {
-		TITULO_ELEITORAL {
+		ELECTORAL_TITLE {
 			@Override
 			public int compare(Candidate c1, Candidate c2) {
-				return c1.getCandidateElectoralTitle().compareTo(
+				
+				// Variable that stores the logic state of the comparison between
+				// two candidates by Electoral Title
+				int auxiliaryReturn = c1.getCandidateElectoralTitle().compareTo(
 						c2.getCandidateElectoralTitle());
+				
+				return auxiliaryReturn;
 			}
 		};
 	}

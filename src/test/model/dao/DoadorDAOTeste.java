@@ -34,7 +34,7 @@ public class DoadorDAOTeste extends TemplateTest {
 		D2.setDonorPersonRegister("1234567");
 		int resultado;
 
-		resultado = DonorDAO.CompareTwoDonorsPersonRegister.NOME.compare(D1, D2);
+		resultado = DonorDAO.CompareTwoDonorsPersonRegister.PERSON_REGISTER.compare(D1, D2);
 		
 		Assert.assertEquals(0,resultado);
 	}

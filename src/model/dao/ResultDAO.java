@@ -26,7 +26,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	
 	// Constructors
 	public ResultDAO() {
-		super(DATABASE_RESULT_TABLE_NAME, CompareTwoResultsType.CODIGO);
+		super(DATABASE_RESULT_TABLE_NAME, CompareTwoResultsType.RESULT_TYPE);
 	}
 
 	// Other methods
@@ -34,10 +34,15 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	 * Comparator to check if two instances are equal result through Title code
 	 */
 	public enum CompareTwoResultsType implements Comparator<Result> {
-		CODIGO {
+		RESULT_TYPE {
 			@Override
 			public int compare(Result r1, Result r2) {
-				return r1.getResultType().compareTo(r2.getResultType());
+				
+				// Variable that stores the logic state of the comparison between
+				// two results by Code
+				int auxiliaryReturn = r1.getResultType().compareTo(r2.getResultType());
+				
+				return auxiliaryReturn; 
 			}
 		};
 	}

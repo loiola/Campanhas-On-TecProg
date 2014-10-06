@@ -106,7 +106,7 @@ public class CargoDAOTeste extends TemplateTest {
 		c2.setPositionCode(2);
 		int resultado;
 
-		resultado = PositionDAO.CompareTwoPositionsCode.CODIGO.compare(c1, c2);
+		resultado = PositionDAO.CompareTwoPositionsCode.POSITION_CODE.compare(c1, c2);
 
 		Assert.assertNotEquals(0, resultado);
 	}

@@ -29,7 +29,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 
 	// Constructors
 	public PartyDAO() {
-		super(DATABASE_PARTY_TABLE_NAME, CompareTwoPartiesAcronym.SIGLA);
+		super(DATABASE_PARTY_TABLE_NAME, CompareTwoPartiesAcronym.ACRONYM);
 	}
 
 	// Other methods
@@ -37,10 +37,15 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * Comparator to check if two instances are equal parties through acronym
 	 */
 	public enum CompareTwoPartiesAcronym implements Comparator<Party> {
-		SIGLA {
+		ACRONYM {
 			@Override
 			public int compare(Party p1, Party p2) {
-				return p1.getPartyAcronym().compareToIgnoreCase(p2.getPartyAcronym());
+				
+				// Variable that stores the logic state of the comparison between
+				// two parties by Acronym
+				int auxiliaryReturn = p1.getPartyAcronym().compareToIgnoreCase(p2.getPartyAcronym());
+				
+				return auxiliaryReturn;
 			}
 		};
 	}

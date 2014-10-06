@@ -29,7 +29,7 @@ public class CandidatoDAOTeste extends TemplateTest {
 	@Test
 	public void valoresComparacao() throws Exception {
 		
-		CandidateDAO.CompareTwoCandidatesElectoralTitle.valueOf(CandidateDAO.CompareTwoCandidatesElectoralTitle.TITULO_ELEITORAL.toString());
+		CandidateDAO.CompareTwoCandidatesElectoralTitle.valueOf(CandidateDAO.CompareTwoCandidatesElectoralTitle.ELECTORAL_TITLE.toString());
 	}
 	
 	@Test
@@ -99,13 +99,13 @@ public class CandidatoDAOTeste extends TemplateTest {
 	@Test
 	public void deveRetornarFalseDuranteAhComparacao() throws Exception {
 		
-		CandidateDAO.CompareTwoCandidatesElectoralTitle.valueOf(CandidateDAO.CompareTwoCandidatesElectoralTitle.TITULO_ELEITORAL.toString());
+		CandidateDAO.CompareTwoCandidatesElectoralTitle.valueOf(CandidateDAO.CompareTwoCandidatesElectoralTitle.ELECTORAL_TITLE.toString());
 		
 		Candidate C1 = new Candidate();
 		Candidate C2 = new Candidate();
 		int resultado;
 
-		resultado = CandidateDAO.CompareTwoCandidatesElectoralTitle.TITULO_ELEITORAL.compare(C1, C2);		
+		resultado = CandidateDAO.CompareTwoCandidatesElectoralTitle.ELECTORAL_TITLE.compare(C1, C2);		
 		
 		Assert.assertEquals(0,resultado);
 	}
