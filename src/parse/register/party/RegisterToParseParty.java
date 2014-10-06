@@ -45,13 +45,13 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 			String ano) throws ParseException {
 		PartyParseIndex partyParseIndex;
 		partyParseIndex = new PartyParseIndex();
-		if(tipoArquivo.equals("partido"))
+		if(tipoArquivo.equals("party"))
 		{
 			partyParseIndex.setIndexPartyName(2);
 			partyParseIndex.setIndexAcronym(1);
 			partyParseIndex.setIndexNumberParty(5);
 			partyParseIndex.setIndexDeferral(3);
-		}else if(tipoArquivo.equals("campanha"))
+		}else if(tipoArquivo.equals("campaign"))
 		{
 			partyParseIndex.setIndexPartyName(18);
 			partyParseIndex.setIndexAcronym(17);
