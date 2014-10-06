@@ -26,7 +26,7 @@ public abstract class BasicAcceptanceTest {
 	protected final String CANDIDATE_HEADER_CLASS_NAME = "candidatos";
 	protected final String POLITICAL_PARTY_HEADER_CLASS_NAME = "partidos";
 	protected final String SEE_ALL_LIST_LINKTEXT = "Ver Todos";
-	
+
 	@Before
 	public void setUp() throws Exception {
 		driver.manage()
@@ -69,8 +69,7 @@ public abstract class BasicAcceptanceTest {
 	}
 
 	protected void writeInWebElement(String keysToWriteInWebElement,
-			WebElement webElement, long waitingTime)
-			throws Exception {
+			WebElement webElement, long waitingTime) throws Exception {
 		Assert.assertTrue(webElement.isDisplayed());
 		webElement.clear();
 		webElement.sendKeys(keysToWriteInWebElement);
@@ -78,45 +77,77 @@ public abstract class BasicAcceptanceTest {
 	}
 
 	protected void goToCandidateSearchingPage(long waitingTime)
-			throws Exception {	
+			throws Exception {
 		driver.get(PROJECT_URL + INDEX_URL);
-		
+
 		WebElement candidateHeaderElement = getWebElementByClassName(CANDIDATE_HEADER_CLASS_NAME);
 		Thread.sleep(waitingTime);
 		candidateHeaderElement.click();
 	}
-	
+
 	protected void goToPoliticalPartyListPage(long waitingTime)
-			throws Exception {	
+			throws Exception {
 		driver.get(PROJECT_URL + INDEX_URL);
-		
+
 		WebElement politicalPartyHeaderElement = getWebElementByClassName(POLITICAL_PARTY_HEADER_CLASS_NAME);
 		Thread.sleep(waitingTime);
 		politicalPartyHeaderElement.click();
 	}
-	
-	protected void goToPoliticalPartyPageInPoliticalPartyListPage(String politicalPartyLinkText, long waitingTime) throws Exception {
+
+	protected void goToPoliticalPartyPageInPoliticalPartyListPage(
+			String politicalPartyLinkText, long waitingTime) throws Exception {
 		WebElement democratasPoliticalPartyElement = getWebElementByLinkText(politicalPartyLinkText);
 		democratasPoliticalPartyElement.click();
 		Thread.sleep(waitingTime);
 	}
-	
-	protected void goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(String campaignYearLinkText, long waitingTime) throws Exception {
+
+	protected void goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(
+			String campaignYearLinkText, long waitingTime) throws Exception {
 		WebElement campaignYear2010Element = getWebElementByLinkText(campaignYearLinkText);
 		campaignYear2010Element.click();
 		Thread.sleep(waitingTime);
 	}
-	
-	protected void goToPoliticalCandidatesListPage(String politicalPartyLinkText, String campaignYearLinkText, long waitingTime) throws Exception {
+
+	protected void goToPoliticalCandidatesListPage(
+			String politicalPartyLinkText, String campaignYearLinkText,
+			long waitingTime) throws Exception {
 		goToPoliticalPartyListPage(waitingTime);
-		goToPoliticalPartyPageInPoliticalPartyListPage(politicalPartyLinkText, waitingTime);
-		goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(campaignYearLinkText, waitingTime);
+		goToPoliticalPartyPageInPoliticalPartyListPage(politicalPartyLinkText,
+				waitingTime);
+		goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(
+				campaignYearLinkText, waitingTime);
 	}
-	
+
+	protected void goToCandidatePageInPoliticalCandidatesListPage(
+			String candidateLinkText, long waitingTime)
+			throws InterruptedException {
+		WebElement candidateElement = getWebElementByLinkText(candidateLinkText);
+		candidateElement.click();
+		Thread.sleep(waitingTime);
+	}
+
+	protected void goToCandidatePageInPoliticalPartyWay(
+			String politicalPartyLinkText, String campaignYearLinkText,
+			String candidateLinkText, long waitingTime) throws Exception {
+		goToPoliticalPartyListPage(waitingTime);
+		goToPoliticalPartyPageInPoliticalPartyListPage(politicalPartyLinkText,
+				waitingTime);
+		goToPoliticalCandidatesListPageFromCampaignYearInPoliticalPartyPage(
+				campaignYearLinkText, waitingTime);
+		goToCandidatePageInPoliticalCandidatesListPage(candidateLinkText,
+				waitingTime);
+	}
+
+	protected void checkIfGoogleChartsDivIsInTheCurrentPage(long waitingTime)
+			throws Exception {
+		Assert.assertTrue(driver.findElement(By.id("chart_div")).isEnabled());
+		Thread.sleep(waitingTime);
+	}
+
 	protected void clickInSeeAllList(long waitingTime) throws Exception {
 		Thread.sleep(waitingTime);
 		WebElement SEE_ALL_LIST_ELEMENT = getWebElementByLinkText(SEE_ALL_LIST_LINKTEXT);
 		SEE_ALL_LIST_ELEMENT.click();
 	}
-	
+
 }

@@ -2,7 +2,7 @@ package test.acceptance;
 
 import org.junit.Test;
 
-public class UserStories03And27AcceptanceTest extends BasicAcceptanceTest {
+public class UserStory10AcceptanceTest extends BasicAcceptanceTest {
 
 	// TO DO: User Story Reference
 
@@ -16,19 +16,16 @@ public class UserStories03And27AcceptanceTest extends BasicAcceptanceTest {
 	private final String CANDIDATE_EXPECTED_LINKTEXT = "ADELMIR ARAUJO SANTANA";
 
 	/**
-	 * Cenário Único: Busca de Candidatos. DADO QUE: o usuário já acessou o
-	 * perfil do partido desejado. QUANDO: o usuário clicar em um determinado
-	 * ano, através de um link. ENTÃO: deve ser exibida uma lista de candidatos
-	 * que concorreram naquele ano através do partido selecionado. E: o nome dos
-	 * candidatos devem aparecer na forma de links que direcionem ao perfil do
-	 * mesmo
+	 * Cenário Único: Gráfico foi desenvolvido. ENTÃO: deverá ser apresentado um
+	 * gráfico que demonstre a relação entre receitas e despesas de um candidato
+	 * requisitado.
 	 */
 	@Test
-	public void userStories03and27ReachingCandidateProfileByPoliticalPartyWay()
-			throws Exception {
+	public void userStory10GoogleChartsIsInCandidatePage() throws Exception {
 		goToCandidatePageInPoliticalPartyWay(
 				DEMOCRATAS_POLITICAL_PARTY_LINKTEXT,
 				CAMPAIGN_YEAR_2010_LINKTEXT, CANDIDATE_EXPECTED_LINKTEXT,
 				WAITING_EXTENDED_TIME_FOR_VIEW);
+		checkIfGoogleChartsDivIsInTheCurrentPage(WAITING_EXTENDED_TIME_FOR_VIEW);
 	}
 }
