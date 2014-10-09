@@ -42,9 +42,9 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 				
 				// Variable that stores the logic state of the comparison between
 				// two suppliers by Name
-				int auxiliaryReturn = f1.getSupplierName().compareToIgnoreCase(f2.getSupplierName());
+				int comparisonResult = f1.getSupplierName().compareToIgnoreCase(f2.getSupplierName());
 				
-				return auxiliaryReturn;
+				return comparisonResult;
 			}
 		}	
 	}
@@ -108,6 +108,10 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @return an instance of Class Supplier
 	 */
 	public Supplier getSupplierByNameOfPersonRegister(Supplier supplier) throws Exception {
+		
+		//Instance to store supplier returned by the bank
+		Supplier supplierRecovered;
+		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE ";
 		if(!supplier.getSupplierName().equals(Supplier.EMPTY_TYPE_STRING)) {
 			sqlCommand = sqlCommand + DATABASE_SUPPLIER_NAME + " = " 
@@ -119,7 +123,10 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 		} else {
 			throw new Exception();
 		}
-		return searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
+		
+		supplierRecovered = searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
+		
+		return supplierRecovered; 
 	}
 
 	/*

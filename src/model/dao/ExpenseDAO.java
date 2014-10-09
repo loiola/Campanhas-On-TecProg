@@ -157,9 +157,16 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @return an instance of Class Expense
 	 */
 	public Expense getExpenseByIdentifier(int expenseIdentifier) throws Exception {
-			String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+			
+		//Instance to store the expense returned by the bank
+		Expense expenseRecovered;
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
 					  + DATABASE_EXPENSE_IDENTIFIER + " = " + expenseIdentifier;
-			return searchExpenseInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
+		
+		expenseRecovered = searchExpenseInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
+		
+		return expenseRecovered;
 	}
 	
 	/*

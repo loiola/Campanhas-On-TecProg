@@ -43,9 +43,9 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 				
 				// Variable that stores the logic state of the comparison between
 				// two parties by Acronym
-				int auxiliaryReturn = p1.getPartyAcronym().compareToIgnoreCase(p2.getPartyAcronym());
+				int comparisonResult = p1.getPartyAcronym().compareToIgnoreCase(p2.getPartyAcronym());
 				
-				return auxiliaryReturn;
+				return comparisonResult;
 			}
 		};
 	}
@@ -110,9 +110,15 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @return an instance of Class Party
 	 */
 	public Party getPartyByAcronym(String partyAcronym) throws SQLException {
+		
+		//Instance to store the political party returned by the bank
+		Party partyRecovered;
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
 				+ " WHERE " + DATABASE_PARTY_ACRONYM + " = '" + partyAcronym + "'";
-		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		partyRecovered = searchPartyInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		return partyRecovered; 
 	}
 
 	/*
@@ -121,9 +127,15 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @return an instance of Class Party
 	 */
 	public Party getPartyByNumber(String partyNumber) throws SQLException {
+		
+		//Instance to store the political party returned by the bank
+		Party partyRecovered;
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
 				+ " WHERE " + DATABASE_PARTY_NUMBER + " = '" + partyNumber + "'";
-		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		partyRecovered = searchPartyInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		return partyRecovered;
 	}
 
 	/*
@@ -131,7 +143,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Party>
 	 */
-	private Party searchDonorInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException{
+	private Party searchPartyInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException{
 		
 		Party party = new Party();
 		

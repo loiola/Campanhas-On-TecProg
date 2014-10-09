@@ -44,10 +44,10 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 				
 				// Variable that stores the logic state of the comparison between
 				// two candidates by Electoral Title
-				int auxiliaryReturn = c1.getCandidateElectoralTitle().compareTo(
+				int comparisonResult = c1.getCandidateElectoralTitle().compareTo(
 						c2.getCandidateElectoralTitle());
 				
-				return auxiliaryReturn;
+				return comparisonResult;
 			}
 		};
 	}
@@ -116,9 +116,9 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 			candidateList = searchCandidateInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 			return candidateList.get(0);
 		} catch(SQLException e) {
-			Candidate cand = new Candidate();
-			cand.setCandidateElectoralTitle("-1");
-			return cand;
+			Candidate candidate = new Candidate();
+			candidate.setCandidateElectoralTitle("-1");
+			return candidate;
 		}
 	}
 

@@ -40,9 +40,9 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 				
 				// Variable that stores the logic state of the comparison between
 				// two results by Code
-				int auxiliaryReturn = r1.getResultType().compareTo(r2.getResultType());
+				int comparisonResult = r1.getResultType().compareTo(r2.getResultType());
 				
-				return auxiliaryReturn; 
+				return comparisonResult; 
 			}
 		};
 	}

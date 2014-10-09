@@ -45,10 +45,10 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 				
 				// Variable that stores the logic state of the comparison between
 				// two donors by Person Register
-				int auxiliaryReturn = d1.getDonorPersonRegister()
+				int comparisonResult = d1.getDonorPersonRegister()
 						.compareToIgnoreCase(d2.getDonorPersonRegister());
 				
-				return auxiliaryReturn;
+				return comparisonResult;
 			}
 		}
 	}
@@ -168,7 +168,12 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 	 * @return an instance of Class Donor
 	 */
 	public Donor getDonorByNameAndPersonRegister(Donor donor) throws Exception {
+		
+		//Instance to store the donor returned by the bank
+		Donor donorRecovered;
+		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE ";
+		
 		if (!donor.getDonorName().equals(Supplier.EMPTY_TYPE_STRING)) {
 			sqlCommand = sqlCommand + DATABASE_DONOR_NAME + " = "
 					+ donor.getDonorName();
@@ -179,7 +184,10 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 		} else {
 			throw new Exception();
 		}
-		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand)
+		
+		donorRecovered = searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand)
 				.get(0);
+		
+		return donorRecovered;
 	}
 }

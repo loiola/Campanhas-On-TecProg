@@ -272,6 +272,10 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @return an ArrayList<Campaign>
 	 */
 	public ArrayList<Campaign> generateTopFiveCampaignListAboutMaximumExpenseDeclared(String position, Integer electionYear) throws SQLException {
+		
+		//Array for storing the returned campaigns
+		ArrayList<Campaign> campaignsList = new ArrayList<>();
+		
 		int positionCode = 0;
 		switch(position.toLowerCase()) {
 		
@@ -292,6 +296,8 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 		                   +DATABASE_CAMPAIGN_POSITION_CODE + " = " + positionCode + " ORDER BY " + DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED
 		                   +" DESC LIMIT 5";
 		
-		return searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		campaignsList = searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		return campaignsList;
 	}
 }

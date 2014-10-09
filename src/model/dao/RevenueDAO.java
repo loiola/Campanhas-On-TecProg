@@ -138,6 +138,10 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @return an instance of Class Revenue
 	 */
 	public ArrayList<Revenue> getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(Campaign campaign) throws Exception {
+		
+		//Array to store the recipes returned by the bank
+		ArrayList<Revenue> revenueList = new ArrayList<>();
+		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
 				  + DATABASE_REVENUE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear() + " AND "
 				  + DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER + " = " + campaign.getCampaignCandidateNumber()
@@ -145,7 +149,10 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 				  + "' AND " + DATABASE_REVENUE_CAMPAIGN_POSITION + " LIKE '%" 
 				  + campaign.getCampaignPosition().getPositionDescription() 
 				  + "%'";
-		return searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		revenueList = searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		return revenueList; 
 	}
 	
 	/*
@@ -154,9 +161,16 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @return an instance of Class Revenue
 	 */
 	public Revenue getRevenueByIdentifier(int id) throws Exception {
+		
+		//Instance to store revenues returned by the bank
+		Revenue revenueRecovered;
+		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
 				  + DATABASE_REVENUE_IDENTIFIER + " = " + id;
-		return searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
+		
+		revenueRecovered = searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
+		
+		return revenueRecovered;
 	}
 	
 	/*

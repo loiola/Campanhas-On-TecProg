@@ -40,9 +40,9 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 				
 				// Variable that stores the logic state of the comparison between
 				// two positions by Code
-				int auxiliaryReturn = c1.getPositionCode().compareTo(c2.getPositionCode());
+				int comparisonResult = c1.getPositionCode().compareTo(c2.getPositionCode());
 				
-				return auxiliaryReturn; 
+				return comparisonResult; 
 			}
 		};
 	}
@@ -102,8 +102,14 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @return an instance of Class Position
 	 */
 	public Position getPositionByCode(Integer positionCode) throws SQLException {
+		
+		//Instance to store the position returned by the bank
+		Position positionRecovered;
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_POSITION_CODE +" = "+positionCode+" ";
-		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		positionRecovered = searchPositionInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		return positionRecovered; 
 	}
 	
 	/*
@@ -112,9 +118,15 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @return an instance of Class Position
 	 */
 	public Position getPositionByDescription(String positionDescription) throws SQLException {
+		
+		//Instance to store the position returned by the bank
+		Position positionRecovered;
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
 						  + DATABASE_POSITION_DESCRIPTION +" like '%"+positionDescription+"%' ";
-		return searchDonorInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		positionRecovered = searchPositionInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		return positionRecovered; 
 	}
 	
 	/*
@@ -122,7 +134,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a String with the SQL command
 	 * @return an instance of Class Position
 	 */
-	public Position searchDonorInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
+	public Position searchPositionInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
 		Position position = new Position();
 		String comandoSQL = sqlCommandConfiguredBefore;
 		
