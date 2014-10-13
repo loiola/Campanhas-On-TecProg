@@ -26,7 +26,11 @@ public class PartyControl {
 	 * @return an ArrayList with all political parties
 	 */
 	public ArrayList<Party> getListAllParties() throws SQLException {
-		return this.partyDAO.getObjectArrayListFromDatabase();
+		//Variable to store the retrieved political parties
+		ArrayList<Party> partyList = new ArrayList<>();
+		
+		partyList = this.partyDAO.getObjectArrayListFromDatabase();
+		return partyList;
 	}
 	
 	/*
@@ -35,7 +39,11 @@ public class PartyControl {
 	 * @return the political party with the abbreviation informed
 	 */
 	public Party getBySigla(String sigla) throws SQLException {
-		return this.partyDAO.getPartyByAcronym(sigla);
+		//Variable to store the retrieved political party
+		Party partyRecovered = new Party();
+		
+		partyRecovered = this.partyDAO.getPartyByAcronym(sigla);
+		return partyRecovered;
 	}
 	
 	/*
@@ -44,6 +52,10 @@ public class PartyControl {
 	 * @return the political party with the political number informed
 	 */
 	public Party getByNumber(String number) throws SQLException {
-		return this.partyDAO.getPartyByNumber(number);
+		//Variable to store the retrieved political party
+		Party partyRecovered = new Party();
+		
+		partyRecovered = this.partyDAO.getPartyByNumber(number);
+		return partyRecovered;
 	}
 }
