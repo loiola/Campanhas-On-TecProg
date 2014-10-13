@@ -60,7 +60,7 @@ public class Party {
 
 	@Override
 	public boolean equals(Object object) {
-		if (!(object instanceof Party)) {
+		if(!(object instanceof Party)) {
 			return false;
 		} else {
 
