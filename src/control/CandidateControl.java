@@ -26,7 +26,11 @@ public class CandidateControl {
 	 * @return an LinkedList a list with all candidate with name informed
 	 */
 	public LinkedList<Candidate> getListCandidate(String name) {
-		return this.candidateDAO.getCandidateListByName(name);
+		//Variable to store the retrieved candidates
+		LinkedList<Candidate> candidateList = new LinkedList<>();
+		
+		candidateList = this.candidateDAO.getCandidateListByName(name);
+		return candidateList;
 	}
 
 	/*
@@ -35,6 +39,10 @@ public class CandidateControl {
 	 * @return a candidate with voter informed
 	 */
 	public Candidate getACandidate(String ElectoralTitle) {
-		return this.candidateDAO.getCandidateByElectoralTitle(ElectoralTitle);
+		//Variable to store the retrieved candidate
+		Candidate candidateRecovered = new Candidate();
+		
+		candidateRecovered = this.candidateDAO.getCandidateByElectoralTitle(ElectoralTitle);
+		return candidateRecovered;
 	}
 }
