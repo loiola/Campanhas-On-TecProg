@@ -44,39 +44,59 @@ public class CampaignParseIndex extends ParseIndex<Campaign> {
 	 */
 	@Override
 	protected void setValidIndex(Campaign campaign, String[] field) {
-		if (validIndex(this.indexCodeResult)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexCodeResult);
+		if (validationResult) {
 			Result result = new Result();
 			result.setResultType(Integer.parseInt(field[this.indexCodeResult]));
 			campaign.setCampaignResult(result);
 		}
-		if (validIndex(this.indexCodePosition)) {
+		
+		validationResult = validIndex(this.indexCodePosition);
+		if (validationResult) {
 			Position position = new Position();
 			position.setPositionCode(Integer.parseInt(field[this.indexCodePosition]));
 			campaign.setCampaignPosition(position);
-		}	
-		if (validIndex(this.indexNumberParty)) {
+		}
+		
+		validationResult = validIndex(indexNumberParty);
+		if (validationResult) {
 			Party party = new Party();
 			party.setPartyNumber(Integer.parseInt(field[this.indexNumberParty]));
 			campaign.setCampaignParty(party);
-		}	
-		if (validIndex(this.indexTitleCandidate)) {
+		}
+		
+		validationResult = validIndex(indexTitleCandidate);
+		if (validationResult) {
 			Candidate candidate = new Candidate();
 			candidate.setCandidateElectoralTitle(field[this.indexTitleCandidate]);
 			campaign.setCampaignCandidate(candidate);
-		}	
-		if (validIndex(this.indexYear)) {
+		}
+		
+		validationResult = validIndex(this.indexYear);
+		if (validationResult) {
 			campaign.setCampaignYear(Integer.parseInt(field[this.indexYear]));
-		}	
-		if (validIndex(this.indexNumberCandidate)) {
+		}
+		
+		validationResult = validIndex(this.indexNumberCandidate);
+		if (validationResult) {
 			campaign.setCampaignCandidateNumber(Integer.parseInt(field[this.indexNumberCandidate]));
-		}	
-		if (validIndex(this.indexUrnName)) {
+		}
+		
+		validationResult = validIndex(this.indexUrnName);
+		if (validationResult) {
 			campaign.setCampaignNameOfUrn(field[this.indexUrnName]);
-		}	
-		if (validIndex(this.indexUnitFederation)) {
+		}
+		
+		validationResult = validIndex(this.indexUnitFederation);
+		if (validationResult) {
 			campaign.setCampaignCountryState(field[this.indexUnitFederation]);
-		}	
-		if (validIndex(this.indexMaximumExpenseDeclared)) {
+		}
+		
+		validationResult = validIndex(this.indexMaximumExpenseDeclared);
+		if (validationResult) {
 			campaign.setCampaignMaximumExpenseDeclared(
 					Float.parseFloat(field[this.indexMaximumExpenseDeclared].replace(',', '.')));
 		}		
