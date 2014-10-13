@@ -24,10 +24,14 @@ public class CampaignControl {
 	/*
 	 * Method making the request of an applicant for voter registration 
 	 * @param a candidate
-	 * @return an ArrayList of candidates for voter registration
+	 * @return an ArrayList of campaigns for voter registration
 	 */
 	public ArrayList<Campaign> getListCampaign(Candidate candidate) throws SQLException {
-		return this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate);
+		//Variable to store the retrieved campaigns
+		ArrayList<Campaign> campaignList = new ArrayList<>();
+		
+		campaignList = this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate);
+		return campaignList;
 	}
 	
 	/*
@@ -36,7 +40,11 @@ public class CampaignControl {
 	 * @return an ArrayLista the political party with the abbreviation of the party and year informed
 	 */
 	public ArrayList<Campaign> getListCampaignBySiglaPartyAndYear(String sigla, String year) throws SQLException{
-		return this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(sigla,year);
+		//Variable to store the retrieved campaigns
+		ArrayList<Campaign> campaignList = new ArrayList<>();
+		
+		campaignList = this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(sigla,year);
+		return campaignList;
 	}
 	
 	/*
@@ -45,7 +53,11 @@ public class CampaignControl {
 	 * @return an ArrayLista with the highest values ​​for the position and informed year
 	 */
 	public ArrayList<Campaign> topFiveByPositionAndYear(String position, Integer year) throws SQLException{
-		return this.campaignDAO.generateTopFiveCampaignListAboutMaximumExpenseDeclared(position, year);
+		//Variable to store the retrieved campaigns
+		ArrayList<Campaign> campaignList = new ArrayList<>();
+		
+		campaignList = this.campaignDAO.generateTopFiveCampaignListAboutMaximumExpenseDeclared(position, year);
+		return campaignList;
 	}
 
 	/*
@@ -54,6 +66,10 @@ public class CampaignControl {
 	 * @return a campaign
 	 */
 	public Campaign getByYearNumberCodePositionAndUF(Campaign campaign) throws SQLException {
-		return this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campaign);
+		//Variable to store the retrieved campaign
+		Campaign campaignRecovered = new Campaign();
+		
+		campaignRecovered = this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campaign);
+		return campaignRecovered;
 	}
 }
