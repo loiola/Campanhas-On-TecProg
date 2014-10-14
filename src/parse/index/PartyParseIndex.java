@@ -30,16 +30,26 @@ public class PartyParseIndex extends ParseIndex<Party> {
 	 */
 	@Override
 	protected void setValidIndex(Party party, String field[]) {
-		if(validIndex(this.indexAcronym)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexAcronym);
+		if(validationResult) {
 			party.setPartyAcronym(field[this.indexAcronym]);
 		}
-		if(validIndex(this.indexNumberParty)) {
+		
+		validationResult = validIndex(this.indexNumberParty);
+		if(validationResult) {
 			party.setPartyNumber(Integer.parseInt(field[this.indexNumberParty]));
 		}
-		if(validIndex(this.indexDeferral)){
+		
+		validationResult = validIndex(this.indexDeferral);
+		if(validationResult) {
 			party.setPartyConcession(field[this.indexDeferral]);
 		}
-		if(validIndex(this.indexPartyName)){
+		
+		validationResult = validIndex(this.indexPartyName);
+		if(validationResult) {
 			party.setPartyName(field[this.indexPartyName]);
 		}
 	}

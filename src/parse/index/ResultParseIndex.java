@@ -25,10 +25,17 @@ public class ResultParseIndex extends ParseIndex<Result> {
 	 */
 	@Override
 	protected void setValidIndex(Result result, String[] field) {
-		if (validIndex(this.indexCodeResult)) {
+		
+		//Variable to store the result of index validation
+		boolean validationResult;
+				
+		validationResult = validIndex(this.indexCodeResult);
+		if(validationResult) {
 			result.setResultType(Integer.parseInt(field[this.indexCodeResult]));
 		}
-		if (validIndex(this.indexDescriptionResult)) {
+		
+		validationResult = validIndex(this.indexDescriptionResult);
+		if(validationResult) {
 			result.setResultDescription(field[this.indexDescriptionResult]);
 		}	
 	}

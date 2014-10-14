@@ -26,10 +26,16 @@ public class PositionParseIndex extends ParseIndex<Position> {
 	 */
 	@Override
 	protected void setValidIndex(Position position, String field[]) {
-		if(validIndex(this.indexCode)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexCode);
+		if(validationResult) {
 			position.setPositionCode(Integer.parseInt(field[this.indexCode]));
 		}
-		if(validIndex(this.indexDescription)) {
+		
+		validationResult = validIndex(this.indexDescription);
+		if(validationResult) {
 			position.setPositionDescription(field[this.indexDescription]);
 		}
 	}
