@@ -32,13 +32,21 @@ public class ExpenseParseIndex extends FinancialTransactionParseIndex<Expense> {
 		super.setValidIndex(expense, field);
 		Supplier supplier = new Supplier();
 
-		if(validIndex(this.indexNameSupplier)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexNameSupplier);
+		if(validationResult) {
 			supplier.setSupplierName(field[this.indexNameSupplier]);
 		}
-		if(validIndex(this.indexCpfCnpjSupplier)) {
+		
+		validationResult = validIndex(this.indexCpfCnpjSupplier);
+		if(validationResult) {
 			supplier.setSupplierPersonRegister(field[this.indexCpfCnpjSupplier]);
 		}
-		if(validIndex(this.indexDocumentType)) {
+		
+		validationResult = validIndex(this.indexDocumentType);
+		if(validationResult) {
 			expense.setExpenseDocumentType(field[this.indexDocumentType]);
 		}
 		expense.setExpenseSupplier(supplier);

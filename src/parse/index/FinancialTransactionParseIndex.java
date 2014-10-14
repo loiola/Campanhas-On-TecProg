@@ -53,39 +53,62 @@ public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 		Campaign campaign = new Campaign();
 		campaign.setCampaignYear(year);
 		
-		if(validIndex(this.indexCampaignYear)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexCampaignYear);
+		if(validationResult) {
 			campaign.setCampaignYear(Integer.parseInt(field[this.indexCampaignYear]));
 		}
-		if(validIndex(this.indexNumberCampaign)) {
+		
+		validationResult = validIndex(this.indexNumberCampaign);
+		if(validationResult) {
 			campaign.setCampaignCandidateNumber(Integer.parseInt(field[this.indexNumberCampaign]));
 		}
-		if(validIndex(this.indexPositionCampaign)) {
+		
+		validationResult = validIndex(this.indexPositionCampaign);
+		if(validationResult) {
 			Position position = new Position();
 			position.setPositionDescription(field[this.indexPositionCampaign]);
 			campaign.setCampaignPosition(position);
 		}
-		if(validIndex(this.indexUnitFederationCampaign)) {
+		
+		validationResult = validIndex(this.indexUnitFederationCampaign);
+		if(validationResult) {
 			campaign.setCampaignCountryState(field[this.indexUnitFederationCampaign]);
 		}
-		if(validIndex(this.indexDocumentNumber)) {
+		
+		validationResult = validIndex(this.indexDocumentNumber);
+		if(validationResult) {
 			financialTransaction.setFinancialTransactionDocumentNumber(field[this.indexDocumentNumber]);
 		}
-		if(validIndex(this.indexDate)) {
+		
+		validationResult = validIndex(this.indexDate);
+		if(validationResult) {
 			financialTransaction.setFinancialTransactionDate(field[this.indexDate]);
 		}
-		if(validIndex(this.indexValue)) {
+		
+		validationResult = validIndex(this.indexValue);
+		if(validationResult) {
 			float valor = Float.parseFloat(field[this.indexValue].replace(',', '.'));
 			financialTransaction.setFinancialTransactionPrice(valor);
 		}
-		if(validIndex(this.indexTypeOfFinancialTransaction)) {
+		
+		validationResult = validIndex(this.indexTypeOfFinancialTransaction);
+		if(validationResult) {
 			financialTransaction.setFinancialTransactionType(field[this.indexTypeOfFinancialTransaction]);
 		}
-		if(validIndex(this.indexFormOfPayment)) {
+		
+		validationResult = validIndex(this.indexFormOfPayment);
+		if(validationResult) {
 			financialTransaction.setFinancialTransactionPaymentType(field[this.indexFormOfPayment]);
 		}
-		if(validIndex(this.indexDescription)) {
+		
+		validationResult = validIndex(this.indexDescription);
+		if(validationResult) {
 			financialTransaction.setFinancialTransactionDescription(field[this.indexDescription]);
 		}
+		
 		financialTransaction.setFinancialTransactionCampaign(campaign);
 
 	}
