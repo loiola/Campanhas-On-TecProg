@@ -48,55 +48,55 @@ public class CampaignParseIndex extends ParseIndex<Campaign> {
 		boolean validationResult;
 		
 		validationResult = validIndex(this.indexCodeResult);
-		if (validationResult) {
+		if(validationResult) {
 			Result result = new Result();
 			result.setResultType(Integer.parseInt(field[this.indexCodeResult]));
 			campaign.setCampaignResult(result);
 		}
 		
 		validationResult = validIndex(this.indexCodePosition);
-		if (validationResult) {
+		if(validationResult) {
 			Position position = new Position();
 			position.setPositionCode(Integer.parseInt(field[this.indexCodePosition]));
 			campaign.setCampaignPosition(position);
 		}
 		
 		validationResult = validIndex(indexNumberParty);
-		if (validationResult) {
+		if(validationResult) {
 			Party party = new Party();
 			party.setPartyNumber(Integer.parseInt(field[this.indexNumberParty]));
 			campaign.setCampaignParty(party);
 		}
 		
 		validationResult = validIndex(indexTitleCandidate);
-		if (validationResult) {
+		if(validationResult) {
 			Candidate candidate = new Candidate();
 			candidate.setCandidateElectoralTitle(field[this.indexTitleCandidate]);
 			campaign.setCampaignCandidate(candidate);
 		}
 		
 		validationResult = validIndex(this.indexYear);
-		if (validationResult) {
+		if(validationResult) {
 			campaign.setCampaignYear(Integer.parseInt(field[this.indexYear]));
 		}
 		
 		validationResult = validIndex(this.indexNumberCandidate);
-		if (validationResult) {
+		if(validationResult) {
 			campaign.setCampaignCandidateNumber(Integer.parseInt(field[this.indexNumberCandidate]));
 		}
 		
 		validationResult = validIndex(this.indexUrnName);
-		if (validationResult) {
+		if(validationResult) {
 			campaign.setCampaignNameOfUrn(field[this.indexUrnName]);
 		}
 		
 		validationResult = validIndex(this.indexUnitFederation);
-		if (validationResult) {
+		if(validationResult) {
 			campaign.setCampaignCountryState(field[this.indexUnitFederation]);
 		}
 		
 		validationResult = validIndex(this.indexMaximumExpenseDeclared);
-		if (validationResult) {
+		if(validationResult) {
 			campaign.setCampaignMaximumExpenseDeclared(
 					Float.parseFloat(field[this.indexMaximumExpenseDeclared].replace(',', '.')));
 		}		

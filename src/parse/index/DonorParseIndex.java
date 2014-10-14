@@ -33,16 +33,26 @@ public class DonorParseIndex extends ParseIndex<Donor> {
 	 */
 	@Override
 	protected void setValidIndex(Donor donor, String[] field) {
-		if(validIndex(this.indexDonorCpfCnpj)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexDonorCpfCnpj);
+		if(validationResult) {
 			donor.setDonorPersonRegister(field[this.indexDonorCpfCnpj]);
 		}
-		if(validIndex(this.indexName)) {
+		
+		validationResult = validIndex(this.indexName);
+		if(validationResult) {
 			donor.setDonorName(field[this.indexName]);
 		}
-		if(validIndex(this.indexUnitFederation)) {
+		
+		validationResult = validIndex(this.indexUnitFederation);
+		if(validationResult) {
 			donor.setDonorCountryState(field[this.indexUnitFederation]);
 		}
-		if(validIndex(this.indexRegistrationStatus)) {
+		
+		validationResult = validIndex(this.indexRegistrationStatus);
+		if(validationResult) {
 			donor.setDonorRegisterSituation(field[this.indexRegistrationStatus]);
 		}
 	}

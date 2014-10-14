@@ -25,10 +25,16 @@ public class CandidateParseIndex extends ParseIndex<Candidate> {
 	 */
 	@Override
 	protected void setValidIndex(Candidate candidate, String[] field) {
-		if (validIndex(this.indexName)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+		
+		validationResult = validIndex(this.indexName);
+		if(validationResult) {
 			candidate.setCandidateName(field[this.indexName]);
 		}
-		if (validIndex(this.indexElectionTitle)) {
+		
+		validationResult = validIndex(this.indexElectionTitle);
+		if(validationResult) {
 			candidate.setCandidateElectoralTitle(field[this.indexElectionTitle]);
 
 		}
