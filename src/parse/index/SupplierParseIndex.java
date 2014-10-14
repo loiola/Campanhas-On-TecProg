@@ -32,16 +32,26 @@ public class SupplierParseIndex extends ParseIndex<Supplier> {
 	 */
 	@Override
 	protected void setValidIndex(Supplier supplier, String[] field) {
-		if(validIndex(this.indexSupplierCpfCnpj)) {
+		//Variable to store the result of index validation
+		boolean validationResult;
+				
+		validationResult = validIndex(this.indexSupplierCpfCnpj);
+		if(validationResult) {
 			supplier.setSupplierPersonRegister(field[this.indexSupplierCpfCnpj]);
 		}
-		if(validIndex(this.indexName)) {
+		
+		validationResult = validIndex(this.indexName);
+		if(validationResult) {
 			supplier.setSupplierName(field[this.indexName]);
 		}
-		if(validIndex(this.indexUnitFederation)) {
+		
+		validationResult = validIndex(this.indexUnitFederation);
+		if(validationResult) {
 			supplier.setSupplierCountryState(field[this.indexUnitFederation]);
 		}
-		if(validIndex(this.indexRegistrationStatus)) {
+		
+		validationResult = validIndex(this.indexRegistrationStatus);
+		if(validationResult) {
 			supplier.setSupplierRegisterSituation(field[this.indexRegistrationStatus]);
 		}
 	}

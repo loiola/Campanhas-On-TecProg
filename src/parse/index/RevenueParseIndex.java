@@ -31,15 +31,23 @@ public class RevenueParseIndex extends FinancialTransactionParseIndex<Revenue> {
 	@Override
 	protected void setValidIndex(Revenue revenue, String[] field) {
 		super.setValidIndex(revenue, field);
-		
 		Donor donor = new Donor();
-		if(validIndex(this.indexElectoralReceipt)) {
+		
+		//Variable to store the result of index validation
+		boolean validationResult;
+				
+		validationResult = validIndex(this.indexElectoralReceipt);
+		if(validationResult) {
 			revenue.setRevenueElectoralReceipt(field[this.indexElectoralReceipt]);
 		}
-		if(validIndex(this.indexNameDonor)) {
+		
+		validationResult = validIndex(this.indexNameDonor);
+		if(validationResult) {
 			donor.setDonorName(field[this.indexNameDonor]);
 		}
-		if(validIndex(this.indexCpfCnpjDonor)) {
+		
+		validationResult = validIndex(this.indexCpfCnpjDonor);
+		if(validationResult) {
 			donor.setDonorPersonRegister(field[this.indexCpfCnpjDonor]);
 		}
 		revenue.setRevenueDonor(donor);
