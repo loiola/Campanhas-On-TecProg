@@ -22,9 +22,9 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParseCampaign(String tipoArquivo, String ano)
+	public RegisterToParseCampaign(String fileType, String year)
 			throws ParseException {
-		super(tipoArquivo, ano);
+		super(fileType, year);
 		
 		setlinesToRegister(100000);
 	}

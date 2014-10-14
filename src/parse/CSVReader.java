@@ -98,5 +98,4 @@ public class CSVReader {
 			this.executorReaderCSVObserver.runMethodForEachRead(field);
 		}
 	}
-	
 }

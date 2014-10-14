@@ -189,16 +189,18 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 */
 	private int generateIndexPageOfRevenue(List<Revenue> list) {
 		int index = (int) Math.floor((double) list.size() / (double) 25);
-		if(index >= 4 && index < 10)
+		
+		if(index >= 4 && index < 10) {
 			return 4;
-		else if(index >= 10 && index < 20)
+		} else if(index >= 10 && index < 20) {
 			return 5;
-		else if(index >= 20 && index < 40)
+		} else if(index >= 20 && index < 40) {
 			return 6;
-		else if(index >= 40 && index < 80)
+		} else if(index >= 40 && index < 80) {
 			return 7;
-		else if(index >= 80)
+		} else if(index >= 80) {
 			return 8;
+		}
 		return index;
 	}
 
@@ -224,16 +226,18 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 */
 	private int generateIndexPageOfExpense(List<Expense> list) {
 		int index = (int) Math.floor((double) list.size() / (double) 25);
-		if(index >= 4 && index < 10)
+		
+		if(index >= 4 && index < 10) {
 			return 4;
-		else if(index >= 10 && index < 20)
+		} else if(index >= 10 && index < 20) {
 			return 5;
-		else if(index >= 20 && index < 40)
+		} else if(index >= 20 && index < 40) {
 			return 6;
-		else if(index >= 40 && index < 80)
+		} else if(index >= 40 && index < 80) {
 			return 7;
-		else if(index >= 80)
+		} else if(index >= 80) {
 			return 8;
+		}
 		return index;
 	}
 	
@@ -253,14 +257,14 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 		this.minimumRadiusRevenue = 0;
 		this.maximumRadiusRevenue = 0;
 		while(counter != 0) {
-			if(minimumRadius == 1)
+			if(minimumRadius == 1) {
 				this.maximumRadiusRevenue++;
-			else if(this.minimumRadiusRevenue < 5) {
+			} else if(this.minimumRadiusRevenue < 5) {
 				this.minimumRadiusRevenue++;
 				minimumRadius--;
-			} else if(maximumRadius == this.revenueIndex)
+			} else if(maximumRadius == this.revenueIndex) {
 				this.minimumRadiusRevenue++;
-			else {
+			} else {
 				this.maximumRadiusRevenue++;
 				maximumRadius++;
 			}
@@ -291,9 +295,9 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 			else if(this.minimumRadiusExpense < 5) {
 				this.minimumRadiusExpense++;
 				minimumRadius--;
-			} else if(maximumRadius == this.expenseIndex)
+			} else if(maximumRadius == this.expenseIndex) {
 				this.minimumRadiusExpense++;
-			else {
+			} else {
 				this.maximumRadiusExpense++;
 				maximumRadius++;
 			}

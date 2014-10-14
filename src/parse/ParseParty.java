@@ -30,5 +30,4 @@ public class ParseParty extends Parse {
 
 		listRegisterParse.add(new RegisterToParseParty(fileType, year));
 	}
-
 }

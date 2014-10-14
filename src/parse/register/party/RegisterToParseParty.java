@@ -15,9 +15,9 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	 */
 
 	// Constructors
-	public RegisterToParseParty(String tipoArquivo, String ano)
+	public RegisterToParseParty(String fileType, String year)
 			throws ParseException {
-		super(tipoArquivo, ano);
+		super(fileType, year);
 	}
 
 	/*
@@ -27,9 +27,9 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	 */
 	@Override
 	public ParseControl<Party> newIntance(
-			ParseIndex<Party> indicesParse) {
+			ParseIndex<Party> parseIndex) {
 		ParseControlParty parseControlParty;
-		parseControlParty = new ParseControlParty(indicesParse);
+		parseControlParty = new ParseControlParty(parseIndex);
 		return parseControlParty;
 	}
 
@@ -41,17 +41,17 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	 * @return an instance of class PartyIndicesParse
 	 */
 	@Override
-	protected ParseIndex<Party> getParseIndex(String tipoArquivo,
-			String ano) throws ParseException {
+	protected ParseIndex<Party> getParseIndex(String fileType,
+			String year) throws ParseException {
 		PartyParseIndex partyParseIndex;
 		partyParseIndex = new PartyParseIndex();
-		if(tipoArquivo.equals("party"))
+		if(fileType.equals("party"))
 		{
 			partyParseIndex.setIndexPartyName(2);
 			partyParseIndex.setIndexAcronym(1);
 			partyParseIndex.setIndexNumberParty(5);
 			partyParseIndex.setIndexDeferral(3);
-		}else if(tipoArquivo.equals("campaign"))
+		}else if(fileType.equals("campaign"))
 		{
 			partyParseIndex.setIndexPartyName(18);
 			partyParseIndex.setIndexAcronym(17);

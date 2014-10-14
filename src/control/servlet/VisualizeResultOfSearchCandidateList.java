@@ -127,16 +127,17 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	 */
 	private int generatePageIndex(List<Candidate> list) {
 		int index = (int) Math.floor((double) list.size() / (double) 25);
-		if(index >= 4 && index < 10)
+		if(index >= 4 && index < 10) {
 			return 4;
-		else if(index >= 10 && index < 20)
+		} else if(index >= 10 && index < 20) {
 			return 5;
-		else if(index >= 20 && index < 40)
+		} else if(index >= 20 && index < 40) {
 			return 6;
-		else if(index >= 40 && index < 80)
+		} else if(index >= 40 && index < 80) {
 			return 7;
-		else if(index >= 80)
+		} else if(index >= 80) {
 			return 8;
+		}
 		return index;
 	}
 	
@@ -156,14 +157,14 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 		this.minimumRadius = 0;
 		this.maximumRadius = 0;
 		while(counter != 0) {
-			if(minimumRadius == 1)
+			if(minimumRadius == 1) {
 				this.maximumRadius++;
-			else if(this.minimumRadius < 5) {
+			} else if(this.minimumRadius < 5) {
 				this.minimumRadius++;
 				minimumRadius--;
-			} else if(maximumRadius == this.index)
+			} else if(maximumRadius == this.index) {
 				this.minimumRadius++;
-			else {
+			} else {
 				this.maximumRadius++;
 				maximumRadius++;
 			}

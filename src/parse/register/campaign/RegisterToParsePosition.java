@@ -22,9 +22,9 @@ public class RegisterToParsePosition extends RegisterParse<Position> {
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParsePosition(String tipoArquivo, String ano)
+	public RegisterToParsePosition(String fileType, String year)
 			throws ParseException {
-		super(tipoArquivo, ano);
+		super(fileType, year);
 	}
 
 	// Methods
@@ -35,9 +35,8 @@ public class RegisterToParsePosition extends RegisterParse<Position> {
 	 * @return a ParsePositionControl
 	 */
 	@Override
-	public ParseControl<Position> newIntance(
-			ParseIndex<Position> indicesParse) {
-		ParseControlPosition parseControlPosition = new ParseControlPosition(indicesParse);
+	public ParseControl<Position> newIntance(ParseIndex<Position> parseIndex) {
+		ParseControlPosition parseControlPosition = new ParseControlPosition(parseIndex);
 		return parseControlPosition;
 	}
 
@@ -47,8 +46,7 @@ public class RegisterToParsePosition extends RegisterParse<Position> {
 	 * @return a ParsePositionIndex
 	 */
 	@Override
-	protected ParseIndex<Position> getParseIndex(String tipoArquivo,
-			String ano) throws ParseException {
+	protected ParseIndex<Position> getParseIndex(String fileType, String year) throws ParseException {
 		
 		PositionParseIndex positionParseIndex;
 		positionParseIndex = new PositionParseIndex();

@@ -81,5 +81,4 @@ public abstract class ParseControl<O> {
 		this.indexParse.startInstance(object, field);
 		return object;
 	}
-	
 }

@@ -22,9 +22,8 @@ public class RegisterToParseResult extends RegisterParse<Result>{
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParseResult(String tipoArquivo, String ano)
-			throws ParseException {
-		super(tipoArquivo, ano);
+	public RegisterToParseResult(String fileType, String year) throws ParseException {
+		super(fileType, year);
 	}
 	
 	// Methods
@@ -35,9 +34,8 @@ public class RegisterToParseResult extends RegisterParse<Result>{
 	 * @return a ParseResultControl
 	 */
 	@Override
-	public ParseControl<Result> newIntance(
-			ParseIndex<Result> indicesParse) {
-		ParseControlResult parseControlResult = new ParseControlResult(indicesParse);
+	public ParseControl<Result> newIntance(ParseIndex<Result> parseIndex) {
+		ParseControlResult parseControlResult = new ParseControlResult(parseIndex);
 		return parseControlResult;
 	}
 
@@ -47,8 +45,7 @@ public class RegisterToParseResult extends RegisterParse<Result>{
 	 * @return a ParseResultIndex
 	 */
 	@Override
-	protected ParseIndex<Result> getParseIndex(String tipoArquivo,
-			String ano) throws ParseException {
+	protected ParseIndex<Result> getParseIndex(String fileType, String year) throws ParseException {
 		
 		ResultParseIndex resultParseIndex;
 		resultParseIndex = new ResultParseIndex();

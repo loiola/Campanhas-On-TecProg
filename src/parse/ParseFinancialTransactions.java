@@ -32,16 +32,15 @@ public class ParseFinancialTransactions extends Parse {
 			ArrayList<RegisterParse<?>> listRegisterParse,
 			String fileType, String year) throws ParseException {
 		
-		if(fileType.equals(RegisterToParseRevenueAndExpenses.EXPENSE))
-		{
+		//Variable to store result of validation of file type: Expense
+		boolean validationFileExpense = fileType.equals(RegisterToParseRevenueAndExpenses.EXPENSE);
+		
+		if(validationFileExpense) {
 			listRegisterParse.add(new RegisterToParseSupplier(fileType, year));
 			listRegisterParse.add(new RegisterToParseExpense(fileType, year));
-		}
-		else
-		{
+		} else {
 			listRegisterParse.add(new RegisterToParseDonor(fileType, year));
 			listRegisterParse.add(new RegisterToParseRevenue(fileType, year));
 		}
 	}
-
 }
