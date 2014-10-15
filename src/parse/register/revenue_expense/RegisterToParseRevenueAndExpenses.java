@@ -13,18 +13,20 @@ public abstract class RegisterToParseRevenueAndExpenses<O> extends RegisterParse
 	public static final String YEAR_2006 = "2006";
 	public static final String YEAR_2010 = "2010";
 	
-	public RegisterToParseRevenueAndExpenses(String tipoArquivo, String ano)
-			throws ParseException {
-		super(tipoArquivo, ano);
+	public RegisterToParseRevenueAndExpenses(String fileType, String year) throws ParseException {
+		super(fileType, year);
 	}
 
 	@Override
-	protected ParseIndex<O> getParseIndex(String tipoArquivo, String ano)
-			throws ParseException {
-		if(tipoArquivo.equals(EXPENSE)) {
-			return getIndicesParseDespesa(ano);
-		} else if (tipoArquivo.equals(REVENUE)) {
-			return getIndicesParseReceita(ano);
+	protected ParseIndex<O> getParseIndex(String fileType, String year) throws ParseException {
+		//Variables to store result of validation of file type
+		boolean validationFileExpense = fileType.equals(EXPENSE);
+		boolean validationFileRevenue = fileType.equals(REVENUE);
+		
+		if(validationFileExpense) {
+			return getIndicesParseDespesa(year);
+		} else if (validationFileRevenue) {
+			return getIndicesParseReceita(year);
 		}
 		
 		throw new ParseException("Tipo do Arquivo está invalido!");
@@ -38,8 +40,8 @@ public abstract class RegisterToParseRevenueAndExpenses<O> extends RegisterParse
 	protected abstract ParseIndex<O> getIndicesParseReceita2006();
 	protected abstract ParseIndex<O> getIndicesParseReceita2010();
 
-	private ParseIndex<O> getIndicesParseDespesa(String ano) throws ParseException {
-		switch (ano) {
+	private ParseIndex<O> getIndicesParseDespesa(String year) throws ParseException {
+		switch (year) {
 		case YEAR_2002:
 			return getIndicesParseDespesa2002();
 		case YEAR_2006:
@@ -50,8 +52,8 @@ public abstract class RegisterToParseRevenueAndExpenses<O> extends RegisterParse
 		throw new ParseException("Ano do arquivo está invalido!");
 	}
 	
-	private ParseIndex<O> getIndicesParseReceita(String ano) throws ParseException {
-		switch (ano) {
+	private ParseIndex<O> getIndicesParseReceita(String year) throws ParseException {
+		switch (year) {
 		case YEAR_2002:
 			return getIndicesParseReceita2002();
 		case YEAR_2006:

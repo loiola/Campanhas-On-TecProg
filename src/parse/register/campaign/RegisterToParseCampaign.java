@@ -22,8 +22,7 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParseCampaign(String fileType, String year)
-			throws ParseException {
+	public RegisterToParseCampaign(String fileType, String year) throws ParseException {
 		super(fileType, year);
 		
 		setlinesToRegister(100000);
@@ -37,9 +36,8 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	 * @return a ParseCampaignControl
 	 */
 	@Override
-	public ParseControl<Campaign> newIntance(
-			ParseIndex<Campaign> indicesParse) {
-		ParseControlCampaign parseControlCampaign = new ParseControlCampaign(indicesParse);	
+	public ParseControl<Campaign> newIntance(ParseIndex<Campaign> parseIndex) {
+		ParseControlCampaign parseControlCampaign = new ParseControlCampaign(parseIndex);	
 		return parseControlCampaign;
 	}
 
@@ -49,9 +47,7 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	 * @return a ParseCampaignIndex
 	 */
 	@Override
-	protected ParseIndex<Campaign> getParseIndex(String tipoArquivo,
-			String ano) throws ParseException {
-		
+	protected ParseIndex<Campaign> getParseIndex(String fileType, String year) throws ParseException {
 		CampaignParseIndex campaignParseIndex;
 		campaignParseIndex = new CampaignParseIndex();
 		
@@ -72,8 +68,8 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	 * @see parse.register.RegisterParse#executarLinhaDoArquivo(java.lang.String[])
 	 */
 	@Override
-	public void runFileLine(String[] campo) throws ParseException {
-		this.parseControl.addEqualInstance(campo);
+	public void runFileLine (String[] field) throws ParseException {
+		this.parseControl.addEqualInstance(field);
 		this.linesRead++;
 		if(this.linesRead >= this.linesToRegister) {
 			registerInstances();

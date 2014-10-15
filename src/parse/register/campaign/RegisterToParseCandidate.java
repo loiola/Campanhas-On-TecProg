@@ -22,8 +22,7 @@ public class RegisterToParseCandidate extends RegisterParse<Candidate> {
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParseCandidate(String fileType, String year)
-			throws ParseException {
+	public RegisterToParseCandidate(String fileType, String year) throws ParseException {
 		super(fileType, year);
 	}
 
@@ -47,7 +46,6 @@ public class RegisterToParseCandidate extends RegisterParse<Candidate> {
 	 */
 	@Override
 	protected ParseIndex<Candidate> getParseIndex(String fileType, String year) throws ParseException {
-		
 		CandidateParseIndex candidateParseIndex;
 		candidateParseIndex = new CandidateParseIndex();
 		

@@ -46,7 +46,6 @@ public class RegisterToParseResult extends RegisterParse<Result>{
 	 */
 	@Override
 	protected ParseIndex<Result> getParseIndex(String fileType, String year) throws ParseException {
-		
 		ResultParseIndex resultParseIndex;
 		resultParseIndex = new ResultParseIndex();
 		
@@ -55,5 +54,4 @@ public class RegisterToParseResult extends RegisterParse<Result>{
 		
 		return resultParseIndex;
 	}
-
 }

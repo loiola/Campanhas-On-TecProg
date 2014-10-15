@@ -9,15 +9,14 @@ import parse.index.ParseIndex;
 
 public class RegisterToParseSupplier extends RegisterToParseRevenueAndExpenses<Supplier> {
 
-	public RegisterToParseSupplier(String tipoArquivo, String ano)
-			throws ParseException {
-		super(tipoArquivo, ano);
+	public RegisterToParseSupplier(String fileType, String year) throws ParseException {
+		super(fileType, year);
 
 	}
 
 	@Override
-	public ParseControl<Supplier> newIntance(ParseIndex<Supplier> indicesParse) {
-		ParseControlSupplier parseControlSupplier = new ParseControlSupplier(indicesParse);
+	public ParseControl<Supplier> newIntance(ParseIndex<Supplier> parseIndex) {
+		ParseControlSupplier parseControlSupplier = new ParseControlSupplier(parseIndex);
 		return parseControlSupplier;
 	}
 	

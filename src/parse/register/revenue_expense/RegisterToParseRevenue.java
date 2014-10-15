@@ -21,9 +21,8 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParseRevenue(String tipoArquivo, String ano)
-			throws ParseException {
-		super(tipoArquivo, ano);
+	public RegisterToParseRevenue(String fileType, String year) throws ParseException {
+		super(fileType, year);
 	}
 	
 	// Methods
@@ -34,9 +33,8 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 	 * @return a ParseRevenueControl
 	 */
 	@Override
-	public ParseControl<Revenue> newIntance(
-			ParseIndex<Revenue> indicesParse) {
-		return new ParseControlRevenue(indicesParse);
+	public ParseControl<Revenue> newIntance(ParseIndex<Revenue> parseIndex) {
+		return new ParseControlRevenue(parseIndex);
 	}
 
 	/*

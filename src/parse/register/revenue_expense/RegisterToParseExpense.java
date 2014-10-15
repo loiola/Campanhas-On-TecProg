@@ -21,9 +21,8 @@ public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Ex
 	 * @param String who define the type of the list file to be used to get the ParseIndex
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
-	public RegisterToParseExpense(String tipoArquivo, String ano)
-			throws ParseException {
-		super(tipoArquivo, ano);
+	public RegisterToParseExpense(String fileType, String year) throws ParseException {
+		super(fileType, year);
 	}
 	
 	// Methods
@@ -34,9 +33,8 @@ public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Ex
 	 * @return a ParseExpenseControl
 	 */
 	@Override
-	public ParseControl<Expense> newIntance(
-			ParseIndex<Expense> indicesParse) {
-		return new ParseControlExpense(indicesParse);
+	public ParseControl<Expense> newIntance(ParseIndex<Expense> parseIndex) {
+		return new ParseControlExpense(parseIndex);
 	}
 
 	/*
@@ -56,6 +54,7 @@ public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Ex
 		expenseParseIndex.setIndexCpfCnpjSupplier(6);
 		expenseParseIndex.setIndexNameSupplier(8);
 		expenseParseIndex.setIndexValue(9);	
+		
 		return expenseParseIndex;
 	}
 
@@ -79,8 +78,8 @@ public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Ex
 		expenseParseIndex.setIndexCpfCnpjSupplier(19);
 		expenseParseIndex.setIndexCpfCnpjSupplier(18);
 		expenseParseIndex.setIndexValue(9);	
+		
 		return expenseParseIndex;
-
 	}
 
 	/*
@@ -104,6 +103,7 @@ public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Ex
 		expenseParseIndex.setIndexNameSupplier(11);
 		expenseParseIndex.setIndexValue(13);	
 		expenseParseIndex.setIndexDescription(17);
+		
 		return expenseParseIndex;
 	}
 

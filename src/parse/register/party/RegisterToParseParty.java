@@ -15,8 +15,7 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	 */
 
 	// Constructors
-	public RegisterToParseParty(String fileType, String year)
-			throws ParseException {
+	public RegisterToParseParty(String fileType, String year) throws ParseException {
 		super(fileType, year);
 	}
 
@@ -26,8 +25,7 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	 * @return an instance of class PartyParseControl
 	 */
 	@Override
-	public ParseControl<Party> newIntance(
-			ParseIndex<Party> parseIndex) {
+	public ParseControl<Party> newIntance(ParseIndex<Party> parseIndex) {
 		ParseControlParty parseControlParty;
 		parseControlParty = new ParseControlParty(parseIndex);
 		return parseControlParty;
@@ -41,23 +39,24 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 	 * @return an instance of class PartyIndicesParse
 	 */
 	@Override
-	protected ParseIndex<Party> getParseIndex(String fileType,
-			String year) throws ParseException {
+	protected ParseIndex<Party> getParseIndex(String fileType, String year) throws ParseException {
 		PartyParseIndex partyParseIndex;
 		partyParseIndex = new PartyParseIndex();
-		if(fileType.equals("party"))
-		{
+		
+		//Variables to store result of validation of file type
+		boolean validationFileParty = fileType.equals("party");
+		boolean validationFileCampaign = fileType.equals("campaign");
+		
+		if (validationFileParty) {
 			partyParseIndex.setIndexPartyName(2);
 			partyParseIndex.setIndexAcronym(1);
 			partyParseIndex.setIndexNumberParty(5);
 			partyParseIndex.setIndexDeferral(3);
-		}else if(fileType.equals("campaign"))
-		{
+		} else if (validationFileCampaign) {
 			partyParseIndex.setIndexPartyName(18);
 			partyParseIndex.setIndexAcronym(17);
 			partyParseIndex.setIndexNumberParty(16);
 		}
 		return partyParseIndex;
 	}
-
 }

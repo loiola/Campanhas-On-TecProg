@@ -9,15 +9,14 @@ import parse.index.ParseIndex;
 
 public class RegisterToParseDonor extends RegisterToParseRevenueAndExpenses<Donor> {
 
-	public RegisterToParseDonor(String tipoArquivo, String ano)
-			throws ParseException {
-		super(tipoArquivo, ano);
+	public RegisterToParseDonor(String fileType, String year) throws ParseException {
+		super(fileType, year);
 
 	}
 
 	@Override
-	public ParseControl<Donor> newIntance(ParseIndex<Donor> indicesParse) {
-		ParseControlDonor parseControlDonor = new ParseControlDonor(indicesParse);
+	public ParseControl<Donor> newIntance(ParseIndex<Donor> parseIndex) {
+		ParseControlDonor parseControlDonor = new ParseControlDonor(parseIndex);
 		return parseControlDonor;
 	}
 	
