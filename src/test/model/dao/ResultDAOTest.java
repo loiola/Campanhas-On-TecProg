@@ -11,14 +11,14 @@ import org.junit.Test;
 
 import test.TemplateTest;
 
-public class ResultadoDAOTeste extends TemplateTest {
+public class ResultDAOTest extends TemplateTest {
 
-	private ResultDAO dao;
+	private ResultDAO resultDAO;
 	
 	@Override
 	public void beforeTest() throws Exception {
 		
-		this.dao = new ResultDAO();
+		this.resultDAO = new ResultDAO();
 	}
 
 	@Override
@@ -27,29 +27,29 @@ public class ResultadoDAOTeste extends TemplateTest {
 	}
 	
 	@Test
-	public void deveRecuperarUmResultadoPeloCodigo() throws SQLException {
+	public void shouldRetrieveResultByCode() throws SQLException {
 		
-		ArrayList<Result> lista = new ArrayList<>();
+		ArrayList<Result> resultList = new ArrayList<>();
 		
 		Result r1 = new Result();
 		r1.setResultType(1);
 		r1.setResultDescription("Result 1");
-		lista.add(r1);
+		resultList.add(r1);
 		
 		Result r2 = new Result();
 		r2.setResultType(2);
 		r2.setResultDescription("Result 2");
-		lista.add(r2);
+		resultList.add(r2);
 		
-		this.dao.registerUnregisteredObjectArrayListOnDatabase(lista);
+		this.resultDAO.registerUnregisteredObjectArrayListOnDatabase(resultList);
 			
 		Result r3 = new Result();
-		r3 = this.dao.getResultByCode(1);
+		r3 = this.resultDAO.getResultByCode(1);
 		Assert.assertEquals(r1, r3);
 	}
 	
 	@Test
-	public void naoDeveAcharResultado() throws SQLException {
+	public void shouldNotFindResult() throws SQLException {
 		
 		ArrayList<Result> lista = new ArrayList<>();
 		
@@ -63,15 +63,15 @@ public class ResultadoDAOTeste extends TemplateTest {
 		r2.setResultDescription("Result 2");
 		lista.add(r2);
 		
-		this.dao.registerUnregisteredObjectArrayListOnDatabase(lista);
+		this.resultDAO.registerUnregisteredObjectArrayListOnDatabase(lista);
 			
 		Result r3 = new Result();
-		r3 = this.dao.getResultByCode(5);
+		r3 = this.resultDAO.getResultByCode(5);
 		Assert.assertNotEquals(r1, r3);
 	}
 	
 	@Test
-	public void valoresComparacao() throws Exception {
+	public void comparationValues() throws Exception {
 		
 		Result r1 = new Result();
 		Result r2 = new Result();
