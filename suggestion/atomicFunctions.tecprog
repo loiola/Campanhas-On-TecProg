@@ -1,0 +1,33 @@
+Pacote model.DAO
+
+ - Classe CampaignDAO - registerResultSetOnObjectArrayList
+                      - getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState
+                      - searchCampaignInDatabaseUsingSQLCommandConfiguredBefore
+                      - generateTopFiveCampaignListAboutMaximumExpenseDeclared
+
+Obs.: Repetir para as demais classes.
+
+
+Pacote control
+
+ - Classe TransactionControl
+                      - getListRevenue
+                      - getListExpense
+
+Obs.: Repetir para as demais classes.
+
+
+Pacote parse.control
+
+ - Classe ParseControlCampaign
+                       - registeringInstances
+
+Obs.: Repetir para as demais classes.
+
+
+Pacote parse.index
+
+ - Classe CampaignParseIndex
+                       - registeringInstances
+
+Obs.: Repetir para as demais classes.
