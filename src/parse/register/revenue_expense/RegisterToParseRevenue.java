@@ -28,53 +28,52 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 	// Methods
 
 	/*
-	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseRevenueControl to be used by constructor
 	 * @return a ParseRevenueControl
 	 */
 	@Override
 	public ParseControl<Revenue> newIntance(ParseIndex<Revenue> parseIndex) {
-		return new ParseControlRevenue(parseIndex);
+		ParseControlRevenue parseControlRevenue = new ParseControlRevenue(parseIndex);
+		return parseControlRevenue;
 	}
 
 	/*
-	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2002()
 	 * This method generate the ParseRevenueIndex from the Campaign of 2002
 	 * @return a ParseRevenueIndex
 	 */
 	@Override
-	protected ParseIndex<Revenue> getIndicesParseDespesa2002() {
-		return new RevenueParseIndex(YEAR_2002);
+	protected ParseIndex<Revenue> getIndicesParseExpense2002() {
+		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2002);
+		return revenueParseIndex;
 	}
 
 	/*
-	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2006()
 	 * This method generate the ParseRevenueIndex from the Campaign of 2006
 	 * @return a ParseRevenueIndex
 	 */
 	@Override
-	protected ParseIndex<Revenue> getIndicesParseDespesa2006() {
-		return new RevenueParseIndex(YEAR_2006);
+	protected ParseIndex<Revenue> getIndicesParseExpense2006() {
+		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2006);
+		return revenueParseIndex;
 	}
 
 	/*
-	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseDespesa2010()
 	 * This method generate the ParseRevenueIndex from the Campaign of 2010
 	 * @return a ParseRevenueIndex
 	 */
 	@Override
-	protected ParseIndex<Revenue> getIndicesParseDespesa2010() {
-		return new RevenueParseIndex(YEAR_2010);
+	protected ParseIndex<Revenue> getIndicesParseExpense2010() {
+		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2010);
+		return revenueParseIndex;
 	}
 
 	/*
-	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2002()
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2002
 	 * @return a ParseRevenueIndex
 	 */
 	@Override
-	protected ParseIndex<Revenue> getIndicesParseReceita2002() {
+	protected ParseIndex<Revenue> getIndicesParseRevenue2002() {
 		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2002);
 		revenueParseIndex.setIndexUnitFederationCampaign(0);
 		revenueParseIndex.setIndexNumberCampaign(4);
@@ -89,13 +88,12 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 	}
 
 	/*
-	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2006()
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2006
 	 * @return a ParseRevenueIndex
 	 */
 	@Override
-	protected ParseIndex<Revenue> getIndicesParseReceita2006() {
+	protected ParseIndex<Revenue> getIndicesParseRevenue2006() {
 		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2006);
 		revenueParseIndex.setIndexUnitFederationCampaign(4);
 		revenueParseIndex.setIndexNumberCampaign(3);
@@ -111,13 +109,12 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 	}
 
 	/*
-	 * @see parse.register.receita_despesa.CadastroParseReceitasDespesas#getIndicesParseReceita2010()
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2010
 	 * @return a ParseRevenueIndex
 	 */
 	@Override
-	protected ParseIndex<Revenue> getIndicesParseReceita2010() {
+	protected ParseIndex<Revenue> getIndicesParseRevenue2010() {
 		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2010);
 		revenueParseIndex.setIndexUnitFederationCampaign(1);
 		revenueParseIndex.setIndexNumberCampaign(3);
