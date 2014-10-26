@@ -75,6 +75,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Supplier> supplierList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Supplier supplier : supplierList) {
 			daoSQLInstruction.setString(1, supplier.getSupplierPersonRegister());
 			daoSQLInstruction.setString(2, supplier.getSupplierName());
@@ -90,16 +91,46 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a SQLresult
 	 */
 	@Override
-	protected void registerResultSetOnObjectArrayList(ArrayList<Supplier> supplierList,
-			ResultSet sqlResult) throws SQLException {
+	protected void registerResultSetOnObjectArrayList(
+			ArrayList<Supplier> supplierList, ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
 			Supplier supplier = new Supplier();
-			supplier.setSupplierPersonRegister(sqlResult.getString(DATABASE_SUPPLIER_PERSON_REGISTER));
-			supplier.setSupplierName(sqlResult.getString(DATABASE_SUPPLIER_NAME));
-			supplier.setSupplierCountryState(sqlResult.getString(DATABASE_SUPPLIER_COUNTRY_STATE));
-			supplier.setSupplierRegisterSituation(sqlResult.getString(DATABASE_SUPPLIER_REGISTER_SITUATION));
+			supplier.setSupplierPersonRegister(sqlResult.getString(
+					DATABASE_SUPPLIER_PERSON_REGISTER));
+			supplier.setSupplierName(sqlResult.getString(
+					DATABASE_SUPPLIER_NAME));
+			supplier.setSupplierCountryState(sqlResult.getString(
+					DATABASE_SUPPLIER_COUNTRY_STATE));
+			supplier.setSupplierRegisterSituation(sqlResult.getString(
+					DATABASE_SUPPLIER_REGISTER_SITUATION));
+			
 			supplierList.add(supplier);
 		}
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the supplier informed
+	 * @param a supplier
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForSupplier(final Supplier supplier) throws Exception {
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE ";
+		
+		if(!supplier.getSupplierName().equals(Supplier.EMPTY_TYPE_STRING)) {
+			sqlCommand = sqlCommand + DATABASE_SUPPLIER_NAME + " = " 
+					+ supplier.getSupplierName();
+		} else {
+			if(!supplier.getSupplierPersonRegister().equals(Supplier.EMPTY_TYPE_STRING)) {
+				sqlCommand = sqlCommand + DATABASE_SUPPLIER_PERSON_REGISTER + " = " 
+						+ supplier.getSupplierPersonRegister();
+			} else {
+				throw new Exception();
+			}
+		}
+		
+		return sqlCommand;
 	}
 
 	/*
@@ -109,24 +140,31 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 */
 	public Supplier getSupplierByNameOfPersonRegister(Supplier supplier) throws Exception {
 		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForSupplier(supplier);
+		
 		//Instance to store supplier returned by the bank
 		Supplier supplierRecovered;
-		
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE ";
-		if(!supplier.getSupplierName().equals(Supplier.EMPTY_TYPE_STRING)) {
-			sqlCommand = sqlCommand + DATABASE_SUPPLIER_NAME + " = " 
-		  + supplier.getSupplierName();
-		}
-		else if(!supplier.getSupplierPersonRegister().equals(Supplier.EMPTY_TYPE_STRING)) {
-			sqlCommand = sqlCommand + DATABASE_SUPPLIER_PERSON_REGISTER + " = " 
-		  + supplier.getSupplierPersonRegister();
-		} else {
-			throw new Exception();
-		}
-		
-		supplierRecovered = searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
-		
+		supplierRecovered = searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(
+				sqlCommand).get(0);
 		return supplierRecovered; 
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
 	}
 
 	/*
@@ -134,32 +172,31 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Supplier>
 	 */
-	public ArrayList<Supplier> searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
+	public ArrayList<Supplier> searchSupplierInDatabaseUsingSQLCommandConfiguredBefore(
+			String sqlCommandConfiguredBefore) throws SQLException {
 
 		ArrayList<Supplier> supplierList = new ArrayList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConnection();
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
 
-			String sqlCommand = sqlCommandConfiguredBefore;
-
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-
-			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
-
-			while(sqlResult.next()) {
+			// Iterations search
+			while(resultSQL.next()) {
 				Supplier supplier = new Supplier();
-				
-				supplier.setSupplierName(sqlResult.getString(DATABASE_SUPPLIER_NAME));
-				supplier.setSupplierPersonRegister(sqlResult.getString(DATABASE_SUPPLIER_PERSON_REGISTER));
-				supplier.setSupplierRegisterSituation(sqlResult.getString(DATABASE_SUPPLIER_REGISTER_SITUATION));
-				supplier.setSupplierCountryState(sqlResult.getString(DATABASE_SUPPLIER_COUNTRY_STATE));
-
+				supplier.setSupplierName(resultSQL.getString(
+						DATABASE_SUPPLIER_NAME));
+				supplier.setSupplierPersonRegister(resultSQL.getString(
+						DATABASE_SUPPLIER_PERSON_REGISTER));
+				supplier.setSupplierRegisterSituation(resultSQL.getString(
+						DATABASE_SUPPLIER_REGISTER_SITUATION));
+				supplier.setSupplierCountryState(resultSQL.getString(
+						DATABASE_SUPPLIER_COUNTRY_STATE));
 				if(supplier != null) {
 					supplierList.add(supplier);
 				}
 			}
-		}  catch(SQLException e) {
+		} catch(SQLException e) {
 			throw new SQLException("SupplierDAO - " + e.getMessage());
 		} finally {
 			closeDatabaseConnection();

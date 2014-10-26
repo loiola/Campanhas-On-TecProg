@@ -78,6 +78,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Candidate> candidateList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Candidate candidate : candidateList) {
 			daoSQLInstruction.setString(1, candidate.getCandidateElectoralTitle());
 			daoSQLInstruction.setString(2, candidate.getCandidateName());
@@ -93,33 +94,68 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Candidate> candidateList,
 			ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
 			Candidate candidate = new Candidate();
+			
 			candidate.setCandidateName(sqlResult.getString(DATABASE_CANDIDATE_NAME));
-			candidate.setCandidateElectoralTitle(sqlResult
-					.getString(DATABASE_CANDIDATE_ELECTORAL_TITLE));
+			candidate.setCandidateElectoralTitle(sqlResult.getString(
+					DATABASE_CANDIDATE_ELECTORAL_TITLE));
 			candidateList.add(candidate);
 		}
 	}
 
+	/*
+	 * This method makes the SQL query command according to the
+	 * electoral Title informed
+	 * @param a String who define the electoral Title
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForElectoralTitle(final String electoralTitle){
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				+ DATABASE_CANDIDATE_ELECTORAL_TITLE + " = '"+ electoralTitle + "'";
+		
+		return sqlCommand;
+	}
+	
 	/*
 	 * This method retrieves a candidate through the electoral title
 	 * @param a String with the electoral title
 	 * @return an instance of Class Candidate
 	 */
 	public Candidate getCandidateByElectoralTitle(String electoralTitle) {
-		LinkedList<Candidate> candidateList = new LinkedList<>();
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_CANDIDATE_ELECTORAL_TITLE + " = '"
-				+ electoralTitle + "'";
 		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForElectoralTitle(electoralTitle);
+		
+		// Returning the list of campaign
 		try {
+			LinkedList<Candidate> candidateList = new LinkedList<>();
 			candidateList = searchCandidateInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 			return candidateList.get(0);
+			
 		} catch(SQLException e) {
 			Candidate candidate = new Candidate();
 			candidate.setCandidateElectoralTitle("-1");
 			return candidate;
 		}
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the
+	 * name of candidate informed
+	 * @param a String who define the name of candidate
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForName(final String candidateName){
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " USE INDEX ("
+				+ DATABASE_CANDIDATE_NAME_INDEX + ")" + " WHERE " + DATABASE_CANDIDATE_NAME
+				+ " LIKE '%" + candidateName + "%' " + " OR " + DATABASE_CANDIDATE_ELECTORAL_TITLE
+				+ " IN (" + this.campaignDAO.getSQLSelectNameOfUrnCommand(candidateName) + ")";
+		
+		return sqlCommand;
 	}
 
 	/*
@@ -129,20 +165,36 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 */
 	public LinkedList<Candidate> getCandidateListByName(String candidateName) {
 		this.campaignDAO = new CampaignDAO();
-
-		LinkedList<Candidate> candidateList = new LinkedList<>();
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " USE INDEX (" + DATABASE_CANDIDATE_NAME_INDEX + ")"
-				+ " WHERE " + DATABASE_CANDIDATE_NAME + " LIKE '%" + candidateName + "%' "
-				+ " OR "
-				+ DATABASE_CANDIDATE_ELECTORAL_TITLE + " IN (" + this.campaignDAO.getSQLSelectNameOfUrnCommand(candidateName)
-				+ ")";
 		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForName(candidateName);
+		
+		// Returning the list of campaign
 		try {
+			LinkedList<Candidate> candidateList = new LinkedList<>();
 			candidateList = searchCandidateInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+			return candidateList;
+			
 		} catch(SQLException e) {
 			return null;
 		}
-		return candidateList;
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
 	}
 
 	/*
@@ -150,21 +202,23 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Candidate>
 	 */
-	public LinkedList<Candidate> searchCandidateInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
+	public LinkedList<Candidate> searchCandidateInDatabaseUsingSQLCommandConfiguredBefore(
+			String sqlCommandConfiguredBefore) throws SQLException {
+		
 		LinkedList<Candidate> candidateList = new LinkedList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConnection();
+			
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
 
-			String sqlCommand = sqlCommandConfiguredBefore;
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
-
-			while(resultadoSQL.next()) {
+			// Iterations search
+			while(resultSQL.next()) {
 				Candidate candidate = new Candidate();
-				candidate.setCandidateName(resultadoSQL.getString(DATABASE_CANDIDATE_NAME));
-				candidate.setCandidateElectoralTitle(resultadoSQL.getString(DATABASE_CANDIDATE_ELECTORAL_TITLE));
-
+				candidate.setCandidateName(resultSQL.getString(
+						DATABASE_CANDIDATE_NAME));
+				candidate.setCandidateElectoralTitle(resultSQL.getString(
+						DATABASE_CANDIDATE_ELECTORAL_TITLE));
 				if(candidate != null) {
 					candidateList.add(candidate);
 				}
