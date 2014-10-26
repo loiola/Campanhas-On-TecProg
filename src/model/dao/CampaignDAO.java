@@ -118,14 +118,16 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Campaign> campaignList, ResultSet sqlResult) throws SQLException {
 		while(sqlResult.next()) {
+			
 			Position position = new Position();
 			Result result = new Result();
 			Party party = new Party();
 			Candidate candidate = new Candidate();
+			Campaign campaign = new Campaign();
+			
 			adjustPositionCodeAndResultCode(position, result, sqlResult);
 			adjustPartyNumberAndCandidateElectoralTitle(party, candidate, sqlResult);
-
-			Campaign campaign = new Campaign();
+			
 			campaign.setCampaignIdentifier(sqlResult.getInt(DATABASE_CAMPAIGN_IDENTIFIER));
 			campaign.setCampaignResult(result);
 			campaign.setCampaignPosition(position);
@@ -167,18 +169,56 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	}
 
 	/*
+	 * This method makes the SQL query command according to the candidate informed
+	 * @param an instance of Class Candidate
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForCandidate(final Candidate candidate){
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " USE INDEX ("
+				+ DATABASE_CAMPAIGN_CANDIDATE_INDEX + ")" + " WHERE "
+				+ DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE + " = '"
+				+ candidate.getCandidateElectoralTitle() + "' ";
+		
+		return sqlCommand;
+	}
+	
+	/*
 	 * This method retrieves a list of campaigns from a voter
 	 * @param an instance of Class Candidate
 	 * @return an ArrayList<Campaign>
 	 */
 	public ArrayList<Campaign> getCampaignArrayDataByCandidateElectoralTitle(
 			Candidate candidate) throws SQLException {
+		
+		// Riding the command SQL		
+		String sqlCommand = mountingSQLConsultationForCandidate(candidate);
+		
+		// Returning the list of campaign
 		ArrayList<Campaign> campaignList = new ArrayList<>();
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " USE INDEX (" + DATABASE_CAMPAIGN_CANDIDATE_INDEX + ")"
-				+ " WHERE " + DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE + " = '"
-				+ candidate.getCandidateElectoralTitle() + "' ";
 		campaignList = searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 		return campaignList;
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the
+	 * acronym and election year informed
+	 * @param a String who define the party acronym of campaign
+	 * @param a String who define the election year of campaign
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForPartyAcronymAndElectionYear(
+			final String partyAcronym, final String electionYear) throws SQLException{
+		
+		this.partyDAO = new PartyDAO();
+		Party party = this.partyDAO.getPartyByAcronym(partyAcronym);
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " USE INDEX ("
+				+ DATABASE_CAMPAIGN_PARTY_INDEX + ", "	+ DATABASE_CAMPAIGN_YEAR_INDEX
+				+ ")" + " WHERE " + DATABASE_CAMPAIGN_PARTY_NUMBER + " = '"
+				+ party.getPartyNumber() + "' AND " + DATABASE_CAMPAIGN_YEAR + " = '"
+				+ electionYear + "' ";
+		
+		return sqlCommand;
 	}
 
 	/*
@@ -187,82 +227,76 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param a String year
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campaign> getCampaignArrayDataByPartyAcronymAndElectionYear(String partyAcronym, String electionYear)
-			throws SQLException {
-		this.partyDAO = new PartyDAO();
-
+	public ArrayList<Campaign> getCampaignArrayDataByPartyAcronymAndElectionYear(
+			String partyAcronym, String electionYear) throws SQLException {
+		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForPartyAcronymAndElectionYear(partyAcronym, electionYear);
+		
+		// Returning the list of campaign
 		ArrayList<Campaign> campaignList = new ArrayList<>();
-		Party party = this.partyDAO.getPartyByAcronym(partyAcronym);
-		String comandoSQL = DATABASE_SQL_COMMAND_SELECT + " USE INDEX (" + DATABASE_CAMPAIGN_PARTY_INDEX + ", "
-				+ DATABASE_CAMPAIGN_YEAR_INDEX + ")" + " WHERE " + DATABASE_CAMPAIGN_PARTY_NUMBER + " = '"
-				+ party.getPartyNumber() + "' AND " + DATABASE_CAMPAIGN_YEAR + " = '" + electionYear + "' ";
-		campaignList = searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(comandoSQL);
+		campaignList = searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
 		return campaignList;
 	}
-
+	
 	/*
-	 * This method retrieves information from an instance of Class Campaign
-	 * @param an instance of Class Campaign
-	 * @return an instance of Class Campaign
+	 * This method makes the SQL query command according to the
+	 * election year, Number and position of candidate informed
+	 * @param a campaign of candidate 
+	 * @result the command of consultation
 	 */
-	public Campaign getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(Campaign campaign)
-			throws SQLException {
-		ArrayList<Campaign> campaignList = new ArrayList<>();
+	private String mountingSQLConsultationForElectionYearAndCandidateNumberAndPositionCodeAndCountryState(
+			final Campaign campaign) throws SQLException{
+		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_CAMPAIGN_YEAR + " = "
 				+ campaign.getCampaignYear() + " AND " + DATABASE_CAMPAIGN_COUNTRY_STATE + " = '" + campaign.getCampaignCountryState()
 				+ "' AND " + DATABASE_CAMPAIGN_CANDIDATE_NUMBER + " = '"
 				+ campaign.getCampaignCandidateNumber() + "' AND " + DATABASE_CAMPAIGN_POSITION_CODE + " = "
 				+ campaign.getCampaignPosition().getPositionCode();
+		
+		return sqlCommand;
+	}
+	
+	/*
+	 * This method retrieves information from an instance of Class Campaign
+	 * @param an instance of Class Campaign
+	 * @return an instance of Class Campaign
+	 */
+	public Campaign getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(
+			Campaign campaign) throws SQLException {
+		
+		// Riding the command SQL
+		String sqlCommand =
+				mountingSQLConsultationForElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campaign);
+		
+		// Making the search
+		ArrayList<Campaign> campaignList = new ArrayList<>();
 		campaignList = searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		
+		// Treating return in case of being empty
 		if(campaignList.isEmpty()) {
 			return null;
 		} else {
 			return campaignList.get(0);
 		}
 	}
-
+	
 	/*
-	 * This method retrieves a complete list of campaigns stored in the database
-	 * @param a String with the SQL command
-	 * @return an ArrayList<Campaign>
+	 * This method mount command SQL query for the top five
+	 * @param a integer who define the position relative to your position(cargo)
+	 * @param a String year
+	 * @result the command of consultation
 	 */
-	public ArrayList<Campaign> searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
-		ArrayList<Campaign> campaignList = new ArrayList<>();
-		this.candidateDAO = new CandidateDAO();
-		this.positionDAO = new PositionDAO();
-		this.partyDAO = new PartyDAO();
-		this.resultDAO = new ResultDAO();
-
-		try {
-			this.connection = new DatabaseConnection().getConnection();
-
-			String sqlCommand = sqlCommandConfiguredBefore;
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
-
-			while(resultadoSQL.next()) {
-				Campaign campaign = new Campaign();
-				campaign.setCampaignYear(resultadoSQL.getInt(DATABASE_CAMPAIGN_YEAR));
-				campaign.setCampaignPosition(positionDAO.getPositionByCode(resultadoSQL.getInt(DATABASE_CAMPAIGN_POSITION_CODE)));
-				campaign.setCampaignMaximumExpenseDeclared(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED));
-				campaign.setCampaignTotalExpenseCalculated(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_CALCULATED));
-				campaign.setCampaignNameOfUrn(resultadoSQL.getString(DATABASE_CAMPAIGN_NAME_OF_URN));
-				campaign.setCampaignCandidateNumber(resultadoSQL.getInt(DATABASE_CAMPAIGN_CANDIDATE_NUMBER));
-				campaign.setCampaignParty(partyDAO.getPartyByNumber(resultadoSQL.getString(DATABASE_CAMPAIGN_PARTY_NUMBER)));
-				campaign.setCampaignTotalRevenueCalculated(resultadoSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_REVENUE_CALCULATED));
-				campaign.setCampaignResult(resultDAO.getResultByCode(resultadoSQL.getInt(DATABASE_CAMPAIGN_RESULT_CODE)));
-				campaign.setCampaignCountryState(resultadoSQL.getString(DATABASE_CAMPAIGN_COUNTRY_STATE));
-				campaign.setCampaignCandidate(candidateDAO.getCandidateByElectoralTitle(resultadoSQL.getString(DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE)));
-				if(campaign != null) {
-					campaignList.add(campaign);
-				}
-			}
-		} catch(SQLException e) {
-			throw new SQLException("CampaignDAO - " + e.getMessage());
-		} finally {
-			closeDatabaseConnection();
-		}
-		return campaignList;
+	private String mountingSQLConsultationForTopFive(
+			final int positionCode, final Integer electionYear) throws SQLException{
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " +
+		DATABASE_CAMPAIGN_YEAR + " = " + electionYear + " and " 
+	            + DATABASE_CAMPAIGN_POSITION_CODE + " = " + positionCode
+	            + " ORDER BY " + DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED
+	            + " DESC LIMIT 5";
+		
+		return sqlCommand;
 	}
 	
 	/*
@@ -271,11 +305,10 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param an Integer with the year
 	 * @return an ArrayList<Campaign>
 	 */
-	public ArrayList<Campaign> generateTopFiveCampaignListAboutMaximumExpenseDeclared(String position, Integer electionYear) throws SQLException {
+	public ArrayList<Campaign> generateTopFiveCampaignListAboutMaximumExpenseDeclared(
+			String position, Integer electionYear) throws SQLException {
 		
-		//Array for storing the returned campaigns
-		ArrayList<Campaign> campaignsList = new ArrayList<>();
-		
+		// Treating the received position
 		int positionCode = 0;
 		switch(position.toLowerCase()) {
 		
@@ -292,12 +325,74 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 				return null;
 		}
 		
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_CAMPAIGN_YEAR + " = " + electionYear + " and " 
-		                   +DATABASE_CAMPAIGN_POSITION_CODE + " = " + positionCode + " ORDER BY " + DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED
-		                   +" DESC LIMIT 5";
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForTopFive(positionCode, electionYear);
 		
+		// Returning the list of campaign
+		ArrayList<Campaign> campaignsList = new ArrayList<>();
 		campaignsList = searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
-		
 		return campaignsList;
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+	
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
+	}
+	
+	/*
+	 * This method retrieves a complete list of campaigns stored in the database
+	 * @param a String with the SQL command
+	 * @return an ArrayList<Campaign>
+	 */
+	public ArrayList<Campaign> searchCampaignInDatabaseUsingSQLCommandConfiguredBefore(
+			String sqlCommandConfiguredBefore) throws SQLException {
+		
+		ArrayList<Campaign> campaignList = new ArrayList<>();
+		this.candidateDAO = new CandidateDAO();
+		this.positionDAO = new PositionDAO();
+		this.partyDAO = new PartyDAO();
+		this.resultDAO = new ResultDAO();
+
+		try {
+			
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
+
+			// Iterations search
+			while(resultSQL.next()) {
+				Campaign campaign = new Campaign();
+				campaign.setCampaignYear(resultSQL.getInt(DATABASE_CAMPAIGN_YEAR));
+				campaign.setCampaignPosition(positionDAO.getPositionByCode(resultSQL.getInt(DATABASE_CAMPAIGN_POSITION_CODE)));
+				campaign.setCampaignMaximumExpenseDeclared(resultSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_DECLARED));
+				campaign.setCampaignTotalExpenseCalculated(resultSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_EXPENSE_CALCULATED));
+				campaign.setCampaignNameOfUrn(resultSQL.getString(DATABASE_CAMPAIGN_NAME_OF_URN));
+				campaign.setCampaignCandidateNumber(resultSQL.getInt(DATABASE_CAMPAIGN_CANDIDATE_NUMBER));
+				campaign.setCampaignParty(partyDAO.getPartyByNumber(resultSQL.getString(DATABASE_CAMPAIGN_PARTY_NUMBER)));
+				campaign.setCampaignTotalRevenueCalculated(resultSQL.getFloat(DATABASE_CAMPAIGN_MAXIMUM_REVENUE_CALCULATED));
+				campaign.setCampaignResult(resultDAO.getResultByCode(resultSQL.getInt(DATABASE_CAMPAIGN_RESULT_CODE)));
+				campaign.setCampaignCountryState(resultSQL.getString(DATABASE_CAMPAIGN_COUNTRY_STATE));
+				campaign.setCampaignCandidate(candidateDAO.getCandidateByElectoralTitle(resultSQL.getString(DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE)));
+				if(campaign != null) {
+					campaignList.add(campaign);
+				}
+			}
+		} catch(SQLException e) {
+			throw new SQLException("CampaignDAO - " + e.getMessage());
+		} finally {
+			closeDatabaseConnection();
+		}
+		return campaignList;
 	}
 }
