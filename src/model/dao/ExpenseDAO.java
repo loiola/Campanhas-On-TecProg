@@ -78,6 +78,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Expense> expenseList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Expense expense : expenseList) {
 			daoSQLInstruction.setInt(1, expense.getFinancialTransactionIdentifier());	
 			daoSQLInstruction.setInt(2, expense.getFinancialTransactionCampaign().getCampaignYear());
@@ -105,33 +106,73 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Expense> expenseList,
 			ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
+			
+			// Working with Campaign
 			Campaign campaign = new Campaign();
 			Position position = new Position();
-			position.setPositionDescription(sqlResult.getString(DATABASE_EXPENSE_CAMPAIGN_POSITION));
-			campaign.setCampaignYear(sqlResult.getInt(DATABASE_EXPENSE_CAMPAIGN_YEAR));
-			campaign.setCampaignCandidateNumber(sqlResult.getInt(DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER));
-			campaign.setCampaignCountryState(sqlResult.getString(DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE));
+			position.setPositionDescription(sqlResult.getString(
+					DATABASE_EXPENSE_CAMPAIGN_POSITION));
+			campaign.setCampaignYear(sqlResult.getInt(
+					DATABASE_EXPENSE_CAMPAIGN_YEAR));
+			campaign.setCampaignCandidateNumber(sqlResult.getInt(
+					DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER));
+			campaign.setCampaignCountryState(sqlResult.getString(
+					DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE));
 			campaign.setCampaignPosition(position);
 
+			// Working with Supplier
 			Supplier supplier = new Supplier();
-			supplier.setSupplierPersonRegister(sqlResult.getString(DATABASE_EXPENSE_SUPPLIER_PERSON_REGISTER));
-			supplier.setSupplierName(sqlResult.getString(DATABASE_EXPENSE_SUPPLIER_NAME));
+			supplier.setSupplierPersonRegister(sqlResult.getString(
+					DATABASE_EXPENSE_SUPPLIER_PERSON_REGISTER));
+			supplier.setSupplierName(sqlResult.getString(
+					DATABASE_EXPENSE_SUPPLIER_NAME));
 
+			// Working with Expense
 			Expense expense = new Expense();
-			expense.setFinancialTransactionIdentifier(sqlResult.getInt(DATABASE_EXPENSE_IDENTIFIER));			
+			expense.setFinancialTransactionIdentifier(sqlResult.getInt(
+					DATABASE_EXPENSE_IDENTIFIER));			
 			expense.setFinancialTransactionCampaign(campaign);
-			expense.setFinancialTransactionDate(sqlResult.getString(DATABASE_EXPENSE_DATE));
-			expense.setFinancialTransactionDescription(sqlResult.getString(DATABASE_EXPENSE_DESCRIPTION));
-			expense.setFinancialTransactionPaymentType(sqlResult.getString(DATABASE_EXPENSE_PAYMENT_TYPE));
+			expense.setFinancialTransactionDate(sqlResult.getString(
+					DATABASE_EXPENSE_DATE));
+			expense.setFinancialTransactionDescription(sqlResult.getString(
+					DATABASE_EXPENSE_DESCRIPTION));
+			expense.setFinancialTransactionPaymentType(sqlResult.getString(
+					DATABASE_EXPENSE_PAYMENT_TYPE));
 			expense.setExpenseSupplier(supplier);
-			expense.setFinancialTransactionDocumentNumber(sqlResult.getString(DATABASE_EXPENSE_DOCUMENT_NUMBER));
-			expense.setExpenseDocumentType(sqlResult.getString(DATABASE_EXPENSE_DOCUMENT_TYPE));
-			expense.setFinancialTransactionType(sqlResult.getString(DATABASE_EXPENSE_TYPE));
-			expense.setFinancialTransactionPrice(sqlResult.getFloat(DATABASE_EXPENSE_VALUE));
+			expense.setFinancialTransactionDocumentNumber(sqlResult.getString(
+					DATABASE_EXPENSE_DOCUMENT_NUMBER));
+			expense.setExpenseDocumentType(sqlResult.getString(
+					DATABASE_EXPENSE_DOCUMENT_TYPE));
+			expense.setFinancialTransactionType(sqlResult.getString(
+					DATABASE_EXPENSE_TYPE));
+			expense.setFinancialTransactionPrice(sqlResult.getFloat(
+					DATABASE_EXPENSE_VALUE));
 			
 			expenseList.add(expense);
 		}
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the year,
+	 * candidate number, country state and position of candidate informed
+	 * @param a String who define the party acronym of campaign
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForAttributes(
+			final Campaign campaign) throws SQLException{
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				  + DATABASE_EXPENSE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear()
+				  + " AND " + DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER + " = "
+				  + campaign.getCampaignCandidateNumber() + " AND "
+				  + DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE + " = '" 
+				  + campaign.getCampaignCountryState() + "' AND "
+				  + DATABASE_EXPENSE_CAMPAIGN_POSITION + " LIKE '%"
+				  + campaign.getCampaignPosition().getPositionDescription() + "%'";
+		
+		return sqlCommand;
 	}
 
 	/*
@@ -140,15 +181,30 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @param an instance of Class Campaign
 	 * @return an ArrayList<Expense>
 	 */
-	public ArrayList<Expense> getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(Campaign campaign) throws Exception {
+	public ArrayList<Expense> getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(
+			Campaign campaign) throws Exception {
+		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForAttributes(campaign);
+		
+		// Returning the list of expense
+		ArrayList<Expense> ExpenseList = new ArrayList<>();
+		ExpenseList = searchExpenseInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		return ExpenseList;
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the identifier informed
+	 * @param a integer who define the number identifier the expense
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForIdentifier(
+			final int expenseIdentifier) throws SQLException{
+		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
-				  + DATABASE_EXPENSE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear() + " AND "
-				  + DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER + " = " + campaign.getCampaignCandidateNumber()
-				  + " AND " + DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE + " = '" + campaign.getCampaignCountryState()
-				  + "' AND " + DATABASE_EXPENSE_CAMPAIGN_POSITION 
-				  + " LIKE '%" + campaign.getCampaignPosition().getPositionDescription()
-				  + "%'";
-		return searchExpenseInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+				  + DATABASE_EXPENSE_IDENTIFIER + " = " + expenseIdentifier;
+		
+		return sqlCommand;
 	}
 	
 	/*
@@ -157,16 +213,32 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @return an instance of Class Expense
 	 */
 	public Expense getExpenseByIdentifier(int expenseIdentifier) throws Exception {
-			
-		//Instance to store the expense returned by the bank
+		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForIdentifier(expenseIdentifier);
+		
+		// Returning the Expense
 		Expense expenseRecovered;
-		
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
-					  + DATABASE_EXPENSE_IDENTIFIER + " = " + expenseIdentifier;
-		
-		expenseRecovered = searchExpenseInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
-		
+		expenseRecovered = searchExpenseInDatabaseUsingSQLCommandConfiguredBefore(
+				sqlCommand).get(0);
 		return expenseRecovered;
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
 	}
 	
 	/*
@@ -178,45 +250,41 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 		ArrayList<Expense> expenseList = new ArrayList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConnection();
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
 
-			String sqlCommand = sqlCommandConfiguredBefore;
-
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-
-			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
-
-			while(sqlResult.next()) {
+			// Iterations search
+			while(resultSQL.next()) {
+				
 				Expense expense = new Expense();
 				Position position = new Position();
-				position.setPositionDescription(sqlResult.getString(DATABASE_EXPENSE_CAMPAIGN_POSITION));
+				position.setPositionDescription(resultSQL.getString(DATABASE_EXPENSE_CAMPAIGN_POSITION));
 
 				Campaign campaign = new Campaign();
-				campaign.setCampaignYear(sqlResult.getInt(DATABASE_EXPENSE_CAMPAIGN_YEAR));
-				campaign.setCampaignCandidateNumber(sqlResult.getInt(DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER));
+				campaign.setCampaignYear(resultSQL.getInt(DATABASE_EXPENSE_CAMPAIGN_YEAR));
+				campaign.setCampaignCandidateNumber(resultSQL.getInt(DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER));
 				campaign.setCampaignPosition(position);
 				expense.setFinancialTransactionCampaign(campaign);
 				
 				Supplier supplier = new Supplier();
-				supplier.setSupplierName(sqlResult.getString(DATABASE_EXPENSE_SUPPLIER_NAME));
-				supplier.setSupplierPersonRegister(sqlResult.getString(DATABASE_EXPENSE_SUPPLIER_PERSON_REGISTER));
+				supplier.setSupplierName(resultSQL.getString(DATABASE_EXPENSE_SUPPLIER_NAME));
+				supplier.setSupplierPersonRegister(resultSQL.getString(DATABASE_EXPENSE_SUPPLIER_PERSON_REGISTER));
 				expense.setExpenseSupplier(supplier);
 
-				expense.setFinancialTransactionDate(sqlResult.getString(DATABASE_EXPENSE_DATE));
-				expense.setFinancialTransactionDescription(sqlResult.getString(DATABASE_EXPENSE_DESCRIPTION));
-				expense.setFinancialTransactionPaymentType(sqlResult.getString(DATABASE_EXPENSE_PAYMENT_TYPE));
-				expense.setFinancialTransactionIdentifier(sqlResult.getInt(DATABASE_EXPENSE_IDENTIFIER));
-				expense.setFinancialTransactionDocumentNumber(sqlResult.getString(DATABASE_EXPENSE_DOCUMENT_NUMBER));
-				expense.setExpenseDocumentType(sqlResult.getString(DATABASE_EXPENSE_DOCUMENT_TYPE));
-				expense.setFinancialTransactionType(sqlResult.getString(DATABASE_EXPENSE_TYPE));
-				expense.setFinancialTransactionPrice(sqlResult.getFloat(DATABASE_EXPENSE_VALUE));
+				expense.setFinancialTransactionDate(resultSQL.getString(DATABASE_EXPENSE_DATE));
+				expense.setFinancialTransactionDescription(resultSQL.getString(DATABASE_EXPENSE_DESCRIPTION));
+				expense.setFinancialTransactionPaymentType(resultSQL.getString(DATABASE_EXPENSE_PAYMENT_TYPE));
+				expense.setFinancialTransactionIdentifier(resultSQL.getInt(DATABASE_EXPENSE_IDENTIFIER));
+				expense.setFinancialTransactionDocumentNumber(resultSQL.getString(DATABASE_EXPENSE_DOCUMENT_NUMBER));
+				expense.setExpenseDocumentType(resultSQL.getString(DATABASE_EXPENSE_DOCUMENT_TYPE));
+				expense.setFinancialTransactionType(resultSQL.getString(DATABASE_EXPENSE_TYPE));
+				expense.setFinancialTransactionPrice(resultSQL.getFloat(DATABASE_EXPENSE_VALUE));
 				
 				if(expense != null) {
 					expenseList.add(expense);
 				}
 			}
-
-		}  catch(SQLException e) {
+		} catch(SQLException e) {
 			throw new SQLException("ExpenseDAO - " + e.getMessage());
 		} finally {
 			closeDatabaseConnection();

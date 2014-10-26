@@ -77,6 +77,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Revenue> revenueList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Revenue revenue : revenueList) {
 			daoSQLInstruction.setInt(1, revenue.getFinancialTransactionIdentifier());
 			daoSQLInstruction.setInt(2, revenue.getFinancialTransactionCampaign().getCampaignYear());
@@ -104,32 +105,73 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Revenue> revenueList,
 			ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
+			
+			// Working with Campaign
 			Campaign campaign = new Campaign();
 			Position position = new Position();
-			position.setPositionDescription(sqlResult.getString(DATABASE_REVENUE_CAMPAIGN_POSITION));
-			campaign.setCampaignYear(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_YEAR));	
-			campaign.setCampaignCandidateNumber(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));	
+			position.setPositionDescription(sqlResult.getString(
+					DATABASE_REVENUE_CAMPAIGN_POSITION));
+			campaign.setCampaignYear(sqlResult.getInt(
+					DATABASE_REVENUE_CAMPAIGN_YEAR));	
+			campaign.setCampaignCandidateNumber(sqlResult.getInt(
+					DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));	
 			campaign.setCampaignPosition(position);
-			campaign.setCampaignCountryState(sqlResult.getString(DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE));
-
+			campaign.setCampaignCountryState(sqlResult.getString(
+					DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE));
+			
+			// Working with Donor
 			Donor donor = new Donor();
-			donor.setDonorName(sqlResult.getString(DATABASE_REVENUE_DONOR_NAME));
-			donor.setDonorPersonRegister(sqlResult.getString(DATABASE_REVENUE_DONOR_PERSON_REGISTER));
+			donor.setDonorName(sqlResult.getString(
+					DATABASE_REVENUE_DONOR_NAME));
+			donor.setDonorPersonRegister(sqlResult.getString(
+					DATABASE_REVENUE_DONOR_PERSON_REGISTER));
 
+			// Working with Revenue
 			Revenue revenue = new Revenue();
-			revenue.setFinancialTransactionIdentifier(sqlResult.getInt(DATABASE_REVENUE_IDENTIFIER));
-			revenue.setFinancialTransactionType(sqlResult.getString(DATABASE_REVENUE_TYPE));
-			revenue.setFinancialTransactionPaymentType(sqlResult.getString(DATABASE_REVENUE_PAYMENT_TYPE));
+			revenue.setFinancialTransactionIdentifier(sqlResult.getInt(
+					DATABASE_REVENUE_IDENTIFIER));
+			revenue.setFinancialTransactionType(sqlResult.getString(
+					DATABASE_REVENUE_TYPE));
+			revenue.setFinancialTransactionPaymentType(sqlResult.getString(
+					DATABASE_REVENUE_PAYMENT_TYPE));
 			revenue.setFinancialTransactionCampaign(campaign);
 			revenue.setRevenueDonor(donor);
-			revenue.setRevenueElectoralReceipt(sqlResult.getString(DATABASE_REVENUE_ELECTORAL_RECEIPT));
-			revenue.setFinancialTransactionDocumentNumber(sqlResult.getString(DATABASE_REVENUE_DOCUMENT_NUMBER));
-			revenue.setFinancialTransactionDate(sqlResult.getString(DATABASE_REVENUE_DATE));
-			revenue.setFinancialTransactionPrice(sqlResult.getFloat(DATABASE_REVENUE_VALUE));
-			revenue.setFinancialTransactionDescription(sqlResult.getString(DATABASE_REVENUE_DESCRIPTION));
+			revenue.setRevenueElectoralReceipt(sqlResult.getString(
+					DATABASE_REVENUE_ELECTORAL_RECEIPT));
+			revenue.setFinancialTransactionDocumentNumber(sqlResult.getString(
+					DATABASE_REVENUE_DOCUMENT_NUMBER));
+			revenue.setFinancialTransactionDate(sqlResult.getString(
+					DATABASE_REVENUE_DATE));
+			revenue.setFinancialTransactionPrice(sqlResult.getFloat(
+					DATABASE_REVENUE_VALUE));
+			revenue.setFinancialTransactionDescription(sqlResult.getString(
+					DATABASE_REVENUE_DESCRIPTION));
+			
 			revenueList.add(revenue);
 		}
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the year,
+	 * country state and position of candidate informed
+	 * @param a String who define the party acronym of campaign
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForAttributes(
+			final Campaign campaign) throws SQLException{
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				  + DATABASE_REVENUE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear()
+				  + " AND " + DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER + " = "
+				  + campaign.getCampaignCandidateNumber() + " AND "
+				  + DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE + " = '"
+				  + campaign.getCampaignCountryState() + "' AND "
+				  + DATABASE_REVENUE_CAMPAIGN_POSITION + " LIKE '%"
+				  + campaign.getCampaignPosition().getPositionDescription() + "%'";
+		
+		return sqlCommand;
 	}
 	
 	/*
@@ -137,22 +179,30 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param an instance of Class Campaign
 	 * @return an instance of Class Revenue
 	 */
-	public ArrayList<Revenue> getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(Campaign campaign) throws Exception {
+	public ArrayList<Revenue> getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(
+			Campaign campaign) throws Exception {
 		
-		//Array to store the recipes returned by the bank
-		ArrayList<Revenue> revenueList = new ArrayList<>();
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForAttributes(campaign);
+		
+		// Returning the list of Revenue
+		ArrayList<Revenue> RevenueList = new ArrayList<>();
+		RevenueList = searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
+		return RevenueList;
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the identifier informed
+	 * @param a integer who define the number identifier the revenue
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForIdentifier(
+			final int revenueIdentifier) throws SQLException{
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
-				  + DATABASE_REVENUE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear() + " AND "
-				  + DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER + " = " + campaign.getCampaignCandidateNumber()
-				  + " AND " + DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE + " = '" + campaign.getCampaignCountryState()
-				  + "' AND " + DATABASE_REVENUE_CAMPAIGN_POSITION + " LIKE '%" 
-				  + campaign.getCampaignPosition().getPositionDescription() 
-				  + "%'";
+				  + DATABASE_REVENUE_IDENTIFIER + " = " + revenueIdentifier;
 		
-		revenueList = searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
-		
-		return revenueList; 
+		return sqlCommand;
 	}
 	
 	/*
@@ -160,17 +210,33 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param an Integer with the DATABASE_REVENUE_IDENTIFIER
 	 * @return an instance of Class Revenue
 	 */
-	public Revenue getRevenueByIdentifier(int id) throws Exception {
+	public Revenue getRevenueByIdentifier(int revenueIdentifier) throws Exception {
 		
-		//Instance to store revenues returned by the bank
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForIdentifier(revenueIdentifier);
+				
+		// Returning the Revenue
 		Revenue revenueRecovered;
-		
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
-				  + DATABASE_REVENUE_IDENTIFIER + " = " + id;
-		
-		revenueRecovered = searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand).get(0);
-		
+		revenueRecovered = searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(
+				sqlCommand).get(0);
 		return revenueRecovered;
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
 	}
 	
 	/*
@@ -183,39 +249,35 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		ArrayList<Revenue> revenueList = new ArrayList<>();
 
 		try {
-			this.connection = new DatabaseConnection().getConnection();
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
 
-			String sqlCommand = sqlCommandConfiguredBefore;
-
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-
-			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
-
-			while(sqlResult.next()) {
-				Revenue revenue = new Revenue();
+			// Iterations search
+			while(resultSQL.next()) {
 				
+				Revenue revenue = new Revenue();
 				Position position = new Position();
-				position.setPositionDescription(sqlResult.getString(DATABASE_REVENUE_CAMPAIGN_POSITION));
+				position.setPositionDescription(resultSQL.getString(DATABASE_REVENUE_CAMPAIGN_POSITION));
 
 				Campaign campaign = new Campaign();
-				campaign.setCampaignYear(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_YEAR));
-				campaign.setCampaignCandidateNumber(sqlResult.getInt(DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));
+				campaign.setCampaignYear(resultSQL.getInt(DATABASE_REVENUE_CAMPAIGN_YEAR));
+				campaign.setCampaignCandidateNumber(resultSQL.getInt(DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));
 				campaign.setCampaignPosition(position);
 				revenue.setFinancialTransactionCampaign(campaign);
 				
 				Donor donor = new Donor();
-				donor.setDonorName(sqlResult.getString(DATABASE_REVENUE_DONOR_NAME));
-				donor.setDonorPersonRegister(sqlResult.getString(DATABASE_REVENUE_DONOR_PERSON_REGISTER));
+				donor.setDonorName(resultSQL.getString(DATABASE_REVENUE_DONOR_NAME));
+				donor.setDonorPersonRegister(resultSQL.getString(DATABASE_REVENUE_DONOR_PERSON_REGISTER));
 				revenue.setRevenueDonor(donor);
 
-				revenue.setFinancialTransactionDate(sqlResult.getString(DATABASE_REVENUE_DATE));
-				revenue.setFinancialTransactionDescription(sqlResult.getString(DATABASE_REVENUE_DESCRIPTION));
-				revenue.setFinancialTransactionPaymentType(sqlResult.getString(DATABASE_REVENUE_PAYMENT_TYPE));
-				revenue.setFinancialTransactionIdentifier(sqlResult.getInt(DATABASE_REVENUE_IDENTIFIER));
-				revenue.setFinancialTransactionDocumentNumber(sqlResult.getString(DATABASE_REVENUE_DOCUMENT_NUMBER));
-				revenue.setRevenueElectoralReceipt(sqlResult.getString(DATABASE_REVENUE_ELECTORAL_RECEIPT));
-				revenue.setFinancialTransactionType(sqlResult.getString(DATABASE_REVENUE_TYPE));
-				revenue.setFinancialTransactionPrice(sqlResult.getFloat(DATABASE_REVENUE_VALUE));
+				revenue.setFinancialTransactionDate(resultSQL.getString(DATABASE_REVENUE_DATE));
+				revenue.setFinancialTransactionDescription(resultSQL.getString(DATABASE_REVENUE_DESCRIPTION));
+				revenue.setFinancialTransactionPaymentType(resultSQL.getString(DATABASE_REVENUE_PAYMENT_TYPE));
+				revenue.setFinancialTransactionIdentifier(resultSQL.getInt(DATABASE_REVENUE_IDENTIFIER));
+				revenue.setFinancialTransactionDocumentNumber(resultSQL.getString(DATABASE_REVENUE_DOCUMENT_NUMBER));
+				revenue.setRevenueElectoralReceipt(resultSQL.getString(DATABASE_REVENUE_ELECTORAL_RECEIPT));
+				revenue.setFinancialTransactionType(resultSQL.getString(DATABASE_REVENUE_TYPE));
+				revenue.setFinancialTransactionPrice(resultSQL.getFloat(DATABASE_REVENUE_VALUE));
 				
 				if(revenue != null) {
 					revenueList.add(revenue);

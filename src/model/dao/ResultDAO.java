@@ -73,6 +73,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Result> resultList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Result result : resultList) {
 			daoSQLInstruction.setInt(1, result.getResultType());
 			daoSQLInstruction.setString(2, result.getResultDescription());
@@ -88,6 +89,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Result> resultList,
 			ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
 			Result result = new Result();
 			result.setResultType(sqlResult.getInt(DATABASE_RESULT_CODE));
@@ -95,27 +97,61 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 			resultList.add(result);
 		}
 	}
-
+	
+	/*
+	 * This method makes the SQL query command according to the supplier informed
+	 * @param a integer who define the result of code
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForResultCode(
+			final Integer resultCode) throws SQLException {
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+		+ DATABASE_RESULT_CODE +" = "+ resultCode +" ";
+		
+		return sqlCommand;
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommand) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+		
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
+	}
+		
 	/*
 	 * This method retrieves a receipt through the code
 	 * @param an Integer representing a code
 	 * @return an instance of Class Result
 	 */
 	public Result getResultByCode(Integer resultCode) throws SQLException {
+		
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForResultCode(resultCode);
+		
 		Result result = new Result();
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_RESULT_CODE +" = "+ resultCode +" ";
+		
 		try {
-			this.connection = new DatabaseConnection().getConnection();
-	
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-	
-			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
-			
-			while(sqlResult.next()) {
-				result.setResultType(sqlResult.getInt(DATABASE_RESULT_CODE));
-				result.setResultDescription(sqlResult.getString(DATABASE_RESULT_DESCRIPTION));
-			}
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommand);
 
+			// Iterations search
+			while(resultSQL.next()) {
+				result.setResultType(resultSQL.getInt(
+						DATABASE_RESULT_CODE));
+				result.setResultDescription(resultSQL.getString(
+						DATABASE_RESULT_DESCRIPTION));
+			}
+			
 		} catch(SQLException e) {
 			throw new SQLException("ResultDAO - " + e.getMessage());
 		} finally {
