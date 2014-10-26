@@ -11,16 +11,30 @@ import org.apache.commons.fileupload.FileItem;
 
 public class CSVReader {
 	
+	/*
+	 * Main reading class files to parse
+	 */
+	
+	// Interface for the method to record each line read
 	public interface ExecutorReaderCSVObserver {
 		public void runMethodForEachRead(String field[]);
 	}
 	
+	// Attributes
 	private ExecutorReaderCSVObserver executorReaderCSVObserver;
 	
+	// Constructor
 	public CSVReader() {
 		this.executorReaderCSVObserver = null;
 	}
 	
+	/*
+	 * Method for reading line by line from the file controlling
+	 * the road and output data
+	 * @param FileItem who define the type of the list file to be used 
+	 * @param String who define the division the file to be used 
+	 * @param integer to indicate the start line
+	 */
 	public void runMethodForReadLine(FileItem file, String division, int initialLine) throws IOException {
 		String field[];
 		String line;
@@ -45,6 +59,11 @@ public class CSVReader {
 		fileReader.close();
 	}
 	
+	/*
+	 * Method to check the number of lines in the file
+	 * @param FileItem who define the type of the list file to be used 
+	 * @return integer with number of lines
+	 */
 	public int getNumberOfLines(FileItem file) throws IOException {
 		int numberOfLines;
 		
@@ -60,10 +79,19 @@ public class CSVReader {
 		return numberOfLines;
 	}
 	
+	/*
+	 * Method for ignoring read lines
+	 * @param BufferedReader a buffer for the skipped lines
+	 * @param int who define the number of lines the file 
+	 */	
 	private void ignoreLines(BufferedReader fileReader, int numberOfLines) throws IOException {
 		for(int i = 1; (i < numberOfLines) && (fileReader.readLine() != null); i++);
 	}
 	
+	/*
+	 * Method for removing the quotes read files
+	 * @param an array of string who define read one line
+	 */	
 	private void removeQuotationMarks(String word[]) {
 		for(int i = 0; i < word.length; i++) {
 			if(word[i].length() > 0 && word[i].charAt(0) == '"') {
@@ -75,6 +103,10 @@ public class CSVReader {
 		}
 	}
 	
+	/*
+	 * Method to transform semicolon read the files in comma
+	 * @param a string who define a word
+	 */
 	private String transformFieldSemicolonInComma(String word) {
 		String newWord;
 		char characters[] = word.toCharArray();
@@ -84,15 +116,24 @@ public class CSVReader {
 			}
 		}
 		
+		//define and return new word
 		newWord = String.copyValueOf(characters);
 		return newWord;
 	}
 
+	/*
+	 * Method to record each line read
+	 * @param an ExecutorReaderCSVObserver who define objective of yourself
+	 */
 	public void setExecutorLeitorCSVObservador(
 			ExecutorReaderCSVObserver executorReaderCSVObserver) {
 		this.executorReaderCSVObserver = executorReaderCSVObserver;
 	}
 	
+	/*
+	 * Method to notify the observation of a field
+	 * @param an array of string who define a field
+	 */
 	private void notifyObserver(String field[]) {
 		if(this.executorReaderCSVObserver != null) {
 			this.executorReaderCSVObserver.runMethodForEachRead(field);
