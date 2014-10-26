@@ -73,6 +73,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Position> positionList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Position position : positionList) {
 			daoSQLInstruction.setInt(1, position.getPositionCode());
 			daoSQLInstruction.setString(2, position.getPositionDescription());
@@ -88,6 +89,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Position> positionList,
 			ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
 			Position position = new Position();
 			position.setPositionCode(sqlResult.getInt(DATABASE_POSITION_CODE));
@@ -97,19 +99,47 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	}
 	
 	/*
+	 * This method makes the SQL query command according to the position code informed
+	 * @param an Integer who define the position code of candidate
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForPosition(
+			final Integer positionCode) throws SQLException {
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				+ DATABASE_POSITION_CODE + " = " + positionCode + " ";
+		
+		return sqlCommand;
+	}
+	
+	/*
 	 * This method retrieves a position through code
 	 * @param an Integer with the code of position
 	 * @return an instance of Class Position
 	 */
 	public Position getPositionByCode(Integer positionCode) throws SQLException {
 		
-		//Instance to store the position returned by the bank
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForPosition(positionCode);
+		
+		// Returning the Party
 		Position positionRecovered;
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_POSITION_CODE +" = "+positionCode+" ";
-		
 		positionRecovered = searchPositionInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
-		
 		return positionRecovered; 
+	}
+	
+	/*
+	 * This method makes the SQL query command according to the position description informed
+	 * @param a String who define the position description of candidate
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForDescription(
+			final String positionDescription) throws SQLException {
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				  + DATABASE_POSITION_DESCRIPTION + " like '%" + positionDescription + "%' ";
+		
+		return sqlCommand;
 	}
 	
 	/*
@@ -119,14 +149,30 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 */
 	public Position getPositionByDescription(String positionDescription) throws SQLException {
 		
-		//Instance to store the position returned by the bank
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForDescription(positionDescription);
+		
+		// Returning the Party
 		Position positionRecovered;
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
-						  + DATABASE_POSITION_DESCRIPTION +" like '%"+positionDescription+"%' ";
-		
 		positionRecovered = searchPositionInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
-		
 		return positionRecovered; 
+	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
 	}
 	
 	/*
@@ -134,19 +180,19 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	 * @param a String with the SQL command
 	 * @return an instance of Class Position
 	 */
-	public Position searchPositionInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException {
+	public Position searchPositionInDatabaseUsingSQLCommandConfiguredBefore(
+			String sqlCommandConfiguredBefore) throws SQLException {
+		
 		Position position = new Position();
-		String comandoSQL = sqlCommandConfiguredBefore;
 		
 		try {
-			this.connection = new DatabaseConnection().getConnection();
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
 
-			this.daoSQLInstruction = this.connection.prepareStatement(comandoSQL);
-
-			ResultSet resultadoSQL = (ResultSet) daoSQLInstruction.executeQuery();
-			while(resultadoSQL.next()) {
-				position.setPositionCode(resultadoSQL.getInt(DATABASE_POSITION_CODE));
-				position.setPositionDescription(resultadoSQL.getString(DATABASE_POSITION_DESCRIPTION));
+			// Iterations search
+			while(resultSQL.next()) {
+				position.setPositionCode(resultSQL.getInt(DATABASE_POSITION_CODE));
+				position.setPositionDescription(resultSQL.getString(DATABASE_POSITION_DESCRIPTION));
 			}
 		} catch(SQLException e) {
 			throw new SQLException("PositionDAO - " + e.getMessage());

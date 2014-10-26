@@ -76,6 +76,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	@Override
 	protected void registerObjectArrayListOnBatch(ArrayList<Party> partyList,
 			PreparedStatement daoSQLInstruction) throws SQLException {
+		
 		for(Party party : partyList) {
 			daoSQLInstruction.setInt(1, party.getPartyNumber());
 			daoSQLInstruction.setString(2, party.getPartyAcronym());
@@ -93,6 +94,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	@Override
 	protected void registerResultSetOnObjectArrayList(ArrayList<Party> partyList,
 			ResultSet sqlResult) throws SQLException {
+		
 		while(sqlResult.next()) {
 			Party party = new Party();
 			party.setPartyName(sqlResult.getString(DATABASE_PARTY_NAME));
@@ -105,22 +107,49 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	}
 
 	/*
+	 * This method makes the SQL query command according to the acronym informed
+	 * @param a String who define the Acronym of party
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForAcronym(
+			final String partyAcronym) throws SQLException {
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
+				+ " WHERE " + DATABASE_PARTY_ACRONYM + " = '" + partyAcronym + "'";
+		
+		return sqlCommand;
+	}
+	
+	/*
 	 * This method retrieves a party through the acronym
 	 * @param a String with the acronym
 	 * @return an instance of Class Party
 	 */
 	public Party getPartyByAcronym(String partyAcronym) throws SQLException {
 		
-		//Instance to store the political party returned by the bank
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForAcronym(partyAcronym);
+		
+		// Returning the Party
 		Party partyRecovered;
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
-				+ " WHERE " + DATABASE_PARTY_ACRONYM + " = '" + partyAcronym + "'";
-		
 		partyRecovered = searchPartyInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
-		
 		return partyRecovered; 
 	}
-
+	
+	/*
+	 * This method makes the SQL query command according to the number of party informed
+	 * @param a String who define the Number of party
+	 * @result the command of consultation
+	 */
+	private String mountingSQLConsultationForNumber(
+			final String partyNumber) throws SQLException {
+		
+		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
+				+ " WHERE " + DATABASE_PARTY_NUMBER + " = '" + partyNumber + "'";
+		
+		return sqlCommand;
+	}
+	
 	/*
 	 * This method retrieves a party through the number
 	 * @param a String with the number
@@ -128,46 +157,71 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	 */
 	public Party getPartyByNumber(String partyNumber) throws SQLException {
 		
-		//Instance to store the political party returned by the bank
+		// Riding the command SQL
+		String sqlCommand = mountingSQLConsultationForNumber(partyNumber);
+		
+		// Returning the Party
 		Party partyRecovered;
-		String sqlCommand = DATABASE_SQL_COMMAND_SELECT
-				+ " WHERE " + DATABASE_PARTY_NUMBER + " = '" + partyNumber + "'";
-		
 		partyRecovered = searchPartyInDatabaseUsingSQLCommandConfiguredBefore(sqlCommand);
-		
 		return partyRecovered;
 	}
+	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	private ResultSet establishingConnectionToTheDatabaseToQuery(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
+	}
+	
+	/*
+	 * This method closes the connection established for research in database
+	 */
+	private void closingConnection() throws SQLException {
+		if(this.daoSQLInstruction != null) {
+			daoSQLInstruction.close();
+		}
+
+		if(this.connection != null) {
+			connection.close();
+		}
+	}
+	
 
 	/*
 	 * This method retrieves a complete list of political parties stored in the database
 	 * @param a String with the SQL command
 	 * @return an ArrayList<Party>
 	 */
-	private Party searchPartyInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore) throws SQLException{
+	private Party searchPartyInDatabaseUsingSQLCommandConfiguredBefore(
+			String sqlCommandConfiguredBefore) throws SQLException{
 		
 		Party party = new Party();
 		
 		try {
-			this.connection = new DatabaseConnection().getConnection();
-	
-			this.daoSQLInstruction = this.connection.prepareStatement(sqlCommandConfiguredBefore);
-	
-			ResultSet sqlResult = (ResultSet) daoSQLInstruction.executeQuery();
-	
-			while(sqlResult.next()) {
-				party.setPartyAcronym(sqlResult.getString(DATABASE_PARTY_ACRONYM));
-				party.setPartyName(sqlResult.getString(DATABASE_PARTY_NAME));
-				party.setPartyConcession(sqlResult.getString(DATABASE_PARTY_DEFERMENT));
-				party.setPartyNumber(sqlResult.getInt(DATABASE_PARTY_NUMBER));
-			}
-	
-			if(this.daoSQLInstruction != null) {
-				daoSQLInstruction.close();
-			}
+			// Preparing connection to the database
+			ResultSet resultSQL = establishingConnectionToTheDatabaseToQuery(sqlCommandConfiguredBefore);
 
-			if(this.connection != null) {
-				connection.close();
+			// Iterations search
+			while(resultSQL.next()) {
+				party.setPartyAcronym(resultSQL.getString(DATABASE_PARTY_ACRONYM));
+				party.setPartyName(resultSQL.getString(DATABASE_PARTY_NAME));
+				party.setPartyConcession(resultSQL.getString(DATABASE_PARTY_DEFERMENT));
+				party.setPartyNumber(resultSQL.getInt(DATABASE_PARTY_NUMBER));
 			}
+			
+			// Closing connection before
+			closingConnection();
+	
 		} catch(SQLException e) {
 			throw new SQLException("PartyDAO - " + e.getMessage());
 		} finally {
