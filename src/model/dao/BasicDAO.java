@@ -133,6 +133,23 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 		return unregisteredObjectList;
 	}
 	
+	/*
+	 * This method to connect to the database to query SQL informed
+	 * @param a String with the SQL command
+	 * @return a result containing commands SQL
+	 */
+	protected ResultSet establishingConnectionToTheDatabaseToQuer(
+			final String sqlCommandConfiguredBefore) throws SQLException{
+		
+		this.connection = new DatabaseConnection().getConnection();
+
+		String sqlCommand = sqlCommandConfiguredBefore;
+		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
+		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
+		
+		return resultSQL;
+	}
+	
 	// Signature of the method to recover the insert SQL command
 	protected abstract String getSQLInsertCommand();
 	
