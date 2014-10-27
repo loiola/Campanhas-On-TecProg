@@ -5,7 +5,6 @@ import java.util.List;
 
 import model.beans.Campaign;
 import model.beans.Expense;
-import model.beans.Party;
 import model.beans.Revenue;
 import model.dao.ExpenseDAO;
 import model.dao.RevenueDAO;
@@ -21,49 +20,60 @@ public class TransactionControl {
 	ExpenseDAO expenseDAO;
 	RevenueDAO revenueDAO;
 
+	// Constants
+	public static final int YEAR_2002 = 2002;
+		
 	// Constructors
 	public TransactionControl() {
 		this.expenseDAO = new ExpenseDAO();
 		this.revenueDAO = new RevenueDAO();
 	}
-
+	
 	// Other methods
 	/*
-	 * Method that makes the application of a revenue requirement of a campaign
-	 * 
+	 * Method that checks if fields of revenue or expense is empty
 	 * @param a campaign
-	 * 
+	 * @return a boolean resulting from verification
+	 */
+	private boolean checkerTypeEmpty(final Campaign campaign){
+		
+		// Check equality of a list of revenue or expense 
+		String positionDescriptionCampaign = campaign
+				.getCampaignPosition().getPositionDescription();
+		String countryStateCampaign = campaign.getCampaignCountryState();
+		Integer numberCampaign = campaign.getCampaignCandidateNumber();
+		Integer yearCampaign = campaign.getCampaignYear();
+	
+		// Compares the information accessed
+		boolean comparisonResult = ((positionDescriptionCampaign.equals(Campaign.EMPTY_TYPE_STRING))
+				|| (yearCampaign.equals(Campaign.EMPTY_TYPE_INTEGER))
+				|| (numberCampaign.equals(Campaign.EMPTY_TYPE_INTEGER))
+				|| (countryStateCampaign.equals(Campaign.EMPTY_TYPE_STRING)));		
+		
+		return comparisonResult;
+	}
+
+	/*
+	 * Method that makes the application of a revenue requirement of a campaign
+	 * @param a campaign
 	 * @return a List with revenues campaign informed
 	 */
 	public List<Revenue> getListRevenue(Campaign campaign) throws Exception {
 
 		ArrayList<Revenue> listRevenue = new ArrayList<>();
+		boolean comparisonResult = checkerTypeEmpty(campaign);
 
-		// Check equality of a list of revenue
-		// Access some information from list
-		String positionDescriptionRevenueCampaign = campaign
-				.getCampaignPosition().getPositionDescription();
-		String countryStateRevenueCampaign = campaign.getCampaignCountryState();
-		Integer numberRevenueCampaign = campaign.getCampaignCandidateNumber();
-		Integer yearRevenueCampaign = campaign.getCampaignYear();
-
-		// Compares the information accessed
-		boolean comparisonResult = ((positionDescriptionRevenueCampaign
-				.equals(Campaign.EMPTY_TYPE_STRING))
-				|| (yearRevenueCampaign.equals(Campaign.EMPTY_TYPE_INTEGER))
-				|| (numberRevenueCampaign.equals(Campaign.EMPTY_TYPE_INTEGER)) || (countryStateRevenueCampaign
-				.equals(Campaign.EMPTY_TYPE_STRING)));
-
-		if (comparisonResult) {
+		if(comparisonResult) {
 			listRevenue = null;
-
+			
 		} else {
 			listRevenue = this.revenueDAO
 					.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campaign);
 
-			if (campaign.getCampaignYear() == 2002) {
-				for (Revenue revenue : listRevenue)
+			if(campaign.getCampaignYear() == YEAR_2002) {
+				for(Revenue revenue : listRevenue) {
 					revenue.setFinancialTransactionType("Revenue");
+				}
 			}
 		}
 		return listRevenue;
@@ -71,29 +81,13 @@ public class TransactionControl {
 
 	/*
 	 * Method that makes the request for an application of a campaign expense
-	 * 
 	 * @param a campaign
-	 * 
 	 * @return a List with expenses campaign informed
 	 */
 	public List<Expense> getListExpense(Campaign campaign) throws Exception {
 
 		ArrayList<Expense> listExpense = new ArrayList<>();
-
-		// Check equality of a list of expense
-		// Access some information from list
-		String positionDescriptioneExpenseCampaign = campaign
-				.getCampaignPosition().getPositionDescription();
-		String countryStateExpenseCampaign = campaign.getCampaignCountryState();
-		Integer numberExpenseCampaign = campaign.getCampaignCandidateNumber();
-		Integer yearExpenseCampaign = campaign.getCampaignYear();
-
-		// Compares the information accessed
-		boolean comparisonResult = ((positionDescriptioneExpenseCampaign
-				.equals(Campaign.EMPTY_TYPE_STRING))
-				|| (yearExpenseCampaign.equals(Campaign.EMPTY_TYPE_INTEGER))
-				|| (numberExpenseCampaign.equals(Campaign.EMPTY_TYPE_INTEGER)) || (countryStateExpenseCampaign
-				.equals(Campaign.EMPTY_TYPE_STRING)));
+		boolean comparisonResult = checkerTypeEmpty(campaign);
 
 		if (comparisonResult) {
 			listExpense = null;
@@ -106,9 +100,7 @@ public class TransactionControl {
 
 	/*
 	 * Method that makes a request of request for a recipe campaign by ID
-	 * 
 	 * @param a ID
-	 * 
 	 * @return the reported income
 	 */
 	public Revenue getRevenueById(int id) throws Exception {
@@ -117,14 +109,11 @@ public class TransactionControl {
 		Revenue auxiliaryReturn = this.revenueDAO.getRevenueByIdentifier(id);
 
 		return auxiliaryReturn;
-
 	}
 
 	/*
 	 * Method that makes a request of request for an expenditure campaign by ID
-	 * 
 	 * @param a ID
-	 * 
 	 * @return the reported expense
 	 */
 	public Expense getExpenseById(int id) throws Exception {
