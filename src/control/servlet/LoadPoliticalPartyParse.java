@@ -14,8 +14,6 @@ public class LoadPoliticalPartyParse extends BasicParseServlet {
 	 */
 
 	private static final long serialVersionUID = -5159983967292605199L;
-
-	private final String PARTY_PARSE_NAME = "party";
 	
 	/**
 	 * 

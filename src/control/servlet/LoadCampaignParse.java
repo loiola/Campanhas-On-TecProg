@@ -1,27 +1,11 @@
 package control.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
-import java.util.Scanner;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-
-import parse.Parse;
-import parse.ParseCampaign;
 
 @WebServlet("/loadCampaignParse")
-public class LoadCampaignParse extends HttpServlet {
+public class LoadCampaignParse extends BasicParseServlet {
 
 	/*
 	 * Servlet asked by parseView.jsp to extract a Data File of Campaigns and
@@ -31,14 +15,6 @@ public class LoadCampaignParse extends HttpServlet {
 
 	// Attribute
 	private static final long serialVersionUID = 5625867877274809499L;
-
-	// Constructor execute init() method from Super (HttpServlet)
-	@Override
-	public void init() throws ServletException {
-		super.init();
-	}
-
-	// Other method
 	
 	/**
 	 * 
@@ -46,50 +22,11 @@ public class LoadCampaignParse extends HttpServlet {
 	 * 
 	 * @param request
 	 * @param response
-	 * @throws IOException
-	 * @throws ServletException
 	 */
-	
-	// See LoadPoliticalPartyParse to see Refactoring Suggestion
+
 	@Override
 	protected void service(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		
-		// New General Method Suggested: 
-		PrintWriter output = response.getWriter();
-
-		Part part = request.getPart("file_line_initial");
-		if (part != null) {
-			Scanner scanner = new Scanner(part.getInputStream());
-			output.println("initial line: " + scanner.nextLine());
-			scanner.close();
-		}
-		try {
-			boolean isMultpart = ServletFileUpload.isMultipartContent(request);
-			if (isMultpart) {
-				FileItemFactory factory = new DiskFileItemFactory();
-				ServletFileUpload upload = new ServletFileUpload(factory);
-
-				List<FileItem> fields = upload.parseRequest(request);
-
-				FileItem file = null;
-				int initialLine = 1;
-				String fileType = "campaign";
-
-				for (FileItem fileItem : fields) {
-					if (!fileItem.isFormField())
-						file = fileItem;
-				}
-
-				String division = ";";
-				Parse parse = new ParseCampaign(fileType, "");
-				parse.runParse(file, division, initialLine);
-
-				output.println("Parse Completed!");
-			}
-
-		} catch (Exception e) {
-			output.println("ERROR test upload: " + e.getMessage());
-		}
+			HttpServletResponse response) {
+		readDataFile(request, response, CAMPAIGN_PARSE_NAME);
 	}
 }
