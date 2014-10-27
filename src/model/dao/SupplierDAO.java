@@ -95,7 +95,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 			ArrayList<Supplier> supplierList, ResultSet sqlResult) throws SQLException {
 		
 		while(sqlResult.next()) {
-			Supplier supplier = new Supplier();
+			Supplier supplier = instantiateNewSupplier();
 			supplier.setSupplierPersonRegister(sqlResult.getString(
 					DATABASE_SUPPLIER_PERSON_REGISTER));
 			supplier.setSupplierName(sqlResult.getString(
@@ -183,7 +183,7 @@ public class SupplierDAO extends BasicDAO<Supplier> implements ParseDAO<Supplier
 
 			// Iterations search
 			while(resultSQL.next()) {
-				Supplier supplier = new Supplier();
+				Supplier supplier = instantiateNewSupplier();
 				supplier.setSupplierName(resultSQL.getString(
 						DATABASE_SUPPLIER_NAME));
 				supplier.setSupplierPersonRegister(resultSQL.getString(

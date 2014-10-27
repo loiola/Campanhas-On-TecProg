@@ -96,7 +96,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 			ResultSet sqlResult) throws SQLException {
 		
 		while(sqlResult.next()) {
-			Candidate candidate = new Candidate();
+			Candidate candidate = instantiateNewCandidate();
 			
 			candidate.setCandidateName(sqlResult.getString(DATABASE_CANDIDATE_NAME));
 			candidate.setCandidateElectoralTitle(sqlResult.getString(

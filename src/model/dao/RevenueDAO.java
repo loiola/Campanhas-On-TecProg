@@ -109,8 +109,8 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 		while(sqlResult.next()) {
 			
 			// Working with Campaign
-			Campaign campaign = new Campaign();
-			Position position = new Position();
+			Campaign campaign = instantiateNewCampaign();
+			Position position = instantiateNewPosition();
 			position.setPositionDescription(sqlResult.getString(
 					DATABASE_REVENUE_CAMPAIGN_POSITION));
 			campaign.setCampaignYear(sqlResult.getInt(
@@ -122,14 +122,14 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 					DATABASE_REVENUE_CAMPAIGN_COUNTRY_STATE));
 			
 			// Working with Donor
-			Donor donor = new Donor();
+			Donor donor = instantiateNewDonor();
 			donor.setDonorName(sqlResult.getString(
 					DATABASE_REVENUE_DONOR_NAME));
 			donor.setDonorPersonRegister(sqlResult.getString(
 					DATABASE_REVENUE_DONOR_PERSON_REGISTER));
 
 			// Working with Revenue
-			Revenue revenue = new Revenue();
+			Revenue revenue = instantiateNewRevenue();
 			revenue.setFinancialTransactionIdentifier(sqlResult.getInt(
 					DATABASE_REVENUE_IDENTIFIER));
 			revenue.setFinancialTransactionType(sqlResult.getString(
@@ -255,17 +255,17 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 			// Iterations search
 			while(resultSQL.next()) {
 				
-				Revenue revenue = new Revenue();
-				Position position = new Position();
+				Revenue revenue = instantiateNewRevenue();
+				Position position = instantiateNewPosition();
 				position.setPositionDescription(resultSQL.getString(DATABASE_REVENUE_CAMPAIGN_POSITION));
 
-				Campaign campaign = new Campaign();
+				Campaign campaign = instantiateNewCampaign();
 				campaign.setCampaignYear(resultSQL.getInt(DATABASE_REVENUE_CAMPAIGN_YEAR));
 				campaign.setCampaignCandidateNumber(resultSQL.getInt(DATABASE_REVENUE_CAMPAIGN_CANDIDATE_NUMBER));
 				campaign.setCampaignPosition(position);
 				revenue.setFinancialTransactionCampaign(campaign);
 				
-				Donor donor = new Donor();
+				Donor donor = instantiateNewDonor();
 				donor.setDonorName(resultSQL.getString(DATABASE_REVENUE_DONOR_NAME));
 				donor.setDonorPersonRegister(resultSQL.getString(DATABASE_REVENUE_DONOR_PERSON_REGISTER));
 				revenue.setRevenueDonor(donor);

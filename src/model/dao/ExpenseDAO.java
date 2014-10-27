@@ -110,8 +110,8 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 		while(sqlResult.next()) {
 			
 			// Working with Campaign
-			Campaign campaign = new Campaign();
-			Position position = new Position();
+			Campaign campaign = instantiateNewCampaign();
+			Position position = instantiateNewPosition();
 			position.setPositionDescription(sqlResult.getString(
 					DATABASE_EXPENSE_CAMPAIGN_POSITION));
 			campaign.setCampaignYear(sqlResult.getInt(
@@ -123,14 +123,14 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 			campaign.setCampaignPosition(position);
 
 			// Working with Supplier
-			Supplier supplier = new Supplier();
+			Supplier supplier = instantiateNewSupplier();
 			supplier.setSupplierPersonRegister(sqlResult.getString(
 					DATABASE_EXPENSE_SUPPLIER_PERSON_REGISTER));
 			supplier.setSupplierName(sqlResult.getString(
 					DATABASE_EXPENSE_SUPPLIER_NAME));
 
 			// Working with Expense
-			Expense expense = new Expense();
+			Expense expense = instantiateNewExpense();
 			expense.setFinancialTransactionIdentifier(sqlResult.getInt(
 					DATABASE_EXPENSE_IDENTIFIER));			
 			expense.setFinancialTransactionCampaign(campaign);
@@ -256,17 +256,17 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 			// Iterations search
 			while(resultSQL.next()) {
 				
-				Expense expense = new Expense();
-				Position position = new Position();
+				Expense expense = instantiateNewExpense();
+				Position position = instantiateNewPosition();
 				position.setPositionDescription(resultSQL.getString(DATABASE_EXPENSE_CAMPAIGN_POSITION));
 
-				Campaign campaign = new Campaign();
+				Campaign campaign = instantiateNewCampaign();
 				campaign.setCampaignYear(resultSQL.getInt(DATABASE_EXPENSE_CAMPAIGN_YEAR));
 				campaign.setCampaignCandidateNumber(resultSQL.getInt(DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER));
 				campaign.setCampaignPosition(position);
 				expense.setFinancialTransactionCampaign(campaign);
 				
-				Supplier supplier = new Supplier();
+				Supplier supplier = instantiateNewSupplier();
 				supplier.setSupplierName(resultSQL.getString(DATABASE_EXPENSE_SUPPLIER_NAME));
 				supplier.setSupplierPersonRegister(resultSQL.getString(DATABASE_EXPENSE_SUPPLIER_PERSON_REGISTER));
 				expense.setExpenseSupplier(supplier);

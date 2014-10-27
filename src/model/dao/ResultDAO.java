@@ -91,7 +91,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 			ResultSet sqlResult) throws SQLException {
 		
 		while(sqlResult.next()) {
-			Result result = new Result();
+			Result result = instantiateNewResult();
 			result.setResultType(sqlResult.getInt(DATABASE_RESULT_CODE));
 			result.setResultDescription(sqlResult.getString(DATABASE_RESULT_DESCRIPTION));
 			resultList.add(result);
@@ -138,7 +138,7 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 		// Riding the command SQL
 		String sqlCommand = mountingSQLConsultationForResultCode(resultCode);
 		
-		Result result = new Result();
+		Result result = instantiateNewResult();
 		
 		try {
 			// Preparing connection to the database

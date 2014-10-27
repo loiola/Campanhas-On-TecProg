@@ -8,6 +8,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import model.beans.Campaign;
+import model.beans.Candidate;
+import model.beans.Donor;
+import model.beans.Expense;
+import model.beans.Party;
+import model.beans.Position;
+import model.beans.Result;
+import model.beans.Revenue;
+import model.beans.Supplier;
 import parse.ParseDAO;
 import parse.ParseException;
 
@@ -27,6 +36,87 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	public BasicDAO(String tableName, Comparator<O> daoComparator) {
 		this.tableName = tableName;
 		this.daoComparator = daoComparator;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Position
+	 * @return an instance of Class Position
+	 */
+	protected Position instantiateNewPosition() {
+		Position position = new Position();
+		return position;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Party
+	 * @return an instance of Class Party
+	 */
+	protected Party instantiateNewParty() {
+		Party party = new Party();
+		return party;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Result
+	 * @return an instance of Class Result
+	 */
+	protected Result instantiateNewResult() {
+		Result result = new Result();
+		return result;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Candidate
+	 * @return an instance of Class Candidate
+	 */
+	protected Candidate instantiateNewCandidate() {
+		Candidate candidate = new Candidate();
+		return candidate;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Campaign
+	 * @return an instance of Class Campaign
+	 */
+	protected Campaign instantiateNewCampaign() {
+		Campaign campaign = new Campaign();
+		return campaign;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Donor
+	 * @return an instance of Class Donor
+	 */
+	protected Donor instantiateNewDonor() {
+		Donor donor = new Donor();
+		return donor;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Expense
+	 * @return an instance of Class Expense
+	 */
+	protected Expense instantiateNewExpense() {
+		Expense expense = new Expense();
+		return expense;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Supplier
+	 * @return an instance of Class Supplier
+	 */
+	protected Supplier instantiateNewSupplier() {
+		Supplier supplier = new Supplier();
+		return supplier;
+	}
+	
+	/*
+	 * This method makes a new instance of Class Revenue
+	 * @return an instance of Class Revenue
+	 */
+	protected Revenue instantiateNewRevenue() {
+		Revenue revenue = new Revenue();
+		return revenue;
 	}
 	
 	/*

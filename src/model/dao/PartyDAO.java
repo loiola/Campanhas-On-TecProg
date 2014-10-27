@@ -96,7 +96,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 			ResultSet sqlResult) throws SQLException {
 		
 		while(sqlResult.next()) {
-			Party party = new Party();
+			Party party = instantiateNewParty();
 			party.setPartyName(sqlResult.getString(DATABASE_PARTY_NAME));
 			party.setPartyNumber(sqlResult.getInt(DATABASE_PARTY_NUMBER));
 			party.setPartyAcronym(sqlResult.getString(DATABASE_PARTY_ACRONYM));
@@ -205,7 +205,7 @@ public class PartyDAO extends BasicDAO<Party> implements ParseDAO<Party> {
 	private Party searchPartyInDatabaseUsingSQLCommandConfiguredBefore(
 			String sqlCommandConfiguredBefore) throws SQLException{
 		
-		Party party = new Party();
+		Party party = instantiateNewParty();
 		
 		try {
 			// Preparing connection to the database

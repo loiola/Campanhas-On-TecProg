@@ -91,7 +91,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 			ResultSet sqlResult) throws SQLException {
 		
 		while(sqlResult.next()) {
-			Position position = new Position();
+			Position position = instantiateNewPosition();
 			position.setPositionCode(sqlResult.getInt(DATABASE_POSITION_CODE));
 			position.setPositionDescription(sqlResult.getString(DATABASE_POSITION_DESCRIPTION));
 			positionList.add(position);
@@ -183,7 +183,7 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	public Position searchPositionInDatabaseUsingSQLCommandConfiguredBefore(
 			String sqlCommandConfiguredBefore) throws SQLException {
 		
-		Position position = new Position();
+		Position position = instantiateNewPosition();
 		
 		try {
 			// Preparing connection to the database

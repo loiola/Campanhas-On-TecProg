@@ -100,7 +100,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 			ArrayList<Donor> donorList, ResultSet sqlResult) throws SQLException {
 		
 		while(sqlResult.next()) {
-			Donor donor = new Donor();
+			Donor donor = instantiateNewDonor();
 			donor.setDonorPersonRegister(sqlResult.getString(
 					DATABASE_DONOR_PERSON_REGISTER));
 			donor.setDonorName(sqlResult.getString(
@@ -188,7 +188,7 @@ public class DonorDAO extends BasicDAO<Donor> implements ParseDAO<Donor> {
 
 			// Iterations search
 			while(resultSQL.next()) {
-				Donor donor = new Donor();
+				Donor donor = instantiateNewDonor();
 				donor.setDonorName(resultSQL.getString(
 						DATABASE_DONOR_NAME));
 				donor.setDonorPersonRegister(resultSQL.getString(

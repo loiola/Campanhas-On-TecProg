@@ -143,51 +143,6 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 			campaignList.add(campaign);
 		}
 	}
-	
-	/*
-	 * This method makes a new instance of Class Position
-	 * @return an instance of Class Position
-	 */
-	private Position instantiateNewPosition() {
-		Position position = new Position();
-		return position;
-	}
-	
-	/*
-	 * This method makes a new instance of Class Result
-	 * @return an instance of Class Result
-	 */
-	private Party instantiateNewParty() {
-		Party party = new Party();
-		return party;
-	}
-	
-	/*
-	 * This method makes a new instance of Class Party
-	 * @return an instance of Class Party
-	 */
-	private Result instantiateNewResult() {
-		Result result = new Result();
-		return result;
-	}
-	
-	/*
-	 * This method makes a new instance of Class Candidate
-	 * @return an instance of Class Candidate
-	 */
-	private Candidate instantiateNewCandidate() {
-		Candidate candidate = new Candidate();
-		return candidate;
-	}
-	
-	/*
-	 * This method makes a new instance of Class Candidate
-	 * @return an instance of Class Candidate
-	 */
-	private Campaign instantiateNewCampaign() {
-		Campaign campaign = new Campaign();
-		return campaign;
-	}
 
 	/*
 	 * This method prepares attributes Position and Results
