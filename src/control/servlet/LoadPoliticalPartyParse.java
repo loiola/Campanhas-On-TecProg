@@ -25,6 +25,6 @@ public class LoadPoliticalPartyParse extends BasicParseServlet {
 	@Override
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) {
-		readDataFile(request,response,PARTY_PARSE_NAME);
+		readDataFile(request,response,PARTY_FILE_TYPE);
 	}
 }

@@ -17,15 +17,28 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import parse.Parse;
 import parse.ParseCampaign;
+import parse.ParseFinancialTransactions;
 import parse.ParseParty;
+import parse.register.revenue_expense.RegisterToParseDonor;
+import parse.register.revenue_expense.RegisterToParseSupplier;
 
 public class BasicParseServlet extends HttpServlet {
 
+	// TODO NEED MORE REFACTORING
+	
 	private static final long serialVersionUID = -2550694521233885904L;
 
-	protected final String PARTY_PARSE_NAME = "party";
-	protected final String CAMPAIGN_PARSE_NAME = "campaign";
-
+	protected final short PARTY_FILE_TYPE = 0;
+	protected final short CAMPAIGN_FILE_TYPE = 1;
+	protected final short TRANSACTION_FILE_TYPE = 2;
+	
+	private final String PARTY_PARSE_NAME = "party";
+	private final String CAMPAIGN_PARSE_NAME = "campaign";
+	private final String EXPENSE_PARSE_NAME = "expense";
+	private final String REVENUE_PARSE_NAME = "revenue";
+	private final String FILE_YEAR = "file_year";
+	private final String FILE_TYPE = "file_type";
+	
 	private final String INFORM_PARSE_FINISHED = "Parse Completed!";
 	private final String EXCEPTION_ERROR = "ERROR test upload: ";
 	private final String FILE_LINE_INITIAL = "file_line_initial";
@@ -34,7 +47,8 @@ public class BasicParseServlet extends HttpServlet {
 	private final Integer INITIAL_LINE = 1;
 	private final Part EMPTY_REQUEST_PART = null;
 
-	private String fileType;
+	private short fileType;
+	private String parseType;
 	private HttpServletRequest servletRequest;
 	private HttpServletResponse servletResponse;
 	private PrintWriter responseOutput;
@@ -45,6 +59,7 @@ public class BasicParseServlet extends HttpServlet {
 	private List<FileItem> fileFields;
 	private FileItem fileItem;
 	private Parse parse;
+	private String electionYear;
 
 	// Init execute method from Super (HttpServlet)
 	@Override
@@ -52,14 +67,10 @@ public class BasicParseServlet extends HttpServlet {
 		super.init();
 	}
 
-	protected void readDataFile(HttpServletRequest request, HttpServletResponse response, String fileType) {
+	protected void readDataFile(HttpServletRequest request, HttpServletResponse response, short fileType) {
 		try {
 			setAttributes(request,response,fileType);
 			scanDataFile();
-			extractDataInfo();
-			generateFields();
-			callControlToRunParse();
-			printFinishParsingToUser();
 		} catch (Exception e) {
 			getResponseOutput().println(EXCEPTION_ERROR + e.getMessage());
 		}
@@ -67,15 +78,25 @@ public class BasicParseServlet extends HttpServlet {
 
 	private void scanDataFile() throws Exception {
 		setResponseOutput(getServletResponse().getWriter());
-		setRequestPart(getServletRequest().getPart(FILE_LINE_INITIAL));
-		if (getRequestPart() != EMPTY_REQUEST_PART) {
-			setServletScanner(new Scanner(getRequestPart().getInputStream()));
-			getResponseOutput().println(INFORM_INITIAL_LINE + getServletScanner().nextLine());
-			getServletScanner().close();
+
+		if(getFileType() != TRANSACTION_FILE_TYPE) {
+			setRequestPart(getServletRequest().getPart(FILE_LINE_INITIAL));
+
+			if (getRequestPart() != EMPTY_REQUEST_PART) {
+				setServletScanner(new Scanner(getRequestPart().getInputStream()));
+				getResponseOutput().println(INFORM_INITIAL_LINE + getServletScanner().nextLine());
+				getServletScanner().close();
+			} else {
+				// TODO Maybe: Inform the Request Part is Empty
+			}
+		} else {
+			// TODO Maybe: Log it is a Transaction File Type
 		}
-		else {
-			// TODO Maybe: Inform the Request Part is Empty
-		}
+
+		extractDataInfo();
+		generateFields();
+		callControlToRunParse();
+		printFinishParsingToUser();
 	}
 
 	private void extractDataInfo() throws Exception {
@@ -88,6 +109,23 @@ public class BasicParseServlet extends HttpServlet {
 		for(FileItem fileItemPointer : getFileFields()) {
 			if(!fileItemPointer.isFormField()) {
 				setFileItem(fileItemPointer);
+			} else if(getFileType() == TRANSACTION_FILE_TYPE) {
+				if (fileItemPointer.getFieldName().equals(FILE_TYPE)) {
+					// Checks the file type, whether income or expense
+					if (fileItemPointer.getString().equals(EXPENSE_PARSE_NAME)) {
+						setParseType(RegisterToParseSupplier.EXPENSE);
+					} else if (fileItemPointer.getString().equals(REVENUE_PARSE_NAME)){
+						setParseType(RegisterToParseDonor.REVENUE);
+					} else {
+						// TODO This condition is an Error
+					}
+				} else if (fileItemPointer.getFieldName().equals(FILE_YEAR)) {
+					setElectionYear(fileItemPointer.getString());
+				} else {
+					// TODO This condition is an Error
+				}
+			} else {
+				// TODO Maybe This condition is an Error
 			}
 		}		
 	}
@@ -102,17 +140,17 @@ public class BasicParseServlet extends HttpServlet {
 		getParse().runParse(getFileItem(), DIVISION_STRING, INITIAL_LINE);
 	}
 
-	private void setAttributes(HttpServletRequest request, HttpServletResponse response, String fileType) {
+	private void setAttributes(HttpServletRequest request, HttpServletResponse response, short fileType) {
 		setServletRequest(request);
 		setServletResponse(response);
 		setFileType(fileType);
 	}
 
-	private String getFileType() {
+	private short getFileType() {
 		return fileType;
 	}
 
-	private void setFileType(String fileType) {
+	private void setFileType(short fileType) {
 		this.fileType = fileType;
 	}
 
@@ -194,18 +232,40 @@ public class BasicParseServlet extends HttpServlet {
 
 	private void setParse() throws Exception {
 		switch (getFileType()) {
-		case PARTY_PARSE_NAME:
-			this.parse = new ParseParty(getFileType(), "");
+		case PARTY_FILE_TYPE:
+			setParseType(PARTY_PARSE_NAME);
+			this.parse = new ParseParty(getParseType(), "");
 			break;
 
-		case CAMPAIGN_PARSE_NAME:
-			this.parse = new ParseCampaign(getFileType(), "");
+		case CAMPAIGN_FILE_TYPE:
+			setParseType(CAMPAIGN_PARSE_NAME);
+			this.parse = new ParseCampaign(getParseType(), "");
 			break;
-
+			
+		case TRANSACTION_FILE_TYPE:
+			this.parse = new ParseFinancialTransactions(getParseType(), getElectionYear());
+			break;
+			
 		default:
 			this.parse = null;
 			break;
 		}
+	}
+
+	private String getParseType() {
+		return parseType;
+	}
+
+	private void setParseType(String parseType) {
+		this.parseType = parseType;
+	}
+
+	private String getElectionYear() {
+		return electionYear;
+	}
+
+	private void setElectionYear(String electionYear) {
+		this.electionYear = electionYear;
 	}
 
 }

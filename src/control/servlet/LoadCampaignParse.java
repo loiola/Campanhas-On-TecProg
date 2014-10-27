@@ -27,6 +27,6 @@ public class LoadCampaignParse extends BasicParseServlet {
 	@Override
 	protected void service(HttpServletRequest request,
 			HttpServletResponse response) {
-		readDataFile(request, response, CAMPAIGN_PARSE_NAME);
+		readDataFile(request, response, CAMPAIGN_FILE_TYPE);
 	}
 }
