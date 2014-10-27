@@ -2,7 +2,6 @@ package parse.register.revenue_expense;
 
 import model.beans.Expense;
 import parse.ParseException;
-import parse.control.ParseControlDonor;
 import parse.control.ParseControlExpense;
 import parse.control.ParseControl;
 import parse.index.ExpenseParseIndex;

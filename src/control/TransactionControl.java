@@ -60,16 +60,21 @@ public class TransactionControl {
 	 */
 	public List<Revenue> getListRevenue(Campaign campaign) throws Exception {
 
+		// Checking if attributes are empty campaign
 		ArrayList<Revenue> listRevenue = new ArrayList<>();
 		boolean comparisonResult = checkerTypeEmpty(campaign);
 
+		// In the case of empty being generated list is empty
 		if(comparisonResult) {
 			listRevenue = null;
-			
+		
+		// Otherwise requested to list of revenue the attributes
+		// Position, CountryState and Year of campaign
 		} else {
 			listRevenue = this.revenueDAO
 					.getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(campaign);
 
+			// If the revenue for 2002 changes to the list
 			if(campaign.getCampaignYear() == YEAR_2002) {
 				for(Revenue revenue : listRevenue) {
 					revenue.setFinancialTransactionType("Revenue");
@@ -86,11 +91,16 @@ public class TransactionControl {
 	 */
 	public List<Expense> getListExpense(Campaign campaign) throws Exception {
 
+		// Checking if attributes are empty campaign
 		ArrayList<Expense> listExpense = new ArrayList<>();
 		boolean comparisonResult = checkerTypeEmpty(campaign);
 
+		// In the case of empty being generated list is empty
 		if (comparisonResult) {
 			listExpense = null;
+		
+		// Otherwise requested to list of expense the attributes
+		// Position, CountryState, Number and Year of campaign
 		} else {
 			listExpense = this.expenseDAO
 					.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaign);
