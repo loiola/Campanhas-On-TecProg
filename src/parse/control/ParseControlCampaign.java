@@ -13,6 +13,11 @@ public class ParseControlCampaign extends ParseControl<Campaign> {
 	 * Class used to control comparison and registration of instances of Class Campaign
 	 */
 
+	// Constants
+	public static final int CANDIDATE_ELECTED = 1;
+	public static final int CANDIDATE_NOT_ELECTED = 4;
+	public static final int SECOND_ROUND_RUNOFF = 5; // In portuguese segundo turno;
+	
 	// Constructors
 	public ParseControlCampaign(ParseIndex<Campaign> indicesParse) {
 		super(indicesParse, new CampaignDAO());
@@ -45,19 +50,35 @@ public class ParseControlCampaign extends ParseControl<Campaign> {
 	public void registeringInstances() throws ParseException {
 		ArrayList<Campaign> listCampaign = new ArrayList<>();
 		
+		// Variable represents if a candidate was elected or not
 		boolean wasElected;
-		for(int i = 0; i < this.listInstance.size(); i++) {
+		
+		// Variable store the size of list instances
+		int sizeOfListInstance = this.listInstance.size();
+		
+		for(int i = 0; i < sizeOfListInstance; i++) {
 			
 			wasElected = false;
 			
+			// Condition for increment the counter 
 			if(listCampaign.contains(this.listInstance.get(i))) {
 				continue;
 			}
 			
-			for(int j = i; j < this.listInstance.size(); j++) {
-				if(this.listInstance.get(i).getCampaignNameOfUrn().equalsIgnoreCase(this.listInstance.get(j).getCampaignNameOfUrn())) {
-					if(this.listInstance.get(j).getCampaignResult().getResultType() == 1 ||
-					   this.listInstance.get(j).getCampaignResult().getResultType() == 5) {
+			for(int j = i; j < sizeOfListInstance; j++) {
+				
+				// Variable for test name of urn ignoring uppercase and downcase 
+				boolean verifiedNameOfUrnIgnoreCase = this.listInstance.get(i).getCampaignNameOfUrn().
+						equalsIgnoreCase(this.listInstance.get(j).getCampaignNameOfUrn());
+				
+				if(verifiedNameOfUrnIgnoreCase) {
+					
+					// Variable for test in file if candidate was elected or to second round runoff  
+					boolean verifiedResultWasElected = this.listInstance.get(j).getCampaignResult().getResultType() == CANDIDATE_ELECTED ||
+							this.listInstance.get(j).getCampaignResult().getResultType() == SECOND_ROUND_RUNOFF; 
+					
+					// Case the result of candidate's campaign was elected register in list of campaign
+					if(verifiedResultWasElected) {
 						wasElected = true;
 						listCampaign.add(this.listInstance.get(j));
 						break;
@@ -66,12 +87,15 @@ public class ParseControlCampaign extends ParseControl<Campaign> {
 			}
 			
 			if(!wasElected) {
-				this.listInstance.get(i).getCampaignResult().setResultType(4);
+				
+				// If a candidate wasn't elected set the result campaign as 'not elected'
+				this.listInstance.get(i).getCampaignResult().setResultType(CANDIDATE_NOT_ELECTED);
 				listCampaign.add(this.listInstance.get(i));
 			}
 
 		}
 		
+		// Register the list of campaign
 		this.listInstance = new ArrayList<>(listCampaign);
 		super.registeringInstances();
 	}
