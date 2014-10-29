@@ -1,4 +1,4 @@
-package control.servlet;
+package control.servlet.parse;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;

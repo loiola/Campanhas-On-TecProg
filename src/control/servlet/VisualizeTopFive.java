@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Campaign;
 import control.CampaignControl;
+import control.servlet.basic.Logic;
 
 @WebServlet("/VisualizeTopFive")
 public class VisualizeTopFive implements Logic {

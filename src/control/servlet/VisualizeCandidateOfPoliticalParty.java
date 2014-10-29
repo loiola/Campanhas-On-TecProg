@@ -11,6 +11,7 @@ import model.beans.Campaign;
 import model.beans.Party;
 import control.CampaignControl;
 import control.PartyControl;
+import control.servlet.basic.Logic;
 
 public class VisualizeCandidateOfPoliticalParty implements Logic {
 	

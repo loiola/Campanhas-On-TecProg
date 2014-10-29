@@ -12,6 +12,7 @@ import model.beans.Revenue;
 import control.CampaignControl;
 import control.CandidateControl;
 import control.TransactionControl;
+import control.servlet.basic.Logic;
 
 public class SelectCandidate implements Logic {
 	

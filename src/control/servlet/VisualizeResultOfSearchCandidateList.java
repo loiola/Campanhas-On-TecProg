@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Candidate;
 import control.CandidateControl;
+import control.servlet.basic.Logic;
 
 public class VisualizeResultOfSearchCandidateList implements Logic {
 	

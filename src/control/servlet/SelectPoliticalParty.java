@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.beans.Party;
 import control.PartyControl;
+import control.servlet.basic.Logic;
 
 public class SelectPoliticalParty implements Logic {
 	

@@ -15,6 +15,7 @@ import model.beans.Position;
 import model.beans.Revenue;
 import control.CampaignControl;
 import control.TransactionControl;
+import control.servlet.basic.Logic;
 
 public class RequestFinancialTransactionOfCandidate implements Logic {
 	

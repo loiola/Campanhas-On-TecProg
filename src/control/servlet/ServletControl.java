@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import control.servlet.basic.Logic;
+
 @WebServlet("/mvc")
 public class ServletControl extends HttpServlet {
 	
