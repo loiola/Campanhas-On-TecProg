@@ -3,7 +3,7 @@ package model.beans;
 public class Supplier {
 
 	/*
-	 * Model Class Supplier.java This class is responsable for getting the
+	 * Model Class Supplier.java This class is responsible for getting the
 	 * Supplier's informations
 	 */
 
@@ -11,9 +11,17 @@ public class Supplier {
 	public static final String EMPTY_TYPE_STRING = "";
 
 	// Attributes
+	
+	// Attribute that characterizes the person register [RG - Registro Geral] of supplier
 	private String supplierPersonRegister;
+	
+	// Attribute that characterizes name of supplier
 	private String supplierName;
+	
+	// Attribute that characterizes country state of supplier
 	private String supplierCountryState;
+	
+	// Attribute that characterizes register situation of supplier
 	private String supplierRegisterSituation;
 
 	// Empty Constructor
@@ -57,6 +65,11 @@ public class Supplier {
 		this.supplierRegisterSituation = supplierRegisterSituation;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of supplier
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Supplier)) {

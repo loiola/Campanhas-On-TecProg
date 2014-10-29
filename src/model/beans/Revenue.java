@@ -3,15 +3,19 @@ package model.beans;
 public class Revenue extends FinancialTransaction {
 
 	/*
-	 *  Class Revenue.java
-	 * This class is responsable for getting the Receipts's informations
+	 * Model Class Revenue.java This class is responsible for getting the 
+	 * Receipts's informations
 	 */
 	 
 	// Constants 
 	public static final Donor EMPTY_CLASS_DONOR = new Donor();
 	
 	// Attributes
+	
+	// Attributes that characterizes receipt electoral of revenue
 	private String revenueElectoralReceipt;
+	
+	// Attributes that characterizes donor of revenue for campaign
 	private Donor revenueDonor;
 	
 	// Empty Constructor
@@ -36,6 +40,5 @@ public class Revenue extends FinancialTransaction {
 	
 	public void setRevenueDonor(Donor revenueDonor) {
 		this.revenueDonor = revenueDonor;
-	}
-	
+	}	
 }

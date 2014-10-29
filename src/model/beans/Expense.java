@@ -15,7 +15,7 @@ public class Expense extends FinancialTransaction {
 	// Attribute that characterizes document type of expense 
 	private String expenseDocumentType;
 	
-	// Attribute that characterizes supplier of expense
+	// Attribute that characterizes supplier of expense for campaign
 	private Supplier expenseSupplier;
 	
 	// Empty Constructor
