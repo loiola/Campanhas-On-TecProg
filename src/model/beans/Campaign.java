@@ -3,12 +3,12 @@ package model.beans;
 public class Campaign {
 
 	/*
-	 * Class Campaign.java This class is responsable for getting the Campaign's
+	 * Class Campaign.java This class is responsible for getting the Campaign's
 	 * informations
 	 */
 
 	// Constants
-	public static final String EMPTY_TYPE_STRING = "";
+	public static final String EMPTY_TYPE_STRING = ""; 
 	public static final Integer EMPTY_TYPE_INTEGER = 0;
 	public static final Result EMPTY_CLASS_RESULT = new Result();
 	public static final Party EMPTY_CLASS_PARTY = new Party();
@@ -17,18 +17,42 @@ public class Campaign {
 	public static final float EMPTY_TYPE_FLOAT = (float) 0.0;
 
 	// Attributes
-	private Integer campaignIdentifier;
-	private Result campaignResult;
+	
+	// Unique attribute of candidate's campaign
+	private Integer campaignIdentifier; 
+	
+	// Attribute that characterizes election result of candidate in campaign
+	private Result campaignResult; 
+	
+	// Attribute that characterizes position of candidate in campaign
 	private Position campaignPosition;
-	private Party campaignParty;
+	
+	// Attribute that characterizes political party of candidate in campaign
+	private Party campaignParty; 
+	
+	// Attribute that characterizes candidate of campaign
 	private Candidate campaignCandidate;
-	private Integer campaignYear;
-	private Integer campaignCandidateNumber;
-	private String campaignNameOfUrn;
-	private String campaignCountryState;
-	private Float campaignMaximumExpenseDeclared;
-	private Float campaignTotalExpenseCalculated;
-	private Float campaignTotalRevenueCalculated;
+	
+	// Attribute that characterizes a election year. Limit {2002, 2006, 2010}
+	private Integer campaignYear; 
+	
+	// Attribute that characterizes urn number of candidate in campaign
+	private Integer campaignCandidateNumber; 
+	
+	// Attribute that characterizes urn name of candidate in campaign
+	private String campaignNameOfUrn; 
+	
+	// Attribute that characterizes country state of candidate in campaign
+	private String campaignCountryState; 
+	
+	// Attribute that characterizes maximum expense declared of candidate in campaign
+	private Float campaignMaximumExpenseDeclared; 
+	
+	// Attribute that characterizes total expense calculated of candidate in campaign
+	private Float campaignTotalExpenseCalculated; 
+	
+	// Attribute that characterizes total revenue calculated of candidate in campaign
+	private Float campaignTotalRevenueCalculated; 
 
 	// Empty constructor
 	public Campaign() {
@@ -146,6 +170,11 @@ public class Campaign {
 		this.campaignTotalRevenueCalculated = campaignTotalRevenueCalculated;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of campaign
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Campaign)) {
@@ -154,7 +183,7 @@ public class Campaign {
 
 			Campaign otherCampaign = (Campaign) object;
 
-			// Variable that stores the logic state of the comparison between
+			// Variable that stores the logic state of the comparison between 
 			// two campaigns
 			boolean auxiliaryReturn = this.campaignYear.equals(otherCampaign
 					.getCampaignYear())

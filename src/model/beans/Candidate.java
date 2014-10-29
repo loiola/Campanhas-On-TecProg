@@ -3,7 +3,7 @@ package model.beans;
 public class Candidate {
 
 	/*
-	 * Model Class Candidate.java This class is responsable for getting the
+	 * Model Class Candidate.java This class is responsible for getting the
 	 * Candidate's informations
 	 */
 
@@ -12,7 +12,11 @@ public class Candidate {
 	public static final Integer EMPTY_TYPE_INTEGER = 0;
 
 	// Attributes
+	
+	// Attribute that characterizes name of candidate
 	private String candidateName;
+	
+	// Attribute that characterizes electoral title of candidate 
 	private String candidateElectoralTitle;
 
 	// Empty Constructor
@@ -38,6 +42,11 @@ public class Candidate {
 		this.candidateElectoralTitle = candidateElectoralTitle;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of candidate
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Candidate)) {
