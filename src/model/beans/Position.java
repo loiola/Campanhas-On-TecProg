@@ -3,7 +3,7 @@ package model.beans;
 public class Position {
 
 	/*
-	 * Model Class Position.java This class is responsable for getting the
+	 * Model Class Position.java This class is responsible for getting the
 	 * Position's informations
 	 */
 
@@ -12,7 +12,11 @@ public class Position {
 	public static final int EMPTY_TYPE_INTEGER = 0;
 
 	// Attributes
+	
+	// Attribute that characterizes code of position 
 	private Integer positionCode;
+	
+	// Attribute that characterizes description of position
 	private String positionDescription;
 
 	// Empty Constructor
@@ -38,6 +42,11 @@ public class Position {
 		this.positionDescription = positionDescription;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of position
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Position)) {

@@ -3,7 +3,7 @@ package model.beans;
 public class Result {
 
 	/*
-	 * Class Result.java This class is responsable for getting the Result's
+	 * Class Result.java This class is responsible for getting the Result's
 	 * informations
 	 */
 
@@ -12,7 +12,12 @@ public class Result {
 	public static final int EMPTY_TYPE_INTEGER = 0;
 
 	// Attributes
+	
+	// Attribute that characterizes type of result. 
+	// Domain: 1 = candidate elected; 4 = candidate not elected; 5 = second round runoff election
 	private Integer resultType;
+	
+	// Attribute that characterizes description of result
 	private String resultDescription;
 
 	// Empty constructor
@@ -38,6 +43,11 @@ public class Result {
 		this.resultDescription = resultDescription;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of result
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Result)) {
