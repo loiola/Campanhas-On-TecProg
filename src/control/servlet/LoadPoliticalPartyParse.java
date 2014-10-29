@@ -4,6 +4,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import control.servlet.basic.BasicParseServlet;
+
 @WebServlet("/loadPoliticalPartyParse")
 public class LoadPoliticalPartyParse extends BasicParseServlet {
 

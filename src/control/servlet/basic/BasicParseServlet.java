@@ -1,8 +1,9 @@
-package control.servlet;
+package control.servlet.basic;
 
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -67,32 +68,32 @@ public class BasicParseServlet extends HttpServlet {
 		super.init();
 	}
 
+	/**
+	 * This method check a file from Parse Servlet, validate it
+	 * and save the informations in DataBase
+	 * @param request variable from the Servlet
+	 * @param response variable from the Servlet
+	 * @param fileType contains what kind of file is supposed to be 
+	 */
 	protected void readDataFile(HttpServletRequest request, HttpServletResponse response, short fileType) {
 		try {
 			setAttributes(request,response,fileType);
 			scanDataFile();
 		} catch (Exception e) {
+			// Show the exception to the user
 			getResponseOutput().println(EXCEPTION_ERROR + e.getMessage());
 		}
 	}
 
 	private void scanDataFile() throws Exception {
 		setResponseOutput(getServletResponse().getWriter());
-
-		if(getFileType() != TRANSACTION_FILE_TYPE) {
+		
+		if(isFileTypeATransaction() == false) {
 			setRequestPart(getServletRequest().getPart(FILE_LINE_INITIAL));
-
-			if (getRequestPart() != EMPTY_REQUEST_PART) {
-				setServletScanner(new Scanner(getRequestPart().getInputStream()));
-				getResponseOutput().println(INFORM_INITIAL_LINE + getServletScanner().nextLine());
-				getServletScanner().close();
-			} else {
-				// TODO Maybe: Inform the Request Part is Empty
-			}
+			informWhatLineIsReadingByTheParser();
 		} else {
 			// TODO Maybe: Log it is a Transaction File Type
 		}
-
 		extractDataInfo();
 		generateFields();
 		callControlToRunParse();
@@ -139,11 +140,46 @@ public class BasicParseServlet extends HttpServlet {
 		setParse();
 		getParse().runParse(getFileItem(), DIVISION_STRING, INITIAL_LINE);
 	}
+	
 
 	private void setAttributes(HttpServletRequest request, HttpServletResponse response, short fileType) {
 		setServletRequest(request);
 		setServletResponse(response);
 		setFileType(fileType);
+	}
+	
+	
+	private void informWhatLineIsReadingByTheParser() throws Exception {
+		if (isRequestPartEmpty() == false) {
+			setServletScanner(new Scanner(getRequestPart().getInputStream()));
+			getResponseOutput().println(INFORM_INITIAL_LINE + getServletScanner().nextLine());
+			getServletScanner().close();		
+		} else {
+			//SERVLET_PARSER_LOGGER_NAME TODO Criar Sistema de Logger
+			Logger warningLogger = Logger.getLogger("X");
+			String warningAdvise = "The Condition Else in" + Thread.currentThread().getStackTrace() + "ocurred, but is unexpected.";
+			warningLogger.warning(warningAdvise);
+		}
+	}
+	
+	private boolean isFileTypeATransaction() {
+		boolean isFileTypeATransaction = false;
+		if(getFileType() == TRANSACTION_FILE_TYPE) {
+			isFileTypeATransaction = true;
+		} else {
+			isFileTypeATransaction = false;
+		}
+		return isFileTypeATransaction;
+	}
+	
+	private boolean isRequestPartEmpty() {
+		boolean isRequestPartEmpty = false;
+		if(getRequestPart() == EMPTY_REQUEST_PART) {
+			isRequestPartEmpty = true;
+		} else {
+			isRequestPartEmpty = false;
+		}
+		return isRequestPartEmpty;
 	}
 
 	private short getFileType() {

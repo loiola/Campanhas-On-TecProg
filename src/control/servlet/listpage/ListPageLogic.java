@@ -1,4 +1,4 @@
-package control.servlet;
+package control.servlet.listpage;
 
 public class ListPageLogic {
 
