@@ -3,7 +3,7 @@ package model.beans;
 public class Donor {
 
 	/*
-	 * Model Class Donor.java This class is responsable for getting the Donor's
+	 * Model Class Donor.java This class is responsible for getting the Donor's
 	 * informations
 	 */
 
@@ -11,9 +11,17 @@ public class Donor {
 	public static final String EMPTY_TYPE_STRING = "";
 
 	// Attributes
+	
+	// Attribute that characterizes the person register [RG - Registro Geral] of donor 
 	private String donorPersonRegister;
+	
+	// Attribute that characterizes name of donor
 	private String donorName;
+	
+	// Attribute that characterizes country state of donor
 	private String donorCountryState;
+	
+	// Attribute that characterizes register situation of donor
 	private String donorRegisterSituation;
 
 	// Empty Constructor
@@ -57,6 +65,11 @@ public class Donor {
 		this.donorRegisterSituation = donorRegisterSituation;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of donor
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Donor)) {
