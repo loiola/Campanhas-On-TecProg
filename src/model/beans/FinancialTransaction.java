@@ -5,7 +5,7 @@ public class FinancialTransaction {
 	
 	/*
 	 * Model Class FinancialTransaction.java
-	 * This class is responsable for getting the handling financial's informations
+	 * This class is responsible for getting the handling financial's informations
 	 */
 	 
 	// Constants
@@ -15,13 +15,29 @@ public class FinancialTransaction {
 	public static final Object EMPTY_OBJECT = null;
 	
 	// Attributes
+	
+	// Unique attribute that identify a financial transaction
 	private Integer financialTransactionIdentifier;
+	
+	// Attribute that characterizes financial transactions of candidate's campaign 
 	private Campaign financialTransactionCampaign;
+	
+	// Attribute that characterizes document's number of financial transaction
 	private String financialTransactionDocumentNumber;
+	
+	// Attribute that characterizes the date when occurred financial transaction
 	private String financialTransactionDate;
+	
+	// Attribute that characterizes the value in real [R$] of financial transaction
 	private Float financialTransactionPrice;
+	
+	// Attribute that characterizes type of financial transaction
 	private String financialTransactionType;
+	
+	// Attribute that characterizes form of payment of financial transaction
 	private String financialTransactionPaymentType;
+	
+	// Attribute that characterizes description of financial transaction
 	private String financialTransactionDescription;
 	
 	// Empty Constructor
@@ -101,9 +117,14 @@ public class FinancialTransaction {
 		this.financialTransactionPaymentType = financialTransactionPaymentType;
 	}
 	
-	//verify the relevance of method
+	/*
+	 * This method verified if an object provided is an instance of financial transaction
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
+		//verify the relevance of method
 		return false;
 	}
 }

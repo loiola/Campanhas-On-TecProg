@@ -3,7 +3,7 @@ package model.beans;
 public class Party {
 
 	/*
-	 * Model class Party.java This class is responsable for getting the
+	 * Model class Party.java This class is responsible for getting the
 	 * Political Party's informations
 	 */
 
@@ -12,9 +12,17 @@ public class Party {
 	public static final Integer EMPTY_TYPE_INTEGER = 0;
 
 	// Attributes
+	
+	// Attribute that characterizes political party number. Domain: double numbers
 	private Integer partyNumber;
+	
+	// Attribute that characterizes political party sigla 
 	private String partyAcronym;
+	
+	// Attribute that characterizes political party concession
 	private String partyConcession;
+	
+	// Attribute that characterizes complete name of political party
 	private String partyName;
 
 	// Empty constructors
@@ -58,6 +66,11 @@ public class Party {
 		this.partyName = partyName;
 	}
 
+	/*
+	 * This method verified if an object provided is an instance of political party
+	 * @param an object for comparison 
+	 * @return boolean with the result of comparison
+	 */
 	@Override
 	public boolean equals(Object object) {
 		if(!(object instanceof Party)) {
