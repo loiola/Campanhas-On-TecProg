@@ -159,23 +159,6 @@ public class PositionDAO extends BasicDAO<Position> implements ParseDAO<Position
 	}
 	
 	/*
-	 * This method to connect to the database to query SQL informed
-	 * @param a String with the SQL command
-	 * @return a result containing commands SQL
-	 */
-	private ResultSet establishingConnectionToTheDatabaseToQuery(
-			final String sqlCommandConfiguredBefore) throws SQLException{
-		
-		this.connection = new DatabaseConnection().getConnection();
-
-		String sqlCommand = sqlCommandConfiguredBefore;
-		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
-		
-		return resultSQL;
-	}
-	
-	/*
 	 * This method retrieves an instance of Position stored in the database
 	 * @param a String with the SQL command
 	 * @return an instance of Class Position

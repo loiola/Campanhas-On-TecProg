@@ -179,23 +179,6 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 			return null;
 		}
 	}
-	
-	/*
-	 * This method to connect to the database to query SQL informed
-	 * @param a String with the SQL command
-	 * @return a result containing commands SQL
-	 */
-	private ResultSet establishingConnectionToTheDatabaseToQuery(
-			final String sqlCommandConfiguredBefore) throws SQLException{
-		
-		this.connection = new DatabaseConnection().getConnection();
-
-		String sqlCommand = sqlCommandConfiguredBefore;
-		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
-		
-		return resultSQL;
-	}
 
 	/*
 	 * This method retrieves a complete list of candidates stored in the database

@@ -111,22 +111,6 @@ public class ResultDAO extends BasicDAO<Result> implements ParseDAO<Result> {
 		
 		return sqlCommand;
 	}
-	
-	/*
-	 * This method to connect to the database to query SQL informed
-	 * @param a String with the SQL command
-	 * @return a result containing commands SQL
-	 */
-	private ResultSet establishingConnectionToTheDatabaseToQuery(
-			final String sqlCommand) throws SQLException{
-		
-		this.connection = new DatabaseConnection().getConnection();
-		
-		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
-		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
-		
-		return resultSQL;
-	}
 		
 	/*
 	 * This method retrieves a receipt through the code

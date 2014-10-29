@@ -228,15 +228,18 @@ public abstract class BasicDAO<O> implements ParseDAO<O> {
 	 * @param a String with the SQL command
 	 * @return a result containing commands SQL
 	 */
-	protected ResultSet establishingConnectionToTheDatabaseToQuer(
+	protected ResultSet establishingConnectionToTheDatabaseToQuery(
 			final String sqlCommandConfiguredBefore) throws SQLException{
 		
+		// Set the connection from a new connection
 		this.connection = new DatabaseConnection().getConnection();
 
+		// Set one resultSet with the query SQL command
 		String sqlCommand = sqlCommandConfiguredBefore;
 		this.daoSQLInstruction = this.connection.prepareStatement(sqlCommand);
 		ResultSet resultSQL = (ResultSet) daoSQLInstruction.executeQuery();
 		
+		// Return resultSet generated
 		return resultSQL;
 	}
 	
