@@ -3,13 +3,14 @@ package control.servlet.basic;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import log.general.ControlLogger;	
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -24,53 +25,53 @@ import parse.register.revenue_expense.RegisterToParseDonor;
 import parse.register.revenue_expense.RegisterToParseSupplier;
 
 public class BasicParseServlet extends HttpServlet {
-
-	// TODO NEED MORE REFACTORING
 	
+	// UID for BasicParseServlet
 	private static final long serialVersionUID = -2550694521233885904L;
-
+	
+	// Constants
 	protected final short PARTY_FILE_TYPE = 0;
 	protected final short CAMPAIGN_FILE_TYPE = 1;
 	protected final short TRANSACTION_FILE_TYPE = 2;
 	
 	private final String PARTY_PARSE_NAME = "party";
 	private final String CAMPAIGN_PARSE_NAME = "campaign";
-	private final String EXPENSE_PARSE_NAME = "expense";
-	private final String REVENUE_PARSE_NAME = "revenue";
-	private final String FILE_YEAR = "file_year";
-	private final String FILE_TYPE = "file_type";
 	
-	private final String INFORM_PARSE_FINISHED = "Parse Completed!";
-	private final String EXCEPTION_ERROR = "ERROR test upload: ";
-	private final String FILE_LINE_INITIAL = "file_line_initial";
-	private final String INFORM_INITIAL_LINE = "initial_line: ";
-	private final String DIVISION_STRING = ";";
-	private final Integer INITIAL_LINE = 1;
 	private final Part EMPTY_REQUEST_PART = null;
 
+	// Attributes
 	private short fileType;
+	
 	private String parseType;
+	private String electionYear;
+	
 	private HttpServletRequest servletRequest;
 	private HttpServletResponse servletResponse;
 	private PrintWriter responseOutput;
 	private Part requestPart;
+	
 	private Scanner servletScanner;
-	private FileItemFactory fileItemFactory;
 	private ServletFileUpload servletFileUpload;
-	private List<FileItem> fileFields;
+	
+	private FileItemFactory fileItemFactory;
 	private FileItem fileItem;
+	private List<FileItem> fileFields;
+	
 	private Parse parse;
-	private String electionYear;
+	
+	// Methods
 
-	// Init execute method from Super (HttpServlet)
+	/**
+	 *  This method execute init method from Super (HttpServlet)
+	 *  This method assures the init will be called only by the HttpServlet method
+	 */
 	@Override
 	public void init() throws ServletException {
 		super.init();
 	}
 
 	/**
-	 * This method check a file from Parse Servlet, validate it
-	 * and save the informations in DataBase
+	 * This method check a file from Parse Servlet, validate it and save the informations in DataBase
 	 * @param request variable from the Servlet
 	 * @param response variable from the Servlet
 	 * @param fileType contains what kind of file is supposed to be 
@@ -78,90 +79,150 @@ public class BasicParseServlet extends HttpServlet {
 	protected void readDataFile(HttpServletRequest request, HttpServletResponse response, short fileType) {
 		try {
 			setAttributes(request,response,fileType);
-			scanDataFile();
+			scanFields();
+			callControlToRunParse();
+			printFinishParsingToUser();
 		} catch (Exception e) {
 			// Show the exception to the user
-			getResponseOutput().println(EXCEPTION_ERROR + e.getMessage());
+			String exceptionError = "ERROR test upload: ";
+			getResponseOutput().println(exceptionError + e.getMessage());
 		}
 	}
 
-	private void scanDataFile() throws Exception {
-		setResponseOutput(getServletResponse().getWriter());
+	/**
+	 * This Method set the ordinary attributes to read and forward fields from a File received from Servlet
+	 * @param request variable from the Servlet
+	 * @param response variable from the Servlet
+	 * @param fileType contains what kind of file is supposed to be
+	 * @throws Exception if Output couldn't get Response Writer, or Part couldn't get Request Part, or other
+	 * Exceptions thrown by informWhatLineIsReadingByTheParser method 
+	 * This Exception should be handled by readDataFile method
+	 */
+	private void setAttributes(HttpServletRequest request, HttpServletResponse response, short fileType) throws Exception {
+		setServletRequest(request);
+		setServletResponse(response);
+		setFileType(fileType);
 		
+		setResponseOutput(getServletResponse().getWriter());
 		if(isFileTypeATransaction() == false) {
-			setRequestPart(getServletRequest().getPart(FILE_LINE_INITIAL));
+			String fileLineInitial = "file_line_initial";
+			setRequestPart(getServletRequest().getPart(fileLineInitial));
 			informWhatLineIsReadingByTheParser();
 		} else {
-			// TODO Maybe: Log it is a Transaction File Type
+			/*
+			 * Do Nothing, If is a Transaction, there's no need to inform what line
+			 * is reading by the parser. The Transaction Parser Control methods assures this.
+			 * MAYBE this can be optimized by other Parser Controls
+			 */
 		}
-		extractDataInfo();
-		generateFields();
-		callControlToRunParse();
-		printFinishParsingToUser();
-	}
-
-	private void extractDataInfo() throws Exception {
+		
 		setFileItemFactory(new DiskFileItemFactory());
 		setServletFileUpload(new ServletFileUpload(getFileItemFactory()));
 		setFileFields(getServletFileUpload().parseRequest(getServletRequest()));
 	}
-
-	private void generateFields() {
+	
+	/**
+	 * This method Inform what Line the Parser is Reading
+	 * @throws Exception if Scanner couldn't get Input Stream by the RequestPart
+	 * This Exception should be handled by readDataFile method
+	 */
+	private void informWhatLineIsReadingByTheParser() throws Exception {
+		if (isRequestPartEmpty() == false) {
+			setServletScanner(new Scanner(getRequestPart().getInputStream()));
+			String informInitialLine = "initial_line: ";
+			getResponseOutput().println(informInitialLine + getServletScanner().nextLine());
+			getServletScanner().close();
+		} else {
+			/*
+			 * Do Nothing, if RequestPart is empty, there's no need to inform what line
+			 * is reading by the parser.
+			 */
+		}
+	}
+	
+	/**
+	 * This method scan the fields contained by the informations imported from Servlet
+	 * and set their values in the attributes
+	 */
+	private void scanFields() {
 		for(FileItem fileItemPointer : getFileFields()) {
-			if(!fileItemPointer.isFormField()) {
+			if(fileItemPointer.isFormField() == false) {
 				setFileItem(fileItemPointer);
-			} else if(getFileType() == TRANSACTION_FILE_TYPE) {
-				if (fileItemPointer.getFieldName().equals(FILE_TYPE)) {
-					// Checks the file type, whether income or expense
-					if (fileItemPointer.getString().equals(EXPENSE_PARSE_NAME)) {
-						setParseType(RegisterToParseSupplier.EXPENSE);
-					} else if (fileItemPointer.getString().equals(REVENUE_PARSE_NAME)){
-						setParseType(RegisterToParseDonor.REVENUE);
-					} else {
-						// TODO This condition is an Error
-					}
-				} else if (fileItemPointer.getFieldName().equals(FILE_YEAR)) {
-					setElectionYear(fileItemPointer.getString());
-				} else {
-					// TODO This condition is an Error
-				}
+			} else if(isFileTypeATransaction() == true) {
+				scanTransactionValues(fileItemPointer);
 			} else {
-				// TODO Maybe This condition is an Error
+				/*
+				 * This is a Unexpected Condition, if fileItemPointer is a FormField and isn't a Transaction
+				 * the Form in View Package contains an Error
+				 */
+				ControlLogger.warn(ControlLogger.SERVLET_LOG_STRING, ControlLogger.CONDITION_ELSE_UNEXPECTED);
 			}
 		}		
 	}
 
-	private void printFinishParsingToUser() {
-		getResponseOutput().println(INFORM_PARSE_FINISHED);
-
-	}
-
-	private void callControlToRunParse() throws Exception {
-		setParse();
-		getParse().runParse(getFileItem(), DIVISION_STRING, INITIAL_LINE);
-	}
-	
-
-	private void setAttributes(HttpServletRequest request, HttpServletResponse response, short fileType) {
-		setServletRequest(request);
-		setServletResponse(response);
-		setFileType(fileType);
-	}
-	
-	
-	private void informWhatLineIsReadingByTheParser() throws Exception {
-		if (isRequestPartEmpty() == false) {
-			setServletScanner(new Scanner(getRequestPart().getInputStream()));
-			getResponseOutput().println(INFORM_INITIAL_LINE + getServletScanner().nextLine());
-			getServletScanner().close();		
+	/**
+	 * This method scan the Transaction fields contained by the informations imported from Servlet
+	 * and set their values in the attributes
+	 * @param fileItemReference is a FileItem node from FileFields list
+	 */
+	private void scanTransactionValues(FileItem fileItemReference) {
+		String fileType = "file_type";
+		String fileYear = "file_year";
+		if (fileItemReference.getFieldName().equals(fileType)) {
+			if (fileItemReference.getString().equals(RegisterToParseSupplier.EXPENSE)) {
+				setParseType(RegisterToParseSupplier.EXPENSE);
+			} else if (fileItemReference.getString().equals(RegisterToParseDonor.REVENUE)){
+				setParseType(RegisterToParseDonor.REVENUE);
+			} else {
+				/*
+				 * This is a Unexpected Condition, if fileItemReference String is neither Expense or Revenue
+				 * the Form in View Package contains an Error or the Expenses/Revenues Parse Names
+				 * referenced here are divergent from the View Package
+				 */
+				ControlLogger.warn(ControlLogger.SERVLET_LOG_STRING, ControlLogger.CONDITION_ELSE_UNEXPECTED);
+			}
+		} else if (fileItemReference.getFieldName().equals(fileYear)) {
+			setElectionYear(fileItemReference.getString());
 		} else {
-			//SERVLET_PARSER_LOGGER_NAME TODO Criar Sistema de Logger
-			Logger warningLogger = Logger.getLogger("X");
-			String warningAdvise = "The Condition Else in" + Thread.currentThread().getStackTrace() + "ocurred, but is unexpected.";
-			warningLogger.warning(warningAdvise);
+			/*
+			 * This is a Unexpected Condition, if fileItemReference field name is neither File Type or
+			 * File Year, the Form in View Package contains an Error or the Type/Year Files Names
+			 * referenced here are divergent from the View Package
+			 */
+			ControlLogger.warn(ControlLogger.SERVLET_LOG_STRING, ControlLogger.CONDITION_ELSE_UNEXPECTED);
 		}
 	}
 	
+	/**
+	 * This Method set a Parse Class based on the informations extracted by Servlet and call the method
+	 * runParse with the File Item setted before in scanFields method
+	 * @throws Exception if couldn't set the Parse Class or other exceptions called by runParse method
+	 * This Exception should be handled by readDataFile method
+	 */
+	private void callControlToRunParse() throws Exception {
+		/*
+		 * MAYBE we dont need to define the division string and initial line here, this is unique and used
+		 * by all kind of parsers. Can be referenced automatically inside the runParse method
+		 */
+		setParse();
+		String divisionString = ";";
+		Integer initialLine = 1;
+		getParse().runParse(getFileItem(), divisionString, initialLine);
+	}
+	
+	/**
+	 * This method inform to the user the Parsing is finished
+	 */
+	private void printFinishParsingToUser() {
+		String parseFinishedString = "Parse Completed!";
+		getResponseOutput().println(parseFinishedString);
+
+	}
+	
+	/**
+	 * Verify if fileType attribute is a Transaction
+	 * @return true if fileType is a Transaction, false if isn't
+	 */
 	private boolean isFileTypeATransaction() {
 		boolean isFileTypeATransaction = false;
 		if(getFileType() == TRANSACTION_FILE_TYPE) {
@@ -172,6 +233,10 @@ public class BasicParseServlet extends HttpServlet {
 		return isFileTypeATransaction;
 	}
 	
+	/**
+	 * Verify if requestPart attribute is Empty
+	 * @return true if requestPart is Empty, false if isn't
+	 */
 	private boolean isRequestPartEmpty() {
 		boolean isRequestPartEmpty = false;
 		if(getRequestPart() == EMPTY_REQUEST_PART) {
