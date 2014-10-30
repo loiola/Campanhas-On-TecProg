@@ -13,9 +13,17 @@ public abstract class ParseControl<O> {
 	 */
 
 	// Attributes
+	
+	// Variable that represent a empty object generic
 	private O emptyObject;
+	
+	// Variable that represent a instance of basicDAO for register the objects was worked in database
 	private ParseDAO<O> basicDAO;
+	
+	// Variable that represent a instance generic parse's index for register of indices generated file
 	private ParseIndex<O> indexParse;
+	
+	// Variable that represent a instance generic of a instance's list for register of instances generate
 	protected ArrayList<O> listInstance;
 	
 	// Constructors
@@ -38,9 +46,13 @@ public abstract class ParseControl<O> {
 	 * @param an array of strings
 	 */
 	public void addInstance(String field[]) {
-		O object = makeNewInstance(field);		
-		if((!equalObjects(object, emptyObject)) && 
-				(!this.listInstance.contains(object))) {
+		O object = makeNewInstance(field);
+		
+		// Variable that represent a condition for object provided be registered in the list of instances 
+		boolean noEmptyObjectAndNoContainsObjectInListInstance = (!equalObjects(object, emptyObject))
+				&& (!this.listInstance.contains(object));
+		
+		if(noEmptyObjectAndNoContainsObjectInListInstance) {
 			this.listInstance.add(object);
 		}
 	}
@@ -52,7 +64,11 @@ public abstract class ParseControl<O> {
 	 */
 	public void addEqualInstance(String field[]) {
 		O object = makeNewInstance(field);
-		if((!equalObjects(object, emptyObject))) {
+		
+		// Variable that represent a condition for object provided be registered in the list of instances 
+		boolean noEmptyObject = (!equalObjects(object, emptyObject));
+		
+		if(noEmptyObject) {
 			this.listInstance.add(object);
 		}
 	}
