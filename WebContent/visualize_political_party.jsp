@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<%@include file="imports/cabecalhopartidos.jsp"%>
+	<%@include file="imports/header_party.jsp"%>
 
 	<div id="pagina">
 		<div class="titulo_topo" id="tt_partido">

@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<%@include file="imports/cabecalhopartidos.jsp"%>
+	<%@include file="imports/header_party.jsp"%>
 
 	<!-- CONTEUDO DA PAGINA DE INFORMAÇÕES -->
 	<div id="pagina">

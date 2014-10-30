@@ -15,7 +15,7 @@
 <body>
 
 	<!--  CABEÇALHO -->
-	<%@include file="imports/cabecalho.jsp"%>
+	<%@include file="imports/header.jsp"%>
 	<!-- FIM CABEÇALHO -->
 
 	<!-- CONTEUDO DA PAGINA DE INFORMAÇÕES -->

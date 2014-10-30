@@ -18,9 +18,9 @@ public class ListPaginationLogic {
 	private static final String CENTER_OF_PAGES_LISTED_NAME = "__center_page";
 
 	public static HttpServletRequest updatePaginationList(
-			HttpServletRequest request, Integer listSize,
+			HttpServletRequest requestReference, Integer listSize,
 			String paginationExpectedName) {
-
+		HttpServletRequest request = requestReference;
 		Pagination pagination = generatePaginationValues(request, listSize,
 				paginationExpectedName);
 		request.setAttribute(paginationExpectedName, pagination);
@@ -38,14 +38,19 @@ public class ListPaginationLogic {
 						+ FIRST_PAGE_OF_THE_LIST_NAME));
 		pagination.setFirstPageOfTheList(firstPageOfTheList);
 
-		Integer quantityOfTermsPerPage = Integer.parseInt(request
-				.getParameter(paginationExpectedName
-						+ QUANTITY_OF_TERMS_PER_PAGE_NAME));
-		pagination.setQuantityOfTermsPerPage(quantityOfTermsPerPage);
-
 		Boolean seeAllTermsOfTheList = Boolean.parseBoolean(request
 				.getParameter(paginationExpectedName + SEE_ALL_TRIGGER_NAME));
 		pagination.setSeeAllTermsOfTheList(seeAllTermsOfTheList);
+
+		Integer quantityOfTermsPerPage = 0;
+		if (pagination.isSeeAllTermsOfTheList() == true) {
+			quantityOfTermsPerPage = listSize;
+		} else {
+			quantityOfTermsPerPage = Integer.parseInt(request
+					.getParameter(paginationExpectedName
+							+ QUANTITY_OF_TERMS_PER_PAGE_NAME));
+		}
+		pagination.setQuantityOfTermsPerPage(quantityOfTermsPerPage);
 
 		Integer centerOfPagesListed = Integer.parseInt(request
 				.getParameter(paginationExpectedName

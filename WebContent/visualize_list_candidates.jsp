@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<%@include file="imports/cabecalhocandidatos.jsp"%>
+	<%@include file="imports/header_candidate.jsp"%>
 
 	<!-- CONTEUDO DA PAGINA DE INFORMAÇÕES -->
 	<div id="pagina">

@@ -40,7 +40,7 @@
 </head>
 <body>
 
-	<%@include file="imports/cabecalhocandidatos.jsp"%>
+	<%@include file="imports/header_candidate.jsp"%>
 
 	<div id="pagina">
 		<div class="titulo_topo" id="tt_candidato">

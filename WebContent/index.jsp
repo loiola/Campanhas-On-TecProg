@@ -46,7 +46,7 @@
 <body>
 
 	<!--  CABEÇALHO -->
-	<%@include file="imports/cabecalhohome.jsp"%>
+	<%@include file="imports/header_home.jsp"%>
 	<!-- FIM CABEÇALHO -->
 
 	<!-- PAGINA CENTRAL, BANNER, INFORMACOES e TOP5 -->
