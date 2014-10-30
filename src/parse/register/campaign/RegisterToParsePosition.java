@@ -31,6 +31,7 @@ public class RegisterToParsePosition extends RegisterParse<Position> {
 	/*
 	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParsePositionControl to be used by constructor
+	 * @param a ParseIndex who'll be used by the ParseControl constructor
 	 * @return a ParsePositionControl
 	 */
 	@Override
@@ -42,6 +43,8 @@ public class RegisterToParsePosition extends RegisterParse<Position> {
 	/*
 	 * @see parse.register.RegisterParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParsePositionIndex, setting the index number for each attribute
+	 * @param String who define the type of the list file to be used to get the ParseIndex
+	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 * @return a ParsePositionIndex
 	 */
 	@Override
@@ -51,7 +54,6 @@ public class RegisterToParsePosition extends RegisterParse<Position> {
 		
 		positionParseIndex.setIndexCode(8);
 		positionParseIndex.setIndexDescription(9);
-		
 		return positionParseIndex;
 	}
 }
