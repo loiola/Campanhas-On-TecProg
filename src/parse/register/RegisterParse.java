@@ -36,8 +36,8 @@ public abstract class RegisterParse<O> {
 	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 */
 	public RegisterParse(String fileType, String yearOfCampaign) throws ParseException {
-		this.linesRead = 0;
-		this.linesToRegister = 1500;
+		this.linesRead = 0; 
+		this.linesToRegister = 1500; // MAGIC NUMBER!!!
 		
 		this.parseIndex = getParseIndex(fileType, yearOfCampaign);
 		this.parseControl = newIntance(this.parseIndex);
@@ -98,5 +98,4 @@ public abstract class RegisterParse<O> {
 	public void setlinesToRegister(int linesToRegister) {
 		this.linesToRegister = linesToRegister;
 	}
-	
 }

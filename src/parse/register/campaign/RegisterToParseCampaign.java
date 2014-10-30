@@ -25,7 +25,7 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	public RegisterToParseCampaign(String fileType, String year) throws ParseException {
 		super(fileType, year);
 		
-		setlinesToRegister(100000);
+		setlinesToRegister(100000); // MAGIC NUMBER!!! 
 	}
 
 	// Methods
@@ -33,6 +33,7 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	/*
 	 * @see parse.register.RegisterParse#novaInstancia(parse.index.ParseIndex)
 	 * This method generate a ParseCampaignControl to be used by constructor
+	 * @param a ParseIndex who'll be used by the ParseControl constructor
 	 * @return a ParseCampaignControl
 	 */
 	@Override
@@ -44,6 +45,8 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 	/*
 	 * @see parse.register.RegisterParse#getIndicesParse(java.lang.String, java.lang.String)
 	 * This method generate the ParseCampaignIndex, setting the index number for each attribute
+	 * @param String who define the type of the list file to be used to get the ParseIndex 
+	 * @param String who define the year of the campaign to be used to get the ParseIndex
 	 * @return a ParseCampaignIndex
 	 */
 	@Override
@@ -60,12 +63,13 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 		campaignParseIndex.setIndexNumberParty(16);
 		campaignParseIndex.setIndexCodeResult(40);
 		campaignParseIndex.setIndexMaximumExpenseDeclared(39);
-	
 		return campaignParseIndex;
 	}
 	
 	/*
 	 * @see parse.register.RegisterParse#executarLinhaDoArquivo(java.lang.String[])
+	 * This method read a line of the file based on fields
+	 * @param vector of Strings
 	 */
 	@Override
 	public void runFileLine (String[] field) throws ParseException {
@@ -75,5 +79,4 @@ public class RegisterToParseCampaign extends RegisterParse<Campaign> {
 			registerInstances();
 		}
 	}
-
 }
