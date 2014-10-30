@@ -20,6 +20,17 @@ public class ListPaginationLogic {
 	public static HttpServletRequest updatePaginationList(
 			HttpServletRequest request, Integer listSize,
 			String paginationExpectedName) {
+
+		Pagination pagination = generatePaginationValues(request, listSize,
+				paginationExpectedName);
+		request.setAttribute(paginationExpectedName, pagination);
+
+		return request;
+	}
+
+	private static Pagination generatePaginationValues(
+			HttpServletRequest request, Integer listSize,
+			String paginationExpectedName) {
 		Pagination pagination = new Pagination();
 
 		Integer firstPageOfTheList = Integer.parseInt(request
@@ -40,15 +51,16 @@ public class ListPaginationLogic {
 				.getParameter(paginationExpectedName
 						+ CENTER_OF_PAGES_LISTED_NAME));
 		pagination.setCenterOfPagesListed(centerOfPagesListed);
-		
-		
+
 		pagination.setIndexOfPages(generateListIndex(listSize,
 				pagination.getQuantityOfTermsPerPage()));
 
 		pagination
 				.setQuantityOfPagesListedInThePage(generateQuantityOfPagesListedInThePage(listSize));
 
-		return request;
+		pagination = generateQuantityOfPagesListedRadius(pagination);
+
+		return pagination;
 	}
 
 	private static Integer generateListIndex(Integer listSize, Integer divider) {
@@ -75,6 +87,10 @@ public class ListPaginationLogic {
 	private static Integer checkAndLimitPageIndex(Integer pageIndexReference) {
 		Integer pageIndex = pageIndexReference;
 		if (pageIndex <= 0) {
+			/*
+			 * If this condition trigger, is suspicious! Probably there's an
+			 * error in the View because the pageIndex should not be negative
+			 */
 			pageIndex = 0;
 			ControlLogger.warn(ControlLogger.SERVLET_LOG_STRING,
 					ControlLogger.CONDITION_IF_HANDLED);
