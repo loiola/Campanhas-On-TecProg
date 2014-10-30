@@ -12,11 +12,20 @@ public abstract class RegisterToParseRevenueAndExpenses<O> extends RegisterParse
 	 */
 
 	// Attributes
+	
+	// Attribute that represents a campaign Expense
 	public static final String EXPENSE = "expense";
+	
+	// Attribute that represents a campaign Revenue
 	public static final String REVENUE = "revenue";
 
+	// Attribute that represents the year 2002
 	public static final String YEAR_2002 = "2002";
+	
+	// Attribute that represents the year 2006
 	public static final String YEAR_2006 = "2006";
+	
+	// Attribute that represents the year 2010
 	public static final String YEAR_2010 = "2010";
 	
 	// Constructor

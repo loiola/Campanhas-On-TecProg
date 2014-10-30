@@ -13,9 +13,17 @@ public abstract class RegisterParse<O> {
 	 */
 
 	// Attributes
+	
+	// Represents the lines read during the execution of the parse record
 	protected int linesRead;
+	
+	// Represents the read lines that will be used during the execution of the parse record
 	protected int linesToRegister;
+	
+	// Represents the implementation of the parse entries of indices
 	protected ParseIndex<O> parseIndex;
+	
+	// Represents the implementation of control over the records of the parse
 	protected ParseControl<O> parseControl;
 	
 	// Constructor
