@@ -9,9 +9,17 @@ public class PartyParseIndex extends ParseIndex<Party> {
 	 */
 
 	// Attributes
+	
+	// Variable to the index of acronym party
 	private int indexAcronym;
+	
+	// Variable to the index number of the party
 	private int indexNumberParty;
+	
+	// Variable to the index of the differing party (date of foundation of the party)
 	private int indexDeferral;
+	
+	// Variable to the index official name of the party
 	private int indexPartyName;
 	
 	// Constructors

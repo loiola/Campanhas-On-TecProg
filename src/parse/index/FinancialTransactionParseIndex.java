@@ -14,16 +14,38 @@ public class FinancialTransactionParseIndex<O> extends ParseIndex<O> {
 	public static final int INVALID_INDEX = -1;
 
 	// Attributes
+	
+	// Variable to represent the year of financial transactions
 	private Integer year;
+	
+	// Variable to the index of the year of the election campaign
 	private int indexCampaignYear;
+	
+	// Variable to the index number of the candidate related to the campaign
 	private int indexNumberCampaign;
+	
+	// Variable to the index position of the candidate related to the campaign
 	private int indexPositionCampaign;
+	
+	// Variable to the index unit federation of the campaign - country state
 	private int indexUnitFederationCampaign;
+	
+	// Variable to the index number of the financial transaction document
 	private int indexDocumentNumber;
+	
+	// Variable to the index date of the financial transaction
 	private int indexDate;
+	
+	// Variable to the index value of the financial transaction
 	private int indexValue;
+	
+	// Variable to the index of the type of financial transaction
 	private int indexTypeOfFinancialTransaction;
+	
+	// Variable for the rate of payment in financial transaction
 	private int indexFormOfPayment;
+	
+	// Variable to the index description of the financial transaction
 	private int indexDescription;
 
 	// Constructors

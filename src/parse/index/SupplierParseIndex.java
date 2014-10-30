@@ -12,9 +12,17 @@ public class SupplierParseIndex extends ParseIndex<Supplier> {
 	public static final int INVALID_INDEX = -1;
 
 	// Attributes
+	
+	// Variable to the index of the supplier person register
 	private int indexSupplierCpfCnpj;
+	
+	// Variable to the index of the name of the supplier
 	private int indexName;
+	
+	// Variable to the index unit federation supplier - country state
 	private int indexUnitFederation;
+	
+	// Variable to the index on the status of the supplier with the IRS
 	private int indexRegistrationStatus;
 	
 	// Constructors

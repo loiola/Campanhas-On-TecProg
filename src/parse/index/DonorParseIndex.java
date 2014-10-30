@@ -12,9 +12,17 @@ public class DonorParseIndex extends ParseIndex<Donor> {
 	public static final int INVALID_INDEX = -1;
 	
 	// Attributes
+	
+	// Variable to the index of the donor person register
 	private int indexDonorCpfCnpj;
+	
+	// Variable to the index of the name of the donor
 	private int indexName;
+	
+	// Variable to the index unit federation donor - country state
 	private int indexUnitFederation;
+	
+	// Variable to the index on the status of the donor with the IRS
 	private int indexRegistrationStatus;
 	
 	// Constructors

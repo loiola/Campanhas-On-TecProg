@@ -9,7 +9,11 @@ public class ResultParseIndex extends ParseIndex<Result> {
 	 */
 
 	// Attributes
+	
+	// Variable to the index of the result code
 	private int indexCodeResult;
+	
+	// Variable to the index of the result description
 	private int indexDescriptionResult;
 	
 	// Constructors

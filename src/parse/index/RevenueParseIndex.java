@@ -10,8 +10,14 @@ public class RevenueParseIndex extends FinancialTransactionParseIndex<Revenue> {
 	 */
 
 	// Attributes
+	
+	// Variable to the index of the electoral receipt
 	private int indexElectoralReceipt;
+	
+	// Variable to the index of the donor's name
 	private int indexNameDonor;
+	
+	// Variable to the index of the donor's person register
 	private int indexCpfCnpjDonor;
 	
 	// Constructors
