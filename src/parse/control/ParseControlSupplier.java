@@ -27,8 +27,9 @@ public class ParseControlSupplier extends ParseControl<Supplier> {
 
 	/*
 	 * This method checks if two instances are equal Class Supplier
-	 * @param two instances of Class Supplier
-	 * @return a boolean value
+	 * @param an instances of Class for first argument to comparison 
+	 * @param an instances of Class for second argument to comparison
+	 * @return a boolean resulting from the comparison
 	 */
 	@Override
 	public boolean equalObjects(Supplier objectOne, Supplier objectTwo) {

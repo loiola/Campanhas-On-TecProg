@@ -27,8 +27,9 @@ public class ParseControlExpense extends ParseControl<Expense> {
 
 	/*
 	 * This method checks if two instances are equal Class Expense
-	 * @param two instances of Class Expense
-	 * @return a boolean value
+	 * @param an instances of Class for first argument to comparison 
+	 * @param an instances of Class for second argument to comparison
+	 * @return a boolean resulting from the comparison
 	 */
 	@Override
 	public boolean equalObjects(Expense objectOne, Expense objectTwo) {

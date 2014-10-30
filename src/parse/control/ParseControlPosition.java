@@ -27,8 +27,9 @@ public class ParseControlPosition extends ParseControl<Position> {
 
 	/*
 	 * This method checks if two instances are equal Class Position
-	 * @param two instances of Class Position
-	 * @return a boolean value
+	 * @param an instances of Class for first argument to comparison 
+	 * @param an instances of Class for second argument to comparison
+	 * @return a boolean resulting from the comparison
 	 */
 	@Override
 	public boolean equalObjects(Position objectOne, Position objectTwo) {
