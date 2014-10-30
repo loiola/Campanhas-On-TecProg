@@ -1,0 +1,46 @@
+Métodos que precisam de teste ou refinamento dos testes já existentes
+
+Package: control
+
+Class - CampaignControl.java
+ - public ArrayList<Campaign> topFiveByPositionAndYear(String position, Integer year)
+
+Package: control.validation
+
+Class - PartyValidation.java
+
+Package: model.dao
+OBS: Não foi contemplado testes para ExpenseDAO.java
+
+Class - CampaignDAO.java
+ - public String getSQLSelectNameOfUrnCommand(String nameOfUrn)
+ - private String mountingSQLConsultationForCandidate(final Candidate candidate)
+ - public ArrayList<Campaign> getCampaignArrayDataByCandidateElectoralTitle(Candidate candidate)
+ - private String mountingSQLConsultationForPartyAcronymAndElectionYear(final String partyAcronym, final String electionYear)
+ - public ArrayList<Campaign> getCampaignArrayDataByPartyAcronymAndElectionYear(String partyAcronym, String electionYear)
+ - private String mountingSQLConsultationForElectionYearAndCandidateNumberAndPositionCodeAndCountryState(final Campaign campaign)
+ - public Campaign getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(Campaign campaign)
+
+Class - CandidateDAO.java
+ - private String mountingSQLConsultationForElectoralTitle(final String electoralTitle)
+ - public Candidate getCandidateByElectoralTitle(String electoralTitle)
+ - public LinkedList<Candidate> searchCandidateInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore)
+
+Class - DonorDAO.java
+ - private String mountingSQLConsultationForDonor(final Donor donor)
+
+Class - ResultDAO.java
+ - protected void registerResultSetOnObjectArrayList(ArrayList<Result> resultList,ResultSet sqlResult)
+
+Class - RevenueDAO.java
+ - private String mountingSQLConsultationForAttributes(final Campaign campaign)
+ - public ArrayList<Revenue> getRevenueByCampaignPositionAndCampaignCountryStateAndCampaignYear(Campaign campaign)
+ - private String mountingSQLConsultationForIdentifier(final int revenueIdentifier)
+ - public Revenue getRevenueByIdentifier(int revenueIdentifier)
+ - public ArrayList<Revenue> searchRevenueInDatabaseUsingSQLCommandConfiguredBefore(String sqlCommandConfiguredBefore)
+
+Class - SupplierDAO.java
+ - private String mountingSQLConsultationForSupplier(final Supplier supplier)
+
+Package: parse.control
+OBS: Tudo OK - Somente o método de registrar instâncias no ParseControlCampaign.java precisa ser melhorado no teste
