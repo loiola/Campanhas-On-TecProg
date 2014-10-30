@@ -9,7 +9,11 @@ public class PositionParseIndex extends ParseIndex<Position> {
 	 */
 	
 	// Attributes
+	
+	// Variable to the index of the position code
 	private int indexCode;
+	
+	// Variable to the index of the position description
 	private int indexDescription;
 
 	// Constructors

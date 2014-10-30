@@ -13,14 +13,32 @@ public class CampaignParseIndex extends ParseIndex<Campaign> {
 	 */
 	
 	// Attributes
+	
+	// Variable to index the result code of the election campaign
 	private int indexCodeResult;
+	
+	// Variable to index the position code of the election campaign
 	private int indexCodePosition;
+	
+	// Variable to the index number of the political party
 	private int indexNumberParty;
+	
+	// Variable to the index candidate's electoral title
 	private int indexTitleCandidate;
+	
+	// Variable to the index year of the election campaign
 	private int indexYear;
+	
+	// Variable to the index number of the candidate
 	private int indexNumberCandidate;
+	
+	// Variable to the index urn name of the candidate
 	private int indexUrnName;
+	
+	// Variable to the index of Unit Federation - Country State
 	private int indexUnitFederation;
+	
+	// Variable to the index of maximum expense declared
 	private int indexMaximumExpenseDeclared;
 
 	// Constructors

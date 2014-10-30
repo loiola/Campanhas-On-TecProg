@@ -10,8 +10,14 @@ public class ExpenseParseIndex extends FinancialTransactionParseIndex<Expense> {
 	 */
 
 	// Attributes
+	
+	// Variable to the index supplier name
 	private int indexNameSupplier;
+	
+	// Variable to the index of the supplier person register
 	private int indexCpfCnpjSupplier;
+	
+	// Variable to the index of the document type of financial transaction
 	private int indexDocumentType;
 	
 	// Constructors
