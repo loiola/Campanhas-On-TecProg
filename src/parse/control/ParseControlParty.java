@@ -27,8 +27,9 @@ public class ParseControlParty extends ParseControl<Party> {
 
 	/*
 	 * This method checks if two instances are equal Class Party
-	 * @param two instances of Class Party
-	 * @return a boolean value
+	 * @param an instances of Class for first argument to comparison 
+	 * @param an instances of Class for second argument to comparison
+	 * @return a boolean resulting from the comparison
 	 */
 	@Override
 	public boolean equalObjects(Party objectOne, Party objectTwo) {

@@ -48,14 +48,20 @@ public class RegisterToParseParty extends RegisterParse<Party> {
 		boolean validationFileCampaign = fileType.equals("campaign");
 		
 		if (validationFileParty) {
+			
+			// Set the items according to the political party
 			partyParseIndex.setIndexPartyName(2);
 			partyParseIndex.setIndexAcronym(1);
 			partyParseIndex.setIndexNumberParty(5);
 			partyParseIndex.setIndexDeferral(3);
-		} else if (validationFileCampaign) {
-			partyParseIndex.setIndexPartyName(18);
-			partyParseIndex.setIndexAcronym(17);
-			partyParseIndex.setIndexNumberParty(16);
+		} else {
+			if (validationFileCampaign) {
+				
+				// Set the items according to the Campaign of candidate
+				partyParseIndex.setIndexPartyName(18);
+				partyParseIndex.setIndexAcronym(17);
+				partyParseIndex.setIndexNumberParty(16);
+			}
 		}
 		return partyParseIndex;
 	}
