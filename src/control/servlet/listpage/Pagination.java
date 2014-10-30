@@ -1,28 +1,37 @@
 package control.servlet.listpage;
 
 public class Pagination {
+	
+	private final Integer STANDARD_FIRST_PAGE_OF_THE_LIST_VALUE = 0;
+	private final Integer STANDARD_QUANTITY_OF_TERMS_PER_PAGE = 10;
+	private final Boolean STANDARD_SEE_ALL_CONDITION = false;
+	private final Integer STANDARD_CENTER_OF_PAGES_LISTED = 1;
+	private final Integer STANDARD_VALUE_FOR_ALGORITHM_ATTRIBUTES = 0;
 
-	private Boolean seeAllTermsOfTheList;
 	private Integer firstPageOfTheList;
 	private Integer quantityOfTermsPerPage;
-
-	private Integer currentPageOfTheList;
-
+	
+	private Boolean seeAllTermsOfTheList;
+	
+	private Integer centerOfPagesListed;
+	
 	private Integer indexOfPages;
 	private Integer quantityOfPagesListedInThePage;
 	
 	private Integer minimumRadiusOfPagesListed;
 	private Integer maximumRadiusOfPagesListed;
 	
-	private Integer centerOfPagesListed;
-
 	protected Pagination() {
-		this.seeAllTermsOfTheList = false;
-		this.firstPageOfTheList = 1;
-		this.quantityOfTermsPerPage = 10;
-		this.currentPageOfTheList = 1;
-		this.indexOfPages = 0;
-		this.quantityOfPagesListedInThePage = 10;
+		this.firstPageOfTheList = STANDARD_FIRST_PAGE_OF_THE_LIST_VALUE;
+		this.quantityOfTermsPerPage = STANDARD_QUANTITY_OF_TERMS_PER_PAGE;
+		this.seeAllTermsOfTheList = STANDARD_SEE_ALL_CONDITION;
+		this.centerOfPagesListed = STANDARD_CENTER_OF_PAGES_LISTED;
+		
+		this.indexOfPages = STANDARD_VALUE_FOR_ALGORITHM_ATTRIBUTES;
+		this.quantityOfPagesListedInThePage = STANDARD_VALUE_FOR_ALGORITHM_ATTRIBUTES;
+		
+		this.minimumRadiusOfPagesListed = STANDARD_VALUE_FOR_ALGORITHM_ATTRIBUTES;
+		this.maximumRadiusOfPagesListed = STANDARD_VALUE_FOR_ALGORITHM_ATTRIBUTES;
 	}
 
 	public Boolean isSeeAllTermsOfTheList() {
@@ -47,14 +56,6 @@ public class Pagination {
 
 	public void setQuantityOfTermsPerPage(Integer quantityOfTermsPerPage) {
 		this.quantityOfTermsPerPage = quantityOfTermsPerPage;
-	}
-
-	public Integer getCurrentPageOfTheList() {
-		return currentPageOfTheList;
-	}
-
-	public void setCurrentPageOfTheList(Integer currentPageOfTheList) {
-		this.currentPageOfTheList = currentPageOfTheList;
 	}
 
 	public Integer getIndexOfPages() {
