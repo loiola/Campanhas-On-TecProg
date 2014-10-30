@@ -44,3 +44,40 @@ Class - SupplierDAO.java
 
 Package: parse.control
 OBS: Tudo OK - Somente o método de registrar instâncias no ParseControlCampaign.java precisa ser melhorado no teste
+
+Package: parse.index
+
+Class: FinancialTransactionParseIndex.java
+ - protected void setValidIndex(O object, String[] field) - Mais especificamente o índice de unidade de federação
+
+Package: parse.register.campaign
+
+Class: RegisterToParseCampaign.java
+ - public void runFileLine (String[] field) - Mais especificamente registerInstances()
+ 
+Package: parse.register.party
+
+Class: RegisterToParseParty.java
+ - protected ParseIndex<Party> getParseIndex(String fileType, String year)
+
+Package: parse.register.revenue_expense
+
+Class: RegisterToParseDonor.java
+ - protected ParseIndex<Donor> getIndicesParseExpense2002()
+ - protected ParseIndex<Donor> getIndicesParseExpense2006()
+ - protected ParseIndex<Donor> getIndicesParseExpense2010()
+
+Class: RegisterToParseExpense.java
+ - protected ParseIndex<Expense> getIndicesParseRevenue2002()
+ - protected ParseIndex<Expense> getIndicesParseRevenue2006()
+ - protected ParseIndex<Expense> getIndicesParseRevenue2010()
+
+Class: RegisterToParseRevenue.java
+ - protected ParseIndex<Revenue> getIndicesParseExpense2002()
+ - protected ParseIndex<Revenue> getIndicesParseExpense2006()
+ - protected ParseIndex<Revenue> getIndicesParseExpense2010()
+
+Class: RegisterToParseSupplier.java
+ - protected ParseIndex<Supplier> getIndicesParseRevenue2002()
+ - protected ParseIndex<Supplier> getIndicesParseRevenue2006()
+ - protected ParseIndex<Supplier> getIndicesParseRevenue2010()
