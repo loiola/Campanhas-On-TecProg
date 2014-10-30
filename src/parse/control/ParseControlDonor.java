@@ -33,7 +33,11 @@ public class ParseControlDonor extends ParseControl<Donor> {
 	 */
 	@Override
 	public boolean equalObjects(Donor objectOne, Donor objectTwo) {
-		return objectOne.equals(objectTwo);
+		// Variable to store the logical value of the check
+		boolean comparisonResult;
+				
+		comparisonResult = objectOne.equals(objectTwo);
+		return comparisonResult;
 	}	
 	
 }

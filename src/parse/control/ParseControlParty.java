@@ -33,7 +33,11 @@ public class ParseControlParty extends ParseControl<Party> {
 	 */
 	@Override
 	public boolean equalObjects(Party objectOne, Party objectTwo) {
-		return objectOne.equals(objectTwo);
+		// Variable to store the logical value of the check
+		boolean comparisonResult;
+				
+		comparisonResult = objectOne.equals(objectTwo);
+		return comparisonResult;
 	}
 	
 }

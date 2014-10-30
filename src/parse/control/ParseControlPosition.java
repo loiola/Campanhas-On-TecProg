@@ -33,7 +33,11 @@ public class ParseControlPosition extends ParseControl<Position> {
 	 */
 	@Override
 	public boolean equalObjects(Position objectOne, Position objectTwo) {
-		return objectOne.equals(objectTwo);
+		// Variable to store the logical value of the check
+		boolean comparisonResult;
+				
+		comparisonResult = objectOne.equals(objectTwo);
+		return comparisonResult;
 	}
 
 }

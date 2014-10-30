@@ -33,7 +33,11 @@ public class ParseControlSupplier extends ParseControl<Supplier> {
 	 */
 	@Override
 	public boolean equalObjects(Supplier objectOne, Supplier objectTwo) {
-		return objectOne.equals(objectTwo);
+		// Variable to store the logical value of the check
+		boolean comparisonResult;
+				
+		comparisonResult = objectOne.equals(objectTwo);
+		return comparisonResult;
 	}	
 	
 }
