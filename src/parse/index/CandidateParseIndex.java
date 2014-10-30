@@ -9,7 +9,11 @@ public class CandidateParseIndex extends ParseIndex<Candidate> {
 	 */
 
 	// Attributes
+	
+	// Variable to the index of the candidate's name
 	private int indexName;
+	
+	// Variable to the index of the candidate's election title
 	private int indexElectionTitle;
 
 	// Constructors
