@@ -62,10 +62,10 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String execute(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 
-		this.request = req;
+		this.request = request;
 		
 		// Call refactored methods
 		receiveParameters();

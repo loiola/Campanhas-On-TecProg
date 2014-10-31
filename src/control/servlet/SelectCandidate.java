@@ -21,28 +21,56 @@ public class SelectCandidate implements Logic {
 	 */
 
 	// Attributes
+	
+	// Attribute that characterizes an instance of candidate's control
 	private CandidateControl candidateControl;
+	
+	// Attribute that characterizes a candidate
 	private Candidate candidate;
+	
+	// Attribute that characterizes 
 	private CampaignControl campaignControl;
+	
+	// Attribute that characterizes an instance of campaign's control
 	private List<Campaign> campaignList;
 
+	// Attribute that characterizes the electoral title of a candidate
 	private String electoralTitle;
 	
+	// Attribute that characterizes an instance of control financial transaction 
 	private TransactionControl transactionControl;
+	
+	// Attribute that characterizes list of revenue
 	private List<Revenue> revenueList;
+	
+	// Attribute that characterizes list of expense
 	private List<Expense> expenseList;
 	
+	// Attribute that characterizes the expense maximum in year of 2002
 	private float maximumExpenseIn2002;
+	
+	// Attribute that characterizes the expense maximum in year of 2006
 	private float maximumExpenseIn2006;
+	
+	// Attribute that characterizes the expense maximum in year of 2010
 	private float maximumExpenseIn2010;
 	
+	// Attribute that characterizes the value expense calculated in year of 2002
 	private float expenseCalculatedValueIn2002;
+	
+	// Attribute that characterizes the value revenue calculated in year of 2002
 	private float revenueCalculatedValueIn2002;
 	
+	// Attribute that characterizes the value expense calculated in year of 2006
 	private float expenseCalculatedValueIn2006;
+	
+	// Attribute that characterizes the value revenue calculated in year of 2006
 	private float revenueCalculatedValueIn2006;
 	
+	// Attribute that characterizes the value expense calculated in year of 2010
 	private float expenseCalculatedValueIn2010;
+	
+	// Attribute that characterizes the value revenue calculated in year of 2010
 	private float revenueCalculatedValueIn2010;
 
 	
@@ -54,14 +82,14 @@ public class SelectCandidate implements Logic {
 	 * @return the next HTML page and their responses to requests
 	 */
 	@Override
-	public String execute(HttpServletRequest req, HttpServletResponse res)
+	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
 		this.maximumExpenseIn2002 = 0;
 		this.maximumExpenseIn2006 = 0;
 		this.maximumExpenseIn2010 = 0;
 		
-		this.electoralTitle = req.getParameter("electoralTitle");
+		this.electoralTitle = request.getParameter("electoralTitle");
 
 		this.candidateControl = new CandidateControl();
 		this.campaignControl = new CampaignControl();
@@ -124,19 +152,19 @@ public class SelectCandidate implements Logic {
 		}
 		
 		// Set of answers to requests made concerning the applicant requested
-		req.setAttribute("candidate", this.candidate);
-		req.setAttribute("campaigns", this.campaignList);
-		req.setAttribute("candidate", this.candidate);
-		req.setAttribute("campaigns", this.campaignList);
-		req.setAttribute("expense1", this.maximumExpenseIn2002);
-		req.setAttribute("expense2", this.maximumExpenseIn2006);
-		req.setAttribute("expense3", this.maximumExpenseIn2010);
-		req.setAttribute("expense01", this.expenseCalculatedValueIn2002);
-		req.setAttribute("revenue1", this.revenueCalculatedValueIn2002);
-		req.setAttribute("expense02", this.expenseCalculatedValueIn2006);
-		req.setAttribute("revenue2", this.revenueCalculatedValueIn2006);
-		req.setAttribute("expense03", this.expenseCalculatedValueIn2010);
-		req.setAttribute("revenue3", this.revenueCalculatedValueIn2010);
+		request.setAttribute("candidate", this.candidate);
+		request.setAttribute("campaigns", this.campaignList);
+		request.setAttribute("candidate", this.candidate);
+		request.setAttribute("campaigns", this.campaignList);
+		request.setAttribute("expense1", this.maximumExpenseIn2002);
+		request.setAttribute("expense2", this.maximumExpenseIn2006);
+		request.setAttribute("expense3", this.maximumExpenseIn2010);
+		request.setAttribute("expense01", this.expenseCalculatedValueIn2002);
+		request.setAttribute("revenue1", this.revenueCalculatedValueIn2002);
+		request.setAttribute("expense02", this.expenseCalculatedValueIn2006);
+		request.setAttribute("revenue2", this.revenueCalculatedValueIn2006);
+		request.setAttribute("expense03", this.expenseCalculatedValueIn2010);
+		request.setAttribute("revenue3", this.revenueCalculatedValueIn2010);
 		
 		// Return the HTML page with the requested information
 		return "/visualize_candidate.jsp";
