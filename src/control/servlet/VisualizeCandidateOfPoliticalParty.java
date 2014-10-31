@@ -20,22 +20,44 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	 */
 
 	// Attributes
+	
+	// Attribute that characterizes an instance of campaign's control 
 	private CampaignControl campaignControl;
+	
+	// Attribute that characterizes list of campaign
 	private ArrayList<Campaign> listCampaign;
+	
+	// Attribute that characterizes an instance of political party's control
 	private PartyControl partyControl;
+	
+	// Attribute that characterizes a political party 
 	private Party party;
 
+	// Attribute that characterizes the acronym of a political party
 	private String partyAcronym;
+	
+	// Attribute that characterizes a electionYear
 	private String year;
 
-	private HttpServletRequest req;
+	// Attribute that characterizes a request of servlet 
+	private HttpServletRequest request;
 
+	// Variable that characterizes the first candidate of political party shows in page
 	private int first;
+	
+	// Variable that characterizes the quantity of candidate of political party shows per page
 	private int quantityPerPage;
+	
+	// Variable that characterizes all candidate of political party shows per page
 	private boolean seeAllPoliticalParties;
+	
+	
 	private int actual;
-
+	
+	// Variable that characterizes candidate of political party index
 	private int index;
+	
+	// Variable that characterizes numbers of links for shows the quantity of candidates per page
 	private int quantityOfPP;
 
 	// Other methods
@@ -49,7 +71,7 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
-		this.req = req;
+		this.request = req;
 		
 		//Call refactored methods
 		receiveParameters();
@@ -60,14 +82,14 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	}
 
 	/*
-	 * Rebecer methods for the parameters of the request
+	 * Receive methods for the parameters of the request
 	 */
 	private void receiveParameters() {
-		this.partyAcronym = req.getParameter("partyAcronym");
-		this.year =  req.getParameter("year");
-		this.first = Integer.parseInt(req.getParameter("first"));
-		this.quantityPerPage = Integer.parseInt(req.getParameter("quantityPerPage"));
-		this.seeAllPoliticalParties = Boolean.parseBoolean(req.getParameter("seeAllPoliticalParties"));
+		this.partyAcronym = request.getParameter("partyAcronym");
+		this.year =  request.getParameter("year");
+		this.first = Integer.parseInt(request.getParameter("first"));
+		this.quantityPerPage = Integer.parseInt(request.getParameter("quantityPerPage"));
+		this.seeAllPoliticalParties = Boolean.parseBoolean(request.getParameter("seeAllPoliticalParties"));
 	}
 
 	/*
@@ -91,20 +113,20 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	 * Prepare responses of forwarded requests
 	 */
 	private void prepareParametersTransmission() {
-		this.req.setAttribute("year", this.year);
-		this.req.setAttribute("listCampaign", this.listCampaign);
-		this.req.setAttribute("party", this.party);
-		this.req.setAttribute("partyAcronym", this.partyAcronym);
-		this.req.setAttribute("first", this.first);
+		this.request.setAttribute("year", this.year);
+		this.request.setAttribute("listCampaign", this.listCampaign);
+		this.request.setAttribute("party", this.party);
+		this.request.setAttribute("partyAcronym", this.partyAcronym);
+		this.request.setAttribute("first", this.first);
 		
 		// Defines the number of pages is equal to the size of the candidate list
 		if(this.seeAllPoliticalParties) {
 			this.quantityPerPage = this.listCampaign.size();
 		}
-		this.req.setAttribute("quantityPerPage", this.quantityPerPage);
-		this.req.setAttribute("index", this.index);
-		this.req.setAttribute("quantityOfPP", this.quantityOfPP);
-		this.req.setAttribute("actual", this.actual);
+		this.request.setAttribute("quantityPerPage", this.quantityPerPage);
+		this.request.setAttribute("index", this.index);
+		this.request.setAttribute("quantityOfPP", this.quantityOfPP);
+		this.request.setAttribute("actual", this.actual);
 	}
 
 	/*

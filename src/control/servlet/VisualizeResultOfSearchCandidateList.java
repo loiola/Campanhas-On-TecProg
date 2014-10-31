@@ -17,21 +17,41 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	 */
 
 	// Attributes
+	
+	// Attribute that characterizes an instance of candidate's control
 	private CandidateControl control;
+	
+	// Attribute that characterizes list of candidates
 	private List<Candidate> listCandidates;
 
-	private String name;
+	// Attribute that characterizes passed for search candidate for your name
+	private String nameOfCandidateSearch;
 
-	private HttpServletRequest req;
+	// Attribute that characterizes a request of servlet 
+	private HttpServletRequest request;
 
+	// Variable that characterizes the first candidate shows in page
 	private int firstCandidate;
+	
+	// Variable that characterizes the quantity of candidate shows per page
 	private int quantityCandidatePerPage;
+	
+	// Variable that characterizes all candidates shows per page
 	private boolean seeAllCandidates;
+	
+	// Variable that characterizes candidate index
 	private int index;
+	
+	// Variable that characterizes numbers of links for shows the quantity of candidate per page
 	private int quantityOfPP;
 	
+	// Variable that characterizes median of number present in the variable quantityOfPP
 	private int centerCandidate;
+	
+	// Variable that characterizes number minimum displayed variable quantityOfPP
 	private int minimumRadius;
+	
+	// Variable that characterizes number maximum displayed variable quantityOfPP
 	private int maximumRadius;
 	
 	// Other methods
@@ -45,7 +65,7 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
-		this.req = req;
+		this.request = req;
 		
 		// Call refactored methods
 		receiveParameters();
@@ -67,16 +87,16 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	}
 
 	/*
-	 * Rebecer methods for the parameters of the request
+	 * Receive methods for the parameters of the request
 	 */
 	private void receiveParameters() throws SQLException {
-		this.name = this.req.getParameter("name");
-		this.firstCandidate = Integer.parseInt(this.req.getParameter("firstCandidate"));
-		this.quantityCandidatePerPage = Integer.parseInt(this.req.getParameter("quantityCandidatePerPage"));
-		this.seeAllCandidates = Boolean.parseBoolean(this.req.getParameter("seeAllCandidates"));
-		this.centerCandidate = Integer.parseInt(this.req.getParameter("centerCandidate"));
+		this.nameOfCandidateSearch = this.request.getParameter("nameOfCandidateSearch");
+		this.firstCandidate = Integer.parseInt(this.request.getParameter("firstCandidate"));
+		this.quantityCandidatePerPage = Integer.parseInt(this.request.getParameter("quantityCandidatePerPage"));
+		this.seeAllCandidates = Boolean.parseBoolean(this.request.getParameter("seeAllCandidates"));
+		this.centerCandidate = Integer.parseInt(this.request.getParameter("centerCandidate"));
 		this.control = new CandidateControl();
-		this.listCandidates = this.control.getListCandidate(this.name);
+		this.listCandidates = this.control.getListCandidate(this.nameOfCandidateSearch);
 	}
 
 	/*
@@ -91,20 +111,20 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	 * Prepare responses of forwarded requests
 	 */
 	private void prepareParametersTransmission() {
-		this.req.setAttribute("listCandidates", this.listCandidates);
-		this.req.setAttribute("name", this.name);
-		this.req.setAttribute("firstCandidate", this.firstCandidate);
+		this.request.setAttribute("listCandidates", this.listCandidates);
+		this.request.setAttribute("nameOfCandidateSearch", this.nameOfCandidateSearch);
+		this.request.setAttribute("firstCandidate", this.firstCandidate);
 		
 		// Defines the number of pages is equal to the size of the candidate list
 		if(this.seeAllCandidates) {
 			this.quantityCandidatePerPage = this.listCandidates.size();
 		}
-		this.req.setAttribute("quantityCandidatePerPage", this.quantityCandidatePerPage);
-		this.req.setAttribute("index", this.index);
-		this.req.setAttribute("quantityOfPP", this.quantityOfPP);	
-		this.req.setAttribute("centerCandidate", this.centerCandidate);
-		this.req.setAttribute("minimumRadius", this.minimumRadius);
-		this.req.setAttribute("maximumRadius", this.maximumRadius);
+		this.request.setAttribute("quantityCandidatePerPage", this.quantityCandidatePerPage);
+		this.request.setAttribute("index", this.index);
+		this.request.setAttribute("quantityOfPP", this.quantityOfPP);	
+		this.request.setAttribute("centerCandidate", this.centerCandidate);
+		this.request.setAttribute("minimumRadius", this.minimumRadius);
+		this.request.setAttribute("maximumRadius", this.maximumRadius);
 	}	
 	
 	/*

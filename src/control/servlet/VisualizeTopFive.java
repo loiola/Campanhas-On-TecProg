@@ -19,13 +19,21 @@ public class VisualizeTopFive implements Logic {
 	 */
 
 	// Attributes
+	
+	// Attribute that characterizes an instance of campaign's control 
 	private CampaignControl campaignControl;
+	
+	// Attribute that characterizes list of campaign
 	private ArrayList<Campaign> campaignList;
 	
+	// Attribute that characterizes a position
 	private String position;
+	
+	// Attribute that characterizes a electionYear
 	private Integer electionYear;
 	
-	HttpServletRequest req;
+	// Attribute that characterizes a request of servlet 
+	private HttpServletRequest request;
 	
 	// Other methods
 	/*
@@ -38,7 +46,7 @@ public class VisualizeTopFive implements Logic {
 	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 		
-		this.req = req;
+		this.request = req;
 		
 		// Call refactored methods
 		receiveParameters();
@@ -50,11 +58,11 @@ public class VisualizeTopFive implements Logic {
 	}
 	
 	/*
-	 * Rebecer methods for the parameters of the request
+	 * Receive methods for the parameters of the request
 	 */
 	private void receiveParameters() {
-		this.electionYear =  Integer.parseInt(this.req.getParameter("electionYear"));
-		this.position = this.req.getParameter("position");
+		this.electionYear =  Integer.parseInt(this.request.getParameter("electionYear"));
+		this.position = this.request.getParameter("position");
 	}
 	
 	/*
@@ -70,13 +78,13 @@ public class VisualizeTopFive implements Logic {
 	 * Prepare responses of forwarded requests
 	 */
 	private void prepareParametersTransmission() {
-		this.req.setAttribute("electionYear", this.electionYear);
-		this.req.setAttribute("position", this.position);
-		this.req.setAttribute("candidate1", this.campaignList.get(0));
-		this.req.setAttribute("candidate2", this.campaignList.get(1));
-		this.req.setAttribute("candidate3", this.campaignList.get(2));
-		this.req.setAttribute("candidate4", this.campaignList.get(3));
-		this.req.setAttribute("candidate5", this.campaignList.get(4));
+		this.request.setAttribute("electionYear", this.electionYear);
+		this.request.setAttribute("position", this.position);
+		this.request.setAttribute("candidate1", this.campaignList.get(0));
+		this.request.setAttribute("candidate2", this.campaignList.get(1));
+		this.request.setAttribute("candidate3", this.campaignList.get(2));
+		this.request.setAttribute("candidate4", this.campaignList.get(3));
+		this.request.setAttribute("candidate5", this.campaignList.get(4));
 		
 	}
 }
