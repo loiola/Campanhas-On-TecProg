@@ -17,10 +17,15 @@ public class RequestPoliticalParty implements Logic {
 	 * Servlet to request control of political parties
 	 */
 
-	// Attributes
+	// Attributes 
+	
+	// Attribute that characterizes an instance of political party's control
 	private PartyControl control;
+	
+	// Attribute that characterizes list of political parties of Brazil 
 	private List<Party> politicalPartyList;
 
+	// Attribute that characterizes a request of servlet
 	private HttpServletRequest servletRequest;
 
 	// Other methods

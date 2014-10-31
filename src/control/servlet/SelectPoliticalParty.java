@@ -14,12 +14,23 @@ public class SelectPoliticalParty implements Logic {
 	 */
 
 	// Attributes
+	
+	// Attribute that characterizes the election years 
 	private final int[] YEARS = {2010, 2006, 2002};
+	
+	// Attribute that characterizes an instance of political party's control
 	private PartyControl partyControl;
+	
+	// Attribute that characterizes a political party 
 	private Party party;
 
+	// Attribute that characterizes the acronym of a political party
 	private String partyAcronym;
+	
+	// Attribute that characterizes the acronym of political party with uppercase 
 	private String siglaWithUnder;
+	
+	// Attribute that characterizes link for the site of TSE [Tribunal Superior Eleitoral] 
 	private String linkTSE;
 
 	// Other methods

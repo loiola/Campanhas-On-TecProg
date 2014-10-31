@@ -24,38 +24,87 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	 */
 
 	// Attributes
+	
+	// Attribute that characterizes an instance of campaign's control
 	private CampaignControl campaignControl;
+	
+	// Attribute that characterizes a search of candidate's campaign
 	private Campaign searchCampaign;
+	
+	// Attribute that characterizes a candidate's campaign
 	private Campaign campaign;
+	
+	// Attribute that characterizes a financial transaction of candidate's campaign
 	private TransactionControl transactionControl;
 
+	// Attribute that characterizes total expense of candidate's campaign
 	private String totalExpense;
 
+	// Attribute that characterizes maximum expense calculated of candidate's campaign
 	private float totalExpenseCalculatedValue;
+	
+	// Attribute that characterizes maximum revenue calculated of candidate's campaign
 	private float totalRevenueCalculatedValue;
-
-	private List<Revenue> revenueList;
+	
+	// Attribute that characterizes list of expense of candidate's campaign
 	private List<Expense> expenseList;
+		
+	// Attribute that characterizes list of revenue of candidate's campaign
+	private List<Revenue> revenueList;
 
+	// Attribute that characterizes a request of servlet 
 	private HttpServletRequest requestServlet;
 
 	//Variables for paging in HTML
-	private int firstRevenue;
+	
+	// Variable that characterizes the first expense shows in page
 	private int firstExpense;
-	private int quantityRevenuePerPage;
+	
+	// Variable that characterizes the first revenue shows in page
+	private int firstRevenue;
+	
+	// Variable that characterizes the quantity of expense shows per page
 	private int quantityExpensePerPage;
-	private boolean seeAllRevenues;
+	
+	// Variable that characterizes that quantity of revenue shows per page
+	private int quantityRevenuePerPage;
+	
+	// Variable that characterizes all expenses shows per page 
 	private boolean seeAllExpenses;
-	private int revenueIndex;
+	
+	// Variable that characterizes all revenues shows per page
+	private boolean seeAllRevenues;
+	
+	// Variable that characterizes expense index
 	private int expenseIndex;
-	private int quantityOfPPR;
+	
+	// Variable that characterizes revenue index
+	private int revenueIndex;
+
+	// Variable that characterizes numbers of links for shows the quantity of expenses per page 
 	private int quantityOfPPD;
-	private int centerOfRevenue;
-	private int minimumRadiusRevenue;
-	private int maximumRadiusRevenue;
+	
+	// Variable that characterizes numbers of links for shows the quantity of revenues per page
+	private int quantityOfPPR;
+	
+	// Variable that characterizes median of number present in the variable quantityOfPPD 
 	private int centerOfExpense;
+
+	// Variable that characterizes median of number present in the variable quantityOfPPR
+	private int centerOfRevenue;
+	
+	// Variable that characterizes number minimum displayed variable quantityOfPPD  
 	private int minimumRadiusExpense;
+	
+	// Variable that characterizes number minimum displayed variable quantityOfPPR
+	private int minimumRadiusRevenue;
+	
+	// Variable that characterizes number maximum displayed variable quantityOfPPD
 	private int maximumRadiusExpense;
+	
+	// Variable that characterizes number maximum displayed variable quantityOfPPR
+	private int maximumRadiusRevenue;
+	
 
 	// Other methods
 	/*
@@ -93,7 +142,7 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	}
 
 	/*
-	 * Rebecer methods for the parameters of the request
+	 * Receive methods for the parameters of the request
 	 */
 	private void receiveParameters() throws SQLException {
 		this.searchCampaign = buildCampaign(this.requestServlet);
