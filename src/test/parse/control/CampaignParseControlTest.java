@@ -46,7 +46,7 @@ public class CampaignParseControlTest extends TemplateTest {
 
 	@Test
 	public void registeringCampaign() throws Exception {
-		
+		this.parseControlCampaign.registeringInstances();
 		this.parseControlCampaign.addInstance(field);
 		this.parseControlCampaign.registeringInstances();
 		this.parseControlCampaign.clear();
@@ -75,6 +75,11 @@ public class CampaignParseControlTest extends TemplateTest {
 		int campaignNumberDatabase = this.campaignDAO.getObjectArrayListFromDatabase().size();
 		
 		Assert.assertEquals(1, campaignNumberDatabase);
+	}
+	
+	@Test
+	public void testAddedInstance() throws Exception {
+		this.parseControlCampaign.addEqualInstance(field);
 	}
 	
 	private void indexStart() {

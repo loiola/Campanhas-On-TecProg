@@ -10,8 +10,10 @@ import parse.index.FinancialTransactionParseIndex;
 
 public class FinancialTransactionParseIndexTest {
 
+	public final static Integer YEAR_2010 = 2010;
+	
 	private String field[];
-	private FinancialTransactionParseIndex financialTransactionParseIndex;
+	private FinancialTransactionParseIndex<Object> financialTransactionParseIndex;
 	private String year = "2006";
 	private String testYear = "2010";
 
@@ -19,7 +21,7 @@ public class FinancialTransactionParseIndexTest {
 	public void setUp() throws Exception {
 		
 		this.financialTransactionParseIndex = new FinancialTransactionParseIndex<>(year);
-		this.field = new String[9];
+		this.field = new String[10];
 		
 		fieldsStart();
 		indexStart();
@@ -39,6 +41,7 @@ public class FinancialTransactionParseIndexTest {
 		Assert.assertEquals(this.field[6], financialTransaction.getFinancialTransactionType());
 		Assert.assertEquals(this.field[7], financialTransaction.getFinancialTransactionPaymentType());
 		Assert.assertEquals(this.field[8], financialTransaction.getFinancialTransactionDescription());
+		Assert.assertEquals(this.field[9], financialTransaction.getFinancialTransactionCampaign().getCampaignCountryState());
 	}
 	
 	@Test
@@ -56,6 +59,7 @@ public class FinancialTransactionParseIndexTest {
 		Assert.assertNotEquals(this.field[6], financialTransaction.getFinancialTransactionType());
 		Assert.assertNotEquals(this.field[7], financialTransaction.getFinancialTransactionPaymentType());
 		Assert.assertNotEquals(this.field[8], financialTransaction.getFinancialTransactionDescription());
+		Assert.assertNotEquals(this.field[9], financialTransaction.getFinancialTransactionCampaign().getCampaignCountryState());
 	}
 	
 	private void indexStart() {
@@ -69,6 +73,8 @@ public class FinancialTransactionParseIndexTest {
 		this.financialTransactionParseIndex.setIndexTypeOfFinancialTransaction(6);
 		this.financialTransactionParseIndex.setIndexFormOfPayment(7);
 		this.financialTransactionParseIndex.setIndexDescription(8);
+		this.financialTransactionParseIndex.setIndexUnitFederationCampaign(9);
+		this.financialTransactionParseIndex.setYear(YEAR_2010);
 	}
 	
 	private void fieldsStart() {
@@ -82,6 +88,7 @@ public class FinancialTransactionParseIndexTest {
 		this.field[6] = "TIPO MOVIMENTACAO";
 		this.field[7] = "FORMA PAGAMENTO";
 		this.field[8] = "DESCRIPTION";
+		this.field[9] = "UNIT FEDERATION";
 	}
 
 }
