@@ -15,9 +15,9 @@ import test.TemplateTest;
 
 public class RegisterToParsePartyTest extends TemplateTest {
 
-	String  fileTypeA = "partido";
-	String  fileTypeB = "campanha";
-	String  fileTypeC = "errado";
+	String  fileTypeA = "party";
+	String  fileTypeB = "campaign";
+	String  fileTypeC = "error";
 	String  year1         = "2002";
 	String  year2         = "2006";
 	String  year3         = "2010";

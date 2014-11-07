@@ -22,6 +22,7 @@ public class ResultParseControlTest extends TemplateTest {
 
 	public void beforeTest() throws Exception {
 		
+		
 		this.fields = new String[2];
 		this.resultDAO = new ResultDAO();
 		this.resultParseIndex = new ResultParseIndex();
