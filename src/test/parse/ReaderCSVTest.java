@@ -16,8 +16,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import parse.CSVReader;
+import parse.ParseException;
+import parse.ParseParty;
 import parse.CSVReader.ExecutorReaderCSVObserver;
 
+@SuppressWarnings("deprecation")
 public class ReaderCSVTest {
 
 	public static final String FILE_NAME = "/src/test/parse/csv_testes.csv";
@@ -28,8 +31,10 @@ public class ReaderCSVTest {
 	private CSVReader cSVReader;
 	private ExecutorReaderCSVObserver executorReaderCSV;
 	
+	private ParseParty parseParty;
+	
 	@Before
-	public void setUp() throws IOException {
+	public void setUp() throws IOException, ParseException {
 		
 		initFileItem();
 		
@@ -41,6 +46,8 @@ public class ReaderCSVTest {
 		};
 		this.cSVReader = new CSVReader();
 		this.cSVReader.setExecutorLeitorCSVObservador(this.executorReaderCSV);
+		
+		this.parseParty = new ParseParty("expense", "2002");
 	}
 	
 	@Test
@@ -62,6 +69,24 @@ public class ReaderCSVTest {
 		this.cSVReader.runMethodForReadLine(this.fileItem, ";", 10000);
 	}
 	
+	@Test
+	public void runToReadNoLineMethodForNoExceptionThrowForParseParty() throws Exception {
+		
+		this.parseParty.runParse(this.fileItem, ";", 1);
+	}
+	
+	@Test
+	public void mustShouldRunLineMethodReadFromTheLine10000NoExceptionThrowForParseParty() throws Exception {
+		
+		this.parseParty.runParse(this.fileItem, ";", 10000);
+	}
+	
+	@Test(expected=Exception.class)  
+	public void throwsAnExceptionWhenPassingANull() throws Exception {
+		
+		this.parseParty.runMethodForEachRead(null);
+	}
+	
 	
 	private InputStream getNewInputStream() throws FileNotFoundException {
 		
@@ -74,6 +99,11 @@ public class ReaderCSVTest {
 		
 		this.fileItem = new FileItem() {
 			
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void setHeaders(FileItemHeaders arg0) {
 				// TODO Auto-generated method stub

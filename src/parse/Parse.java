@@ -55,7 +55,7 @@ public abstract class Parse implements ExecutorReaderCSVObserver {
 	
 	/*
 	 * Method to record each line read
-	 * @param a array of string representando o campo a ser lido
+	 * @param a array of string representing the field to be read
 	 */
 	@Override
 	public void runMethodForEachRead(String[] field) {
