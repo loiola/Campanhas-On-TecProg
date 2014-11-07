@@ -2,6 +2,8 @@ package test.parse.register;
 
 import java.sql.SQLException;
 
+import junit.framework.Assert;
+
 import org.junit.Test;
 
 import parse.ParseException;
@@ -10,6 +12,8 @@ import test.TemplateTest;
 
 public class RegisterToParseCampaignTest extends TemplateTest {
 
+	public final static int NUMBER_LINES_TO_REGISTER = 100000;
+	
 	private RegisterToParseCampaign register;
 	String  fileType = "campaign";
 	String  year         = "2006";
@@ -41,5 +45,13 @@ public class RegisterToParseCampaignTest extends TemplateTest {
 		register.runFileLine(field);
 		register.registerInstances();
 	}
+	
+	@Test
+	public void shouldReturnGetLinesToRegister() throws ParseException, SQLException {
+		int linesToRegister = register.getlinesToRegister();
+		Assert.assertEquals(NUMBER_LINES_TO_REGISTER, linesToRegister);
+	}
+	
+	
 
 }

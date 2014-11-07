@@ -80,5 +80,12 @@ public class RegisterToParseSupplierTest extends TemplateTest {
 		ArrayList<Supplier> supplierList = supplierDAO.getObjectArrayListFromDatabase();
 		assertEquals(supplierList.get(0).getSupplierPersonRegister(), "12345");
 	}
+	
+	@Test
+	public void startupTestingMethodsNotImplemented() throws ParseException, SQLException {
+		register1.getIndicesParseRevenue2002();
+		register1.getIndicesParseRevenue2006();
+		register1.getIndicesParseRevenue2010();	
+	}
 
 }

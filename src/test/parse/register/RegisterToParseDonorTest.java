@@ -80,5 +80,12 @@ public class RegisterToParseDonorTest extends TemplateTest {
 		ArrayList<Donor> donorList = donorDAO.getObjectArrayListFromDatabase();
 		assertEquals(donorList.get(0).getDonorPersonRegister(), "12345");
 	}
+	
+	@Test
+	public void startupTestingMethodsNotImplemented() throws ParseException, SQLException {
+		register1.getIndicesParseExpense2002();
+		register1.getIndicesParseExpense2006();
+		register1.getIndicesParseExpense2010();	
+	}
 
 }

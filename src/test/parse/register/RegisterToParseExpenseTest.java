@@ -24,6 +24,7 @@ public class RegisterToParseExpenseTest extends TemplateTest {
 	String  year1         = "2006";
 	String  year2         = "2002";
 	String  year3         = "2010";
+	String  yearFalse     = "yearFalse";
 	String  wrongFileType = "ArquivoErrado";
 	String  invalidYear = "2050";
 	
@@ -104,6 +105,18 @@ public class RegisterToParseExpenseTest extends TemplateTest {
 		
 		ArrayList<Expense> expenseList = expenseDAO.getObjectArrayListFromDatabase();
 		assertEquals(expenseList.get(0).getFinancialTransactionType(), "TipoMov");
+	}
+	
+	@Test
+	public void startupTestingMethodsNotImplemented() throws ParseException, SQLException {
+		register1.getIndicesParseRevenue2002();
+		register1.getIndicesParseRevenue2006();
+		register1.getIndicesParseRevenue2010();	
+	}
+	
+	@Test(expected=ParseException.class)  
+	public void shouldReturnAnExceptionToTheFalseYear() throws ParseException {
+		new RegisterToParseExpense(this.fileType, this.yearFalse);
 	}
 
 }

@@ -87,10 +87,9 @@ public class RegisterToParseDonor extends RegisterToParseRevenueAndExpenses<Dono
 	 * Note: Not implemented because the donor has no expense!
 	 * @return a donorParseIndex
 	 */
-	@Override
-	protected ParseIndex<Donor> getIndicesParseExpense2002() {
-		DonorParseIndex donorParseIndex = new DonorParseIndex();
-		return donorParseIndex;
+	//@Override
+	public ParseIndex<Donor> getIndicesParseExpense2002() {
+		return null;
 	}
 
 	/*
@@ -100,9 +99,8 @@ public class RegisterToParseDonor extends RegisterToParseRevenueAndExpenses<Dono
 	 * @return a donorParseIndex
 	 */
 	@Override
-	protected ParseIndex<Donor> getIndicesParseExpense2006() {
-		DonorParseIndex donorParseIndex = new DonorParseIndex();
-		return donorParseIndex;
+	public ParseIndex<Donor> getIndicesParseExpense2006() {
+		return null;
 	}
 
 	/*
@@ -112,9 +110,8 @@ public class RegisterToParseDonor extends RegisterToParseRevenueAndExpenses<Dono
 	 * @return a donorParseIndex
 	 */
 	@Override
-	protected ParseIndex<Donor> getIndicesParseExpense2010() {
-		DonorParseIndex donorParseIndex = new DonorParseIndex();
-		return donorParseIndex;
+	public ParseIndex<Donor> getIndicesParseExpense2010() {
+		return null;
 	}
 
 }

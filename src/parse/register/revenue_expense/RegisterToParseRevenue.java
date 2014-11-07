@@ -38,36 +38,6 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 	}
 
 	/*
-	 * This method generate the ParseRevenueIndex from the Campaign of 2002
-	 * @return a ParseRevenueIndex
-	 */
-	@Override
-	protected ParseIndex<Revenue> getIndicesParseExpense2002() {
-		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2002);
-		return revenueParseIndex;
-	}
-
-	/*
-	 * This method generate the ParseRevenueIndex from the Campaign of 2006
-	 * @return a ParseRevenueIndex
-	 */
-	@Override
-	protected ParseIndex<Revenue> getIndicesParseExpense2006() {
-		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2006);
-		return revenueParseIndex;
-	}
-
-	/*
-	 * This method generate the ParseRevenueIndex from the Campaign of 2010
-	 * @return a ParseRevenueIndex
-	 */
-	@Override
-	protected ParseIndex<Revenue> getIndicesParseExpense2010() {
-		RevenueParseIndex revenueParseIndex = new RevenueParseIndex(YEAR_2010);
-		return revenueParseIndex;
-	}
-
-	/*
 	 * This method generate the ParseRevenueIndex, setting the index number for each attribute from
 	 * the Campaign of 2002
 	 * @return a ParseRevenueIndex
@@ -130,6 +100,36 @@ public class RegisterToParseRevenue extends RegisterToParseRevenueAndExpenses<Re
 		revenueParseIndex.setIndexDescription(17);
 		
 		return revenueParseIndex;
+	}
+	
+	/*
+	 * This method generate the ParseRevenueIndex from the Campaign of 2002
+	 * Note: Not implemented because the revenue it is not expense!
+	 * @return a ParseRevenueIndex
+	 */
+	@Override
+	public ParseIndex<Revenue> getIndicesParseExpense2002() {
+		return null;
+	}
+
+	/*
+	 * This method generate the ParseRevenueIndex from the Campaign of 2006
+	 * Note: Not implemented because the revenue it is not expense!
+	 * @return a ParseRevenueIndex
+	 */
+	@Override
+	public ParseIndex<Revenue> getIndicesParseExpense2006() {
+		return null;
+	}
+
+	/*
+	 * This method generate the ParseRevenueIndex from the Campaign of 2010
+	 * Note: Not implemented because the revenue it is not expense!
+	 * @return a ParseRevenueIndex
+	 */
+	@Override
+	public ParseIndex<Revenue> getIndicesParseExpense2010() {
+		return null;
 	}
 
 }

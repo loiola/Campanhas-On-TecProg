@@ -88,9 +88,8 @@ public class RegisterToParseSupplier extends RegisterToParseRevenueAndExpenses<S
 	 * @return a donorParseIndex
 	 */
 	@Override
-	protected ParseIndex<Supplier> getIndicesParseRevenue2002() {
-		SupplierParseIndex supplierParseIndex = new SupplierParseIndex();
-		return supplierParseIndex;
+	public ParseIndex<Supplier> getIndicesParseRevenue2002() {
+		return null;
 	}
 
 	/*
@@ -100,9 +99,8 @@ public class RegisterToParseSupplier extends RegisterToParseRevenueAndExpenses<S
 	 * @return a donorParseIndex
 	 */
 	@Override
-	protected ParseIndex<Supplier> getIndicesParseRevenue2006() {
-		SupplierParseIndex supplierParseIndex = new SupplierParseIndex();
-		return supplierParseIndex;
+	public ParseIndex<Supplier> getIndicesParseRevenue2006() {
+		return null;
 	}
 
 	/*
@@ -112,9 +110,8 @@ public class RegisterToParseSupplier extends RegisterToParseRevenueAndExpenses<S
 	 * @return a donorParseIndex
 	 */
 	@Override
-	protected ParseIndex<Supplier> getIndicesParseRevenue2010() {
-		SupplierParseIndex supplierParseIndex = new SupplierParseIndex();
-		return supplierParseIndex;
+	public ParseIndex<Supplier> getIndicesParseRevenue2010() {
+		return null;
 	}
 
 }

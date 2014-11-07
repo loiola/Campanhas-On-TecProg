@@ -107,29 +107,32 @@ public class RegisterToParseExpense extends RegisterToParseRevenueAndExpenses<Ex
 
 	/*
 	 * This method generate the ParseExpenseIndex from the Campaign of 2002
+	 * Note: Not implemented because the expense it is not revenue!
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected ParseIndex<Expense> getIndicesParseRevenue2002() {
-		return new ExpenseParseIndex(YEAR_2002);
+	public ParseIndex<Expense> getIndicesParseRevenue2002() {
+		return null;
 	}
 
 	/*
 	 * This method generate the ParseExpenseIndex from the Campaign of 2006
+	 * Note: Not implemented because the expense it is not revenue!
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected ParseIndex<Expense> getIndicesParseRevenue2006() {
-		return new ExpenseParseIndex(YEAR_2006);
+	public ParseIndex<Expense> getIndicesParseRevenue2006() {
+		return null;
 	}
 
 	/*
 	 * This method generate the ParseExpenseIndex from the Campaign of 2010
+	 * Note: Not implemented because the expense it is not revenue!
 	 * @return a ParseExpenseIndex
 	 */
 	@Override
-	protected ParseIndex<Expense> getIndicesParseRevenue2010() {
-		return new ExpenseParseIndex(YEAR_2010);
+	public ParseIndex<Expense> getIndicesParseRevenue2010() {
+		return null;
 	}
 
 }
