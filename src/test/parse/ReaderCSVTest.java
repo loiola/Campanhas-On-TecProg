@@ -211,4 +211,85 @@ public class ReaderCSVTest {
 		};
 	}
 	
+	/* Auxiliary test for implementation of the abstract class FileItem */
+	
+	@Test
+	public void auxiliaryTest1() throws Exception {
+		this.fileItem.setHeaders(null);
+	}
+	
+	@Test
+	public void auxiliaryTest2() throws Exception {
+		this.fileItem.getHeaders();
+	}
+	
+	@Test
+	public void auxiliaryTest3() throws Exception {
+		this.fileItem.write(null);
+	}
+	
+	@Test
+	public void auxiliaryTest4() throws Exception {
+		this.fileItem.setFormField(false);
+	}
+	
+	@Test
+	public void auxiliaryTest5() throws Exception {
+		this.fileItem.setFieldName(null);
+	}
+	
+	@Test
+	public void auxiliaryTest6() throws Exception {
+		this.fileItem.isInMemory();
+	}
+	
+	@Test
+	public void auxiliaryTest7() throws Exception {
+		this.fileItem.isFormField();
+	}
+	
+	@Test
+	public void auxiliaryTest8() throws Exception {
+		this.fileItem.getString(null);
+	}
+	
+	@Test
+	public void auxiliaryTest9() throws Exception {
+		this.fileItem.getString();
+	}
+	
+	@Test
+	public void auxiliaryTest10() throws Exception {
+		this.fileItem.getOutputStream();
+	}
+	
+	@Test
+	public void auxiliaryTest11() throws Exception {
+		this.fileItem.getName();
+	}
+	
+	@Test
+	public void auxiliaryTest12() throws Exception {
+		this.fileItem.getInputStream();
+	}
+	
+	@Test
+	public void auxiliaryTest13() throws Exception {
+		this.fileItem.getFieldName();
+	}
+	
+	@Test
+	public void auxiliaryTest14() throws Exception {
+		this.fileItem.getContentType();
+	}
+	
+	@Test
+	public void auxiliaryTest15() throws Exception {
+		this.fileItem.get();
+	}
+	
+	@Test
+	public void auxiliaryTest16() throws Exception {
+		this.fileItem.delete();
+	}
 }
