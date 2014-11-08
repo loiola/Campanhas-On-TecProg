@@ -80,8 +80,12 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @return a String with the SQL command
 	 */
 	public String getSQLSelectNameOfUrnCommand(String nameOfUrn) {
-		return "SELECT " + DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE + " FROM " + DATABASE_CAMPAIGN_TABLE_NAME
+		String sqlCommand;
+		
+		sqlCommand = "SELECT " + DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE + " FROM " + DATABASE_CAMPAIGN_TABLE_NAME
 				+ " WHERE " + DATABASE_CAMPAIGN_NAME_OF_URN + " LIKE '%" + nameOfUrn + "%'";
+		
+		return sqlCommand;
 	}
 
 	/*
@@ -173,7 +177,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param an instance of Class Candidate
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForCandidate(final Candidate candidate){
+	public String mountingSQLConsultationForCandidate(final Candidate candidate){
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " USE INDEX ("
 				+ DATABASE_CAMPAIGN_CANDIDATE_INDEX + ")" + " WHERE "
 				+ DATABASE_CAMPAIGN_CANDIDATE_ELECTORAL_TITLE + " = '"
@@ -206,7 +210,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param a String who define the election year of campaign
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForPartyAcronymAndElectionYear(
+	public String mountingSQLConsultationForPartyAcronymAndElectionYear(
 			final String partyAcronym, final String electionYear) throws SQLException{
 		
 		this.partyDAO = new PartyDAO();
@@ -245,7 +249,7 @@ public class CampaignDAO extends BasicDAO<Campaign> {
 	 * @param a campaign of candidate 
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForElectionYearAndCandidateNumberAndPositionCodeAndCountryState(
+	public String mountingSQLConsultationForElectionYearAndCandidateNumberAndPositionCodeAndCountryState(
 			final Campaign campaign) throws SQLException{
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE " + DATABASE_CAMPAIGN_YEAR + " = "

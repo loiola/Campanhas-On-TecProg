@@ -66,7 +66,7 @@
 										<c:url var="url_pagInicial" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeResultOfSearchCandidateList" />
-											<c:param name="name" value="${name}" />
+											<c:param name="name" value="${nameOfCandidateSearch}" />
 											<c:param name="firstCandidate" value="${0}" />
 											<c:param name="quantityCandidatePerPage" value="${quantityCandidatePerPage}" />
 											<c:param name="seeAllCandidates" value="${false}" />
@@ -77,7 +77,7 @@
 											<c:url var="url_pag" value="/mvc">
 												<c:param name="logic"
 													value="VisualizeResultOfSearchCandidateList" />
-												<c:param name="name" value="${name}" />
+												<c:param name="name" value="${nameOfCandidateSearch}" />
 												<c:param name="firstCandidate" value="${(i-1)*quantityCandidatePerPage}" />
 												<c:param name="quantityCandidatePerPage" value="${quantityCandidatePerPage}" />
 												<c:param name="seeAllCandidates" value="${false}" />
@@ -93,7 +93,7 @@
 										<c:url var="url_pagFinal" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeResultOfSearchCandidateList" />
-											<c:param name="name" value="${name}" />
+											<c:param name="name" value="${nameOfCandidateSearch}" />
 											<c:param name="firstCandidate" value="${(index-1)*quantityCandidatePerPage}" />
 											<c:param name="quantityCandidatePerPage" value="${quantityCandidatePerPage}" />
 											<c:param name="seeAllCandidates" value="${false}" />
@@ -104,7 +104,7 @@
 										<c:url var="url_tamanhoOriginal" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeResultOfSearchCandidateList" />
-											<c:param name="name" value="${name}" />
+											<c:param name="name" value="${nameOfCandidateSearch}" />
 											<c:param name="firstCandidate" value="${0}" />
 											<c:param name="quantityCandidatePerPage" value="${10}" />
 											<c:param name="seeAllCandidates" value="${false}" />
@@ -158,7 +158,7 @@
 										<c:url var="url_todos" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeResultOfSearchCandidateList" />
-											<c:param name="name" value="${name}" />
+											<c:param name="name" value="${nameOfCandidateSearch}" />
 											<c:param name="firstCandidate" value="${0}" />
 											<c:param name="quantityCandidatePerPage" value="${0}" />
 											<c:param name="seeAllCandidates" value="${true}" />

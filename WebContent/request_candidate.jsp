@@ -44,7 +44,7 @@
 						</c:url>
 
 						<form action="${link_search}" method="post">
-							<br> <input class="campoRapido" type="text" name="name"
+							<br> <input class="campoRapido" type="text" name="nameOfCandidateSearch"
 								required> <br> <br> <br> <input
 								id="botao" type="submit" value="Buscar" />
 						</form>
