@@ -203,6 +203,20 @@ public class CampaignDAOTest extends TemplateTest {
 	}
 	
 	@Test
+	public void shouldRetrieveCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState() throws SQLException {
+		Campaign campaign = new Campaign();
+		Position position = new Position();
+		
+		position.setPositionCode(4);
+		campaign.setCampaignYear(2006);
+		campaign.setCampaignCandidateNumber(13122);
+		campaign.setCampaignPosition(position);
+		campaign.setCampaignCountryState("DF");
+		
+		Assert.assertEquals(null, this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campaign));
+	}
+	
+	@Test
 	public void shouldCheckOutTheTopFiveIsAppointed() throws SQLException {	
 		
 		Assert.assertEquals(campaignList, this.campaignDAO.getObjectArrayListFromDatabase());

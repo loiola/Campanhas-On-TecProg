@@ -111,7 +111,7 @@ public class CandidateDAO extends BasicDAO<Candidate> {
 	 * @param a String who define the electoral Title
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForElectoralTitle(final String electoralTitle){
+	public String mountingSQLConsultationForElectoralTitle(final String electoralTitle){
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
 				+ DATABASE_CANDIDATE_ELECTORAL_TITLE + " = '"+ electoralTitle + "'";
