@@ -159,7 +159,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a String who define the party acronym of campaign
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForAttributes(
+	public String mountingSQLConsultationForAttributes(
 			final Campaign campaign) throws SQLException{
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
@@ -196,7 +196,7 @@ public class RevenueDAO extends BasicDAO<Revenue> implements ParseDAO<Revenue> {
 	 * @param a integer who define the number identifier the revenue
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForIdentifier(
+	public String mountingSQLConsultationForIdentifier(
 			final int revenueIdentifier) throws SQLException{
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
