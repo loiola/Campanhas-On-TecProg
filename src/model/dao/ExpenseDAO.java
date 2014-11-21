@@ -160,7 +160,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @param a String who define the party acronym of campaign
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForAttributes(
+	public String mountingSQLConsultationForAttributes(
 			final Campaign campaign) throws SQLException{
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
