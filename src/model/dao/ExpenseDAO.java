@@ -198,7 +198,7 @@ public class ExpenseDAO extends BasicDAO<Expense> implements ParseDAO<Expense> {
 	 * @param a integer who define the number identifier the expense
 	 * @result the command of consultation
 	 */
-	private String mountingSQLConsultationForIdentifier(
+	public String mountingSQLConsultationForIdentifier(
 			final int expenseIdentifier) throws SQLException{
 		
 		String sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "

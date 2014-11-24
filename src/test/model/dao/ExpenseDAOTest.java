@@ -15,7 +15,7 @@ import model.dao.ExpenseDAO;
 import test.TemplateTest;
 
 public class ExpenseDAOTest extends TemplateTest {
-	
+
 	private ExpenseDAO expenseDAO;
 	private Expense expenseOne;
 	private Expense expenseTwo;
@@ -25,17 +25,19 @@ public class ExpenseDAOTest extends TemplateTest {
 	private Campaign campaignTwo;
 	private Supplier supplierTwo;
 	private Position positionTwo;
-	
-	private static final String DATABASE_EXPENSE_TABLE_NAME = "despesa";
+
+	private final String DATABASE_EXPENSE_TABLE_NAME = "despesa";
+	private final String DATABASE_EXPENSE_IDENTIFIER = "id_despesa";
 	private final String DATABASE_EXPENSE_CAMPAIGN_YEAR = "campanha_ano";
 	private final String DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER = "campanha_numero_candidato";
 	private final String DATABASE_EXPENSE_CAMPAIGN_POSITION = "cargo";
 	private final String DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE = "campanha_uf";
-	private final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM " + DATABASE_EXPENSE_TABLE_NAME;
-	
+	private final String DATABASE_SQL_COMMAND_SELECT = "SELECT * FROM "
+			+ DATABASE_EXPENSE_TABLE_NAME;
+
 	@Override
 	public void beforeTest() throws Exception {
-		
+
 		this.expenseDAO = new ExpenseDAO();
 		this.expenseOne = new Expense();
 		this.expenseTwo = new Expense();
@@ -49,13 +51,13 @@ public class ExpenseDAOTest extends TemplateTest {
 
 	@Override
 	public void afterTest() throws Exception {
-		
+
 	}
-	
+
 	private void shouldRegisterAnArrayOfExpenses() throws Exception {
-		
+
 		ArrayList<Expense> expenseList = new ArrayList<>();
-		
+
 		this.positionOne.setPositionDescription("POSITION UM");
 		this.campaignOne.setCampaignIdentifier(1);
 		this.campaignOne.setCampaignYear(2006);
@@ -73,7 +75,7 @@ public class ExpenseDAOTest extends TemplateTest {
 		expenseOne.setFinancialTransactionDocumentNumber("NUMBER DOCUMENTO UM");
 		expenseOne.setExpenseSupplier(supplierOne);
 		expenseList.add(expenseOne);
-		
+
 		this.positionTwo.setPositionDescription("POSITION DOIS");
 		this.campaignTwo.setCampaignIdentifier(2);
 		this.campaignTwo.setCampaignYear(2006);
@@ -88,47 +90,76 @@ public class ExpenseDAOTest extends TemplateTest {
 		expenseTwo.setFinancialTransactionDescription("DESCRIPTION DOIS");
 		expenseTwo.setFinancialTransactionDate("12/10/2006");
 		expenseTwo.setFinancialTransactionType("TIPO MOVIMENTACAO DOIS");
-		expenseTwo.setFinancialTransactionDocumentNumber("NUMBER DOCUMENTO DOIS");
+		expenseTwo
+				.setFinancialTransactionDocumentNumber("NUMBER DOCUMENTO DOIS");
 		expenseTwo.setExpenseSupplier(supplierTwo);
 		expenseList.add(expenseTwo);
-		
-		this.expenseDAO.registerUnregisteredObjectArrayListOnDatabase(expenseList);
-		this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaignOne);
+
+		this.expenseDAO
+				.registerUnregisteredObjectArrayListOnDatabase(expenseList);
+		this.expenseDAO
+				.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaignOne);
 	}
-	
+
 	@Test
-	public void shouldRetrieveSQLConsultationForAttributes() throws SQLException {
-		
+	public void shouldRetrieveSQLConsultationForAttributes()
+			throws SQLException {
+
 		Position position = new Position();
 		position.setPositionDescription("PRESIDENTE");
-		
+
 		Campaign campaign = new Campaign();
 		campaign.setCampaignYear(2002);
 		campaign.setCampaignCandidateNumber(13222);
 		campaign.setCampaignCountryState("DF");
-		
+
 		String sqlCommand;
-		
+
 		sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
-				  + DATABASE_EXPENSE_CAMPAIGN_YEAR + " = " + campaign.getCampaignYear()
-				  + " AND " + DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER + " = "
-				  + campaign.getCampaignCandidateNumber() + " AND "
-				  + DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE + " = '" 
-				  + campaign.getCampaignCountryState() + "' AND "
-				  + DATABASE_EXPENSE_CAMPAIGN_POSITION + " LIKE '%"
-				  + campaign.getCampaignPosition().getPositionDescription() + "%'";
-		
-		assertEquals(sqlCommand, this.expenseDAO.mountingSQLConsultationForAttributes(campaign));
+				+ DATABASE_EXPENSE_CAMPAIGN_YEAR + " = "
+				+ campaign.getCampaignYear() + " AND "
+				+ DATABASE_EXPENSE_CAMPAIGN_CANDIDATE_NUMBER + " = "
+				+ campaign.getCampaignCandidateNumber() + " AND "
+				+ DATABASE_EXPENSE_CAMPAIGN_COUNTRY_STATE + " = '"
+				+ campaign.getCampaignCountryState() + "' AND "
+				+ DATABASE_EXPENSE_CAMPAIGN_POSITION + " LIKE '%"
+				+ campaign.getCampaignPosition().getPositionDescription()
+				+ "%'";
+
+		assertEquals(sqlCommand,
+				this.expenseDAO.mountingSQLConsultationForAttributes(campaign));
 	}
-	
+
 	@Test
-	public void shouldRetrieveExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition() throws Exception {
-		
+	public void shouldRetrieveSQLConsultationForIdentifier()
+			throws SQLException {
+
+		Expense expense = new Expense();
+		expense.setFinancialTransactionIdentifier(12);
+		Integer expenseIdentifier = expense.getFinancialTransactionIdentifier();
+
+		String sqlCommand;
+
+		sqlCommand = DATABASE_SQL_COMMAND_SELECT + " WHERE "
+				+ DATABASE_EXPENSE_IDENTIFIER + " = " + expenseIdentifier;
+
+		assertEquals(
+				sqlCommand,
+				this.expenseDAO
+						.mountingSQLConsultationForIdentifier(expenseIdentifier));
+	}
+
+	@Test
+	public void shouldRetrieveExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition()
+			throws Exception {
+
 		shouldRegisterAnArrayOfExpenses();
-		
+
 		int expensesArraySize = 0;
-		expensesArraySize = this.expenseDAO.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(campaignOne).size();
-		
+		expensesArraySize = this.expenseDAO
+				.getExpenseByCampaignYearAndCandidateNumberAndCampaignCountryStateAndCampaignPosition(
+						campaignOne).size();
+
 		assertEquals(1, expensesArraySize);
 	}
 
