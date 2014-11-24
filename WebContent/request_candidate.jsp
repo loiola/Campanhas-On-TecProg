@@ -37,16 +37,20 @@
 						<c:url var="link_search" value="/mvc">
 							<c:param name="logic"
 								value="VisualizeResultOfSearchCandidateList"></c:param>
-							<c:param name="firstCandidate" value="${0}"></c:param>
-							<c:param name="quantityCandidatePerPage" value="${10}"></c:param>
-							<c:param name="seeAllCandidates" value="${false}"></c:param>
-							<c:param name="centerCandidate" value="${1}"></c:param>
+								
+							<!-- PAGINATION LOGIC PARAMETERS -->
+							<c:param name="pagination__first_page" value="${0}"></c:param>
+							<c:param name="pagination__qtd_of_terms" value="${10}"></c:param>
+							<c:param name="pagination__see_all" value="${false}"></c:param>
+							<c:param name="pagination__center_page" value="${1}"></c:param>
+							<!-- END PAGINATION LOGIC PARAMETERS -->
+							
 						</c:url>
 
 						<form action="${link_search}" method="post">
-							<br> <input class="campoRapido" type="text" name="nameOfCandidateSearch"
-								required> <br> <br> <br> <input
-								id="botao" type="submit" value="Buscar" />
+							<br> <input class="campoRapido" type="text"
+								name="nameOfCandidateSearch" required> <br> <br>
+							<br> <input id="botao" type="submit" value="Buscar" />
 						</form>
 					</center>
 				</div>
