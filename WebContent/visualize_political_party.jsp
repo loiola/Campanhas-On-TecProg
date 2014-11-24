@@ -95,12 +95,17 @@
 										<tbody>
 											<tr>
 												<td><c:url var="YearUrl" value="/mvc">
-														<c:param name="logic" value="VisualizeCandidateOfPoliticalParty" />
+														<c:param name="logic"
+															value="VisualizeCandidateOfPoliticalParty" />
 														<c:param name="partyAcronym" value="${party.partyAcronym}" />
 														<c:param name="year" value="${year}" />
-														<c:param name="first" value="${0}" />
-														<c:param name="quantityPerPage" value="${10}" />
-														<c:param name="seeAllPoliticalParties" value="${false}" />
+
+														<!-- PAGINATION LOGIC PARAMETERS -->
+														<c:param name="pagination__first_page" value="${0}" />
+														<c:param name="pagination__qtd_of_terms" value="${10}" />
+														<c:param name="pagination__see_all" value="${false}" />
+														<c:param name="pagination__center_page" value="${1}"></c:param>
+														<!-- END PAGINATION LOGIC PARAMETERS -->
 													</c:url>
 													<center>
 														<a href="${YearUrl}">${year}</a>

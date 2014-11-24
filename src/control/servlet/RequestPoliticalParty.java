@@ -17,12 +17,12 @@ public class RequestPoliticalParty implements Logic {
 	 * Servlet to request control of political parties
 	 */
 
-	// Attributes 
-	
+	// Attributes
+
 	// Attribute that characterizes an instance of political party's control
 	private PartyControl control;
-	
-	// Attribute that characterizes list of political parties of Brazil 
+
+	// Attribute that characterizes list of political parties of Brazil
 	private List<Party> politicalPartyList;
 
 	// Attribute that characterizes a request of servlet
@@ -45,7 +45,7 @@ public class RequestPoliticalParty implements Logic {
 		setParameters();
 		prepareParametersTransmission();
 
-		// Returns the page with the list of candidates
+		// Returns the page with the list of parties
 		return "/list_political_party.jsp";
 	}
 
@@ -55,9 +55,9 @@ public class RequestPoliticalParty implements Logic {
 	private void setParameters() throws SQLException {
 		this.control = new PartyControl();
 		this.politicalPartyList = control.getListAllParties();
-		
-		this.servletRequest = ListPaginationLogic.updatePaginationList(servletRequest,
-				politicalPartyList.size(),
+
+		this.servletRequest = ListPaginationLogic.updatePaginationList(
+				servletRequest, politicalPartyList.size(),
 				ListPaginationLogic.STANDARD_EXPECTED_PAGINATION_NAME);
 	}
 
