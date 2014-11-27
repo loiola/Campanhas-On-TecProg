@@ -1,6 +1,6 @@
 package log.general;
 
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 public class ControlLogger {
 	private static Logger logger;
@@ -18,6 +18,11 @@ public class ControlLogger {
 
 	public static void warn(String loggerType, String warningString) {
 		setUpLogger(loggerType);
-		logger.warning(warningString);
+		logger.warn(warningString);
+	}
+	
+	public static void debug(String loggerType, String debugString) {
+		setUpLogger(loggerType);
+		logger.debug(debugString);
 	}
 }
