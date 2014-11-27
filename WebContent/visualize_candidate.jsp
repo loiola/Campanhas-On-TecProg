@@ -103,14 +103,16 @@
 														<c:param name="electionYear" value="${campaign.campaignYear}" />
 														<c:param name="codeOfPosition" value="${campaign.campaignPosition.positionCode}" />
 														<c:param name="countryState" value="${campaign.campaignCountryState}" />
-														<c:param name="firstRevenue" value="${0}" />
-														<c:param name="quantityRevenuePerPage" value="${10}" />
-														<c:param name="seeAllRevenues" value="${false}" />
-														<c:param name="centerOfRevenue" value="${1}" />
-														<c:param name="firstExpense" value="${0}" />
-														<c:param name="quantityExpensePerPage" value="${10}" />
-														<c:param name="seeAllExpenses" value="${false}" />
-														<c:param name="centerOfExpense" value="${1}" />
+														<!-- PAGINATION PARAMETERS -->
+														<c:param name="revenue_pagination__first_page" value="${0}" />
+														<c:param name="revenue_pagination__qtd_of_terms" value="${10}" />
+														<c:param name="revenue_pagination__see_all" value="${false}" />
+														<c:param name="revenue_pagination__center_page" value="${1}" />
+														<c:param name="expense_pagination__first_page" value="${0}" />
+														<c:param name="expense_pagination__qtd_of_terms" value="${10}" />
+														<c:param name="expense_pagination__see_all" value="${false}" />
+														<c:param name="expense_pagination__center_page" value="${1}" />
+														<!-- END PAGINATION PARAMETERS -->
 													</c:url> <a href="${YearUrl}"><center>Campanha de ${campaign.campaignYear}</center></a></th>
 											</tr>
 										</thead>

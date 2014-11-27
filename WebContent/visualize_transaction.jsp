@@ -43,7 +43,8 @@
 					<table>
 						<tr>
 							<td width="200"><b>Nome do Candidato:</b></td>
-							<td><c:out value="${campaign.campaignCandidate.candidateName}" /></td>
+							<td><c:out
+									value="${campaign.campaignCandidate.candidateName}" /></td>
 						</tr>
 						<tr>
 							<td><b>Número do Candidato:</b></td>
@@ -51,7 +52,8 @@
 						</tr>
 						<tr>
 							<td><b>Cargo Pleiteado:</b></td>
-							<td><c:out value="${campaign.campaignPosition.positionDescription}" /></td>
+							<td><c:out
+									value="${campaign.campaignPosition.positionDescription}" /></td>
 						</tr>
 						<tr>
 							<td><b>Ano:</b></td>
@@ -59,7 +61,8 @@
 						</tr>
 						<tr>
 							<td><b>Resultado:</b></td>
-							<td><c:out value="${campaign.campaignResult.resultDescription}" /></td>
+							<td><c:out
+									value="${campaign.campaignResult.resultDescription}" /></td>
 						</tr>
 						<tr>
 							<td><b>Despesa Máxima Declarada:</b></td>
@@ -67,7 +70,8 @@
 						</tr>
 						<tr>
 							<td><b>Saldo da Campanha:</b></td>
-							<td><c:out value="${totalRevenueCalculatedValue - totalExpenseCalculatedValue}" /></td>
+							<td><c:out
+									value="${totalRevenueCalculatedValue - totalExpenseCalculatedValue}" /></td>
 						</tr>
 					</table>
 				</div>
@@ -93,7 +97,8 @@
 								</tr>
 
 								<c:forEach var="revenue" items="${revenueList}"
-									begin="${firstRevenue}" end="${firstRevenue+(quantityRevenuePerPage-1)}"
+									begin="${revenue_pagination.firstPageOfTheList}"
+									end="${revenue_pagination.firstPageOfTheList+(revenue_pagination.quantityOfTermsPerPage-1)}"
 									varStatus="listagemR">
 									<tr>
 										<td>${revenue.financialTransactionDate}</td>
@@ -147,48 +152,70 @@
 									<tr>
 										<td colspan="4"><center>
 												Páginas:
+												<!-- "FIRST" PAGE REVENUE PARAMETERS -->
 												<c:url var="url_pagInicialR" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionsOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-													<c:param name="firstRevenue" value="${0}" />
-													<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-													<c:param name="totalRevenueCalculatedValue" value="${false}" />
-													<c:param name="centerOfRevenue" value="${1}" />
-													<c:param name="firstExpense" value="${firstExpense}" />
-													<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="centerOfExpense" value="${centerOfExpense}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
+													<c:param name="revenue_pagination__first_page" value="${0}" />
+													<c:param name="revenue_pagination__qtd_of_terms"
+														value="${revenue_pagination__qtd_of_terms}" />
+													<c:param name="revenue_pagination__see_all"
+														value="${false}" />
+													<c:param name="revenue_pagination__center_page" value="${1}" />
+													<c:param name="expense_pagination__first_page" value="${expense_pagination__first_page}" />
+													<c:param name="expense_pagination__qtd_of_terms"
+														value="$expense_pagination__qtd_of_terms}" />
+													<c:param name="expense_pagination_see_all"
+														value="${expense_pagination_see_all}" />
+													<c:param name="expense_pagination__center_page" value="${expense_pagination__center_page}" />
 												</c:url>
 												<a href="${url_pagInicialR}"><c:out value="primeira... " /></a>
-												<c:forEach var="i" begin="${minimumRadiusRevenue}" end="${maximumRadiusRevenue}">
+												<!-- END "FIRST" PAGE REVENUE PARAMETERS -->
+												<c:forEach var="i" begin="${minimumRadiusRevenue}"
+													end="${maximumRadiusRevenue}">
 													<c:url var="url_pagR" value="/mvc">
 														<c:param name="logic"
 															value="RequestFinancialTransactionOfCandidate" />
-														<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-														<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${totalExpenseCalculatedValue}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${totalRevenueCalculatedValue}" />
 														<c:param name="campaignCandidateNumber"
 															value="${campaign.campaignCandidateNumber}" />
-														<c:param name="campaignYear" value="${campaign.campaignYear}" />
-														<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-														<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-														<c:param name="firstRevenue" value="${(i-1)*quantityRevenuePerPage}" />
-														<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-														<c:param name="totalRevenueCalculatedValue" value="${false}" />
-														<c:param name="centerOfRevenue" value="${i}" />
+														<c:param name="campaignYear"
+															value="${campaign.campaignYear}" />
+														<c:param name="campaignPosition"
+															value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="campaignCountryState"
+															value="${campaign.campaignCountryState}" />
+														<c:param name="revenue_pagination__first_page"
+															value="${(i-1)*revenue_pagination__qtd_of_terms}" />
+														<c:param name="revenue_pagination__qtd_of_terms"
+															value="${revenue_pagination__qtd_of_terms}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${false}" />
+														<c:param name="revenue_pagination__center_page" value="${i}" />
 														<c:param name="firstExpense" value="${firstExpense}" />
-														<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-														<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
+														<c:param name="quantityExpensePerPage"
+															value="${quantityExpensePerPage}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${totalExpenseCalculatedValue}" />
 														<c:param name="centerOfExpense" value="${centerOfExpense}" />
 													</c:url>
 													<c:choose>
-														<c:when test="${i == centerOfRevenue}">[ ${i} ]</c:when>
+														<c:when test="${i == revenue_pagination__center_page}">[ ${i} ]</c:when>
 														<c:otherwise>
 															<a href="${url_pagR}"><c:out value="${i}" /></a>
 														</c:otherwise>
@@ -197,21 +224,30 @@
 												<c:url var="url_pagFinalR" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-													<c:param name="firstRevenue"
-														value="${(revenueIndex-1)*quantityRevenuePerPage}" />
-													<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-													<c:param name="totalRevenueCalculatedValue" value="${false}" />
-													<c:param name="centerOfRevenue" value="${revenueIndex}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
+													<c:param name="revenue_pagination__first_page"
+														value="${(revenueIndex-1)*revenue_pagination__qtd_of_terms}" />
+													<c:param name="revenue_pagination__qtd_of_terms"
+														value="${revenue_pagination__qtd_of_terms}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${false}" />
+													<c:param name="revenue_pagination__center_page" value="${revenueIndex}" />
 													<c:param name="firstExpense" value="${firstExpense}" />
-													<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
+													<c:param name="quantityExpensePerPage"
+														value="${quantityExpensePerPage}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
 													<c:param name="centerOfExpense" value="${centerOfExpense}" />
 												</c:url>
 												<a href="${url_pagFinalR}"><c:out value=" ...última" /></a>
@@ -219,20 +255,28 @@
 												<c:url var="url_tamanhoOriginalR" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-													<c:param name="firstRevenue" value="${0}" />
-													<c:param name="quantityRevenuePerPage" value="${10}" />
-													<c:param name="totalRevenueCalculatedValue" value="${false}" />
-													<c:param name="centerOfRevenue" value="${1}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
+													<c:param name="revenue_pagination__first_page" value="${0}" />
+													<c:param name="revenue_pagination__qtd_of_terms" value="${10}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${false}" />
+													<c:param name="revenue_pagination__center_page" value="${1}" />
 													<c:param name="firstExpense" value="${firstExpense}" />
-													<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
+													<c:param name="quantityExpensePerPage"
+														value="${quantityExpensePerPage}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
 													<c:param name="centerOfExpense" value="${centerOfExpense}" />
 												</c:url>
 												<a href="${url_tamanhoOriginalR}"> ${10}</a>
@@ -240,36 +284,43 @@
 													<c:url var="url_tamanhosR" value="/mvc">
 														<c:param name="logic"
 															value="RequestFinancialTransactionOfCandidate" />
-														<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-														<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${totalExpenseCalculatedValue}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${totalRevenueCalculatedValue}" />
 														<c:param name="campaignCandidateNumber"
 															value="${campaign.campaignCandidateNumber}" />
-														<c:param name="campaignYear" value="${campaign.campaignYear}" />
-														<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-														<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-														<c:param name="firstRevenue" value="${0}" />
+														<c:param name="campaignYear"
+															value="${campaign.campaignYear}" />
+														<c:param name="campaignPosition"
+															value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="campaignCountryState"
+															value="${campaign.campaignCountryState}" />
+														<c:param name="revenue_pagination__first_page" value="${0}" />
 														<c:choose>
 															<c:when test="${i == 5}">
-																<c:param name="quantityRevenuePerPage" value="${250}" />
+																<c:param name="revenue_pagination__qtd_of_terms" value="${250}" />
 															</c:when>
 															<c:when test="${i == 6 }">
-																<c:param name="quantityRevenuePerPage" value="${500}" />
+																<c:param name="revenue_pagination__qtd_of_terms" value="${500}" />
 															</c:when>
 															<c:when test="${i == 7 }">
-																<c:param name="quantityRevenuePerPage" value="${1000}" />
+																<c:param name="revenue_pagination__qtd_of_terms" value="${1000}" />
 															</c:when>
 															<c:when test="${i == 8 }">
-																<c:param name="quantityRevenuePerPage" value="${2000}" />
+																<c:param name="revenue_pagination__qtd_of_terms" value="${2000}" />
 															</c:when>
 															<c:otherwise>
-																<c:param name="quantityRevenuePerPage" value="${i*25}" />
+																<c:param name="revenue_pagination__qtd_of_terms" value="${i*25}" />
 															</c:otherwise>
 														</c:choose>
 														<c:param name="verTodosR" value="${false}" />
 														<c:param name="centroR" value="${1}" />
 														<c:param name="firstExpense" value="${firstExpense}" />
-														<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-														<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
+														<c:param name="quantityExpensePerPage"
+															value="${quantityExpensePerPage}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${totalExpenseCalculatedValue}" />
 														<c:param name="centerOfExpense" value="${centerOfExpense}" />
 													</c:url>
 													<a href="${url_tamanhosR}"> <c:choose>
@@ -293,20 +344,27 @@
 												<c:url var="url_todosR" value="/mvc">
 													<c:param name="logica"
 														value="RequisitarMovimentacoesDeCandidato" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-													<c:param name="firstRevenue" value="${0}" />
-													<c:param name="quantityRevenuePerPage" value="${0}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
+													<c:param name="revenue_pagination__first_page" value="${0}" />
+													<c:param name="revenue_pagination__qtd_of_terms" value="${0}" />
 													<c:param name="totalRevenueCalculatedValue" value="${true}" />
-													<c:param name="centerOfRevenue" value="${1}" />
+													<c:param name="revenue_pagination__center_page" value="${1}" />
 													<c:param name="firstExpense" value="${firstExpense}" />
-													<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
+													<c:param name="quantityExpensePerPage"
+														value="${quantityExpensePerPage}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
 													<c:param name="centerOfExpense" value="${centerOfExpense}" />
 												</c:url>
 												<a href="${url_todosR}"> Ver Todos</a>
@@ -346,7 +404,8 @@
 
 								<!-- Elementos da tabela -->
 								<c:forEach var="expense" items="${expenseList}"
-									begin="${firstExpense}" end="${firstExpense+(quantityExpensePerPage-1)}"
+									begin="${firstExpense}"
+									end="${firstExpense+(quantityExpensePerPage-1)}"
 									varStatus="listagemD">
 									<tr>
 										<td>${expense.financialTransactionDate}</td>
@@ -399,42 +458,62 @@
 												<c:url var="url_pagInicialD" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
 													<c:param name="firstExpense" value="${0}" />
-													<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-													<c:param name="totalExpenseCalculatedValue" value="${false}" />
+													<c:param name="quantityExpensePerPage"
+														value="${quantityExpensePerPage}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${false}" />
 													<c:param name="centerOfExpense" value="${1}" />
-													<c:param name="firstRevenue" value="${firstRevenue}" />
-													<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
-													<c:param name="centerOfRevenue" value="${centerOfRevenue}" />
+													<c:param name="revenue_pagination__first_page" value="${revenue_pagination__first_page}" />
+													<c:param name="revenue_pagination__qtd_of_terms"
+														value="${revenue_pagination__qtd_of_terms}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
+													<c:param name="revenue_pagination__center_page" value="${revenue_pagination__center_page}" />
 												</c:url>
 												<a href="${url_pagInicialD}"><c:out value="primeira... " /></a>
-												<c:forEach var="i" begin="${minimumRadiusExpense}" end="${maximumRadiusExpense}">
+												<c:forEach var="i" begin="${minimumRadiusExpense}"
+													end="${maximumRadiusExpense}">
 													<c:url var="url_pagD" value="/mvc">
 														<c:param name="logic"
 															value="RequestFinancialTransactionOfCandidate" />
-														<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-														<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${totalExpenseCalculatedValue}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${totalRevenueCalculatedValue}" />
 														<c:param name="campaignCandidateNumber"
 															value="${campaign.campaignCandidateNumber}" />
-														<c:param name="campaignYear" value="${campaign.campaignYear}" />
-														<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-														<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
-														<c:param name="firstExpense" value="${(i-1)*quantityExpensePerPage}" />
-														<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-														<c:param name="totalExpenseCalculatedValue" value="${false}" />
+														<c:param name="campaignYear"
+															value="${campaign.campaignYear}" />
+														<c:param name="campaignPosition"
+															value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="campaignCountryState"
+															value="${campaign.campaignCountryState}" />
+														<c:param name="firstExpense"
+															value="${(i-1)*quantityExpensePerPage}" />
+														<c:param name="quantityExpensePerPage"
+															value="${quantityExpensePerPage}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${false}" />
 														<c:param name="centerOfExpense" value="${i}" />
-														<c:param name="firstRevenue" value="${firstRevenue}" />
-														<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-														<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
-														<c:param name="centerOfRevenue" value="${centerOfRevenue}" />
+														<c:param name="revenue_pagination__first_page" value="${revenue_pagination__first_page}" />
+														<c:param name="revenue_pagination__qtd_of_terms"
+															value="${revenue_pagination__qtd_of_terms}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${totalRevenueCalculatedValue}" />
+														<c:param name="revenue_pagination__center_page" value="${revenue_pagination__center_page}" />
 													</c:url>
 													<c:choose>
 														<c:when test="${i == centerOfExpense}">[ ${i} ]</c:when>
@@ -446,56 +525,78 @@
 												<c:url var="url_pagFinalD" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionsOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
 													<c:param name="firstExpense"
 														value="${(expenseIndex-1)*quantityExpensePerPage}" />
-													<c:param name="quantityExpensePerPage" value="${quantityExpensePerPage}" />
-													<c:param name="totalExpenseCalculatedValue" value="${false}" />
+													<c:param name="quantityExpensePerPage"
+														value="${quantityExpensePerPage}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${false}" />
 													<c:param name="centerOfExpense" value="${expenseIndex}" />
-													<c:param name="firstRevenue" value="${firstRevenue}" />
-													<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
-													<c:param name="centerOfRevenue" value="${centerOfRevenue}" />
+													<c:param name="revenue_pagination__first_page" value="${revenue_pagination__first_page}" />
+													<c:param name="revenue_pagination__qtd_of_terms"
+														value="${revenue_pagination__qtd_of_terms}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
+													<c:param name="revenue_pagination__center_page" value="${revenue_pagination__center_page}" />
 												</c:url>
 												<a href="${url_pagFinalD}"><c:out value=" ...última" /></a>
 												<br> Despesas por Página:
 												<c:url var="url_tamanhoOriginalD" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
 													<c:param name="firstExpense" value="${0}" />
 													<c:param name="quantityExpensePerPage" value="${10}" />
-													<c:param name="totalExpenseCalculatedValue" value="${false}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${false}" />
 													<c:param name="centerOfExpense" value="${centerOfExpense}" />
-													<c:param name="firstRevenue" value="${firstRevenue}" />
-													<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
-													<c:param name="centerOfRevenue" value="${centerOfRevenue}" />
+													<c:param name="revenue_pagination__first_page" value="${revenue_pagination__first_page}" />
+													<c:param name="revenue_pagination__qtd_of_terms"
+														value="${revenue_pagination__qtd_of_terms}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
+													<c:param name="revenue_pagination__center_page" value="${revenue_pagination__center_page}" />
 												</c:url>
 												<a href="${url_tamanhoOriginalD}"> ${10}</a>
 												<c:forEach var="i" begin="1" end="${quantityOfPPD}">
 													<c:url var="url_tamanhosD" value="/mvc">
 														<c:param name="logic"
 															value="RequestFinancialTransactionOfCandidate" />
-														<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-														<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${totalExpenseCalculatedValue}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${totalRevenueCalculatedValue}" />
 														<c:param name="campaignCandidateNumber"
 															value="${campaign.campaignCandidateNumber}" />
-														<c:param name="campaignYear" value="${campaign.campaignYear}" />
-														<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-														<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
+														<c:param name="campaignYear"
+															value="${campaign.campaignYear}" />
+														<c:param name="campaignPosition"
+															value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="campaignCountryState"
+															value="${campaign.campaignCountryState}" />
 														<c:param name="firstExpense" value="${0}" />
 														<c:choose>
 															<c:when test="${i == 5}">
@@ -514,12 +615,15 @@
 																<c:param name="quantityExpensePerPage" value="${i*25}" />
 															</c:otherwise>
 														</c:choose>
-														<c:param name="totalExpenseCalculatedValue" value="${false}" />
+														<c:param name="totalExpenseCalculatedValue"
+															value="${false}" />
 														<c:param name="centerOfExpense" value="${1}" />
-														<c:param name="firstRevenue" value="${firstRevenue}" />
-														<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-														<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
-														<c:param name="centerOfRevenue" value="${centerOfRevenue}" />
+														<c:param name="revenue_pagination__first_page" value="${revenue_pagination__first_page}" />
+														<c:param name="revenue_pagination__qtd_of_terms"
+															value="${revenue_pagination__qtd_of_terms}" />
+														<c:param name="totalRevenueCalculatedValue"
+															value="${totalRevenueCalculatedValue}" />
+														<c:param name="revenue_pagination__center_page" value="${revenue_pagination__center_page}" />
 													</c:url>
 													<a href="${url_tamanhosD}"> <c:choose>
 															<c:when test="${i == 5}">
@@ -542,21 +646,28 @@
 												<c:url var="url_todosD" value="/mvc">
 													<c:param name="logic"
 														value="RequestFinancialTransactionOfCandidate" />
-													<c:param name="totalExpenseCalculatedValue" value="${totalExpenseCalculatedValue}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
+													<c:param name="totalExpenseCalculatedValue"
+														value="${totalExpenseCalculatedValue}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
 													<c:param name="campaignCandidateNumber"
 														value="${campaign.campaignCandidateNumber}" />
-													<c:param name="campaignYear" value="${campaign.campaignYear}" />
-													<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
-													<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
+													<c:param name="campaignYear"
+														value="${campaign.campaignYear}" />
+													<c:param name="campaignPosition"
+														value="${campaign.campaignPosition.positionCode}" />
+													<c:param name="campaignCountryState"
+														value="${campaign.campaignCountryState}" />
 													<c:param name="firstExpense" value="${0}" />
 													<c:param name="quantityExpensePerPage" value="${0}" />
 													<c:param name="totalRevenueCalculatedValue" value="${true}" />
 													<c:param name="centerOfExpense" value="${1}" />
-													<c:param name="firstRevenue" value="${firstRevenue}" />
-													<c:param name="quantityRevenuePerPage" value="${quantityRevenuePerPage}" />
-													<c:param name="totalRevenueCalculatedValue" value="${totalRevenueCalculatedValue}" />
-													<c:param name="centerOfRevenue" value="${centerOfRevenue}" />
+													<c:param name="revenue_pagination__first_page" value="${revenue_pagination__first_page}" />
+													<c:param name="revenue_pagination__qtd_of_terms"
+														value="${revenue_pagination__qtd_of_terms}" />
+													<c:param name="totalRevenueCalculatedValue"
+														value="${totalRevenueCalculatedValue}" />
+													<c:param name="revenue_pagination__center_page" value="${revenue_pagination__center_page}" />
 												</c:url>
 												<a href="${url_todosD}"> Ver Todos</a>
 											</center></td>
