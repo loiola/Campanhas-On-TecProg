@@ -1,5 +1,7 @@
 package test.model.dao;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -48,6 +50,7 @@ public class DatabaseConnectionTest {
 		this.databaseConnection.setDatabasePath(localInvalido);
 		this.databaseConnection.createDatabaseSchema(DATABASE_TESTS);
 		this.databaseConnection.dropDatabaseName();
+		assertTrue(true);
 	}
 	
 	@Test(expected = SQLException.class)
@@ -60,6 +63,7 @@ public class DatabaseConnectionTest {
 		this.databaseConnection.adjustDatabaseSchemaName(DATABASE_TESTS);
 		this.databaseConnection.readSQLCommandFromFile(arquivoSQL);
 		this.databaseConnection.dropDatabaseName();
+		assertTrue(true);
 	}
 	
 	@Test(expected = SQLException.class)
@@ -71,6 +75,7 @@ public class DatabaseConnectionTest {
 		this.databaseConnection.setDatabasePath(localInvalido);
 		this.databaseConnection.adjustDatabaseSchemaName(DATABASE_TESTS);
 		this.databaseConnection.dropDatabaseName();
+		assertTrue(true);
 	}
 
 }

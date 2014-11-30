@@ -177,7 +177,11 @@ public class Campaign {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Campaign)) {
+		
+		// Variable that is not instance of a campaign
+		boolean notInstanceOfObject = (!(object instanceof Campaign));
+		
+		if(notInstanceOfObject) {
 			return false;
 		} else {
 

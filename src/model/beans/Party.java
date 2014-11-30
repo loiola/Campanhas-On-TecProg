@@ -73,7 +73,11 @@ public class Party {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Party)) {
+		
+		// Variable that is not instance of a Party
+		boolean notInstanceOfObject = (!(object instanceof Party));
+		
+		if(notInstanceOfObject) {
 			return false;
 		} else {
 

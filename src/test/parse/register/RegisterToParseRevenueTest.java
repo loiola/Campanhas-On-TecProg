@@ -1,6 +1,6 @@
 package test.parse.register;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -115,10 +115,12 @@ public class RegisterToParseRevenueTest extends TemplateTest {
 	@Test(expected=ParseException.class)  
 	public void shouldReturnAnExceptionToTheFalseFile() throws ParseException {
 		new RegisterToParseRevenue(this.wrongFileType, this.year1);
+		assertTrue(true);
 	}
 	
 	@Test(expected=ParseException.class)  
 	public void shouldReturnAnExceptionToTheFalseYear() throws ParseException {
 		new RegisterToParseRevenue(this.fileType, this.yearFalse);
+		assertTrue(true);
 	}
 }

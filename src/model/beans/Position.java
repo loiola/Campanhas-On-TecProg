@@ -49,7 +49,11 @@ public class Position {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Position)) {
+		
+		// Variable that is not instance of a Position
+		boolean notInstanceOfObject = (!(object instanceof Position));
+		
+		if(notInstanceOfObject) {
 			return false;
 		} else {
 

@@ -50,7 +50,11 @@ public class Result {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Result)) {
+		
+		// Variable that is not instance of a Result
+		boolean notInstanceOfObject = (!(object instanceof Result));
+		
+		if(notInstanceOfObject) {
 			return false;
 		} else {
 

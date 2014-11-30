@@ -72,7 +72,11 @@ public class Supplier {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Supplier)) {
+		
+		// Variable that is not instance of a Supplier
+		boolean notInstanceOfObject = (!(object instanceof Supplier));
+		
+		if(!(notInstanceOfObject)) {
 			return false;
 		} else {
 

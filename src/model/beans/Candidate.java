@@ -49,7 +49,11 @@ public class Candidate {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Candidate)) {
+		
+		// Variable that is not instance of a candidate
+		boolean notInstanceOfObject = (!(object instanceof Candidate));
+				
+		if(notInstanceOfObject) {
 			return false;
 		} else {
 

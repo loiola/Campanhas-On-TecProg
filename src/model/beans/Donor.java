@@ -72,7 +72,11 @@ public class Donor {
 	 */
 	@Override
 	public boolean equals(Object object) {
-		if(!(object instanceof Donor)) {
+		
+		// Variable that is not instance of a Donor
+		boolean notInstanceOfObject = (!(object instanceof Donor));
+		
+		if(notInstanceOfObject) {
 			return false;
 		} else {
 
