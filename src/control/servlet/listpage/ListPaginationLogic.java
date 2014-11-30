@@ -11,12 +11,23 @@ public class ListPaginationLogic {
 	 * respond to the user interaction with lists paginations
 	 */
 
+	// Constants
 	public static final String STANDARD_EXPECTED_PAGINATION_NAME = "pagination";
 	private static final String FIRST_PAGE_OF_THE_LIST_NAME = "__first_page";
 	private static final String QUANTITY_OF_TERMS_PER_PAGE_NAME = "__qtd_of_terms";
 	private static final String SEE_ALL_TRIGGER_NAME = "__see_all";
 	private static final String CENTER_OF_PAGES_LISTED_NAME = "__center_page";
 
+	/**
+	 * This method is responsible for update list of a pagination
+	 * @param  requestReference
+	 * 			 values received from the View
+	 * @param listSize
+	 *			 size of the quantity of terms per page
+	 * @param paginationExpectedName
+	 * 			  name of the page expected  
+	 * @return a request
+	 */
 	public static HttpServletRequest updatePaginationList(
 			HttpServletRequest requestReference, Integer listSize,
 			String paginationExpectedName) {
@@ -28,6 +39,16 @@ public class ListPaginationLogic {
 		return request;
 	}
 
+	/**
+	 * This method is responsible for generate the values of pagination
+	 * @param request
+	 *            values received from the View
+	 * @param listSize 
+	 * 			  size of the quantity of terms per page 
+	 * @param paginationExpectedName
+	 * 			  name of the page expected 			  
+	 * @return a pagination
+	 */
 	private static Pagination generatePaginationValues(
 			HttpServletRequest request, Integer listSize,
 			String paginationExpectedName) {
@@ -68,6 +89,14 @@ public class ListPaginationLogic {
 		return pagination;
 	}
 
+	/**
+	 * This method is responsible for generate list index
+	 * @param listSize 
+	 * 			  size of the quantity of terms per page
+	 * @param divider
+	 * 			 number responsible for division
+	 * @return integer quantity of list index 
+	 */
 	private static Integer generateListIndex(Integer listSize, Integer divider) {
 		Integer listIndex = 0;
 		if (divider != 0) {
@@ -78,6 +107,12 @@ public class ListPaginationLogic {
 		return listIndex;
 	}
 
+	/**
+	 * This method is responsible for generate quantity of pages listed in the page
+	 * @param listSize 
+	 * 			  size of the quantity of terms per page
+	 * @return integer quantity of index per page
+	 */
 	private static Integer generateQuantityOfPagesListedInThePage(
 			Integer listSize) {
 		Integer dividerReferenceForPageIndex = 25;
@@ -89,6 +124,12 @@ public class ListPaginationLogic {
 		return pageIndex;
 	}
 
+	/**
+	 * This method is responsible for delimit the number of index per page
+	 * @param pageIndexReference
+	 * 				 page of reference
+	 * @return integer quantity of index per page
+	 */
 	private static Integer checkAndLimitPageIndex(Integer pageIndexReference) {
 		Integer pageIndex = pageIndexReference;
 		if (pageIndex <= 0) {
@@ -119,6 +160,12 @@ public class ListPaginationLogic {
 		return pageIndex;
 	}
 
+	/**
+	 * This method is responsible for generate the quantity of pages listed radius
+	 * @param  pagination
+	 * 				 page for analyzes 
+	 * @return a pagination
+	 */
 	private static Pagination generateQuantityOfPagesListedRadius(
 			Pagination pagination) {
 		Integer counter = 0;
