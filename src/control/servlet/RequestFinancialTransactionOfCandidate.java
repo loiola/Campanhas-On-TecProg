@@ -9,6 +9,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Campaign;
 import model.beans.Expense;
 import model.beans.Position;
@@ -73,24 +74,26 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	public String execute(HttpServletRequest requestServlet,
 			HttpServletResponse responseServlet) throws Exception {
 
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
+
 		this.servletRequest = requestServlet;
 
 		receiveParameters();
 
-		if (this.campaign == null) {
-
-			// Returns an error page if the list is empty
-			return "/error_nonexistent_candidate.jsp";
-
-		} else {
-
-			// Otherwise, call refactored methods
+		String forwardPageLink = "/error_nonexistent_candidate.jsp";
+		if (this.campaign != null) {
 			setParameters();
 			prepareParametersTransmission();
 
-			// And returns the page with the result of requests
-			return "/visualize_transaction.jsp";
+			forwardPageLink = "/visualize_transaction.jsp";
 		}
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ "\nThe returned parameter has the type ["
+						+ forwardPageLink.getClass() + "] with value ["
+						+ forwardPageLink + "].");
+		return forwardPageLink;
 	}
 
 	/*
@@ -178,7 +181,8 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 				.getParameter("campaignCandidateNumber"));
 		int codeOfPosition = Integer.parseInt(requestServlet
 				.getParameter("campaignPosition"));
-		String countryState = requestServlet.getParameter("campaignCountryState");
+		String countryState = requestServlet
+				.getParameter("campaignCountryState");
 
 		Position position = new Position();
 		position.setPositionCode(codeOfPosition);

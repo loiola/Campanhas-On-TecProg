@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Party;
 import control.PartyControl;
 import control.servlet.basic.Logic;
@@ -41,12 +42,21 @@ public class RequestPoliticalParty implements Logic {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
+		
 		this.servletRequest = request;
 		setParameters();
 		prepareParametersTransmission();
-
+		
+		String forwardPageLink = "/list_political_party.jsp";
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ "\nThe returned parameter has the type ["
+						+ forwardPageLink.getClass() + "] with value ["
+						+ forwardPageLink + "].");
 		// Returns the page with the list of parties
-		return "/list_political_party.jsp";
+		return forwardPageLink;
 	}
 
 	/*
