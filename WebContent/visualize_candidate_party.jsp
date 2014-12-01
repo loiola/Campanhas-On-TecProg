@@ -85,8 +85,8 @@
 										<c:url var="url_pagInicial" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeCandidateOfPoliticalParty"></c:param>
-																					<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
-									<c:param name="year" value="${year}"></c:param>
+											<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+											<c:param name="year" value="${year}"></c:param>
 											<c:param name="pagination__first_page" value="${0}" />
 											<c:param name="pagination__qtd_of_terms"
 												value="${pagination.quantityOfTermsPerPage}" />
@@ -102,8 +102,8 @@
 											<c:url var="url_pag" value="/mvc">
 												<c:param name="logic"
 													value="VisualizeCandidateOfPoliticalParty"></c:param>
-																					<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
-									<c:param name="year" value="${year}"></c:param>
+												<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+												<c:param name="year" value="${year}"></c:param>
 												<c:param name="pagination__first_page"
 													value="${(i-1)*pagination.quantityOfTermsPerPage}" />
 												<c:param name="pagination__qtd_of_terms"
@@ -123,8 +123,8 @@
 										<c:url var="url_pagFinal" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeCandidateOfPoliticalParty"></c:param>
-																				<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
-									<c:param name="year" value="${year}"></c:param>
+											<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+											<c:param name="year" value="${year}"></c:param>
 											<c:param name="pagination__first_page"
 												value="${(pagination.indexOfPages-1)*pagination.quantityOfTermsPerPage}" />
 											<c:param name="pagination__qtd_of_terms"
@@ -140,8 +140,8 @@
 										<c:url var="url_tamanhoOriginal" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeCandidateOfPoliticalParty"></c:param>
-																					<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
-									<c:param name="year" value="${year}"></c:param>
+											<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+											<c:param name="year" value="${year}"></c:param>
 											<c:param name="pagination__first_page" value="${0}" />
 											<c:param name="pagination__qtd_of_terms" value="${10}" />
 											<c:param name="pagination__see_all" value="${false}" />
@@ -155,8 +155,8 @@
 											<c:url var="url_tamanhos" value="/mvc">
 												<c:param name="logic"
 													value="VisualizeCandidateOfPoliticalParty"></c:param>
-																						<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
-									<c:param name="year" value="${year}"></c:param>
+												<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+												<c:param name="year" value="${year}"></c:param>
 												<c:param name="pagination__first_page" value="${0}" />
 												<c:choose>
 													<c:when test="${i == 5}">
@@ -201,8 +201,8 @@
 										<c:url var="url_todos" value="/mvc">
 											<c:param name="logic"
 												value="VisualizeCandidateOfPoliticalParty"></c:param>
-																					<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
-									<c:param name="year" value="${year}"></c:param>
+											<c:param name="partyAcronym" value="${partyAcronym}"></c:param>
+											<c:param name="year" value="${year}"></c:param>
 											<c:param name="pagination__first_page" value="${0}" />
 											<c:param name="pagination__qtd_of_terms" value="${0}" />
 											<c:param name="pagination__see_all" value="${true}" />

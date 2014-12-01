@@ -75,7 +75,7 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 		this.party = this.partyControl.getBySigla(this.partyAcronym);
 		this.listCampaign = new ArrayList<>();
 		this.listCampaign = this.campaignControl
-				.getListCampaignBySiglaPartyAndYear(this.partyAcronym,
+				.getListCampaignByPartyAcronymAndYear(this.partyAcronym,
 						this.year);
 
 		this.servletRequest = ListPaginationLogic.updatePaginationList(

@@ -39,11 +39,11 @@ public class CampaignControl {
 	 * @param the abbreviation of the party and year
 	 * @return an ArrayLista the political party with the abbreviation of the party and year informed
 	 */
-	public ArrayList<Campaign> getListCampaignBySiglaPartyAndYear(String sigla, String year) throws SQLException{
+	public ArrayList<Campaign> getListCampaignByPartyAcronymAndYear(String partyAcronym, String year) throws SQLException{
 		//Variable to store the retrieved campaigns
 		ArrayList<Campaign> campaignList = new ArrayList<>();
 		
-		campaignList = this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(sigla,year);
+		campaignList = this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear(partyAcronym,year);
 		return campaignList;
 	}
 	

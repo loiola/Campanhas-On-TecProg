@@ -108,7 +108,7 @@ public class CampaignControlTest extends TemplateTest {
 		this.candidateDAO.registerUnregisteredObjectArrayListOnDatabase(candidateList);
 		
 		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByCandidateElectoralTitle(candidate), this.campaignControl.getListCampaign(candidate));
-		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear("SGLL", "2006"), this.campaignControl.getListCampaignBySiglaPartyAndYear("SGLL", "2006"));
+		Assert.assertEquals(this.campaignDAO.getCampaignArrayDataByPartyAcronymAndElectionYear("SGLL", "2006"), this.campaignControl.getListCampaignByPartyAcronymAndYear("SGLL", "2006"));
 		Assert.assertEquals(this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campanha1), this.campaignControl.getByYearNumberCodePositionAndUF(campanha1));
 		Assert.assertNotEquals(this.campaignDAO.getCampaignDataByElectionYearAndCandidateNumberAndPositionCodeAndCountryState(campanha1), this.campaignControl.getByYearNumberCodePositionAndUF(campanha2));
 	}
