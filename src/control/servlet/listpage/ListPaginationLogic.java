@@ -119,7 +119,7 @@ public class ListPaginationLogic {
 		Integer pageIndex = (int) Math.floor((double) listSize
 				/ (double) dividerReferenceForPageIndex);
 
-		checkAndLimitPageIndex(pageIndex);
+		pageIndex = checkAndLimitPageIndex(pageIndex);
 
 		return pageIndex;
 	}
@@ -132,7 +132,7 @@ public class ListPaginationLogic {
 	 */
 	private static Integer checkAndLimitPageIndex(Integer pageIndexReference) {
 		Integer pageIndex = pageIndexReference;
-		if (pageIndex <= 0) {
+		if (pageIndex < 0) {
 			/*
 			 * If this condition trigger, is suspicious! Probably there's an
 			 * error in the View because the pageIndex should not be negative

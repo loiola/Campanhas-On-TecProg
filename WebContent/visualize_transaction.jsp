@@ -176,13 +176,12 @@
 													<c:param name="revenue_pagination__center_page"
 														value="${1}" />
 													<c:param name="expense_pagination__first_page"
-														value="${expense_pagination__first_page}" />
+														value="${expense_pagination.firstPageOfTheList}" />
 													<c:param name="expense_pagination__qtd_of_terms"
-														value="${expense_pagination__qtd_of_terms}" />
-													<c:param name="expense_pagination_see_all"
-														value="${expense_pagination_see_all}" />
+														value="${expense_pagination.quantityOfTermsPerPage}" />
+													<c:param name="expense_pagination_see_all" value="${false}" />
 													<c:param name="expense_pagination__center_page"
-														value="${expense_pagination__center_page}" />
+														value="${expense_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_pagInicialR}"><c:out value="primeira... " /></a>
 												<!-- END "FIRST" PAGE REVENUE PARAMETERS -->
@@ -214,13 +213,13 @@
 														<c:param name="revenue_pagination__center_page"
 															value="${i}" />
 														<c:param name="expense_pagination__first_page"
-															value="${expense_pagination__first_page}" />
+															value="${expense_pagination.firstPageOfTheList}" />
 														<c:param name="expense_pagination__qtd_of_terms"
-															value="${expense_pagination__qtd_of_terms}" />
+															value="${expense_pagination.quantityOfTermsPerPage}" />
 														<c:param name="expense_pagination_see_all"
-															value="${expense_pagination_see_all}" />
+															value="${false}" />
 														<c:param name="expense_pagination__center_page"
-															value="${expense_pagination__center_page}" />
+															value="${expense_pagination.centerOfPagesListed}" />
 													</c:url>
 													<c:choose>
 														<c:when
@@ -256,13 +255,12 @@
 													<c:param name="revenue_pagination__center_page"
 														value="${revenue_pagination.indexOfPages}" />
 													<c:param name="expense_pagination__first_page"
-														value="${expense_pagination__first_page}" />
+														value="${expense_pagination.firstPageOfTheList}" />
 													<c:param name="expense_pagination__qtd_of_terms"
-														value="${expense_pagination__qtd_of_terms}" />
-													<c:param name="expense_pagination_see_all"
-														value="${expense_pagination_see_all}" />
+														value="${expense_pagination.quantityOfTermsPerPage}" />
+													<c:param name="expense_pagination_see_all" value="${false}" />
 													<c:param name="expense_pagination__center_page"
-														value="${expense_pagination__center_page}" />
+														value="${expense_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_pagFinalR}"><c:out value="...última" /></a>
 												<!-- END "LAST" PAGE REVENUE PARAMETERS -->
@@ -291,13 +289,12 @@
 													<c:param name="revenue_pagination__center_page"
 														value="${1}" />
 													<c:param name="expense_pagination__first_page"
-														value="${expense_pagination__first_page}" />
+														value="${expense_pagination.firstPageOfTheList}" />
 													<c:param name="expense_pagination__qtd_of_terms"
-														value="${expense_pagination__qtd_of_terms}" />
-													<c:param name="expense_pagination_see_all"
-														value="${expense_pagination_see_all}" />
+														value="${expense_pagination.quantityOfTermsPerPage}" />
+													<c:param name="expense_pagination_see_all" value="${false}" />
 													<c:param name="expense_pagination__center_page"
-														value="${expense_pagination__center_page}" />
+														value="${expense_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_tamanhoOriginalR}"> ${10}</a>
 												<!-- END "ORIGINAL" PAGINATION SIZE REVENUE PARAMETERS -->
@@ -348,13 +345,13 @@
 														<c:param name="revenue_pagination__center_page"
 															value="${1}" />
 														<c:param name="expense_pagination__first_page"
-															value="${expense_pagination__first_page}" />
+															value="${expense_pagination.firstPageOfTheList}" />
 														<c:param name="expense_pagination__qtd_of_terms"
-															value="${expense_pagination__qtd_of_terms}" />
+															value="${expense_pagination.quantityOfTermsPerPage}" />
 														<c:param name="expense_pagination_see_all"
-															value="${expense_pagination_see_all}" />
+															value="${false}" />
 														<c:param name="expense_pagination__center_page"
-															value="${expense_pagination__center_page}" />
+															value="${expense_pagination.centerOfPagesListed}" />
 													</c:url>
 													<a href="${url_tamanhosR}"> <c:choose>
 															<c:when test="${i == 5}">
@@ -398,13 +395,12 @@
 													<c:param name="revenue_pagination__center_page"
 														value="${1}" />
 													<c:param name="expense_pagination__first_page"
-														value="${expense_pagination__first_page}" />
+														value="${expense_pagination.firstPageOfTheList}" />
 													<c:param name="expense_pagination__qtd_of_terms"
-														value="${expense_pagination__qtd_of_terms}" />
-													<c:param name="expense_pagination_see_all"
-														value="${expense_pagination_see_all}" />
+														value="${expense_pagination.quantityOfTermsPerPage}" />
+													<c:param name="expense_pagination_see_all" value="${false}" />
 													<c:param name="expense_pagination__center_page"
-														value="${expense_pagination__center_page}" />
+														value="${expense_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_todosR}"> Ver Todos</a>
 												<!-- END "SEE ALL" PAGINATION SIZE REVENUE PARAMETERS -->
@@ -520,13 +516,12 @@
 													<c:param name="expense_pagination__center_page"
 														value="${1}" />
 													<c:param name="revenue_pagination__first_page"
-														value="${revenue_pagination__first_page}" />
+														value="${revenue_pagination.firstPageOfTheList}" />
 													<c:param name="revenue_pagination__qtd_of_terms"
-														value="${revenue_pagination__qtd_of_terms}" />
-													<c:param name="revenue_pagination_see_all"
-														value="${revenue_pagination_see_all}" />
+														value="${revenue_pagination.quantityOfTermsPerPage}" />
+													<c:param name="revenue_pagination_see_all" value="${false}" />
 													<c:param name="revenue_pagination__center_page"
-														value="${revenue_pagination__center_page}" />
+														value="${revenue_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_pagInicialE}"><c:out value="primeira... " /></a>
 												<!-- END "FIRST" PAGE EXPENSE PARAMETERS -->
@@ -558,13 +553,13 @@
 														<c:param name="expense_pagination__center_page"
 															value="${i}" />
 														<c:param name="revenue_pagination__first_page"
-															value="${revenue_pagination__first_page}" />
+															value="${revenue_pagination.firstPageOfTheList}" />
 														<c:param name="revenue_pagination__qtd_of_terms"
-															value="${revenue_pagination__qtd_of_terms}" />
+															value="${revenue_pagination.quantityOfTermsPerPage}" />
 														<c:param name="revenue_pagination_see_all"
-															value="${revenue_pagination_see_all}" />
+															value="${false}" />
 														<c:param name="revenue_pagination__center_page"
-															value="${revenue_pagination__center_page}" />
+															value="${revenue_pagination.centerOfPagesListed}" />
 													</c:url>
 													<c:choose>
 														<c:when
@@ -600,13 +595,12 @@
 													<c:param name="expense_pagination__center_page"
 														value="${revenue_pagination.indexOfPages}" />
 													<c:param name="revenue_pagination__first_page"
-														value="${revenue_pagination__first_page}" />
+														value="${revenue_pagination.firstPageOfTheList}" />
 													<c:param name="revenue_pagination__qtd_of_terms"
-														value="${revenue_pagination__qtd_of_terms}" />
-													<c:param name="revenue_pagination_see_all"
-														value="${revenue_pagination_see_all}" />
+														value="${revenue_pagination.quantityOfTermsPerPage}" />
+													<c:param name="revenue_pagination_see_all" value="${false}" />
 													<c:param name="revenue_pagination__center_page"
-														value="${revenue_pagination__center_page}" />
+														value="${revenue_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_pagFinalE}"><c:out value="...última" /></a>
 												<!-- END "LAST" PAGE EXPENSE PARAMETERS -->
@@ -635,13 +629,12 @@
 													<c:param name="expense_pagination__center_page"
 														value="${1}" />
 													<c:param name="revenue_pagination__first_page"
-														value="${revenue_pagination__first_page}" />
+														value="${revenue_pagination.firstPageOfTheList}" />
 													<c:param name="revenue_pagination__qtd_of_terms"
-														value="${revenue_pagination__qtd_of_terms}" />
-													<c:param name="revenue_pagination_see_all"
-														value="${revenue_pagination_see_all}" />
+														value="${revenue_pagination.quantityOfTermsPerPage}" />
+													<c:param name="revenue_pagination_see_all" value="${false}" />
 													<c:param name="revenue_pagination__center_page"
-														value="${revenue_pagination__center_page}" />
+														value="${revenue_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_tamanhoOriginalE}"> ${10}</a>
 												<!-- END "ORIGINAL" PAGINATION SIZE EXPENSE PARAMETERS -->
@@ -692,13 +685,13 @@
 														<c:param name="expense_pagination__center_page"
 															value="${1}" />
 														<c:param name="revenue_pagination__first_page"
-															value="${revenue_pagination__first_page}" />
+															value="${revenue_pagination.firstPageOfTheList}" />
 														<c:param name="revenue_pagination__qtd_of_terms"
-															value="${revenue_pagination__qtd_of_terms}" />
+															value="${revenue_pagination.quantityOfTermsPerPage}" />
 														<c:param name="revenue_pagination_see_all"
-															value="${revenue_pagination_see_all}" />
+															value="${false}" />
 														<c:param name="revenue_pagination__center_page"
-															value="${revenue_pagination__center_page}" />
+															value="${revenue_pagination.centerOfPagesListed}" />
 													</c:url>
 													<a href="${url_tamanhosE}"> <c:choose>
 															<c:when test="${i == 5}">
@@ -742,13 +735,12 @@
 													<c:param name="expense_pagination__center_page"
 														value="${1}" />
 													<c:param name="revenue_pagination__first_page"
-														value="${revenue_pagination__first_page}" />
+														value="${revenue_pagination.firstPageOfTheList}" />
 													<c:param name="revenue_pagination__qtd_of_terms"
-														value="${revenue_pagination__qtd_of_terms}" />
-													<c:param name="revenue_pagination_see_all"
-														value="${revenue_pagination_see_all}" />
+														value="${revenue_pagination.quantityOfTermsPerPage}" />
+													<c:param name="revenue_pagination_see_all" value="${false}" />
 													<c:param name="revenue_pagination__center_page"
-														value="${revenue_pagination__center_page}" />
+														value="${revenue_pagination.centerOfPagesListed}" />
 												</c:url>
 												<a href="${url_todosE}"> Ver Todos</a>
 												<!-- END "SEE ALL" PAGINATION SIZE EXPENSE PARAMETERS -->
