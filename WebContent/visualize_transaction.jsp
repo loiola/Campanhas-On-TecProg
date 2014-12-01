@@ -264,7 +264,7 @@
 												</c:url>
 												<a href="${url_pagFinalR}"><c:out value="...última" /></a>
 												<!-- END "LAST" PAGE REVENUE PARAMETERS -->
-												<br> Partidos por Página:
+												<br> Receitas por Página:
 												<!-- "ORIGINAL" PAGINATION SIZE REVENUE PARAMETERS -->
 												<c:url var="url_tamanhoOriginalR" value="/mvc">
 													<c:param name="logic"
@@ -604,7 +604,7 @@
 												</c:url>
 												<a href="${url_pagFinalE}"><c:out value="...última" /></a>
 												<!-- END "LAST" PAGE EXPENSE PARAMETERS -->
-												<br> Partidos por Página:
+												<br> Despesas por Página:
 												<!-- "ORIGINAL" PAGINATION SIZE EXPENSE PARAMETERS -->
 												<c:url var="url_tamanhoOriginalE" value="/mvc">
 													<c:param name="logic"

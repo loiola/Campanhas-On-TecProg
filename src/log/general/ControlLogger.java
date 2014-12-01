@@ -37,4 +37,11 @@ public class ControlLogger {
 		setUpLogger(loggerType);
 		logger.info(infoString);
 	}
+	
+	public static String returnInformations(Object returnedVariable) {
+		String returnInformations = "\nThe returned parameter has the type ["
+				+ returnedVariable.getClass() + "] with value ["
+				+ returnedVariable + "].";
+		return returnInformations;
+	}
 }

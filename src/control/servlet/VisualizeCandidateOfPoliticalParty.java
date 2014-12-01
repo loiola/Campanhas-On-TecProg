@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Campaign;
 import model.beans.Party;
 import control.CampaignControl;
@@ -54,6 +55,9 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
 
 		this.servletRequest = request;
 
@@ -61,7 +65,12 @@ public class VisualizeCandidateOfPoliticalParty implements Logic {
 		prepareParametersTransmission();
 
 		// Returns the page with the list of candidates
-		return "/visualize_candidate_party.jsp";
+		String forwardPageLink = "/visualize_candidate_party.jsp"; 
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ ControlLogger.returnInformations(forwardPageLink));
+		return forwardPageLink;
 	}
 
 	/*

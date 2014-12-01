@@ -3,6 +3,7 @@ package control.servlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Party;
 import control.PartyControl;
 import control.servlet.basic.Logic;
@@ -12,6 +13,8 @@ public class SelectPoliticalParty implements Logic {
 	/*
 	 * Servlet requests to control the selection of political parties
 	 */
+	
+	// TODO: Modularizar, Refatorar
 
 	// Attributes
 	
@@ -44,6 +47,9 @@ public class SelectPoliticalParty implements Logic {
 	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
+		
 		this.party = new Party();
 		this.partyControl = new PartyControl();
 
@@ -60,8 +66,13 @@ public class SelectPoliticalParty implements Logic {
 		req.setAttribute("linktse", this.linkTSE);
 		req.setAttribute("siglaUnder", this.siglaWithUnder);
 
-		// Return the HTML page with the requested information
-		return "/visualize_political_party.jsp";
+		// Return the JSP page with the requested information
+		String forwardPageLink = "/visualize_political_party.jsp"; 
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ ControlLogger.returnInformations(forwardPageLink));
+		return forwardPageLink;
 	}
 	
 	/*

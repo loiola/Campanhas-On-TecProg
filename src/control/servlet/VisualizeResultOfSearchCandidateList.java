@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Candidate;
 import control.CandidateControl;
 import control.servlet.basic.Logic;
@@ -44,14 +45,21 @@ public class VisualizeResultOfSearchCandidateList implements Logic {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
+		
 		this.servletRequest = request;
 
 		// Call refactored methods
 		receiveParameters();
 
-		String passForwardPage = checkCandidatesList();
+		String forwardPageLink = checkCandidatesList();
 
-		return passForwardPage;
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ ControlLogger.returnInformations(forwardPageLink));
+		return forwardPageLink;
 	}
 
 	private String checkCandidatesList() {

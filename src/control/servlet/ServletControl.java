@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import control.servlet.basic.Logic;
 
 @WebServlet("/mvc")
@@ -16,6 +17,8 @@ public class ServletControl extends HttpServlet {
 	/*
 	 * Controller servlet instance
 	 */
+	
+	// TODO: Refatorar
 
 	// Attributes
 	private static final long serialVersionUID = 2663398443592480668L;
@@ -32,9 +35,7 @@ public class ServletControl extends HttpServlet {
 		String nameOfClass = "control.servlet." + parameter;
 		
 		
-		//RETIRAR, APENAS PARA TESTE
-		System.out.println(parameter);
-		//RETIRAR, APENAS PARA TESTE
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING, "The Servlet +[" + parameter + "] is called from Logic.");
 
 		
 		try { 

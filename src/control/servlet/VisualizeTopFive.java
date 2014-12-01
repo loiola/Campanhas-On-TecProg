@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Campaign;
 import control.CampaignControl;
 import control.servlet.basic.Logic;
@@ -46,6 +47,9 @@ public class VisualizeTopFive implements Logic {
 	public String execute(HttpServletRequest req, HttpServletResponse res)
 			throws Exception {
 		
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
+		
 		this.request = req;
 		
 		// Call refactored methods
@@ -54,7 +58,12 @@ public class VisualizeTopFive implements Logic {
 		prepareParametersTransmission();
 		
 		// Returns the page TOP Five
-		return "/top_five.jsp";
+		String forwardPageLink = "/top_five.jsp"; 
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ ControlLogger.returnInformations(forwardPageLink));
+		return forwardPageLink;
 	}
 	
 	/*

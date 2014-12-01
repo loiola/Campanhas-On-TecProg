@@ -88,11 +88,10 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 
 			forwardPageLink = "/visualize_transaction.jsp";
 		}
-		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
 				ControlLogger.INFORM_END_CALLED_METHOD
-						+ "\nThe returned parameter has the type ["
-						+ forwardPageLink.getClass() + "] with value ["
-						+ forwardPageLink + "].");
+						+ ControlLogger.returnInformations(forwardPageLink));
 		return forwardPageLink;
 	}
 

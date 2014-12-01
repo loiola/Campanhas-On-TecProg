@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import log.general.ControlLogger;
 import model.beans.Campaign;
 import model.beans.Candidate;
 import model.beans.Expense;
@@ -19,6 +20,8 @@ public class SelectCandidate implements Logic {
 	/*
 	 * Servlet requests to control the selection of political candidates
 	 */
+	
+	// TODO: Modularizar, Refatorar
 
 	// Attributes
 	
@@ -85,6 +88,9 @@ public class SelectCandidate implements Logic {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
+		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
+		
 		this.maximumExpenseIn2002 = 0;
 		this.maximumExpenseIn2006 = 0;
 		this.maximumExpenseIn2010 = 0;
@@ -149,6 +155,7 @@ public class SelectCandidate implements Logic {
 				campaign.setCampaignTotalExpenseCalculated(this.expenseCalculatedValueIn2010);
 				campaign.setCampaignTotalRevenueCalculated(this.revenueCalculatedValueIn2010);
 			}
+			
 		}
 		
 		// Set of answers to requests made concerning the applicant requested
@@ -166,7 +173,12 @@ public class SelectCandidate implements Logic {
 		request.setAttribute("expense03", this.expenseCalculatedValueIn2010);
 		request.setAttribute("revenue3", this.revenueCalculatedValueIn2010);
 		
-		// Return the HTML page with the requested information
-		return "/visualize_candidate.jsp";
+		// Return the JSP page with the requested information
+		String forwardPageLink = "/visualize_candidate.jsp"; 
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
+				ControlLogger.INFORM_END_CALLED_METHOD
+						+ ControlLogger.returnInformations(forwardPageLink));
+		return forwardPageLink;
 	}
 }

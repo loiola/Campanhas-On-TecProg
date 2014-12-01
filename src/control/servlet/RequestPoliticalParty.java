@@ -44,17 +44,17 @@ public class RequestPoliticalParty implements Logic {
 
 		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
 				ControlLogger.INFORM_BEGIN_CALLED_METHOD);
-		
+
 		this.servletRequest = request;
 		setParameters();
 		prepareParametersTransmission();
-		
+
 		String forwardPageLink = "/list_political_party.jsp";
-		ControlLogger.info(ControlLogger.SERVLET_LOG_STRING,
+
+		ControlLogger.info(
+				ControlLogger.SERVLET_LOG_STRING,
 				ControlLogger.INFORM_END_CALLED_METHOD
-						+ "\nThe returned parameter has the type ["
-						+ forwardPageLink.getClass() + "] with value ["
-						+ forwardPageLink + "].");
+						+ ControlLogger.returnInformations(forwardPageLink));
 		// Returns the page with the list of parties
 		return forwardPageLink;
 	}
