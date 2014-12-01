@@ -173,12 +173,12 @@ public class RequestFinancialTransactionOfCandidate implements Logic {
 	private Campaign buildCampaign(HttpServletRequest requestServlet) {
 
 		int electionYear = Integer.parseInt(requestServlet
-				.getParameter("electionYear"));
+				.getParameter("campaignYear"));
 		int candidateNumber = Integer.parseInt(requestServlet
-				.getParameter("candidateNumber"));
+				.getParameter("campaignCandidateNumber"));
 		int codeOfPosition = Integer.parseInt(requestServlet
-				.getParameter("codeOfPosition"));
-		String countryState = requestServlet.getParameter("countryState");
+				.getParameter("campaignPosition"));
+		String countryState = requestServlet.getParameter("campaignCountryState");
 
 		Position position = new Position();
 		position.setPositionCode(codeOfPosition);

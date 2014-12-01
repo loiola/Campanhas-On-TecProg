@@ -98,11 +98,11 @@
 															value="${campaign.campaignTotalExpenseCalculated}" />
 														<c:param name="totalRevenueCalculatedValue"
 															value="${campaign.campaignTotalRevenueCalculated}" />
-														<c:param name="candidateNumber"
+														<c:param name="campaignCandidateNumber"
 															value="${campaign.campaignCandidateNumber}" />
-														<c:param name="electionYear" value="${campaign.campaignYear}" />
-														<c:param name="codeOfPosition" value="${campaign.campaignPosition.positionCode}" />
-														<c:param name="countryState" value="${campaign.campaignCountryState}" />
+														<c:param name="campaignYear" value="${campaign.campaignYear}" />
+														<c:param name="campaignPosition" value="${campaign.campaignPosition.positionCode}" />
+														<c:param name="campaignCountryState" value="${campaign.campaignCountryState}" />
 														<!-- PAGINATION PARAMETERS -->
 														<c:param name="revenue_pagination__first_page" value="${0}" />
 														<c:param name="revenue_pagination__qtd_of_terms" value="${10}" />
