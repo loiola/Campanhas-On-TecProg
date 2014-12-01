@@ -1,6 +1,6 @@
 package log.general;
 
-import org.apache.log4j.Logger;
+import org.apache.taglibs.standard.lang.jstl.Logger;
 
 public class ControlLogger {
 	private static Logger logger;
@@ -13,16 +13,16 @@ public class ControlLogger {
 			+ "] method ocurred, and it's not acceptable, method handled the incident. You need to verify why the condition ocurred.";
 
 	private static void setUpLogger(String loggerType) {
-		logger = Logger.getLogger(loggerType);
+//		logger = Logger.getLogger(loggerType);
 	}
 
 	public static void warn(String loggerType, String warningString) {
 		setUpLogger(loggerType);
-		logger.warn(warningString);
+//		logger.warn(warningString);
 	}
-	
+
 	public static void debug(String loggerType, String debugString) {
 		setUpLogger(loggerType);
-		logger.debug(debugString);
+//		logger.debug(debugString);
 	}
 }
