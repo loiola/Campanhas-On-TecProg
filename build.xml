@@ -25,7 +25,7 @@
 		<delete dir="${build}" />
 	</target>
 	<target name="compile" depends="clean, init">
-		<javac srcdir="${src}" destdir="${build}" sourcepath="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/src" includeantruntime="true" debug="true">
+		<javac srcdir="${src}" destdir="${build}" sourcepath="/var/lib/jenkins/jobs/CampanhasON/workspace/src" includeantruntime="true" debug="true">
 			<classpath>
 				<fileset dir="/var/lib/jenkins/jobs/CampanhasON/workspace/lib">
 					<include name="**/*.jar" />
