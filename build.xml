@@ -1,0 +1,54 @@
+<project name="prestacao_de_campanhas_eleitorais" basedir="." default="test">
+
+
+	<property name="src" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/src" />
+	<property name="build" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/build/classes" />
+	<property name="libs" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/lib" />
+	<property name="teste" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/build/classes" />
+	<property name="report" location="$" />
+
+
+	<path id="project.classpath" path=".">
+
+		<fileset dir="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/lib">
+			<include name="**/*.jar" />
+		</fileset>
+
+	</path>
+
+	<target name="init">
+		<mkdir dir="${build}/" />
+		<mkdir dir="${report}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build}" />
+	</target>
+	<target name="compile" depends="clean, init">
+		<javac srcdir="${src}" destdir="${build}" sourcepath="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/src" includeantruntime="true" debug="true">
+			<classpath>
+				<fileset dir="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/lib">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="test" depends="compile">
+		<junit fork="yes" forkmode="once" printsummary="true" showoutput="true" 
+			failureproperty="failed-test" haltonfailure="false">
+
+			<formatter type="plain" usefile="false" />
+
+			<classpath location="${teste}" />
+			<classpath refid="project.classpath" />
+
+			<batchtest fork="yes" todir="${report}">
+				<fileset dir="${teste}">
+					<include name="**/*Test.class" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+</project>
