@@ -1,16 +1,16 @@
 <project name="prestacao_de_campanhas_eleitorais" basedir="." default="test">
 
 
-	<property name="src" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/src" />
-	<property name="build" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/build/classes" />
-	<property name="libs" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/lib" />
-	<property name="teste" location="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/build/classes" />
+	<property name="src" location="/var/lib/jenkins/jobs/CampanhasON/workspace/src" />
+	<property name="build" location="/var/lib/jenkins/jobs/CampanhasON/workspace/build/classes" />
+	<property name="libs" location="/var/lib/jenkins/jobs/CampanhasON/workspace/lib" />
+	<property name="teste" location="/var/lib/jenkins/jobs/CampanhasON/workspace/build/classes" />
 	<property name="report" location="$" />
 
 
 	<path id="project.classpath" path=".">
 
-		<fileset dir="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/lib">
+		<fileset dir="/var/lib/jenkins/jobs/CampanhasON/workspace/lib">
 			<include name="**/*.jar" />
 		</fileset>
 
@@ -27,7 +27,7 @@
 	<target name="compile" depends="clean, init">
 		<javac srcdir="${src}" destdir="${build}" sourcepath="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/src" includeantruntime="true" debug="true">
 			<classpath>
-				<fileset dir="/home/loiola/workspace2/prestacao_de_contas_das_campanhas_eleitorais/lib">
+				<fileset dir="/var/lib/jenkins/jobs/CampanhasON/workspace/lib">
 					<include name="**/*.jar" />
 				</fileset>
 			</classpath>
