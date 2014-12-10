@@ -10,4 +10,3 @@ bin
 
 .classpath
 src/dao/ConexaoMySQL.java
-*.db
